@@ -1,0 +1,14 @@
+There are two possible ways to save morphologies in neuroConstruct projects, both based on a mapping from the 
+set of Java classes describing the cell internally in neuroConstruct:
+-  XML based Java serialisation (*.java.xml files):  a mapping to an XML file of the classes. Note: not any part of NeuroML.
+-  Serialised Java object form (*.java.ser files):   a serialised representation of the Java classes.
+
+The second of these is quicker to load and save and the files are smaller. The first however can be opened (and edited!)
+with a text editor. Change which format to use via Settings -> General Properties & Project Defaults/Project properties.
+
+Cell morphologies are stored in the morphologies directory of the project home directory. *.bak files in that dir backup 
+the previously stored morphology before a new one is saved (if a problem occurs saving a morphology, close the application, remove
+the .bak from the name of the morphology file to use the previous structure of the cell when reloading the project).
+
+Note that the cells aren't currently stored in neuroConstruct projects in NeuroML/MorphML format, since new functionality 
+is usually added to the neuroConstruct Cell class before it is supported in the specifications.

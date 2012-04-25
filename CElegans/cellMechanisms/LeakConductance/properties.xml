@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>
+Properties associated with the Cell Mechanism which allow it to be loaded into neuroConstruct.
+
+Note the following: 
+   The Cell Mechanism name should not contain spaces and should match the name of the directory it's in
+   The name and description here will be replaced by the corresponding values in a ChannelML file if found
+   The filenames for the mappings are relative to the cellMechanism/(cellMechInstanceName) directory
+   Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
+
+</comment>
+<entry key="Description">Simple example of a leak/passive conductance.</entry>
+<entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
+<entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
+<entry key="Implementation method">ChannelML based Cell Mechanism</entry>
+<entry key="NEURON file requires compilation">true</entry>
+<entry key="Mechanism Type">Channel mechanism</entry>
+<entry key="ChannelML file">LeakConductance.xml</entry>
+<entry key="GENESIS file requires compilation">false</entry>
+<entry key="Mechanism Name">LeakConductance</entry>
+<entry key="Mechanism Model">Template based ChannelML file</entry>
+</properties>

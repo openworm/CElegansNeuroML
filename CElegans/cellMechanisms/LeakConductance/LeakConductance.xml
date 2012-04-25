@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+    
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>        
+
+    <channel_type name="LeakConductance" density="yes">
+        
+        <status value="in_progress">
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:comment> Note: This is not (yet) based on experimental data from C. elegans</meta:comment>
+            </meta:contributor>
+        </status>
+
+        <meta:notes>Simple example of a leak/passive conductance.</meta:notes>
+
+        <current_voltage_relation cond_law="ohmic" ion="non_specific" default_erev="-75" default_gmax="0.25"/>
+
+    </channel_type>
+ 
+</channelml>

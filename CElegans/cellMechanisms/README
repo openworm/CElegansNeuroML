@@ -1,0 +1,2 @@
+This is the directory where Cell Mechanism (channel, synapse, etc) files are stored, either the native environment (e.g. *.mod) files, or ChannelML based files.
+Unlike the older cellProcesses dir, simply cutting and pasting these cell mech directories into another neuroConstruct project is sufficient for copying the cell mech to that project.
