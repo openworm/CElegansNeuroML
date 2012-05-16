@@ -1,13 +1,12 @@
 #
 #
-#   A file which opens a neuroConstruct project, changes the value of the 
-#   amplitude in the electrical stimulation to a random value, then saves the project
+#   A file which opens the CElegans neuroConstruct project, generates a number of Sim Configs
+#   and checks for the correct number of cells, connections, etc.
 #
 #   Author: Padraig Gleeson
 #
-#   This file has been developed as part of the neuroConstruct project
-#   This work has been funded by the Medical Research Council and the
-#   Wellcome Trust
+#   This file has been developed as part of the neuroConstruct and OpenWorm projects
+#   This work has been funded by the Wellcome Trust
 #
 #
 
