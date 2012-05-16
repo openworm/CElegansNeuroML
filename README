@@ -5,5 +5,7 @@ To get a read-only clone of this project:
   git clone git://github.com/openworm/CElegansNeuroML.git
 
 
-This is being developed as part of the OpenWorm project. See http://www.openworm.org for more details.
+This is being developed as part of the OpenWorm project (http://www.openworm.org).
+
+For details on running the neuroConstruct project see: http://code.google.com/p/openworm/wiki/neuroConstructCElegans.
 
