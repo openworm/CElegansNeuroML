@@ -871,7 +871,7 @@
     </object>
    </void>
    <void method="put">
-    <string>GABA_GJ</string>
+    <string>Glutamate</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -879,7 +879,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Glutamate</string>
+    <string>GABA_GJ</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>

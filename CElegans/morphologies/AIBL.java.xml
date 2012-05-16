@@ -1032,7 +1032,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Acetylcholine_Tyramine</string>
+    <string>Acetylcholine</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -1040,7 +1040,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Acetylcholine</string>
+    <string>Acetylcholine_Tyramine</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -1056,7 +1056,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Tyramine</string>
+    <string>Glutamate</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -1064,7 +1064,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Glutamate</string>
+    <string>Tyramine</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>

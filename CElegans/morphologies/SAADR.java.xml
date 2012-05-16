@@ -1237,7 +1237,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Tyramine</string>
+    <string>FMRFamide</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -1245,7 +1245,7 @@
     </object>
    </void>
    <void method="put">
-    <string>FMRFamide</string>
+    <string>Tyramine</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>

@@ -46,7 +46,7 @@ def testAll(argv=None):
     cellsOnlySimConfig = project.simConfigInfo.getSimConfig("CellsOnly")
     pharyngealSimConfig = project.simConfigInfo.getSimConfig("PharyngealNeurons")
 
-    expectedNumberCells = 302 + 1
+    expectedNumberCells = 302 
 
     
     ##########################

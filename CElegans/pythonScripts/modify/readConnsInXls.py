@@ -9,7 +9,7 @@ from xlrd import open_workbook
 
 ############################################################
 
-filename = "../../CElegansNeuronTables.xls"
+filename = "../../../CElegansNeuronTables.xls"
 rb = open_workbook(filename)
 
 print "Opened Excel file: "+ filename
