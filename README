@@ -1,11 +1,7 @@
 This repository contains a neuroConstruct (http://www.neuroConstruct.org) project containing a model of CElegans.
 
-To get a read-only clone of this project:
-
-  git clone git://github.com/openworm/CElegansNeuroML.git
-
-
 This is being developed as part of the OpenWorm project (http://www.openworm.org).
 
-For details on running the neuroConstruct project see: http://code.google.com/p/openworm/wiki/neuroConstructCElegans.
+For full details on running this neuroConstruct project see: 
+http://code.google.com/p/openworm/wiki/neuroConstructCElegans.
 
