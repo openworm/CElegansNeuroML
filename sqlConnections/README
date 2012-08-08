@@ -21,4 +21,8 @@ Steps to get this far (on Ubuntu 12.04):
 
    or browsed with sqlitebrowser
 
-6) Created 
+6) Created parseDB.py to use Python API to extract info from the sqlite database:
+
+      python parseDB.py
+
+   which can execute SQL commands like: 'SELECT * FROM image'
