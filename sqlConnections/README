@@ -1,0 +1,24 @@
+Some test scripts for parsing Stephen Cook's SQL database dumps.
+
+See https://docs.google.com/document/d/14lN2jjG2thCnVyBSABbMtEWOWCXdYTCn22erb7Wxujo/edit# for background
+
+Steps to get this far (on Ubuntu 12.04):
+
+1) Obtained JSH.sql from previous email exchange
+
+2) Tried loading that directly into sqlite3, no go, since too much mysql specific entries there
+
+3) Installed mysql onto local machine, used mysqlnavigator to browse existing databases, created new database JSH,
+   ran script JSH.sql against this to populate that with data.
+
+4) Obtained mysql2sqlite.sh from https://raw.github.com/gist/1287049/mysql2sqlite.sh. Ran command:
+
+      ./mysql2sqlite.sh -u root -p JSH > JSH_sqlite.sql
+
+5) Now JSH data can be loaded in sqlite with:
+
+      sqlite3 JSH_sqlite.sql
+
+   or browsed with sqlitebrowser
+
+6) Created 
