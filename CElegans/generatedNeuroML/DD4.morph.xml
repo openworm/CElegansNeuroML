@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:cml="http://morphml.org/channelml/schema" xmlns:net="http://morphml.org/networkml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/neuroml/schema  http://neuroml.svn.sourceforge.net/viewvc/neuroml/trunk/web/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" lengthUnits="micron">
+
+    <cells>
+        <cell name="DD4">
+
+            <meta:notes>
+        Motor Neuron
+      </meta:notes>
+
+            <mml:segments>
+
+                <mml:segment id="0" name="Seg0_soma_0" cable="0">
+                    <mml:proximal x="-1.8750001" y="122.899994" z="4.5499997" diameter="3.8183768"/>
+                    <mml:distal x="-1.8750001" y="122.899994" z="4.5499997" diameter="3.8183768"/>
+                </mml:segment>
+
+                <mml:segment id="6" name="Seg0_axon_0" parent="0" cable="1">
+                    <mml:proximal x="-1.8750001" y="122.899994" z="4.5499997" diameter="0.70710677"/>
+                    <mml:distal x="-1.85" y="121.5" z="4.5499997" diameter="0.70710677"/>
+                </mml:segment>
+
+                <mml:segment id="7" name="Seg7_axon_0" parent="6" cable="1">
+                    <mml:distal x="-1.9" y="117.649994" z="4.3" diameter="0.5744563"/>
+                </mml:segment>
+
+                <mml:segment id="8" name="Seg8_axon_0" parent="7" cable="1">
+                    <mml:distal x="-1.4499999" y="112.8" z="3.5" diameter="0.5"/>
+                </mml:segment>
+
+                <mml:segment id="9" name="Seg9_axon_0" parent="8" cable="1">
+                    <mml:distal x="-1.4499999" y="89.3" z="-0.5" diameter="0.5"/>
+                </mml:segment>
+
+                <mml:segment id="10" name="Seg10_axon_0" parent="9" cable="1">
+                    <mml:distal x="-1.4499999" y="84.75" z="-2.0" diameter="0.50990194"/>
+                </mml:segment>
+
+                <mml:segment id="11" name="Seg11_axon_0" parent="10" cable="1">
+                    <mml:distal x="-1.85" y="77.8" z="-6.3500004" diameter="0.42426404"/>
+                </mml:segment>
+
+                <mml:segment id="12" name="Seg12_axon_0" parent="11" cable="1">
+                    <mml:distal x="-2.2" y="69.5" z="-11.85" diameter="0.5"/>
+                </mml:segment>
+
+                <mml:segment id="13" name="Seg13_axon_0" parent="12" cable="1">
+                    <mml:distal x="-5.85" y="65.525" z="-10.75" diameter="0.42720017"/>
+                </mml:segment>
+
+                <mml:segment id="14" name="Seg14_axon_0" parent="13" cable="1">
+                    <mml:distal x="-10.375" y="61.85" z="-12.65" diameter="0.47169906"/>
+                </mml:segment>
+
+                <mml:segment id="15" name="Seg15_axon_0" parent="14" cable="1">
+                    <mml:distal x="-13.45" y="56.199997" z="-14.45" diameter="0.42426404"/>
+                </mml:segment>
+
+                <mml:segment id="16" name="Seg16_axon_0" parent="15" cable="1">
+                    <mml:distal x="-13.349999" y="47.600002" z="-19.875" diameter="0.4387482"/>
+                </mml:segment>
+
+                <mml:segment id="17" name="Seg17_axon_0" parent="16" cable="1">
+                    <mml:distal x="-10.625" y="42.05" z="-24.449999" diameter="0.55"/>
+                </mml:segment>
+
+                <mml:segment id="18" name="Seg18_axon_0" parent="17" cable="1">
+                    <mml:distal x="-4.35" y="36.1" z="-30.55" diameter="0.46904156"/>
+                </mml:segment>
+
+                <mml:segment id="19" name="Seg19_axon_0" parent="18" cable="1">
+                    <mml:distal x="-2.6499999" y="33.8" z="-33.0" diameter="0.41231057"/>
+                </mml:segment>
+
+                <mml:segment id="1" name="Seg0_dendrit_2" parent="0" cable="2">
+                    <mml:proximal x="-1.8750001" y="122.899994" z="4.5499997" diameter="0.64031243"/>
+                    <mml:distal x="-1.9" y="124.3" z="4.5499997" diameter="0.64031243"/>
+                </mml:segment>
+
+                <mml:segment id="2" name="Seg2_dendrite_0" parent="1" cable="2">
+                    <mml:distal x="-1.9" y="126.8" z="4.35" diameter="0.64031243"/>
+                </mml:segment>
+
+                <mml:segment id="3" name="Seg3_dendrite_0" parent="2" cable="2">
+                    <mml:distal x="-1.4499999" y="133.0" z="4.0" diameter="0.5"/>
+                </mml:segment>
+
+                <mml:segment id="4" name="Seg4_dendrite_0" parent="3" cable="2">
+                    <mml:distal x="-1.4499999" y="163.05" z="2.0" diameter="0.50990194"/>
+                </mml:segment>
+
+                <mml:segment id="5" name="Seg5_dendrite_0" parent="4" cable="2">
+                    <mml:distal x="-1.4499999" y="170.25" z="1.35" diameter="0.4358899"/>
+                </mml:segment>
+
+                <mml:segment id="20" name="Seg20_neurite_0" parent="19" cable="3">
+                    <mml:proximal x="-2.6499999" y="33.8" z="-33.0" diameter="0.41231057"/>
+                    <mml:distal x="-2.725" y="33.6" z="-33.149998" diameter="0.4387482"/>
+                </mml:segment>
+
+                <mml:segment id="21" name="Seg21_neurite_0" parent="20" cable="3">
+                    <mml:distal x="-3.3" y="33.35" z="-33.35" diameter="0.50990194"/>
+                </mml:segment>
+
+                <mml:segment id="22" name="Seg22_neurite_0" parent="21" cable="3">
+                    <mml:distal x="-12.224999" y="33.149998" z="-32.825" diameter="0.75828755"/>
+                </mml:segment>
+
+                <mml:segment id="23" name="Seg23_neurite_0" parent="22" cable="3">
+                    <mml:distal x="-21.3" y="30.625" z="-27.599998" diameter="0.7632169"/>
+                </mml:segment>
+
+                <mml:segment id="24" name="Seg24_neurite_0" parent="23" cable="3">
+                    <mml:distal x="-25.9" y="26.6" z="-19.25" diameter="0.70000005"/>
+                </mml:segment>
+
+                <mml:segment id="25" name="Seg25_neurite_0" parent="24" cable="3">
+                    <mml:distal x="-27.900002" y="22.400002" z="-10.525" diameter="0.80156094"/>
+                </mml:segment>
+
+                <mml:segment id="26" name="Seg26_neurite_0" parent="25" cable="3">
+                    <mml:distal x="-25.9" y="18.175" z="-1.85" diameter="0.6726812"/>
+                </mml:segment>
+
+                <mml:segment id="27" name="Seg27_neurite_0" parent="26" cable="3">
+                    <mml:distal x="-21.3" y="14.15" z="6.5" diameter="0.78102493"/>
+                </mml:segment>
+
+                <mml:segment id="28" name="Seg28_neurite_0" parent="27" cable="3">
+                    <mml:distal x="-12.224999" y="11.65" z="11.75" diameter="0.80156094"/>
+                </mml:segment>
+
+                <mml:segment id="29" name="Seg29_neurite_0" parent="28" cable="3">
+                    <mml:distal x="-1.2" y="11.575" z="11.474999" diameter="0.65192026"/>
+                </mml:segment>
+
+                <mml:segment id="30" name="Seg30_neurite_0" parent="29" cable="3">
+                    <mml:distal x="-0.9" y="11.575" z="11.474999" diameter="0.552268"/>
+                </mml:segment>
+
+                <mml:segment id="31" name="Seg31_neurite_0" parent="30" cable="4">
+                    <mml:proximal x="-0.9" y="11.575" z="11.474999" diameter="0.552268"/>
+                    <mml:distal x="-0.70000005" y="11.4" z="11.35" diameter="0.53851646"/>
+                </mml:segment>
+
+                <mml:segment id="32" name="Seg32_neurite_0" parent="31" cable="4">
+                    <mml:distal x="-0.70000005" y="11.125" z="11.200001" diameter="0.66520673"/>
+                </mml:segment>
+
+                <mml:segment id="33" name="Seg33_neurite_0" parent="32" cable="4">
+                    <mml:distal x="-0.70000005" y="4.05" z="6.85" diameter="0.5830952"/>
+                </mml:segment>
+
+                <mml:segment id="34" name="Seg34_neurite_0" parent="33" cable="4">
+                    <mml:distal x="-0.70000005" y="-13.400001" z="-1.7" diameter="0.6"/>
+                </mml:segment>
+
+                <mml:segment id="35" name="Seg35_neurite_0" parent="34" cable="4">
+                    <mml:distal x="-0.70000005" y="-20.05" z="-5.1" diameter="0.5744563"/>
+                </mml:segment>
+
+                <mml:segment id="36" name="Seg36_neurite_0" parent="30" cable="5">
+                    <mml:proximal x="-0.9" y="11.575" z="11.474999" diameter="0.552268"/>
+                    <mml:distal x="-0.70000005" y="11.775" z="11.599999" diameter="0.61846584"/>
+                </mml:segment>
+
+                <mml:segment id="37" name="Seg37_neurite_0" parent="36" cable="5">
+                    <mml:distal x="-0.70000005" y="12.025001" z="11.75" diameter="0.559017"/>
+                </mml:segment>
+
+                <mml:segment id="38" name="Seg38_neurite_0" parent="37" cable="5">
+                    <mml:distal x="-0.70000005" y="38.3" z="28.05" diameter="0.53851646"/>
+                </mml:segment>
+
+                <mml:segment id="39" name="Seg39_neurite_0" parent="38" cable="5">
+                    <mml:distal x="-0.70000005" y="43.05" z="29.9" diameter="0.5744563"/>
+                </mml:segment>
+
+                <mml:segment id="40" name="Seg40_neurite_0" parent="39" cable="5">
+                    <mml:distal x="-0.70000005" y="88.1" z="47.350002" diameter="0.53851646"/>
+                </mml:segment>
+
+                <mml:segment id="41" name="Seg41_neurite_0" parent="40" cable="5">
+                    <mml:distal x="-0.70000005" y="91.0" z="48.5" diameter="0.6"/>
+                </mml:segment>
+
+                <mml:segment id="42" name="Seg42_neurite_0" parent="41" cable="5">
+                    <mml:distal x="-0.70000005" y="106.55" z="50.5" diameter="0.5744563"/>
+                </mml:segment>
+
+                <mml:segment id="43" name="Seg43_neurite_0" parent="42" cable="5">
+                    <mml:distal x="-0.70000005" y="124.100006" z="53.45" diameter="0.64031243"/>
+                </mml:segment>
+
+                <mml:segment id="44" name="Seg44_neurite_0" parent="43" cable="5">
+                    <mml:distal x="-0.70000005" y="128.3" z="53.149998" diameter="0.64031243"/>
+                </mml:segment>
+
+                <mml:segment id="45" name="Seg45_neurite_0" parent="44" cable="5">
+                    <mml:distal x="-0.70000005" y="168.4" z="50.199997" diameter="0.56568545"/>
+                </mml:segment>
+
+                <mml:segment id="46" name="Seg46_neurite_0" parent="45" cable="5">
+                    <mml:distal x="-0.70000005" y="175.2" z="48.8" diameter="0.56568545"/>
+                </mml:segment>
+
+                <mml:segment id="47" name="Seg47_neurite_0" parent="19" cable="6">
+                    <mml:proximal x="-2.6499999" y="33.8" z="-33.0" diameter="0.41231057"/>
+                    <mml:distal x="-2.5" y="33.5" z="-33.175" diameter="0.47169906"/>
+                </mml:segment>
+
+                <mml:segment id="48" name="Seg48_neurite_0" parent="47" cable="6">
+                    <mml:distal x="-1.4499999" y="32.2" z="-35.350002" diameter="0.42426404"/>
+                </mml:segment>
+
+                <mml:segment id="49" name="Seg49_neurite_0" parent="48" cable="6">
+                    <mml:distal x="-1.4499999" y="13.65" z="-44.45" diameter="0.4358899"/>
+                </mml:segment>
+
+                <mml:segment id="50" name="Seg50_neurite_0" parent="49" cable="6">
+                    <mml:distal x="-1.4499999" y="5.9500003" z="-48.649998" diameter="0.4358899"/>
+                </mml:segment>
+
+                
+            </mml:segments>
+
+            <mml:cables>
+
+                <mml:cable id="0" name="Soma">
+                    <meta:group>all</meta:group>
+                    <meta:group>soma_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="1" name="Axon">
+                    <meta:group>all</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="2" name="Dendrite2">
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="3" name="Neurite3">
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="4" name="Neurite4">
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="5" name="Neurite5">
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="6" name="Neurite6">
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </mml:cable>
+
+            </mml:cables>
+
+            <!--Adding the biophysical parameters-->
+
+            <biophysics units="Physiological Units">
+
+                <bio:mechanism name="LeakConductance" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-75.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="0.025">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:spec_capacitance>
+                    <bio:parameter value="1.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:spec_capacitance>
+
+                <bio:spec_axial_resistance>
+                    <bio:parameter value="0.03">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:spec_axial_resistance>
+
+                <bio:init_memb_potential>
+                    <bio:parameter value="-65.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:init_memb_potential></biophysics>
+
+            <connectivity>
+                <net:potential_syn_loc synapse_type="GABA">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="GABA_GJ">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Serotonin_Acetylcholine">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Serotonin_Acetylcholine_GJ">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Acetylcholine">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Serotonin">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Serotonin_GJ">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Acetylcholine_GJ">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            </connectivity>
+
+        </cell>
+    </cells>
+</neuroml>

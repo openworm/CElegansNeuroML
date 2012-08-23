@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+    
+    <meta:notes>ChannelML file describing a single synaptic mechanism</meta:notes>
+    
+     
+    <synapse_type name="Serotonin_Glutamate">
+
+        <status value="in_progress">
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+                <meta:comment> Note: This is not (yet) based on experimental data from C. elegans</meta:comment>
+            </meta:contributor>
+        </status>
+    
+        <meta:notes>Simple example of a synaptic mechanism, which consists of a postsynaptic conductance which changes as 
+        double exponential function of time.</meta:notes>
+        
+        
+        <doub_exp_syn max_conductance="0.01e-6" rise_time="1" decay_time="2" reversal_potential="0"/>
+    
+    </synapse_type>
+        
+    
+</channelml>
