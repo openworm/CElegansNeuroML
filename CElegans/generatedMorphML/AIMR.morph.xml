@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<morphml xmlns="http://morphml.org/morphml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/morphml/schema  http://neuroml.svn.sourceforge.net/viewvc/neuroml/trunk/web/NeuroMLFiles/Schemata/v1.8.1/Level1/MorphML_v1.8.1.xsd" lengthUnits="micron">
+
+    <cells>
+        <cell name="AIMR">
+
+            <meta:notes>
+        Interneuron
+      </meta:notes>
+
+            <segments>
+
+                <segment id="0" name="Seg0_soma_0" cable="0">
+                    <proximal x="-13.500001" y="-253.44998" z="28.400002" diameter="2.8442924"/>
+                    <distal x="-13.500001" y="-253.44998" z="28.400002" diameter="2.8442924"/>
+                </segment>
+
+                <segment id="1" name="Seg0_axon_0" parent="0" cable="1">
+                    <proximal x="-13.500001" y="-253.44998" z="28.400002" diameter="0.78740084"/>
+                    <distal x="-13.500001" y="-253.44998" z="28.349998" diameter="0.78740084"/>
+                </segment>
+
+                <segment id="2" name="Seg2_axon_0" parent="1" cable="1">
+                    <distal x="-12.6" y="-255.7" z="28.9" diameter="0.34641016"/>
+                </segment>
+
+                <segment id="3" name="Seg3_axon_0" parent="2" cable="1">
+                    <distal x="-8.325" y="-264.0" z="31.5" diameter="0.28722814"/>
+                </segment>
+
+                <segment id="4" name="Seg4_axon_0" parent="3" cable="1">
+                    <distal x="-4.1" y="-271.35" z="33.8" diameter="0.3"/>
+                </segment>
+
+                <segment id="5" name="Seg5_axon_0" parent="4" cable="1">
+                    <distal x="-3.9250002" y="-272.075" z="34.850002" diameter="0.23452078"/>
+                </segment>
+
+                <segment id="6" name="Seg6_axon_0" parent="5" cable="1">
+                    <distal x="-3.9" y="-272.95" z="36.55" diameter="0.24494897"/>
+                </segment>
+
+                <segment id="7" name="Seg7_axon_0" parent="6" cable="1">
+                    <distal x="-4.8500004" y="-273.15" z="38.100002" diameter="0.37416574"/>
+                </segment>
+
+                <segment id="8" name="Seg8_axon_0" parent="7" cable="1">
+                    <distal x="-7.175" y="-273.42502" z="39.825" diameter="0.295804"/>
+                </segment>
+
+                <segment id="9" name="Seg9_axon_0" parent="8" cable="1">
+                    <distal x="-8.725" y="-273.775" z="42.449997" diameter="0.44158804"/>
+                </segment>
+
+                <segment id="10" name="Seg10_axon_0" parent="9" cable="1">
+                    <distal x="-9.25" y="-274.2" z="45.5" diameter="0.5"/>
+                </segment>
+
+                <segment id="11" name="Seg11_axon_0" parent="10" cable="1">
+                    <distal x="-8.7" y="-274.65" z="48.525" diameter="0.4387482"/>
+                </segment>
+
+                <segment id="12" name="Seg12_axon_0" parent="11" cable="1">
+                    <distal x="-7.2" y="-275.0" z="51.1" diameter="0.48989794"/>
+                </segment>
+
+                <segment id="13" name="Seg13_axon_0" parent="12" cable="1">
+                    <distal x="-4.8500004" y="-275.3" z="52.824997" diameter="0.48218253"/>
+                </segment>
+
+                <segment id="14" name="Seg14_axon_0" parent="13" cable="1">
+                    <distal x="-2.2" y="-275.35" z="53.399998" diameter="0.5"/>
+                </segment>
+
+                
+            </segments>
+
+            <cables>
+
+                <cable id="0" name="Soma">
+                    <meta:group>all</meta:group>
+                    <meta:group>soma_group</meta:group>
+                </cable>
+
+                <cable id="1" name="Axon">
+                    <meta:group>all</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </cable>
+
+            </cables></cell>
+    </cells>
+</morphml>

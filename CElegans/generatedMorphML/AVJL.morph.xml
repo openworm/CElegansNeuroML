@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<morphml xmlns="http://morphml.org/morphml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/morphml/schema  http://neuroml.svn.sourceforge.net/viewvc/neuroml/trunk/web/NeuroMLFiles/Schemata/v1.8.1/Level1/MorphML_v1.8.1.xsd" lengthUnits="micron">
+
+    <cells>
+        <cell name="AVJL">
+
+            <meta:notes>
+        Interneuron
+      </meta:notes>
+
+            <segments>
+
+                <segment id="0" name="Seg0_soma_0" cable="0">
+                    <proximal x="0.2" y="-264.9" z="47.55" diameter="3.0413811"/>
+                    <distal x="0.2" y="-264.9" z="47.55" diameter="3.0413811"/>
+                </segment>
+
+                <segment id="1" name="Seg0_axon_0" parent="0" cable="1">
+                    <proximal x="0.2" y="-264.9" z="47.55" diameter="0.9899495"/>
+                    <distal x="0.35000002" y="-265.0" z="47.55" diameter="0.9899495"/>
+                </segment>
+
+                <segment id="2" name="Seg2_axon_0" parent="1" cable="1">
+                    <distal x="1.85" y="-266.19998" z="46.45" diameter="0.46904156"/>
+                </segment>
+
+                <segment id="3" name="Seg3_axon_0" parent="2" cable="1">
+                    <distal x="3.85" y="-268.25" z="45.95" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="4" name="Seg4_axon_0" parent="3" cable="1">
+                    <distal x="3.9500003" y="-270.7" z="46.825" diameter="0.39051247"/>
+                </segment>
+
+                <segment id="5" name="Seg5_axon_0" parent="4" cable="1">
+                    <distal x="4.0750003" y="-274.1" z="48.575" diameter="0.49497476"/>
+                </segment>
+
+                <segment id="6" name="Seg6_axon_0" parent="5" cable="1">
+                    <distal x="2.5" y="-275.0" z="51.1" diameter="0.48989794"/>
+                </segment>
+
+                <segment id="7" name="Seg7_axon_0" parent="6" cable="1">
+                    <distal x="0.25" y="-275.3" z="52.824997" diameter="0.48218253"/>
+                </segment>
+
+                <segment id="8" name="Seg8_axon_0" parent="7" cable="1">
+                    <distal x="-2.5" y="-275.35" z="53.399998" diameter="0.5"/>
+                </segment>
+
+                <segment id="9" name="Seg9_axon_0" parent="8" cable="1">
+                    <distal x="-5.15" y="-275.3" z="52.824997" diameter="0.33541018"/>
+                </segment>
+
+                <segment id="10" name="Seg10_axon_0" parent="9" cable="1">
+                    <distal x="-7.5000005" y="-275.0" z="51.1" diameter="0.34641016"/>
+                </segment>
+
+                <segment id="11" name="Seg11_axon_0" parent="10" cable="1">
+                    <distal x="-9.025" y="-274.65" z="48.525" diameter="0.36742347"/>
+                </segment>
+
+                <segment id="12" name="Seg12_axon_0" parent="11" cable="1">
+                    <distal x="-9.55" y="-274.2" z="45.5" diameter="0.36055514"/>
+                </segment>
+
+                <segment id="13" name="Seg13_axon_0" parent="12" cable="1">
+                    <distal x="-9.075" y="-273.775" z="42.449997" diameter="0.44158804"/>
+                </segment>
+
+                <segment id="14" name="Seg14_axon_0" parent="13" cable="1">
+                    <distal x="-7.475" y="-273.42502" z="39.825" diameter="0.4555217"/>
+                </segment>
+
+                <segment id="15" name="Seg15_axon_0" parent="14" cable="1">
+                    <distal x="-5.2250004" y="-273.15" z="38.125" diameter="0.46368092"/>
+                </segment>
+
+                <segment id="16" name="Seg16_axon_0" parent="15" cable="1">
+                    <distal x="-2.6499999" y="-271.84998" z="34.75" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="17" name="Seg17_axon_0" parent="16" cable="1">
+                    <distal x="-1.9" y="-270.1" z="31.25" diameter="0.53851646"/>
+                </segment>
+
+                <segment id="18" name="Seg18_axon_0" parent="17" cable="1">
+                    <distal x="-1.9" y="-266.1" z="27.7" diameter="0.6"/>
+                </segment>
+
+                <segment id="19" name="Seg19_axon_0" parent="18" cable="1">
+                    <distal x="-1.5" y="-248.05" z="17.45" diameter="0.50990194"/>
+                </segment>
+
+                <segment id="20" name="Seg20_axon_0" parent="19" cable="1">
+                    <distal x="-1.4499999" y="-243.35" z="14.55" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="21" name="Seg21_axon_0" parent="20" cable="1">
+                    <distal x="-1.4499999" y="-214.94998" z="-5.25" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="22" name="Seg22_axon_0" parent="21" cable="1">
+                    <distal x="-1.4499999" y="-210.2" z="-8.4" diameter="0.5"/>
+                </segment>
+
+                <segment id="23" name="Seg23_axon_0" parent="22" cable="1">
+                    <distal x="-1.4499999" y="-167.6" z="-37.6" diameter="0.5"/>
+                </segment>
+
+                <segment id="24" name="Seg24_axon_0" parent="23" cable="1">
+                    <distal x="-1.4499999" y="-162.85" z="-40.05" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="25" name="Seg25_axon_0" parent="24" cable="1">
+                    <distal x="-1.4499999" y="-135.45001" z="-53.95" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="26" name="Seg26_axon_0" parent="25" cable="1">
+                    <distal x="-1.4499999" y="-118.49999" z="-60.2" diameter="0.5"/>
+                </segment>
+
+                <segment id="27" name="Seg27_axon_0" parent="26" cable="1">
+                    <distal x="-1.4499999" y="-102.35" z="-64.0" diameter="0.50990194"/>
+                </segment>
+
+                <segment id="28" name="Seg28_axon_0" parent="27" cable="1">
+                    <distal x="-1.4499999" y="-84.15" z="-66.649994" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="29" name="Seg29_axon_0" parent="28" cable="1">
+                    <distal x="-1.4499999" y="-53.3" z="-67.049995" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="30" name="Seg30_axon_0" parent="29" cable="1">
+                    <distal x="-1.4499999" y="-47.15" z="-65.85" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="31" name="Seg31_axon_0" parent="30" cable="1">
+                    <distal x="-1.4499999" y="-3.4499998" z="-53.250004" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="32" name="Seg32_axon_0" parent="31" cable="1">
+                    <distal x="-1.4499999" y="3.7500002" z="-50.050003" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="33" name="Seg33_axon_0" parent="32" cable="1">
+                    <distal x="-1.4499999" y="32.2" z="-35.350002" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="34" name="Seg34_axon_0" parent="33" cable="1">
+                    <distal x="-4.35" y="36.1" z="-30.55" diameter="0.46904156"/>
+                </segment>
+
+                <segment id="35" name="Seg35_axon_0" parent="34" cable="1">
+                    <distal x="-10.625" y="42.05" z="-24.449999" diameter="0.55"/>
+                </segment>
+
+                <segment id="36" name="Seg36_axon_0" parent="35" cable="1">
+                    <distal x="-13.349999" y="47.600002" z="-19.875" diameter="0.4387482"/>
+                </segment>
+
+                <segment id="37" name="Seg37_axon_0" parent="36" cable="1">
+                    <distal x="-13.45" y="56.199997" z="-14.45" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="38" name="Seg38_axon_0" parent="37" cable="1">
+                    <distal x="-10.375" y="61.85" z="-12.65" diameter="0.45"/>
+                </segment>
+
+                <segment id="39" name="Seg39_axon_0" parent="38" cable="1">
+                    <distal x="-5.85" y="65.525" z="-10.75" diameter="0.45"/>
+                </segment>
+
+                <segment id="40" name="Seg40_axon_0" parent="39" cable="1">
+                    <distal x="-2.2" y="69.5" z="-11.85" diameter="0.41231057"/>
+                </segment>
+
+                <segment id="41" name="Seg41_axon_0" parent="40" cable="1">
+                    <distal x="-1.85" y="77.8" z="-6.3500004" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="42" name="Seg42_axon_0" parent="41" cable="1">
+                    <distal x="-1.4499999" y="84.75" z="-2.0" diameter="0.50990194"/>
+                </segment>
+
+                <segment id="43" name="Seg43_axon_0" parent="42" cable="1">
+                    <distal x="-1.4499999" y="89.3" z="-0.5" diameter="0.5"/>
+                </segment>
+
+                <segment id="44" name="Seg44_axon_0" parent="43" cable="1">
+                    <distal x="-1.4499999" y="116.2" z="4.4500003" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="45" name="Seg45_axon_0" parent="44" cable="1">
+                    <distal x="-1.4499999" y="125.100006" z="4.4500003" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="46" name="Seg46_axon_0" parent="45" cable="1">
+                    <distal x="-1.4499999" y="167.6" z="2.25" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="47" name="Seg47_axon_0" parent="46" cable="1">
+                    <distal x="-1.4499999" y="174.65" z="1.05" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="48" name="Seg48_axon_0" parent="47" cable="1">
+                    <distal x="-1.4499999" y="249.09999" z="-20.25" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="49" name="Seg49_axon_0" parent="48" cable="1">
+                    <distal x="-1.4499999" y="256.3" z="-21.5" diameter="0.5"/>
+                </segment>
+
+                <segment id="50" name="Seg50_axon_0" parent="49" cable="1">
+                    <distal x="-1.4499999" y="283.3" z="-25.0" diameter="0.5"/>
+                </segment>
+
+                <segment id="51" name="Seg51_axon_0" parent="50" cable="1">
+                    <distal x="-1.4499999" y="289.19998" z="-25.5" diameter="0.5"/>
+                </segment>
+
+                <segment id="52" name="Seg52_axon_0" parent="51" cable="1">
+                    <distal x="-1.4499999" y="317.6" z="-26.499998" diameter="0.5"/>
+                </segment>
+
+                <segment id="53" name="Seg53_axon_0" parent="52" cable="1">
+                    <distal x="-1.4499999" y="322.8" z="-26.050001" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="54" name="Seg54_axon_0" parent="53" cable="1">
+                    <distal x="-1.4499999" y="350.75" z="-23.0" diameter="0.50990194"/>
+                </segment>
+
+                <segment id="55" name="Seg55_axon_0" parent="54" cable="1">
+                    <distal x="-1.4499999" y="355.35" z="-21.449999" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="56" name="Seg56_axon_0" parent="55" cable="1">
+                    <distal x="-1.4499999" y="386.1" z="-8.2" diameter="0.5"/>
+                </segment>
+
+                <segment id="57" name="Seg57_axon_0" parent="56" cable="1">
+                    <distal x="-1.4499999" y="396.95" z="-2.6000001" diameter="0.50990194"/>
+                </segment>
+
+                
+            </segments>
+
+            <cables>
+
+                <cable id="0" name="Soma">
+                    <meta:group>all</meta:group>
+                    <meta:group>soma_group</meta:group>
+                </cable>
+
+                <cable id="1" name="Axon">
+                    <meta:group>all</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </cable>
+
+            </cables></cell>
+    </cells>
+</morphml>

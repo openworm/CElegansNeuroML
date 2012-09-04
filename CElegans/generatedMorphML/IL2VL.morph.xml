@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<morphml xmlns="http://morphml.org/morphml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/morphml/schema  http://neuroml.svn.sourceforge.net/viewvc/neuroml/trunk/web/NeuroMLFiles/Schemata/v1.8.1/Level1/MorphML_v1.8.1.xsd" lengthUnits="micron">
+
+    <cells>
+        <cell name="IL2VL">
+
+            <meta:notes>
+        SensoryNeuron
+      </meta:notes>
+
+            <segments>
+
+                <segment id="0" name="Seg0_soma_0" cable="0">
+                    <proximal x="3.3" y="-288.875" z="42.95" diameter="2.823119"/>
+                    <distal x="3.3" y="-288.875" z="42.95" diameter="2.823119"/>
+                </segment>
+
+                <segment id="9" name="Seg0_axon_0" parent="0" cable="1">
+                    <proximal x="3.3" y="-288.875" z="42.95" diameter="0.6"/>
+                    <distal x="3.3" y="-289.8" z="43.3" diameter="0.6"/>
+                </segment>
+
+                <segment id="10" name="Seg10_axon_0" parent="9" cable="1">
+                    <distal x="3.3" y="-290.15" z="43.55" diameter="0.50990194"/>
+                </segment>
+
+                <segment id="11" name="Seg11_axon_0" parent="10" cable="1">
+                    <distal x="4.1" y="-291.725" z="45.2" diameter="0.585235"/>
+                </segment>
+
+                <segment id="12" name="Seg12_axon_0" parent="11" cable="1">
+                    <distal x="5.05" y="-298.7" z="47.05" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="13" name="Seg13_axon_0" parent="12" cable="1">
+                    <distal x="3.05" y="-304.9" z="48.649998" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="14" name="Seg14_axon_0" parent="13" cable="1">
+                    <distal x="3.05" y="-309.3" z="50.15" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="15" name="Seg15_axon_0" parent="14" cable="1">
+                    <distal x="2.35" y="-317.19998" z="51.45" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="16" name="Seg16_axon_0" parent="15" cable="1">
+                    <distal x="0.55" y="-337.0" z="54.85" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="17" name="Seg17_axon_0" parent="16" cable="1">
+                    <distal x="-0.25" y="-342.6" z="55.85" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="18" name="Seg18_axon_0" parent="17" cable="1">
+                    <distal x="-0.25" y="-346.30002" z="56.35" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="19" name="Seg19_axon_0" parent="18" cable="1">
+                    <distal x="-0.25" y="-349.5" z="56.85" diameter="0.42426404"/>
+                </segment>
+
+                <segment id="1" name="Seg0_dendrit_2" parent="0" cable="2">
+                    <proximal x="3.3" y="-288.875" z="42.95" diameter="0.5744563"/>
+                    <distal x="3.3" y="-287.94998" z="42.6" diameter="0.5744563"/>
+                </segment>
+
+                <segment id="2" name="Seg2_dendrite_0" parent="1" cable="2">
+                    <distal x="1.35" y="-284.05002" z="41.45" diameter="0.4358899"/>
+                </segment>
+
+                <segment id="3" name="Seg3_dendrite_0" parent="2" cable="2">
+                    <distal x="0.0" y="-278.25" z="39.175" diameter="0.4387482"/>
+                </segment>
+
+                <segment id="4" name="Seg4_dendrite_0" parent="3" cable="2">
+                    <distal x="0.0" y="-274.5" z="38.125" diameter="0.40311286"/>
+                </segment>
+
+                <segment id="5" name="Seg5_dendrite_0" parent="4" cable="2">
+                    <distal x="0.775" y="-273.30002" z="38.125" diameter="0.43011624"/>
+                </segment>
+
+                <segment id="6" name="Seg6_dendrite_0" parent="5" cable="2">
+                    <distal x="2.8999999" y="-273.42502" z="39.825" diameter="0.43011624"/>
+                </segment>
+
+                <segment id="7" name="Seg7_dendrite_0" parent="6" cable="2">
+                    <distal x="4.475" y="-273.775" z="42.449997" diameter="0.44158804"/>
+                </segment>
+
+                <segment id="8" name="Seg8_dendrite_0" parent="7" cable="2">
+                    <distal x="4.975" y="-274.05" z="44.375" diameter="0.41833004"/>
+                </segment>
+
+                
+            </segments>
+
+            <cables>
+
+                <cable id="0" name="Soma">
+                    <meta:group>all</meta:group>
+                    <meta:group>soma_group</meta:group>
+                </cable>
+
+                <cable id="1" name="Axon">
+                    <meta:group>all</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </cable>
+
+                <cable id="2" name="Dendrite2">
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </cable>
+
+            </cables></cell>
+    </cells>
+</morphml>
