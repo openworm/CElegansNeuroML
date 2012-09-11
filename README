@@ -1,5 +1,7 @@
 This repository contains a neuroConstruct (http://www.neuroConstruct.org) project containing a model of CElegans.
 
+The NeuroML files are available under the directories CElegans/generatedMorphML, CElegans/generatedNeuroML, and CElegans/generatedNeuroML2
+
 This is being developed as part of the OpenWorm project (http://www.openworm.org).
 
 For full details on running this neuroConstruct project see: 
