@@ -12,6 +12,9 @@ files=os.listdir(source_dir)
 
 cell_count = 0
 segment_count = 0
+pop_count = 0
+instance_count = 0
+conn_count = 0
 
 for fname in files:
     if fname.endswith(".nml"):
@@ -24,9 +27,21 @@ for fname in files:
             print("Found a cell: %s with %i segments"% (cell.id, len(morph.segment)))
             segment_count += len(morph.segment)
 
+        for net in doc.network:
+            for pop in net.population:
+                pop_count += 1
+                instance_count += pop.size
 
-print ("Total cells: %i"%cell_count)
-print ("Total segments: %i"%segment_count)
+            for conn in net.synapticConnection:
+                conn_count += 1
+
+
+
+print
+print("Total cell definitions : %i"%cell_count)
+print("Total segments         : %i"%segment_count)
+print("Total populations      : %i containing %i cells with %i connections"%(pop_count, instance_count, conn_count))
+print
             
 
         
