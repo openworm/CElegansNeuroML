@@ -24,14 +24,14 @@ from math import *
 from random import *
 
 # Load an existing neuroConstruct project
-projFile = File("../CElegans.ncx")
+projFile = File("../../CElegans.ncx")
 print "Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())
 
 pm = ProjectManager()
 project = pm.loadProject(projFile)
 print "Loaded project: " + project.getProjectName()
 
-
+'''
 prefix = "NCXLS_"
 
 allNetConnNames = project.morphNetworkConnectionsInfo.getAllSimpleNetConnNames()
@@ -55,14 +55,16 @@ for name in allNetConnNames:
 
     mml = MaxMinLength(50, 0, "r", 5000)
     project.morphNetworkConnectionsInfo.setMaxMinLength(name, mml)
-
+'''
 
 allCells = project.cellManager.getAllCells()
 for cell in allCells:
 
     svg = cell.getSynapsesVsGroups()
-    syns = []
-    syns.extend(svg.keySet())
+    print cell
+    print svg
+    syns = ["Generic_GJ"]
+    #syns.extend(svg.keySet())
     for syn in syns:
         cell.disassociateGroupFromSynapse("dendrite_group", syn)
         cell.disassociateGroupFromSynapse("axon_group", syn)
