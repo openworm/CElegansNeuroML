@@ -16,7 +16,7 @@
             </meta:contributor>
         </status>
     
-        <meta:notes>Description of an electrical synapse at a gap junction</meta:notes>
+        <meta:notes>Electrical connection from a cell with chemical synapse(s) of type: Dopamine</meta:notes>
         
         <electrical_syn conductance="1.00E-9"/>
     
