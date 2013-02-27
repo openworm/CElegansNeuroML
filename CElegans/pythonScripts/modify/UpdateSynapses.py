@@ -28,7 +28,7 @@ from math import *
 from random import *
 
 # Load an existing neuroConstruct project
-projFile = File("../CElegans.ncx")
+projFile = File("../../CElegans.ncx")
 print "Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())
 
 pm = ProjectManager()
@@ -69,7 +69,7 @@ if deleteConnections:
 else:
 
     from xlrd import open_workbook
-    filename = "../../CElegansNeuronTables.xls"
+    filename = "../../../CElegansNeuronTables.xls"
     rb = open_workbook(filename)
 
     print "Opened Excel file: "+ filename
@@ -172,6 +172,8 @@ else:
         if("Elect" in syns[0]):
             connectivityConditions.setNoRecurrent(1)
 
+
+        netConnInfo.deleteNetConn(netConnName)
 
         netConnInfo.addNetConn(netConnName,
                                source,

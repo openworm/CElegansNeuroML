@@ -24,7 +24,7 @@ from math import *
 from random import *
 
 # Load an existing neuroConstruct project
-projFile = File("../CElegans.ncx")
+projFile = File("../../CElegans.ncx")
 print "Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())
 
 pm = ProjectManager()
@@ -34,10 +34,12 @@ print "Loaded project: " + project.getProjectName()
 
 ##########################
 
-newSimConfig = "PharyngealNeurons"
-newSimConfigDesc = "Generates a subset of the CElegans neural system consisting of just the Pharyngeal Neurons of the alimentary system. See http://www.wormatlas.org/hermaphrodite/pharynx/jump.html?newLink=mainframe.htm&newAnchor=Pharyngealneurons7"
-cells = ["M1","M2L","M2R","M3L","M3R","M4","M5","I1L","I1R","I2L","I2R","I3","I4","I5","I6","MI","NSML","NSMR","MCL","MCR"]
+newSimConfig = "TestInputs"
+newSimConfigDesc = "Test the full connectome with random synaptic inputs"
+cells = project.cellManager.getAllCellTypeNames()
 
+print cells
+System.exit(0)
 
 ##########################
 
@@ -71,9 +73,11 @@ print simConfig.toLongString()
 project.simConfigInfo.add(simConfig)
 
 # Save project & exit
+'''
 print "Saving project!!"
 project.markProjectAsEdited()
 project.saveProject()
+'''
 
 
 System.exit(0)

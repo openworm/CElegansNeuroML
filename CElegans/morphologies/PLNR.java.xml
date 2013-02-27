@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_13" class="java.beans.XMLDecoder">
+<java version="1.6.0_27" class="java.beans.XMLDecoder">
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
  <object class="ucl.physiol.neuroconstruct.cell.Cell">
   <void property="allSegments">
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment0">
+    <object id="Segment0" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-6.225</float>
      </void>
@@ -52,7 +52,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment1">
+    <object id="Segment1" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-6.425</float>
      </void>
@@ -69,7 +69,7 @@
       <float>0.3363406</float>
      </void>
      <void property="section">
-      <object class="ucl.physiol.neuroconstruct.cell.Section" id="Section0">
+      <object id="Section0" class="ucl.physiol.neuroconstruct.cell.Section">
        <void property="groups">
         <void method="add">
          <string>axon_group</string>
@@ -101,7 +101,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment2">
+    <object id="Segment2" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-7.0</float>
      </void>
@@ -129,7 +129,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment3">
+    <object id="Segment3" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-10.7</float>
      </void>
@@ -157,7 +157,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment4">
+    <object id="Segment4" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-10.9</float>
      </void>
@@ -185,7 +185,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment5">
+    <object id="Segment5" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-15.700001</float>
      </void>
@@ -213,7 +213,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment6">
+    <object id="Segment6" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-15.9</float>
      </void>
@@ -241,7 +241,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment7">
+    <object id="Segment7" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-16.975</float>
      </void>
@@ -269,7 +269,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment8">
+    <object id="Segment8" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-17.1</float>
      </void>
@@ -297,7 +297,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment9">
+    <object id="Segment9" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-18.35</float>
      </void>
@@ -325,7 +325,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment10">
+    <object id="Segment10" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-18.6</float>
      </void>
@@ -353,7 +353,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment11">
+    <object id="Segment11" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-21.425</float>
      </void>
@@ -381,7 +381,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment12">
+    <object id="Segment12" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-21.525</float>
      </void>
@@ -409,7 +409,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment13">
+    <object id="Segment13" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-23.65</float>
      </void>
@@ -437,7 +437,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment14">
+    <object id="Segment14" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-22.625</float>
      </void>
@@ -465,7 +465,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment15">
+    <object id="Segment15" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-22.7</float>
      </void>
@@ -493,7 +493,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment16">
+    <object id="Segment16" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-22.824999</float>
      </void>
@@ -521,7 +521,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment17">
+    <object id="Segment17" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-22.949999</float>
      </void>
@@ -549,7 +549,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment18">
+    <object id="Segment18" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-22.9</float>
      </void>
@@ -577,7 +577,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment19">
+    <object id="Segment19" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-22.975</float>
      </void>
@@ -605,7 +605,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment20">
+    <object id="Segment20" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-24.625</float>
      </void>
@@ -633,7 +633,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment21">
+    <object id="Segment21" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-24.699999</float>
      </void>
@@ -661,7 +661,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment22">
+    <object id="Segment22" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-25.2</float>
      </void>
@@ -689,7 +689,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment23">
+    <object id="Segment23" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-21.475</float>
      </void>
@@ -717,7 +717,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment24">
+    <object id="Segment24" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-16.475</float>
      </void>
@@ -745,7 +745,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment25">
+    <object id="Segment25" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-16.300001</float>
      </void>
@@ -773,7 +773,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment26">
+    <object id="Segment26" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-15.9</float>
      </void>
@@ -801,7 +801,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment27">
+    <object id="Segment27" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-15.975</float>
      </void>
@@ -829,7 +829,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment28">
+    <object id="Segment28" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-16.050001</float>
      </void>
@@ -857,7 +857,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment29">
+    <object id="Segment29" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-15.925</float>
      </void>
@@ -885,7 +885,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment30">
+    <object id="Segment30" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-14.8</float>
      </void>
@@ -913,7 +913,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment31">
+    <object id="Segment31" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-14.849999</float>
      </void>
@@ -941,7 +941,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment32">
+    <object id="Segment32" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-14.575</float>
      </void>
@@ -969,7 +969,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment33">
+    <object id="Segment33" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-14.300001</float>
      </void>
@@ -997,7 +997,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment34">
+    <object id="Segment34" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-14.650001</float>
      </void>
@@ -1025,7 +1025,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment35">
+    <object id="Segment35" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-13.875</float>
      </void>
@@ -1053,7 +1053,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment36">
+    <object id="Segment36" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-12.2</float>
      </void>
@@ -1081,7 +1081,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment37">
+    <object id="Segment37" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-11.925</float>
      </void>
@@ -1109,7 +1109,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment38">
+    <object id="Segment38" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-11.75</float>
      </void>
@@ -1137,7 +1137,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment39">
+    <object id="Segment39" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-9.55</float>
      </void>
@@ -1165,7 +1165,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment40">
+    <object id="Segment40" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-7.175</float>
      </void>
@@ -1193,7 +1193,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment41">
+    <object id="Segment41" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-5.7</float>
      </void>
@@ -1221,7 +1221,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment42">
+    <object id="Segment42" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-5.4</float>
      </void>
@@ -1249,7 +1249,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment43">
+    <object id="Segment43" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-4.625</float>
      </void>
@@ -1277,7 +1277,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment44">
+    <object id="Segment44" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-4.6</float>
      </void>
@@ -1305,7 +1305,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment45">
+    <object id="Segment45" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-5.2000003</float>
      </void>
@@ -1333,7 +1333,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment46">
+    <object id="Segment46" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-7.2999997</float>
      </void>
@@ -1361,7 +1361,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment47">
+    <object id="Segment47" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-8.8</float>
      </void>
@@ -1417,7 +1417,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment48">
+    <object id="Segment48" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-6.025</float>
      </void>
@@ -1434,7 +1434,7 @@
       <float>0.27041635</float>
      </void>
      <void property="section">
-      <object class="ucl.physiol.neuroconstruct.cell.Section" id="Section1">
+      <object id="Section1" class="ucl.physiol.neuroconstruct.cell.Section">
        <void property="groups">
         <void method="add">
          <string>dendrite_group</string>
@@ -1466,7 +1466,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment49">
+    <object id="Segment49" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-5.725</float>
      </void>
@@ -1494,7 +1494,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment50">
+    <object id="Segment50" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-4.4500003</float>
      </void>
@@ -1522,7 +1522,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment51">
+    <object id="Segment51" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-4.0750003</float>
      </void>
@@ -1550,7 +1550,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment52">
+    <object id="Segment52" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-2.75</float>
      </void>
@@ -1578,7 +1578,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment53">
+    <object id="Segment53" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-1.7750001</float>
      </void>
@@ -1606,7 +1606,7 @@
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.cell.Segment" id="Segment54">
+    <object id="Segment54" class="ucl.physiol.neuroconstruct.cell.Segment">
      <void property="endPointPositionX">
       <float>-0.875</float>
      </void>
