@@ -993,14 +993,6 @@
     </object>
    </void>
    <void method="put">
-    <string>Serotonin</string>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>all</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
     <string>FMRFamide</string>
     <object class="java.util.Vector">
      <void method="add">
@@ -1009,7 +1001,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Generic_GJ</string>
+    <string>Serotonin</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -1018,6 +1010,14 @@
    </void>
    <void method="put">
     <string>Acetylcholine_GJ</string>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>all</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <string>Generic_GJ</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>

@@ -46,7 +46,7 @@ simConfig = SimConfig(newSimConfig, newSimConfigDesc)
 for cell in cells:
     simConfig.addCellGroup(cell)
 
-'''
+
 prefix = "NCXLS_"
 
 allNetConnNames = project.morphNetworkConnectionsInfo.getAllSimpleNetConnNames()
@@ -56,7 +56,7 @@ for name in allNetConnNames:
             if cell in name:
                 if not name in simConfig.getNetConns():
                     simConfig.addNetConn(name)
-'''
+
 
 
 simPlots = project.simPlotInfo.getAllSimPlots()
