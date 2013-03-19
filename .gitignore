@@ -6,3 +6,4 @@ generatedNEURON
 simulations
 savedNetworks
 CElegans/pythonScripts/*.xml
+.DS_Store
