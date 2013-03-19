@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.6.0_27" class="java.beans.XMLDecoder">
+
+<!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
+
+ <object class="ucl.physiol.neuroconstruct.cell.Cell">
+  <void property="allSegments">
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.cell.Segment">
+     <void property="endPointPositionX">
+      <float>2.794</float>
+     </void>
+     <void property="endPointPositionY">
+      <float>-259.386</float>
+     </void>
+     <void property="endPointPositionZ">
+      <float>58.299</float>
+     </void>
+     <void property="radius">
+      <float>0.7432832</float>
+     </void>
+     <void property="section">
+      <object class="ucl.physiol.neuroconstruct.cell.Section">
+       <void property="comment">
+        <string>Importation comment:  Determined to be a soma section (group SOMA_GROUP not in original file)</string>
+       </void>
+       <void property="groups">
+        <void method="add">
+         <string>
+            all
+          </string>
+        </void>
+        <void method="add">
+         <string>
+            soma_group
+          </string>
+        </void>
+        <void method="add">
+         <string>soma_group</string>
+        </void>
+       </void>
+       <void property="sectionName">
+        <string>Soma</string>
+       </void>
+       <void property="startPointPositionX">
+        <float>12.577</float>
+       </void>
+       <void property="startPointPositionY">
+        <float>-186.531</float>
+       </void>
+       <void property="startPointPositionZ">
+        <float>20.599</float>
+       </void>
+       <void property="startRadius">
+        <float>1.6225245</float>
+       </void>
+      </object>
+     </void>
+     <void property="segmentId">
+      <int>0</int>
+     </void>
+     <void property="segmentName">
+      <string>Seg0_soma_0</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="cellDescription">
+   <string>
+        Body Wall Muscle
+      </string>
+  </void>
+  <void property="instanceName">
+   <string>MDL08</string>
+  </void>
+  <void property="synapsesVsGroups">
+   <void method="put">
+    <string>GABA</string>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>all</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <string>Acetylcholine</string>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>all</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <string>Generic_GJ</string>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>all</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

@@ -44,6 +44,7 @@ def testAll(argv=None):
     defSimConfig = project.simConfigInfo.getDefaultSimConfig()
     cellsOnlySimConfig = project.simConfigInfo.getSimConfig("CellsOnly")
     pharyngealSimConfig = project.simConfigInfo.getSimConfig("PharyngealNeurons")
+    mdl08SimConfig = project.simConfigInfo.getSimConfig("MDL08Connections")
 
     expectedNumberCells = 302 
 
@@ -165,6 +166,31 @@ def testAll(argv=None):
     assert numConns == expectedNetConns
 
     print "Correct number of cells & connections generated!"
+    ##########################
+    
+
+    print "\n---- Test 5: number of cells in sim config "+mdl08SimConfig.getName()+"..."
+
+
+    pm.doGenerate(mdl08SimConfig.getName(), 1234471)
+
+    while pm.isGenerating():
+            print "Waiting for the project to be generated with Simulation Configuration: "+str(mdl08SimConfig)
+            sleep(2)
+
+    numCells = project.generatedCellPositions.getNumberInAllCellGroups()
+    numConns = project.generatedNetworkConnections.getNumAllSynConns()
+
+    print "Number of cells: %i, number of connections: %i"%(numCells,numConns)
+
+    expectedCells = 9
+    expectedNetConns = 0
+    assert numCells == expectedCells
+    assert numConns == expectedNetConns
+
+    print "Correct number of cells & connections generated!"
+
+
 
     print "\n------------------------------------------All tests completed!\n"
 
