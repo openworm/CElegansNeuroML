@@ -184,7 +184,7 @@ def testAll(argv=None):
     print "Number of cells: %i, number of connections: %i"%(numCells,numConns)
 
     expectedCells = 9
-    expectedNetConns = 0
+    expectedNetConns = 21
     assert numCells == expectedCells
     assert numConns == expectedNetConns
 

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd" id="network_CElegans">
+
+<notes>
+
+Network structure (NeuroML 2beta) for project: CElegans saved with neuroConstruct v1.6.1 on: 14:36:08, 19-Mar-13
+
+Cell Group: DA1 contains 1 cells
+Cell Group: AS2 contains 1 cells
+Cell Group: AS1 contains 1 cells
+Cell Group: SMDDR contains 1 cells
+Cell Group: SMDDL contains 1 cells
+Cell Group: DB1 contains 1 cells
+Cell Group: MDL08 contains 1 cells
+Cell Group: DD1 contains 1 cells
+Cell Group: DA2 contains 1 cells
+
+Network connection: NCM_SMDDL_MDL08 contains 1 individual synaptic connections
+Network connection: NCM_DD1_MDL08 contains 4 individual synaptic connections
+Network connection: NCM_DB1_MDL08 contains 1 individual synaptic connections
+Network connection: NCM_DA1_MDL08 contains 8 individual synaptic connections
+Network connection: NCM_DA2_MDL08 contains 1 individual synaptic connections
+Network connection: NCM_SMDDR_MDL08 contains 1 individual synaptic connections
+Network connection: NCM_AS1_MDL08 contains 3 individual synaptic connections
+Network connection: NCM_AS2_MDL08 contains 2 individual synaptic connections
+
+</notes>
+
+
+    <network id="network_CElegans">
+
+        <extracellularProperties temperature="6.3 degC"/>
+
+        <population id="DA1" component="DA1" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="AS2" component="AS2" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="AS1" component="AS1" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="SMDDR" component="SMDDR" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="SMDDL" component="SMDDL" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="DB1" component="DB1" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="MDL08" component="MDL08" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="DD1" component="DD1" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="DA2" component="DA2" size="1">
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+
+
+        <synapticConnection from="SMDDL[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
+
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
+
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
+
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
+
+        <synapticConnection from="DB1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="DA2[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="SMDDR[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS2[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS2[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+            <!--There are no electrical inputs present in the network-->
+
+
+    </network>
+
+</neuroml>

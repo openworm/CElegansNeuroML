@@ -26,16 +26,6 @@
        </void>
        <void property="groups">
         <void method="add">
-         <string>
-            all
-          </string>
-        </void>
-        <void method="add">
-         <string>
-            soma_group
-          </string>
-        </void>
-        <void method="add">
          <string>soma_group</string>
         </void>
        </void>
@@ -69,6 +59,23 @@
    <string>
         Body Wall Muscle
       </string>
+  </void>
+  <void property="chanMechsVsGroups">
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>2.5E-10</float>
+     </void>
+     <void property="name">
+      <string>LeakConductance</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>all</string>
+     </void>
+    </object>
+   </void>
   </void>
   <void property="instanceName">
    <string>MDL08</string>
