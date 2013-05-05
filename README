@@ -4,6 +4,8 @@ The NeuroML files are available under the directories CElegans/generatedMorphML,
 
 This is being developed as part of the OpenWorm project (http://www.openworm.org).
 
+The C. elegans 3D model this was derived from was produced by Dr. Christian Grove and Dr. Paul Sternberg at the VirtualWorm project (WormBase, CalTech) and released into the public domain. You can visit the VirtualWorm home page at http://caltech.wormbase.org/virtualworm/
+
 For full details on running this neuroConstruct project see: 
 https://github.com/openworm/OpenWorm/wiki/Running-the-C.-elegans-model-in-neuroConstruct.
 
