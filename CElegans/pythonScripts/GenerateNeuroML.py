@@ -21,6 +21,9 @@ import sys
 from time import *
 
 from ucl.physiol.neuroconstruct.project import ProjectManager
+from ucl.physiol.neuroconstruct.neuroml import NeuroMLFileManager
+from ucl.physiol.neuroconstruct.neuroml import NeuroMLConstants
+
 
 
 
@@ -57,13 +60,25 @@ print "Correct number of cells generated!"
 
 nmlFileName = "GeneratedNeuroML.xml"
 
-pm.saveLevel3NetworkXML(project,
-                        File(nmlFileName),
-                        False,
-                        True,
-                        False,
-                        simConfig.getName(),
-                        "Physiological Units")
+
+NeuroMLFileManager.saveNetworkStructureXML(project,
+                                       File(nmlFileName),
+                                       False,
+                                       False,
+                                       simConfig.getName(),
+                                       "Physiological Units",
+                                       NeuroMLConstants.NeuroMLVersion.NEUROML_VERSION_1);
+
+nmlFileName = "GeneratedNeuroML2.xml"
+
+NeuroMLFileManager.saveNetworkStructureXML(project,
+                                       File(nmlFileName),
+                                       False,
+                                       False,
+                                       simConfig.getName(),
+                                       "Physiological Units",
+                                       NeuroMLConstants.NeuroMLVersion.NEUROML_VERSION_2_BETA);
+
 
 print "Done!"
 
