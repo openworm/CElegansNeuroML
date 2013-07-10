@@ -20,6 +20,8 @@ except ImportError:
 
 from ucl.physiol.neuroconstruct.project import ProjectManager
 from ucl.physiol.neuroconstruct.project.packing import SinglePositionedCellPackingAdapter
+from ucl.physiol.neuroconstruct.neuron import NeuronSettings
+from ucl.physiol.neuroconstruct.utils import Display3DProperties
 
 from math import *
 from random import *
@@ -48,7 +50,7 @@ def testAll(argv=None):
 
     expectedNumberCells = 302 
 
-    
+    ''' 
     ##########################
     
     print "\n----- Test 1: Check number of cells in sim config "+defSimConfig.getName()+"..."
@@ -190,6 +192,24 @@ def testAll(argv=None):
 
     print "Correct number of cells & connections generated!"
 
+    ##########################
+    '''
+    
+
+    print "\n---- Test 6: General neuroConstruct project settings..."
+
+
+    assert(project.proj3Dproperties.getDisplayOption() == Display3DProperties.DISPLAY_SOMA_NEURITE_SOLID)
+
+    assert(abs(project.simulationParameters.getDt()-0.025)<=1e-9)
+
+    assert(not project.neuronSettings.isVarTimeStep())
+
+    assert(project.neuronSettings.getDataSaveFormat().equals(NeuronSettings.DataSaveFormat.TEXT_NC))
+
+    assert(abs(project.simulationParameters.getTemperature() - 20.0) < 1e-6)
+
+    ##########################
 
 
     print "\n------------------------------------------All tests completed!\n"
