@@ -1,9 +1,12 @@
 *.bak
 *~
+*.pyc
+*py.class
 generatedMOOSE
 generatedGENESIS
 generatedNEURON
 simulations
 savedNetworks
 CElegans/pythonScripts/*.xml
+CElegans/pythonScripts/*.nml
 .DS_Store
