@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from RegenerateConnectome import ConnectionInfo
+from NeuroMLUtilities import ConnectionInfo
 
 from xlrd import open_workbook
 

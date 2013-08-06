@@ -50,7 +50,7 @@ def testAll(argv=None):
 
     expectedNumberCells = 302 
 
-    ''' 
+    
     ##########################
     
     print "\n----- Test 1: Check number of cells in sim config "+defSimConfig.getName()+"..."
@@ -193,7 +193,7 @@ def testAll(argv=None):
     print "Correct number of cells & connections generated!"
 
     ##########################
-    '''
+
     
 
     print "\n---- Test 6: General neuroConstruct project settings..."
