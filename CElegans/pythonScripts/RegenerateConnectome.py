@@ -68,14 +68,15 @@ if __name__ == "__main__":
         pre_cell = all_cells[conn.pre_cell]
         post_cell = all_cells[conn.post_cell]
 
-        pre_segment_id = randint(0,  len(pre_cell.morphology.segments))
-        pre_fraction_along = random()
-        post_segment_id = randint(0,  len(post_cell.morphology.segments))
-        post_fraction_along = random()
+        for conn_id in range(0,conn.number):
+
+            pre_segment_id = randint(0,  len(pre_cell.morphology.segments)-1)
+            pre_fraction_along = random()
+            post_segment_id = randint(0,  len(post_cell.morphology.segments)-1)
+            post_fraction_along = random()
+    
         
-        
-        
-        conn0 = Connection(id="0", \
+            conn0 = Connection(id=conn_id, \
                            pre_cell_id="../%s/0/%s"%(conn.pre_cell, conn.pre_cell),
                            pre_segment_id = pre_segment_id,
                            pre_fraction_along = pre_fraction_along,
@@ -83,7 +84,8 @@ if __name__ == "__main__":
                            post_segment_id = post_segment_id,
                            post_fraction_along = post_fraction_along)
         
-        proj0.connections.append(conn0)
+            proj0.connections.append(conn0)
+
         net.projections.append(proj0)
     
 
