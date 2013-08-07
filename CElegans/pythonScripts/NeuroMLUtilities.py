@@ -46,3 +46,12 @@ def validateNeuroML2(file_name):
     print "Validating %s against %s" %(file_name, schema_file.geturl())
     xmlschema.assertValid(etree.parse(file_name))
     print "It's valid!"
+
+#cachedSegIds = {}
+
+def getSegmentIds(cell):
+    seg_ids = []
+    for segment in cell.morphology.segments:
+        seg_ids.append(segment.id)
+
+    return seg_ids

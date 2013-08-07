@@ -23,6 +23,10 @@ import neuroml.loaders as loaders
 from random import random
 from random import randint
 
+from NeuroMLUtilities import validateNeuroML2
+from NeuroMLUtilities import getSegmentIds
+
+
 def get_projection_id(pre, post, syntype):
 
     proj_id = "NCXLS_%s_%s"%(pre, post)
@@ -68,11 +72,14 @@ if __name__ == "__main__":
         pre_cell = all_cells[conn.pre_cell]
         post_cell = all_cells[conn.post_cell]
 
+        pre_segs = getSegmentIds(pre_cell)
+        post_segs = getSegmentIds(post_cell)
+
         for conn_id in range(0,conn.number):
 
-            pre_segment_id = randint(0,  len(pre_cell.morphology.segments)-1)
+            pre_segment_id = pre_segs[randint(0,  len(pre_cell.morphology.segments)-1)]
             pre_fraction_along = random()
-            post_segment_id = randint(0,  len(post_cell.morphology.segments)-1)
+            post_segment_id = post_segs[randint(0,  len(post_cell.morphology.segments)-1)]
             post_fraction_along = random()
     
         
@@ -97,7 +104,6 @@ if __name__ == "__main__":
 
 
     ###### Validate the NeuroML ######    
-    from NeuroMLUtilities import validateNeuroML2
 
     validateNeuroML2(nml_file)
 
