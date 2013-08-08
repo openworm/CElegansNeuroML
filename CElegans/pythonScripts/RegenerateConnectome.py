@@ -35,46 +35,63 @@ def get_projection_id(pre, post, syntype):
 
 if __name__ == "__main__":
 
+	# Use the spreadsheet reader to give a list of all cells and a list of all connections
     cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet()
 
     net_id = "CElegansConnectome"
 
     nml_network_doc = NeuroMLDocument(id=net_id)
-    nml_network_doc = NeuroMLDocument(id=net_id)
+    nml_network_doc = NeuroMLDocument(id=net_id) # are we doing this twice on purpose?
 
-
+	# Create a NeuroML Network data structure to hold on to all the connection info.
     net = Network(id=net_id)
     nml_network_doc.networks.append(net)
 
     all_cells = {}
     
     for cell in cell_names:
+    	# build a Population data structure out of the cell name
         pop0 = Population(id=cell, component=cell, size=1)
         inst = Instance(id="0")
         inst.location = Location(x="0.0", y="0.0", z="0.0")
         pop0.instances.append(inst)
+        
+        # put that Population into the Network data structure from above
         net.populations.append(pop0)
+        
+        # also use the cell name to grab the morphology file, as a NeuroML data structure
+        #  into the 'all_cells' dict
         cell_file = '../generatedNeuroML2/%s.nml'%cell
         doc = loaders.NeuroMLLoader.load(cell_file)
         all_cells[cell] = doc.cells[0]
         print("Loaded morphology file from: %s, with id: %s"%(cell_file, all_cells[cell].id))
 
+	
     for conn in conns:
-
+		# take information about each connection and package it into a 
+		#  neuroML Projection data structure
         proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.syntype)
-        
-        proj0 = Projection(id=proj_id, presynaptic_population=conn.pre_cell, postsynaptic_population=conn.post_cell, synapse=conn.synclass)
+        proj0 = Projection(id=proj_id, \
+        				   presynaptic_population=conn.pre_cell, 
+        				   postsynaptic_population=conn.post_cell, 
+        				   synapse=conn.synclass)
 
         pre_cell = all_cells[conn.pre_cell]
         post_cell = all_cells[conn.post_cell]
 
+		##########################
+		# TO BE MODIFIED WITH AN ALGORITHM DRIVEN BY STEVEN COOK'S DATA
+		##########################
+		# Wire the pre-synaptic cell to the post-synaptic cell.
+		# Do this by picking a random segment in the pre- and post-synaptic cells
+		#  and by using random positions for the synapse between those two segments
         pre_segment_id = randint(0,  len(pre_cell.morphology.segments))
         pre_fraction_along = random()
         post_segment_id = randint(0,  len(post_cell.morphology.segments))
-        post_fraction_along = random()
+        post_fraction_along = random()        
         
-        
-        
+        # Bring all that we know about the connection together in a NeuroML connection
+        #  data structure
         conn0 = Connection(id="0", \
                            pre_cell_id="../%s/0/%s"%(conn.pre_cell, conn.pre_cell),
                            pre_segment_id = pre_segment_id,
@@ -83,7 +100,9 @@ if __name__ == "__main__":
                            post_segment_id = post_segment_id,
                            post_fraction_along = post_fraction_along)
         
+        # add this to the Projection data structure we created above
         proj0.connections.append(conn0)
+        # put that Projection data structure into the Network we originally created
         net.projections.append(proj0)
     
 
@@ -91,8 +110,6 @@ if __name__ == "__main__":
     writers.NeuroMLWriter.write(nml_network_doc, nml_file)
 
     print("Written network file to: "+nml_file)
-
-
 
     ###### Validate the NeuroML ######    
     from NeuroMLUtilities import validateNeuroML2
