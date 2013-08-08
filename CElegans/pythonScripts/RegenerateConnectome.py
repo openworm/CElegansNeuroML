@@ -39,43 +39,56 @@ def get_projection_id(pre, post, syntype):
 
 if __name__ == "__main__":
 
+	# Use the spreadsheet reader to give a list of all cells and a list of all connections
     cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet()
 
     net_id = "CElegansConnectome"
 
     nml_network_doc = NeuroMLDocument(id=net_id)
-    nml_network_doc = NeuroMLDocument(id=net_id)
+    nml_network_doc = NeuroMLDocument(id=net_id) # are we doing this twice on purpose?
 
-
+	# Create a NeuroML Network data structure to hold on to all the connection info.
     net = Network(id=net_id)
     nml_network_doc.networks.append(net)
 
     all_cells = {}
     
     for cell in cell_names:
+    	# build a Population data structure out of the cell name
         pop0 = Population(id=cell, component=cell, size=1)
         inst = Instance(id="0")
         inst.location = Location(x="0.0", y="0.0", z="0.0")
         pop0.instances.append(inst)
+        
+        # put that Population into the Network data structure from above
         net.populations.append(pop0)
+        
+        # also use the cell name to grab the morphology file, as a NeuroML data structure
+        #  into the 'all_cells' dict
         cell_file = '../generatedNeuroML2/%s.nml'%cell
         doc = loaders.NeuroMLLoader.load(cell_file)
         all_cells[cell] = doc.cells[0]
         print("Loaded morphology file from: %s, with id: %s"%(cell_file, all_cells[cell].id))
 
+	
     for conn in conns:
-
+		# take information about each connection and package it into a 
+		#  neuroML Projection data structure
         proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.syntype)
-        
-        proj0 = Projection(id=proj_id, presynaptic_population=conn.pre_cell, postsynaptic_population=conn.post_cell, synapse=conn.synclass)
+        proj0 = Projection(id=proj_id, \
+        		     	   presynaptic_population=conn.pre_cell, 
+        		      	   postsynaptic_population=conn.post_cell, 
+        		       	   synapse=conn.synclass)
 
         pre_cell = all_cells[conn.pre_cell]
         post_cell = all_cells[conn.post_cell]
+
 
         pre_segs = getSegmentIds(pre_cell)
         post_segs = getSegmentIds(post_cell)
 
         for conn_id in range(0,conn.number):
+
 
             pre_segment_id = pre_segs[randint(0,  len(pre_cell.morphology.segments)-1)]
             pre_fraction_along = random()
@@ -84,6 +97,7 @@ if __name__ == "__main__":
     
         
             conn0 = Connection(id=conn_id, \
+
                            pre_cell_id="../%s/0/%s"%(conn.pre_cell, conn.pre_cell),
                            pre_segment_id = pre_segment_id,
                            pre_fraction_along = pre_fraction_along,
@@ -100,8 +114,6 @@ if __name__ == "__main__":
     writers.NeuroMLWriter.write(nml_network_doc, nml_file)
 
     print("Written network file to: "+nml_file)
-
-
 
     ###### Validate the NeuroML ######    
 

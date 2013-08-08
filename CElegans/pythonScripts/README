@@ -1,1 +1,6 @@
 Some scripts to interact with, test and update the CElegans project
+
+Prerequisites: 
+    get pip (http://www.pip-installer.org/en/latest/installing.html)
+    use pip to get libNeuroML (sudo pip install libNeuroML)
+    use pip to get xlrd (sudo pip install xlrd)
