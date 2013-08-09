@@ -86,34 +86,49 @@ if __name__ == "__main__":
         pre_cell = all_cells[conn.pre_cell]
         post_cell = all_cells[conn.post_cell]
 
-
         pre_segs = getSegmentIds(pre_cell)
         post_segs = getSegmentIds(post_cell)
+        print "Projection between %s and %s has %i conns"%(conn.pre_cell,conn.post_cell,conn.number)
 
         for conn_id in range(0,conn.number):
 
+            #print "--- Conn %i"%conn_id
+            best_dist = 1e6
+            num_to_try = len(pre_segs)*len(post_segs)
             
-            pre_segment_index = randint(0,  len(pre_cell.morphology.segments)-1)
-            pre_segment_id = pre_segs[pre_segment_index]
-            pre_fraction_along = random()
-            post_segment_index = randint(0,  len(post_cell.morphology.segments)-1)
-            post_segment_id = post_segs[post_segment_index]
-            post_fraction_along = random()
+            for i in range(num_to_try):
+                pre_segment_index = randint(0,  len(pre_cell.morphology.segments)-1)
+                pre_segment_id = pre_segs[pre_segment_index]
+                pre_fraction_along = random()
+                post_segment_index = randint(0,  len(post_cell.morphology.segments)-1)
+                post_segment_id = post_segs[post_segment_index]
+                post_fraction_along = random()
     
-            pre_x, pre_y,pre_z = get3DPosition(pre_cell, pre_segment_index, pre_fraction_along)
-            post_x, post_y,post_z = get3DPosition(post_cell, post_segment_index, post_fraction_along)
+                pre_x, pre_y,pre_z = get3DPosition(pre_cell, pre_segment_index, pre_fraction_along)
+                post_x, post_y,post_z = get3DPosition(post_cell, post_segment_index, post_fraction_along)
 
-            dist = math.sqrt(math.pow(pre_x-post_x,2)+math.pow(pre_y-post_y,2)+math.pow(pre_z-post_z,2))
-            print dist
+                dist = math.sqrt(math.pow(pre_x-post_x,2)+math.pow(pre_y-post_y,2)+math.pow(pre_z-post_z,2))
+                #print dist
+            
+                if dist < best_dist:
+                    best_dist = dist
+                    #print "Best: %f"%best_dist
+                    best_pre_seg = pre_segment_id
+                    best_pre_fract = pre_fraction_along
+                    best_post_seg = post_segment_id
+                    best_post_fract = post_fraction_along
+                    
+
+            
         
             conn0 = Connection(id=conn_id, \
 
                            pre_cell_id="../%s/0/%s"%(conn.pre_cell, conn.pre_cell),
-                           pre_segment_id = pre_segment_id,
-                           pre_fraction_along = pre_fraction_along,
+                           pre_segment_id = best_pre_seg,
+                           pre_fraction_along = best_pre_fract,
                            post_cell_id="../%s/0/%s"%(conn.post_cell, conn.post_cell),
-                           post_segment_id = post_segment_id,
-                           post_fraction_along = post_fraction_along)
+                           post_segment_id = best_post_seg,
+                           post_fraction_along = best_post_fract)
         
             proj0.connections.append(conn0)
 
