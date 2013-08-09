@@ -25,6 +25,9 @@ from random import randint
 
 from NeuroMLUtilities import validateNeuroML2
 from NeuroMLUtilities import getSegmentIds
+from NeuroMLUtilities import get3DPosition
+
+import math
 
 
 def get_projection_id(pre, post, syntype):
@@ -89,12 +92,19 @@ if __name__ == "__main__":
 
         for conn_id in range(0,conn.number):
 
-
-            pre_segment_id = pre_segs[randint(0,  len(pre_cell.morphology.segments)-1)]
+            
+            pre_segment_index = randint(0,  len(pre_cell.morphology.segments)-1)
+            pre_segment_id = pre_segs[pre_segment_index]
             pre_fraction_along = random()
-            post_segment_id = post_segs[randint(0,  len(post_cell.morphology.segments)-1)]
+            post_segment_index = randint(0,  len(post_cell.morphology.segments)-1)
+            post_segment_id = post_segs[post_segment_index]
             post_fraction_along = random()
     
+            pre_x, pre_y,pre_z = get3DPosition(pre_cell, pre_segment_index, pre_fraction_along)
+            post_x, post_y,post_z = get3DPosition(post_cell, post_segment_index, post_fraction_along)
+
+            dist = math.sqrt(math.pow(pre_x-post_x,2)+math.pow(pre_y-post_y,2)+math.pow(pre_z-post_z,2))
+            print dist
         
             conn0 = Connection(id=conn_id, \
 
