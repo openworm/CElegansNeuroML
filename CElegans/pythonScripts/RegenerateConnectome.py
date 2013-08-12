@@ -94,7 +94,8 @@ if __name__ == "__main__":
 
             #print "--- Conn %i"%conn_id
             best_dist = 1e6
-            num_to_try = len(pre_segs)*len(post_segs)
+            num_to_try = min(7000,int(0.5*len(pre_segs)*len(post_segs)))
+            print("Trying %i possible connections"%num_to_try)
             
             for i in range(num_to_try):
                 pre_segment_index = randint(0,  len(pre_cell.morphology.segments)-1)
