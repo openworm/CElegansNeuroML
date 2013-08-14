@@ -15,6 +15,7 @@ from neuroml import Location
 from neuroml import Projection
 from neuroml import Connection
 
+
 class ConnectionInfo:
 
     def __init__(self,
@@ -55,3 +56,25 @@ def getSegmentIds(cell):
         seg_ids.append(segment.id)
 
     return seg_ids
+
+def get3DPosition(cell, segment_index, fraction_along):
+    seg = cell.morphology.segments[segment_index]
+ 
+    end = seg.distal
+
+    start = seg.proximal
+    if start is None:
+        segs = getSegmentIds(cell)
+        seg_index_parent = segs.index(seg.parent.segments)
+        start = cell.morphology.segments[seg_index_parent].distal
+
+    fx = fract(start.x, end.x, fraction_along)
+    fy = fract(start.y, end.y, fraction_along)
+    fz = fract(start.z, end.z, fraction_along)
+
+    #print "(%f, %f, %f) is %f between (%f, %f, %f) and (%f, %f, %f)"%(fx,fy,fz,fraction_along,start.x,start.y,start.z,end.x,end.y,end.z)
+
+    return fx, fy, fz
+
+def fract(a, b, f):
+    return a+(b-a)*f
