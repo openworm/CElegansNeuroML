@@ -4,11 +4,14 @@
 # MIT licence
 #
 # Python script for straightening NeuroML2 worm data (positions) assuming that
-# (i) the worm is already straight along the x axis, and (ii) we have output
-# of blenderExportSpine.py stashed somewhere. Run that script on the VirtualWorm
-# Blender model that includes a spine curve.
+# (i) the worm is already straight along the x axis, and (ii) Bezier spline
+# control points that correspond to the virtual "spine" of the worm.
 #
 # Usage: PositionStraighten.py NMLFILE SPINETSVFILE
+#
+# The spine spline is the output of of blenderExportSpine.py script run
+# on the VirtualWorm Blender model that includes a spine curve. The best
+# known spline is also stored in the dataSets/spine-spline.tsv file nearby.
 #
 # Algorithm: The spine curve is converted to a densely segmented line;
 # then, for each position, the nearest point on this line is found,

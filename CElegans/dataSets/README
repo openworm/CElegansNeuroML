@@ -1,1 +1,3 @@
 This is the directory for storing interesting dataSets associated with the project. These can be plots illustrating points which have been made in the accompanying papers, for example
+
+* spine-spline.tsv - Bezier spline control points that go through the center of the A-P axis of the undulating worm model as used by VirtualWorm; this can be used as an input of the PositionStraighten.py script to straighten NeuroML2 data; the current spine is possibly not 100% exact but it should be good enough for initial testing
