@@ -1,4 +1,3 @@
-
 #
 #
 #   A file which opens the CElegans neuroConstruct project, and saves generated network in NeuroML format
@@ -67,7 +66,8 @@ NeuroMLFileManager.saveNetworkStructureXML(project,
                                        False,
                                        simConfig.getName(),
                                        "Physiological Units",
-                                       NeuroMLConstants.NeuroMLVersion.NEUROML_VERSION_1);
+                                       NeuroMLConstants.NeuroMLVersion.NEUROML_VERSION_1,
+                                       None);
 
 nmlFileName = "GeneratedNeuroML2.xml"
 
@@ -77,7 +77,8 @@ NeuroMLFileManager.saveNetworkStructureXML(project,
                                        False,
                                        simConfig.getName(),
                                        "Physiological Units",
-                                       NeuroMLConstants.NeuroMLVersion.NEUROML_VERSION_2_BETA);
+                                       NeuroMLConstants.NeuroMLVersion.NEUROML_VERSION_2_BETA,
+                                       None);
 
 
 print "Done!"
