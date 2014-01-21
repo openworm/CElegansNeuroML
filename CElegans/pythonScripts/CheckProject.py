@@ -119,6 +119,16 @@ def testAll(argv=None):
 
       src = project.morphNetworkConnectionsInfo.getSourceCellGroup(netConnName)
       tgt = project.morphNetworkConnectionsInfo.getTargetCellGroup(netConnName)
+
+      synlist = project.morphNetworkConnectionsInfo.getSynapseList(netConnName)
+
+      #print synlist
+
+      assert synclass == synlist[0].getSynapseType()
+
+      if '_GJ' in synclass and synclass != 'Generic_GJ':
+        print "Only allowed gap junction synapse is Generic_GJ, not "+synclass
+        assert synclass == 'Generic_GJ'
       
 
       if not (src == pre and tgt == post):
