@@ -1,0 +1,5 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="c3o2">
+    <expTwoSynapse id="exc_syn" erev="0mV" gbase="1nS" tauDecay="10ms" tauRise="10ms"/>
+    <expTwoSynapse id="inh_syn" erev="-80mV" gbase="1nS" tauDecay="10ms" tauRise="10ms"/>
+    <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
+</neuroml>
