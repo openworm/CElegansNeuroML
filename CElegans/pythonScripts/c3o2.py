@@ -7,7 +7,8 @@ from neuroml import Instance
 from neuroml import Location
 from neuroml import PulseGenerator
 from neuroml import ExplicitInput
-from neuroml import SynapticConnection
+from neuroml import Projection
+from neuroml import Connection
 import neuroml.writers as writers
 import neuroml.loaders as loaders
 
@@ -91,9 +92,49 @@ for cell in cell_names:
     exp_input = ExplicitInput(target="%s/0/%s"%(pop0.id,generic_iaf_cell.id),
                                              input=offset_current.id)
 
-    net.explicit_inputs.append(exp_input)
+    if 'P' in cell:
+        net.explicit_inputs.append(exp_input)
     
 
+# Get the standard name for a network connection
+def get_projection_id(pre, post, synclass, syntype):
+
+    proj_id = "NC_%s_%s_%s"%(pre, post, synclass)
+    '''
+    if "GapJunction" in syntype:
+       proj_id += '_GJ' '''
+
+    return proj_id
+
+for conn in conns:
+
+    # take information about each connection and package it into a 
+    # NeuroML Projection data structure
+    proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
+    
+    syn = exc_syn.id
+    if 'GABA' in conn.synclass:
+        syn = inh_syn.id
+    
+    proj0 = Projection(id=proj_id, \
+                       presynaptic_population=conn.pre_cell, 
+                       postsynaptic_population=conn.post_cell, 
+                       synapse=syn)
+
+    # Get the corresponding Cell for each 
+    pre_cell = all_cells[conn.pre_cell]
+    post_cell = all_cells[conn.post_cell]
+
+    net.projections.append(proj0)
+    
+    for conn_id in range(0,conn.number):
+
+        # Add a Connection with the closest locations
+        conn0 = Connection(id=conn_id, \
+                   pre_cell_id="../%s/0/%s"%(conn.pre_cell, generic_iaf_cell.id),
+                   post_cell_id="../%s/0/%s"%(conn.post_cell, generic_iaf_cell.id))
+
+        proj0.connections.append(conn0)
 
 
 
