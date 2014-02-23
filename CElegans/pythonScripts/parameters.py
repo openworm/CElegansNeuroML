@@ -29,4 +29,5 @@ chem_inh_syn_decay =       BioParameter("chem_inh_syn_decay", "10ms", "BlindGues
 
 
 unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.25nA", "KnownError", "0")
+unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "200ms", "KnownError", "0")
 

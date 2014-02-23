@@ -53,7 +53,7 @@ nml_doc.networks.append(net)
 
 offset_current = PulseGenerator(id="offset_current",
                         delay="0ms",
-                        duration="1000s",
+                        duration=params.unphysiological_offset_current_dur.value,
                         amplitude=params.unphysiological_offset_current.value)
 
 nml_doc.pulse_generators.append(offset_current)
@@ -95,7 +95,7 @@ for cell in cell_names:
     exp_input = ExplicitInput(target="%s/0/%s"%(pop0.id,generic_iaf_cell.id),
                                              input=offset_current.id)
 
-    if 'P' in cell:
+    if 'A' in cell:
         net.explicit_inputs.append(exp_input)
         
     lems_file = lems_file + '    <OutputColumn id="%s_v" quantity="%s/0/%s/v" />\n'%(cell, cell, generic_iaf_cell.id)

@@ -16,7 +16,7 @@ for line in traces:
         for i in range(len(points)):
             if not volts.has_key(i):
                 volts[i] = []
-            volts[i].append(points[i])
+            volts[i].append(float(points[i])+0.0020*i)
 
 for cell_index in volts.keys():
     if cell_index <=302:
