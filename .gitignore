@@ -7,12 +7,12 @@
 generatedMOOSE
 CElegans/pythonScripts/*.mod
 CElegans/pythonScripts/*.hoc
+CElegans/pythonScripts/*enerated*ml
+CElegans/pythonScripts/CElegansConnectome.nml
 generatedGENESIS
 generatedNEURON
 simulations
 savedNetworks
-CElegans/pythonScripts/*.xml
-CElegans/pythonScripts/*.nml
 
 
 

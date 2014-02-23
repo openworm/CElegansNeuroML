@@ -63,9 +63,12 @@ nml_doc.pulse_generators.append(offset_current)
 cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet()
 
 # cell_names = ['ADAL']
+cell_names.sort()
 
 # To hold all Cell NeuroML objects vs. names
 all_cells = {}
+
+lems_file = ""
 
 for cell in cell_names:
     # build a Population data structure out of the cell name
@@ -94,7 +97,8 @@ for cell in cell_names:
 
     if 'P' in cell:
         net.explicit_inputs.append(exp_input)
-    
+        
+    lems_file = lems_file + '    <OutputColumn id="%s_v" quantity="%s/0/%s/v" />\n'%(cell, cell, generic_iaf_cell.id)
 
 # Get the standard name for a network connection
 def get_projection_id(pre, post, synclass, syntype):
@@ -144,6 +148,12 @@ nml_file = 'c3o2.nml'
 writers.NeuroMLWriter.write(nml_doc, nml_file)
 
 print("Written network file to: "+nml_file)
+
+lems_file_name = 'LEMS_c3o2.xml.tmp'
+lems = open(lems_file_name, 'w')
+lems.write(lems_file)
+
+print("Written LEMS file to: "+lems_file_name)
 
 
 ###### Validate the NeuroML ######    

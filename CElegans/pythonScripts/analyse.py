@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+from pylab import *
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+
+
+fig = plt.figure(facecolor='#FFFFFF', edgecolor='#FFFFFF')
+p = fig.add_subplot(111)
+
+traces = open('c3o2.dat','r')
+volts = {}
+
+# Very inefficient...
+for line in traces:
+    if not line.strip().startswith('#'):
+        points = line.split()
+        for i in range(len(points)):
+            if not volts.has_key(i):
+                volts[i] = []
+            volts[i].append(points[i])
+
+for cell_index in volts.keys():
+    if cell_index <=302:
+        if cell_index >0:
+            p.plot(volts[0], volts[cell_index])
+        
+plt.show()
+
+
+
