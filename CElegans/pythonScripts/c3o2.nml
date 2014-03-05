@@ -1,8 +1,8 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="c3o2">
-    <expTwoSynapse id="exc_syn" erev="0mV" gbase="0.1nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn" erev="-80mV" gbase="0.1nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn" erev="0mV" gbase="0.06nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn" erev="-80mV" gbase="0.06nS" tauDecay="10ms" tauRise="3ms"/>
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
-    <pulseGenerator id="offset_current" delay="0ms" duration="1000s" amplitude="0.3nA"/>
+    <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.25nA"/>
     <network id="c3o2">
         <population id="ADAL" component="generic_iaf_cell" type="populationList">
             <instance id="0">
@@ -16534,43 +16534,129 @@
         <projection id="NC_VC1_VD1_Generic_GJ" postsynapticPopulation="VD1" presynapticPopulation="VC1" synapse="exc_syn">
             <connection preCellId="../VC1/0/generic_iaf_cell" postCellId="../VD1/0/generic_iaf_cell" id="0"/>
         </projection>
-        <explicitInput input="offset_current" target="CEPDL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="CEPDR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="CEPVL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="CEPVR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="FLPL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="FLPR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADAL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADAR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADEL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADER/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADFL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADFR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADLL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ADLR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AFDL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AFDR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIAL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIAR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIBL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIBR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIML/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIMR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AINL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AINR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIYL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIYR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIZL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AIZR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ALA/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ALML/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ALMR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ALNL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ALNR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AQR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS1/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS10/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS11/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS2/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS3/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS4/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS5/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS6/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS7/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS8/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AS9/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASEL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASER/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASGL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASGR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASHL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASHR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASIL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASIR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASJL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASJR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASKL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="ASKR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AUAL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AUAR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVAL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVAR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVBL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVBR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVDL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVDR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVEL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVER/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVFL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVFR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVG/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVHL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVHR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVJL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVJR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVKL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVKR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AVM/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AWAL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AWAR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AWBL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AWBR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AWCL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="AWCR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="BAGL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="BAGR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA1/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA2/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA3/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA4/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA5/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA6/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA7/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA8/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DA9/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="DVA/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="LUAL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="LUAR/0/generic_iaf_cell"/>
         <explicitInput input="offset_current" target="PDA/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PDB/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PDEL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PDER/0/generic_iaf_cell"/>
         <explicitInput input="offset_current" target="PHAL/0/generic_iaf_cell"/>
         <explicitInput input="offset_current" target="PHAR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PHBL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PHBR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PHCL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PHCR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PLML/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PLMR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PLNL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PLNR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PQR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVCL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVCR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVDL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVDR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVM/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVNL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVNR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVPL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVPR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVQL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVQR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVT/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVWL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="PVWR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="RIPL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="RIPR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="RIAL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="RIAR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SAADL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SAADR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SAAVL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SAAVR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SABD/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SABVL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SABVR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SIADL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SIADR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SIAVL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="SIAVR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="URADL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="URADR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="URAVL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="URAVR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA1/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA10/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA11/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA12/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA2/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA3/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA4/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA5/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA6/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA7/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA8/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VA9/0/generic_iaf_cell"/>
     </network>
 </neuroml>
