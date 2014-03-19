@@ -1,3 +1,4 @@
+import sys
 import matplotlib.pyplot as plt
 from pylab import *
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -6,7 +7,10 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 fig = plt.figure(facecolor='#FFFFFF', edgecolor='#FFFFFF')
 p = fig.add_subplot(111)
 
-traces = open('c3o2.dat','r')
+
+dat_file = sys.argv[1]
+
+traces = open(dat_file,'r')
 volts = {}
 
 # Very inefficient...

@@ -1,13 +1,5 @@
 
-
-
-class BioParameter():
-
-	def __init__(self, name, value, source, certainty):
-		self.name = name
-		self.value = value
-		self.source = source
-		self.certainty = certainty
+from bioparameters import BioParameter
 
 
 iaf_leak_reversal =     BioParameter("iaf_leak_reversal", "-70mV", "BlindGuess", "0.1")

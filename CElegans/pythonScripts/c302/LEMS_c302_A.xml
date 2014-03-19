@@ -10,14 +10,14 @@
     <Include file="Simulation.xml" />
 
 
-    <Include file="c3o2.nml" />
+    <Include file="c302_A.nml" />
 
     
 
     <!-- End of NeuroML2 content -->
 
 
-    <Simulation id="sim1" length="500ms" step="0.1ms" target="c3o2">
+    <Simulation id="sim1" length="500ms" step="0.1ms" target="c302_A">
 
         <Display id="d0" title="Membrane potential of a number of cells" timeScale="1ms" xmin="0"
                  xmax="100" ymin="-75" ymax="-50">
@@ -28,7 +28,7 @@
             
         </Display>
 
-        <OutputFile id="of0" fileName="c3o2.dat">
+        <OutputFile id="of0" fileName="c302_A.dat">
                 <OutputColumn id="ADAL_v" quantity="ADAL/0/generic_iaf_cell/v" />
     <OutputColumn id="ADAR_v" quantity="ADAR/0/generic_iaf_cell/v" />
     <OutputColumn id="ADEL_v" quantity="ADEL/0/generic_iaf_cell/v" />

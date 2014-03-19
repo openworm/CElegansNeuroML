@@ -10,11 +10,11 @@ from xlrd import open_workbook
 ############################################################
 
 
-def readDataFromSpreadsheet():
+def readDataFromSpreadsheet(dir="../../"):
 
     conns = []
     cells = []
-    filename = "../../CElegansNeuronTables.xls"
+    filename = dir+"CElegansNeuronTables.xls"
     rb = open_workbook(filename)
 
     print "Opened Excel file: "+ filename

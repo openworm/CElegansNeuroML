@@ -12,12 +12,14 @@ from neuroml import Connection
 import neuroml.writers as writers
 import neuroml.loaders as loaders
 
-
+import sys
+sys.path.append("..")
 import SpreadsheetDataReader
 
-import parameters as params
+import parameters_A as params
 
-nml_doc = NeuroMLDocument(id="c3o2")
+net_id = "c302_A"
+nml_doc = NeuroMLDocument(id=net_id)
 
 generic_iaf_cell = IafCell(id="generic_iaf_cell", 
                             C =                 params.iaf_C.value,
@@ -46,7 +48,7 @@ inh_syn = ExpTwoSynapse(id="inh_syn",
 nml_doc.exp_two_synapses.append(inh_syn)
 
 
-net = Network(id="c3o2")
+net = Network(id=net_id)
 
 nml_doc.networks.append(net)
 
@@ -60,7 +62,7 @@ nml_doc.pulse_generators.append(offset_current)
 
 # Use the spreadsheet reader to give a list of all cells and a list of all connections
 # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet()
+cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../")
 
 # cell_names = ['ADAL']
 cell_names.sort()
@@ -84,7 +86,7 @@ for cell in cell_names:
 
     # also use the cell name to grab the morphology file, as a NeuroML data structure
     #  into the 'all_cells' dict
-    cell_file = '../generatedNeuroML2/%s.nml'%cell
+    cell_file = '../../generatedNeuroML2/%s.nml'%cell
     doc = loaders.NeuroMLLoader.load(cell_file)
     all_cells[cell] = doc.cells[0]
     location = doc.cells[0].morphology.segments[0].proximal
@@ -144,12 +146,12 @@ for conn in conns:
 
 #######   Write to file  ######    
 
-nml_file = 'c3o2.nml'
+nml_file = net_id+'.nml'
 writers.NeuroMLWriter.write(nml_doc, nml_file)
 
 print("Written network file to: "+nml_file)
 
-lems_file_name = 'LEMS_c3o2.xml.tmp'
+lems_file_name = 'LEMS_%s.xml.tmp'%net_id
 lems = open(lems_file_name, 'w')
 lems.write(lems_file)
 
