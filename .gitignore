@@ -1,5 +1,6 @@
-/CElegans/pythonScripts/c302/c302_A.dat
-/CElegans/pythonScripts/c3o2.dat
+/CElegans/pythonScripts/c302/*.mod
+/CElegans/pythonScripts/c302/*.hoc
+/CElegans/pythonScripts/c302/*.dat
 *.tmp
 *.svg
 *.bak

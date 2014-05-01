@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_25" class="java.beans.XMLDecoder">
+<java version="1.7.0_55" class="java.beans.XMLDecoder">
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
@@ -689,7 +689,7 @@
     </object>
    </void>
    <void method="put">
-    <string>GABA_GJ</string>
+    <string>Glutamate</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -697,7 +697,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Glutamate</string>
+    <string>GABA_GJ</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -713,7 +713,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Generic_GJ</string>
+    <string>Dopamine</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -721,7 +721,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Dopamine</string>
+    <string>Generic_GJ</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
