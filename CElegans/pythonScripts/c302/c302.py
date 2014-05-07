@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from neuroml import NeuroMLDocument
 from neuroml import Network
 from neuroml import Population
@@ -13,6 +15,8 @@ import airspeed
 
 import random
 
+import argparse
+
 try:
     from urllib2 import URLError  # Python 2
 except:
@@ -23,6 +27,68 @@ sys.path.append("..")
 import SpreadsheetDataReader
 
 LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
+
+
+
+
+def process_args():
+    """ 
+    Parse command-line arguments.
+    """
+    parser = argparse.ArgumentParser(description="A script which can generate NeuroML2 compliant networks based on the C elegans connectome, along with LEMS files to run them")
+
+    parser.add_argument('reference', type=str, metavar='<reference>', 
+                        help='Unique reference for new network')
+                        
+    parser.add_argument('parameters', type=str, metavar='<parameters>', 
+                        help='Set of biophysical parametes to use, e.g. parameters_A')
+                        
+    parser.add_argument('-cells', 
+                        type=str,
+                        metavar='<cells>',
+                        default=None,
+                        help='List of cells to include in network (default: all)')
+                        
+    parser.add_argument('-cellstoplot', 
+                        type=str,
+                        metavar='<cells-to-plot>',
+                        default=None,
+                        help='List of cells to plot (default: all)')
+
+                        #cells_to_stimulate=cells_to_stimulate, duration=500, dt=0.1, vmin=-72, vmax
+                        
+    parser.add_argument('-cellstostimulate', 
+                        type=str,
+                        metavar='<cells-to-stimulate>',
+                        default=None,
+                        help='List of cells to stimulate (default: all)')
+                        
+                        
+    parser.add_argument('-duration', 
+                        type=float,
+                        metavar='<duration>',
+                        default=100,
+                        help='Duration of simulation in ms')
+                        
+    parser.add_argument('-dt', 
+                        type=float,
+                        metavar='<time step>',
+                        default=0.01,
+                        help='Timestep for simulations (dt) in ms')
+                        
+    parser.add_argument('-vmin', 
+                        type=float,
+                        metavar='<vmin>',
+                        default=-80,
+                        help='Minimum voltage for plot in mV')
+                        
+    parser.add_argument('-vmax', 
+                        type=float,
+                        metavar='<vmax>',
+                        default=-40,
+                        help='Maximum voltage for plot in mV')
+    
+    return parser.parse_args()
 
 
 def merge_with_template(model, templfile):
@@ -75,6 +141,7 @@ def get_random_colour_hex():
     col = "#"
     for c in rgb: col+= ( c[2:4] if len(c)==4 else "00")
     return col
+
         
 def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulate=None, duration=500, dt=0.01, vmin=-75, vmax=20):
     
@@ -186,4 +253,27 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
     
 
     write_to_file(nml_doc, lems_info, net_id)
+    
+    
+
+def main():
+
+    args = process_args()
+    
+    
+    exec("import %s as params"%args.parameters)
+    
+    generate(args.reference, 
+             params, 
+             cells = args.cells, 
+             cells_to_plot=args.cellstoplot, 
+             cells_to_stimulate=args.cellstostimulate, 
+             duration=args.duration, 
+             dt=args.dt, 
+             vmin=args.vmin,
+             vmax=args.vmax)
+    
+    
+if __name__ == '__main__':
+    main()
 
