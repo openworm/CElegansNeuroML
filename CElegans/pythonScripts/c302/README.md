@@ -13,11 +13,11 @@ a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/Ne
 
 There will be multiple version of the network, based on increasingly complex cell models, e.g.
 
-A) Integrate & fire cells
+Parameters A) Integrate & fire cells
 
-B) Izhikevich cells
+Parameters B) Izhikevich cells (perhaps, or AdEx cells)
 
-C) Single compartment, conductance based neurons
+Parameters C) Single compartment, conductance based neurons
 
 
 **To install & test**
