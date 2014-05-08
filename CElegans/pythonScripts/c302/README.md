@@ -14,7 +14,7 @@ a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/Ne
 
 There will be multiple version of this network, based on increasingly complex cell models, e.g.
 
-**[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py))** Integrate & fire cells (not very physiological)
+**[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py))** Integrate & fire cells (not very physiological; only parameter set so far)
 
 **Parameters_B)** Izhikevich cells or perhaps AdEx cells (slightly more physiological)
 
@@ -28,11 +28,16 @@ Install [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) & [jNeuroML](
     python c302_A.py          # To regenerate the NeuroML & LEMS files
     jnml LEMS_c302_A.xml      # Run a simulation with jNeuroML
     
-This will produce the following (6 cells visualised with the jNeuromL GUI)
+This will produce the following (6 cells visualised with the jNeuroML GUI):
 
-To plot all of the activity
+![Simulation in jNeuroML](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/LEMS.png)
+
+To plot the activity of all 302 neurons:
 
     python analyse.py c302_A.dat
+    
+![Analysis](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/analyse.png)
+    
     
 Or, test all of the working features:
 
