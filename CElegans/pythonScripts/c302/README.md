@@ -13,7 +13,7 @@ a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/Ne
 
 There will be multiple version of the network, based on increasingly complex cell models, e.g.
 
-Parameters A) Integrate & fire cells
+[Parameters A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py)) Integrate & fire cells
 
 Parameters B) Izhikevich cells (perhaps, or AdEx cells)
 
@@ -25,8 +25,12 @@ Parameters C) Single compartment, conductance based neurons
 Install [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) & [jNeuroML](https://github.com/NeuroML/jNeuroML)
 
     python c302_A.py
-    ./jnml LEMS_c302_A.xml
+    jnml LEMS_c302_A.xml
     python analyse.py c302_A.dat
+    
+Or, test all of the working features:
+
+    ./test.sh
 
 **Planned work**
 
