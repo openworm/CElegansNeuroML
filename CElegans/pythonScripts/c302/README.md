@@ -40,7 +40,9 @@ This saves traces from all neurons in a file c302_A.dat. To plot the activity of
 ![Analysis](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/analyse.png)
     
     
-To test all of the working features:
+Traces are slightly offset from one another.
+
+To test all of the working features of the framework:
 
     ./test.sh
     
@@ -48,13 +50,13 @@ To test all of the working features:
 
 This package can be used to generate customised networks of varying size, with different cells stimulated, of varying duration from the command line:
 
-    c302.py MyNetwork parameters_A -cells ["ADAL","AIBL","RIVR","RMEV"] -cellstostimulate ["ADAL","RIVR"] -duration 500
+    ./c302.py MyNetwork parameters_A -cells ["ADAL","AIBL","RIVR","RMEV"] -cellstostimulate ["ADAL","RIVR"] -duration 500
     
 This will create a NeuroML 2 file and a LEMS file to execute it, containing 4 cells, stimulating 2 of them, and with a duration of 500 ms
 
 More options can be found with 
 
-    c302.py -h
+    ./c302.py -h
     
 ### Mapping to NEURON
 
