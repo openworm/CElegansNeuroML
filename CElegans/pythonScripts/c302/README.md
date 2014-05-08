@@ -1,7 +1,7 @@
 c302: simple NeuroML based network models of C elegans
 ------------------------------------------------------
 
-*NOTE: Work in progress!!* 
+*NOTE: Still a work in progress!!* 
 
 This is an experimental set of files for generating network models in NeuroML 
 based on C elegans connectivity data.
@@ -10,7 +10,7 @@ It uses information on the synaptic connectivity of the network and uses
 [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) to generate 
 a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/NeuroML/jNeuroML).
 
-**Multiple versions**
+### Multiple versions of the network
 
 There will be multiple version of this network, based on increasingly complex cell models, e.g.
 
@@ -21,7 +21,7 @@ There will be multiple version of this network, based on increasingly complex ce
 **Parameters_C)** Single compartment, conductance based neurons (could be based on known ion channel types, etc.)
 
 
-**To install & test**
+### To install & test
 
 Install [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) & [jNeuroML](https://github.com/NeuroML/jNeuroML)
 
@@ -38,13 +38,13 @@ Or, test all of the working features:
 
     ./test.sh
 
-**Planned work**
+### Planned work
 
 Future plans include:
 
-- Implement & tune Parameters_B, Parameters_c
+- Implement & correctly tune **Parameters_B**, **Parameters_C**
 
-- Modify to use [PyOpenWorm](https://github.com/openworm/PyOpenWorm)
+- Modify to use [PyOpenWorm](https://github.com/openworm/PyOpenWorm) as source of connection data
 
 - Move all of this to its own repository
 
