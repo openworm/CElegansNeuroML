@@ -28,4 +28,7 @@ python c302.py c302_A_Syns parameters_A -cells ["ADAL","AIBL","RIVR","RMEV"] -ce
 
 ## Try converting it to NEURON
 
+jnml LEMS_c302_A.xml -neuron
+jnml LEMS_c302_A_Pharyngeal.xml -neuron
 jnml LEMS_c302_A_Syns.xml -neuron
+nrnivmodl

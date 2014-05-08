@@ -8,6 +8,7 @@ from neuroml import Location
 from neuroml import ExplicitInput
 from neuroml import Projection
 from neuroml import Connection
+from neuroml import ExpTwoSynapse
 import neuroml.writers as writers
 import neuroml.loaders as loaders
 
@@ -142,16 +143,47 @@ def get_random_colour_hex():
     for c in rgb: col+= ( c[2:4] if len(c)==4 else "00")
     return col
 
+def split_neuroml_quantity(quantity):
+    
+    i=len(quantity)
+    while i>0:
+        magnitude = quantity[0:i].strip()
+        unit = quantity[i:].strip()
+        
+        try:
+            magnitude = float(magnitude)
+            i=0
+        except ValueError:
+            i -= 1
+    return magnitude, unit
+
+existing_synapses = {}
+
+def create_n_connection_synapse(prototype_syn, n, nml_doc):
+    
+    new_id = "%s_%iconns"%(prototype_syn.id, n)
+    
+    if not existing_synapses.has_key(new_id):
+        
+        magnitude, unit = split_neuroml_quantity(prototype_syn.gbase)
+        new_syn = ExpTwoSynapse(id=new_id,
+                            gbase =       "%f%s"%(magnitude*n, unit),
+                            erev =        prototype_syn.erev,
+                            tau_decay =   prototype_syn.tau_decay,
+                            tau_rise =    prototype_syn.tau_rise)
+                            
+        existing_synapses[new_id] = new_syn 
+        nml_doc.exp_two_synapses.append(new_syn)        
+    else:
+        new_syn = existing_synapses[new_id]
+        
+    return new_syn
         
 def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulate=None, duration=500, dt=0.01, vmin=-75, vmax=20):
     
     nml_doc = NeuroMLDocument(id=net_id)
 
     nml_doc.iaf_cells.append(params.generic_cell)
-
-    nml_doc.exp_two_synapses.append(params.exc_syn)
-
-    nml_doc.exp_two_synapses.append(params.inh_syn)
 
     net = Network(id=net_id)
 
@@ -218,7 +250,7 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
                 
             lems_info["cells"].append(cell)
             
-
+    
     for conn in conns:
 
         if conn.pre_cell in lems_info["cells"] and conn.post_cell in lems_info["cells"]:
@@ -226,14 +258,16 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
 
-            syn = params.exc_syn.id
+            syn0 = params.exc_syn
             if 'GABA' in conn.synclass:
-                syn = params.inh_syn.id
+                syn0 = params.inh_syn
+                
+            syn_new = create_n_connection_synapse(syn0, conn.number, nml_doc)
 
             proj0 = Projection(id=proj_id, \
                                presynaptic_population=conn.pre_cell, 
                                postsynaptic_population=conn.post_cell, 
-                               synapse=syn)
+                               synapse=syn_new.id)
 
             # Get the corresponding Cell for each 
             # pre_cell = all_cells[conn.pre_cell]
@@ -241,14 +275,12 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
 
             net.projections.append(proj0)
 
-            for conn_id in range(0,conn.number):
+            # Add a Connection with the closest locations
+            conn0 = Connection(id="0", \
+                       pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id),
+                       post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id))
 
-                # Add a Connection with the closest locations
-                conn0 = Connection(id=conn_id, \
-                           pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id),
-                           post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id))
-
-                proj0.connections.append(conn0)
+            proj0.connections.append(conn0)
 
     
 
@@ -275,5 +307,12 @@ def main():
     
     
 if __name__ == '__main__':
+    
+    '''
+    print split_neuroml_quantity("-60mV")
+    print split_neuroml_quantity("1.9e-5")
+    print split_neuroml_quantity("1.9e-5 kOhm")
+    '''
+    
     main()
 
