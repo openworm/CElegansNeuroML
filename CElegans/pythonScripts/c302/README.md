@@ -14,11 +14,11 @@ a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/Ne
 
 There will be multiple version of this network, based on increasingly complex cell models, e.g.
 
-**[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py))** Integrate & fire cells (not very physiological; only parameter set so far)
+**[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py)** Integrate & fire cells (not very physiological; only parameter set so far)
 
-**Parameters_B)** Izhikevich cells or perhaps AdEx cells (slightly more physiological)
+**Parameters_B** Izhikevich cells or perhaps AdEx cells (slightly more physiological)
 
-**Parameters_C)** Single compartment, conductance based neurons (could be based on known ion channel types, etc.)
+**Parameters_C** Single compartment, conductance based neurons (could be based on known ion channel types, etc.)
 
 
 ### To install & test
@@ -32,16 +32,43 @@ This will produce the following (6 cells visualised with the jNeuroML GUI):
 
 ![Simulation in jNeuroML](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/LEMS.png)
 
-To plot the activity of all 302 neurons:
+This saves traces from all neurons in a file c302_A.dat. To plot the activity of all 302 neurons:
 
     python analyse.py c302_A.dat
     
 ![Analysis](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/analyse.png)
     
     
-Or, test all of the working features:
+To test all of the working features:
 
     ./test.sh
+    
+### Command line interface
+
+This package can be used to generate customised networks of varying size, with different cells stimulated, of varying duration from the command line:
+
+    c302.py MyNetwork parameters_A -cells ["ADAL","AIBL","RIVR","RMEV"] -cellstostimulate ["ADAL","RIVR"] -duration 500
+    
+This will create a NeuroML 2 file and a LEMS file to execute it, containing 4 cells, stimulating 2 of them, and with a duration of 500 ms
+
+More options can be found with 
+
+    c302.py -h
+    
+### Mapping to NEURON
+
+Due to the fact that the cells are in pure NeuroML2, they can be mapped to other formats using the export feature of jNeuroML. [Install NEURON](http://www.neuron.yale.edu/neuron/download) and map the network to this format using:
+
+    jnml LEMS_c302_A_Pharyngeal.xml -neuron
+    nrnivmodl
+    nrngui -python LEMS_c302_A_Pharyngeal_nrn.py
+    
+This will run the example network containing [just the 20 cells from the pharynx](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Pharyngeal.py). 
+
+![Run in NEURON](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/Neuron.png)
+
+Image above shows the network run in NEURON (top) and a comparison of the activity of the 20 cells when run on jNeuroML 
+(bottom left) and NEURON (bottom right). Bottom graphs generated with [analyse.py](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/analyse.py) and each of the traces are offset by a few mV for clarity.
 
 ### Planned work
 
