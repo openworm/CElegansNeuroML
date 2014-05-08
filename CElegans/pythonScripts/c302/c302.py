@@ -20,7 +20,7 @@ except:
 
 import sys
 sys.path.append("..")
-import SpreadsheetDataReader
+from SpreadsheetDataReader import SpreadsheetDataReader
 
 LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
 
@@ -30,10 +30,10 @@ def merge_with_template(model, templfile):
         templ = airspeed.Template(f.read())
     return templ.merge(model)
 
-                        
+
 def write_to_file(nml_doc, lems_info, reference, validate=True):
 
-    #######   Write to file  ######    
+    #######   Write to file  ######
 
     nml_file = reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file)
@@ -42,7 +42,7 @@ def write_to_file(nml_doc, lems_info, reference, validate=True):
 
     lems_file_name = 'LEMS_%s.xml'%reference
     lems = open(lems_file_name, 'w')
-    
+
     merged = merge_with_template(lems_info, LEMS_TEMPLATE_FILE)
     lems.write(merged)
 
@@ -50,14 +50,14 @@ def write_to_file(nml_doc, lems_info, reference, validate=True):
 
     if validate:
 
-        ###### Validate the NeuroML ######    
+        ###### Validate the NeuroML ######
 
         from neuroml.utils import validate_neuroml2
-        try: 
+        try:
             validate_neuroml2(nml_file)
         except URLError as e:
             print("Problem validating against remote Schema!")
-        
+
 
 # Get the standard name for a network connection
 def get_projection_id(pre, post, synclass, syntype):
@@ -75,9 +75,9 @@ def get_random_colour_hex():
     col = "#"
     for c in rgb: col+= ( c[2:4] if len(c)==4 else "00")
     return col
-        
+
 def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulate=None, duration=500, dt=0.01, vmin=-75, vmax=20):
-    
+
     nml_doc = NeuroMLDocument(id=net_id)
 
     nml_doc.iaf_cells.append(params.generic_cell)
@@ -94,7 +94,7 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../")
+    cell_names, conns = OpenWormReader().read()
 
     cell_names.sort()
 
@@ -108,15 +108,15 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
                  "vmin":       vmin,
                  "vmax":       vmax,
                  "cell_component":    params.generic_cell.id}
-    
+
     lems_info["plots"] = []
     lems_info["cells"] = []
 
     for cell in cell_names:
-        
+
         if cells is None or cell in cells:
             # build a Population data structure out of the cell name
-            pop0 = Population(id=cell, 
+            pop0 = Population(id=cell,
                               component=params.generic_cell.id,
                               type="populationList")
 
@@ -141,21 +141,21 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
 
             if cells_to_stimulate is None or cell in cells_to_stimulate:
                 net.explicit_inputs.append(exp_input)
-                
+
             if cells_to_plot is None or cell in cells_to_plot:
                 plot = {}
-                
+
                 plot["cell"] = cell
                 plot["colour"] = get_random_colour_hex()
                 lems_info["plots"].append(plot)
-                
+
             lems_info["cells"].append(cell)
-            
+
 
     for conn in conns:
 
         if conn.pre_cell in lems_info["cells"] and conn.post_cell in lems_info["cells"]:
-            # take information about each connection and package it into a 
+            # take information about each connection and package it into a
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
 
@@ -164,11 +164,11 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
                 syn = params.inh_syn.id
 
             proj0 = Projection(id=proj_id, \
-                               presynaptic_population=conn.pre_cell, 
-                               postsynaptic_population=conn.post_cell, 
+                               presynaptic_population=conn.pre_cell,
+                               postsynaptic_population=conn.post_cell,
                                synapse=syn)
 
-            # Get the corresponding Cell for each 
+            # Get the corresponding Cell for each
             # pre_cell = all_cells[conn.pre_cell]
             # post_cell = all_cells[conn.post_cell]
 
@@ -183,7 +183,7 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
 
                 proj0.connections.append(conn0)
 
-    
+
 
     write_to_file(nml_doc, lems_info, net_id)
 
