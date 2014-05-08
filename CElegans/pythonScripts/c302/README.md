@@ -14,12 +14,13 @@ a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/Ne
 
 There will be multiple version of this network, based on increasingly complex cell models, e.g.
 
-**[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py)** Integrate & fire cells (not very physiological; only parameter set so far)
+**[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py)** Integrate & fire cells (not very physiological)
 
 **Parameters_B** Izhikevich cells or perhaps AdEx cells (slightly more physiological)
 
 **Parameters_C** Single compartment, conductance based neurons (could be based on known ion channel types, etc.)
 
+Parameters_A is the only parameter set tested so far, but the aim is to make all of the associated tools below for running, visualising, analysing, etc. independent of the parameter set used, so they can be ready for more detailed networks from c302 in the future. 
 
 ### To install & test
 
