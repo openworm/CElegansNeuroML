@@ -24,7 +24,7 @@ Parameters_A is the only parameter set tested so far, but the aim is to make all
 
 ### To install & test
 
-Install [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) & [jNeuroML](https://github.com/NeuroML/jNeuroML)
+Install [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) & [jNeuroML](https://github.com/NeuroML/jNeuroML) (make sure you get the **latest development version**)
 
     python c302_A.py          # To regenerate the NeuroML & LEMS files
     jnml LEMS_c302_A.xml      # Run a simulation with jNeuroML
