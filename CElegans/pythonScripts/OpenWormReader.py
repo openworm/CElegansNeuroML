@@ -11,10 +11,13 @@ from PyOpenWorm import Configure,Data,Network
 
 class OpenWormReader:
     def __init__(self):
-        c = Data()
+        c = Configure()
         c['connectomecsv'] = 'https://raw.github.com/openworm/data-viz/master/HivePlots/connectome.csv'
         c['neuronscsv'] = 'https://raw.github.com/openworm/data-viz/master/HivePlots/neurons.csv'
-        c['sqldb'] = '/home/markw/work/openworm/PyOpenWorm/db/celegans.db'
+        c['rdf.source'] = 'sparql_endpoint'
+        c['rdf.store_conf'] = ('http://107.170.133.175:8080/openrdf-workbench/repositories/test','http://localhost:8080/openrdf-sesame/repositories/test/statements')
+
+        c = Data(c)
         self.config = c
         self.net = Network(c)
     def read(self):

@@ -14,14 +14,14 @@
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_A_Syns" length="500ms" step="0.1ms" target="c302_A_Syns">
+    <Simulation id="sim_c302_A_Syns" length="500.0ms" step="0.1ms" target="c302_A_Syns">
 
-        <Display id="d0" title="c302_A_Syns: Membrane potential of a number of cells" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
+        <Display id="d0" title="c302_A_Syns: Membrane potential of a number of cells" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72.0" ymax="-48.0">
             
-            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#ed0041" timeScale="1ms" />
-            <Line id="AIBL" quantity="AIBL/0/generic_iaf_cell/v" scale="1mV" color="#608654" timeScale="1ms" />
-            <Line id="RIVR" quantity="RIVR/0/generic_iaf_cell/v" scale="1mV" color="#60002c" timeScale="1ms" />
-            <Line id="RMEV" quantity="RMEV/0/generic_iaf_cell/v" scale="1mV" color="#261a00" timeScale="1ms" />
+            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#fc2cc5" timeScale="1ms" />
+            <Line id="AIBL" quantity="AIBL/0/generic_iaf_cell/v" scale="1mV" color="#3fa844" timeScale="1ms" />
+            <Line id="RIVR" quantity="RIVR/0/generic_iaf_cell/v" scale="1mV" color="#5e29de" timeScale="1ms" />
+            <Line id="RMEV" quantity="RMEV/0/generic_iaf_cell/v" scale="1mV" color="#abda29" timeScale="1ms" />
             
         </Display>
 

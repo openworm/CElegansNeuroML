@@ -1,3 +1,5 @@
+*.nrn
+*ttt*
 *.dat
 *nrn.py
 *.mod

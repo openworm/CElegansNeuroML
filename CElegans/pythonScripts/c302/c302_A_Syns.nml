@@ -1,6 +1,6 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="c302_A_Syns">
-    <expTwoSynapse id="exc_syn" erev="0mV" gbase="0.5nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn" erev="-80mV" gbase="0.5nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.200000nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="0.200000nS" tauDecay="10ms" tauRise="3ms"/>
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
@@ -24,10 +24,10 @@
                 <location y="-2.033" x="-272.966999999999985" z="35.667000000000002"/>
             </instance>
         </population>
-        <projection id="NC_ADAL_AIBL_Glutamate" postsynapticPopulation="AIBL" presynapticPopulation="ADAL" synapse="exc_syn">
+        <projection id="NC_ADAL_AIBL_Glutamate" postsynapticPopulation="AIBL" presynapticPopulation="ADAL" synapse="exc_syn_1conns">
             <connection preCellId="../ADAL/0/generic_iaf_cell" postCellId="../AIBL/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RIVR_RMEV_GABA" postsynapticPopulation="RMEV" presynapticPopulation="RIVR" synapse="inh_syn">
+        <projection id="NC_RIVR_RMEV_GABA" postsynapticPopulation="RMEV" presynapticPopulation="RIVR" synapse="inh_syn_1conns">
             <connection preCellId="../RIVR/0/generic_iaf_cell" postCellId="../RMEV/0/generic_iaf_cell" id="0"/>
         </projection>
         <explicitInput input="offset_current" target="ADAL/0/generic_iaf_cell"/>
