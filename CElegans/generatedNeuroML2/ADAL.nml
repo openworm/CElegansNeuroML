@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd" id="ADAL">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2
+    https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
+    id="ADAL">
 
     <include href="LeakConductance.nml"/>
 
@@ -118,41 +122,41 @@
 
             <segmentGroup id="Axon">
                 <member segment="1"/>
-            
+
                 <member segment="2"/>
-            
+
                 <member segment="3"/>
-            
+
                 <member segment="4"/>
-            
+
                 <member segment="5"/>
-            
+
                 <member segment="6"/>
-            
+
                 <member segment="7"/>
-            
+
                 <member segment="8"/>
-            
+
                 <member segment="9"/>
-            
+
                 <member segment="10"/>
-            
+
                 <member segment="11"/>
-            
+
                 <member segment="12"/>
-            
+
                 <member segment="13"/>
-            
+
                 <member segment="14"/>
-            
+
                 <member segment="15"/>
-            
+
                 <member segment="16"/>
-            
+
                 <member segment="17"/>
-            
+
                 <member segment="18"/>
-            
+
                 <member segment="19"/>
             </segmentGroup>
 
@@ -169,7 +173,7 @@
                 <include segmentGroup="Axon"/>
             </segmentGroup>
 
-            
+
         </morphology></cell>
-    
+
 </neuroml>
