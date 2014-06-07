@@ -10,8 +10,6 @@
 
 from SpreadsheetDataReader import SpreadsheetDataReader
 from OpenWormReader import OpenWormReader
-from PyOpenWorm import Network as PNetwork
-from PyOpenWorm import DefaultConfig
 
 from neuroml import NeuroMLDocument
 from neuroml import Network
@@ -50,9 +48,8 @@ if __name__ == "__main__":
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
 
-    neuron_network = PNetwork(DefaultConfig)
-    cell_names = neuron_network.neurons()
-    conns = neuron_network.synapses()
+    cell_names, conns = OpenWormReader().read()
+
 
     net_id = "CElegansConnectome"
 
@@ -93,15 +90,10 @@ if __name__ == "__main__":
         return (idx,seg_id,fraction)
     def getDist(p1,p2):
         return math.sqrt(math.pow(p1[0]-p2[0],2)+math.pow(p1[1]-p2[1],2)+math.pow(p1[2] - p2[2],2))
-    for conn_tuple in conns:
+    for conn in conns:
 
         # take information about each connection and package it into a
         # NeuroML Projection data structure
-        conn = ConnectionInfo(conn_tuple[0],
-                conn_tuple[1],
-                conn_tuple[2][2],
-                conn_tuple[2][0],
-                conn_tuple[2][1])
         proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.syntype)
         proj0 = Projection(id=proj_id, \
         		     	   presynaptic_population=conn.pre_cell,

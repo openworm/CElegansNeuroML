@@ -25,11 +25,10 @@ except:
 
 import sys
 sys.path.append("..")
-from SpreadsheetDataReader import SpreadsheetDataReader
+
+from OpenWormReader import OpenWormReader as R
 
 LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
-
-
 
 
 def process_args():
@@ -193,7 +192,7 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    cell_names, conns = OpenWormReader().read()
+    cell_names,conns = R().read()
 
     cell_names.sort()
 
