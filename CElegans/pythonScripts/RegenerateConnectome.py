@@ -8,8 +8,11 @@
 
 ############################################################
 
-from SpreadsheetDataReader import SpreadsheetDataReader
-from OpenWormReader import OpenWormReader
+from PyOpenWorm import Network as PNetwork
+from PyOpenWorm import Neuron as PNeuron
+from PyOpenWorm import NeuroML as PNml
+from PyOpenWorm import Data
+from itertools import imap
 
 from neuroml import NeuroMLDocument
 from neuroml import Network
@@ -27,7 +30,6 @@ from random import randint
 from NeuroMLUtilities import validateNeuroML2
 from NeuroMLUtilities import getSegmentIds
 from NeuroMLUtilities import get3DPosition
-from NeuroMLUtilities import ConnectionInfo
 
 import math
 import time
@@ -47,8 +49,10 @@ if __name__ == "__main__":
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
+    pyopenworm_conf = Data.open("morph.conf")
 
-    cell_names, conns = OpenWormReader().read()
+    pyopenworm_net = PNetwork(conf=pyopenworm_conf)
+    cell_names, conns = (pyopenworm_net.neurons(), pyopenworm_net.synapses())
 
 
     net_id = "CElegansConnectome"
@@ -59,13 +63,9 @@ if __name__ == "__main__":
     net = Network(id=net_id)
     nml_network_doc.networks.append(net)
 
-    # To hold all Cell NeuroML objects vs. names
-    all_cells = {}
-
-    for cell in cell_names:
-        print "cell name = " + str(cell )
+    def morphology(cell_name):
     	# build a Population data structure out of the cell name
-        pop0 = Population(id=cell, component=cell, size=1)
+        pop0 = Population(id=cell_name, component=cell_name, size=1)
         inst = Instance(id="0")
         # Each of these cells is at (0,0,0), i.e. segment 3D info in each cell is absolute
         inst.location = Location(x="0.0", y="0.0", z="0.0")
@@ -74,12 +74,14 @@ if __name__ == "__main__":
         # put that Population into the Network data structure from above
         net.populations.append(pop0)
 
-        # also use the cell name to grab the morphology file, as a NeuroML data structure
-        #  into the 'all_cells' dict
-        cell_file = '../generatedNeuroML2/%s.nml'%cell
-        doc = loaders.NeuroMLLoader.load(cell_file)
-        all_cells[cell] = doc.cells[0]
-        print("Loaded morphology file from: %s, with id: %s"%(cell_file, all_cells[cell].id))
+        neur = pyopenworm_net.aneuron(cell_name)
+        doc = PNml.generate(neur)
+
+        return cell_name, doc.cells[0]
+        #print("Loaded morphology file from: %s, with id: %s"%(cell_file, all_cells[cell].id))
+
+    # To hold all Cell NeuroML objects vs. names
+    all_cells = { x[0] : x[1] for x in imap(morphology, cell_names) }
 
     dists = []
     start_time = time.time()
@@ -140,7 +142,7 @@ if __name__ == "__main__":
                     post_pos = get3DPosition(post_cell, post_segment_index, post_fraction_along)
 
                     dist = getDist(pre_pos,post_pos)
-                    #print dist
+                    print dist
 
                     if dist < best_dist:
                         best_dist = dist
