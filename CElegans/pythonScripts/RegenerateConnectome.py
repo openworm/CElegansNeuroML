@@ -9,7 +9,6 @@
 ############################################################
 
 from PyOpenWorm import Network as PNetwork
-from PyOpenWorm import Neuron as PNeuron
 from PyOpenWorm import NeuroML as PNml
 from PyOpenWorm import Data
 from itertools import imap
