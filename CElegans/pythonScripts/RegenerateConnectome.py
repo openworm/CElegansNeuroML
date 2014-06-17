@@ -109,7 +109,7 @@ if __name__ == "__main__":
         pre_segs = getSegmentIds(pre_cell)
         post_segs = getSegmentIds(post_cell)
 
-        debug = True
+        debug = False
         if debug: print "Projection between %s and %s has %i conns"%(conn.pre_cell,conn.post_cell,conn.number)
 
         for conn_id in range(0,conn.number):
@@ -141,7 +141,6 @@ if __name__ == "__main__":
                     post_pos = get3DPosition(post_cell, post_segment_index, post_fraction_along)
 
                     dist = getDist(pre_pos,post_pos)
-                    print dist
 
                     if dist < best_dist:
                         best_dist = dist
