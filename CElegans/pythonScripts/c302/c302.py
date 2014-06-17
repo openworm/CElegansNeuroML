@@ -14,7 +14,7 @@ import neuroml.loaders as loaders
 
 from PyOpenWorm import Network as PNetwork
 from PyOpenWorm import NeuroML as PNml
-from PyOpenWorm import Data
+from PyOpenWorm import Configure
 
 import airspeed
 
@@ -196,7 +196,7 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    pyopenworm_conf = Data.open("morph.conf")
+    pyopenworm_conf = Configure.open("morph.conf")
 
     pyopenworm_net = PNetwork(conf=pyopenworm_conf)
     cell_names, conns = (list(pyopenworm_net.neurons()), pyopenworm_net.synapses())
@@ -233,11 +233,17 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
 
             # also use the cell name to grab the morphology file, as a NeuroML data structure
             #  into the 'all_cells' dict
-            cell_file = '../../generatedNeuroML2/%s.nml'%cell
-            doc = loaders.NeuroMLLoader.load(cell_file)
+
+            neur = pyopenworm_net.aneuron(cell)
+            doc = PNml.generate(neur)
             all_cells[cell] = doc.cells[0]
-            location = doc.cells[0].morphology.segments[0].proximal
-            print("Loaded morphology file from: %s, with id: %s, location: (%s, %s, %s)"%(cell_file, all_cells[cell].id, location.x, location.y, location.z))
+
+            # XXX: Assuming the point is to get the root segment (that without a parent)
+            parent_segment = filter(lambda x: (x.parent == None), doc.cells[0].morphology.segments)[0]
+            print parent_segment.id
+            location = parent_segment.proximal
+
+            #print("Loaded morphology file from: %s, with id: %s, location: (%s, %s, %s)"%(cell_file, all_cells[cell].id, location.x, location.y, location.z))
 
             inst.location = Location(float(location.x), float(location.y), float(location.z))
 
