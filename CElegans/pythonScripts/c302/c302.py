@@ -185,7 +185,7 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc):
         
     return new_syn
         
-def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulate=None, duration=500, dt=0.01, vmin=-75, vmax=20):
+def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulate=None, weightoverride=None, duration=500, dt=0.01, vmin=-75, vmax=20):
     
     nml_doc = NeuroMLDocument(id=net_id)
 
@@ -267,8 +267,13 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
             syn0 = params.exc_syn
             if 'GABA' in conn.synclass:
                 syn0 = params.inh_syn
+            
+            number_syns = conn.number
+            conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
+            if weightoverride is not None and (weightoverride.has_key(conn_shorthand)):
+                number_syns = weightoverride[conn_shorthand]
                 
-            syn_new = create_n_connection_synapse(syn0, conn.number, nml_doc)
+            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc)
 
             proj0 = Projection(id=proj_id, \
                                presynaptic_population=conn.pre_cell, 
@@ -291,27 +296,36 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
     
 
     write_to_file(nml_doc, lems_info, net_id)
-    
-    
+  
+'''
+    Input:    string of form ["ADAL-AIBL":2.5,"I1L-I1R":0.5]
+    returns:  {}
+'''
+def parse_dict_arg(dict_arg):
+    ret = {}
+    entries = str(dict_arg[1:-1]).split(',')
+    for e in entries:
+        ret[e.split(':')[0]] = float(e.split(':')[1])
+    print ret
 
 def main():
 
     args = process_args()
     
-    
     exec("import %s as params"%args.parameters)
     
     generate(args.reference, 
              params, 
-             cells = args.cells, 
-             cells_to_plot=args.cellstoplot, 
-             cells_to_stimulate=args.cellstostimulate, 
-             duration=args.duration, 
-             dt=args.dt, 
-             vmin=args.vmin,
-             vmax=args.vmax)
+             cells =               args.cells, 
+             cells_to_plot =       args.cellstoplot, 
+             cells_to_stimulate =  args.cellstostimulate, 
+             weightoverride =      parse_dict_arg(args.weightoverride),
+             duration =            args.duration, 
+             dt =                  args.dt, 
+             vmin =                args.vmin,
+             vmax =                args.vmax)
              
-    for f in args.weightoverride: print f
+    
     
     
 if __name__ == '__main__':
