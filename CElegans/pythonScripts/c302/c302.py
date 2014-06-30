@@ -64,6 +64,12 @@ def process_args():
                         default=None,
                         help='List of cells to stimulate (default: all)')
                         
+    parser.add_argument('-weightoverride', 
+                        type=str,
+                        metavar='<weightoverride>',
+                        default=None,
+                        help='Map of weight changes (default: keep all weights the same)')
+                        
                         
     parser.add_argument('-duration', 
                         type=float,
@@ -304,6 +310,8 @@ def main():
              dt=args.dt, 
              vmin=args.vmin,
              vmax=args.vmax)
+             
+    for f in args.weightoverride: print f
     
     
 if __name__ == '__main__':
