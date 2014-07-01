@@ -59,7 +59,7 @@ def getSegmentIds(cell):
 
 def get3DPosition(cell, segment_index, fraction_along):
     seg = cell.morphology.segments[segment_index]
- 
+
     end = seg.distal
 
     start = seg.proximal
