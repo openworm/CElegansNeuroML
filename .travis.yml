@@ -1,0 +1,20 @@
+# Framework for running automated tests on Open Source Brain using Travis-CI.
+# See https://github.com/OpenSourceBrain/osb-model-validation for more details
+
+language: python
+python: 2.7
+
+env:
+    - OMV_ENGINE=jNeuroML
+    #- OMV_ENGINE=jNeuroML_NEURON
+
+install: 
+    - pip install git+https://github.com/OpenSourceBrain/osb-model-validation@test_new_backends
+
+script:
+    - omv all
+    - pwd
+    
+    
+    
+
