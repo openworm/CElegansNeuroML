@@ -3,4 +3,17 @@
  
 target: LEMS_c302_A_Pharyngeal.xml 
 engine: jNeuroML
+implements:
+  mep: .test.pharyngeal.mep
+  experiment: TestOneCell
+  observables:
+    spike times:
+      file: 
+        path: c302_A_Pharyngeal.dat
+        columns: [0,7]
+        scaling: [1000, 1000]
+      spike detection: 
+        method: threshold
+        threshold: -55
+      tolerance: 0.0
 
