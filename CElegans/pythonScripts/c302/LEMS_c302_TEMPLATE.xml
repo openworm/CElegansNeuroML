@@ -1,5 +1,8 @@
-
 <Lems>
+    
+    <!--
+${comment}    
+    -->
 
     <Target component="sim_${reference}" />
 

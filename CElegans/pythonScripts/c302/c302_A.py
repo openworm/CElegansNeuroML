@@ -10,4 +10,4 @@ if __name__ == '__main__':
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ["ADAL", "ADAR", "PVDR", "BDUR","I1R","I2L"]
     
-    generate("c302_A", params, cells_to_plot=cells_to_plot, cells_to_stimulate=cells_to_stimulate, duration=500, dt=0.1, vmin=-72, vmax=-48)
+    generate("c302_A", params, cells_to_plot=cells_to_plot, cells_to_stimulate=cells_to_stimulate, duration=500, dt=0.1, vmin=-72, vmax=-48)    

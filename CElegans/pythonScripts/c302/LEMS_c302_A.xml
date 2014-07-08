@@ -1,5 +1,38 @@
-
 <Lems>
+    
+    <!--
+
+
+Parameters and setting used to generate this network:
+
+    Cells:                         All cells
+    Cell stimulated:               ['ADAL', 'ADAR', 'M1', 'M2L', 'M3L', 'M3R', 'M4', 'I1R', 'I2L', 'I5', 'I6', 'MI', 'NSMR', 'MCL', 'ASEL', 'AVEL', 'AWAR', 'DB1', 'DVC', 'RIAR', 'RMDDL']
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+
+    Known BioParameters:
+        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.21nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
+
+    
+    -->
 
     <Target component="sim_c302_A" />
 
@@ -18,12 +51,12 @@
 
         <Display id="d0" title="c302_A: Membrane potential of a number of cells" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
-            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#10178d" timeScale="1ms" />
-            <Line id="ADAR" quantity="ADAR/0/generic_iaf_cell/v" scale="1mV" color="#519a37" timeScale="1ms" />
-            <Line id="BDUR" quantity="BDUR/0/generic_iaf_cell/v" scale="1mV" color="#f05300" timeScale="1ms" />
-            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#00478b" timeScale="1ms" />
-            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#ce0057" timeScale="1ms" />
-            <Line id="PVDR" quantity="PVDR/0/generic_iaf_cell/v" scale="1mV" color="#135df1" timeScale="1ms" />
+            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#f10076" timeScale="1ms" />
+            <Line id="ADAR" quantity="ADAR/0/generic_iaf_cell/v" scale="1mV" color="#d919ac" timeScale="1ms" />
+            <Line id="BDUR" quantity="BDUR/0/generic_iaf_cell/v" scale="1mV" color="#1be556" timeScale="1ms" />
+            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#b1cca6" timeScale="1ms" />
+            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#e2b465" timeScale="1ms" />
+            <Line id="PVDR" quantity="PVDR/0/generic_iaf_cell/v" scale="1mV" color="#6ab6ea" timeScale="1ms" />
             
         </Display>
 

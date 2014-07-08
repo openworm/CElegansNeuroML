@@ -11,6 +11,7 @@ from neuroml import Connection
 from neuroml import ExpTwoSynapse
 import neuroml.writers as writers
 import neuroml.loaders as loaders
+from bioparameters import bioparameter_info
 
 import airspeed
 
@@ -194,11 +195,19 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc):
         
 def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=None, conn_number_override=None, conn_number_scaling=None, duration=500, dt=0.01, vmin=-75, vmax=20):
     
-    nml_doc = NeuroMLDocument(id=net_id)
+    info = "\n\nParameters and setting used to generate this network:\n\n"+\
+           "    Cells:                         %s\n" % (cells if cells is not None else "All cells")+\
+           "    Cell stimulated:               %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All cells")+\
+           "    Connection numbers overridden: %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
+           "    Connection numbers scaled:     %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")
+    info += "\n%s\n"%(bioparameter_info("    "))
+    
+    nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
     nml_doc.iaf_cells.append(params.generic_cell)
 
     net = Network(id=net_id)
+    
 
     nml_doc.networks.append(net)
 
@@ -214,7 +223,8 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
     all_cells = {}
 
     # lems_file = ""
-    lems_info = {"reference":  net_id,
+    lems_info = {"comment":    info,
+                 "reference":  net_id,
                  "duration":   duration,
                  "dt":         dt,
                  "vmin":       vmin,
@@ -274,6 +284,8 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
             syn0 = params.exc_syn
             if 'GABA' in conn.synclass:
                 syn0 = params.inh_syn
+            if '_GJ' in conn.synclass:
+                syn0 = params.elec_syn
             
             number_syns = conn.number
             conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
