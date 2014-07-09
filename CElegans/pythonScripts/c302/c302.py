@@ -11,6 +11,7 @@ from neuroml import Connection
 from neuroml import ExpTwoSynapse
 import neuroml.writers as writers
 import neuroml.loaders as loaders
+from bioparameters import bioparameter_info
 
 import airspeed
 
@@ -28,8 +29,6 @@ sys.path.append("..")
 import SpreadsheetDataReader
 
 LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
-
-
 
 
 def process_args():
@@ -55,8 +54,6 @@ def process_args():
                         metavar='<cells-to-plot>',
                         default=None,
                         help='List of cells to plot (default: all)')
-
-                        #cells_to_stimulate=cells_to_stimulate, duration=500, dt=0.1, vmin=-72, vmax
                         
     parser.add_argument('-cellstostimulate', 
                         type=str,
@@ -64,6 +61,17 @@ def process_args():
                         default=None,
                         help='List of cells to stimulate (default: all)')
                         
+    parser.add_argument('-connnumberoverride', 
+                        type=str,
+                        metavar='<conn-number-override>',
+                        default=None,
+                        help='Map of connection numbers to override, e.g. {"I1L-I3":2.5} => use 2.5 connections from I1L to I3')
+                        
+    parser.add_argument('-connnumberscaling', 
+                        type=str,
+                        metavar='<conn-number-scaling>',
+                        default=None,
+                        help='Map of scaling factors for connection numbers, e.g. {"I1L-I3":2} => use 2 times as many connections from I1L to I3')
                         
     parser.add_argument('-duration', 
                         type=float,
@@ -92,11 +100,14 @@ def process_args():
     return parser.parse_args()
 
 
+
+
 def merge_with_template(model, templfile):
     with open(templfile) as f:
         templ = airspeed.Template(f.read())
     return templ.merge(model)
 
+        
                         
 def write_to_file(nml_doc, lems_info, reference, validate=True):
 
@@ -143,6 +154,7 @@ def get_random_colour_hex():
     for c in rgb: col+= ( c[2:4] if len(c)==4 else "00")
     return col
 
+
 def split_neuroml_quantity(quantity):
     
     i=len(quantity)
@@ -157,17 +169,18 @@ def split_neuroml_quantity(quantity):
             i -= 1
     return magnitude, unit
 
+
 existing_synapses = {}
 
 def create_n_connection_synapse(prototype_syn, n, nml_doc):
     
-    new_id = "%s_%iconns"%(prototype_syn.id, n)
+    new_id = "%s_%sconns"%(prototype_syn.id, str(n).replace('.', '_'))
     
     if not existing_synapses.has_key(new_id):
         
         magnitude, unit = split_neuroml_quantity(prototype_syn.gbase)
         new_syn = ExpTwoSynapse(id=new_id,
-                            gbase =       "%f%s"%(magnitude*n, unit),
+                            gbase =       "%s%s"%(magnitude*n, unit),
                             erev =        prototype_syn.erev,
                             tau_decay =   prototype_syn.tau_decay,
                             tau_rise =    prototype_syn.tau_rise)
@@ -179,13 +192,22 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc):
         
     return new_syn
         
-def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulate=None, duration=500, dt=0.01, vmin=-75, vmax=20):
+        
+def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=None, conn_number_override=None, conn_number_scaling=None, duration=500, dt=0.01, vmin=-75, vmax=20):
     
-    nml_doc = NeuroMLDocument(id=net_id)
+    info = "\n\nParameters and setting used to generate this network:\n\n"+\
+           "    Cells:                         %s\n" % (cells if cells is not None else "All cells")+\
+           "    Cell stimulated:               %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All cells")+\
+           "    Connection numbers overridden: %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
+           "    Connection numbers scaled:     %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")
+    info += "\n%s\n"%(bioparameter_info("    "))
+    
+    nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
     nml_doc.iaf_cells.append(params.generic_cell)
 
     net = Network(id=net_id)
+    
 
     nml_doc.networks.append(net)
 
@@ -201,7 +223,8 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
     all_cells = {}
 
     # lems_file = ""
-    lems_info = {"reference":  net_id,
+    lems_info = {"comment":    info,
+                 "reference":  net_id,
                  "duration":   duration,
                  "dt":         dt,
                  "vmin":       vmin,
@@ -261,8 +284,31 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
             syn0 = params.exc_syn
             if 'GABA' in conn.synclass:
                 syn0 = params.inh_syn
+            if '_GJ' in conn.synclass:
+                syn0 = params.elec_syn
+            
+            number_syns = conn.number
+            conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
+            
+            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
+                number_syns = conn_number_override[conn_shorthand]
+            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
+                number_syns = conn.number*conn_number_scaling[conn_shorthand]
+            '''
+            else:
+                print conn_shorthand
+                print conn_number_override
+                print conn_number_scaling'''
                 
-            syn_new = create_n_connection_synapse(syn0, conn.number, nml_doc)
+            if number_syns != conn.number:
+                magnitude, unit = split_neuroml_quantity(syn0.gbase)
+                cond0 = "%s%s"%(magnitude*conn.number, unit)
+                cond1 = "%s%s"%(magnitude*number_syns, unit)
+                print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                     (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
+                
+                
+            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc)
 
             proj0 = Projection(id=proj_id, \
                                presynaptic_population=conn.pre_cell, 
@@ -285,25 +331,39 @@ def generate(net_id, params, cells = None, cells_to_plot=None, cells_to_stimulat
     
 
     write_to_file(nml_doc, lems_info, net_id)
-    
-    
+  
+'''
+    Input:    string of form ["ADAL-AIBL":2.5,"I1L-I1R":0.5]
+    returns:  {}
+'''
+def parse_dict_arg(dict_arg):
+    if not dict_arg: return None
+    ret = {}
+    entries = str(dict_arg[1:-1]).split(',')
+    for e in entries:
+        ret[e.split(':')[0]] = float(e.split(':')[1])
+    print("Command line argument %s parsed as: %s"%(dict_arg,ret))
+    return ret
 
 def main():
 
     args = process_args()
     
-    
     exec("import %s as params"%args.parameters)
     
     generate(args.reference, 
              params, 
-             cells = args.cells, 
-             cells_to_plot=args.cellstoplot, 
-             cells_to_stimulate=args.cellstostimulate, 
-             duration=args.duration, 
-             dt=args.dt, 
-             vmin=args.vmin,
-             vmax=args.vmax)
+             cells =                 args.cells, 
+             cells_to_plot =         args.cellstoplot, 
+             cells_to_stimulate =    args.cellstostimulate, 
+             conn_number_override =  parse_dict_arg(args.connnumberoverride),
+             conn_number_scaling =   parse_dict_arg(args.connnumberscaling),
+             duration =              args.duration, 
+             dt =                    args.dt, 
+             vmin =                  args.vmin,
+             vmax =                  args.vmax)
+             
+    
     
     
 if __name__ == '__main__':

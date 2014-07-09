@@ -1,6 +1,37 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="c302_A_Syns">
-    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.200000nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="0.200000nS" tauDecay="10ms" tauRise="3ms"/>
+    <notes>
+
+Parameters and setting used to generate this network:
+
+    Cells:                         [ADAL,AIBL,RIVR,RMEV]
+    Cell stimulated:               [ADAL,RIVR]
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+
+    Known BioParameters:
+        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.21nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
+
+</notes>
+    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
