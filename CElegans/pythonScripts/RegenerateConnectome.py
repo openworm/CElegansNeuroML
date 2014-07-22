@@ -8,9 +8,7 @@
 
 ############################################################
 
-from PyOpenWorm import Network as PNetwork
-from PyOpenWorm import NeuroML as PNml
-from PyOpenWorm import Data
+import PyOpenWorm as P
 from itertools import imap
 
 from neuroml import NeuroMLDocument
@@ -30,6 +28,7 @@ from NeuroMLUtilities import validateNeuroML2
 from NeuroMLUtilities import getSegmentIds
 from NeuroMLUtilities import get3DPosition
 
+from sys import stdout
 import math
 import time
 
@@ -48,124 +47,147 @@ if __name__ == "__main__":
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    pyopenworm_conf = Data.open("morph.conf")
 
-    pyopenworm_net = PNetwork(conf=pyopenworm_conf)
-    cell_names, conns = (pyopenworm_net.neurons(), pyopenworm_net.synapses())
+    P.connect(configFile='morph.conf')
+    try:
+        cell_names = set(str(next(x.name())) for x in P.Neuron().load())
+        conns = P.Connection().load()
 
 
-    net_id = "CElegansConnectome"
+        net_id = "CElegansConnectome"
 
-    nml_network_doc = NeuroMLDocument(id=net_id)
+        nml_network_doc = NeuroMLDocument(id=net_id)
 
-    # Create a NeuroML Network data structure to hold on to all the connection info.
-    net = Network(id=net_id)
-    nml_network_doc.networks.append(net)
+        # Create a NeuroML Network data structure to hold on to all the connection info.
+        net = Network(id=net_id)
+        nml_network_doc.networks.append(net)
+        print cell_names
+        def morphology(cell_name):
+            # build a Population data structure out of the cell name
+            pop0 = Population(id=cell_name, component=cell_name, size=1)
+            inst = Instance(id="0")
+            # Each of these cells is at (0,0,0), i.e. segment 3D info in each cell is absolute
+            inst.location = Location(x="0.0", y="0.0", z="0.0")
+            pop0.instances.append(inst)
 
-    def morphology(cell_name):
-    	# build a Population data structure out of the cell name
-        pop0 = Population(id=cell_name, component=cell_name, size=1)
-        inst = Instance(id="0")
-        # Each of these cells is at (0,0,0), i.e. segment 3D info in each cell is absolute
-        inst.location = Location(x="0.0", y="0.0", z="0.0")
-        pop0.instances.append(inst)
+            # put that Population into the Network data structure from above
+            net.populations.append(pop0)
 
-        # put that Population into the Network data structure from above
-        net.populations.append(pop0)
+            cell_file = '../generatedNeuroML2/%s.nml'%cell_name
+            doc = loaders.NeuroMLLoader.load(cell_file)
 
-        neur = pyopenworm_net.aneuron(cell_name)
-        doc = PNml.generate(neur)
+            return cell_name, doc.cells[0]
 
-        return cell_name, doc.cells[0]
-        #print("Loaded morphology file from: %s, with id: %s"%(cell_file, all_cells[cell].id))
+        # To hold all Cell NeuroML objects vs. names
+        all_cells = { x[0] : x[1] for x in imap(morphology, cell_names) }
 
-    # To hold all Cell NeuroML objects vs. names
-    all_cells = { x[0] : x[1] for x in imap(morphology, cell_names) }
+        dists = []
+        start_time = time.time()
 
-    dists = []
-    start_time = time.time()
-    def get_random_synapse_location(c):
-        idx = randint(0,  len(c.morphology.segments)-1)
-        seg_id = getSegmentIds(c)[idx]
-        fraction = random()
-        return (idx,seg_id,fraction)
-    def getDist(p1,p2):
-        return math.sqrt(math.pow(p1[0]-p2[0],2)+math.pow(p1[1]-p2[1],2)+math.pow(p1[2] - p2[2],2))
-    for conn in conns:
+        def get_random_synapse_location(c):
+            idx = randint(0,  len(c.morphology.segments)-1)
+            seg_id = getSegmentIds(c)[idx]
+            fraction = random()
+            return (idx,seg_id,fraction)
 
-        # take information about each connection and package it into a
-        # NeuroML Projection data structure
-        proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.syntype)
-        proj0 = Projection(id=proj_id, \
-        		     	   presynaptic_population=conn.pre_cell,
-        		      	   postsynaptic_population=conn.post_cell,
-        		       	   synapse=conn.synclass)
+        def getDist(p1,p2):
+            return math.sqrt(math.pow(p1[0]-p2[0],2)+math.pow(p1[1]-p2[1],2)+math.pow(p1[2] - p2[2],2))
 
-        # Get the corresponding Cell for each
-        pre_cell = all_cells[conn.pre_cell]
-        post_cell = all_cells[conn.post_cell]
+        print 'Getting connection locations...'
+        update_mod = 20
+        for i,conn in enumerate(conns):
 
-        # Get lists of the valid segment ids
-        pre_segs = getSegmentIds(pre_cell)
-        post_segs = getSegmentIds(post_cell)
+            if i % update_mod == 0:
+                print '.',
+                stdout.flush()
+            pre_name = next(next(conn.pre_cell()).name())
+            post_name = next(next(conn.post_cell()).name())
 
-        debug = False
-        if debug: print "Projection between %s and %s has %i conns"%(conn.pre_cell,conn.post_cell,conn.number)
+            try:
+                synclass = next(conn.synclass())
+            except StopIteration:
+                synclass = ''
+            try:
+                syntype = next(conn.syntype())
+            except StopIteration:
+                syntype = 'send'
+            number = int(next(conn.number()))
 
-        for conn_id in range(0,conn.number):
+            # take information about each connection and package it into a
+            # NeuroML Projection data structure
+            proj_id = get_projection_id(pre_name, post_name, syntype)
+            proj0 = Projection(id=proj_id, \
+                               presynaptic_population=pre_name,
+                               postsynaptic_population=post_name,
+                               synapse=synclass)
 
-            use_substitute_connections = False
+            # Get the corresponding Cell for each
+            pre_cell = all_cells[pre_name]
+            post_cell = all_cells[post_name]
 
-            if use_substitute_connections:
+            # Get lists of the valid segment ids
+            pre_segs = getSegmentIds(pre_cell)
+            post_segs = getSegmentIds(post_cell)
 
-                print("Substituting a connection...")
-                ###########################################
+            debug = False
+            if debug: print "Projection between %s and %s has %i conns"%(pre_name,post_name,number)
 
-                # This can be where alternate connections (e.g. extracted fromn Steve Cook's data) are added
+            for conn_id in range(0,number):
 
-                ###########################################
+                use_substitute_connections = False
 
-            else:
+                if use_substitute_connections:
 
-                #print "--- Conn %i"%conn_id
-                best_dist = 1e6
-                num_to_try = min(5000,int(0.5*len(pre_segs)*len(post_segs)))
-                if debug: print("Trying %i possible random connections"%num_to_try)
+                    print("Substituting a connection...")
+                    ###########################################
 
-                # Try a number of times to get the shortest connection between pre & post cells
-                for i in range(num_to_try):
-                    (pre_segment_index,pre_segment_id,pre_fraction_along) = get_random_synapse_location(pre_cell)
-                    (post_segment_index,post_segment_id,post_fraction_along) = get_random_synapse_location(post_cell)
+                    # This can be where alternate connections (e.g. extracted fromn Steve Cook's data) are added
 
-                    pre_pos = get3DPosition(pre_cell, pre_segment_index, pre_fraction_along)
-                    post_pos = get3DPosition(post_cell, post_segment_index, post_fraction_along)
+                    ###########################################
 
-                    dist = getDist(pre_pos,post_pos)
+                else:
 
-                    if dist < best_dist:
-                        best_dist = dist
-                        if debug: print "Shortest length of connection: %f um"%best_dist
-                        best_pre_seg = pre_segment_id
-                        best_pre_fract = pre_fraction_along
-                        best_post_seg = post_segment_id
-                        best_post_fract = post_fraction_along
+                    #print "--- Conn %i"%conn_id
+                    best_dist = 1e6
+                    num_to_try = min(5000,int(0.5*len(pre_segs)*len(post_segs)))
+                    if debug: print("Trying %i possible random connections"%num_to_try)
 
-                dists.append(best_dist)
+                    # Try a number of times to get the shortest connection between pre & post cells
+                    for i in range(num_to_try):
+                        (pre_segment_index,pre_segment_id,pre_fraction_along) = get_random_synapse_location(pre_cell)
+                        (post_segment_index,post_segment_id,post_fraction_along) = get_random_synapse_location(post_cell)
 
-                # Add a Connection with the closest locations
-                conn0 = Connection(id=conn_id, \
+                        pre_pos = get3DPosition(pre_cell, pre_segment_index, pre_fraction_along)
+                        post_pos = get3DPosition(post_cell, post_segment_index, post_fraction_along)
 
-                           pre_cell_id="../%s/0/%s"%(conn.pre_cell, conn.pre_cell),
-                           pre_segment_id = best_pre_seg,
-                           pre_fraction_along = best_pre_fract,
-                           post_cell_id="../%s/0/%s"%(conn.post_cell, conn.post_cell),
-                           post_segment_id = best_post_seg,
-                           post_fraction_along = best_post_fract)
+                        dist = getDist(pre_pos,post_pos)
 
-                proj0.connections.append(conn0)
+                        if dist < best_dist:
+                            best_dist = dist
+                            if debug: print "Shortest length of connection: %f um"%best_dist
+                            best_pre_seg = pre_segment_id
+                            best_pre_fract = pre_fraction_along
+                            best_post_seg = post_segment_id
+                            best_post_fract = post_fraction_along
 
-        net.projections.append(proj0)
+                    dists.append(best_dist)
 
+                    # Add a Connection with the closest locations
+                    conn0 = Connection(id=conn_id, \
+
+                               pre_cell_id="../%s/0/%s"%(pre_name, pre_name),
+                               pre_segment_id = best_pre_seg,
+                               pre_fraction_along = best_pre_fract,
+                               post_cell_id="../%s/0/%s"%(post_name, post_name),
+                               post_segment_id = best_post_seg,
+                               post_fraction_along = best_post_fract)
+
+                    proj0.connections.append(conn0)
+
+            net.projections.append(proj0)
+
+    finally:
+        P.disconnect()
     print ("Connections generated in %f seconds, mean length: %f um"%((time.time() - start_time), sum(dists)/len(dists)))
     nml_file = net_id+'.nml'
     writers.NeuroMLWriter.write(nml_network_doc, nml_file)
