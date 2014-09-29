@@ -331,6 +331,8 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
     
 
     write_to_file(nml_doc, lems_info, net_id)
+    
+    return nml_doc
   
 '''
     Input:    string of form ["ADAL-AIBL":2.5,"I1L-I1R":0.5]
