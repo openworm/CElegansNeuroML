@@ -51,13 +51,13 @@ Parameters and setting used to generate this network:
 
         <Display id="d0" title="c302_A_Social: Membrane potential of a number of cells" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-72" ymax="-48">
             
-            <Line id="ASHR" quantity="ASHR/0/generic_iaf_cell/v" scale="1mV" color="#2070ad" timeScale="1ms" />
-            <Line id="ASKR" quantity="ASKR/0/generic_iaf_cell/v" scale="1mV" color="#e42621" timeScale="1ms" />
-            <Line id="AWBR" quantity="AWBR/0/generic_iaf_cell/v" scale="1mV" color="#55cba6" timeScale="1ms" />
-            <Line id="IL2R" quantity="IL2R/0/generic_iaf_cell/v" scale="1mV" color="#90b416" timeScale="1ms" />
-            <Line id="RMGR" quantity="RMGR/0/generic_iaf_cell/v" scale="1mV" color="#4c1266" timeScale="1ms" />
-            <Line id="RMHR" quantity="RMHR/0/generic_iaf_cell/v" scale="1mV" color="#79878f" timeScale="1ms" />
-            <Line id="URXR" quantity="URXR/0/generic_iaf_cell/v" scale="1mV" color="#b9e4b2" timeScale="1ms" />
+            <Line id="ASHR" quantity="ASHR/0/generic_iaf_cell/v" scale="1mV" color="#7f2fc3" timeScale="1ms" />
+            <Line id="ASKR" quantity="ASKR/0/generic_iaf_cell/v" scale="1mV" color="#318b2d" timeScale="1ms" />
+            <Line id="AWBR" quantity="AWBR/0/generic_iaf_cell/v" scale="1mV" color="#3500cf" timeScale="1ms" />
+            <Line id="IL2R" quantity="IL2R/0/generic_iaf_cell/v" scale="1mV" color="#c74300" timeScale="1ms" />
+            <Line id="RMGR" quantity="RMGR/0/generic_iaf_cell/v" scale="1mV" color="#ecfb49" timeScale="1ms" />
+            <Line id="RMHR" quantity="RMHR/0/generic_iaf_cell/v" scale="1mV" color="#cee6f4" timeScale="1ms" />
+            <Line id="URXR" quantity="URXR/0/generic_iaf_cell/v" scale="1mV" color="#427de5" timeScale="1ms" />
             
         </Display>
 

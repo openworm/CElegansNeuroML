@@ -10,7 +10,7 @@ from neuroml import Projection
 from neuroml import Connection
 from neuroml import ExpTwoSynapse
 from neuroml import Annotation
-from neuroml import Property
+from neuroml import property
 
 import neuroml.writers as writers
 import neuroml.loaders as loaders
@@ -136,7 +136,7 @@ def write_to_file(nml_doc, lems_info, reference, validate=True):
         from neuroml.utils import validate_neuroml2
         try: 
             validate_neuroml2(nml_file)
-        except URLError as e:
+        except URLError:
             print("Problem validating against remote Schema!")
         
 
@@ -258,7 +258,7 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
             
             if cells_vs_name.has_key(cell):
                 pop0.annotation = Annotation()
-                p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
+                p = property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
                 pop0.annotation.anytypeobjs_.append(p)
 
             # also use the cell name to grab the morphology file, as a NeuroML data structure

@@ -50,7 +50,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="ASKR" component="generic_iaf_cell" type="populationList">
             <annotation>
-                <Property tag="OpenWormBackerAssignedName" value="Z.B."/>
+                <property tag="OpenWormBackerAssignedName" value="Z.B."/>
             </annotation>
             <instance id="0">
                 <location y="-8." x="-268.024999999999977" z="46.399997999999997"/>
@@ -68,7 +68,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="RMGR" component="generic_iaf_cell" type="populationList">
             <annotation>
-                <Property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
+                <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
             </annotation>
             <instance id="0">
                 <location y="-12.5" x="-238.299990000000008" z="32.700000000000003"/>
@@ -76,7 +76,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="RMHR" component="generic_iaf_cell" type="populationList">
             <annotation>
-                <Property tag="OpenWormBackerAssignedName" value="Martino"/>
+                <property tag="OpenWormBackerAssignedName" value="Martino"/>
             </annotation>
             <instance id="0">
                 <location y="-5.2999997" x="-265.899999999999977" z="35.700000000000003"/>
