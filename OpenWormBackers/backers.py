@@ -1,7 +1,11 @@
-
-
-def get_adopted_cell_names():
-    file = open("adopters.txt")
+'''
+    This method reads a generated list of cells vs. names as assigned by OpenWorm backers
+    
+    This information will eventually be moved to PyOpenWorm
+'''
+def get_adopted_cell_names(root="./"):
+    
+    file = open(root+"adopters.txt")
     ads = {}
     for line in file:
         cell = line.split(":")[0].strip()

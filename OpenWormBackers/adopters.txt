@@ -16,7 +16,7 @@ CEPVR: The Swarm
 DA1: KR
 MI: NeuroMind technology
 VC1: Gnothi seauton
-PVCR: J. Pablo Fernández
+PVCR: J. Pablo Fernandez
 DVA: Jeff Alstott
 SDQR: ogachyuallincheck
 DA2: Ruzila

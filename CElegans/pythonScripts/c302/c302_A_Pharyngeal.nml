@@ -45,21 +45,33 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Pharyngeal">
         <population id="I1L" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="sitructa"/>
+            </annotation>
             <instance id="0">
                 <location y="2.8999999" x="-300.350000000000023" z="53.149997999999997"/>
             </instance>
         </population>
         <population id="I1R" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="Jesus Martinez"/>
+            </annotation>
             <instance id="0">
                 <location y="-7.1500006" x="-300.350000000000023" z="53.149997999999997"/>
             </instance>
         </population>
         <population id="I2L" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="MetaMal"/>
+            </annotation>
             <instance id="0">
                 <location y="1.55" x="-311.649999999999977" z="54.450000000000003"/>
             </instance>
         </population>
         <population id="I2R" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="Flying Armbar"/>
+            </annotation>
             <instance id="0">
                 <location y="-5.7999997" x="-311.649999999999977" z="54.450000000000003"/>
             </instance>
@@ -75,6 +87,9 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="I5" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="yates"/>
+            </annotation>
             <instance id="0">
                 <location y="-2.1" x="-247.849989999999991" z="30.675000000000001"/>
             </instance>
@@ -85,6 +100,9 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="M1" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="albertwenger"/>
+            </annotation>
             <instance id="0">
                 <location y="-0.86700004" x="-252.134999999999991" z="44.420001999999997"/>
             </instance>
@@ -115,6 +133,9 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="M5" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="Asher"/>
+            </annotation>
             <instance id="0">
                 <location y="-2.2" x="-241.449999999999989" z="41.800002999999997"/>
             </instance>
@@ -130,6 +151,9 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="MI" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="OpenWormBackerAssignedName" value="NeuroMind technology"/>
+            </annotation>
             <instance id="0">
                 <location y="-2.1539998" x="-293.512020000000007" z="56.707000000000001"/>
             </instance>

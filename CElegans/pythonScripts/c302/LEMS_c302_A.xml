@@ -51,12 +51,12 @@ Parameters and setting used to generate this network:
 
         <Display id="d0" title="c302_A: Membrane potential of a number of cells" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
-            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#f10076" timeScale="1ms" />
-            <Line id="ADAR" quantity="ADAR/0/generic_iaf_cell/v" scale="1mV" color="#d919ac" timeScale="1ms" />
-            <Line id="BDUR" quantity="BDUR/0/generic_iaf_cell/v" scale="1mV" color="#1be556" timeScale="1ms" />
-            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#b1cca6" timeScale="1ms" />
-            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#e2b465" timeScale="1ms" />
-            <Line id="PVDR" quantity="PVDR/0/generic_iaf_cell/v" scale="1mV" color="#6ab6ea" timeScale="1ms" />
+            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#dd00cb" timeScale="1ms" />
+            <Line id="ADAR" quantity="ADAR/0/generic_iaf_cell/v" scale="1mV" color="#313211" timeScale="1ms" />
+            <Line id="BDUR" quantity="BDUR/0/generic_iaf_cell/v" scale="1mV" color="#223791" timeScale="1ms" />
+            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#dffe72" timeScale="1ms" />
+            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#fff912" timeScale="1ms" />
+            <Line id="PVDR" quantity="PVDR/0/generic_iaf_cell/v" scale="1mV" color="#8ab8ef" timeScale="1ms" />
             
         </Display>
 

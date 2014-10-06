@@ -51,26 +51,26 @@ Parameters and setting used to generate this network:
 
         <Display id="d0" title="c302_A_Pharyngeal: Membrane potential of a number of cells" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
-            <Line id="I1L" quantity="I1L/0/generic_iaf_cell/v" scale="1mV" color="#5900d2" timeScale="1ms" />
-            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#bd6e4e" timeScale="1ms" />
-            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#a68e00" timeScale="1ms" />
-            <Line id="I2R" quantity="I2R/0/generic_iaf_cell/v" scale="1mV" color="#b872eb" timeScale="1ms" />
-            <Line id="I3" quantity="I3/0/generic_iaf_cell/v" scale="1mV" color="#aeaffa" timeScale="1ms" />
-            <Line id="I4" quantity="I4/0/generic_iaf_cell/v" scale="1mV" color="#d47f12" timeScale="1ms" />
-            <Line id="I5" quantity="I5/0/generic_iaf_cell/v" scale="1mV" color="#00767a" timeScale="1ms" />
-            <Line id="I6" quantity="I6/0/generic_iaf_cell/v" scale="1mV" color="#6f272a" timeScale="1ms" />
-            <Line id="M1" quantity="M1/0/generic_iaf_cell/v" scale="1mV" color="#e943f0" timeScale="1ms" />
-            <Line id="M2L" quantity="M2L/0/generic_iaf_cell/v" scale="1mV" color="#f07c87" timeScale="1ms" />
-            <Line id="M2R" quantity="M2R/0/generic_iaf_cell/v" scale="1mV" color="#74a52c" timeScale="1ms" />
-            <Line id="M3L" quantity="M3L/0/generic_iaf_cell/v" scale="1mV" color="#84b8ee" timeScale="1ms" />
-            <Line id="M3R" quantity="M3R/0/generic_iaf_cell/v" scale="1mV" color="#b5ba59" timeScale="1ms" />
-            <Line id="M4" quantity="M4/0/generic_iaf_cell/v" scale="1mV" color="#d56c50" timeScale="1ms" />
-            <Line id="M5" quantity="M5/0/generic_iaf_cell/v" scale="1mV" color="#11d87e" timeScale="1ms" />
-            <Line id="MCL" quantity="MCL/0/generic_iaf_cell/v" scale="1mV" color="#a72e10" timeScale="1ms" />
-            <Line id="MCR" quantity="MCR/0/generic_iaf_cell/v" scale="1mV" color="#35aebf" timeScale="1ms" />
-            <Line id="MI" quantity="MI/0/generic_iaf_cell/v" scale="1mV" color="#640000" timeScale="1ms" />
-            <Line id="NSML" quantity="NSML/0/generic_iaf_cell/v" scale="1mV" color="#90a4f7" timeScale="1ms" />
-            <Line id="NSMR" quantity="NSMR/0/generic_iaf_cell/v" scale="1mV" color="#b000c6" timeScale="1ms" />
+            <Line id="I1L" quantity="I1L/0/generic_iaf_cell/v" scale="1mV" color="#3fdb84" timeScale="1ms" />
+            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#bcccef" timeScale="1ms" />
+            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#1f89b8" timeScale="1ms" />
+            <Line id="I2R" quantity="I2R/0/generic_iaf_cell/v" scale="1mV" color="#ca25fb" timeScale="1ms" />
+            <Line id="I3" quantity="I3/0/generic_iaf_cell/v" scale="1mV" color="#4cf77d" timeScale="1ms" />
+            <Line id="I4" quantity="I4/0/generic_iaf_cell/v" scale="1mV" color="#7964c8" timeScale="1ms" />
+            <Line id="I5" quantity="I5/0/generic_iaf_cell/v" scale="1mV" color="#534740" timeScale="1ms" />
+            <Line id="I6" quantity="I6/0/generic_iaf_cell/v" scale="1mV" color="#b13b26" timeScale="1ms" />
+            <Line id="M1" quantity="M1/0/generic_iaf_cell/v" scale="1mV" color="#898cf8" timeScale="1ms" />
+            <Line id="M2L" quantity="M2L/0/generic_iaf_cell/v" scale="1mV" color="#b2a4a7" timeScale="1ms" />
+            <Line id="M2R" quantity="M2R/0/generic_iaf_cell/v" scale="1mV" color="#e5ec83" timeScale="1ms" />
+            <Line id="M3L" quantity="M3L/0/generic_iaf_cell/v" scale="1mV" color="#da1de1" timeScale="1ms" />
+            <Line id="M3R" quantity="M3R/0/generic_iaf_cell/v" scale="1mV" color="#438f74" timeScale="1ms" />
+            <Line id="M4" quantity="M4/0/generic_iaf_cell/v" scale="1mV" color="#196445" timeScale="1ms" />
+            <Line id="M5" quantity="M5/0/generic_iaf_cell/v" scale="1mV" color="#eba043" timeScale="1ms" />
+            <Line id="MCL" quantity="MCL/0/generic_iaf_cell/v" scale="1mV" color="#58dce5" timeScale="1ms" />
+            <Line id="MCR" quantity="MCR/0/generic_iaf_cell/v" scale="1mV" color="#bf74ad" timeScale="1ms" />
+            <Line id="MI" quantity="MI/0/generic_iaf_cell/v" scale="1mV" color="#815dbd" timeScale="1ms" />
+            <Line id="NSML" quantity="NSML/0/generic_iaf_cell/v" scale="1mV" color="#61c263" timeScale="1ms" />
+            <Line id="NSMR" quantity="NSMR/0/generic_iaf_cell/v" scale="1mV" color="#f09e5c" timeScale="1ms" />
             
         </Display>
 

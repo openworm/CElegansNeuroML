@@ -3,8 +3,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         [ADAL,AIBL,RIVR,RMEV]
-    Cell stimulated:               [ADAL,RIVR]
+    Cells:                         ['ADAL', 'AIBL', 'RIVR', 'RMEV']
+    Cell stimulated:               ['ADAL', 'RIVR']
     Connection numbers overridden: None
     Connection numbers scaled:     None
 
@@ -36,6 +36,9 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
         <population id="ADAL" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="BackerAssignedName" value="Xabe"/>
+            </annotation>
             <instance id="0">
                 <location y="8.65" x="-239.25" z="31.050000000000001"/>
             </instance>
@@ -46,6 +49,9 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RIVR" component="generic_iaf_cell" type="populationList">
+            <annotation>
+                <Property tag="BackerAssignedName" value="Wil Wheaton"/>
+            </annotation>
             <instance id="0">
                 <location y="-8.75" x="-265.300020000000018" z="50.350000000000001"/>
             </instance>

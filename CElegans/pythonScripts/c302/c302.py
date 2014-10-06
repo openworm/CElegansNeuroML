@@ -9,6 +9,9 @@ from neuroml import ExplicitInput
 from neuroml import Projection
 from neuroml import Connection
 from neuroml import ExpTwoSynapse
+from neuroml import Annotation
+from neuroml import Property
+
 import neuroml.writers as writers
 import neuroml.loaders as loaders
 from bioparameters import bioparameter_info
@@ -112,7 +115,7 @@ def merge_with_template(model, templfile):
 def write_to_file(nml_doc, lems_info, reference, validate=True):
 
     #######   Write to file  ######    
-
+    
     nml_file = reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file)
 
@@ -234,6 +237,11 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
     lems_info["plots"] = []
     lems_info["cells"] = []
 
+    backers_dir = "../../../OpenWormBackers/"
+    sys.path.append(backers_dir)
+    import backers
+    cells_vs_name = backers.get_adopted_cell_names(backers_dir)
+
     for cell in cell_names:
         
         if cells is None or cell in cells:
@@ -247,6 +255,11 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
 
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
+            
+            if cells_vs_name.has_key(cell):
+                pop0.annotation = Annotation()
+                p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
+                pop0.annotation.anytypeobjs_.append(p)
 
             # also use the cell name to grab the morphology file, as a NeuroML data structure
             #  into the 'all_cells' dict
@@ -255,6 +268,7 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
             all_cells[cell] = doc.cells[0]
             location = doc.cells[0].morphology.segments[0].proximal
             print("Loaded morphology file from: %s, with id: %s, location: (%s, %s, %s)"%(cell_file, all_cells[cell].id, location.x, location.y, location.z))
+        
 
             inst.location = Location(float(location.x), float(location.y), float(location.z))
 
