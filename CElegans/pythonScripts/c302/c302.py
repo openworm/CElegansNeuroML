@@ -8,9 +8,11 @@ from neuroml import Location
 from neuroml import ExplicitInput
 from neuroml import Projection
 from neuroml import Connection
+from neuroml import ElectricalProjection
+from neuroml import ElectricalConnection
 from neuroml import ExpTwoSynapse
-from neuroml import Annotation
-from neuroml import property
+from neuroml import GapJunction
+from neuroml import Property
 
 import neuroml.writers as writers
 import neuroml.loaders as loaders
@@ -181,15 +183,25 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc):
     
     if not existing_synapses.has_key(new_id):
         
-        magnitude, unit = split_neuroml_quantity(prototype_syn.gbase)
-        new_syn = ExpTwoSynapse(id=new_id,
-                            gbase =       "%s%s"%(magnitude*n, unit),
-                            erev =        prototype_syn.erev,
-                            tau_decay =   prototype_syn.tau_decay,
-                            tau_rise =    prototype_syn.tau_rise)
-                            
-        existing_synapses[new_id] = new_syn 
-        nml_doc.exp_two_synapses.append(new_syn)        
+        if isinstance(prototype_syn, ExpTwoSynapse):
+            magnitude, unit = split_neuroml_quantity(prototype_syn.gbase)
+            new_syn = ExpTwoSynapse(id=new_id,
+                                gbase =       "%s%s"%(magnitude*n, unit),
+                                erev =        prototype_syn.erev,
+                                tau_decay =   prototype_syn.tau_decay,
+                                tau_rise =    prototype_syn.tau_rise)
+
+            existing_synapses[new_id] = new_syn 
+            nml_doc.exp_two_synapses.append(new_syn)  
+        
+        elif isinstance(prototype_syn, GapJunction):
+            magnitude, unit = split_neuroml_quantity(prototype_syn.conductance)
+            new_syn = GapJunction(id=new_id,
+                                  conductance =       "%s%s"%(magnitude*n, unit))
+
+            existing_synapses[new_id] = new_syn 
+            nml_doc.gap_junctions.append(new_syn)  
+            
     else:
         new_syn = existing_synapses[new_id]
         
@@ -257,9 +269,8 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
             net.populations.append(pop0)
             
             if cells_vs_name.has_key(cell):
-                pop0.annotation = Annotation()
-                p = property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
-                pop0.annotation.anytypeobjs_.append(p)
+                p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
+                pop0.properties.append(p)
 
             # also use the cell name to grab the morphology file, as a NeuroML data structure
             #  into the 'all_cells' dict
@@ -295,11 +306,13 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
 
+            elect_conn = False
             syn0 = params.exc_syn
             if 'GABA' in conn.synclass:
                 syn0 = params.inh_syn
             if '_GJ' in conn.synclass:
                 syn0 = params.elec_syn
+                elect_conn = True
             
             number_syns = conn.number
             conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
@@ -324,23 +337,36 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
                 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc)
 
-            proj0 = Projection(id=proj_id, \
-                               presynaptic_population=conn.pre_cell, 
-                               postsynaptic_population=conn.post_cell, 
-                               synapse=syn_new.id)
+            if not elect_conn:
+                proj0 = Projection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell, 
+                                   postsynaptic_population=conn.post_cell, 
+                                   synapse=syn_new.id)
 
-            # Get the corresponding Cell for each 
-            # pre_cell = all_cells[conn.pre_cell]
-            # post_cell = all_cells[conn.post_cell]
+                net.projections.append(proj0)
 
-            net.projections.append(proj0)
+                # Add a Connection with the closest locations
+                conn0 = Connection(id="0", \
+                           pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id),
+                           post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id))
 
-            # Add a Connection with the closest locations
-            conn0 = Connection(id="0", \
-                       pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id),
-                       post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id))
+                proj0.connections.append(conn0)
+                
+            else:
+                proj0 = ElectricalProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell, 
+                                   postsynaptic_population=conn.post_cell)
 
-            proj0.connections.append(conn0)
+                net.electrical_projections.append(proj0)
+
+                # Add a Connection with the closest locations
+                conn0 = ElectricalConnection(id="0", \
+                           pre_cell="0",
+                           post_cell="0", 
+                           synapse=syn_new.id)
+
+                proj0.electrical_connections.append(conn0)
+                
 
     
 

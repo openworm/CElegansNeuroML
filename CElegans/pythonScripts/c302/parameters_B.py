@@ -1,5 +1,6 @@
 from neuroml import IafCell
 from neuroml import ExpTwoSynapse
+from neuroml import GapJunction
 from neuroml import PulseGenerator
 
 from bioparameters import BioParameter
@@ -68,8 +69,8 @@ inh_syn = ExpTwoSynapse(id="inh_syn",
                         tau_decay =     chem_inh_syn_decay.value,
                         tau_rise =      chem_inh_syn_rise.value)
 
-elec_syn = gapJunction(id="elec_syn",
-                        g =         elec_syn_gbase.value)
+elec_syn = GapJunction(id="elec_syn",
+                       conductance =    elec_syn_gbase.value)
 
 
 offset_current = PulseGenerator(id="offset_current",
