@@ -6,9 +6,9 @@ import neuroml.writers as writers
 
 # See https://github.com/openworm/OpenWorm/issues/212
 
-import parameters_A as params
 
 def add_new_input(nml_doc, cell, delay, duration, amplitude):
+    
     
     stim = PulseGenerator(id="stim_"+cell, delay=delay, duration=duration, amplitude=amplitude)
     
@@ -21,10 +21,14 @@ def add_new_input(nml_doc, cell, delay, duration, amplitude):
 
 if __name__ == '__main__':
     
+    parameter_set = 'B'
+    
+    exec('import parameters_%s as params'%parameter_set)
+    
     cells = ["RMGR","ASHR","ASKR","AWBR","IL2R","RMHR","URXR"]
     cells_to_stimulate      = []
     
-    reference = "c302_A_Social"
+    reference = "c302_%s_Social"%parameter_set
     
     nml_doc = generate(reference, params, cells=cells, cells_to_stimulate=cells_to_stimulate, \
              duration=2500, dt=0.1, vmin=-72, vmax=-48)
