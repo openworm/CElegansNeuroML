@@ -14,24 +14,27 @@ from c302 import generate
 
 from neuroml import PulseGenerator
 from neuroml import ExplicitInput
+from neuroml import GapJunction
 import neuroml.writers as writers
 
 import sys
 
 def add_new_input(nml_doc, cell, delay, duration, amplitude):
     
-    
     stim = PulseGenerator(id="stim_"+cell, delay=delay, duration=duration, amplitude=amplitude)
     
     nml_doc.pulse_generators.append(stim)
     
-    exp_input = ExplicitInput(target="%s/0/%s"%(cell, params.generic_cell.id),
-                                                     input=stim.id)
+    populations_without_location = isinstance(params.elec_syn, GapJunction)
+    
+    target ="%s/0/%s"%(cell, params.generic_cell.id)
+    if populations_without_location:
+        target ="%s[0]"%(cell)
+    exp_input = ExplicitInput(target=target, input=stim.id)
 
     nml_doc.networks[0].explicit_inputs.append(exp_input)
 
 if __name__ == '__main__':
-  
     
     parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
     

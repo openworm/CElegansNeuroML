@@ -8,6 +8,7 @@ from neuroml import Location
 from neuroml import ExplicitInput
 from neuroml import Projection
 from neuroml import Connection
+from neuroml import SynapticConnection
 from neuroml import ElectricalProjection
 from neuroml import ElectricalConnection
 from neuroml import ExpTwoSynapse
@@ -260,23 +261,35 @@ def generate(net_id,
                  "cell_component":    params.generic_cell.id}
     
     lems_info["plots"] = []
+    lems_info["to_save"] = []
     lems_info["cells"] = []
 
     backers_dir = "../../../OpenWormBackers/"
     sys.path.append(backers_dir)
     import backers
     cells_vs_name = backers.get_adopted_cell_names(backers_dir)
+    
+    populations_without_location = isinstance(params.elec_syn, GapJunction)
 
     for cell in cell_names:
         
         if cells is None or cell in cells:
-            # build a Population data structure out of the cell name
-            pop0 = Population(id=cell, 
-                              component=params.generic_cell.id,
-                              type="populationList")
-
+            
             inst = Instance(id="0")
-            pop0.instances.append(inst)
+            
+            if not populations_without_location:
+                # build a Population data structure out of the cell name
+                pop0 = Population(id=cell, 
+                                  component=params.generic_cell.id,
+                                  type="populationList")
+                pop0.instances.append(inst)
+                
+            else:
+                # build a Population data structure out of the cell name
+                pop0 = Population(id=cell, 
+                                  component=params.generic_cell.id,
+                                  size="1")
+
 
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
@@ -296,8 +309,11 @@ def generate(net_id,
 
             inst.location = Location(float(location.x), float(location.y), float(location.z))
 
-            exp_input = ExplicitInput(target="%s/0/%s"%(pop0.id, params.generic_cell.id),
-                                                     input=params.offset_current.id)
+            target = "%s/0/%s"%(pop0.id, params.generic_cell.id)
+            if populations_without_location: 
+                target = "%s[0]" % (cell)
+                
+            exp_input = ExplicitInput(target=target, input=params.offset_current.id)
 
             if cells_to_stimulate is None or cell in cells_to_stimulate:
                 net.explicit_inputs.append(exp_input)
@@ -307,7 +323,19 @@ def generate(net_id,
                 
                 plot["cell"] = cell
                 plot["colour"] = get_random_colour_hex()
+                plot["quantity"] = "%s/0/%s/v" % (cell, params.generic_cell.id)
+                if populations_without_location: 
+                    plot["quantity"] = "%s[0]/v" % (cell)
                 lems_info["plots"].append(plot)
+                
+            save = {}
+                
+            save["cell"] = cell
+            save["quantity"] = "%s/0/%s/v" % (cell, params.generic_cell.id)
+            if populations_without_location: 
+                save["quantity"] = "%s[0]/v" % (cell)
+      
+            lems_info["to_save"].append(save)
                 
             lems_info["cells"].append(cell)
             
@@ -351,19 +379,38 @@ def generate(net_id,
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc)
 
             if not elect_conn:
-                proj0 = Projection(id=proj_id, \
-                                   presynaptic_population=conn.pre_cell, 
-                                   postsynaptic_population=conn.post_cell, 
-                                   synapse=syn_new.id)
+                
+                if not populations_without_location:
+                    proj0 = Projection(id=proj_id, \
+                                       presynaptic_population=conn.pre_cell, 
+                                       postsynaptic_population=conn.post_cell, 
+                                       synapse=syn_new.id)
 
-                net.projections.append(proj0)
+                    net.projections.append(proj0)
 
-                # Add a Connection with the closest locations
-                conn0 = Connection(id="0", \
-                           pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id),
-                           post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id))
+                    # Add a Connection with the closest locations
 
-                proj0.connections.append(conn0)
+                    pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id)
+                    post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id)
+
+                    conn0 = Connection(id="0", \
+                               pre_cell_id=pre_cell_id,
+                               post_cell_id=post_cell_id)
+
+                    proj0.connections.append(conn0)
+                
+                if populations_without_location:
+                    #         <synapticConnection from="hh1pop[0]" to="hh2pop[0]" synapse="syn1exp" destination="synapses"/>
+                    pre_cell_id="%s[0]"%(conn.pre_cell)
+                    post_cell_id="%s[0]"%(conn.post_cell)
+                    
+                    conn0 = SynapticConnection(from_=pre_cell_id,
+                               to=post_cell_id, 
+                               synapse=syn_new.id,
+                               destination="synapses")
+                               
+                    net.synaptic_connections.append(conn0)
+                    
                 
             else:
                 proj0 = ElectricalProjection(id=proj_id, \

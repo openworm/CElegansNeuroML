@@ -16,18 +16,19 @@ There will be multiple version of this network, based on increasingly complex ce
 
 **[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py)** Integrate & fire cells (not very physiological)
 
-**Parameters_B** Izhikevich cells or perhaps AdEx cells (slightly more physiological)
+**Parameters_B** Updated I&F cells, with gap junction connections
 
 **Parameters_C** Single compartment, conductance based neurons (could be based on known ion channel types, etc.)
 
-Parameters_A is the only parameter set tested so far, but the aim is to make all of the associated tools below for running, visualising, analysing, etc. independent of the parameter set used, so they can be ready for more detailed networks from c302 in the future. 
+Parameters_A is the only parameter set well tested so far, but the aim is to make all of the associated tools below for running, 
+visualising, analysing, etc. independent of the parameter set used, so they can be ready for more detailed networks from c302 in the future. 
 
 ### To install & test
 
 Install [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) & [jNeuroML](https://github.com/NeuroML/jNeuroML) (make sure you get the **latest development version**)
 
-    python c302_A.py          # To regenerate the NeuroML & LEMS files
-    jnml LEMS_c302_A.xml      # Run a simulation with jNeuroML
+    python c302_Full.py          # To regenerate the NeuroML & LEMS files
+    jnml LEMS_c302_A_Full.xml      # Run a simulation with jNeuroML
     
 This will produce the following (6 cells visualised with the jNeuroML GUI):
 
@@ -35,7 +36,7 @@ This will produce the following (6 cells visualised with the jNeuroML GUI):
 
 This saves traces from all neurons in a file c302_A.dat. To plot the activity of all 302 neurons:
 
-    python analyse.py c302_A.dat
+    python analyse.py c302_A_Full.dat
     
 ![Analysis](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/analyse.png)
     

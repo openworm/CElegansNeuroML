@@ -41,7 +41,7 @@ chem_inh_syn_erev =        BioParameter("chem_inh_syn_erev", "-80mV", "BlindGues
 chem_inh_syn_rise =        BioParameter("chem_inh_syn_rise", "3ms", "BlindGuess", "0.1")
 chem_inh_syn_decay =       BioParameter("chem_inh_syn_decay", "10ms", "BlindGuess", "0.1")
 
-elec_syn_gbase =       BioParameter("elec_syn_gbase", "0.2nS", "BlindGuess", "0.1")
+elec_syn_gbase =       BioParameter("elec_syn_gbase", "0.5nS", "BlindGuess", "0.1")
 
 
 unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.21nA", "KnownError", "0")

@@ -1,0 +1,74 @@
+<Lems>
+    
+    <!--
+
+
+Parameters and setting used to generate this network:
+
+    Cells:                         ['RMGR', 'ASHR', 'ASKR', 'AWBR', 'IL2R', 'RMHR', 'URXR']
+    Cell stimulated:               []
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+
+    Known BioParameters:
+        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.5nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.21nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
+
+    
+    -->
+
+    <Target component="sim_c302_B_Social" />
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+
+    <Include file="Cells.xml" />
+    <Include file="Networks.xml" />
+    <Include file="Simulation.xml" />
+    
+    <Include file="c302_B_Social.nml" />
+
+    <!-- End of NeuroML2 content -->
+    
+
+    <Simulation id="sim_c302_B_Social" length="2500ms" step="0.1ms" target="c302_B_Social">
+
+        <Display id="d0" title="c302_B_Social: Membrane potential of a number of cells" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-72" ymax="-48">
+            
+            <Line id="ASHR" quantity="ASHR[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ASKR" quantity="ASKR[0]/v" scale="1mV" color="#eaf195" timeScale="1ms" />
+            <Line id="AWBR" quantity="AWBR[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="IL2R" quantity="IL2R[0]/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
+            <Line id="RMGR" quantity="RMGR[0]/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="RMHR" quantity="RMHR[0]/v" scale="1mV" color="#262f1d" timeScale="1ms" />
+            <Line id="URXR" quantity="URXR[0]/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            
+        </Display>
+
+        <OutputFile id="of0" fileName="c302_B_Social.dat">
+            <OutputColumn id="ASHR_v" quantity="ASHR[0]/v"/>
+            <OutputColumn id="ASKR_v" quantity="ASKR[0]/v"/>
+            <OutputColumn id="AWBR_v" quantity="AWBR[0]/v"/>
+            <OutputColumn id="IL2R_v" quantity="IL2R[0]/v"/>
+            <OutputColumn id="RMGR_v" quantity="RMGR[0]/v"/>
+            <OutputColumn id="RMHR_v" quantity="RMHR[0]/v"/>
+            <OutputColumn id="URXR_v" quantity="URXR[0]/v"/>
+        </OutputFile>
+
+    </Simulation>
+
+
+</Lems>

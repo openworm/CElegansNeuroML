@@ -36,9 +36,7 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
         <population id="ADAL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Xabe"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">
                 <location y="8.65" x="-239.25" z="31.050000000000001"/>
             </instance>
@@ -49,9 +47,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RIVR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
             <instance id="0">
                 <location y="-8.75" x="-265.300020000000018" z="50.350000000000001"/>
             </instance>
