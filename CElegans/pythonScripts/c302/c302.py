@@ -208,7 +208,20 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc):
     return new_syn
         
         
-def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=None, conn_number_override=None, conn_number_scaling=None, duration=500, dt=0.01, vmin=-75, vmax=20):
+def generate(net_id, 
+             params, 
+             cells = None, 
+             cells_to_plot = None, 
+             cells_to_stimulate = None, 
+             conn_number_override = None, 
+             conn_number_scaling = None, 
+             duration = 500, 
+             dt = 0.01, 
+             vmin = -75, 
+             vmax = 20,
+             seed = 1234):
+                 
+    random.seed(seed)
     
     info = "\n\nParameters and setting used to generate this network:\n\n"+\
            "    Cells:                         %s\n" % (cells if cells is not None else "All cells")+\
@@ -312,7 +325,7 @@ def generate(net_id, params, cells=None, cells_to_plot=None, cells_to_stimulate=
                 syn0 = params.inh_syn
             if '_GJ' in conn.synclass:
                 syn0 = params.elec_syn
-                elect_conn = True
+                elect_conn = isinstance(params.elec_syn, GapJunction)
             
             number_syns = conn.number
             conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
@@ -409,12 +422,6 @@ def main():
     
     
 if __name__ == '__main__':
-    
-    '''
-    print split_neuroml_quantity("-60mV")
-    print split_neuroml_quantity("1.9e-5")
-    print split_neuroml_quantity("1.9e-5 kOhm")
-    '''
-    
+        
     main()
 

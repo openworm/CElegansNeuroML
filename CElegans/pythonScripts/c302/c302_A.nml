@@ -87,17 +87,13 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A">
         <population id="ADAL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Xabe"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">
                 <location y="8.65" x="-239.25" z="31.050000000000001"/>
             </instance>
         </population>
         <population id="ADAR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Aurolessa"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Aurolessa"/>
             <instance id="0">
                 <location y="-12.9" x="-239.25" z="31.050000000000001"/>
             </instance>
@@ -113,9 +109,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="ADFL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Lloyd Watts"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Lloyd Watts"/>
             <instance id="0">
                 <location y="3.7250001" x="-267.899999999999977" z="41.600002000000003"/>
             </instance>
@@ -146,17 +140,13 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AIAL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Hylowyrm"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Hylowyrm"/>
             <instance id="0">
                 <location y="0.8" x="-264.149999999999977" z="35.550002999999997"/>
             </instance>
         </population>
         <population id="AIAR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="brunni"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="brunni"/>
             <instance id="0">
                 <location y="-5.1" x="-264.149999999999977" z="35.550002999999997"/>
             </instance>
@@ -207,17 +197,13 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AIZR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Robleda de Salamanca"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Robleda de Salamanca"/>
             <instance id="0">
                 <location y="-9.949999999999999" x="-258.75" z="37.450000000000003"/>
             </instance>
         </population>
         <population id="ALA" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Rosa"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Rosa"/>
             <instance id="0">
                 <location y="-1.35" x="-271." z="50.850000000000001"/>
             </instance>
@@ -243,17 +229,13 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AQR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Christian A. Seebauer"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Christian A. Seebauer"/>
             <instance id="0">
                 <location y="-14.800000000000001" x="-243.050000000000011" z="33.950000000000003"/>
             </instance>
         </population>
         <population id="AS1" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Kottbusser Tor"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Kottbusser Tor"/>
             <instance id="0">
                 <location y="-0.275" x="-229.038000000000011" z="4.738"/>
             </instance>
@@ -269,9 +251,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AS2" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Geraldine"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Geraldine"/>
             <instance id="0">
                 <location y="-1.8750001" x="-203.875" z="-12.725"/>
             </instance>
@@ -367,9 +347,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="ASKR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Z.B."/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Z.B."/>
             <instance id="0">
                 <location y="-8." x="-268.024999999999977" z="46.399997999999997"/>
             </instance>
@@ -385,9 +363,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AVAL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="JUD"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="JUD"/>
             <instance id="0">
                 <location y="-0.55" x="-271.5" z="37.982999999999997"/>
             </instance>
@@ -403,9 +379,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AVBR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="mn"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="mn"/>
             <instance id="0">
                 <location y="-4.581" x="-269.793999999999983" z="37.863002999999999"/>
             </instance>
@@ -441,9 +415,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AVG" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="JRW-UK"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="JRW-UK"/>
             <instance id="0">
                 <location y="-2." x="-237.099999999999994" z="12.85"/>
             </instance>
@@ -484,9 +456,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="AVM" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="chinsangian"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="chinsangian"/>
             <instance id="0">
                 <location y="-20.5" x="-55.649999999999999" z="-44.600002000000003"/>
             </instance>
@@ -522,9 +492,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="BAGL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="carcode"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="carcode"/>
             <instance id="0">
                 <location y="4.675" x="-277.099980000000016" z="44.975002000000003"/>
             </instance>
@@ -545,57 +513,43 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="CEPDL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Tauber"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Tauber"/>
             <instance id="0">
                 <location y="1.35" x="-275.025019999999984" z="54.075004999999997"/>
             </instance>
         </population>
         <population id="CEPDR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="foxx"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="foxx"/>
             <instance id="0">
                 <location y="-5.625" x="-275.025019999999984" z="54.075004999999997"/>
             </instance>
         </population>
         <population id="CEPVL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Gernot Weiser"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Gernot Weiser"/>
             <instance id="0">
                 <location y="0.70000005" x="-277.125" z="39.924999999999997"/>
             </instance>
         </population>
         <population id="CEPVR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="The Swarm"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="The Swarm"/>
             <instance id="0">
                 <location y="-4.95" x="-277.125" z="39.924999999999997"/>
             </instance>
         </population>
         <population id="DA1" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="KR"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="KR"/>
             <instance id="0">
                 <location y="-0.75" x="-227.075009999999992" z="3.425"/>
             </instance>
         </population>
         <population id="DA2" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Ruzila"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Ruzila"/>
             <instance id="0">
                 <location y="-1.9" x="-190.75" z="-21.675000000000001"/>
             </instance>
         </population>
         <population id="DA3" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Magoo"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Magoo"/>
             <instance id="0">
                 <location y="-1.65" x="-123.650000000000006" z="-58.350002000000003"/>
             </instance>
@@ -666,17 +620,13 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="DD1" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Stanislav Petrov"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Stanislav Petrov"/>
             <instance id="0">
                 <location y="-0.9" x="-231.949999999999989" z="6.85"/>
             </instance>
         </population>
         <population id="DD2" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Evolver"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Evolver"/>
             <instance id="0">
                 <location y="-1.85" x="-156.474989999999991" z="-42.850000000000001"/>
             </instance>
@@ -702,9 +652,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="DVA" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Jeff Alstott"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Jeff Alstott"/>
             <instance id="0">
                 <location y="-2.345" x="394.600000000000023" z="3.678"/>
             </instance>
@@ -725,57 +673,43 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="FLPR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Geoff Fortytwo's Neuron of Awesomeness"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Geoff Fortytwo's Neuron of Awesomeness"/>
             <instance id="0">
                 <location y="-15.050000000000001" x="-246.300000000000011" z="31.050000000000001"/>
             </instance>
         </population>
         <population id="HSNL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="The Stoner Neuron"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="The Stoner Neuron"/>
             <instance id="0">
                 <location y="17.449999999999999" x="61.049999999999997" z="6.95"/>
             </instance>
         </population>
         <population id="HSNR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="OpenScienceFTW"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="OpenScienceFTW"/>
             <instance id="0">
                 <location y="-21.649999999999999" x="61.049999999999997" z="6.95"/>
             </instance>
         </population>
         <population id="I1L" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="sitructa"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="sitructa"/>
             <instance id="0">
                 <location y="2.8999999" x="-300.350000000000023" z="53.149997999999997"/>
             </instance>
         </population>
         <population id="I1R" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Jesus Martinez"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Jesus Martinez"/>
             <instance id="0">
                 <location y="-7.1500006" x="-300.350000000000023" z="53.149997999999997"/>
             </instance>
         </population>
         <population id="I2L" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="MetaMal"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="MetaMal"/>
             <instance id="0">
                 <location y="1.55" x="-311.649999999999977" z="54.450000000000003"/>
             </instance>
         </population>
         <population id="I2R" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Flying Armbar"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Flying Armbar"/>
             <instance id="0">
                 <location y="-5.7999997" x="-311.649999999999977" z="54.450000000000003"/>
             </instance>
@@ -791,9 +725,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="I5" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="yates"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="yates"/>
             <instance id="0">
                 <location y="-2.1" x="-247.849989999999991" z="30.675000000000001"/>
             </instance>
@@ -844,9 +776,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="IL2L" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Alessandro Russo"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Alessandro Russo"/>
             <instance id="0">
                 <location y="6.7500005" x="-285." z="49.350000000000001"/>
             </instance>
@@ -877,9 +807,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="M1" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="albertwenger"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="albertwenger"/>
             <instance id="0">
                 <location y="-0.86700004" x="-252.134999999999991" z="44.420001999999997"/>
             </instance>
@@ -910,9 +838,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="M5" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Asher"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Asher"/>
             <instance id="0">
                 <location y="-2.2" x="-241.449999999999989" z="41.800002999999997"/>
             </instance>
@@ -928,9 +854,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="MI" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="NeuroMind technology"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="NeuroMind technology"/>
             <instance id="0">
                 <location y="-2.1539998" x="-293.512020000000007" z="56.707000000000001"/>
             </instance>
@@ -1001,9 +925,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="PHAR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Eliot Attridge"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Eliot Attridge"/>
             <instance id="0">
                 <location y="-3.8" x="402.899999999999977" z="4.1"/>
             </instance>
@@ -1024,25 +946,19 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="PHCR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="unusual connectivity"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="unusual connectivity"/>
             <instance id="0">
                 <location y="-3.425" x="408.774999999999977" z="7.275"/>
             </instance>
         </population>
         <population id="PLML" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Isaac Spear"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Isaac Spear"/>
             <instance id="0">
                 <location y="2.5" x="410.149999999999977" z="8.175000000000001"/>
             </instance>
         </population>
         <population id="PLMR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Altman"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Altman"/>
             <instance id="0">
                 <location y="-3.675" x="410.149999999999977" z="8.175000000000001"/>
             </instance>
@@ -1063,25 +979,19 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="PVCL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
             <instance id="0">
                 <location y="0.85" x="404.150019999999984" z="5.5"/>
             </instance>
         </population>
         <population id="PVCR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="J. Pablo Fernandez"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="J. Pablo Fernandez"/>
             <instance id="0">
                 <location y="-3.4499998" x="404.150019999999984" z="5.5"/>
             </instance>
         </population>
         <population id="PVDL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Andreas Makoto Hein"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Andreas Makoto Hein"/>
             <instance id="0">
                 <location y="24.748999999999999" x="175.15100000000001" z="24.952000000000002"/>
             </instance>
@@ -1092,9 +1002,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="PVM" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="aKzenT"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="aKzenT"/>
             <instance id="0">
                 <location y="24.850000000000001" x="188.800000000000011" z="20.550001000000002"/>
             </instance>
@@ -1150,9 +1058,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RIAL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Sara"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Sara"/>
             <instance id="0">
                 <location y="4." x="-270.25" z="45."/>
             </instance>
@@ -1168,9 +1074,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RIBR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="robkirkup"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="robkirkup"/>
             <instance id="0">
                 <location y="-9.800000000000001" x="-264.350000000000023" z="38."/>
             </instance>
@@ -1251,9 +1155,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RIVR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
             <instance id="0">
                 <location y="-8.75" x="-265.300020000000018" z="50.350000000000001"/>
             </instance>
@@ -1324,9 +1226,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RMGR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
             <instance id="0">
                 <location y="-12.5" x="-238.299990000000008" z="32.700000000000003"/>
             </instance>
@@ -1337,9 +1237,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RMHR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Martino"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Martino"/>
             <instance id="0">
                 <location y="-5.2999997" x="-265.899999999999977" z="35.700000000000003"/>
             </instance>
@@ -1385,9 +1283,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="SDQR" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="ogachyuallincheck"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="ogachyuallincheck"/>
             <instance id="0">
                 <location y="-14.200001" x="-131.75" z="-10.550000000000001"/>
             </instance>
@@ -1473,9 +1369,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="URADL" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="akizzles"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="akizzles"/>
             <instance id="0">
                 <location y="5." x="-284.649999999999977" z="52.200000000000003"/>
             </instance>
@@ -1556,9 +1450,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="VA2" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Marquam Hill"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Marquam Hill"/>
             <instance id="0">
                 <location y="-1.85" x="-217.099999999999994" z="-3.9500003"/>
             </instance>
@@ -1599,9 +1491,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="VB1" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
             <instance id="0">
                 <location y="-1.55" x="-246.449999999999989" z="16.399999999999999"/>
             </instance>
@@ -1617,25 +1507,19 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="VB2" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
             <instance id="0">
                 <location y="-2." x="-253.300000000000011" z="19.850000000000001"/>
             </instance>
         </population>
         <population id="VB3" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
             <instance id="0">
                 <location y="-1.85" x="-210.224999999999994" z="-8.725"/>
             </instance>
         </population>
         <population id="VB4" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Worm"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Worm"/>
             <instance id="0">
                 <location y="-2." x="-173.25" z="-33.5"/>
             </instance>
@@ -1666,17 +1550,13 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="VC1" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Gnothi seauton"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Gnothi seauton"/>
             <instance id="0">
                 <location y="-0.72499996" x="-170.025010000000009" z="-35.75"/>
             </instance>
         </population>
         <population id="VC2" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="M.Habryn"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="M.Habryn"/>
             <instance id="0">
                 <location y="-0.625" x="-105.325000000000003" z="-63.399999999999999"/>
             </instance>
@@ -1687,9 +1567,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="VC4" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Klob Le Grand"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Klob Le Grand"/>
             <instance id="0">
                 <location y="-1.15" x="43.850000000000001" z="-24.199999999999999"/>
             </instance>
@@ -1700,9 +1578,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="VD1" component="generic_iaf_cell" type="populationList">
-            <annotation>
-                <property tag="OpenWormBackerAssignedName" value="Ackley Lab"/>
-            </annotation>
+            <property tag="OpenWormBackerAssignedName" value="Ackley Lab"/>
             <instance id="0">
                 <location y="-0.70000005" x="-228.599999999999994" z="4.05"/>
             </instance>

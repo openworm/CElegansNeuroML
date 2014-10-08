@@ -1,11 +1,22 @@
+
+# Model of a decision making circuit
+
+# See https://github.com/openworm/OpenWorm/issues/212
+
+# To run:
+#          python c302_Social.py A   (uses parameters_A, requires jNeuroML to run)
+# or
+#          python c302_Social.py B   (uses parameters_B, requires jNeuroML built from the 
+#                                     experimental branches to run: 'python getNeuroML experimental'
+#                                     see https://github.com/NeuroML/jNeuroML)
+
 from c302 import generate
 
 from neuroml import PulseGenerator
 from neuroml import ExplicitInput
 import neuroml.writers as writers
 
-# See https://github.com/openworm/OpenWorm/issues/212
-
+import sys
 
 def add_new_input(nml_doc, cell, delay, duration, amplitude):
     
@@ -20,8 +31,9 @@ def add_new_input(nml_doc, cell, delay, duration, amplitude):
     nml_doc.networks[0].explicit_inputs.append(exp_input)
 
 if __name__ == '__main__':
+  
     
-    parameter_set = 'B'
+    parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
     
     exec('import parameters_%s as params'%parameter_set)
     
