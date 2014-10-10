@@ -4,7 +4,7 @@ Cells which have been adopted in the OpenWorm project
 ADAL
 ----------
 
-Adopted name: Xabe
+Adopted name: **Xabe**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L90).
@@ -12,7 +12,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 ADAR
 ----------
 
-Adopted name: Aurolessa
+Adopted name: **Aurolessa**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L96).
@@ -20,7 +20,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 ADFL
 ----------
 
-Adopted name: Lloyd Watts
+Adopted name: **Lloyd Watts**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L112).
@@ -28,7 +28,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AIAL
 ----------
 
-Adopted name: Hylowyrm
+Adopted name: **Hylowyrm**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L143).
@@ -36,7 +36,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AIAR
 ----------
 
-Adopted name: brunni
+Adopted name: **brunni**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L149).
@@ -44,7 +44,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AIZR
 ----------
 
-Adopted name: Robleda de Salamanca
+Adopted name: **Robleda de Salamanca**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L200).
@@ -52,7 +52,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 ALA
 ----------
 
-Adopted name: Rosa
+Adopted name: **Rosa**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L206).
@@ -60,7 +60,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AQR
 ----------
 
-Adopted name: Christian A. Seebauer
+Adopted name: **Christian A. Seebauer**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L232).
@@ -68,7 +68,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AS1
 ----------
 
-Adopted name: Kottbusser Tor
+Adopted name: **Kottbusser Tor**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L238).
@@ -76,7 +76,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AS2
 ----------
 
-Adopted name: Geraldine
+Adopted name: **Geraldine**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L254).
@@ -84,7 +84,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 ASKR
 ----------
 
-Adopted name: Z.B.
+Adopted name: **Z.B.**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L350).
@@ -92,7 +92,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AVAL
 ----------
 
-Adopted name: JUD
+Adopted name: **JUD**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L366).
@@ -100,7 +100,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AVBR
 ----------
 
-Adopted name: mn
+Adopted name: **mn**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L382).
@@ -108,7 +108,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AVG
 ----------
 
-Adopted name: JRW-UK
+Adopted name: **JRW-UK**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L418).
@@ -116,7 +116,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 AVM
 ----------
 
-Adopted name: chinsangian
+Adopted name: **chinsangian**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L459).
@@ -124,7 +124,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 BAGL
 ----------
 
-Adopted name: carcode
+Adopted name: **carcode**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L495).
@@ -132,19 +132,19 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 CANL
 ----------
 
-Adopted name: Ruben Kamran
+Adopted name: **Ruben Kamran**
 
 
 CANR
 ----------
 
-Adopted name: neurobelle
+Adopted name: **neurobelle**
 
 
 CEPDL
 ----------
 
-Adopted name: Tauber
+Adopted name: **Tauber**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L516).
@@ -152,7 +152,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 CEPDR
 ----------
 
-Adopted name: foxx
+Adopted name: **foxx**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L522).
@@ -160,7 +160,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 CEPVL
 ----------
 
-Adopted name: Gernot Weiser
+Adopted name: **Gernot Weiser**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L528).
@@ -168,7 +168,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 CEPVR
 ----------
 
-Adopted name: The Swarm
+Adopted name: **The Swarm**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L534).
@@ -176,7 +176,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 DA1
 ----------
 
-Adopted name: KR
+Adopted name: **KR**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L540).
@@ -184,7 +184,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 DA2
 ----------
 
-Adopted name: Ruzila
+Adopted name: **Ruzila**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L546).
@@ -192,7 +192,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 DA3
 ----------
 
-Adopted name: Magoo
+Adopted name: **Magoo**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L552).
@@ -200,7 +200,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 DD1
 ----------
 
-Adopted name: Stanislav Petrov
+Adopted name: **Stanislav Petrov**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L623).
@@ -208,7 +208,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 DD2
 ----------
 
-Adopted name: Evolver
+Adopted name: **Evolver**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L629).
@@ -216,7 +216,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 DVA
 ----------
 
-Adopted name: Jeff Alstott
+Adopted name: **Jeff Alstott**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L655).
@@ -224,7 +224,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 FLPR
 ----------
 
-Adopted name: Geoff Fortytwo's Neuron of Awesomeness
+Adopted name: **Geoff Fortytwo's Neuron of Awesomeness**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L676).
@@ -232,7 +232,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 HSNL
 ----------
 
-Adopted name: The Stoner Neuron
+Adopted name: **The Stoner Neuron**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L682).
@@ -240,7 +240,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 HSNR
 ----------
 
-Adopted name: OpenScienceFTW
+Adopted name: **OpenScienceFTW**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L688).
@@ -248,7 +248,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 I1L
 ----------
 
-Adopted name: sitructa
+Adopted name: **sitructa**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L694).
@@ -256,7 +256,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 I1R
 ----------
 
-Adopted name: Jesus Martinez
+Adopted name: **Jesus Martinez**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L700).
@@ -264,7 +264,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 I2L
 ----------
 
-Adopted name: MetaMal
+Adopted name: **MetaMal**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L706).
@@ -272,7 +272,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 I2R
 ----------
 
-Adopted name: Flying Armbar
+Adopted name: **Flying Armbar**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L712).
@@ -280,7 +280,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 I5
 ----------
 
-Adopted name: yates
+Adopted name: **yates**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L728).
@@ -288,7 +288,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 IL2L
 ----------
 
-Adopted name: Alessandro Russo
+Adopted name: **Alessandro Russo**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L779).
@@ -296,7 +296,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 M1
 ----------
 
-Adopted name: albertwenger
+Adopted name: **albertwenger**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L810).
@@ -304,7 +304,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 M5
 ----------
 
-Adopted name: Asher
+Adopted name: **Asher**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L841).
@@ -312,7 +312,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 MI
 ----------
 
-Adopted name: NeuroMind technology
+Adopted name: **NeuroMind technology**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L857).
@@ -320,7 +320,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PHAR
 ----------
 
-Adopted name: Eliot Attridge
+Adopted name: **Eliot Attridge**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L928).
@@ -328,7 +328,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PHCR
 ----------
 
-Adopted name: unusual connectivity
+Adopted name: **unusual connectivity**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L949).
@@ -336,7 +336,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PLML
 ----------
 
-Adopted name: Isaac Spear
+Adopted name: **Isaac Spear**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L955).
@@ -344,7 +344,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PLMR
 ----------
 
-Adopted name: Altman
+Adopted name: **Altman**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L961).
@@ -352,7 +352,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PVCL
 ----------
 
-Adopted name: Ramana Kumar
+Adopted name: **Ramana Kumar**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L982).
@@ -360,7 +360,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PVCR
 ----------
 
-Adopted name: J. Pablo Fernandez
+Adopted name: **J. Pablo Fernandez**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L988).
@@ -368,7 +368,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PVDL
 ----------
 
-Adopted name: Andreas Makoto Hein
+Adopted name: **Andreas Makoto Hein**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L994).
@@ -376,7 +376,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 PVM
 ----------
 
-Adopted name: aKzenT
+Adopted name: **aKzenT**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1005).
@@ -384,7 +384,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 RIAL
 ----------
 
-Adopted name: Sara
+Adopted name: **Sara**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1061).
@@ -392,7 +392,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 RIBR
 ----------
 
-Adopted name: robkirkup
+Adopted name: **robkirkup**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1077).
@@ -400,7 +400,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 RIVR
 ----------
 
-Adopted name: Wil Wheaton
+Adopted name: **Wil Wheaton**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1158).
@@ -408,7 +408,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 RMGR
 ----------
 
-Adopted name: Bryan Nagle
+Adopted name: **Bryan Nagle**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1229).
@@ -416,7 +416,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 RMHR
 ----------
 
-Adopted name: Martino
+Adopted name: **Martino**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1240).
@@ -424,7 +424,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 SDQR
 ----------
 
-Adopted name: ogachyuallincheck
+Adopted name: **ogachyuallincheck**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1286).
@@ -432,7 +432,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 URADL
 ----------
 
-Adopted name: akizzles
+Adopted name: **akizzles**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1372).
@@ -440,7 +440,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VA2
 ----------
 
-Adopted name: Marquam Hill
+Adopted name: **Marquam Hill**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1453).
@@ -448,7 +448,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VB1
 ----------
 
-Adopted name: NoTex.ch
+Adopted name: **NoTex.ch**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1494).
@@ -456,7 +456,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VB2
 ----------
 
-Adopted name: Bloodgood
+Adopted name: **Bloodgood**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1510).
@@ -464,7 +464,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VB3
 ----------
 
-Adopted name: Ramez Naam
+Adopted name: **Ramez Naam**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1516).
@@ -472,7 +472,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VB4
 ----------
 
-Adopted name: Worm
+Adopted name: **Worm**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1522).
@@ -480,7 +480,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VC1
 ----------
 
-Adopted name: Gnothi seauton
+Adopted name: **Gnothi seauton**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1553).
@@ -488,7 +488,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VC2
 ----------
 
-Adopted name: M.Habryn
+Adopted name: **M.Habryn**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1559).
@@ -496,7 +496,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VC4
 ----------
 
-Adopted name: Klob Le Grand
+Adopted name: **Klob Le Grand**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1570).
@@ -504,7 +504,7 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 VD1
 ----------
 
-Adopted name: Ackley Lab
+Adopted name: **Ackley Lab**
 
 
 Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1581).

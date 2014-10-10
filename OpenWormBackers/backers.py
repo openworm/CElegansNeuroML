@@ -32,7 +32,7 @@ if __name__ == '__main__':
         name = ads[cell]
         info+=cell+"\n"
         info+="----------\n\n"
-        info+="Adopted name: "+name+"\n\n\n"
+        info+="Adopted name: **"+name+"**\n\n\n"
         i = 0
         search_file = open("../CElegans/pythonScripts/c302/c302_A_Full.nml",'r')
         for line in search_file:
