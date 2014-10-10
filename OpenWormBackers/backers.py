@@ -19,7 +19,22 @@ if __name__ == '__main__':
     
     ads = get_adopted_cell_names()
     
-    for ad in ads:
-        print "%s: %s"% (ad, ads[ad]) 
+    file = open('AdoptedCells.md','w')
+    
+    info = ""
+    
+    info+="Cells which have been adopted in the OpenWorm project\n"
+    info+="=====================================================\n\n"
+    
+    for cell in ads:
+        name = ads[cell]
+        info+=cell+"\n"
+        info+="----------\n\n"
+        info+="Adopted name: "+name+"\n\n\n"
+        
+    print info
+    file.write(info)
+    file.close()
+        
     
     
