@@ -3,8 +3,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['ADAL', 'AIBL', 'RIVR', 'RMEV']
-    Cell stimulated:               ['ADAL', 'RIVR']
+    Cells:                         [ADAL,AIBL,RIVR,RMEV]
+    Cell stimulated:               [ADAL,RIVR]
     Connection numbers overridden: None
     Connection numbers scaled:     None
 

@@ -16,10 +16,10 @@ python c302_Social.py B
 
 ## Validate generated NeuroML 2
 
-jnml -validate c302_*_Full.nml
-jnml -validate c302_*_Pharyngeal.nml
-jnml -validate c302_*_Syns.nml
-jnml -validate c302_*_Social.nml
+jnml -validate c302_A_Full.nml
+jnml -validate c302_A_Pharyngeal.nml
+jnml -validate c302_A_Syns.nml
+jnml -validate c302_A_Social.nml
 
 
 ## Try running these in jNeuroML with no GUI

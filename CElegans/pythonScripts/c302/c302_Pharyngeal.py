@@ -11,4 +11,12 @@ if __name__ == '__main__':
     
     reference = "c302_%s_Pharyngeal"%parameter_set
     
-    generate(reference, params, cells=pharyngeal_cells, cells_to_stimulate=cells_to_stimulate, duration=500, dt=0.025, vmin=-72, vmax=-48)
+    generate(reference, 
+             params, 
+             cells=pharyngeal_cells, 
+             cells_to_stimulate=cells_to_stimulate, 
+             duration=500, 
+             dt=0.025, 
+             vmin=-72, 
+             vmax=-48,
+             validate=(parameter_set!='B'))

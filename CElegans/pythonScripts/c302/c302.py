@@ -220,7 +220,8 @@ def generate(net_id,
              dt = 0.01, 
              vmin = -75, 
              vmax = 20,
-             seed = 1234):
+             seed = 1234,
+             validate=True):
                  
     random.seed(seed)
     
@@ -261,8 +262,14 @@ def generate(net_id,
                  "cell_component":    params.generic_cell.id}
     
     lems_info["plots"] = []
+    lems_info["activity_plots"] = []
+    
     lems_info["to_save"] = []
     lems_info["cells"] = []
+    lems_info["includes"] = []
+                
+    if hasattr(params.generic_cell, 'custom_component_type_definition'):
+        lems_info["includes"].append(params.generic_cell.custom_component_type_definition)
 
     backers_dir = "../../../OpenWormBackers/"
     sys.path.append(backers_dir)
@@ -329,6 +336,16 @@ def generate(net_id,
                     plot["quantity"] = "%s[0]/v" % (cell)
                 lems_info["plots"].append(plot)
                 
+                if hasattr(params.generic_cell, 'custom_component_type_definition'):
+                    plot = {}
+                
+                    plot["cell"] = cell
+                    plot["colour"] = get_random_colour_hex()
+                    plot["quantity"] = "%s/0/%s/activity" % (cell, params.generic_cell.id)
+                    if populations_without_location: 
+                        plot["quantity"] = "%s[0]/activity" % (cell)
+                    lems_info["activity_plots"].append(plot)
+
             save = {}
                 
             save["cell"] = cell
@@ -434,7 +451,7 @@ def generate(net_id,
 
     
 
-    write_to_file(nml_doc, lems_info, net_id)
+    write_to_file(nml_doc, lems_info, net_id, validate=validate)
     
     return nml_doc
   

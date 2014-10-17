@@ -12,4 +12,12 @@ if __name__ == '__main__':
     
     reference = "c302_%s_Syns"%parameter_set
     
-    generate(reference, params, cells=cells, cells_to_stimulate=cells_to_stimulate, duration=500, dt=0.1, vmin=-72, vmax=-48)
+    generate(reference, 
+             params, 
+             cells=cells, 
+             cells_to_stimulate=cells_to_stimulate, 
+             duration=500, 
+             dt=0.1, 
+             vmin=-72, 
+             vmax=-48,
+             validate=(parameter_set!='B'))

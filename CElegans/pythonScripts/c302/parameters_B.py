@@ -29,6 +29,7 @@ iaf_reset =             BioParameter("iaf_reset", "-70mV", "BlindGuess", "0.1")
 iaf_thresh =            BioParameter("iaf_thresh", "-50mV", "BlindGuess", "0.1")
 iaf_C =                 BioParameter("iaf_C", "0.2nF", "BlindGuess", "0.1")
 iaf_conductance =       BioParameter("iaf_conductance", "0.01uS", "BlindGuess", "0.1")
+iaf_tau1 =              BioParameter("iaf_tau1", "50ms", "BlindGuess", "0.1")
 
 
 chem_exc_syn_gbase =       BioParameter("chem_exc_syn_gbase", "0.2nS", "BlindGuess", "0.1")
@@ -47,13 +48,30 @@ elec_syn_gbase =       BioParameter("elec_syn_gbase", "0.5nS", "BlindGuess", "0.
 unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.21nA", "KnownError", "0")
 unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "200ms", "KnownError", "0")
 
+class IafActivityCell():
+    
+    def __init__(self, id, C, thresh, reset, leak_conductance, leak_reversal, tau1):
+        self.id = id
+        self.C = C
+        self.thresh = thresh
+        self.reset = reset
+        self.leak_conductance = leak_conductance
+        self.leak_reversal = leak_reversal
+        self.tau1 = tau1
+        
+        self.custom_component_type_definition = 'cell_B.xml'
+        
+    
+    def export(self, outfile, level, namespace, name_, pretty_print=True):
+        outfile.write('    '*level + '<iafCell type="iafActivityCell" id="%s" C="%s" thresh="%s" reset="%s" leakConductance="%s" leakReversal="%s" tau1="%s"/>\n'%(self.id, self.C, self.thresh, self.reset, self.leak_conductance, self.leak_reversal, self.tau1))
 
-generic_cell = IafCell(id="generic_iaf_cell", 
+generic_cell = IafActivityCell(id = "generic_iaf_cell",
                             C =                 iaf_C.value,
                             thresh =            iaf_thresh.value,
                             reset =             iaf_reset.value,
                             leak_conductance =  iaf_conductance.value,
-                            leak_reversal =     iaf_leak_reversal.value)
+                            leak_reversal =     iaf_leak_reversal.value,
+                            tau1 =              iaf_tau1.value)
 
 
 exc_syn = ExpTwoSynapse(id="exc_syn",

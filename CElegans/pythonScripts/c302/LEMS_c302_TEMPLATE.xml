@@ -11,6 +11,10 @@ ${comment}
     <Include file="Cells.xml" />
     <Include file="Networks.xml" />
     <Include file="Simulation.xml" />
+#foreach ($include in $includes)##
+    
+    <Include file="${include}" />
+#end##
     
     <Include file="${reference}.nml" />
 
@@ -28,6 +32,16 @@ ${comment}
 #end## 
             
         </Display>
+#if ($activity_plots)##   
+      
+        <Display id="d1" title="${reference}: Activity of a number of cells" timeScale="1ms" xmin="$start" xmax="$end" ymin="-0.1" ymax="1.1">
+            
+#foreach ($plot in $activity_plots)##
+            <Line id="${plot.cell}" quantity="${plot.quantity}" scale="1" color="${plot.colour}" timeScale="1ms" />
+#end## 
+
+        </Display>
+#end## 
 
         <OutputFile id="of0" fileName="${reference}.dat">
 #foreach ($save in $to_save)##

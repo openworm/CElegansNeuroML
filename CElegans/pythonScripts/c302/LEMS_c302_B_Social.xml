@@ -16,6 +16,7 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
@@ -39,6 +40,8 @@ Parameters and setting used to generate this network:
     <Include file="Networks.xml" />
     <Include file="Simulation.xml" />
     
+    <Include file="cell_B.xml" />
+    
     <Include file="c302_B_Social.nml" />
 
     <!-- End of NeuroML2 content -->
@@ -49,13 +52,25 @@ Parameters and setting used to generate this network:
         <Display id="d0" title="c302_B_Social: Membrane potential of a number of cells" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-72" ymax="-48">
             
             <Line id="ASHR" quantity="ASHR[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
-            <Line id="ASKR" quantity="ASKR[0]/v" scale="1mV" color="#eaf195" timeScale="1ms" />
-            <Line id="AWBR" quantity="AWBR[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
-            <Line id="IL2R" quantity="IL2R[0]/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
-            <Line id="RMGR" quantity="RMGR[0]/v" scale="1mV" color="#58a09e" timeScale="1ms" />
-            <Line id="RMHR" quantity="RMHR[0]/v" scale="1mV" color="#262f1d" timeScale="1ms" />
-            <Line id="URXR" quantity="URXR[0]/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="ASKR" quantity="ASKR[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="AWBR" quantity="AWBR[0]/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="IL2R" quantity="IL2R[0]/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="RMGR" quantity="RMGR[0]/v" scale="1mV" color="#9a1694" timeScale="1ms" />
+            <Line id="RMHR" quantity="RMHR[0]/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
+            <Line id="URXR" quantity="URXR[0]/v" scale="1mV" color="#008200" timeScale="1ms" />
             
+        </Display>
+      
+        <Display id="d1" title="c302_B_Social: Activity of a number of cells" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-0.1" ymax="1.1">
+            
+            <Line id="ASHR" quantity="ASHR[0]/activity" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="ASKR" quantity="ASKR[0]/activity" scale="1" color="#3c00ca" timeScale="1ms" />
+            <Line id="AWBR" quantity="AWBR[0]/activity" scale="1" color="#262f1d" timeScale="1ms" />
+            <Line id="IL2R" quantity="IL2R[0]/activity" scale="1" color="#108b77" timeScale="1ms" />
+            <Line id="RMGR" quantity="RMGR[0]/activity" scale="1" color="#458fa5" timeScale="1ms" />
+            <Line id="RMHR" quantity="RMHR[0]/activity" scale="1" color="#ef7488" timeScale="1ms" />
+            <Line id="URXR" quantity="URXR[0]/activity" scale="1" color="#247960" timeScale="1ms" />
+
         </Display>
 
         <OutputFile id="of0" fileName="c302_B_Social.dat">

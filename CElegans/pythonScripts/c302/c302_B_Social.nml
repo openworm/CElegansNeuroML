@@ -14,6 +14,7 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
@@ -30,7 +31,7 @@ Parameters and setting used to generate this network:
     <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.4nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
     <gapJunction id="elec_syn_1conns" conductance="0.5nS"/>
-    <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
+    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.2nF" thresh="-50mV" reset="-70mV" leakConductance="0.01uS" leakReversal="-70mV" tau1="50ms"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <pulseGenerator id="stim_RMGR" delay="100ms" duration="200ms" amplitude="0.35nA"/>
     <pulseGenerator id="stim_ASHR" delay="400ms" duration="200ms" amplitude="0.35nA"/>
