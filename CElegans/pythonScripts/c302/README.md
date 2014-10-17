@@ -85,15 +85,15 @@ Image above shows the network run in NEURON (top) and a comparison of the activi
 
 Future plans include:
 
-- Implement & correctly tune **Parameters_B**, **Parameters_C**
+- Implement & correctly tune **Parameters_B** (started), **Parameters_C**
 
 - Modify to use [PyOpenWorm](https://github.com/openworm/PyOpenWorm) as source of connection data
 
 - Move all of this to its own repository
 
-- Add to Geppetto for simulation of networks in browser
+- ~~Add to Geppetto for simulation of networks in browser~~ (done, see live.geppetto.org)
 
-- Connect output of motorneurons in networks to [Sibernetic](http://openworm.github.io/Smoothed-Particle-Hydrodynamics/)
+- Add muscle cells & connect output to muscle cell activity in [Sibernetic](http://openworm.github.io/Smoothed-Particle-Hydrodynamics/)
 
 - Link to [bionet](https://github.com/portegys/bionet) to tune weights of network to physiological behaviour
 
