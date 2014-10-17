@@ -10,7 +10,7 @@ from xlrd import open_workbook
 ############################################################
 
 
-def readDataFromSpreadsheet(dir="../../"):
+def readDataFromSpreadsheet(dir="../../", include_nonconnected_cells=False):
 
     conns = []
     cells = []
@@ -18,6 +18,8 @@ def readDataFromSpreadsheet(dir="../../"):
     rb = open_workbook(filename)
 
     print "Opened Excel file: "+ filename
+    
+    known_nonconnected_cells = ['CANL', 'CANR', 'VC6']
 
 
     for row in range(2,rb.sheet_by_index(0).nrows):
@@ -33,12 +35,38 @@ def readDataFromSpreadsheet(dir="../../"):
         if post not in cells:
             cells.append(post)
        
-      
-      # print "------------------------------------------\nConnection %i has %i from %s to %s (type: %s, synapse: %s)" %(row, num, pre, post, syntype, synclass)
-      
+    if include_nonconnected_cells:
+        for c in known_nonconnected_cells: cells.append(c)
 
-    # print "----------------------------------------------------------------------"
 
     return cells, conns
 
 
+
+def main():
+
+    cells, conns = readDataFromSpreadsheet()
+    
+    print("%i cells in spreadsheet: %s"%(len(cells),sorted(cells)))
+    
+    from os import listdir
+    from os.path import isfile
+    cell_names = [ f[:-9] for f in listdir('../morphologies/') if f.endswith('.java.xml')]
+    
+    cell_names.remove('MDL08') # muscle 
+    
+    print("%i cell morphologies found: %s"%(len(cell_names),sorted(cell_names)))
+    
+    for c in cells: cell_names.remove(c)
+    
+    print("Difference: %s"%cell_names)
+    
+    
+    cells2, conns2 = readDataFromSpreadsheet(include_nonconnected_cells=True)
+    
+    
+    assert(len(cells2) == 302)
+    
+if __name__ == '__main__':
+        
+    main()

@@ -512,6 +512,18 @@ Parameters and setting used to generate this network:
                 <location y="-19.649999999999999" x="-187.150000000000006" z="-0.2"/>
             </instance>
         </population>
+        <population id="CANL" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Ruben Kamran"/>
+            <instance id="0">
+                <location y="25.350002" x="47.950000000000003" z="1.65"/>
+            </instance>
+        </population>
+        <population id="CANR" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="neurobelle"/>
+            <instance id="0">
+                <location y="-27.25" x="47.950000000000003" z="1.65"/>
+            </instance>
+        </population>
         <population id="CEPDL" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Tauber"/>
             <instance id="0">
@@ -1575,6 +1587,11 @@ Parameters and setting used to generate this network:
         <population id="VC5" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="-1.15" x="66.549994999999996" z="-12.5"/>
+            </instance>
+        </population>
+        <population id="VC6" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location y="-1.8249999" x="174.175000000000011" z="1."/>
             </instance>
         </population>
         <population id="VD1" component="generic_iaf_cell" type="populationList">

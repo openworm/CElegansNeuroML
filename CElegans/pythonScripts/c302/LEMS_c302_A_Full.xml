@@ -143,6 +143,8 @@ Parameters and setting used to generate this network:
             <OutputColumn id="BAGR_v" quantity="BAGR/0/generic_iaf_cell/v"/>
             <OutputColumn id="BDUL_v" quantity="BDUL/0/generic_iaf_cell/v"/>
             <OutputColumn id="BDUR_v" quantity="BDUR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="CANL_v" quantity="CANL/0/generic_iaf_cell/v"/>
+            <OutputColumn id="CANR_v" quantity="CANR/0/generic_iaf_cell/v"/>
             <OutputColumn id="CEPDL_v" quantity="CEPDL/0/generic_iaf_cell/v"/>
             <OutputColumn id="CEPDR_v" quantity="CEPDR/0/generic_iaf_cell/v"/>
             <OutputColumn id="CEPVL_v" quantity="CEPVL/0/generic_iaf_cell/v"/>
@@ -347,6 +349,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="VC3_v" quantity="VC3/0/generic_iaf_cell/v"/>
             <OutputColumn id="VC4_v" quantity="VC4/0/generic_iaf_cell/v"/>
             <OutputColumn id="VC5_v" quantity="VC5/0/generic_iaf_cell/v"/>
+            <OutputColumn id="VC6_v" quantity="VC6/0/generic_iaf_cell/v"/>
             <OutputColumn id="VD1_v" quantity="VD1/0/generic_iaf_cell/v"/>
             <OutputColumn id="VD10_v" quantity="VD10/0/generic_iaf_cell/v"/>
             <OutputColumn id="VD11_v" quantity="VD11/0/generic_iaf_cell/v"/>

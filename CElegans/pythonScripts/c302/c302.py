@@ -244,7 +244,7 @@ def generate(net_id,
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../")
+    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../", include_nonconnected_cells=True)
 
     cell_names.sort()
 
@@ -271,6 +271,7 @@ def generate(net_id,
     
     populations_without_location = isinstance(params.elec_syn, GapJunction)
 
+    count = 0
     for cell in cell_names:
         
         if cells is None or cell in cells:
@@ -339,6 +340,9 @@ def generate(net_id,
                 
             lems_info["cells"].append(cell)
             
+            count+=1
+            
+    print("Finished loading %i cells"%count)
     
     for conn in conns:
 
