@@ -1,6 +1,10 @@
 Cells which have been adopted in the OpenWorm project
 =====================================================
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/OpenWormBackers/SomeCells.png" alt="Some cells"/>
+</p>
+
 ADAL
 ----------
 
