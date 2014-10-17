@@ -25,6 +25,9 @@ if __name__ == '__main__':
     
     info+="Cells which have been adopted in the OpenWorm project\n"
     info+="=====================================================\n\n"
+    info+='<p align="center">\n'
+    info+='  <img src="https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/OpenWormBackers/SomeCells.png" alt="Some cells"/>\n'
+    info+='</p>\n\n'
     
     url = "https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L%i"
     
