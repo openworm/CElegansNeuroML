@@ -9,6 +9,7 @@ Parameters and setting used to generate this network:
     Cell stimulated:               ['M1', 'M3R', 'M4', 'M5', 'I1L', 'I4', 'I5', 'I6', 'MCL', 'MCR']
     Connection numbers overridden: None
     Connection numbers scaled:     None
+    Include muscles:               False
 
     Known BioParameters:
         BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
@@ -31,7 +32,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current = 0.21nA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
-    
+   
     -->
 
     <Target component="sim_c302_A_Pharyngeal" />
@@ -49,7 +50,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_A_Pharyngeal" length="500ms" step="0.025ms" target="c302_A_Pharyngeal">
 
-        <Display id="d0" title="c302_A_Pharyngeal: Membrane potential of a number of cells" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
+        <Display id="neurons" title="c302_A_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
             <Line id="I1L" quantity="I1L/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
@@ -74,7 +75,7 @@ Parameters and setting used to generate this network:
             
         </Display>
 
-        <OutputFile id="of0" fileName="c302_A_Pharyngeal.dat">
+        <OutputFile id="neurons_v" fileName="c302_A_Pharyngeal.dat">
             <OutputColumn id="I1L_v" quantity="I1L/0/generic_iaf_cell/v"/>
             <OutputColumn id="I1R_v" quantity="I1R/0/generic_iaf_cell/v"/>
             <OutputColumn id="I2L_v" quantity="I2L/0/generic_iaf_cell/v"/>
@@ -96,7 +97,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="NSML_v" quantity="NSML/0/generic_iaf_cell/v"/>
             <OutputColumn id="NSMR_v" quantity="NSMR/0/generic_iaf_cell/v"/>
         </OutputFile>
-
+        
     </Simulation>
 
 

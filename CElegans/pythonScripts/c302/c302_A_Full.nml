@@ -7,6 +7,7 @@ Parameters and setting used to generate this network:
     Cell stimulated:               ['ADAL', 'ADAR', 'M1', 'M2L', 'M3L', 'M3R', 'M4', 'I1R', 'I2L', 'I5', 'I6', 'MI', 'NSMR', 'MCL', 'ASEL', 'AVEL', 'AWAR', 'DB1', 'DVC', 'RIAR', 'RMDDL']
     Connection numbers overridden: None
     Connection numbers scaled:     None
+    Include muscles:               False
 
     Known BioParameters:
         BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)

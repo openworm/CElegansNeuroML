@@ -214,6 +214,7 @@ def generate(net_id,
              cells = None, 
              cells_to_plot = None, 
              cells_to_stimulate = None, 
+             include_muscles=False,
              conn_number_override = None, 
              conn_number_scaling = None, 
              duration = 500, 
@@ -229,7 +230,8 @@ def generate(net_id,
            "    Cells:                         %s\n" % (cells if cells is not None else "All cells")+\
            "    Cell stimulated:               %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All cells")+\
            "    Connection numbers overridden: %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
-           "    Connection numbers scaled:     %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")
+           "    Connection numbers scaled:     %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+\
+           "    Include muscles:               %s\n" % include_muscles
     info += "\n%s\n"%(bioparameter_info("    "))
     
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
@@ -245,7 +247,8 @@ def generate(net_id,
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../", include_nonconnected_cells=True)
+    spreadsheet_location = "../../../"
+    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet(spreadsheet_location, include_nonconnected_cells=True)
 
     cell_names.sort()
 
@@ -263,9 +266,13 @@ def generate(net_id,
     
     lems_info["plots"] = []
     lems_info["activity_plots"] = []
+    lems_info["muscle_plots"] = []
+    lems_info["muscle_activity_plots"] = []
     
+    lems_info["muscles_to_save"] = []
     lems_info["to_save"] = []
     lems_info["cells"] = []
+    lems_info["muscles"] = []
     lems_info["includes"] = []
                 
     if hasattr(params.generic_cell, 'custom_component_type_definition'):
@@ -361,6 +368,76 @@ def generate(net_id,
             
     print("Finished loading %i cells"%count)
     
+    mneurons, muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
+    
+    if include_muscles:
+        
+        muscle_count = 0
+        for muscle in muscles:
+
+            inst = Instance(id="0")
+
+            if not populations_without_location:
+                # build a Population data structure out of the cell name
+                pop0 = Population(id=muscle, 
+                                  component=params.generic_cell.id,
+                                  type="populationList")
+                pop0.instances.append(inst)
+
+            else:
+                # build a Population data structure out of the cell name
+                pop0 = Population(id=muscle, 
+                                  component=params.generic_cell.id,
+                                  size="1")
+
+            # put that Population into the Network data structure from above
+            net.populations.append(pop0)
+
+            if cells_vs_name.has_key(muscle):
+                # No muscles adopted yet, but just in case they are in future...
+                p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[muscle])
+                pop0.properties.append(p)
+
+            inst.location = Location(100, 10*muscle_count, 100)
+
+            target = "%s/0/%s"%(pop0.id, params.generic_cell.id)
+            if populations_without_location: 
+                target = "%s[0]" % (muscle)
+
+            plot = {}
+
+            plot["cell"] = muscle
+            plot["colour"] = get_random_colour_hex()
+            plot["quantity"] = "%s/0/%s/v" % (muscle, params.generic_cell.id)
+            if populations_without_location: 
+                plot["quantity"] = "%s[0]/v" % (muscle)
+            lems_info["muscle_plots"].append(plot)
+
+            if hasattr(params.generic_cell, 'custom_component_type_definition'):
+                plot = {}
+
+                plot["cell"] = muscle
+                plot["colour"] = get_random_colour_hex()
+                plot["quantity"] = "%s/0/%s/activity" % (muscle, params.generic_cell.id)
+                if populations_without_location: 
+                    plot["quantity"] = "%s[0]/activity" % (muscle)
+                lems_info["muscle_activity_plots"].append(plot)
+
+            save = {}
+
+            save["cell"] = muscle
+            save["quantity"] = "%s/0/%s/v" % (muscle, params.generic_cell.id)
+            if populations_without_location: 
+                save["quantity"] = "%s[0]/v" % (muscle)
+
+            lems_info["muscles_to_save"].append(save)
+
+            lems_info["muscles"].append(muscle)
+
+            muscle_count+=1
+
+        print("Finished creating %i muscles"%muscle_count)
+    
     for conn in conns:
 
         if conn.pre_cell in lems_info["cells"] and conn.post_cell in lems_info["cells"]:
@@ -448,9 +525,98 @@ def generate(net_id,
 
                 proj0.electrical_connections.append(conn0)
                 
-
     
+    if include_muscles:
+      for conn in muscle_conns:
 
+        if conn.pre_cell in lems_info["cells"]:
+            # take information about each connection and package it into a 
+            # NeuroML Projection data structure
+            proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
+
+            elect_conn = False
+            syn0 = params.exc_syn
+            if 'GABA' in conn.synclass:
+                syn0 = params.inh_syn
+            if '_GJ' in conn.synclass:
+                syn0 = params.elec_syn
+                elect_conn = isinstance(params.elec_syn, GapJunction)
+            
+            number_syns = conn.number
+            conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
+            
+            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
+                number_syns = conn_number_override[conn_shorthand]
+            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
+                number_syns = conn.number*conn_number_scaling[conn_shorthand]
+            '''
+            else:
+                print conn_shorthand
+                print conn_number_override
+                print conn_number_scaling'''
+                
+            if number_syns != conn.number:
+                magnitude, unit = split_neuroml_quantity(syn0.gbase)
+                cond0 = "%s%s"%(magnitude*conn.number, unit)
+                cond1 = "%s%s"%(magnitude*number_syns, unit)
+                print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                     (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
+                
+                
+            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc)
+
+            if not elect_conn:
+                
+                if not populations_without_location:
+                    proj0 = Projection(id=proj_id, \
+                                       presynaptic_population=conn.pre_cell, 
+                                       postsynaptic_population=conn.post_cell, 
+                                       synapse=syn_new.id)
+
+                    net.projections.append(proj0)
+
+                    # Add a Connection with the closest locations
+
+                    pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id)
+                    post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id)
+
+                    conn0 = Connection(id="0", \
+                               pre_cell_id=pre_cell_id,
+                               post_cell_id=post_cell_id)
+
+                    proj0.connections.append(conn0)
+                
+                if populations_without_location:
+                    #         <synapticConnection from="hh1pop[0]" to="hh2pop[0]" synapse="syn1exp" destination="synapses"/>
+                    pre_cell_id="%s[0]"%(conn.pre_cell)
+                    post_cell_id="%s[0]"%(conn.post_cell)
+                    
+                    conn0 = SynapticConnection(from_=pre_cell_id,
+                               to=post_cell_id, 
+                               synapse=syn_new.id,
+                               destination="synapses")
+                               
+                    net.synaptic_connections.append(conn0)
+                    
+                
+            else:
+                proj0 = ElectricalProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell, 
+                                   postsynaptic_population=conn.post_cell)
+
+                net.electrical_projections.append(proj0)
+
+                # Add a Connection with the closest locations
+                conn0 = ElectricalConnection(id="0", \
+                           pre_cell="0",
+                           post_cell="0", 
+                           synapse=syn_new.id)
+
+                proj0.electrical_connections.append(conn0)
+
+    # import pprint
+    # pprint.pprint(lems_info)
+    
     write_to_file(nml_doc, lems_info, net_id, validate=validate)
     
     return nml_doc
