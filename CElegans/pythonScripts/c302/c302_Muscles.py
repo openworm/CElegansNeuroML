@@ -1,5 +1,6 @@
 from c302 import generate
 import sys
+import random
 
 if __name__ == '__main__':
     
@@ -28,7 +29,11 @@ if __name__ == '__main__':
              'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
     
     # Some random set of neurons
-    cells_to_stimulate = ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'SMBDL', 'SMBDR','VA1', 'VA10', 'DD1', 'DD2']
+    probability = 0.1
+    cells_to_stimulate = []
+    for cell in cells:
+        if random.random()<probability:
+            cells_to_stimulate.append(cell)
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ['AS1', 'AS10', 'AVFL', 'DA1','DB1','DVB','IL1DL','RID', 'RIML','SMBDL', 'SMBDR''VB1', 'VB10','VC1', 'VC2']

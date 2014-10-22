@@ -69,6 +69,13 @@ ${comment}
 #end## 
         </OutputFile>
         
+#if ($activity_to_save)## 
+        <OutputFile id="neurons_activity" fileName="${reference}.activity.dat">
+#foreach ($save in $activity_to_save)##
+            <OutputColumn id="${save.cell}_v" quantity="${save.quantity}"/>
+#end## 
+        </OutputFile>
+#end##
 #if ($muscles_to_save)## 
         <OutputFile id="muscles_v" fileName="${reference}.muscles.dat">
 #foreach ($save in $muscles_to_save)##
@@ -76,6 +83,13 @@ ${comment}
 #end## 
         </OutputFile>
 #end## 
+#if ($muscles_activity_to_save)## 
+        <OutputFile id="muscles_activity" fileName="${reference}.muscles.activity.dat">
+#foreach ($save in $muscles_activity_to_save)##
+            <OutputColumn id="${save.cell}_v" quantity="${save.quantity}"/>
+#end## 
+        </OutputFile>
+#end##
     </Simulation>
 
 

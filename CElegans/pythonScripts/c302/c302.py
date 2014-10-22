@@ -269,8 +269,10 @@ def generate(net_id,
     lems_info["muscle_plots"] = []
     lems_info["muscle_activity_plots"] = []
     
-    lems_info["muscles_to_save"] = []
     lems_info["to_save"] = []
+    lems_info["activity_to_save"] = []
+    lems_info["muscles_to_save"] = []
+    lems_info["muscles_activity_to_save"] = []
     lems_info["cells"] = []
     lems_info["muscles"] = []
     lems_info["includes"] = []
@@ -354,13 +356,19 @@ def generate(net_id,
                     lems_info["activity_plots"].append(plot)
 
             save = {}
-                
             save["cell"] = cell
             save["quantity"] = "%s/0/%s/v" % (cell, params.generic_cell.id)
             if populations_without_location: 
                 save["quantity"] = "%s[0]/v" % (cell)
-      
             lems_info["to_save"].append(save)
+            
+            if hasattr(params.generic_cell, 'custom_component_type_definition'):
+                save = {}
+                save["cell"] = cell
+                save["quantity"] = "%s/0/%s/activity" % (cell, params.generic_cell.id)
+                if populations_without_location: 
+                    save["quantity"] = "%s[0]/activity" % (cell)
+                lems_info["activity_to_save"].append(save)
                 
             lems_info["cells"].append(cell)
             
@@ -424,13 +432,19 @@ def generate(net_id,
                 lems_info["muscle_activity_plots"].append(plot)
 
             save = {}
-
             save["cell"] = muscle
             save["quantity"] = "%s/0/%s/v" % (muscle, params.generic_cell.id)
             if populations_without_location: 
                 save["quantity"] = "%s[0]/v" % (muscle)
-
             lems_info["muscles_to_save"].append(save)
+            
+            if hasattr(params.generic_cell, 'custom_component_type_definition'):
+                save = {}
+                save["cell"] = muscle
+                save["quantity"] = "%s/0/%s/activity" % (muscle, params.generic_cell.id)
+                if populations_without_location: 
+                    save["quantity"] = "%s[0]/activity" % (muscle)
+                lems_info["muscles_activity_to_save"].append(save)
 
             lems_info["muscles"].append(muscle)
 

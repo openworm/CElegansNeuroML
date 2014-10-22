@@ -6,7 +6,7 @@
 Parameters and setting used to generate this network:
 
     Cells:                         ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
-    Cell stimulated:               ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'SMBDL', 'SMBDR', 'VA1', 'VA10', 'DD1', 'DD2']
+    Cell stimulated:               ['AS4', 'DA4', 'DA6', 'DB1', 'PVNL', 'PVNR', 'VA2', 'VA4', 'VB2', 'VC4', 'VD11', 'VD13']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               True
@@ -67,7 +67,6 @@ Parameters and setting used to generate this network:
             <Line id="VC2" quantity="VC2[0]/v" scale="1mV" color="#d14b1f" timeScale="1ms" />
             
         </Display>
-        
       
         <Display id="muscles" title="c302_B_Muscles: Membrane potential of a number of muscles" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
@@ -170,7 +169,6 @@ Parameters and setting used to generate this network:
             <Line id="MVR24" quantity="MVR24[0]/v" scale="1mV" color="#2421ff" timeScale="1ms" />
 
         </Display>
-
       
         <Display id="activity_neurons" title="c302_B_Muscles: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
             
@@ -189,7 +187,6 @@ Parameters and setting used to generate this network:
             <Line id="VC2" quantity="VC2[0]/activity" scale="1" color="#2f701e" timeScale="1ms" />
 
         </Display>
-
       
         <Display id="activity_muscles" title="c302_B_Muscles: Activity of a number of muscles" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
             
@@ -293,7 +290,7 @@ Parameters and setting used to generate this network:
 
         </Display>
 
-        <OutputFile id="of0" fileName="c302_B_Muscles.dat">
+        <OutputFile id="neurons_v" fileName="c302_B_Muscles.dat">
             <OutputColumn id="AS1_v" quantity="AS1[0]/v"/>
             <OutputColumn id="AS10_v" quantity="AS10[0]/v"/>
             <OutputColumn id="AS11_v" quantity="AS11[0]/v"/>
@@ -422,7 +419,135 @@ Parameters and setting used to generate this network:
             <OutputColumn id="VD9_v" quantity="VD9[0]/v"/>
         </OutputFile>
         
-        <OutputFile id="of1" fileName="c302_B_Muscles.muscles.dat">
+        <OutputFile id="neurons_activity" fileName="c302_B_Muscles.activity.dat">
+            <OutputColumn id="AS1_v" quantity="AS1[0]/activity"/>
+            <OutputColumn id="AS10_v" quantity="AS10[0]/activity"/>
+            <OutputColumn id="AS11_v" quantity="AS11[0]/activity"/>
+            <OutputColumn id="AS2_v" quantity="AS2[0]/activity"/>
+            <OutputColumn id="AS3_v" quantity="AS3[0]/activity"/>
+            <OutputColumn id="AS4_v" quantity="AS4[0]/activity"/>
+            <OutputColumn id="AS5_v" quantity="AS5[0]/activity"/>
+            <OutputColumn id="AS6_v" quantity="AS6[0]/activity"/>
+            <OutputColumn id="AS7_v" quantity="AS7[0]/activity"/>
+            <OutputColumn id="AS8_v" quantity="AS8[0]/activity"/>
+            <OutputColumn id="AS9_v" quantity="AS9[0]/activity"/>
+            <OutputColumn id="AVFL_v" quantity="AVFL[0]/activity"/>
+            <OutputColumn id="AVFR_v" quantity="AVFR[0]/activity"/>
+            <OutputColumn id="AVKR_v" quantity="AVKR[0]/activity"/>
+            <OutputColumn id="AVL_v" quantity="AVL[0]/activity"/>
+            <OutputColumn id="CEPVL_v" quantity="CEPVL[0]/activity"/>
+            <OutputColumn id="CEPVR_v" quantity="CEPVR[0]/activity"/>
+            <OutputColumn id="DA1_v" quantity="DA1[0]/activity"/>
+            <OutputColumn id="DA2_v" quantity="DA2[0]/activity"/>
+            <OutputColumn id="DA3_v" quantity="DA3[0]/activity"/>
+            <OutputColumn id="DA4_v" quantity="DA4[0]/activity"/>
+            <OutputColumn id="DA5_v" quantity="DA5[0]/activity"/>
+            <OutputColumn id="DA6_v" quantity="DA6[0]/activity"/>
+            <OutputColumn id="DA7_v" quantity="DA7[0]/activity"/>
+            <OutputColumn id="DA8_v" quantity="DA8[0]/activity"/>
+            <OutputColumn id="DA9_v" quantity="DA9[0]/activity"/>
+            <OutputColumn id="DB1_v" quantity="DB1[0]/activity"/>
+            <OutputColumn id="DB2_v" quantity="DB2[0]/activity"/>
+            <OutputColumn id="DB3_v" quantity="DB3[0]/activity"/>
+            <OutputColumn id="DB4_v" quantity="DB4[0]/activity"/>
+            <OutputColumn id="DB5_v" quantity="DB5[0]/activity"/>
+            <OutputColumn id="DB6_v" quantity="DB6[0]/activity"/>
+            <OutputColumn id="DB7_v" quantity="DB7[0]/activity"/>
+            <OutputColumn id="DD1_v" quantity="DD1[0]/activity"/>
+            <OutputColumn id="DD2_v" quantity="DD2[0]/activity"/>
+            <OutputColumn id="DD3_v" quantity="DD3[0]/activity"/>
+            <OutputColumn id="DD4_v" quantity="DD4[0]/activity"/>
+            <OutputColumn id="DD5_v" quantity="DD5[0]/activity"/>
+            <OutputColumn id="DD6_v" quantity="DD6[0]/activity"/>
+            <OutputColumn id="DVB_v" quantity="DVB[0]/activity"/>
+            <OutputColumn id="HSNL_v" quantity="HSNL[0]/activity"/>
+            <OutputColumn id="HSNR_v" quantity="HSNR[0]/activity"/>
+            <OutputColumn id="IL1DL_v" quantity="IL1DL[0]/activity"/>
+            <OutputColumn id="IL1DR_v" quantity="IL1DR[0]/activity"/>
+            <OutputColumn id="IL1L_v" quantity="IL1L[0]/activity"/>
+            <OutputColumn id="IL1R_v" quantity="IL1R[0]/activity"/>
+            <OutputColumn id="IL1VL_v" quantity="IL1VL[0]/activity"/>
+            <OutputColumn id="IL1VR_v" quantity="IL1VR[0]/activity"/>
+            <OutputColumn id="PDA_v" quantity="PDA[0]/activity"/>
+            <OutputColumn id="PDB_v" quantity="PDB[0]/activity"/>
+            <OutputColumn id="PVNL_v" quantity="PVNL[0]/activity"/>
+            <OutputColumn id="PVNR_v" quantity="PVNR[0]/activity"/>
+            <OutputColumn id="RID_v" quantity="RID[0]/activity"/>
+            <OutputColumn id="RIML_v" quantity="RIML[0]/activity"/>
+            <OutputColumn id="RIMR_v" quantity="RIMR[0]/activity"/>
+            <OutputColumn id="RIVL_v" quantity="RIVL[0]/activity"/>
+            <OutputColumn id="RIVR_v" quantity="RIVR[0]/activity"/>
+            <OutputColumn id="RMDDL_v" quantity="RMDDL[0]/activity"/>
+            <OutputColumn id="RMDDR_v" quantity="RMDDR[0]/activity"/>
+            <OutputColumn id="RMDL_v" quantity="RMDL[0]/activity"/>
+            <OutputColumn id="RMDR_v" quantity="RMDR[0]/activity"/>
+            <OutputColumn id="RMDVL_v" quantity="RMDVL[0]/activity"/>
+            <OutputColumn id="RMDVR_v" quantity="RMDVR[0]/activity"/>
+            <OutputColumn id="RMED_v" quantity="RMED[0]/activity"/>
+            <OutputColumn id="RMEL_v" quantity="RMEL[0]/activity"/>
+            <OutputColumn id="RMER_v" quantity="RMER[0]/activity"/>
+            <OutputColumn id="RMEV_v" quantity="RMEV[0]/activity"/>
+            <OutputColumn id="RMFL_v" quantity="RMFL[0]/activity"/>
+            <OutputColumn id="RMGL_v" quantity="RMGL[0]/activity"/>
+            <OutputColumn id="RMGR_v" quantity="RMGR[0]/activity"/>
+            <OutputColumn id="RMHL_v" quantity="RMHL[0]/activity"/>
+            <OutputColumn id="RMHR_v" quantity="RMHR[0]/activity"/>
+            <OutputColumn id="SMBDL_v" quantity="SMBDL[0]/activity"/>
+            <OutputColumn id="SMBDR_v" quantity="SMBDR[0]/activity"/>
+            <OutputColumn id="SMBVL_v" quantity="SMBVL[0]/activity"/>
+            <OutputColumn id="SMBVR_v" quantity="SMBVR[0]/activity"/>
+            <OutputColumn id="SMDDL_v" quantity="SMDDL[0]/activity"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR[0]/activity"/>
+            <OutputColumn id="SMDVL_v" quantity="SMDVL[0]/activity"/>
+            <OutputColumn id="SMDVR_v" quantity="SMDVR[0]/activity"/>
+            <OutputColumn id="URADL_v" quantity="URADL[0]/activity"/>
+            <OutputColumn id="URADR_v" quantity="URADR[0]/activity"/>
+            <OutputColumn id="URAVL_v" quantity="URAVL[0]/activity"/>
+            <OutputColumn id="URAVR_v" quantity="URAVR[0]/activity"/>
+            <OutputColumn id="VA1_v" quantity="VA1[0]/activity"/>
+            <OutputColumn id="VA10_v" quantity="VA10[0]/activity"/>
+            <OutputColumn id="VA11_v" quantity="VA11[0]/activity"/>
+            <OutputColumn id="VA12_v" quantity="VA12[0]/activity"/>
+            <OutputColumn id="VA2_v" quantity="VA2[0]/activity"/>
+            <OutputColumn id="VA3_v" quantity="VA3[0]/activity"/>
+            <OutputColumn id="VA4_v" quantity="VA4[0]/activity"/>
+            <OutputColumn id="VA5_v" quantity="VA5[0]/activity"/>
+            <OutputColumn id="VA6_v" quantity="VA6[0]/activity"/>
+            <OutputColumn id="VA7_v" quantity="VA7[0]/activity"/>
+            <OutputColumn id="VA8_v" quantity="VA8[0]/activity"/>
+            <OutputColumn id="VA9_v" quantity="VA9[0]/activity"/>
+            <OutputColumn id="VB1_v" quantity="VB1[0]/activity"/>
+            <OutputColumn id="VB10_v" quantity="VB10[0]/activity"/>
+            <OutputColumn id="VB11_v" quantity="VB11[0]/activity"/>
+            <OutputColumn id="VB2_v" quantity="VB2[0]/activity"/>
+            <OutputColumn id="VB3_v" quantity="VB3[0]/activity"/>
+            <OutputColumn id="VB4_v" quantity="VB4[0]/activity"/>
+            <OutputColumn id="VB5_v" quantity="VB5[0]/activity"/>
+            <OutputColumn id="VB6_v" quantity="VB6[0]/activity"/>
+            <OutputColumn id="VB7_v" quantity="VB7[0]/activity"/>
+            <OutputColumn id="VB8_v" quantity="VB8[0]/activity"/>
+            <OutputColumn id="VB9_v" quantity="VB9[0]/activity"/>
+            <OutputColumn id="VC1_v" quantity="VC1[0]/activity"/>
+            <OutputColumn id="VC2_v" quantity="VC2[0]/activity"/>
+            <OutputColumn id="VC3_v" quantity="VC3[0]/activity"/>
+            <OutputColumn id="VC4_v" quantity="VC4[0]/activity"/>
+            <OutputColumn id="VC5_v" quantity="VC5[0]/activity"/>
+            <OutputColumn id="VC6_v" quantity="VC6[0]/activity"/>
+            <OutputColumn id="VD1_v" quantity="VD1[0]/activity"/>
+            <OutputColumn id="VD10_v" quantity="VD10[0]/activity"/>
+            <OutputColumn id="VD11_v" quantity="VD11[0]/activity"/>
+            <OutputColumn id="VD12_v" quantity="VD12[0]/activity"/>
+            <OutputColumn id="VD13_v" quantity="VD13[0]/activity"/>
+            <OutputColumn id="VD2_v" quantity="VD2[0]/activity"/>
+            <OutputColumn id="VD3_v" quantity="VD3[0]/activity"/>
+            <OutputColumn id="VD4_v" quantity="VD4[0]/activity"/>
+            <OutputColumn id="VD5_v" quantity="VD5[0]/activity"/>
+            <OutputColumn id="VD6_v" quantity="VD6[0]/activity"/>
+            <OutputColumn id="VD7_v" quantity="VD7[0]/activity"/>
+            <OutputColumn id="VD8_v" quantity="VD8[0]/activity"/>
+            <OutputColumn id="VD9_v" quantity="VD9[0]/activity"/>
+        </OutputFile>
+        <OutputFile id="muscles_v" fileName="c302_B_Muscles.muscles.dat">
             <OutputColumn id="MDL05_v" quantity="MDL05[0]/v"/>
             <OutputColumn id="MDR05_v" quantity="MDR05[0]/v"/>
             <OutputColumn id="MDL08_v" quantity="MDL08[0]/v"/>
@@ -520,6 +645,105 @@ Parameters and setting used to generate this network:
             <OutputColumn id="MVR22_v" quantity="MVR22[0]/v"/>
             <OutputColumn id="MVR23_v" quantity="MVR23[0]/v"/>
             <OutputColumn id="MVR24_v" quantity="MVR24[0]/v"/>
+        </OutputFile>
+        <OutputFile id="muscles_activity" fileName="c302_B_Muscles.muscles.activity.dat">
+            <OutputColumn id="MDL05_v" quantity="MDL05[0]/activity"/>
+            <OutputColumn id="MDR05_v" quantity="MDR05[0]/activity"/>
+            <OutputColumn id="MDL08_v" quantity="MDL08[0]/activity"/>
+            <OutputColumn id="MDR08_v" quantity="MDR08[0]/activity"/>
+            <OutputColumn id="MDL20_v" quantity="MDL20[0]/activity"/>
+            <OutputColumn id="MDR20_v" quantity="MDR20[0]/activity"/>
+            <OutputColumn id="MDL19_v" quantity="MDL19[0]/activity"/>
+            <OutputColumn id="MDR19_v" quantity="MDR19[0]/activity"/>
+            <OutputColumn id="MDL21_v" quantity="MDL21[0]/activity"/>
+            <OutputColumn id="MDL22_v" quantity="MDL22[0]/activity"/>
+            <OutputColumn id="MDL23_v" quantity="MDL23[0]/activity"/>
+            <OutputColumn id="MDL24_v" quantity="MDL24[0]/activity"/>
+            <OutputColumn id="MDR21_v" quantity="MDR21[0]/activity"/>
+            <OutputColumn id="MDR22_v" quantity="MDR22[0]/activity"/>
+            <OutputColumn id="MDR23_v" quantity="MDR23[0]/activity"/>
+            <OutputColumn id="MDR24_v" quantity="MDR24[0]/activity"/>
+            <OutputColumn id="MDL07_v" quantity="MDL07[0]/activity"/>
+            <OutputColumn id="MDR07_v" quantity="MDR07[0]/activity"/>
+            <OutputColumn id="MDL10_v" quantity="MDL10[0]/activity"/>
+            <OutputColumn id="MDR10_v" quantity="MDR10[0]/activity"/>
+            <OutputColumn id="MDL09_v" quantity="MDL09[0]/activity"/>
+            <OutputColumn id="MDR09_v" quantity="MDR09[0]/activity"/>
+            <OutputColumn id="MDL12_v" quantity="MDL12[0]/activity"/>
+            <OutputColumn id="MDR12_v" quantity="MDR12[0]/activity"/>
+            <OutputColumn id="MDL11_v" quantity="MDL11[0]/activity"/>
+            <OutputColumn id="MDR11_v" quantity="MDR11[0]/activity"/>
+            <OutputColumn id="MDL14_v" quantity="MDL14[0]/activity"/>
+            <OutputColumn id="MDR14_v" quantity="MDR14[0]/activity"/>
+            <OutputColumn id="MDL13_v" quantity="MDL13[0]/activity"/>
+            <OutputColumn id="MDR13_v" quantity="MDR13[0]/activity"/>
+            <OutputColumn id="MDL16_v" quantity="MDL16[0]/activity"/>
+            <OutputColumn id="MDR16_v" quantity="MDR16[0]/activity"/>
+            <OutputColumn id="MDL15_v" quantity="MDL15[0]/activity"/>
+            <OutputColumn id="MDR15_v" quantity="MDR15[0]/activity"/>
+            <OutputColumn id="MDL18_v" quantity="MDL18[0]/activity"/>
+            <OutputColumn id="MDR18_v" quantity="MDR18[0]/activity"/>
+            <OutputColumn id="MDL17_v" quantity="MDL17[0]/activity"/>
+            <OutputColumn id="MDR17_v" quantity="MDR17[0]/activity"/>
+            <OutputColumn id="MVL12_v" quantity="MVL12[0]/activity"/>
+            <OutputColumn id="MVL11_v" quantity="MVL11[0]/activity"/>
+            <OutputColumn id="MVL14_v" quantity="MVL14[0]/activity"/>
+            <OutputColumn id="MVR14_v" quantity="MVR14[0]/activity"/>
+            <OutputColumn id="MVL10_v" quantity="MVL10[0]/activity"/>
+            <OutputColumn id="MVR10_v" quantity="MVR10[0]/activity"/>
+            <OutputColumn id="MVL03_v" quantity="MVL03[0]/activity"/>
+            <OutputColumn id="MVR04_v" quantity="MVR04[0]/activity"/>
+            <OutputColumn id="MANAL_v" quantity="MANAL[0]/activity"/>
+            <OutputColumn id="MVULVA_v" quantity="MVULVA[0]/activity"/>
+            <OutputColumn id="MDL01_v" quantity="MDL01[0]/activity"/>
+            <OutputColumn id="MDL02_v" quantity="MDL02[0]/activity"/>
+            <OutputColumn id="MDL04_v" quantity="MDL04[0]/activity"/>
+            <OutputColumn id="MDR01_v" quantity="MDR01[0]/activity"/>
+            <OutputColumn id="MDR02_v" quantity="MDR02[0]/activity"/>
+            <OutputColumn id="MDL03_v" quantity="MDL03[0]/activity"/>
+            <OutputColumn id="MVL01_v" quantity="MVL01[0]/activity"/>
+            <OutputColumn id="MDR03_v" quantity="MDR03[0]/activity"/>
+            <OutputColumn id="MVR01_v" quantity="MVR01[0]/activity"/>
+            <OutputColumn id="MVR03_v" quantity="MVR03[0]/activity"/>
+            <OutputColumn id="MVL02_v" quantity="MVL02[0]/activity"/>
+            <OutputColumn id="MVR02_v" quantity="MVR02[0]/activity"/>
+            <OutputColumn id="MVL22_v" quantity="MVL22[0]/activity"/>
+            <OutputColumn id="MVR21_v" quantity="MVR21[0]/activity"/>
+            <OutputColumn id="MVL09_v" quantity="MVL09[0]/activity"/>
+            <OutputColumn id="MVL13_v" quantity="MVL13[0]/activity"/>
+            <OutputColumn id="MVR05_v" quantity="MVR05[0]/activity"/>
+            <OutputColumn id="MVL05_v" quantity="MVL05[0]/activity"/>
+            <OutputColumn id="MVL07_v" quantity="MVL07[0]/activity"/>
+            <OutputColumn id="MVR06_v" quantity="MVR06[0]/activity"/>
+            <OutputColumn id="MVR08_v" quantity="MVR08[0]/activity"/>
+            <OutputColumn id="MVL06_v" quantity="MVL06[0]/activity"/>
+            <OutputColumn id="MVL08_v" quantity="MVL08[0]/activity"/>
+            <OutputColumn id="MDR04_v" quantity="MDR04[0]/activity"/>
+            <OutputColumn id="MVR07_v" quantity="MVR07[0]/activity"/>
+            <OutputColumn id="MVL04_v" quantity="MVL04[0]/activity"/>
+            <OutputColumn id="MDL06_v" quantity="MDL06[0]/activity"/>
+            <OutputColumn id="MDR06_v" quantity="MDR06[0]/activity"/>
+            <OutputColumn id="MVR09_v" quantity="MVR09[0]/activity"/>
+            <OutputColumn id="MVR12_v" quantity="MVR12[0]/activity"/>
+            <OutputColumn id="MVR11_v" quantity="MVR11[0]/activity"/>
+            <OutputColumn id="MVR13_v" quantity="MVR13[0]/activity"/>
+            <OutputColumn id="MVL15_v" quantity="MVL15[0]/activity"/>
+            <OutputColumn id="MVL16_v" quantity="MVL16[0]/activity"/>
+            <OutputColumn id="MVR15_v" quantity="MVR15[0]/activity"/>
+            <OutputColumn id="MVR16_v" quantity="MVR16[0]/activity"/>
+            <OutputColumn id="MVL18_v" quantity="MVL18[0]/activity"/>
+            <OutputColumn id="MVR18_v" quantity="MVR18[0]/activity"/>
+            <OutputColumn id="MVL17_v" quantity="MVL17[0]/activity"/>
+            <OutputColumn id="MVR17_v" quantity="MVR17[0]/activity"/>
+            <OutputColumn id="MVL19_v" quantity="MVL19[0]/activity"/>
+            <OutputColumn id="MVL20_v" quantity="MVL20[0]/activity"/>
+            <OutputColumn id="MVR19_v" quantity="MVR19[0]/activity"/>
+            <OutputColumn id="MVR20_v" quantity="MVR20[0]/activity"/>
+            <OutputColumn id="MVL21_v" quantity="MVL21[0]/activity"/>
+            <OutputColumn id="MVL23_v" quantity="MVL23[0]/activity"/>
+            <OutputColumn id="MVR22_v" quantity="MVR22[0]/activity"/>
+            <OutputColumn id="MVR23_v" quantity="MVR23[0]/activity"/>
+            <OutputColumn id="MVR24_v" quantity="MVR24[0]/activity"/>
         </OutputFile>
     </Simulation>
 
