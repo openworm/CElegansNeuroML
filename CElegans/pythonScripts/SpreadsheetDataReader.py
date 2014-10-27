@@ -23,7 +23,7 @@ def readDataFromSpreadsheet(dir="../../", include_nonconnected_cells=False):
 
     sheet = rb.sheet_by_index(0)
     
-    for row in range(2,sheet.nrows):
+    for row in range(1,sheet.nrows):
         pre = str(sheet.cell(row,0).value)
         post = str(sheet.cell(row,1).value)
         syntype = sheet.cell(row,2).value
@@ -55,7 +55,7 @@ def readMuscleDataFromSpreadsheet(dir="../../"):
 
     sheet = rb.sheet_by_index(1)
     
-    for row in range(2,sheet.nrows):
+    for row in range(1,sheet.nrows):
         pre = str(sheet.cell(row,0).value)
         post = str(sheet.cell(row,1).value)
         syntype = 'Send'
