@@ -1661,6 +1661,9 @@ Parameters and setting used to generate this network:
                 <location y="-0.8" x="191.5" z="-3.8"/>
             </instance>
         </population>
+        <projection id="NC_ADAL_ADAR_Generic_GJ" postsynapticPopulation="ADAR" presynapticPopulation="ADAL" synapse="elec_syn_1conns">
+            <connection preCellId="../ADAL/0/generic_iaf_cell" postCellId="../ADAR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_ADAL_ADFL_Generic_GJ" postsynapticPopulation="ADFL" presynapticPopulation="ADAL" synapse="elec_syn_1conns">
             <connection preCellId="../ADAL/0/generic_iaf_cell" postCellId="../ADFL/0/generic_iaf_cell" id="0"/>
         </projection>
