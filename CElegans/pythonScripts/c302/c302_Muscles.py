@@ -28,6 +28,7 @@ if __name__ == '__main__':
              'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 
              'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 
              'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
+    cells+=['AVBL', 'AVBR','PVCL', 'PVCR']
     #cells=[]         
     
     # Some random set of neurons
@@ -38,11 +39,12 @@ if __name__ == '__main__':
         #    cells_to_stimulate.append(cell)
         if cell.startswith("xxVB") or cell.startswith("DB"):
             cells_to_stimulate.append(cell)
-    cells_to_stimulate = ['DB1', 'VB1', 'DB2', 'VB2']
+    cells_to_stimulate = ['DB1', 'VB1']
+    #cells_to_stimulate = ['AVBL', 'AVBR','PVCL', 'PVCR']
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ['AS1', 'AS10', 'AVFL', 'DA1','DB1','DB4','DB7','IL1DL','RID', 'RIML','SMBDL', 'SMBDR', 'VB1', 'VB5', 'VB10','VC1', 'VC2']
-    cells_to_plot      = ['DB1','DB2','VB1','VB2','DD1','DD2','VD1','VD2']
+    cells_to_plot      = ['AVBL', 'AVBR','PVCL', 'PVCR', 'DB1','DB2','VB1','VB2','DD1','DD2','VD1','VD2']
     
     reference = "c302_%s_Muscles"%parameter_set
     
@@ -52,7 +54,7 @@ if __name__ == '__main__':
              cells_to_plot=cells_to_plot, 
              cells_to_stimulate=cells_to_stimulate, 
              include_muscles = True,
-             duration=500, 
+             duration=800, 
              dt=0.1, 
              vmin=-72, 
              vmax=-48, 

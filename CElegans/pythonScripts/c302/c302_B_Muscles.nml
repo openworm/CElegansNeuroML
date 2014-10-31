@@ -3,8 +3,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
-    Cell stimulated:               ['DB1', 'VB1', 'DB2', 'VB2']
+    Cells:                         ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'AVBL', 'AVBR', 'PVCL', 'PVCR']
+    Cell stimulated:               ['DB1', 'VB1']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               True
@@ -13,68 +13,68 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.1nF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 0.6nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_gbase = 2nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 6ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 20ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.3nA (SRC: KnownError, certainty 0)
+        BioParameter: chem_inh_syn_rise = 4ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.4nA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
 
 </notes>
-    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="1.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_5conns" erev="0mV" gbase="3.0nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.6nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_10conns" erev="0mV" gbase="6.0nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_15conns" erev="0mV" gbase="9.0nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_11conns" erev="0mV" gbase="6.6nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_9conns" erev="0mV" gbase="5.4nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_13conns" erev="0mV" gbase="7.8nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_7conns" erev="0mV" gbase="4.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="2.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="inh_syn_2conns" erev="-80mV" gbase="4.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="inh_syn_4conns" erev="-80mV" gbase="8.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="exc_syn_4conns" erev="0mV" gbase="2.4nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_17conns" erev="0mV" gbase="10.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_25conns" erev="0mV" gbase="15.0nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_6conns" erev="0mV" gbase="3.6nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_12conns" erev="0mV" gbase="7.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_16conns" erev="0mV" gbase="9.6nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_3conns" erev="0mV" gbase="1.8nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_21conns" erev="0mV" gbase="12.6nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_23conns" erev="0mV" gbase="13.8nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_14conns" erev="0mV" gbase="8.4nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_26conns" erev="0mV" gbase="15.6nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_5conns" erev="-80mV" gbase="10.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="inh_syn_3conns" erev="-80mV" gbase="6.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="inh_syn_6conns" erev="-80mV" gbase="12.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="exc_syn_8conns" erev="0mV" gbase="4.8nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_18conns" erev="0mV" gbase="10.8nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_24conns" erev="0mV" gbase="14.4nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_20conns" erev="0mV" gbase="12.0nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_37conns" erev="0mV" gbase="22.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_27conns" erev="0mV" gbase="16.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_30conns" erev="0mV" gbase="18.0nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_13conns" erev="-80mV" gbase="26.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="inh_syn_12conns" erev="-80mV" gbase="24.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <expTwoSynapse id="inh_syn_7conns" erev="-80mV" gbase="14.0nS" tauDecay="20ms" tauRise="6ms"/>
-    <gapJunction id="elec_syn_1conns" conductance="0.2nS"/>
-    <gapJunction id="elec_syn_2conns" conductance="0.4nS"/>
-    <gapJunction id="elec_syn_7conns" conductance="1.4nS"/>
-    <gapJunction id="elec_syn_23conns" conductance="4.6nS"/>
-    <gapJunction id="elec_syn_6conns" conductance="1.2nS"/>
-    <gapJunction id="elec_syn_4conns" conductance="0.8nS"/>
-    <gapJunction id="elec_syn_5conns" conductance="1.0nS"/>
-    <gapJunction id="elec_syn_3conns" conductance="0.6nS"/>
-    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.2nF" thresh="-50mV" reset="-70mV" leakConductance="0.01uS" leakReversal="-70mV" tau1="50ms"/>
-    <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="0.3nA"/>
+    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.6nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_5conns" erev="0mV" gbase="1.5nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.3nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_10conns" erev="0mV" gbase="3.0nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_15conns" erev="0mV" gbase="4.5nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_11conns" erev="0mV" gbase="3.3nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_9conns" erev="0mV" gbase="2.7nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_13conns" erev="0mV" gbase="3.9nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_7conns" erev="0mV" gbase="2.1nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="2.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="inh_syn_2conns" erev="-80mV" gbase="4.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="inh_syn_4conns" erev="-80mV" gbase="8.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="exc_syn_4conns" erev="0mV" gbase="1.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_17conns" erev="0mV" gbase="5.1nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_25conns" erev="0mV" gbase="7.5nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_6conns" erev="0mV" gbase="1.8nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_12conns" erev="0mV" gbase="3.6nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_16conns" erev="0mV" gbase="4.8nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_3conns" erev="0mV" gbase="0.9nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_21conns" erev="0mV" gbase="6.3nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_23conns" erev="0mV" gbase="6.9nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_14conns" erev="0mV" gbase="4.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_26conns" erev="0mV" gbase="7.8nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_5conns" erev="-80mV" gbase="10.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="inh_syn_3conns" erev="-80mV" gbase="6.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="inh_syn_6conns" erev="-80mV" gbase="12.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="exc_syn_8conns" erev="0mV" gbase="2.4nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_18conns" erev="0mV" gbase="5.4nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_24conns" erev="0mV" gbase="7.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_20conns" erev="0mV" gbase="6.0nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_37conns" erev="0mV" gbase="11.1nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_27conns" erev="0mV" gbase="8.1nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_30conns" erev="0mV" gbase="9.0nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_13conns" erev="-80mV" gbase="26.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="inh_syn_12conns" erev="-80mV" gbase="24.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <expTwoSynapse id="inh_syn_7conns" erev="-80mV" gbase="14.0nS" tauDecay="40ms" tauRise="4ms"/>
+    <gapJunction id="elec_syn_1conns" conductance="0.4nS"/>
+    <gapJunction id="elec_syn_2conns" conductance="0.8nS"/>
+    <gapJunction id="elec_syn_7conns" conductance="2.8nS"/>
+    <gapJunction id="elec_syn_3conns" conductance="1.2nS"/>
+    <gapJunction id="elec_syn_6conns" conductance="2.4nS"/>
+    <gapJunction id="elec_syn_23conns" conductance="9.2nS"/>
+    <gapJunction id="elec_syn_4conns" conductance="1.6nS"/>
+    <gapJunction id="elec_syn_5conns" conductance="2.0nS"/>
+    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.1nF" thresh="-50mV" reset="-70mV" leakConductance="0.01uS" leakReversal="-70mV" tau1="50ms"/>
+    <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="0.4nA"/>
     <network id="c302_B_Muscles">
         <population id="AS1" component="generic_iaf_cell" size="1">
             <property tag="OpenWormBackerAssignedName" value="Kottbusser Tor"/>
@@ -91,6 +91,10 @@ Parameters and setting used to generate this network:
         <population id="AS7" component="generic_iaf_cell" size="1"/>
         <population id="AS8" component="generic_iaf_cell" size="1"/>
         <population id="AS9" component="generic_iaf_cell" size="1"/>
+        <population id="AVBL" component="generic_iaf_cell" size="1"/>
+        <population id="AVBR" component="generic_iaf_cell" size="1">
+            <property tag="OpenWormBackerAssignedName" value="mn"/>
+        </population>
         <population id="AVFL" component="generic_iaf_cell" size="1"/>
         <population id="AVFR" component="generic_iaf_cell" size="1"/>
         <population id="AVKR" component="generic_iaf_cell" size="1"/>
@@ -148,6 +152,12 @@ Parameters and setting used to generate this network:
         <population id="IL1VR" component="generic_iaf_cell" size="1"/>
         <population id="PDA" component="generic_iaf_cell" size="1"/>
         <population id="PDB" component="generic_iaf_cell" size="1"/>
+        <population id="PVCL" component="generic_iaf_cell" size="1">
+            <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
+        </population>
+        <population id="PVCR" component="generic_iaf_cell" size="1">
+            <property tag="OpenWormBackerAssignedName" value="J. Pablo Fernandez"/>
+        </population>
         <population id="PVNL" component="generic_iaf_cell" size="1"/>
         <population id="PVNR" component="generic_iaf_cell" size="1"/>
         <population id="RID" component="generic_iaf_cell" size="1"/>
@@ -250,103 +260,101 @@ Parameters and setting used to generate this network:
         <population id="VD7" component="generic_iaf_cell" size="1"/>
         <population id="VD8" component="generic_iaf_cell" size="1"/>
         <population id="VD9" component="generic_iaf_cell" size="1"/>
-        <population id="MDL05" component="generic_iaf_cell" size="1"/>
+        <population id="MDR01" component="generic_iaf_cell" size="1"/>
+        <population id="MDR02" component="generic_iaf_cell" size="1"/>
+        <population id="MDR03" component="generic_iaf_cell" size="1"/>
+        <population id="MDR04" component="generic_iaf_cell" size="1"/>
         <population id="MDR05" component="generic_iaf_cell" size="1"/>
-        <population id="MDL08" component="generic_iaf_cell" size="1"/>
+        <population id="MDR06" component="generic_iaf_cell" size="1"/>
+        <population id="MDR07" component="generic_iaf_cell" size="1"/>
         <population id="MDR08" component="generic_iaf_cell" size="1"/>
-        <population id="MDL20" component="generic_iaf_cell" size="1"/>
-        <population id="MDR20" component="generic_iaf_cell" size="1"/>
-        <population id="MDL19" component="generic_iaf_cell" size="1"/>
+        <population id="MDR09" component="generic_iaf_cell" size="1"/>
+        <population id="MDR10" component="generic_iaf_cell" size="1"/>
+        <population id="MDR11" component="generic_iaf_cell" size="1"/>
+        <population id="MDR12" component="generic_iaf_cell" size="1"/>
+        <population id="MDR13" component="generic_iaf_cell" size="1"/>
+        <population id="MDR14" component="generic_iaf_cell" size="1"/>
+        <population id="MDR15" component="generic_iaf_cell" size="1"/>
+        <population id="MDR16" component="generic_iaf_cell" size="1"/>
+        <population id="MDR17" component="generic_iaf_cell" size="1"/>
+        <population id="MDR18" component="generic_iaf_cell" size="1"/>
         <population id="MDR19" component="generic_iaf_cell" size="1"/>
-        <population id="MDL21" component="generic_iaf_cell" size="1"/>
-        <population id="MDL22" component="generic_iaf_cell" size="1"/>
-        <population id="MDL23" component="generic_iaf_cell" size="1"/>
-        <population id="MDL24" component="generic_iaf_cell" size="1"/>
+        <population id="MDR20" component="generic_iaf_cell" size="1"/>
         <population id="MDR21" component="generic_iaf_cell" size="1"/>
         <population id="MDR22" component="generic_iaf_cell" size="1"/>
         <population id="MDR23" component="generic_iaf_cell" size="1"/>
         <population id="MDR24" component="generic_iaf_cell" size="1"/>
-        <population id="MDL07" component="generic_iaf_cell" size="1"/>
-        <population id="MDR07" component="generic_iaf_cell" size="1"/>
-        <population id="MDL10" component="generic_iaf_cell" size="1"/>
-        <population id="MDR10" component="generic_iaf_cell" size="1"/>
-        <population id="MDL09" component="generic_iaf_cell" size="1"/>
-        <population id="MDR09" component="generic_iaf_cell" size="1"/>
-        <population id="MDL12" component="generic_iaf_cell" size="1"/>
-        <population id="MDR12" component="generic_iaf_cell" size="1"/>
-        <population id="MDL11" component="generic_iaf_cell" size="1"/>
-        <population id="MDR11" component="generic_iaf_cell" size="1"/>
-        <population id="MDL14" component="generic_iaf_cell" size="1"/>
-        <population id="MDR14" component="generic_iaf_cell" size="1"/>
-        <population id="MDL13" component="generic_iaf_cell" size="1"/>
-        <population id="MDR13" component="generic_iaf_cell" size="1"/>
-        <population id="MDL16" component="generic_iaf_cell" size="1"/>
-        <population id="MDR16" component="generic_iaf_cell" size="1"/>
-        <population id="MDL15" component="generic_iaf_cell" size="1"/>
-        <population id="MDR15" component="generic_iaf_cell" size="1"/>
-        <population id="MDL18" component="generic_iaf_cell" size="1"/>
-        <population id="MDR18" component="generic_iaf_cell" size="1"/>
-        <population id="MDL17" component="generic_iaf_cell" size="1"/>
-        <population id="MDR17" component="generic_iaf_cell" size="1"/>
-        <population id="MVL12" component="generic_iaf_cell" size="1"/>
-        <population id="MVL11" component="generic_iaf_cell" size="1"/>
-        <population id="MVL14" component="generic_iaf_cell" size="1"/>
-        <population id="MVR14" component="generic_iaf_cell" size="1"/>
-        <population id="MVL10" component="generic_iaf_cell" size="1"/>
-        <population id="MVR10" component="generic_iaf_cell" size="1"/>
-        <population id="MVL03" component="generic_iaf_cell" size="1"/>
-        <population id="MVR04" component="generic_iaf_cell" size="1"/>
-        <population id="MANAL" component="generic_iaf_cell" size="1"/>
-        <population id="MVULVA" component="generic_iaf_cell" size="1"/>
-        <population id="MDL01" component="generic_iaf_cell" size="1"/>
-        <population id="MDL02" component="generic_iaf_cell" size="1"/>
-        <population id="MDL04" component="generic_iaf_cell" size="1"/>
-        <population id="MDR01" component="generic_iaf_cell" size="1"/>
-        <population id="MDR02" component="generic_iaf_cell" size="1"/>
-        <population id="MDL03" component="generic_iaf_cell" size="1"/>
-        <population id="MVL01" component="generic_iaf_cell" size="1"/>
-        <population id="MDR03" component="generic_iaf_cell" size="1"/>
         <population id="MVR01" component="generic_iaf_cell" size="1"/>
-        <population id="MVR03" component="generic_iaf_cell" size="1"/>
-        <population id="MVL02" component="generic_iaf_cell" size="1"/>
         <population id="MVR02" component="generic_iaf_cell" size="1"/>
-        <population id="MVL22" component="generic_iaf_cell" size="1"/>
-        <population id="MVR21" component="generic_iaf_cell" size="1"/>
-        <population id="MVL09" component="generic_iaf_cell" size="1"/>
-        <population id="MVL13" component="generic_iaf_cell" size="1"/>
+        <population id="MVR03" component="generic_iaf_cell" size="1"/>
+        <population id="MVR04" component="generic_iaf_cell" size="1"/>
         <population id="MVR05" component="generic_iaf_cell" size="1"/>
-        <population id="MVL05" component="generic_iaf_cell" size="1"/>
-        <population id="MVL07" component="generic_iaf_cell" size="1"/>
         <population id="MVR06" component="generic_iaf_cell" size="1"/>
-        <population id="MVR08" component="generic_iaf_cell" size="1"/>
-        <population id="MVL06" component="generic_iaf_cell" size="1"/>
-        <population id="MVL08" component="generic_iaf_cell" size="1"/>
-        <population id="MDR04" component="generic_iaf_cell" size="1"/>
         <population id="MVR07" component="generic_iaf_cell" size="1"/>
-        <population id="MVL04" component="generic_iaf_cell" size="1"/>
-        <population id="MDL06" component="generic_iaf_cell" size="1"/>
-        <population id="MDR06" component="generic_iaf_cell" size="1"/>
+        <population id="MVR08" component="generic_iaf_cell" size="1"/>
         <population id="MVR09" component="generic_iaf_cell" size="1"/>
-        <population id="MVR12" component="generic_iaf_cell" size="1"/>
+        <population id="MVR10" component="generic_iaf_cell" size="1"/>
         <population id="MVR11" component="generic_iaf_cell" size="1"/>
+        <population id="MVR12" component="generic_iaf_cell" size="1"/>
         <population id="MVR13" component="generic_iaf_cell" size="1"/>
-        <population id="MVL15" component="generic_iaf_cell" size="1"/>
-        <population id="MVL16" component="generic_iaf_cell" size="1"/>
+        <population id="MVR14" component="generic_iaf_cell" size="1"/>
         <population id="MVR15" component="generic_iaf_cell" size="1"/>
         <population id="MVR16" component="generic_iaf_cell" size="1"/>
-        <population id="MVL18" component="generic_iaf_cell" size="1"/>
-        <population id="MVR18" component="generic_iaf_cell" size="1"/>
-        <population id="MVL17" component="generic_iaf_cell" size="1"/>
         <population id="MVR17" component="generic_iaf_cell" size="1"/>
-        <population id="MVL19" component="generic_iaf_cell" size="1"/>
-        <population id="MVL20" component="generic_iaf_cell" size="1"/>
+        <population id="MVR18" component="generic_iaf_cell" size="1"/>
         <population id="MVR19" component="generic_iaf_cell" size="1"/>
         <population id="MVR20" component="generic_iaf_cell" size="1"/>
-        <population id="MVL21" component="generic_iaf_cell" size="1"/>
-        <population id="MVL23" component="generic_iaf_cell" size="1"/>
+        <population id="MVR21" component="generic_iaf_cell" size="1"/>
         <population id="MVR22" component="generic_iaf_cell" size="1"/>
         <population id="MVR23" component="generic_iaf_cell" size="1"/>
-        <population id="MVR24" component="generic_iaf_cell" size="1"/>
+        <population id="MVL01" component="generic_iaf_cell" size="1"/>
+        <population id="MVL02" component="generic_iaf_cell" size="1"/>
+        <population id="MVL03" component="generic_iaf_cell" size="1"/>
+        <population id="MVL04" component="generic_iaf_cell" size="1"/>
+        <population id="MVL05" component="generic_iaf_cell" size="1"/>
+        <population id="MVL06" component="generic_iaf_cell" size="1"/>
+        <population id="MVL07" component="generic_iaf_cell" size="1"/>
+        <population id="MVL08" component="generic_iaf_cell" size="1"/>
+        <population id="MVL09" component="generic_iaf_cell" size="1"/>
+        <population id="MVL10" component="generic_iaf_cell" size="1"/>
+        <population id="MVL11" component="generic_iaf_cell" size="1"/>
+        <population id="MVL12" component="generic_iaf_cell" size="1"/>
+        <population id="MVL13" component="generic_iaf_cell" size="1"/>
+        <population id="MVL14" component="generic_iaf_cell" size="1"/>
+        <population id="MVL15" component="generic_iaf_cell" size="1"/>
+        <population id="MVL16" component="generic_iaf_cell" size="1"/>
+        <population id="MVL17" component="generic_iaf_cell" size="1"/>
+        <population id="MVL18" component="generic_iaf_cell" size="1"/>
+        <population id="MVL19" component="generic_iaf_cell" size="1"/>
+        <population id="MVL20" component="generic_iaf_cell" size="1"/>
+        <population id="MVL21" component="generic_iaf_cell" size="1"/>
+        <population id="MVL22" component="generic_iaf_cell" size="1"/>
+        <population id="MVL23" component="generic_iaf_cell" size="1"/>
+        <population id="MVL24" component="generic_iaf_cell" size="1"/>
+        <population id="MDL01" component="generic_iaf_cell" size="1"/>
+        <population id="MDL02" component="generic_iaf_cell" size="1"/>
+        <population id="MDL03" component="generic_iaf_cell" size="1"/>
+        <population id="MDL04" component="generic_iaf_cell" size="1"/>
+        <population id="MDL05" component="generic_iaf_cell" size="1"/>
+        <population id="MDL06" component="generic_iaf_cell" size="1"/>
+        <population id="MDL07" component="generic_iaf_cell" size="1"/>
+        <population id="MDL08" component="generic_iaf_cell" size="1"/>
+        <population id="MDL09" component="generic_iaf_cell" size="1"/>
+        <population id="MDL10" component="generic_iaf_cell" size="1"/>
+        <population id="MDL11" component="generic_iaf_cell" size="1"/>
+        <population id="MDL12" component="generic_iaf_cell" size="1"/>
+        <population id="MDL13" component="generic_iaf_cell" size="1"/>
+        <population id="MDL14" component="generic_iaf_cell" size="1"/>
+        <population id="MDL15" component="generic_iaf_cell" size="1"/>
+        <population id="MDL16" component="generic_iaf_cell" size="1"/>
+        <population id="MDL17" component="generic_iaf_cell" size="1"/>
+        <population id="MDL18" component="generic_iaf_cell" size="1"/>
+        <population id="MDL19" component="generic_iaf_cell" size="1"/>
+        <population id="MDL20" component="generic_iaf_cell" size="1"/>
+        <population id="MDL21" component="generic_iaf_cell" size="1"/>
+        <population id="MDL22" component="generic_iaf_cell" size="1"/>
+        <population id="MDL23" component="generic_iaf_cell" size="1"/>
+        <population id="MDL24" component="generic_iaf_cell" size="1"/>
         <synapticConnection to="DA1[0]" synapse="exc_syn_2conns" destination="synapses" from="AS1[0]"/>
         <synapticConnection to="VD1[0]" synapse="exc_syn_5conns" destination="synapses" from="AS1[0]"/>
         <synapticConnection to="PDA[0]" synapse="exc_syn_1conns" destination="synapses" from="AS11[0]"/>
@@ -364,11 +372,42 @@ Parameters and setting used to generate this network:
         <synapticConnection to="DD2[0]" synapse="exc_syn_1conns" destination="synapses" from="AS5[0]"/>
         <synapticConnection to="VD5[0]" synapse="exc_syn_9conns" destination="synapses" from="AS5[0]"/>
         <synapticConnection to="VD6[0]" synapse="exc_syn_13conns" destination="synapses" from="AS6[0]"/>
+        <synapticConnection to="AS10[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AS3[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AS4[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AS5[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AS6[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AS9[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AVL[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="PVNR[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="VA10[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="VA2[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="VA7[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="VB2[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="VC3[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBL[0]"/>
+        <synapticConnection to="AS1[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AS10[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AS3[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AS4[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AS5[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AS6[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AS7[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="DA5[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="HSNR[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="VA4[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="VA9[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="VD3[0]" synapse="exc_syn_1conns" destination="synapses" from="AVBR[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFL[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_2conns" destination="synapses" from="AVFL[0]"/>
         <synapticConnection to="AVFR[0]" synapse="exc_syn_7conns" destination="synapses" from="AVFL[0]"/>
         <synapticConnection to="AVL[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFL[0]"/>
         <synapticConnection to="HSNL[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFL[0]"/>
         <synapticConnection to="PVNL[0]" synapse="exc_syn_2conns" destination="synapses" from="AVFL[0]"/>
         <synapticConnection to="VB1[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFL[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFR[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_5conns" destination="synapses" from="AVFR[0]"/>
         <synapticConnection to="AVFL[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFR[0]"/>
         <synapticConnection to="HSNR[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFR[0]"/>
         <synapticConnection to="VD11[0]" synapse="exc_syn_1conns" destination="synapses" from="AVFR[0]"/>
@@ -503,6 +542,7 @@ Parameters and setting used to generate this network:
         <synapticConnection to="DD1[0]" synapse="exc_syn_6conns" destination="synapses" from="VC2[0]"/>
         <synapticConnection to="DD2[0]" synapse="exc_syn_4conns" destination="synapses" from="VC2[0]"/>
         <synapticConnection to="DD3[0]" synapse="exc_syn_9conns" destination="synapses" from="VC2[0]"/>
+        <synapticConnection to="PVCR[0]" synapse="exc_syn_1conns" destination="synapses" from="VC2[0]"/>
         <synapticConnection to="VC1[0]" synapse="exc_syn_4conns" destination="synapses" from="VC2[0]"/>
         <synapticConnection to="VC3[0]" synapse="exc_syn_4conns" destination="synapses" from="VC2[0]"/>
         <synapticConnection to="VD1[0]" synapse="exc_syn_2conns" destination="synapses" from="VC2[0]"/>
@@ -526,6 +566,7 @@ Parameters and setting used to generate this network:
         <synapticConnection to="VD5[0]" synapse="exc_syn_4conns" destination="synapses" from="VC3[0]"/>
         <synapticConnection to="VD6[0]" synapse="exc_syn_4conns" destination="synapses" from="VC3[0]"/>
         <synapticConnection to="VD7[0]" synapse="exc_syn_5conns" destination="synapses" from="VC3[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_1conns" destination="synapses" from="VC4[0]"/>
         <synapticConnection to="VC1[0]" synapse="exc_syn_1conns" destination="synapses" from="VC4[0]"/>
         <synapticConnection to="VC3[0]" synapse="exc_syn_4conns" destination="synapses" from="VC4[0]"/>
         <synapticConnection to="VC5[0]" synapse="exc_syn_1conns" destination="synapses" from="VC4[0]"/>
@@ -544,6 +585,8 @@ Parameters and setting used to generate this network:
         <synapticConnection to="VA12[0]" synapse="inh_syn_2conns" destination="synapses" from="VD12[0]"/>
         <synapticConnection to="VB10[0]" synapse="inh_syn_1conns" destination="synapses" from="VD12[0]"/>
         <synapticConnection to="VB11[0]" synapse="inh_syn_1conns" destination="synapses" from="VD12[0]"/>
+        <synapticConnection to="PVCL[0]" synapse="inh_syn_1conns" destination="synapses" from="VD13[0]"/>
+        <synapticConnection to="PVCR[0]" synapse="inh_syn_1conns" destination="synapses" from="VD13[0]"/>
         <synapticConnection to="VA12[0]" synapse="inh_syn_1conns" destination="synapses" from="VD13[0]"/>
         <synapticConnection to="DD1[0]" synapse="inh_syn_1conns" destination="synapses" from="VD2[0]"/>
         <synapticConnection to="VA2[0]" synapse="inh_syn_6conns" destination="synapses" from="VD2[0]"/>
@@ -562,13 +605,57 @@ Parameters and setting used to generate this network:
         <synapticConnection to="PVNR[0]" synapse="exc_syn_1conns" destination="synapses" from="PDA[0]"/>
         <synapticConnection to="VD13[0]" synapse="exc_syn_3conns" destination="synapses" from="PDA[0]"/>
         <synapticConnection to="VD13[0]" synapse="exc_syn_2conns" destination="synapses" from="PDB[0]"/>
+        <synapticConnection to="AS1[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_5conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_12conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DA2[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DA5[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DA6[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DB2[0]" synapse="exc_syn_3conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DB3[0]" synapse="exc_syn_4conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DB4[0]" synapse="exc_syn_3conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DB5[0]" synapse="exc_syn_2conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DB6[0]" synapse="exc_syn_2conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="DB7[0]" synapse="exc_syn_3conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="PVCR[0]" synapse="exc_syn_2conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="RID[0]" synapse="exc_syn_5conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="VB10[0]" synapse="exc_syn_2conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="VB11[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="VB3[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="VB4[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="VB5[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="VB6[0]" synapse="exc_syn_2conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="VB8[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCL[0]"/>
+        <synapticConnection to="AS2[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_8conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_6conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="AVL[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="DA9[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="DB2[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="DB3[0]" synapse="exc_syn_3conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="DB4[0]" synapse="exc_syn_4conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="DB5[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="DB6[0]" synapse="exc_syn_2conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="DB7[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="PVCL[0]" synapse="exc_syn_3conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="RID[0]" synapse="exc_syn_5conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="VB10[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="VB4[0]" synapse="exc_syn_3conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="VB6[0]" synapse="exc_syn_2conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="VB7[0]" synapse="exc_syn_3conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="VB8[0]" synapse="exc_syn_1conns" destination="synapses" from="PVCR[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNL[0]"/>
         <synapticConnection to="AVFR[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNL[0]"/>
         <synapticConnection to="AVL[0]" synapse="exc_syn_2conns" destination="synapses" from="PVNL[0]"/>
         <synapticConnection to="DD1[0]" synapse="exc_syn_2conns" destination="synapses" from="PVNL[0]"/>
+        <synapticConnection to="PVCL[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNL[0]"/>
         <synapticConnection to="PVNR[0]" synapse="exc_syn_5conns" destination="synapses" from="PVNL[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNR[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_2conns" destination="synapses" from="PVNR[0]"/>
         <synapticConnection to="AVL[0]" synapse="exc_syn_2conns" destination="synapses" from="PVNR[0]"/>
         <synapticConnection to="DD3[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNR[0]"/>
         <synapticConnection to="HSNR[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNR[0]"/>
+        <synapticConnection to="PVCL[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNR[0]"/>
         <synapticConnection to="PVNL[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNR[0]"/>
         <synapticConnection to="VC2[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNR[0]"/>
         <synapticConnection to="VC3[0]" synapse="exc_syn_1conns" destination="synapses" from="PVNR[0]"/>
@@ -582,10 +669,14 @@ Parameters and setting used to generate this network:
         <synapticConnection to="DD3[0]" synapse="inh_syn_3conns" destination="synapses" from="RID[0]"/>
         <synapticConnection to="VD13[0]" synapse="inh_syn_1conns" destination="synapses" from="RID[0]"/>
         <synapticConnection to="VD5[0]" synapse="inh_syn_1conns" destination="synapses" from="RID[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_2conns" destination="synapses" from="RIML[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_3conns" destination="synapses" from="RIML[0]"/>
         <synapticConnection to="RMDL[0]" synapse="exc_syn_1conns" destination="synapses" from="RIML[0]"/>
         <synapticConnection to="RMDR[0]" synapse="exc_syn_1conns" destination="synapses" from="RIML[0]"/>
         <synapticConnection to="SMDDR[0]" synapse="exc_syn_5conns" destination="synapses" from="RIML[0]"/>
         <synapticConnection to="SMDVL[0]" synapse="exc_syn_1conns" destination="synapses" from="RIML[0]"/>
+        <synapticConnection to="AVBL[0]" synapse="exc_syn_2conns" destination="synapses" from="RIMR[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_5conns" destination="synapses" from="RIMR[0]"/>
         <synapticConnection to="RMDL[0]" synapse="exc_syn_3conns" destination="synapses" from="RIMR[0]"/>
         <synapticConnection to="RMDR[0]" synapse="exc_syn_1conns" destination="synapses" from="RIMR[0]"/>
         <synapticConnection to="RMFL[0]" synapse="exc_syn_1conns" destination="synapses" from="RIMR[0]"/>
@@ -614,12 +705,14 @@ Parameters and setting used to generate this network:
         <synapticConnection to="AVKR[0]" synapse="exc_syn_4conns" destination="synapses" from="RMFL[0]"/>
         <synapticConnection to="RMDR[0]" synapse="exc_syn_3conns" destination="synapses" from="RMFL[0]"/>
         <synapticConnection to="RMGR[0]" synapse="exc_syn_1conns" destination="synapses" from="RMFL[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_2conns" destination="synapses" from="RMGL[0]"/>
         <synapticConnection to="RID[0]" synapse="exc_syn_1conns" destination="synapses" from="RMGL[0]"/>
         <synapticConnection to="RMDL[0]" synapse="exc_syn_1conns" destination="synapses" from="RMGL[0]"/>
         <synapticConnection to="RMDR[0]" synapse="exc_syn_3conns" destination="synapses" from="RMGL[0]"/>
         <synapticConnection to="RMDVL[0]" synapse="exc_syn_3conns" destination="synapses" from="RMGL[0]"/>
         <synapticConnection to="RMHR[0]" synapse="exc_syn_1conns" destination="synapses" from="RMGL[0]"/>
         <synapticConnection to="SMBVL[0]" synapse="exc_syn_1conns" destination="synapses" from="RMGL[0]"/>
+        <synapticConnection to="AVBR[0]" synapse="exc_syn_1conns" destination="synapses" from="RMGR[0]"/>
         <synapticConnection to="RMDL[0]" synapse="exc_syn_4conns" destination="synapses" from="RMGR[0]"/>
         <synapticConnection to="RMDR[0]" synapse="exc_syn_2conns" destination="synapses" from="RMGR[0]"/>
         <synapticConnection to="RMDVR[0]" synapse="exc_syn_5conns" destination="synapses" from="RMGR[0]"/>
@@ -661,6 +754,8 @@ Parameters and setting used to generate this network:
         <synapticConnection to="DA9[0]" synapse="exc_syn_5conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="DB7[0]" synapse="exc_syn_4conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="DD6[0]" synapse="exc_syn_2conns" destination="synapses" from="VA12[0]"/>
+        <synapticConnection to="PVCL[0]" synapse="exc_syn_2conns" destination="synapses" from="VA12[0]"/>
+        <synapticConnection to="PVCR[0]" synapse="exc_syn_3conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="VA11[0]" synapse="exc_syn_1conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="VD12[0]" synapse="exc_syn_3conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="VD13[0]" synapse="exc_syn_11conns" destination="synapses" from="VA12[0]"/>
@@ -708,6 +803,7 @@ Parameters and setting used to generate this network:
         <synapticConnection to="VD11[0]" synapse="exc_syn_1conns" destination="synapses" from="VB10[0]"/>
         <synapticConnection to="VD12[0]" synapse="exc_syn_2conns" destination="synapses" from="VB10[0]"/>
         <synapticConnection to="DD6[0]" synapse="exc_syn_7conns" destination="synapses" from="VB11[0]"/>
+        <synapticConnection to="PVCR[0]" synapse="exc_syn_1conns" destination="synapses" from="VB11[0]"/>
         <synapticConnection to="VA12[0]" synapse="exc_syn_1conns" destination="synapses" from="VB11[0]"/>
         <synapticConnection to="DD1[0]" synapse="exc_syn_20conns" destination="synapses" from="VB2[0]"/>
         <synapticConnection to="DD2[0]" synapse="exc_syn_1conns" destination="synapses" from="VB2[0]"/>
@@ -946,9 +1042,6 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MDR22[0]" synapse="inh_syn_5conns" destination="synapses" from="DD6[0]"/>
         <synapticConnection to="MDR23[0]" synapse="inh_syn_5conns" destination="synapses" from="DD6[0]"/>
         <synapticConnection to="MDR24[0]" synapse="inh_syn_5conns" destination="synapses" from="DD6[0]"/>
-        <synapticConnection to="MANAL[0]" synapse="inh_syn_5conns" destination="synapses" from="DVB[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_7conns" destination="synapses" from="HSNL[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_6conns" destination="synapses" from="HSNR[0]"/>
         <synapticConnection to="MDL01[0]" synapse="exc_syn_1conns" destination="synapses" from="IL1DL[0]"/>
         <synapticConnection to="MDL02[0]" synapse="exc_syn_1conns" destination="synapses" from="IL1DL[0]"/>
         <synapticConnection to="MDL04[0]" synapse="exc_syn_2conns" destination="synapses" from="IL1DL[0]"/>
@@ -1166,7 +1259,6 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MVR13[0]" synapse="exc_syn_4conns" destination="synapses" from="VA7[0]"/>
         <synapticConnection to="MVR15[0]" synapse="exc_syn_4conns" destination="synapses" from="VA7[0]"/>
         <synapticConnection to="MVR16[0]" synapse="exc_syn_4conns" destination="synapses" from="VA7[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_4conns" destination="synapses" from="VA7[0]"/>
         <synapticConnection to="MVL15[0]" synapse="exc_syn_6conns" destination="synapses" from="VA8[0]"/>
         <synapticConnection to="MVL16[0]" synapse="exc_syn_6conns" destination="synapses" from="VA8[0]"/>
         <synapticConnection to="MVR15[0]" synapse="exc_syn_6conns" destination="synapses" from="VA8[0]"/>
@@ -1189,7 +1281,6 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MVR21[0]" synapse="exc_syn_5conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="MVR22[0]" synapse="exc_syn_5conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="MVR23[0]" synapse="exc_syn_5conns" destination="synapses" from="VA12[0]"/>
-        <synapticConnection to="MVR24[0]" synapse="exc_syn_5conns" destination="synapses" from="VA12[0]"/>
         <synapticConnection to="MVL07[0]" synapse="exc_syn_1conns" destination="synapses" from="VB1[0]"/>
         <synapticConnection to="MVL08[0]" synapse="exc_syn_1conns" destination="synapses" from="VB1[0]"/>
         <synapticConnection to="MVR07[0]" synapse="exc_syn_1conns" destination="synapses" from="VB1[0]"/>
@@ -1220,7 +1311,6 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MVL16[0]" synapse="exc_syn_6conns" destination="synapses" from="VB6[0]"/>
         <synapticConnection to="MVR15[0]" synapse="exc_syn_6conns" destination="synapses" from="VB6[0]"/>
         <synapticConnection to="MVR16[0]" synapse="exc_syn_6conns" destination="synapses" from="VB6[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_6conns" destination="synapses" from="VB6[0]"/>
         <synapticConnection to="MVL15[0]" synapse="exc_syn_5conns" destination="synapses" from="VB7[0]"/>
         <synapticConnection to="MVR15[0]" synapse="exc_syn_5conns" destination="synapses" from="VB7[0]"/>
         <synapticConnection to="MVL17[0]" synapse="exc_syn_5conns" destination="synapses" from="VB8[0]"/>
@@ -1243,13 +1333,6 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MVR21[0]" synapse="exc_syn_5conns" destination="synapses" from="VB11[0]"/>
         <synapticConnection to="MVR22[0]" synapse="exc_syn_5conns" destination="synapses" from="VB11[0]"/>
         <synapticConnection to="MVR23[0]" synapse="exc_syn_5conns" destination="synapses" from="VB11[0]"/>
-        <synapticConnection to="MVR24[0]" synapse="exc_syn_5conns" destination="synapses" from="VB11[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_6conns" destination="synapses" from="VC1[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_10conns" destination="synapses" from="VC2[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_11conns" destination="synapses" from="VC3[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_7conns" destination="synapses" from="VC4[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_2conns" destination="synapses" from="VC5[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="exc_syn_1conns" destination="synapses" from="VC6[0]"/>
         <synapticConnection to="MVL05[0]" synapse="inh_syn_3conns" destination="synapses" from="VD1[0]"/>
         <synapticConnection to="MVL08[0]" synapse="inh_syn_3conns" destination="synapses" from="VD1[0]"/>
         <synapticConnection to="MVR05[0]" synapse="inh_syn_3conns" destination="synapses" from="VD1[0]"/>
@@ -1278,7 +1361,6 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MVL16[0]" synapse="inh_syn_5conns" destination="synapses" from="VD7[0]"/>
         <synapticConnection to="MVR15[0]" synapse="inh_syn_5conns" destination="synapses" from="VD7[0]"/>
         <synapticConnection to="MVR16[0]" synapse="inh_syn_5conns" destination="synapses" from="VD7[0]"/>
-        <synapticConnection to="MVULVA[0]" synapse="inh_syn_5conns" destination="synapses" from="VD7[0]"/>
         <synapticConnection to="MVL15[0]" synapse="inh_syn_12conns" destination="synapses" from="VD8[0]"/>
         <synapticConnection to="MVR15[0]" synapse="inh_syn_12conns" destination="synapses" from="VD8[0]"/>
         <synapticConnection to="MVL17[0]" synapse="inh_syn_7conns" destination="synapses" from="VD9[0]"/>
@@ -1303,7 +1385,6 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MVR21[0]" synapse="inh_syn_6conns" destination="synapses" from="VD13[0]"/>
         <synapticConnection to="MVR22[0]" synapse="inh_syn_6conns" destination="synapses" from="VD13[0]"/>
         <synapticConnection to="MVR23[0]" synapse="inh_syn_6conns" destination="synapses" from="VD13[0]"/>
-        <synapticConnection to="MVR24[0]" synapse="inh_syn_6conns" destination="synapses" from="VD13[0]"/>
         <electricalProjection id="NC_AS1_VA3_Generic_GJ" postsynapticPopulation="VA3" presynapticPopulation="AS1">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1331,14 +1412,152 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_AS5_VA7_Generic_GJ" postsynapticPopulation="VA7" presynapticPopulation="AS5">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_AS6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AS6">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_AS6_DA5_Generic_GJ" postsynapticPopulation="DA5" presynapticPopulation="AS6">
             <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS6_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="AS6">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_AS7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="AS7">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AS7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AS7">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_AS9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="AS9">
             <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_AS7_Generic_GJ" postsynapticPopulation="AS7" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_DB5_Generic_GJ" postsynapticPopulation="DB5" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_DB6_Generic_GJ" postsynapticPopulation="DB6" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_DB7_Generic_GJ" postsynapticPopulation="DB7" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB1_Generic_GJ" postsynapticPopulation="VB1" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB11_Generic_GJ" postsynapticPopulation="VB11" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBL_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="AVBL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_AS6_Generic_GJ" postsynapticPopulation="AS6" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_AS7_Generic_GJ" postsynapticPopulation="AS7" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DB5_Generic_GJ" postsynapticPopulation="DB5" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DB6_Generic_GJ" postsynapticPopulation="DB6" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DB7_Generic_GJ" postsynapticPopulation="DB7" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_DD1_Generic_GJ" postsynapticPopulation="DD1" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_PVNL_Generic_GJ" postsynapticPopulation="PVNL" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB11_Generic_GJ" postsynapticPopulation="VB11" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB3_Generic_GJ" postsynapticPopulation="VB3" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_AVBR_VD10_Generic_GJ" postsynapticPopulation="VD10" presynapticPopulation="AVBR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVFL_AVFR_Generic_GJ" postsynapticPopulation="AVFR" presynapticPopulation="AVFL">
             <electricalConnection synapse="elec_syn_23conns" preCell="0" id="0" postCell="0"/>
@@ -1406,6 +1625,9 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_DA9_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="DA9">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_DB1_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB1">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_DB1_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="DB1">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1421,6 +1643,9 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_DB1_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="DB1">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_DB2_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB2">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_DB2_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="DB2">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1430,6 +1655,12 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_DB2_VB1_Generic_GJ" postsynapticPopulation="VB1" presynapticPopulation="DB2">
             <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_DB3_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB3">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB3_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB3">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_DB3_DA4_Generic_GJ" postsynapticPopulation="DA4" presynapticPopulation="DB3">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1437,6 +1668,12 @@ Parameters and setting used to generate this network:
             <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB3_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="DB3">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB4_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB4">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB4_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB4">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="DB4">
@@ -1449,6 +1686,27 @@ Parameters and setting used to generate this network:
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="DB4">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB5_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB5">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB5_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB5">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB6_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB6">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB6">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB7">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB7">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_DD1_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DD1">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD1_DD2_Generic_GJ" postsynapticPopulation="DD2" presynapticPopulation="DD1">
@@ -1604,6 +1862,9 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VD1_VD2_Generic_GJ" postsynapticPopulation="VD2" presynapticPopulation="VD1">
             <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VD10_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VD10">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VD10_DD5_Generic_GJ" postsynapticPopulation="DD5" presynapticPopulation="VD10">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1676,8 +1937,35 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_PDB_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="PDB">
             <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_PVCL_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="PVCL">
+            <electricalConnection synapse="elec_syn_5conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_PVCL_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="PVCL">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_PVCL_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="PVCL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_PVCR_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="PVCR">
+            <electricalConnection synapse="elec_syn_5conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_PVCR_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="PVCR">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_PVCR_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="PVCR">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_PVNL_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="PVNL">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_PVNR_HSNR_Generic_GJ" postsynapticPopulation="HSNR" presynapticPopulation="PVNR">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_RID_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="RID">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_RID_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="RID">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RID_DA9_Generic_GJ" postsynapticPopulation="DA9" presynapticPopulation="RID">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
@@ -1862,6 +2150,12 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VA8_AS6_Generic_GJ" postsynapticPopulation="AS6" presynapticPopulation="VA8">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VA8_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VA8">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VA8_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="VA8">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VA8_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VA8">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1874,7 +2168,13 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VA8_VD8_Generic_GJ" postsynapticPopulation="VD8" presynapticPopulation="VA8">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VA9_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VA9">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VA9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="VA9">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VA9_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="VA9">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA9_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="VA9">
@@ -1886,6 +2186,9 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VA9_VD7_Generic_GJ" postsynapticPopulation="VD7" presynapticPopulation="VA9">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VB1_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB1">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VB1_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="VB1">
             <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1895,7 +2198,28 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VB1_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB1">
             <electricalConnection synapse="elec_syn_4conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VB10_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB10">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB10_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB10">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB10_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="VB10">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB11_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB11">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB11_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB11">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VB11_VA12_Generic_GJ" postsynapticPopulation="VA12" presynapticPopulation="VB11">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB2_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB2">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB2_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB2">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="VB2">
@@ -1913,6 +2237,9 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VB2_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="VB2">
             <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VB3_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB3">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VB3_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="VB3">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1920,6 +2247,12 @@ Parameters and setting used to generate this network:
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB3_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB3">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB4_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB4">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB4_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB4">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB4_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="VB4">
@@ -1931,6 +2264,9 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VB4_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="VB4">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VB5_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB5">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VB5_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB5">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
@@ -1940,14 +2276,32 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VB5_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="VB5">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VB6_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB6">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB6">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VB6_DA4_Generic_GJ" postsynapticPopulation="DA4" presynapticPopulation="VB6">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB6_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="VB6">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VB7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB7">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB7">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VB7_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB7">
             <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB8_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB8">
+            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB8_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB8">
+            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB8_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VB8">
             <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
@@ -1958,8 +2312,17 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VB8_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="VB8">
             <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
+        <electricalProjection id="NC_VB9_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB9">
+            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB9_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB9">
+            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
         <electricalProjection id="NC_VB9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="VB9">
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+        </electricalProjection>
+        <electricalProjection id="NC_VB9_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="VB9">
+            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VB9">
             <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
@@ -1980,8 +2343,6 @@ Parameters and setting used to generate this network:
             <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
         </electricalProjection>
         <explicitInput input="offset_current" target="DB1[0]"/>
-        <explicitInput input="offset_current" target="DB2[0]"/>
         <explicitInput input="offset_current" target="VB1[0]"/>
-        <explicitInput input="offset_current" target="VB2[0]"/>
     </network>
 </neuroml>

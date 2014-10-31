@@ -106,7 +106,24 @@ def process_args():
     return parser.parse_args()
 
 
+quadrant0 = 'MDR'
+quadrant1 = 'MVR'
+quadrant2 = 'MVL'
+quadrant3 = 'MDL'
 
+
+def get_muscle_names():
+    names = []
+    for i in range(24):
+        names.append("%s%s"%(quadrant0, i+1 if i>8 else ("0%i"%(i+1))))
+    for i in range(23):
+        names.append("%s%s"%(quadrant1, i+1 if i>8 else ("0%i"%(i+1))))
+    for i in range(24):
+        names.append("%s%s"%(quadrant2, i+1 if i>8 else ("0%i"%(i+1))))
+    for i in range(24):
+        names.append("%s%s"%(quadrant3, i+1 if i>8 else ("0%i"%(i+1))))
+    
+    return names
 
 def merge_with_template(model, templfile):
     with open(templfile) as f:
@@ -376,7 +393,9 @@ def generate(net_id,
             
     print("Finished loading %i cells"%count)
     
-    mneurons, muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
+    mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
+    
+    muscles = get_muscle_names()
     
     if include_muscles:
         
@@ -543,7 +562,7 @@ def generate(net_id,
     if include_muscles:
       for conn in muscle_conns:
 
-        if conn.pre_cell in lems_info["cells"]:
+        if conn.pre_cell in lems_info["cells"] and conn.post_cell in muscles:
             # take information about each connection and package it into a 
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
