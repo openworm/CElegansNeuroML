@@ -36,6 +36,10 @@
                 <StateAssignment variable="v" value="reset"/>
             </OnStart>
 
+            <OnCondition test="activity .lt. 0">
+                <StateAssignment variable="activity" value="0"/>
+            </OnCondition>
+
             <OnCondition test="v .gt. thresh">
                 <StateAssignment variable="v" value="reset"/>
                 <EventOut port="spike"/>

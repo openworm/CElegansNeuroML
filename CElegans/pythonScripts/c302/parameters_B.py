@@ -16,8 +16,8 @@ from bioparameters import BioParameter
     The values below are a FIRST APPROXIMATION of neurons for use in a network to 
     investigate the synaptic connectivity of C elegans
     
-    We plan more detailed parameter sets (parameters_B based on Izhikevich or Adaptive
-    Exponential I&F; parameters_C based on conductance based neurons) which use this 
+    We plan more detailed parameter sets (parameters_B based on more detailed neurons & including 
+    electrical connections; parameters_C based on conductance based neurons) which use this 
     framework.
 
 '''
@@ -34,18 +34,18 @@ iaf_tau1 =              BioParameter("iaf_tau1", "50ms", "BlindGuess", "0.1")
 
 chem_exc_syn_gbase =       BioParameter("chem_exc_syn_gbase", "0.3nS", "BlindGuess", "0.1")
 chem_exc_syn_erev =        BioParameter("chem_exc_syn_erev", "0mV", "BlindGuess", "0.1")
-chem_exc_syn_rise =        BioParameter("chem_exc_syn_rise", "3ms", "BlindGuess", "0.1")
+chem_exc_syn_rise =        BioParameter("chem_exc_syn_rise", "1ms", "BlindGuess", "0.1")
 chem_exc_syn_decay =       BioParameter("chem_exc_syn_decay", "10ms", "BlindGuess", "0.1")
 
-chem_inh_syn_gbase =       BioParameter("chem_inh_syn_gbase", "2nS", "BlindGuess", "0.1")
-chem_inh_syn_erev =        BioParameter("chem_inh_syn_erev", "-80mV", "BlindGuess", "0.1")
-chem_inh_syn_rise =        BioParameter("chem_inh_syn_rise", "4ms", "BlindGuess", "0.1")
+chem_inh_syn_gbase =       BioParameter("chem_inh_syn_gbase", "1nS", "BlindGuess", "0.1")
+chem_inh_syn_erev =        BioParameter("chem_inh_syn_erev", "-75mV", "BlindGuess", "0.1")
+chem_inh_syn_rise =        BioParameter("chem_inh_syn_rise", "2ms", "BlindGuess", "0.1")
 chem_inh_syn_decay =       BioParameter("chem_inh_syn_decay", "40ms", "BlindGuess", "0.1")
 
-elec_syn_gbase =       BioParameter("elec_syn_gbase", "0.4nS", "BlindGuess", "0.1")
+elec_syn_gbase =       BioParameter("elec_syn_gbase", "0.2nS", "BlindGuess", "0.1")
 
 
-unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.4nA", "KnownError", "0")
+unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.5nA", "KnownError", "0")
 unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "2000ms", "KnownError", "0")
 
 class IafActivityCell():

@@ -43,7 +43,7 @@ if __name__ == '__main__':
         for line in search_file:
             i+=1
             if 'tag="OpenWormBackerAssignedName" value="%s"'%name in line:
-                info+="Added to c302 network files [here](%s).\n\n"%(url%i)
+                info+="Added to c302 network files [here](%s).\n"%(url%i)
                 
         info+="This cell can be viewed in 3D [here](%s) (requires WebGL).\n\n"%(osb_3d_url+cell+".nml")
         
