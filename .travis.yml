@@ -14,10 +14,21 @@ python: 2.7
 
 install:
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+    - pip install lxml
     - pip install xlrd
+    - pip install xlwt
 
 script:
 #    - omv all
+    - git clone https://github.com/purcell/airspeed.git
+    - cd airspeed
+    - python setup.py install
+    - cd ..
+    - git clone git://github.com/NeuralEnsemble/libNeuroML.git
+    - cd libNeuroML
+    - git checkout development
+    - python setup.py install
+    - cd ..
     - cd CElegans/pythonScripts/c302/unittests/
     - python c302_connection_test.py
     - python c302_connection_test_B.py
