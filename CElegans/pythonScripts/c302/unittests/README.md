@@ -24,3 +24,5 @@
 
 
 **_SpreadsheetDataReader.py and c302.py have been modified to support the test scripts_**
+
+[![Build Status](https://travis-ci.org/ahrasheed/CElegansNeuroML.svg?branch=master)](https://travis-ci.org/ahrasheed/CElegansNeuroML)
