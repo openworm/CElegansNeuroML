@@ -1,5 +1,9 @@
 #Unit Tests for c302
 
+**_Note: Work in Progress_**
+
+[![Build Status](https://travis-ci.org/ahrasheed/CElegansNeuroML.svg?branch=master)](https://travis-ci.org/ahrasheed/CElegansNeuroML)
+
 ##c302_connection_test
 
 - setUp: Script generates .nml file for each pair in [CElegansNeuronTables.xls](https://github.com/openworm/CElegansNeuroML/blob/master/CElegansNeuronTables.xls) using the c302 model (c302.py) and SpreadsheetDataReader.py (already in the package and used by c302.py). File for each pair is generated only once.
@@ -15,14 +19,11 @@
 
 ##neuronconnect_connection_test
 
-**_Note: Work in Progress_**
-
-- This script also does the same thing as the first one, but instead of picking connection pairs from CElegansNeuronTables.xls it picks each connection pair from [NeuronConnect.xls](http://www.wormatlas.org/images/NeuronConnect.xls).The script still uses SpreadsheetDataReader.py to read from NeuronConnect, thus Spreadsheet Reader has been modified to accommodate that.
+- This script also does the same thing as the first one, but instead of picking connection pairs from CElegansNeuronTables.xls it picks each connection pair from a formatted version of [NeuronConnect.xls](http://www.wormatlas.org/images/NeuronConnect.xls).The script still uses SpreadsheetDataReader.py to read from NeuronConnect, thus Spreadsheet Reader has been modified to accommodate that.
 - While CElegansNeuronTables provides detailed classification of chemical synapses, NeuronConnect does not. NeuronConnect does classify Gap Junctions (EJ) from chemical synapses. So the testing script only checks for connections and does not go into detailed classification as with previous scripts.
 - This script catches assertion errors and logs them in an excel file (error_log.xls), thus showing which connection pairs were not present in c302.
-- The script throws an error when generating .nml files if run on the complete NeuronConnect file, because some cell definitions are not present in c302. That is because some cell names contain and extra '0'. Once that is fixed, this error will be resolved.  Also uploaded a subset from NeuronConnect as NeuronConnect.xlsx. (Name of file will have to be modified in SpreadsheetDataReader.py)
+Also uploaded is a subset from NeuronConnect as NeuronConnect.xlsx. (Name of file will have to be modified in SpreadsheetDataReader.py)
 
 
 **_SpreadsheetDataReader.py and c302.py have been modified to support the test scripts_**
 
-[![Build Status](https://travis-ci.org/ahrasheed/CElegansNeuroML.svg?branch=master)](https://travis-ci.org/ahrasheed/CElegansNeuroML)

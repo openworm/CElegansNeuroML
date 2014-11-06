@@ -30,11 +30,11 @@ class DataIntegrityTest(unittest.TestCase):
 
         self.checked_files = []
         counter = 0
-        # self.specify_early_stop = 4     # early stopping
+        # self.specify_early_stop = 100     # early stopping
         # early_stop = self.specify_early_stop     # early stopping
         for index in self.conns:
             # if early_stop == 0:  # early stopping
-            #     break  # and this
+                # break  # and this
 
             origin = index.pre_cell
             target = index.post_cell
@@ -76,7 +76,7 @@ class DataIntegrityTest(unittest.TestCase):
         for index in self.conns:
 
             # if early_stop == 0:  # early stopping
-            #     break  # and this
+                # break  # and this
 
             origin = index.pre_cell
             target = index.post_cell
@@ -86,7 +86,17 @@ class DataIntegrityTest(unittest.TestCase):
             fn = origin+"_"+target
             fnswap = target+"_"+origin
 
-            test_id = 'NC_'+origin+'_'+target
+            #check if the connection is a GAP junction or a checmical synapse
+            gap_junction = True
+            if 'EJ' in syntype:
+                test_id = 'NC_'+origin+'_'+target+'_'+'Generic_GJ'
+                test_synapse = 'elec_syn_'+str(num)+'conns'
+
+            else:
+                test_id = 'NC_'+origin+'_'+target
+                gap_junction = False
+
+            print test_id, num
 
             if fn in self.checked_files:
                 nml_file = fn+'.nml'
@@ -111,35 +121,68 @@ class DataIntegrityTest(unittest.TestCase):
                 rowcounter += 1
 
             if conn_list:
-                test_list = []
 
-                test_list = [(connection.id, connection.synapse) for connection in conn_list]
+                test_list = []
+                test_id_list = []
+                test_synapse_list = []
+                for connection in conn_list:
+                    test_list.append((connection.id, connection.synapse))
+                    test_id_list.append(connection.id)
+                    test_synapse_list.append(connection.synapse)
 
                 print test_list
 
-               # test if this particular connection exists (Only testing connection end points and number) and writing errors to log file
+            # test if this particular connection exists (Only testing connection end points and number) and writing errors to log file
 
-                for id_test, synapse_test in test_list:
-                    print id_test, synapse_test
-                    flag1 = True if test_id in id_test else False
-                    flag2 = True if str(num) in synapse_test else False
+                # if gap junction
+                if gap_junction:
 
-                try:
-                    self.assertTrue(flag1)
-                except AssertionError:
-                    print "Connection not found for "+nml_file
-                    sh.write(rowcounter, 0, origin)
-                    sh.write(rowcounter, 1, target)
-                    sh.write(rowcounter, 2, syntype+' Connection Not Found')
-                    rowcounter += 1
-                try:
-                    self.assertTrue(flag2)
-                except AssertionError:
-                    print "Number of Connections Incorrect for "+nml_file
-                    sh.write(rowcounter, 0, origin)
-                    sh.write(rowcounter, 1, target)
-                    sh.write(rowcounter, 2, 'Number of Connections Incorrect')
-                    rowcounter += 1
+                    try:
+                        self.assertIn(test_id, test_id_list)
+                    except AssertionError:
+                        print "Gap Junction Connection not found for "+nml_file
+                        sh.write(rowcounter, 0, origin)
+                        sh.write(rowcounter, 1, target)
+                        sh.write(rowcounter, 2, syntype+' Connection Not Found')
+                        rowcounter += 1
+                    try:
+                        self.assertIn(test_synapse, test_synapse_list)
+                    except AssertionError:
+                        print "EJ Number of Connections incorrect for "+nml_file
+                        sh.write(rowcounter, 0, origin)
+                        sh.write(rowcounter, 1, target)
+                        sh.write(rowcounter, 2, syntype+' No. of connections incorrect')
+                        rowcounter += 1
+
+                # if chemical synapse (synapse type and number of connections not being tested)
+                else:
+
+                    flag1 = False
+                    # flag2 = False
+                    for id_test in test_list:
+                        if test_id in id_test[0]:
+                            print id_test
+                            flag1 = True
+                            # flag2 = True if str(num) in id_test[1] else False
+                            break
+
+                    try:
+                        self.assertTrue(flag1)
+                    except AssertionError:
+                        print "Synaptic Connection not found for "+nml_file
+                        sh.write(rowcounter, 0, origin)
+                        sh.write(rowcounter, 1, target)
+                        sh.write(rowcounter, 2, syntype+' Connection Not Found')
+                        rowcounter += 1
+
+                    # try:
+                    #     self.assertTrue(flag2)
+                    # except AssertionError:
+                    #     print "Synaptic Connection number incorrect for "+nml_file
+                    #     sh.write(rowcounter, 0, origin)
+                    #     sh.write(rowcounter, 1, target)
+                    #     sh.write(rowcounter, 2, syntype+' Connection number incorrect')
+                    #     rowcounter += 1
 
             counter += 1
 
