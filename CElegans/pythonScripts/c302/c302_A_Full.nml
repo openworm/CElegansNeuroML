@@ -810,6 +810,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="LUAL" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="VSAZEL"/>
             <instance id="0">
                 <location y="1.35" x="403.800020000000018" z="4.1"/>
             </instance>
