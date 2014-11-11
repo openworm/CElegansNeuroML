@@ -45,8 +45,15 @@ if __name__ == '__main__':
     
     reference = "c302_%s_Social"%parameter_set
     
-    nml_doc = generate(reference, params, cells=cells, cells_to_stimulate=cells_to_stimulate, \
-             duration=2500, dt=0.1, vmin=-72, vmax=-48, validate=(parameter_set!='B'))
+    nml_doc = generate(reference, 
+                       params, 
+                       cells=cells, 
+                       cells_to_stimulate=cells_to_stimulate, 
+                       duration=2500, 
+                       dt=0.1, 
+                       vmin=-72 if parameter_set=='A' else -52, 
+                       vmax=-48 if parameter_set=='A' else -28,
+                       validate=(parameter_set!='B'))
              
     stim_amplitude = "0.35nA"
     add_new_input(nml_doc, "RMGR", "100ms", "200ms", stim_amplitude)

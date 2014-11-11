@@ -20,6 +20,6 @@ if __name__ == '__main__':
              cells_to_stimulate=cells_to_stimulate, 
              duration=500, 
              dt=0.1, 
-             vmin=-72, 
-             vmax=-48, 
+             vmin=-72 if parameter_set=='A' else -52, 
+             vmax=-48 if parameter_set=='A' else -28,
              validate=(parameter_set!='B'))    

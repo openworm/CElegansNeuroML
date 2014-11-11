@@ -12,22 +12,22 @@ Parameters and setting used to generate this network:
     Include muscles:               False
 
     Known BioParameters:
-        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 0.1nF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = 2nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 6ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -55mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.6nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.7nA (SRC: KnownError, certainty 0)
+        BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.35nA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
 
    
@@ -50,7 +50,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_B_Social" length="2500ms" step="0.1ms" target="c302_B_Social">
 
-        <Display id="neurons" title="c302_B_Social: Membrane potential of a number of neurons" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-72" ymax="-48">
+        <Display id="neurons" title="c302_B_Social: Membrane potential of a number of neurons" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-52" ymax="-28">
             
             <Line id="ASHR" quantity="ASHR[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="ASKR" quantity="ASKR[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />

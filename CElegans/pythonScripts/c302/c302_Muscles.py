@@ -40,7 +40,7 @@ if __name__ == '__main__':
         if cell.startswith("xxVB") or cell.startswith("DB"):
             cells_to_stimulate.append(cell)
     #cells_to_stimulate = ['DB1', 'VB1']
-    cells_to_stimulate = ['PVCL', 'PVCR']
+    cells_to_stimulate = ['PVCL', 'PVCR',  'VB1', 'VB2', 'VB3']
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ['AS1', 'AS10', 'AVFL', 'DA1','DB1','DB4','DB7','IL1DL','RID', 'RIML','SMBDL', 'SMBDR', 'VB1', 'VB5', 'VB10','VC1', 'VC2']
@@ -56,6 +56,6 @@ if __name__ == '__main__':
              include_muscles = True,
              duration=500, 
              dt=0.1, 
-             vmin=-72, 
-             vmax=-48, 
+             vmin=-52, 
+             vmax=-28, 
              validate=(parameter_set!='B'))    
