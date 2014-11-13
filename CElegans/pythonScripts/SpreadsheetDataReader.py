@@ -16,7 +16,7 @@ def readDataFromSpreadsheet(dir="../../", include_nonconnected_cells=False, neur
     if neuron_connect:
         conns = []
         cells = []
-        filename = dir+"NeuronConnect.xlsx"
+        filename = dir+"NeuronConnectFormatted.xlsx"
         rb = open_workbook(filename)
         print "Opened Excel file: " + filename
 
