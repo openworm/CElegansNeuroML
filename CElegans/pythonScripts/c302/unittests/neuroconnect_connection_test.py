@@ -1,5 +1,3 @@
-# RUN WITH A SUBSET FROM NeuronConnect.xls (i.e. NeuronConnect.xlsx), DO NOT RUN WITH COMPLETE EXCEL FILE. This information can be modified in ../../SpreadsheetDataReader.py
-
 import os
 
 import sys
