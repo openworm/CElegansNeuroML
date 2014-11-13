@@ -375,13 +375,23 @@ Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/b
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FIL2L.nml) (requires WebGL).
 
+LUAL
+----------
+
+Adopted name: **VSAZEL**
+
+
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L813).
+
+This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FLUAL.nml) (requires WebGL).
+
 M1
 ----------
 
 Adopted name: **albertwenger**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L823).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L824).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FM1.nml) (requires WebGL).
 
@@ -391,7 +401,7 @@ M5
 Adopted name: **Asher**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L854).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L855).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FM5.nml) (requires WebGL).
 
@@ -401,7 +411,7 @@ MI
 Adopted name: **NeuroMind technology**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L870).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L871).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FMI.nml) (requires WebGL).
 
@@ -411,7 +421,7 @@ PHAR
 Adopted name: **Eliot Attridge**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L941).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L942).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPHAR.nml) (requires WebGL).
 
@@ -421,7 +431,7 @@ PHCR
 Adopted name: **unusual connectivity**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L962).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L963).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPHCR.nml) (requires WebGL).
 
@@ -431,7 +441,7 @@ PLML
 Adopted name: **Isaac Spear**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L968).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L969).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPLML.nml) (requires WebGL).
 
@@ -441,7 +451,7 @@ PLMR
 Adopted name: **Altman**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L974).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L975).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPLMR.nml) (requires WebGL).
 
@@ -451,7 +461,7 @@ PVCL
 Adopted name: **Ramana Kumar**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L995).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L996).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPVCL.nml) (requires WebGL).
 
@@ -461,7 +471,7 @@ PVCR
 Adopted name: **J. Pablo Fernandez**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1001).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1002).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPVCR.nml) (requires WebGL).
 
@@ -471,7 +481,7 @@ PVDL
 Adopted name: **Andreas Makoto Hein**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1007).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1008).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPVDL.nml) (requires WebGL).
 
@@ -481,7 +491,7 @@ PVM
 Adopted name: **aKzenT**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1018).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1019).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FPVM.nml) (requires WebGL).
 
@@ -491,7 +501,7 @@ RIAL
 Adopted name: **Sara**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1074).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1075).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FRIAL.nml) (requires WebGL).
 
@@ -501,7 +511,7 @@ RIBR
 Adopted name: **robkirkup**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1090).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1091).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FRIBR.nml) (requires WebGL).
 
@@ -511,7 +521,7 @@ RIVR
 Adopted name: **Wil Wheaton**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1171).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1172).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FRIVR.nml) (requires WebGL).
 
@@ -521,7 +531,7 @@ RMGR
 Adopted name: **Bryan Nagle**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1242).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1243).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FRMGR.nml) (requires WebGL).
 
@@ -531,7 +541,7 @@ RMHR
 Adopted name: **Martino**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1253).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1254).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FRMHR.nml) (requires WebGL).
 
@@ -541,7 +551,7 @@ SDQR
 Adopted name: **ogachyuallincheck**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1299).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1300).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FSDQR.nml) (requires WebGL).
 
@@ -551,7 +561,7 @@ URADL
 Adopted name: **akizzles**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1385).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1386).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FURADL.nml) (requires WebGL).
 
@@ -561,7 +571,7 @@ VA2
 Adopted name: **Marquam Hill**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1466).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1467).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVA2.nml) (requires WebGL).
 
@@ -571,7 +581,7 @@ VB1
 Adopted name: **NoTex.ch**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1507).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1508).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVB1.nml) (requires WebGL).
 
@@ -581,7 +591,7 @@ VB2
 Adopted name: **Bloodgood**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1523).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1524).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVB2.nml) (requires WebGL).
 
@@ -591,7 +601,7 @@ VB3
 Adopted name: **Ramez Naam**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1529).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1530).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVB3.nml) (requires WebGL).
 
@@ -601,7 +611,7 @@ VB4
 Adopted name: **Worm**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1535).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1536).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVB4.nml) (requires WebGL).
 
@@ -611,7 +621,7 @@ VC1
 Adopted name: **Gnothi seauton**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1566).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1567).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVC1.nml) (requires WebGL).
 
@@ -621,7 +631,7 @@ VC2
 Adopted name: **M.Habryn**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1572).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1573).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVC2.nml) (requires WebGL).
 
@@ -631,7 +641,7 @@ VC4
 Adopted name: **Klob Le Grand**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1583).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1584).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVC4.nml) (requires WebGL).
 
@@ -641,7 +651,7 @@ VD1
 Adopted name: **Ackley Lab**
 
 
-Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1599).
+Added to c302 network files [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L1600).
 
 This cell can be viewed in 3D [here](http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2FVD1.nml) (requires WebGL).
 

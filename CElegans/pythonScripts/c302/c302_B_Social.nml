@@ -10,30 +10,30 @@ Parameters and setting used to generate this network:
     Include muscles:               False
 
     Known BioParameters:
-        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 0.1nF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = 2nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 6ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -55mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.6nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.7nA (SRC: KnownError, certainty 0)
+        BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.35nA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
 
 </notes>
-    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.6nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.3nS" tauDecay="10ms" tauRise="3ms"/>
-    <gapJunction id="elec_syn_1conns" conductance="0.6nS"/>
-    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.1nF" thresh="-50mV" reset="-70mV" leakConductance="0.01uS" leakReversal="-70mV" tau1="50ms"/>
-    <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="0.7nA"/>
+    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.8nS" tauDecay="10ms" tauRise="1ms"/>
+    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.4nS" tauDecay="10ms" tauRise="1ms"/>
+    <gapJunction id="elec_syn_1conns" conductance="0.3nS"/>
+    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.1nF" thresh="-30mV" reset="-50mV" leakConductance="0.01uS" leakReversal="-50mV" tau1="50ms"/>
+    <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="0.35nA"/>
     <pulseGenerator id="stim_RMGR" delay="100ms" duration="200ms" amplitude="0.35nA"/>
     <pulseGenerator id="stim_ASHR" delay="400ms" duration="200ms" amplitude="0.35nA"/>
     <pulseGenerator id="stim_ASKR" delay="700ms" duration="200ms" amplitude="0.35nA"/>

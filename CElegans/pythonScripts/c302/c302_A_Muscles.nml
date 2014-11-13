@@ -3,8 +3,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
-    Cell stimulated:               ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'SMBDL', 'SMBDR', 'VA1', 'VA10', 'DD1', 'DD2']
+    Cells:                         ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'AVBL', 'AVBR', 'PVCL', 'PVCR']
+    Cell stimulated:               ['PVCL', 'PVCR', 'VB1', 'VB2', 'VB3']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               True
@@ -42,6 +42,8 @@ Parameters and setting used to generate this network:
     <expTwoSynapse id="exc_syn_9conns" erev="0mV" gbase="1.8nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_13conns" erev="0mV" gbase="2.6nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="elec_syn_7conns" erev="0mV" gbase="1.4nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_3conns" erev="0mV" gbase="0.6nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_6conns" erev="0mV" gbase="1.2nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_7conns" erev="0mV" gbase="1.4nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="elec_syn_23conns" erev="0mV" gbase="4.6nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
@@ -55,7 +57,6 @@ Parameters and setting used to generate this network:
     <expTwoSynapse id="exc_syn_16conns" erev="0mV" gbase="3.2nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_3conns" erev="0mV" gbase="0.6nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_21conns" erev="0mV" gbase="4.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_6conns" erev="0mV" gbase="1.2nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_23conns" erev="0mV" gbase="4.6nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_14conns" erev="0mV" gbase="2.8nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_26conns" erev="0mV" gbase="5.2nS" tauDecay="10ms" tauRise="3ms"/>
@@ -63,7 +64,6 @@ Parameters and setting used to generate this network:
     <expTwoSynapse id="inh_syn_5conns" erev="-80mV" gbase="1.0nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="inh_syn_3conns" erev="-80mV" gbase="0.6nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="elec_syn_5conns" erev="0mV" gbase="1.0nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_3conns" erev="0mV" gbase="0.6nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="inh_syn_6conns" erev="-80mV" gbase="1.2nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_8conns" erev="0mV" gbase="1.6nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_18conns" erev="0mV" gbase="3.6nS" tauDecay="10ms" tauRise="3ms"/>
@@ -133,6 +133,17 @@ Parameters and setting used to generate this network:
         <population id="AS9" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="-1.8750001" x="228.924990000000008" z="-14.5"/>
+            </instance>
+        </population>
+        <population id="AVBL" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location y="0.225" x="-269.793999999999983" z="37.863002999999999"/>
+            </instance>
+        </population>
+        <population id="AVBR" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="mn"/>
+            <instance id="0">
+                <location y="-4.581" x="-269.793999999999983" z="37.863002999999999"/>
             </instance>
         </population>
         <population id="AVFL" component="generic_iaf_cell" type="populationList">
@@ -337,6 +348,18 @@ Parameters and setting used to generate this network:
         <population id="PDB" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="-3.3" x="384.649999999999977" z="-7.75"/>
+            </instance>
+        </population>
+        <population id="PVCL" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
+            <instance id="0">
+                <location y="0.85" x="404.150019999999984" z="5.5"/>
+            </instance>
+        </population>
+        <population id="PVCR" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="J. Pablo Fernandez"/>
+            <instance id="0">
+                <location y="-3.4499998" x="404.150019999999984" z="5.5"/>
             </instance>
         </population>
         <population id="PVNL" component="generic_iaf_cell" type="populationList">
@@ -732,489 +755,479 @@ Parameters and setting used to generate this network:
                 <location y="-0.8" x="191.5" z="-3.8"/>
             </instance>
         </population>
-        <population id="MDL05" component="generic_iaf_cell" type="populationList">
+        <population id="MDR01" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="0." z="100."/>
             </instance>
         </population>
-        <population id="MDR05" component="generic_iaf_cell" type="populationList">
+        <population id="MDR02" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="10." z="100."/>
             </instance>
         </population>
-        <population id="MDL08" component="generic_iaf_cell" type="populationList">
+        <population id="MDR03" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="20." z="100."/>
             </instance>
         </population>
-        <population id="MDR08" component="generic_iaf_cell" type="populationList">
+        <population id="MDR04" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="30." z="100."/>
             </instance>
         </population>
-        <population id="MDL20" component="generic_iaf_cell" type="populationList">
+        <population id="MDR05" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="40." z="100."/>
             </instance>
         </population>
-        <population id="MDR20" component="generic_iaf_cell" type="populationList">
+        <population id="MDR06" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="50." z="100."/>
             </instance>
         </population>
-        <population id="MDL19" component="generic_iaf_cell" type="populationList">
+        <population id="MDR07" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="60." z="100."/>
             </instance>
         </population>
-        <population id="MDR19" component="generic_iaf_cell" type="populationList">
+        <population id="MDR08" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="70." z="100."/>
             </instance>
         </population>
-        <population id="MDL21" component="generic_iaf_cell" type="populationList">
+        <population id="MDR09" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="80." z="100."/>
             </instance>
         </population>
-        <population id="MDL22" component="generic_iaf_cell" type="populationList">
+        <population id="MDR10" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="90." z="100."/>
             </instance>
         </population>
-        <population id="MDL23" component="generic_iaf_cell" type="populationList">
+        <population id="MDR11" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="100." z="100."/>
             </instance>
         </population>
-        <population id="MDL24" component="generic_iaf_cell" type="populationList">
+        <population id="MDR12" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="110." z="100."/>
             </instance>
         </population>
-        <population id="MDR21" component="generic_iaf_cell" type="populationList">
+        <population id="MDR13" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="120." z="100."/>
             </instance>
         </population>
-        <population id="MDR22" component="generic_iaf_cell" type="populationList">
+        <population id="MDR14" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="130." z="100."/>
             </instance>
         </population>
-        <population id="MDR23" component="generic_iaf_cell" type="populationList">
+        <population id="MDR15" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="140." z="100."/>
             </instance>
         </population>
-        <population id="MDR24" component="generic_iaf_cell" type="populationList">
+        <population id="MDR16" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="150." z="100."/>
             </instance>
         </population>
-        <population id="MDL07" component="generic_iaf_cell" type="populationList">
+        <population id="MDR17" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="160." z="100."/>
             </instance>
         </population>
-        <population id="MDR07" component="generic_iaf_cell" type="populationList">
+        <population id="MDR18" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="170." z="100."/>
             </instance>
         </population>
-        <population id="MDL10" component="generic_iaf_cell" type="populationList">
+        <population id="MDR19" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="180." z="100."/>
             </instance>
         </population>
-        <population id="MDR10" component="generic_iaf_cell" type="populationList">
+        <population id="MDR20" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="190." z="100."/>
             </instance>
         </population>
-        <population id="MDL09" component="generic_iaf_cell" type="populationList">
+        <population id="MDR21" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="200." z="100."/>
             </instance>
         </population>
-        <population id="MDR09" component="generic_iaf_cell" type="populationList">
+        <population id="MDR22" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="210." z="100."/>
             </instance>
         </population>
-        <population id="MDL12" component="generic_iaf_cell" type="populationList">
+        <population id="MDR23" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="220." z="100."/>
             </instance>
         </population>
-        <population id="MDR12" component="generic_iaf_cell" type="populationList">
+        <population id="MDR24" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="230." z="100."/>
             </instance>
         </population>
-        <population id="MDL11" component="generic_iaf_cell" type="populationList">
+        <population id="MVR01" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="240." z="100."/>
             </instance>
         </population>
-        <population id="MDR11" component="generic_iaf_cell" type="populationList">
+        <population id="MVR02" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="250." z="100."/>
             </instance>
         </population>
-        <population id="MDL14" component="generic_iaf_cell" type="populationList">
+        <population id="MVR03" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="260." z="100."/>
             </instance>
         </population>
-        <population id="MDR14" component="generic_iaf_cell" type="populationList">
+        <population id="MVR04" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="270." z="100."/>
             </instance>
         </population>
-        <population id="MDL13" component="generic_iaf_cell" type="populationList">
+        <population id="MVR05" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="280." z="100."/>
             </instance>
         </population>
-        <population id="MDR13" component="generic_iaf_cell" type="populationList">
+        <population id="MVR06" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="290." z="100."/>
             </instance>
         </population>
-        <population id="MDL16" component="generic_iaf_cell" type="populationList">
+        <population id="MVR07" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="300." z="100."/>
             </instance>
         </population>
-        <population id="MDR16" component="generic_iaf_cell" type="populationList">
+        <population id="MVR08" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="310." z="100."/>
             </instance>
         </population>
-        <population id="MDL15" component="generic_iaf_cell" type="populationList">
+        <population id="MVR09" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="320." z="100."/>
             </instance>
         </population>
-        <population id="MDR15" component="generic_iaf_cell" type="populationList">
+        <population id="MVR10" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="330." z="100."/>
             </instance>
         </population>
-        <population id="MDL18" component="generic_iaf_cell" type="populationList">
+        <population id="MVR11" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="340." z="100."/>
             </instance>
         </population>
-        <population id="MDR18" component="generic_iaf_cell" type="populationList">
+        <population id="MVR12" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="350." z="100."/>
             </instance>
         </population>
-        <population id="MDL17" component="generic_iaf_cell" type="populationList">
+        <population id="MVR13" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="360." z="100."/>
             </instance>
         </population>
-        <population id="MDR17" component="generic_iaf_cell" type="populationList">
+        <population id="MVR14" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="370." z="100."/>
             </instance>
         </population>
-        <population id="MVL12" component="generic_iaf_cell" type="populationList">
+        <population id="MVR15" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="380." z="100."/>
             </instance>
         </population>
-        <population id="MVL11" component="generic_iaf_cell" type="populationList">
+        <population id="MVR16" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="390." z="100."/>
             </instance>
         </population>
-        <population id="MVL14" component="generic_iaf_cell" type="populationList">
+        <population id="MVR17" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="400." z="100."/>
             </instance>
         </population>
-        <population id="MVR14" component="generic_iaf_cell" type="populationList">
+        <population id="MVR18" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="410." z="100."/>
             </instance>
         </population>
-        <population id="MVL10" component="generic_iaf_cell" type="populationList">
+        <population id="MVR19" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="420." z="100."/>
             </instance>
         </population>
-        <population id="MVR10" component="generic_iaf_cell" type="populationList">
+        <population id="MVR20" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="430." z="100."/>
             </instance>
         </population>
-        <population id="MVL03" component="generic_iaf_cell" type="populationList">
+        <population id="MVR21" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="440." z="100."/>
             </instance>
         </population>
-        <population id="MVR04" component="generic_iaf_cell" type="populationList">
+        <population id="MVR22" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="450." z="100."/>
             </instance>
         </population>
-        <population id="MANAL" component="generic_iaf_cell" type="populationList">
+        <population id="MVR23" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="460." z="100."/>
             </instance>
         </population>
-        <population id="MVULVA" component="generic_iaf_cell" type="populationList">
+        <population id="MVL01" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="470." z="100."/>
             </instance>
         </population>
-        <population id="MDL01" component="generic_iaf_cell" type="populationList">
+        <population id="MVL02" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="480." z="100."/>
             </instance>
         </population>
-        <population id="MDL02" component="generic_iaf_cell" type="populationList">
+        <population id="MVL03" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="490." z="100."/>
             </instance>
         </population>
-        <population id="MDL04" component="generic_iaf_cell" type="populationList">
+        <population id="MVL04" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="500." z="100."/>
             </instance>
         </population>
-        <population id="MDR01" component="generic_iaf_cell" type="populationList">
+        <population id="MVL05" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="510." z="100."/>
             </instance>
         </population>
-        <population id="MDR02" component="generic_iaf_cell" type="populationList">
+        <population id="MVL06" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="520." z="100."/>
             </instance>
         </population>
-        <population id="MDL03" component="generic_iaf_cell" type="populationList">
+        <population id="MVL07" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="530." z="100."/>
             </instance>
         </population>
-        <population id="MVL01" component="generic_iaf_cell" type="populationList">
+        <population id="MVL08" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="540." z="100."/>
             </instance>
         </population>
-        <population id="MDR03" component="generic_iaf_cell" type="populationList">
+        <population id="MVL09" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="550." z="100."/>
             </instance>
         </population>
-        <population id="MVR01" component="generic_iaf_cell" type="populationList">
+        <population id="MVL10" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="560." z="100."/>
             </instance>
         </population>
-        <population id="MVR03" component="generic_iaf_cell" type="populationList">
+        <population id="MVL11" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="570." z="100."/>
             </instance>
         </population>
-        <population id="MVL02" component="generic_iaf_cell" type="populationList">
+        <population id="MVL12" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="580." z="100."/>
             </instance>
         </population>
-        <population id="MVR02" component="generic_iaf_cell" type="populationList">
+        <population id="MVL13" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="590." z="100."/>
             </instance>
         </population>
-        <population id="MVL22" component="generic_iaf_cell" type="populationList">
+        <population id="MVL14" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="600." z="100."/>
             </instance>
         </population>
-        <population id="MVR21" component="generic_iaf_cell" type="populationList">
+        <population id="MVL15" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="610." z="100."/>
             </instance>
         </population>
-        <population id="MVL09" component="generic_iaf_cell" type="populationList">
+        <population id="MVL16" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="620." z="100."/>
             </instance>
         </population>
-        <population id="MVL13" component="generic_iaf_cell" type="populationList">
+        <population id="MVL17" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="630." z="100."/>
             </instance>
         </population>
-        <population id="MVR05" component="generic_iaf_cell" type="populationList">
+        <population id="MVL18" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="640." z="100."/>
             </instance>
         </population>
-        <population id="MVL05" component="generic_iaf_cell" type="populationList">
+        <population id="MVL19" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="650." z="100."/>
             </instance>
         </population>
-        <population id="MVL07" component="generic_iaf_cell" type="populationList">
+        <population id="MVL20" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="660." z="100."/>
             </instance>
         </population>
-        <population id="MVR06" component="generic_iaf_cell" type="populationList">
+        <population id="MVL21" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="670." z="100."/>
             </instance>
         </population>
-        <population id="MVR08" component="generic_iaf_cell" type="populationList">
+        <population id="MVL22" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="680." z="100."/>
             </instance>
         </population>
-        <population id="MVL06" component="generic_iaf_cell" type="populationList">
+        <population id="MVL23" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="690." z="100."/>
             </instance>
         </population>
-        <population id="MVL08" component="generic_iaf_cell" type="populationList">
+        <population id="MVL24" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="700." z="100."/>
             </instance>
         </population>
-        <population id="MDR04" component="generic_iaf_cell" type="populationList">
+        <population id="MDL01" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="710." z="100."/>
             </instance>
         </population>
-        <population id="MVR07" component="generic_iaf_cell" type="populationList">
+        <population id="MDL02" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="720." z="100."/>
             </instance>
         </population>
-        <population id="MVL04" component="generic_iaf_cell" type="populationList">
+        <population id="MDL03" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="730." z="100."/>
             </instance>
         </population>
-        <population id="MDL06" component="generic_iaf_cell" type="populationList">
+        <population id="MDL04" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="740." z="100."/>
             </instance>
         </population>
-        <population id="MDR06" component="generic_iaf_cell" type="populationList">
+        <population id="MDL05" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="750." z="100."/>
             </instance>
         </population>
-        <population id="MVR09" component="generic_iaf_cell" type="populationList">
+        <population id="MDL06" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="760." z="100."/>
             </instance>
         </population>
-        <population id="MVR12" component="generic_iaf_cell" type="populationList">
+        <population id="MDL07" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="770." z="100."/>
             </instance>
         </population>
-        <population id="MVR11" component="generic_iaf_cell" type="populationList">
+        <population id="MDL08" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="780." z="100."/>
             </instance>
         </population>
-        <population id="MVR13" component="generic_iaf_cell" type="populationList">
+        <population id="MDL09" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="790." z="100."/>
             </instance>
         </population>
-        <population id="MVL15" component="generic_iaf_cell" type="populationList">
+        <population id="MDL10" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="800." z="100."/>
             </instance>
         </population>
-        <population id="MVL16" component="generic_iaf_cell" type="populationList">
+        <population id="MDL11" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="810." z="100."/>
             </instance>
         </population>
-        <population id="MVR15" component="generic_iaf_cell" type="populationList">
+        <population id="MDL12" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="820." z="100."/>
             </instance>
         </population>
-        <population id="MVR16" component="generic_iaf_cell" type="populationList">
+        <population id="MDL13" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="830." z="100."/>
             </instance>
         </population>
-        <population id="MVL18" component="generic_iaf_cell" type="populationList">
+        <population id="MDL14" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="840." z="100."/>
             </instance>
         </population>
-        <population id="MVR18" component="generic_iaf_cell" type="populationList">
+        <population id="MDL15" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="850." z="100."/>
             </instance>
         </population>
-        <population id="MVL17" component="generic_iaf_cell" type="populationList">
+        <population id="MDL16" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="860." z="100."/>
             </instance>
         </population>
-        <population id="MVR17" component="generic_iaf_cell" type="populationList">
+        <population id="MDL17" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="870." z="100."/>
             </instance>
         </population>
-        <population id="MVL19" component="generic_iaf_cell" type="populationList">
+        <population id="MDL18" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="880." z="100."/>
             </instance>
         </population>
-        <population id="MVL20" component="generic_iaf_cell" type="populationList">
+        <population id="MDL19" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="890." z="100."/>
             </instance>
         </population>
-        <population id="MVR19" component="generic_iaf_cell" type="populationList">
+        <population id="MDL20" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="900." z="100."/>
             </instance>
         </population>
-        <population id="MVR20" component="generic_iaf_cell" type="populationList">
+        <population id="MDL21" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="910." z="100."/>
             </instance>
         </population>
-        <population id="MVL21" component="generic_iaf_cell" type="populationList">
+        <population id="MDL22" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="920." z="100."/>
             </instance>
         </population>
-        <population id="MVL23" component="generic_iaf_cell" type="populationList">
+        <population id="MDL23" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="930." z="100."/>
             </instance>
         </population>
-        <population id="MVR22" component="generic_iaf_cell" type="populationList">
+        <population id="MDL24" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location y="100." x="940." z="100."/>
-            </instance>
-        </population>
-        <population id="MVR23" component="generic_iaf_cell" type="populationList">
-            <instance id="0">
-                <location y="100." x="950." z="100."/>
-            </instance>
-        </population>
-        <population id="MVR24" component="generic_iaf_cell" type="populationList">
-            <instance id="0">
-                <location y="100." x="960." z="100."/>
             </instance>
         </population>
         <projection id="NC_AS1_DA1_Acetylcholine" postsynapticPopulation="DA1" presynapticPopulation="AS1" synapse="exc_syn_2conns">
@@ -1292,6 +1305,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_AS5_VD5_Acetylcholine" postsynapticPopulation="VD5" presynapticPopulation="AS5" synapse="exc_syn_9conns">
             <connection preCellId="../AS5/0/generic_iaf_cell" postCellId="../VD5/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_AS6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AS6" synapse="elec_syn_1conns">
+            <connection preCellId="../AS6/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_AS6_DA5_Generic_GJ" postsynapticPopulation="DA5" presynapticPopulation="AS6" synapse="elec_syn_2conns">
             <connection preCellId="../AS6/0/generic_iaf_cell" postCellId="../DA5/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -1301,8 +1317,230 @@ Parameters and setting used to generate this network:
         <projection id="NC_AS6_VD6_Acetylcholine" postsynapticPopulation="VD6" presynapticPopulation="AS6" synapse="exc_syn_13conns">
             <connection preCellId="../AS6/0/generic_iaf_cell" postCellId="../VD6/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_AS7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="AS7" synapse="elec_syn_2conns">
+            <connection preCellId="../AS7/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AS7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AS7" synapse="elec_syn_2conns">
+            <connection preCellId="../AS7/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_AS9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="AS9" synapse="elec_syn_7conns">
             <connection preCellId="../AS9/0/generic_iaf_cell" postCellId="../DVB/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AS10_Glutamate" postsynapticPopulation="AS10" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AS10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AS3_Glutamate" postsynapticPopulation="AS3" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AS3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AS4_Glutamate" postsynapticPopulation="AS4" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AS4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AS5_Glutamate" postsynapticPopulation="AS5" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AS5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AS6_Glutamate" postsynapticPopulation="AS6" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AS6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AS7_Generic_GJ" postsynapticPopulation="AS7" presynapticPopulation="AVBL" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AS7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AS9_Glutamate" postsynapticPopulation="AS9" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AS9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AVBR_Glutamate" postsynapticPopulation="AVBR" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AVBL" synapse="elec_syn_3conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_AVL_Glutamate" postsynapticPopulation="AVL" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../AVL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../DB3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../DB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_DB5_Generic_GJ" postsynapticPopulation="DB5" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../DB5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_DB6_Generic_GJ" postsynapticPopulation="DB6" presynapticPopulation="AVBL" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../DB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_DB7_Generic_GJ" postsynapticPopulation="DB7" presynapticPopulation="AVBL" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../DB7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_PVNR_Glutamate" postsynapticPopulation="PVNR" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../PVNR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../RID/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VA10_Glutamate" postsynapticPopulation="VA10" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VA10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VA2_Glutamate" postsynapticPopulation="VA2" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VA2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VA7_Glutamate" postsynapticPopulation="VA7" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VA7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB1_Generic_GJ" postsynapticPopulation="VB1" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB1/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="AVBL" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB11_Generic_GJ" postsynapticPopulation="VB11" presynapticPopulation="AVBL" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB11/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB2_Glutamate" postsynapticPopulation="VB2" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="AVBL" synapse="elec_syn_3conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="AVBL" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="AVBL" synapse="elec_syn_7conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB8/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="AVBL" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VB9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBL_VC3_Glutamate" postsynapticPopulation="VC3" presynapticPopulation="AVBL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBL/0/generic_iaf_cell" postCellId="../VC3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS1_Glutamate" postsynapticPopulation="AS1" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS1/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS10_Glutamate" postsynapticPopulation="AS10" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS3_Glutamate" postsynapticPopulation="AS3" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS4_Glutamate" postsynapticPopulation="AS4" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS5_Glutamate" postsynapticPopulation="AS5" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS6_Generic_GJ" postsynapticPopulation="AS6" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS6_Glutamate" postsynapticPopulation="AS6" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS7_Glutamate" postsynapticPopulation="AS7" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AS7_Generic_GJ" postsynapticPopulation="AS7" presynapticPopulation="AVBR" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AS7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AVBL_Glutamate" postsynapticPopulation="AVBL" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="AVBR" synapse="elec_syn_3conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DA5_Glutamate" postsynapticPopulation="DA5" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DA5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="AVBR" synapse="elec_syn_3conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DB1/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DB3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DB5_Generic_GJ" postsynapticPopulation="DB5" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DB5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DB6_Generic_GJ" postsynapticPopulation="DB6" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DB7_Generic_GJ" postsynapticPopulation="DB7" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DB7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_DD1_Generic_GJ" postsynapticPopulation="DD1" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../DD1/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_HSNR_Glutamate" postsynapticPopulation="HSNR" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../HSNR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_PVNL_Generic_GJ" postsynapticPopulation="PVNL" presynapticPopulation="AVBR" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../PVNL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="AVBR" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../RID/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VA4_Glutamate" postsynapticPopulation="VA4" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VA4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VA8/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VA9_Glutamate" postsynapticPopulation="VA9" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VA9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VA9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB11_Generic_GJ" postsynapticPopulation="VB11" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB11/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB3_Generic_GJ" postsynapticPopulation="VB3" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="AVBR" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="AVBR" synapse="elec_syn_2conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="AVBR" synapse="elec_syn_3conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB8/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="AVBR" synapse="elec_syn_6conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VB9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VD10_Generic_GJ" postsynapticPopulation="VD10" presynapticPopulation="AVBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VD10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVBR_VD3_Glutamate" postsynapticPopulation="VD3" presynapticPopulation="AVBR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVBR/0/generic_iaf_cell" postCellId="../VD3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVFL_AVBL_Glutamate" postsynapticPopulation="AVBL" presynapticPopulation="AVFL" synapse="exc_syn_1conns">
+            <connection preCellId="../AVFL/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVFL_AVBR_Glutamate" postsynapticPopulation="AVBR" presynapticPopulation="AVFL" synapse="exc_syn_2conns">
+            <connection preCellId="../AVFL/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_AVFL_AVFR_Glutamate" postsynapticPopulation="AVFR" presynapticPopulation="AVFL" synapse="exc_syn_7conns">
             <connection preCellId="../AVFL/0/generic_iaf_cell" postCellId="../AVFR/0/generic_iaf_cell" id="0"/>
@@ -1321,6 +1559,12 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_AVFL_VB1_Glutamate" postsynapticPopulation="VB1" presynapticPopulation="AVFL" synapse="exc_syn_1conns">
             <connection preCellId="../AVFL/0/generic_iaf_cell" postCellId="../VB1/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVFR_AVBL_Glutamate" postsynapticPopulation="AVBL" presynapticPopulation="AVFR" synapse="exc_syn_1conns">
+            <connection preCellId="../AVFR/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AVFR_AVBR_Glutamate" postsynapticPopulation="AVBR" presynapticPopulation="AVFR" synapse="exc_syn_5conns">
+            <connection preCellId="../AVFR/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_AVFR_AVFL_Glutamate" postsynapticPopulation="AVFL" presynapticPopulation="AVFR" synapse="exc_syn_1conns">
             <connection preCellId="../AVFR/0/generic_iaf_cell" postCellId="../AVFL/0/generic_iaf_cell" id="0"/>
@@ -1547,6 +1791,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_DB1_AS3_Acetylcholine" postsynapticPopulation="AS3" presynapticPopulation="DB1" synapse="exc_syn_1conns">
             <connection preCellId="../DB1/0/generic_iaf_cell" postCellId="../AS3/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_DB1_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB1" synapse="elec_syn_3conns">
+            <connection preCellId="../DB1/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_DB1_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="DB1" synapse="elec_syn_1conns">
             <connection preCellId="../DB1/0/generic_iaf_cell" postCellId="../DB2/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -1573,6 +1820,9 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_DB1_VD3_Acetylcholine" postsynapticPopulation="VD3" presynapticPopulation="DB1" synapse="exc_syn_1conns">
             <connection preCellId="../DB1/0/generic_iaf_cell" postCellId="../VD3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB2_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB2" synapse="elec_syn_1conns">
+            <connection preCellId="../DB2/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_DB2_DA3_Acetylcholine" postsynapticPopulation="DA3" presynapticPopulation="DB2" synapse="exc_syn_5conns">
             <connection preCellId="../DB2/0/generic_iaf_cell" postCellId="../DA3/0/generic_iaf_cell" id="0"/>
@@ -1604,6 +1854,12 @@ Parameters and setting used to generate this network:
         <projection id="NC_DB3_AS5_Acetylcholine" postsynapticPopulation="AS5" presynapticPopulation="DB3" synapse="exc_syn_1conns">
             <connection preCellId="../DB3/0/generic_iaf_cell" postCellId="../AS5/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_DB3_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB3" synapse="elec_syn_1conns">
+            <connection preCellId="../DB3/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB3_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB3" synapse="elec_syn_1conns">
+            <connection preCellId="../DB3/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_DB3_DA4_Generic_GJ" postsynapticPopulation="DA4" presynapticPopulation="DB3" synapse="elec_syn_1conns">
             <connection preCellId="../DB3/0/generic_iaf_cell" postCellId="../DA4/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -1628,6 +1884,12 @@ Parameters and setting used to generate this network:
         <projection id="NC_DB3_VD6_Acetylcholine" postsynapticPopulation="VD6" presynapticPopulation="DB3" synapse="exc_syn_7conns">
             <connection preCellId="../DB3/0/generic_iaf_cell" postCellId="../VD6/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_DB4_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB4" synapse="elec_syn_1conns">
+            <connection preCellId="../DB4/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB4_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB4" synapse="elec_syn_1conns">
+            <connection preCellId="../DB4/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_DB4_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="DB4" synapse="elec_syn_1conns">
             <connection preCellId="../DB4/0/generic_iaf_cell" postCellId="../DB1/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -1646,8 +1908,29 @@ Parameters and setting used to generate this network:
         <projection id="NC_DB4_VD6_Acetylcholine" postsynapticPopulation="VD6" presynapticPopulation="DB4" synapse="exc_syn_13conns">
             <connection preCellId="../DB4/0/generic_iaf_cell" postCellId="../VD6/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_DB5_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB5" synapse="elec_syn_1conns">
+            <connection preCellId="../DB5/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB5_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB5" synapse="elec_syn_1conns">
+            <connection preCellId="../DB5/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB6_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB6" synapse="elec_syn_2conns">
+            <connection preCellId="../DB6/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB6" synapse="elec_syn_1conns">
+            <connection preCellId="../DB6/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB7" synapse="elec_syn_2conns">
+            <connection preCellId="../DB7/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DB7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB7" synapse="elec_syn_1conns">
+            <connection preCellId="../DB7/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_DB7_VD13_Acetylcholine" postsynapticPopulation="VD13" presynapticPopulation="DB7" synapse="exc_syn_2conns">
             <connection preCellId="../DB7/0/generic_iaf_cell" postCellId="../VD13/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_DD1_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DD1" synapse="elec_syn_1conns">
+            <connection preCellId="../DD1/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_DD1_DA2_GABA" postsynapticPopulation="DA2" presynapticPopulation="DD1" synapse="inh_syn_2conns">
             <connection preCellId="../DD1/0/generic_iaf_cell" postCellId="../DA2/0/generic_iaf_cell" id="0"/>
@@ -1934,6 +2217,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VC2_DD3_Serotonin_Acetylcholine" postsynapticPopulation="DD3" presynapticPopulation="VC2" synapse="exc_syn_9conns">
             <connection preCellId="../VC2/0/generic_iaf_cell" postCellId="../DD3/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VC2_PVCR_Serotonin_Acetylcholine" postsynapticPopulation="PVCR" presynapticPopulation="VC2" synapse="exc_syn_1conns">
+            <connection preCellId="../VC2/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VC2_VC1_Serotonin_Acetylcholine" postsynapticPopulation="VC1" presynapticPopulation="VC2" synapse="exc_syn_4conns">
             <connection preCellId="../VC2/0/generic_iaf_cell" postCellId="../VC1/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2024,6 +2310,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VC3_VD7_Serotonin_Acetylcholine" postsynapticPopulation="VD7" presynapticPopulation="VC3" synapse="exc_syn_5conns">
             <connection preCellId="../VC3/0/generic_iaf_cell" postCellId="../VD7/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VC4_AVBL_Serotonin_Acetylcholine" postsynapticPopulation="AVBL" presynapticPopulation="VC4" synapse="exc_syn_1conns">
+            <connection preCellId="../VC4/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VC4_AVFR_Generic_GJ" postsynapticPopulation="AVFR" presynapticPopulation="VC4" synapse="elec_syn_1conns">
             <connection preCellId="../VC4/0/generic_iaf_cell" postCellId="../AVFR/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2084,6 +2373,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VD1_VD2_Generic_GJ" postsynapticPopulation="VD2" presynapticPopulation="VD1" synapse="elec_syn_7conns">
             <connection preCellId="../VD1/0/generic_iaf_cell" postCellId="../VD2/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VD10_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VD10" synapse="elec_syn_1conns">
+            <connection preCellId="../VD10/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VD10_DD5_Generic_GJ" postsynapticPopulation="DD5" presynapticPopulation="VD10" synapse="elec_syn_1conns">
             <connection preCellId="../VD10/0/generic_iaf_cell" postCellId="../DD5/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2113,6 +2405,12 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VD12_VB11_GABA" postsynapticPopulation="VB11" presynapticPopulation="VD12" synapse="inh_syn_1conns">
             <connection preCellId="../VD12/0/generic_iaf_cell" postCellId="../VB11/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VD13_PVCL_GABA" postsynapticPopulation="PVCL" presynapticPopulation="VD13" synapse="inh_syn_1conns">
+            <connection preCellId="../VD13/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VD13_PVCR_GABA" postsynapticPopulation="PVCR" presynapticPopulation="VD13" synapse="inh_syn_1conns">
+            <connection preCellId="../VD13/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VD13_VA12_GABA" postsynapticPopulation="VA12" presynapticPopulation="VD13" synapse="inh_syn_1conns">
             <connection preCellId="../VD13/0/generic_iaf_cell" postCellId="../VA12/0/generic_iaf_cell" id="0"/>
@@ -2234,6 +2532,147 @@ Parameters and setting used to generate this network:
         <projection id="NC_PDB_VD13_FMRFamide" postsynapticPopulation="VD13" presynapticPopulation="PDB" synapse="exc_syn_2conns">
             <connection preCellId="../PDB/0/generic_iaf_cell" postCellId="../VD13/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_PVCL_AS1_Glutamate" postsynapticPopulation="AS1" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../AS1/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_AVBL_Glutamate" postsynapticPopulation="AVBL" presynapticPopulation="PVCL" synapse="exc_syn_5conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_AVBR_Glutamate" postsynapticPopulation="AVBR" presynapticPopulation="PVCL" synapse="exc_syn_12conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DA2_Glutamate" postsynapticPopulation="DA2" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DA2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DA5_Glutamate" postsynapticPopulation="DA5" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DA5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DA6_Glutamate" postsynapticPopulation="DA6" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DA6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DB2_Glutamate" postsynapticPopulation="DB2" presynapticPopulation="PVCL" synapse="exc_syn_3conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DB3_Glutamate" postsynapticPopulation="DB3" presynapticPopulation="PVCL" synapse="exc_syn_4conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DB3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DB4_Glutamate" postsynapticPopulation="DB4" presynapticPopulation="PVCL" synapse="exc_syn_3conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DB5_Glutamate" postsynapticPopulation="DB5" presynapticPopulation="PVCL" synapse="exc_syn_2conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DB5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DB6_Glutamate" postsynapticPopulation="DB6" presynapticPopulation="PVCL" synapse="exc_syn_2conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_DB7_Glutamate" postsynapticPopulation="DB7" presynapticPopulation="PVCL" synapse="exc_syn_3conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../DB7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_PVCR_Glutamate" postsynapticPopulation="PVCR" presynapticPopulation="PVCL" synapse="exc_syn_2conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="PVCL" synapse="elec_syn_5conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_RID_Glutamate" postsynapticPopulation="RID" presynapticPopulation="PVCL" synapse="exc_syn_5conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../RID/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="PVCL" synapse="elec_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB10_Glutamate" postsynapticPopulation="VB10" presynapticPopulation="PVCL" synapse="exc_syn_2conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB11_Glutamate" postsynapticPopulation="VB11" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB11/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB3_Glutamate" postsynapticPopulation="VB3" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB4_Glutamate" postsynapticPopulation="VB4" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB5_Glutamate" postsynapticPopulation="VB5" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB6_Glutamate" postsynapticPopulation="VB6" presynapticPopulation="PVCL" synapse="exc_syn_2conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB8_Glutamate" postsynapticPopulation="VB8" presynapticPopulation="PVCL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB8/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCL_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="PVCL" synapse="elec_syn_2conns">
+            <connection preCellId="../PVCL/0/generic_iaf_cell" postCellId="../VB9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_AS2_Glutamate" postsynapticPopulation="AS2" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../AS2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_AVBL_Glutamate" postsynapticPopulation="AVBL" presynapticPopulation="PVCR" synapse="exc_syn_8conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_AVBR_Glutamate" postsynapticPopulation="AVBR" presynapticPopulation="PVCR" synapse="exc_syn_6conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_AVL_Glutamate" postsynapticPopulation="AVL" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../AVL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_DA9_Glutamate" postsynapticPopulation="DA9" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../DA9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_DB2_Glutamate" postsynapticPopulation="DB2" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../DB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_DB3_Glutamate" postsynapticPopulation="DB3" presynapticPopulation="PVCR" synapse="exc_syn_3conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../DB3/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_DB4_Glutamate" postsynapticPopulation="DB4" presynapticPopulation="PVCR" synapse="exc_syn_4conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../DB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_DB5_Glutamate" postsynapticPopulation="DB5" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../DB5/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_DB6_Glutamate" postsynapticPopulation="DB6" presynapticPopulation="PVCR" synapse="exc_syn_2conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../DB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_DB7_Glutamate" postsynapticPopulation="DB7" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../DB7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_PVCL_Glutamate" postsynapticPopulation="PVCL" presynapticPopulation="PVCR" synapse="exc_syn_3conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="PVCR" synapse="elec_syn_5conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_RID_Glutamate" postsynapticPopulation="RID" presynapticPopulation="PVCR" synapse="exc_syn_5conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../RID/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="PVCR" synapse="elec_syn_2conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../VA8/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="PVCR" synapse="elec_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../VA9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_VB10_Glutamate" postsynapticPopulation="VB10" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../VB10/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_VB4_Glutamate" postsynapticPopulation="VB4" presynapticPopulation="PVCR" synapse="exc_syn_3conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../VB4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_VB6_Glutamate" postsynapticPopulation="VB6" presynapticPopulation="PVCR" synapse="exc_syn_2conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../VB6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_VB7_Glutamate" postsynapticPopulation="VB7" presynapticPopulation="PVCR" synapse="exc_syn_3conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../VB7/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVCR_VB8_Glutamate" postsynapticPopulation="VB8" presynapticPopulation="PVCR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVCR/0/generic_iaf_cell" postCellId="../VB8/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVNL_AVBR_Glutamate" postsynapticPopulation="AVBR" presynapticPopulation="PVNL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVNL/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVNL_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="PVNL" synapse="elec_syn_2conns">
+            <connection preCellId="../PVNL/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_PVNL_AVFR_Glutamate" postsynapticPopulation="AVFR" presynapticPopulation="PVNL" synapse="exc_syn_1conns">
             <connection preCellId="../PVNL/0/generic_iaf_cell" postCellId="../AVFR/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2243,8 +2682,17 @@ Parameters and setting used to generate this network:
         <projection id="NC_PVNL_DD1_Glutamate" postsynapticPopulation="DD1" presynapticPopulation="PVNL" synapse="exc_syn_2conns">
             <connection preCellId="../PVNL/0/generic_iaf_cell" postCellId="../DD1/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_PVNL_PVCL_Glutamate" postsynapticPopulation="PVCL" presynapticPopulation="PVNL" synapse="exc_syn_1conns">
+            <connection preCellId="../PVNL/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_PVNL_PVNR_Glutamate" postsynapticPopulation="PVNR" presynapticPopulation="PVNL" synapse="exc_syn_5conns">
             <connection preCellId="../PVNL/0/generic_iaf_cell" postCellId="../PVNR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVNR_AVBL_Glutamate" postsynapticPopulation="AVBL" presynapticPopulation="PVNR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVNR/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVNR_AVBR_Glutamate" postsynapticPopulation="AVBR" presynapticPopulation="PVNR" synapse="exc_syn_2conns">
+            <connection preCellId="../PVNR/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_PVNR_AVL_Glutamate" postsynapticPopulation="AVL" presynapticPopulation="PVNR" synapse="exc_syn_2conns">
             <connection preCellId="../PVNR/0/generic_iaf_cell" postCellId="../AVL/0/generic_iaf_cell" id="0"/>
@@ -2257,6 +2705,9 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_PVNR_HSNR_Glutamate" postsynapticPopulation="HSNR" presynapticPopulation="PVNR" synapse="exc_syn_1conns">
             <connection preCellId="../PVNR/0/generic_iaf_cell" postCellId="../HSNR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_PVNR_PVCL_Glutamate" postsynapticPopulation="PVCL" presynapticPopulation="PVNR" synapse="exc_syn_1conns">
+            <connection preCellId="../PVNR/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_PVNR_PVNL_Glutamate" postsynapticPopulation="PVNL" presynapticPopulation="PVNR" synapse="exc_syn_1conns">
             <connection preCellId="../PVNR/0/generic_iaf_cell" postCellId="../PVNL/0/generic_iaf_cell" id="0"/>
@@ -2278,6 +2729,12 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_RID_AS2_GABA" postsynapticPopulation="AS2" presynapticPopulation="RID" synapse="inh_syn_1conns">
             <connection preCellId="../RID/0/generic_iaf_cell" postCellId="../AS2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RID_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="RID" synapse="elec_syn_1conns">
+            <connection preCellId="../RID/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RID_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="RID" synapse="elec_syn_2conns">
+            <connection preCellId="../RID/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_RID_DA6_GABA" postsynapticPopulation="DA6" presynapticPopulation="RID" synapse="inh_syn_3conns">
             <connection preCellId="../RID/0/generic_iaf_cell" postCellId="../DA6/0/generic_iaf_cell" id="0"/>
@@ -2306,6 +2763,12 @@ Parameters and setting used to generate this network:
         <projection id="NC_RID_VD5_GABA" postsynapticPopulation="VD5" presynapticPopulation="RID" synapse="inh_syn_1conns">
             <connection preCellId="../RID/0/generic_iaf_cell" postCellId="../VD5/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_RIML_AVBL_Acetylcholine_Tyramine" postsynapticPopulation="AVBL" presynapticPopulation="RIML" synapse="exc_syn_2conns">
+            <connection preCellId="../RIML/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RIML_AVBR_Acetylcholine_Tyramine" postsynapticPopulation="AVBR" presynapticPopulation="RIML" synapse="exc_syn_3conns">
+            <connection preCellId="../RIML/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_RIML_RMDL_Acetylcholine_Tyramine" postsynapticPopulation="RMDL" presynapticPopulation="RIML" synapse="exc_syn_1conns">
             <connection preCellId="../RIML/0/generic_iaf_cell" postCellId="../RMDL/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2317,6 +2780,12 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_RIML_SMDVL_Acetylcholine_Tyramine" postsynapticPopulation="SMDVL" presynapticPopulation="RIML" synapse="exc_syn_1conns">
             <connection preCellId="../RIML/0/generic_iaf_cell" postCellId="../SMDVL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RIMR_AVBL_Acetylcholine_Tyramine" postsynapticPopulation="AVBL" presynapticPopulation="RIMR" synapse="exc_syn_2conns">
+            <connection preCellId="../RIMR/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RIMR_AVBR_Acetylcholine_Tyramine" postsynapticPopulation="AVBR" presynapticPopulation="RIMR" synapse="exc_syn_5conns">
+            <connection preCellId="../RIMR/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_RIMR_RMDL_Acetylcholine_Tyramine" postsynapticPopulation="RMDL" presynapticPopulation="RIMR" synapse="exc_syn_3conns">
             <connection preCellId="../RIMR/0/generic_iaf_cell" postCellId="../RMDL/0/generic_iaf_cell" id="0"/>
@@ -2489,6 +2958,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_RMFL_RMGR_Glutamate" postsynapticPopulation="RMGR" presynapticPopulation="RMFL" synapse="exc_syn_1conns">
             <connection preCellId="../RMFL/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_RMGL_AVBR_FMRFamide" postsynapticPopulation="AVBR" presynapticPopulation="RMGL" synapse="exc_syn_2conns">
+            <connection preCellId="../RMGL/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_RMGL_RID_FMRFamide" postsynapticPopulation="RID" presynapticPopulation="RMGL" synapse="exc_syn_1conns">
             <connection preCellId="../RMGL/0/generic_iaf_cell" postCellId="../RID/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2509,6 +2981,9 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_RMGL_SMBVL_FMRFamide" postsynapticPopulation="SMBVL" presynapticPopulation="RMGL" synapse="exc_syn_1conns">
             <connection preCellId="../RMGL/0/generic_iaf_cell" postCellId="../SMBVL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_AVBR_FMRFamide" postsynapticPopulation="AVBR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_RMGR_RMDL_FMRFamide" postsynapticPopulation="RMDL" presynapticPopulation="RMGR" synapse="exc_syn_4conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../RMDL/0/generic_iaf_cell" id="0"/>
@@ -2684,6 +3159,12 @@ Parameters and setting used to generate this network:
         <projection id="NC_VA12_DD6_Acetylcholine" postsynapticPopulation="DD6" presynapticPopulation="VA12" synapse="exc_syn_2conns">
             <connection preCellId="../VA12/0/generic_iaf_cell" postCellId="../DD6/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VA12_PVCL_Acetylcholine" postsynapticPopulation="PVCL" presynapticPopulation="VA12" synapse="exc_syn_2conns">
+            <connection preCellId="../VA12/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VA12_PVCR_Acetylcholine" postsynapticPopulation="PVCR" presynapticPopulation="VA12" synapse="exc_syn_3conns">
+            <connection preCellId="../VA12/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VA12_VA11_Acetylcholine" postsynapticPopulation="VA11" presynapticPopulation="VA12" synapse="exc_syn_1conns">
             <connection preCellId="../VA12/0/generic_iaf_cell" postCellId="../VA11/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2795,8 +3276,14 @@ Parameters and setting used to generate this network:
         <projection id="NC_VA8_AS6_Generic_GJ" postsynapticPopulation="AS6" presynapticPopulation="VA8" synapse="elec_syn_1conns">
             <connection preCellId="../VA8/0/generic_iaf_cell" postCellId="../AS6/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VA8_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VA8" synapse="elec_syn_1conns">
+            <connection preCellId="../VA8/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VA8_DD4_Acetylcholine" postsynapticPopulation="DD4" presynapticPopulation="VA8" synapse="exc_syn_21conns">
             <connection preCellId="../VA8/0/generic_iaf_cell" postCellId="../DD4/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VA8_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="VA8" synapse="elec_syn_2conns">
+            <connection preCellId="../VA8/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VA8_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VA8" synapse="elec_syn_1conns">
             <connection preCellId="../VA8/0/generic_iaf_cell" postCellId="../VA8/0/generic_iaf_cell" id="0"/>
@@ -2825,6 +3312,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VA8_VD8_Acetylcholine" postsynapticPopulation="VD8" presynapticPopulation="VA8" synapse="exc_syn_5conns">
             <connection preCellId="../VA8/0/generic_iaf_cell" postCellId="../VD8/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VA9_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VA9" synapse="elec_syn_1conns">
+            <connection preCellId="../VA9/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VA9_DD4_Acetylcholine" postsynapticPopulation="DD4" presynapticPopulation="VA9" synapse="exc_syn_3conns">
             <connection preCellId="../VA9/0/generic_iaf_cell" postCellId="../DD4/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2833,6 +3323,9 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VA9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="VA9" synapse="elec_syn_1conns">
             <connection preCellId="../VA9/0/generic_iaf_cell" postCellId="../DVB/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VA9_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="VA9" synapse="elec_syn_1conns">
+            <connection preCellId="../VA9/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VA9_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="VA9" synapse="elec_syn_1conns">
             <connection preCellId="../VA9/0/generic_iaf_cell" postCellId="../VB8/0/generic_iaf_cell" id="0"/>
@@ -2848,6 +3341,9 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VA9_VD9_Acetylcholine" postsynapticPopulation="VD9" presynapticPopulation="VA9" synapse="exc_syn_10conns">
             <connection preCellId="../VA9/0/generic_iaf_cell" postCellId="../VD9/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB1_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB1" synapse="elec_syn_1conns">
+            <connection preCellId="../VB1/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB1_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="VB1" synapse="elec_syn_2conns">
             <connection preCellId="../VB1/0/generic_iaf_cell" postCellId="../DB2/0/generic_iaf_cell" id="0"/>
@@ -2879,8 +3375,17 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB1_VD2_Acetylcholine" postsynapticPopulation="VD2" presynapticPopulation="VB1" synapse="exc_syn_1conns">
             <connection preCellId="../VB1/0/generic_iaf_cell" postCellId="../VD2/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VB10_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB10" synapse="elec_syn_2conns">
+            <connection preCellId="../VB10/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB10_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB10" synapse="elec_syn_1conns">
+            <connection preCellId="../VB10/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VB10_DD6_Acetylcholine" postsynapticPopulation="DD6" presynapticPopulation="VB10" synapse="exc_syn_9conns">
             <connection preCellId="../VB10/0/generic_iaf_cell" postCellId="../DD6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB10_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="VB10" synapse="elec_syn_1conns">
+            <connection preCellId="../VB10/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB10_VD11_Acetylcholine" postsynapticPopulation="VD11" presynapticPopulation="VB10" synapse="exc_syn_1conns">
             <connection preCellId="../VB10/0/generic_iaf_cell" postCellId="../VD11/0/generic_iaf_cell" id="0"/>
@@ -2888,14 +3393,29 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB10_VD12_Acetylcholine" postsynapticPopulation="VD12" presynapticPopulation="VB10" synapse="exc_syn_2conns">
             <connection preCellId="../VB10/0/generic_iaf_cell" postCellId="../VD12/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VB11_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB11" synapse="elec_syn_2conns">
+            <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB11_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB11" synapse="elec_syn_1conns">
+            <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VB11_DD6_Acetylcholine" postsynapticPopulation="DD6" presynapticPopulation="VB11" synapse="exc_syn_7conns">
             <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../DD6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB11_PVCR_Acetylcholine" postsynapticPopulation="PVCR" presynapticPopulation="VB11" synapse="exc_syn_1conns">
+            <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../PVCR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB11_VA12_Generic_GJ" postsynapticPopulation="VA12" presynapticPopulation="VB11" synapse="elec_syn_1conns">
             <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../VA12/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB11_VA12_Acetylcholine" postsynapticPopulation="VA12" presynapticPopulation="VB11" synapse="exc_syn_1conns">
             <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../VA12/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB2_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB2" synapse="elec_syn_3conns">
+            <connection preCellId="../VB2/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB2_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB2" synapse="elec_syn_1conns">
+            <connection preCellId="../VB2/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB2_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="VB2" synapse="elec_syn_1conns">
             <connection preCellId="../VB2/0/generic_iaf_cell" postCellId="../DB4/0/generic_iaf_cell" id="0"/>
@@ -2930,6 +3450,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB2_VD3_Acetylcholine" postsynapticPopulation="VD3" presynapticPopulation="VB2" synapse="exc_syn_3conns">
             <connection preCellId="../VB2/0/generic_iaf_cell" postCellId="../VD3/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VB3_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB3" synapse="elec_syn_1conns">
+            <connection preCellId="../VB3/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VB3_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="VB3" synapse="elec_syn_1conns">
             <connection preCellId="../VB3/0/generic_iaf_cell" postCellId="../DB1/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2944,6 +3467,12 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VB3_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB3" synapse="elec_syn_1conns">
             <connection preCellId="../VB3/0/generic_iaf_cell" postCellId="../VB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB4_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB4" synapse="elec_syn_1conns">
+            <connection preCellId="../VB4/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB4_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB4" synapse="elec_syn_1conns">
+            <connection preCellId="../VB4/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB4_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="VB4" synapse="elec_syn_1conns">
             <connection preCellId="../VB4/0/generic_iaf_cell" postCellId="../DB1/0/generic_iaf_cell" id="0"/>
@@ -2960,6 +3489,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB4_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="VB4" synapse="elec_syn_1conns">
             <connection preCellId="../VB4/0/generic_iaf_cell" postCellId="../VB5/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VB5_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB5" synapse="elec_syn_1conns">
+            <connection preCellId="../VB5/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VB5_DD3_Acetylcholine" postsynapticPopulation="DD3" presynapticPopulation="VB5" synapse="exc_syn_27conns">
             <connection preCellId="../VB5/0/generic_iaf_cell" postCellId="../DD3/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -2974,6 +3506,12 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VB5_VD6_Acetylcholine" postsynapticPopulation="VD6" presynapticPopulation="VB5" synapse="exc_syn_7conns">
             <connection preCellId="../VB5/0/generic_iaf_cell" postCellId="../VD6/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB6_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB6" synapse="elec_syn_1conns">
+            <connection preCellId="../VB6/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB6" synapse="elec_syn_2conns">
+            <connection preCellId="../VB6/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB6_DA4_Generic_GJ" postsynapticPopulation="DA4" presynapticPopulation="VB6" synapse="elec_syn_1conns">
             <connection preCellId="../VB6/0/generic_iaf_cell" postCellId="../DA4/0/generic_iaf_cell" id="0"/>
@@ -2996,11 +3534,23 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB6_VD7_Acetylcholine" postsynapticPopulation="VD7" presynapticPopulation="VB6" synapse="exc_syn_8conns">
             <connection preCellId="../VB6/0/generic_iaf_cell" postCellId="../VD7/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VB7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB7" synapse="elec_syn_2conns">
+            <connection preCellId="../VB7/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB7" synapse="elec_syn_2conns">
+            <connection preCellId="../VB7/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VB7_DD4_Acetylcholine" postsynapticPopulation="DD4" presynapticPopulation="VB7" synapse="exc_syn_2conns">
             <connection preCellId="../VB7/0/generic_iaf_cell" postCellId="../DD4/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB7_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB7" synapse="elec_syn_2conns">
             <connection preCellId="../VB7/0/generic_iaf_cell" postCellId="../VB2/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB8_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB8" synapse="elec_syn_7conns">
+            <connection preCellId="../VB8/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB8_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB8" synapse="elec_syn_3conns">
+            <connection preCellId="../VB8/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB8_DD5_Acetylcholine" postsynapticPopulation="DD5" presynapticPopulation="VB8" synapse="exc_syn_30conns">
             <connection preCellId="../VB8/0/generic_iaf_cell" postCellId="../DD5/0/generic_iaf_cell" id="0"/>
@@ -3026,11 +3576,20 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB8_VD9_Acetylcholine" postsynapticPopulation="VD9" presynapticPopulation="VB8" synapse="exc_syn_10conns">
             <connection preCellId="../VB8/0/generic_iaf_cell" postCellId="../VD9/0/generic_iaf_cell" id="0"/>
         </projection>
+        <projection id="NC_VB9_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB9" synapse="elec_syn_1conns">
+            <connection preCellId="../VB9/0/generic_iaf_cell" postCellId="../AVBL/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB9_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB9" synapse="elec_syn_6conns">
+            <connection preCellId="../VB9/0/generic_iaf_cell" postCellId="../AVBR/0/generic_iaf_cell" id="0"/>
+        </projection>
         <projection id="NC_VB9_DD5_Acetylcholine" postsynapticPopulation="DD5" presynapticPopulation="VB9" synapse="exc_syn_8conns">
             <connection preCellId="../VB9/0/generic_iaf_cell" postCellId="../DD5/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="VB9" synapse="elec_syn_1conns">
             <connection preCellId="../VB9/0/generic_iaf_cell" postCellId="../DVB/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_VB9_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="VB9" synapse="elec_syn_2conns">
+            <connection preCellId="../VB9/0/generic_iaf_cell" postCellId="../PVCL/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB9_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VB9" synapse="elec_syn_3conns">
             <connection preCellId="../VB9/0/generic_iaf_cell" postCellId="../VA8/0/generic_iaf_cell" id="0"/>
@@ -3689,15 +4248,6 @@ Parameters and setting used to generate this network:
         <projection id="NC_DD6_MDR24_GABA" postsynapticPopulation="MDR24" presynapticPopulation="DD6" synapse="inh_syn_5conns">
             <connection preCellId="../DD6/0/generic_iaf_cell" postCellId="../MDR24/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_DVB_MANAL_GABA" postsynapticPopulation="MANAL" presynapticPopulation="DVB" synapse="inh_syn_5conns">
-            <connection preCellId="../DVB/0/generic_iaf_cell" postCellId="../MANAL/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_HSNL_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="HSNL" synapse="exc_syn_7conns">
-            <connection preCellId="../HSNL/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_HSNR_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="HSNR" synapse="exc_syn_6conns">
-            <connection preCellId="../HSNR/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
         <projection id="NC_IL1DL_MDL01_Glutamate" postsynapticPopulation="MDL01" presynapticPopulation="IL1DL" synapse="exc_syn_1conns">
             <connection preCellId="../IL1DL/0/generic_iaf_cell" postCellId="../MDL01/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -4349,9 +4899,6 @@ Parameters and setting used to generate this network:
         <projection id="NC_VA7_MVR16_Acetylcholine" postsynapticPopulation="MVR16" presynapticPopulation="VA7" synapse="exc_syn_4conns">
             <connection preCellId="../VA7/0/generic_iaf_cell" postCellId="../MVR16/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_VA7_MVULVA_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VA7" synapse="exc_syn_4conns">
-            <connection preCellId="../VA7/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
         <projection id="NC_VA8_MVL15_Acetylcholine" postsynapticPopulation="MVL15" presynapticPopulation="VA8" synapse="exc_syn_6conns">
             <connection preCellId="../VA8/0/generic_iaf_cell" postCellId="../MVL15/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -4417,9 +4964,6 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VA12_MVR23_Acetylcholine" postsynapticPopulation="MVR23" presynapticPopulation="VA12" synapse="exc_syn_5conns">
             <connection preCellId="../VA12/0/generic_iaf_cell" postCellId="../MVR23/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VA12_MVR24_Acetylcholine" postsynapticPopulation="MVR24" presynapticPopulation="VA12" synapse="exc_syn_5conns">
-            <connection preCellId="../VA12/0/generic_iaf_cell" postCellId="../MVR24/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VB1_MVL07_Acetylcholine" postsynapticPopulation="MVL07" presynapticPopulation="VB1" synapse="exc_syn_1conns">
             <connection preCellId="../VB1/0/generic_iaf_cell" postCellId="../MVL07/0/generic_iaf_cell" id="0"/>
@@ -4511,9 +5055,6 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB6_MVR16_Acetylcholine" postsynapticPopulation="MVR16" presynapticPopulation="VB6" synapse="exc_syn_6conns">
             <connection preCellId="../VB6/0/generic_iaf_cell" postCellId="../MVR16/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_VB6_MVULVA_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VB6" synapse="exc_syn_6conns">
-            <connection preCellId="../VB6/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
         <projection id="NC_VB7_MVL15_Acetylcholine" postsynapticPopulation="MVL15" presynapticPopulation="VB7" synapse="exc_syn_5conns">
             <connection preCellId="../VB7/0/generic_iaf_cell" postCellId="../MVL15/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -4579,27 +5120,6 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VB11_MVR23_Acetylcholine" postsynapticPopulation="MVR23" presynapticPopulation="VB11" synapse="exc_syn_5conns">
             <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../MVR23/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VB11_MVR24_Acetylcholine" postsynapticPopulation="MVR24" presynapticPopulation="VB11" synapse="exc_syn_5conns">
-            <connection preCellId="../VB11/0/generic_iaf_cell" postCellId="../MVR24/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VC1_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VC1" synapse="exc_syn_6conns">
-            <connection preCellId="../VC1/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VC2_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VC2" synapse="exc_syn_10conns">
-            <connection preCellId="../VC2/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VC3_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VC3" synapse="exc_syn_11conns">
-            <connection preCellId="../VC3/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VC4_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VC4" synapse="exc_syn_7conns">
-            <connection preCellId="../VC4/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VC5_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VC5" synapse="exc_syn_2conns">
-            <connection preCellId="../VC5/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <projection id="NC_VC6_MVULVA_Serotoninplus_Acetylcholine" postsynapticPopulation="MVULVA" presynapticPopulation="VC6" synapse="exc_syn_1conns">
-            <connection preCellId="../VC6/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_VD1_MVL05_GABA" postsynapticPopulation="MVL05" presynapticPopulation="VD1" synapse="inh_syn_3conns">
             <connection preCellId="../VD1/0/generic_iaf_cell" postCellId="../MVL05/0/generic_iaf_cell" id="0"/>
@@ -4685,9 +5205,6 @@ Parameters and setting used to generate this network:
         <projection id="NC_VD7_MVR16_GABA" postsynapticPopulation="MVR16" presynapticPopulation="VD7" synapse="inh_syn_5conns">
             <connection preCellId="../VD7/0/generic_iaf_cell" postCellId="../MVR16/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_VD7_MVULVA_GABA" postsynapticPopulation="MVULVA" presynapticPopulation="VD7" synapse="inh_syn_5conns">
-            <connection preCellId="../VD7/0/generic_iaf_cell" postCellId="../MVULVA/0/generic_iaf_cell" id="0"/>
-        </projection>
         <projection id="NC_VD8_MVL15_GABA" postsynapticPopulation="MVL15" presynapticPopulation="VD8" synapse="inh_syn_12conns">
             <connection preCellId="../VD8/0/generic_iaf_cell" postCellId="../MVL15/0/generic_iaf_cell" id="0"/>
         </projection>
@@ -4760,20 +5277,10 @@ Parameters and setting used to generate this network:
         <projection id="NC_VD13_MVR23_GABA" postsynapticPopulation="MVR23" presynapticPopulation="VD13" synapse="inh_syn_6conns">
             <connection preCellId="../VD13/0/generic_iaf_cell" postCellId="../MVR23/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_VD13_MVR24_GABA" postsynapticPopulation="MVR24" presynapticPopulation="VD13" synapse="inh_syn_6conns">
-            <connection preCellId="../VD13/0/generic_iaf_cell" postCellId="../MVR24/0/generic_iaf_cell" id="0"/>
-        </projection>
-        <explicitInput input="offset_current" target="AS1/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="AS10/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="AS11/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="AS2/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="AS3/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="AS4/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="DD1/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="DD2/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="SMBDL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="SMBDR/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="VA1/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="VA10/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="PVCL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="PVCR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VB1/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VB2/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VB3/0/generic_iaf_cell"/>
     </network>
 </neuroml>

@@ -62,3 +62,4 @@ IL2L: Alessandro Russo
 PHCR: unusual connectivity
 DD2: Evolver
 HSNL: The Stoner Neuron
+LUAL: VSAZEL

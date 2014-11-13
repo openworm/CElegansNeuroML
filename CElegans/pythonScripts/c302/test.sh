@@ -2,16 +2,18 @@ set -e
 
 ##   (Re)generate NeuroML 2 & LEMS files from the python scripts
 
-python c302_Full.py A
-python c302_Pharyngeal.py A
 python c302_Syns.py A
 python c302_Social.py A
+python c302_Pharyngeal.py A
+python c302_Full.py A
+python c302_Muscles.py A
 
 
-python c302_Full.py B
-python c302_Pharyngeal.py B
 python c302_Syns.py B
 python c302_Social.py B
+python c302_Pharyngeal.py B
+python c302_Full.py B
+python c302_Muscles.py B
 
 
 ## Validate generated NeuroML 2
