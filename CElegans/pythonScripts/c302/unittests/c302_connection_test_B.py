@@ -1,3 +1,11 @@
+#############################################################################
+
+#  Test generates all .nml files for connection pairs in CElegensNeuronTables
+#  spreadsheet using parameters_B and checks whether connections exist as
+#  specified
+
+#############################################################################
+
 import os
 
 import sys
@@ -43,8 +51,6 @@ class DataIntegrityTest(unittest.TestCase):
                     cells_to_stimulate = "["+origin+"]"
 
                     generate(fn, params, cells=cells_to_plot, cells_to_stimulate=cells_to_stimulate,            duration=500, validate=False, test=True)
-                    # bashCommand = 'python c302.py '+fn+' parameters_A -cells '+cells_to_plot+' -cellstostimulate '+cells_to_stimulate+' -duration 500'
-                    # os.system(bashCommand)
 
                     self.checked_files.append(fn)
                     counter += 1
@@ -55,12 +61,13 @@ class DataIntegrityTest(unittest.TestCase):
     def test_c302_connections(self):
 
         # test each connection pair from the excel file
+
         # early_stop = self.specify_early_stop         # early stopping
         counter = 0
         for index in self.conns:
 
             # if early_stop == 0:  # early stopping
-            #     break  # and this
+            #     break  # early stopping
 
             origin = index.pre_cell
             target = index.post_cell
@@ -109,11 +116,8 @@ class DataIntegrityTest(unittest.TestCase):
 
                 electrical_proj_test_list = [(connection.id, connection.electrical_connections[0].synapse) for connection in electrical_proj_list]
 
-                print electrical_proj_test_list
-
                # test if this particular connection exists
                 test_pair = (test_id, test_synapse)
-                print test_pair
                 self.assertIn(test_pair, electrical_proj_test_list, "connection not found")
 
             # for Synaptic Connections
@@ -123,11 +127,8 @@ class DataIntegrityTest(unittest.TestCase):
 
                 synaptic_conn_test_list = [(connection.to, connection.from_, connection.synapse) for connection in synaptic_conn_list]
 
-                print synaptic_conn_test_list
-
                # test if this particular connection exists
                 test_pair = (to_cell, from_cell, test_synapse)
-                print test_pair
                 self.assertIn(test_pair, synaptic_conn_test_list, "connection not found")
 
             counter += 1

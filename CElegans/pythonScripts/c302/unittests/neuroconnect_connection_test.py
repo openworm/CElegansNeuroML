@@ -1,3 +1,12 @@
+##############################################################################
+
+#  Test generates all .nml files for connection pairs in a formatted version of
+#  NeuronConenct spreadsheeet and checks whether connections exist as specified
+#  Test does not verify type or number of connections in case of a
+#  chemical synapse. Errors are written to a log file error_log.xls
+
+##############################################################################
+
 import os
 
 import sys
@@ -21,10 +30,10 @@ class DataIntegrityTest(unittest.TestCase):
 
         # open excel file NeuronConnect.xls
         self.cell_names, self.conns = SpreadsheetDataReader.readDataFromSpreadsheet(
-            "../../../../", neuron_connect = True)
+            "../../../../", neuron_connect=True)
         print len(self.cell_names)
 
-        # generate all files at once. This will throw an error if done with the complete excel file, because all cells in NeuronConnect are not defined in libNeuroML
+        # generate all files at once. This will throw an error if done with the non formatted version of NeuronConnect due to different cell names
 
         self.checked_files = []
         counter = 0
@@ -48,8 +57,6 @@ class DataIntegrityTest(unittest.TestCase):
 
                     generate(fn, params, cells=cells_to_plot, cells_to_stimulate=cells_to_stimulate,            duration=500, test=True)
 
-                    # bashCommand = 'python c302.py '+fn+' parameters_A -cells '+cells_to_plot+' -cellstostimulate '+cells_to_stimulate+' -duration 500'
-                    # os.system(bashCommand)
                     self.checked_files.append(fn)
                     counter += 1
 
@@ -94,8 +101,6 @@ class DataIntegrityTest(unittest.TestCase):
                 test_id = 'NC_'+origin+'_'+target
                 gap_junction = False
 
-            print test_id, num
-
             if fn in self.checked_files:
                 nml_file = fn+'.nml'
             elif fnswap in self.checked_files:
@@ -128,8 +133,6 @@ class DataIntegrityTest(unittest.TestCase):
                     test_id_list.append(connection.id)
                     test_synapse_list.append(connection.synapse)
 
-                print test_list
-
             # test if this particular connection exists (Only testing connection end points and number) and writing errors to log file
 
                 # if gap junction
@@ -159,7 +162,6 @@ class DataIntegrityTest(unittest.TestCase):
                     # flag2 = False
                     for id_test in test_list:
                         if test_id in id_test[0]:
-                            print id_test
                             flag1 = True
                             # flag2 = True if str(num) in id_test[1] else False
                             break
@@ -172,15 +174,6 @@ class DataIntegrityTest(unittest.TestCase):
                         sh.write(rowcounter, 1, target)
                         sh.write(rowcounter, 2, syntype+' Connection Not Found')
                         rowcounter += 1
-
-                    # try:
-                    #     self.assertTrue(flag2)
-                    # except AssertionError:
-                    #     print "Synaptic Connection number incorrect for "+nml_file
-                    #     sh.write(rowcounter, 0, origin)
-                    #     sh.write(rowcounter, 1, target)
-                    #     sh.write(rowcounter, 2, syntype+' Connection number incorrect')
-                    #     rowcounter += 1
 
             counter += 1
 

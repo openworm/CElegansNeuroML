@@ -1,3 +1,10 @@
+#############################################################################
+
+#  Test generates all .nml files for connection pairs in CElegensNeuronTables
+#  spreadsheeet and checks whether connections exist as specified
+
+#############################################################################
+
 import os
 
 import sys
@@ -43,8 +50,6 @@ class DataIntegrityTest(unittest.TestCase):
                     cells_to_stimulate = "["+origin+"]"
 
                     generate(fn, params, cells=cells_to_plot, cells_to_stimulate=cells_to_stimulate,            duration=500, test=True)
-                    # bashCommand = 'python c302.py '+fn+' parameters_A -cells '+cells_to_plot+' -cellstostimulate '+cells_to_stimulate+' -duration 500'
-                    # os.system(bashCommand)
 
                     self.checked_files.append(fn)
                     counter += 1
@@ -55,12 +60,13 @@ class DataIntegrityTest(unittest.TestCase):
     def test_c302_connections(self):
 
         # test each connection pair from the excel file
+
         # early_stop = self.specify_early_stop         # early stopping
         counter = 0
         for index in self.conns:
 
             # if early_stop == 0:  # early stopping
-            #     break  # and this
+            #     break  # early stopping
 
             origin = index.pre_cell
             target = index.post_cell
@@ -97,11 +103,9 @@ class DataIntegrityTest(unittest.TestCase):
 
             test_list = [(connection.id, connection.synapse) for connection in conn_list]
 
-            print test_list
 
            # test if this particular connection exists
             test_pair = (test_id, test_synapse)
-            print test_pair
             self.assertIn(test_pair, test_list, "connection not found")
             counter += 1
 

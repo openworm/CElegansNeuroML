@@ -33,4 +33,5 @@ script:
     - python c302_connection_test.py
     - python c302_connection_test_B.py
     - python neuroconnect_connection_test.py
+    - python spreadsheet_comparison_test.py
 
