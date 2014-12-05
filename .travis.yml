@@ -30,8 +30,5 @@ script:
     - python setup.py install
     - cd ..
     - cd CElegans/pythonScripts/c302/unittests/
-    - python c302_connection_test.py
-    - python c302_connection_test_B.py
-    - python neuroconnect_connection_test.py
-    - python spreadsheet_comparison_test.py
+    - python -m unittest c302_connection_test_A c302_connection_test_B spreadsheet_comparison_test
 

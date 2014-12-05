@@ -23,20 +23,18 @@ import unittest
 
 class DataIntegrityTest(unittest.TestCase):
 
-    def setUp(self):
+    checked_files = []
+    counter = 0
+
+    @classmethod
+    def setUpClass(cls):
 
         # read data from spread sheet
-        self.cell_names, self.conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../../")
-        print len(self.cell_names)
+        cls.cell_names, cls.conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../../")
+        print (str(len(cls.cell_names))+' unique cell names in CElegensNeuronTables')
 
         # generate all nml files once
-        self.checked_files = []
-        counter = 0
-        # self.specify_early_stop = 4     # early stopping
-        # early_stop = self.specify_early_stop     # early stopping
-        for index in self.conns:
-            # if early_stop == 0:  # early stopping
-            #     break  # and this
+        for index in cls.conns:
 
             origin = index.pre_cell
             target = index.post_cell
@@ -44,19 +42,18 @@ class DataIntegrityTest(unittest.TestCase):
             fn = origin+"_"+target
             fnswap = target+"_"+origin
 
-            if fn not in self.checked_files:
-                if fnswap not in self.checked_files:
+            if fn not in cls.checked_files:
+                if fnswap not in cls.checked_files:
                     # generate xml and nml file
                     cells_to_plot = "["+origin+","+target+"]"
                     cells_to_stimulate = "["+origin+"]"
 
                     generate(fn, params, cells=cells_to_plot, cells_to_stimulate=cells_to_stimulate,            duration=500, validate=False, test=True)
 
-                    self.checked_files.append(fn)
-                    counter += 1
+                    cls.checked_files.append(fn)
+                    cls.counter += 1
 
-            # early_stop -= 1         # early stopping
-        print "Total files generated %i"%counter
+        print "Total files generated %i"%cls.counter
 
     def test_c302_connections(self):
 
@@ -100,7 +97,6 @@ class DataIntegrityTest(unittest.TestCase):
                 print "File not found"
 
             doc = loaders.NeuroMLLoader.load(nml_file)
-            print("Loaded NML file from: "+nml_file)
 
             synaptic_conn_list = doc.networks[0].synaptic_connections
             electrical_proj_list = doc.networks[0].electrical_projections
@@ -136,9 +132,10 @@ class DataIntegrityTest(unittest.TestCase):
             # early_stop -= 1         # early stopping
         print "Total connections verified %i"%counter
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(cls):
         print "Cleaning up .. "
-        for name in self.checked_files:
+        for name in cls.checked_files:
             bashCommand = "rm "+name+".nml "+"LEMS_"+name+".xml"
             os.system(bashCommand)
 
