@@ -30,5 +30,7 @@ script:
     - python setup.py install
     - cd ..
     - cd CElegans/pythonScripts/c302/unittests/
-    - python -m unittest c302_connection_test_A c302_connection_test_B spreadsheet_comparison_test
+    - python -m unittest c302_connection_test_A
+    - python -m unittest c302_connection_test_B
+    - python -m unittest spreadsheet_comparison_test
 
