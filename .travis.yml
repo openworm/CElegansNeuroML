@@ -16,13 +16,13 @@ env:
 
 install:
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+
+script:
+    - omv all -V
+    - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then exit 0; else echo "Continuing with tests not under OMV..."; fi
     - pip install lxml
     - pip install xlrd
     - pip install xlwt
-
-script:
-    - omv all
-    - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then exit 0; else echo "Continuing with tests not under OMV..."; fi
     - git clone https://github.com/purcell/airspeed.git
     - cd airspeed
     - python setup.py install
