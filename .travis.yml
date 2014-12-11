@@ -6,11 +6,12 @@
 language: python
 python: 2.7
 
-# env:
-#     - OMV_ENGINE=jNeuroML
-#     - OMV_ENGINE=jNeuroML_NEURON
-#     - OMV_ENGINE=jNeuroML_validatev1
-#     - OMV_ENGINE=jNeuroML_validate
+ env:
+     - OMV_ENGINE=jNeuroML
+     - OMV_ENGINE=jNeuroML_NEURON
+     - OMV_ENGINE=jNeuroML_validatev1
+     - OMV_ENGINE=jNeuroML_validate
+     - OMV_ENGINE=NON_OMV_TESTS
 
 install:
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
@@ -19,7 +20,8 @@ install:
     - pip install xlwt
 
 script:
-#    - omv all
+    - omv all
+    - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then exit 0; else echo "Continuing with tests not under OMV..."; fi
     - git clone https://github.com/purcell/airspeed.git
     - cd airspeed
     - python setup.py install
