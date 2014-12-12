@@ -19,7 +19,7 @@ install:
 
 script:
     - omv all -V
-    - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then exit 0; else echo "Continuing with tests not under OMV..."; fi
+    - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then echo "Continuing with tests not under OMV..."; else exit 0; fi
     - pip install lxml
     - pip install xlrd
     - pip install xlwt
