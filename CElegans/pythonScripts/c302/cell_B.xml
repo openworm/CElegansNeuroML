@@ -1,0 +1,52 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.7.3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.neuroml.org/lems/0.7.3 https://raw.githubusercontent.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.7.3.xsd"
+      description="A new simple cell type for c302">
+
+    <!-- A number of cell types for use in NeuroML 2 documents  -->
+
+    <Include file="NeuroMLCoreDimensions.xml"/>
+    <Include file="Cells.xml"/>
+    
+    
+    <ComponentType name="iafActivityCell"
+        extends="iafCell"
+        description="Integrate and fire cell with new activity variable">
+
+        <Parameter name="tau1" dimension="time"/>
+        
+        <Exposure name="activity" dimension="none" description="some measure of activity of cell"/>
+
+        <Attachments name="synapses" type="basePointCurrent"/>
+
+        <Dynamics>
+
+            <StateVariable name="v" exposure="v" dimension="voltage"/>
+            <StateVariable name="activity" exposure="activity" dimension="none"/>
+
+            <DerivedVariable name="iSyn" dimension="current" exposure="iSyn" select="synapses[*]/i" reduce="add" />
+            <DerivedVariable name="iMemb" dimension="current" exposure="iMemb" value="leakConductance * (leakReversal - v) + iSyn"/>
+
+            <DerivedVariable name="target" dimension="none" value="(v - reset) / (thresh - reset)" />
+            
+            <TimeDerivative variable="v" value="iMemb / C"/>
+            <TimeDerivative variable="activity" value="(target-activity)/tau1"/>
+
+            <OnStart>
+                <StateAssignment variable="v" value="reset"/>
+            </OnStart>
+
+            <OnCondition test="activity .lt. 0">
+                <StateAssignment variable="activity" value="0"/>
+            </OnCondition>
+
+            <OnCondition test="v .gt. thresh">
+                <StateAssignment variable="v" value="reset"/>
+                <EventOut port="spike"/>
+            </OnCondition>
+
+        </Dynamics>
+
+    </ComponentType>
+    
+</Lems>

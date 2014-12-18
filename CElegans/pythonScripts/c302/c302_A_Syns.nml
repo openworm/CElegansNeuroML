@@ -1,4 +1,4 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="c302_A_Syns">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_A_Syns">
     <notes>
 
 Parameters and setting used to generate this network:
@@ -7,6 +7,7 @@ Parameters and setting used to generate this network:
     Cell stimulated:               [ADAL,RIVR]
     Connection numbers overridden: None
     Connection numbers scaled:     None
+    Include muscles:               False
 
     Known BioParameters:
         BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
@@ -36,6 +37,7 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
         <population id="ADAL" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">
                 <location y="8.65" x="-239.25" z="31.050000000000001"/>
             </instance>
@@ -46,6 +48,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="RIVR" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
             <instance id="0">
                 <location y="-8.75" x="-265.300020000000018" z="50.350000000000001"/>
             </instance>

@@ -1,0 +1,156 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_A_Social">
+    <notes>
+
+Parameters and setting used to generate this network:
+
+    Cells:                         ['RMGR', 'ASHR', 'ASKR', 'AWBR', 'IL2R', 'RMHR', 'URXR']
+    Cell stimulated:               []
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+    Include muscles:               False
+
+    Known BioParameters:
+        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.21nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
+
+</notes>
+    <expTwoSynapse id="elec_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.4nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
+    <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
+    <pulseGenerator id="stim_RMGR" delay="100ms" duration="200ms" amplitude="0.35nA"/>
+    <pulseGenerator id="stim_ASHR" delay="400ms" duration="200ms" amplitude="0.35nA"/>
+    <pulseGenerator id="stim_ASKR" delay="700ms" duration="200ms" amplitude="0.35nA"/>
+    <pulseGenerator id="stim_AWBR" delay="1000ms" duration="200ms" amplitude="0.35nA"/>
+    <pulseGenerator id="stim_IL2R" delay="1300ms" duration="200ms" amplitude="0.35nA"/>
+    <pulseGenerator id="stim_RMHR" delay="1600ms" duration="200ms" amplitude="0.35nA"/>
+    <pulseGenerator id="stim_URXR" delay="1900ms" duration="200ms" amplitude="0.35nA"/>
+    <network id="c302_A_Social">
+        <population id="ASHR" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location y="-9.800000000000001" x="-265.625" z="41."/>
+            </instance>
+        </population>
+        <population id="ASKR" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Z.B."/>
+            <instance id="0">
+                <location y="-8." x="-268.024999999999977" z="46.399997999999997"/>
+            </instance>
+        </population>
+        <population id="AWBR" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location y="-9.75" x="-266.225000000000023" z="43.100000000000001"/>
+            </instance>
+        </population>
+        <population id="IL2R" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location y="-11." x="-285." z="49.350000000000001"/>
+            </instance>
+        </population>
+        <population id="RMGR" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
+            <instance id="0">
+                <location y="-12.5" x="-238.299990000000008" z="32.700000000000003"/>
+            </instance>
+        </population>
+        <population id="RMHR" component="generic_iaf_cell" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Martino"/>
+            <instance id="0">
+                <location y="-5.2999997" x="-265.899999999999977" z="35.700000000000003"/>
+            </instance>
+        </population>
+        <population id="URXR" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location y="-7.35" x="-269.875" z="48.274999999999999"/>
+            </instance>
+        </population>
+        <projection id="NC_ASHR_ASKR_Generic_GJ" postsynapticPopulation="ASKR" presynapticPopulation="ASHR" synapse="elec_syn_1conns">
+            <connection preCellId="../ASHR/0/generic_iaf_cell" postCellId="../ASKR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_ASHR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="ASHR" synapse="elec_syn_1conns">
+            <connection preCellId="../ASHR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_ASHR_RMGR_Glutamate" postsynapticPopulation="RMGR" presynapticPopulation="ASHR" synapse="exc_syn_2conns">
+            <connection preCellId="../ASHR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_ASKR_ASHR_Generic_GJ" postsynapticPopulation="ASHR" presynapticPopulation="ASKR" synapse="elec_syn_1conns">
+            <connection preCellId="../ASKR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_ASKR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="ASKR" synapse="elec_syn_1conns">
+            <connection preCellId="../ASKR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AWBR_ASHR_Glutamate" postsynapticPopulation="ASHR" presynapticPopulation="AWBR" synapse="exc_syn_2conns">
+            <connection preCellId="../AWBR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_AWBR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="AWBR" synapse="elec_syn_1conns">
+            <connection preCellId="../AWBR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_IL2R_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="IL2R" synapse="elec_syn_1conns">
+            <connection preCellId="../IL2R/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_IL2R_URXR_Generic_GJ" postsynapticPopulation="URXR" presynapticPopulation="IL2R" synapse="elec_syn_1conns">
+            <connection preCellId="../IL2R/0/generic_iaf_cell" postCellId="../URXR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_ASHR_Generic_GJ" postsynapticPopulation="ASHR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_ASHR_FMRFamide" postsynapticPopulation="ASHR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_ASKR_Generic_GJ" postsynapticPopulation="ASKR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../ASKR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_AWBR_Generic_GJ" postsynapticPopulation="AWBR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../AWBR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_IL2R_Generic_GJ" postsynapticPopulation="IL2R" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../IL2R/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_RMHR_Generic_GJ" postsynapticPopulation="RMHR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../RMHR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_URXR_FMRFamide" postsynapticPopulation="URXR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../URXR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMGR_URXR_Generic_GJ" postsynapticPopulation="URXR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+            <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../URXR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_RMHR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="RMHR" synapse="elec_syn_1conns">
+            <connection preCellId="../RMHR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_URXR_IL2R_Generic_GJ" postsynapticPopulation="IL2R" presynapticPopulation="URXR" synapse="elec_syn_1conns">
+            <connection preCellId="../URXR/0/generic_iaf_cell" postCellId="../IL2R/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_URXR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="URXR" synapse="elec_syn_1conns">
+            <connection preCellId="../URXR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <projection id="NC_URXR_RMGR_Glutamate" postsynapticPopulation="RMGR" presynapticPopulation="URXR" synapse="exc_syn_1conns">
+            <connection preCellId="../URXR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
+        </projection>
+        <explicitInput input="stim_RMGR" target="RMGR/0/generic_iaf_cell"/>
+        <explicitInput input="stim_ASHR" target="ASHR/0/generic_iaf_cell"/>
+        <explicitInput input="stim_ASKR" target="ASKR/0/generic_iaf_cell"/>
+        <explicitInput input="stim_AWBR" target="AWBR/0/generic_iaf_cell"/>
+        <explicitInput input="stim_IL2R" target="IL2R/0/generic_iaf_cell"/>
+        <explicitInput input="stim_RMHR" target="RMHR/0/generic_iaf_cell"/>
+        <explicitInput input="stim_URXR" target="URXR/0/generic_iaf_cell"/>
+    </network>
+</neuroml>

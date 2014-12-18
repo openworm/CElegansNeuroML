@@ -9,6 +9,7 @@ Parameters and setting used to generate this network:
     Cell stimulated:               ['M1', 'M3R', 'M4', 'M5', 'I1L', 'I4', 'I5', 'I6', 'MCL', 'MCR']
     Connection numbers overridden: None
     Connection numbers scaled:     None
+    Include muscles:               False
 
     Known BioParameters:
         BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
@@ -31,7 +32,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current = 0.21nA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
-    
+   
     -->
 
     <Target component="sim_c302_A_Pharyngeal" />
@@ -49,32 +50,32 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_A_Pharyngeal" length="500ms" step="0.025ms" target="c302_A_Pharyngeal">
 
-        <Display id="d0" title="c302_A_Pharyngeal: Membrane potential of a number of cells" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
+        <Display id="neurons" title="c302_A_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
-            <Line id="I1L" quantity="I1L/0/generic_iaf_cell/v" scale="1mV" color="#5900d2" timeScale="1ms" />
-            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#bd6e4e" timeScale="1ms" />
-            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#a68e00" timeScale="1ms" />
-            <Line id="I2R" quantity="I2R/0/generic_iaf_cell/v" scale="1mV" color="#b872eb" timeScale="1ms" />
-            <Line id="I3" quantity="I3/0/generic_iaf_cell/v" scale="1mV" color="#aeaffa" timeScale="1ms" />
-            <Line id="I4" quantity="I4/0/generic_iaf_cell/v" scale="1mV" color="#d47f12" timeScale="1ms" />
-            <Line id="I5" quantity="I5/0/generic_iaf_cell/v" scale="1mV" color="#00767a" timeScale="1ms" />
-            <Line id="I6" quantity="I6/0/generic_iaf_cell/v" scale="1mV" color="#6f272a" timeScale="1ms" />
-            <Line id="M1" quantity="M1/0/generic_iaf_cell/v" scale="1mV" color="#e943f0" timeScale="1ms" />
-            <Line id="M2L" quantity="M2L/0/generic_iaf_cell/v" scale="1mV" color="#f07c87" timeScale="1ms" />
-            <Line id="M2R" quantity="M2R/0/generic_iaf_cell/v" scale="1mV" color="#74a52c" timeScale="1ms" />
-            <Line id="M3L" quantity="M3L/0/generic_iaf_cell/v" scale="1mV" color="#84b8ee" timeScale="1ms" />
-            <Line id="M3R" quantity="M3R/0/generic_iaf_cell/v" scale="1mV" color="#b5ba59" timeScale="1ms" />
-            <Line id="M4" quantity="M4/0/generic_iaf_cell/v" scale="1mV" color="#d56c50" timeScale="1ms" />
-            <Line id="M5" quantity="M5/0/generic_iaf_cell/v" scale="1mV" color="#11d87e" timeScale="1ms" />
-            <Line id="MCL" quantity="MCL/0/generic_iaf_cell/v" scale="1mV" color="#a72e10" timeScale="1ms" />
-            <Line id="MCR" quantity="MCR/0/generic_iaf_cell/v" scale="1mV" color="#35aebf" timeScale="1ms" />
-            <Line id="MI" quantity="MI/0/generic_iaf_cell/v" scale="1mV" color="#640000" timeScale="1ms" />
-            <Line id="NSML" quantity="NSML/0/generic_iaf_cell/v" scale="1mV" color="#90a4f7" timeScale="1ms" />
-            <Line id="NSMR" quantity="NSMR/0/generic_iaf_cell/v" scale="1mV" color="#b000c6" timeScale="1ms" />
+            <Line id="I1L" quantity="I1L/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="I1R" quantity="I1R/0/generic_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
+            <Line id="I2L" quantity="I2L/0/generic_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="I2R" quantity="I2R/0/generic_iaf_cell/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
+            <Line id="I3" quantity="I3/0/generic_iaf_cell/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="I4" quantity="I4/0/generic_iaf_cell/v" scale="1mV" color="#262f1d" timeScale="1ms" />
+            <Line id="I5" quantity="I5/0/generic_iaf_cell/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="I6" quantity="I6/0/generic_iaf_cell/v" scale="1mV" color="#108b77" timeScale="1ms" />
+            <Line id="M1" quantity="M1/0/generic_iaf_cell/v" scale="1mV" color="#9a1694" timeScale="1ms" />
+            <Line id="M2L" quantity="M2L/0/generic_iaf_cell/v" scale="1mV" color="#458fa5" timeScale="1ms" />
+            <Line id="M2R" quantity="M2R/0/generic_iaf_cell/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
+            <Line id="M3L" quantity="M3L/0/generic_iaf_cell/v" scale="1mV" color="#ef7488" timeScale="1ms" />
+            <Line id="M3R" quantity="M3R/0/generic_iaf_cell/v" scale="1mV" color="#008200" timeScale="1ms" />
+            <Line id="M4" quantity="M4/0/generic_iaf_cell/v" scale="1mV" color="#247960" timeScale="1ms" />
+            <Line id="M5" quantity="M5/0/generic_iaf_cell/v" scale="1mV" color="#00962a" timeScale="1ms" />
+            <Line id="MCL" quantity="MCL/0/generic_iaf_cell/v" scale="1mV" color="#8f25f0" timeScale="1ms" />
+            <Line id="MCR" quantity="MCR/0/generic_iaf_cell/v" scale="1mV" color="#c6f524" timeScale="1ms" />
+            <Line id="MI" quantity="MI/0/generic_iaf_cell/v" scale="1mV" color="#4e0047" timeScale="1ms" />
+            <Line id="NSML" quantity="NSML/0/generic_iaf_cell/v" scale="1mV" color="#cf2d27" timeScale="1ms" />
+            <Line id="NSMR" quantity="NSMR/0/generic_iaf_cell/v" scale="1mV" color="#f527d6" timeScale="1ms" />
             
         </Display>
 
-        <OutputFile id="of0" fileName="c302_A_Pharyngeal.dat">
+        <OutputFile id="neurons_v" fileName="c302_A_Pharyngeal.dat">
             <OutputColumn id="I1L_v" quantity="I1L/0/generic_iaf_cell/v"/>
             <OutputColumn id="I1R_v" quantity="I1R/0/generic_iaf_cell/v"/>
             <OutputColumn id="I2L_v" quantity="I2L/0/generic_iaf_cell/v"/>
@@ -96,7 +97,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="NSML_v" quantity="NSML/0/generic_iaf_cell/v"/>
             <OutputColumn id="NSMR_v" quantity="NSMR/0/generic_iaf_cell/v"/>
         </OutputFile>
-
+        
     </Simulation>
 
 

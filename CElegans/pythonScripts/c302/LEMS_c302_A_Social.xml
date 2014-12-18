@@ -5,8 +5,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         [ADAL,AIBL,RIVR,RMEV]
-    Cell stimulated:               [ADAL,RIVR]
+    Cells:                         ['RMGR', 'ASHR', 'ASKR', 'AWBR', 'IL2R', 'RMHR', 'URXR']
+    Cell stimulated:               []
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               False
@@ -35,7 +35,7 @@ Parameters and setting used to generate this network:
    
     -->
 
-    <Target component="sim_c302_A_Syns" />
+    <Target component="sim_c302_A_Social" />
 
     <!-- Include core NeuroML2 ComponentType definitions -->
 
@@ -43,27 +43,33 @@ Parameters and setting used to generate this network:
     <Include file="Networks.xml" />
     <Include file="Simulation.xml" />
     
-    <Include file="c302_A_Syns.nml" />
+    <Include file="c302_A_Social.nml" />
 
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_A_Syns" length="500.0ms" step="0.1ms" target="c302_A_Syns">
+    <Simulation id="sim_c302_A_Social" length="2500ms" step="0.1ms" target="c302_A_Social">
 
-        <Display id="neurons" title="c302_A_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72.0" ymax="-48.0">
+        <Display id="neurons" title="c302_A_Social: Membrane potential of a number of neurons" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-72" ymax="-48">
             
-            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
-            <Line id="AIBL" quantity="AIBL/0/generic_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
-            <Line id="RIVR" quantity="RIVR/0/generic_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
-            <Line id="RMEV" quantity="RMEV/0/generic_iaf_cell/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
+            <Line id="ASHR" quantity="ASHR/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ASKR" quantity="ASKR/0/generic_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
+            <Line id="AWBR" quantity="AWBR/0/generic_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="IL2R" quantity="IL2R/0/generic_iaf_cell/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
+            <Line id="RMGR" quantity="RMGR/0/generic_iaf_cell/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="RMHR" quantity="RMHR/0/generic_iaf_cell/v" scale="1mV" color="#262f1d" timeScale="1ms" />
+            <Line id="URXR" quantity="URXR/0/generic_iaf_cell/v" scale="1mV" color="#007df7" timeScale="1ms" />
             
         </Display>
 
-        <OutputFile id="neurons_v" fileName="c302_A_Syns.dat">
-            <OutputColumn id="ADAL_v" quantity="ADAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIBL_v" quantity="AIBL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIVR_v" quantity="RIVR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RMEV_v" quantity="RMEV/0/generic_iaf_cell/v"/>
+        <OutputFile id="neurons_v" fileName="c302_A_Social.dat">
+            <OutputColumn id="ASHR_v" quantity="ASHR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="ASKR_v" quantity="ASKR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="AWBR_v" quantity="AWBR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="IL2R_v" quantity="IL2R/0/generic_iaf_cell/v"/>
+            <OutputColumn id="RMGR_v" quantity="RMGR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="RMHR_v" quantity="RMHR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="URXR_v" quantity="URXR/0/generic_iaf_cell/v"/>
         </OutputFile>
         
     </Simulation>

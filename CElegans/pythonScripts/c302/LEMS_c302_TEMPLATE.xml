@@ -1,7 +1,7 @@
 <Lems>
     
     <!--
-${comment}    
+${comment}   
     -->
 
     <Target component="sim_${reference}" />
@@ -11,6 +11,10 @@ ${comment}
     <Include file="Cells.xml" />
     <Include file="Networks.xml" />
     <Include file="Simulation.xml" />
+#foreach ($include in $includes)##
+    
+    <Include file="${include}" />
+#end##
     
     <Include file="${reference}.nml" />
 
@@ -21,20 +25,71 @@ ${comment}
 
     <Simulation id="sim_${reference}" length="${duration}ms" step="${dt}ms" target="${reference}">
 
-        <Display id="d0" title="${reference}: Membrane potential of a number of cells" timeScale="1ms" xmin="$start" xmax="$end" ymin="$vmin" ymax="$vmax">
+        <Display id="neurons" title="${reference}: Membrane potential of a number of neurons" timeScale="1ms" xmin="$start" xmax="$end" ymin="$vmin" ymax="$vmax">
             
 #foreach ($plot in $plots)##
-            <Line id="${plot.cell}" quantity="${plot.cell}/0/${cell_component}/v" scale="1mV" color="${plot.colour}" timeScale="1ms" />
+            <Line id="${plot.cell}" quantity="${plot.quantity}" scale="1mV" color="${plot.colour}" timeScale="1ms" />
 #end## 
             
         </Display>
+#if ($muscle_plots)##   
+      
+        <Display id="muscles" title="${reference}: Membrane potential of a number of muscles" timeScale="1ms" xmin="$start" xmax="$end" ymin="$vmin" ymax="$vmax">
+            
+#foreach ($plot in $muscle_plots)##
+            <Line id="${plot.cell}" quantity="${plot.quantity}" scale="1mV" color="${plot.colour}" timeScale="1ms" />
+#end## 
 
-        <OutputFile id="of0" fileName="${reference}.dat">
-#foreach ($cell in $cells)##
-            <OutputColumn id="${cell}_v" quantity="${cell}/0/${cell_component}/v"/>
+        </Display>
+#end## 
+#if ($activity_plots)##   
+      
+        <Display id="activity_neurons" title="${reference}: Activity of a number of neurons" timeScale="1ms" xmin="$start" xmax="$end" ymin="-0.1" ymax="1.1">
+            
+#foreach ($plot in $activity_plots)##
+            <Line id="${plot.cell}" quantity="${plot.quantity}" scale="1" color="${plot.colour}" timeScale="1ms" />
+#end## 
+
+        </Display>
+#end## 
+#if ($muscle_activity_plots)##   
+      
+        <Display id="activity_muscles" title="${reference}: Activity of a number of muscles" timeScale="1ms" xmin="$start" xmax="$end" ymin="-0.1" ymax="1.1">
+            
+#foreach ($plot in $muscle_activity_plots)##
+            <Line id="${plot.cell}" quantity="${plot.quantity}" scale="1" color="${plot.colour}" timeScale="1ms" />
+#end## 
+
+        </Display>
+#end## 
+
+        <OutputFile id="neurons_v" fileName="${reference}.dat">
+#foreach ($save in $to_save)##
+            <OutputColumn id="${save.cell}_v" quantity="${save.quantity}"/>
 #end## 
         </OutputFile>
-
+        
+#if ($activity_to_save)## 
+        <OutputFile id="neurons_activity" fileName="${reference}.activity.dat">
+#foreach ($save in $activity_to_save)##
+            <OutputColumn id="${save.cell}_v" quantity="${save.quantity}"/>
+#end## 
+        </OutputFile>
+#end##
+#if ($muscles_to_save)## 
+        <OutputFile id="muscles_v" fileName="${reference}.muscles.dat">
+#foreach ($save in $muscles_to_save)##
+            <OutputColumn id="${save.cell}_v" quantity="${save.quantity}"/>
+#end## 
+        </OutputFile>
+#end## 
+#if ($muscles_activity_to_save)## 
+        <OutputFile id="muscles_activity" fileName="${reference}.muscles.activity.dat">
+#foreach ($save in $muscles_activity_to_save)##
+            <OutputColumn id="${save.cell}_v" quantity="${save.quantity}"/>
+#end## 
+        </OutputFile>
+#end##
     </Simulation>
 
 
