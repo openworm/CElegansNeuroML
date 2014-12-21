@@ -2,7 +2,7 @@
 
 **_Note: Work in Progress_**
 
-[![Build Status](https://travis-ci.org/ahrasheed/CElegansNeuroML.svg?branch=master)](https://travis-ci.org/ahrasheed/CElegansNeuroML)
+[![Build Status](https://travis-ci.org/openworm/CElegansNeuroML.svg?branch=master)](https://travis-ci.org/openworm/CElegansNeuroML)
 
 ##c302_connection_test_A
 
