@@ -28,5 +28,7 @@ Please note:
 For full details on running this neuroConstruct project see: 
 https://github.com/openworm/OpenWorm/wiki/Running-the-C.-elegans-model-in-neuroConstruct.
 
+[![Build Status](https://travis-ci.org/openworm/CElegansNeuroML.svg?branch=master)](https://travis-ci.org/openworm/CElegansNeuroML)
+
 
 
