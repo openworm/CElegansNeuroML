@@ -1,7 +1,13 @@
+C Elegans models in NeuroML and neuroConstruct
+==============================================
+
 This repository contains a neuroConstruct (http://www.neuroConstruct.org) project containing a model of the c. elegans nervous system.
 
-The NeuroML files are available under the directories [generatedNeuroML](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML), and [generatedNeuroML2](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML)
+The NeuroML files are available under the directories [generatedNeuroML](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML), and [generatedNeuroML2](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML).
+
 This is being developed as part of the [OpenWorm project](http://www.openworm.org).
+
+There is also a new iniative which uses Python scripts to generate network models in NeuroML2 at multiple levels of details: [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302).
 
 ### Data on which this model is based
 
@@ -16,9 +22,8 @@ Please note:
 * An accurate representation of the ion channels and their distributions in each neuron has not yet been attempted -- currently they are just "stub" collections of ion channels.
 * An accurate representation of the synapses between the neurons has not yet been attempted.  They are simplistic synapses only for the moment.
 
-See also work on a simpler, point neuron network model of c. elegans in https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302
 
-### Running this model
+### Running the neuroConstruct model
 
 For full details on running this neuroConstruct project see: 
 https://github.com/openworm/OpenWorm/wiki/Running-the-C.-elegans-model-in-neuroConstruct.
