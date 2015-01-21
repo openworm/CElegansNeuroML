@@ -10,6 +10,7 @@
 /CElegans/pythonScripts/c302/*.mod
 /CElegans/pythonScripts/c302/*.hoc
 /CElegans/pythonScripts/c302/*.dat
+/CElegans/pythonScripts/c302/*brian.py
 *.tmp
 *.svg
 *.bak
