@@ -7,7 +7,7 @@ The NeuroML files are available under the directories [generatedNeuroML](https:/
 
 This is being developed as part of the [OpenWorm project](http://www.openworm.org).
 
-**There is also a new initative which uses Python scripts to generate network models in NeuroML2 at multiple levels of details: [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302).** This will eventually be fully integrated with the neuroConstruct version.
+**There is also a new initiative which uses Python scripts to generate network models in NeuroML2 at multiple levels of details: [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302).** This will eventually be fully integrated with the neuroConstruct version.
 
 ### Data on which this model is based
 
@@ -19,9 +19,10 @@ We have converted all 302 neurons described in the [WormBase Virtual Worm Blende
 
 Please note: 
 
-* An accurate representation of the ion channels and their distributions in each neuron has not yet been attempted -- currently they are just "stub" collections of ion channels.
+* An accurate representation of the ion channels and their distributions in each neuron has not yet been attempted. Work on a cell model from C. elegans with ion channels can be found [here](https://github.com/openworm/muscle_model/tree/master/NeuroML2)
 * An accurate representation of the synapses between the neurons has not yet been attempted.  They are simplistic synapses only for the moment.
 
+More accurate models of conductance based neurons and more realistic synapses will be incorporated into [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302) first, and then the neuroConstruct model will be updated.
 
 ### Running the neuroConstruct model
 
