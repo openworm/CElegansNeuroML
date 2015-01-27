@@ -20,10 +20,11 @@ from neuroml import Connection
 import neuroml.writers as writers
 import neuroml.loaders as loaders
 
+from neuroml.utils import validate_neuroml2
+
 from random import random
 from random import randint
 
-from NeuroMLUtilities import validateNeuroML2
 from NeuroMLUtilities import getSegmentIds
 from NeuroMLUtilities import get3DPosition
 
@@ -148,13 +149,12 @@ if __name__ == "__main__":
         
                 # Add a Connection with the closest locations
                 conn0 = Connection(id=conn_id, \
-
-                           pre_cell_id="../%s/0/%s"%(conn.pre_cell, conn.pre_cell),
-                           pre_segment_id = best_pre_seg,
-                           pre_fraction_along = best_pre_fract,
-                           post_cell_id="../%s/0/%s"%(conn.post_cell, conn.post_cell),
-                           post_segment_id = best_post_seg,
-                           post_fraction_along = best_post_fract)
+                    pre_cell_id="../%s/0/%s"%(conn.pre_cell, conn.pre_cell), 
+                    pre_segment_id = best_pre_seg,
+                    pre_fraction_along = best_pre_fract,
+                    post_cell_id="../%s/0/%s"%(conn.post_cell, conn.post_cell), 
+                    post_segment_id = best_post_seg,
+                    post_fraction_along = best_post_fract)
         
                 proj0.connections.append(conn0)
 
@@ -168,7 +168,17 @@ if __name__ == "__main__":
 
     ###### Validate the NeuroML ######    
 
-    validateNeuroML2(nml_file)
+    validate_neuroml2(nml_file)
+    
+    from pylab import *
+
+    plot(dists, '.')
+
+    xlabel('Connection number')
+    ylabel('Length of connection (um)')
+    title('Connection lengths')
+    savefig("test.png")
+    show()
 
 
 
