@@ -339,7 +339,7 @@ def generate(net_id,
             # also use the cell name to grab the morphology file, as a NeuroML data structure
             #  into the 'all_cells' dict
             cell_file_path = "../../../" if test else "../../" #if running test
-            cell_file = cell_file_path+'generatedNeuroML2/%s.nml'%cell
+            cell_file = cell_file_path+'generatedNeuroML2/%s.cell.nml'%cell
             doc = loaders.NeuroMLLoader.load(cell_file)
             all_cells[cell] = doc.cells[0]
             location = doc.cells[0].morphology.segments[0].proximal

@@ -72,7 +72,7 @@ if __name__ == "__main__":
         
         # also use the cell name to grab the morphology file, as a NeuroML data structure
         #  into the 'all_cells' dict
-        cell_file = '../generatedNeuroML2/%s.nml'%cell
+        cell_file = '../generatedNeuroML2/%s.cell.nml'%cell
         doc = loaders.NeuroMLLoader.load(cell_file)
         all_cells[cell] = doc.cells[0]
         print("Loaded morphology file from: %s, with id: %s"%(cell_file, all_cells[cell].id))
