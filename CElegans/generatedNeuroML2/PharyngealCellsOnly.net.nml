@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="network_CElegans">
+
+    <notes>
+
+Network structure (NeuroML 2beta4) for project: CElegans saved with neuroConstruct v1.7.1 on: 16:04:27, 28-Jan-15
+
+Cell Group: M5 contains 1 cells
+Cell Group: M4 contains 1 cells
+Cell Group: NSML contains 1 cells
+Cell Group: M1 contains 1 cells
+Cell Group: M3R contains 1 cells
+Cell Group: I1R contains 1 cells
+Cell Group: M3L contains 1 cells
+Cell Group: I1L contains 1 cells
+Cell Group: I2R contains 1 cells
+Cell Group: MCR contains 1 cells
+Cell Group: MI contains 1 cells
+Cell Group: I6 contains 1 cells
+Cell Group: I5 contains 1 cells
+Cell Group: I4 contains 1 cells
+Cell Group: I3 contains 1 cells
+Cell Group: I2L contains 1 cells
+Cell Group: MCL contains 1 cells
+Cell Group: M2R contains 1 cells
+Cell Group: NSMR contains 1 cells
+Cell Group: M2L contains 1 cells
+
+    </notes>
+
+
+    <include href="I1L.cell.nml"/>
+    <include href="I1R.cell.nml"/>
+    <include href="I2L.cell.nml"/>
+    <include href="I2R.cell.nml"/>
+    <include href="I3.cell.nml"/>
+    <include href="I4.cell.nml"/>
+    <include href="I5.cell.nml"/>
+    <include href="I6.cell.nml"/>
+    <include href="LeakConductance.channel.nml"/>
+    <include href="M1.cell.nml"/>
+    <include href="M2L.cell.nml"/>
+    <include href="M2R.cell.nml"/>
+    <include href="M3L.cell.nml"/>
+    <include href="M3R.cell.nml"/>
+    <include href="M4.cell.nml"/>
+    <include href="M5.cell.nml"/>
+    <include href="MCL.cell.nml"/>
+    <include href="MCR.cell.nml"/>
+    <include href="MI.cell.nml"/>
+    <include href="NSML.cell.nml"/>
+    <include href="NSMR.cell.nml"/>
+
+    <network id="network_CElegans" type="networkWithTemperature" temperature="20.0 degC">
+
+        
+
+        <population id="M5" component="M5" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.671875 0.95703125 0.3046875"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="M4" component="M4" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.3046875 0.45703125 0.78515625"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="NSML" component="NSML" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.03125 0.90625 0.34375"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="M1" component="M1" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.46484375 0.78515625 0.70703125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="M3R" component="M3R" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.96484375 0.17578125 0.73828125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I1R" component="I1R" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.0625 0.515625 0.48828125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="M3L" component="M3L" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.68359375 0.4453125 0.98828125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I1L" component="I1L" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.05859375 0.52734375 0.88671875"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I2R" component="I2R" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.359375 0.8515625 0.63671875"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="MCR" component="MCR" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.03125 0.82421875 0.61328125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="MI" component="MI" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.4609375 0.69921875 0.125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I6" component="I6" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.28125 0.7890625 0.0703125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I5" component="I5" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.36328125 0.609375 0.796875"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I4" component="I4" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.25 0.328125 0.31640625"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I3" component="I3" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.44921875 0.27734375 0.3515625"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="I2L" component="I2L" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.7265625 0.84765625 0.03515625"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="MCL" component="MCL" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.5390625 0.6640625 0.51171875"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="M2R" component="M2R" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.09375 0.12109375 0.98828125"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="NSMR" component="NSMR" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.67578125 0.3671875 0.73046875"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+        <population id="M2L" component="M2L" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.734375 0.2890625 0.65625"/>
+            </annotation>
+            <instance id="0">
+                <location x="0.0" y="0.0" z="0.0"/>
+            </instance>
+        </population>
+
+
+
+
+
+    </network>
+
+</neuroml>
