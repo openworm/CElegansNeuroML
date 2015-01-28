@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="Serotonin_Glutamate">
+
+    <notes>ChannelML file describing a single synaptic mechanism</notes>
+
+    <expTwoSynapse id="Serotonin_Glutamate" tauRise="1ms" tauDecay="2ms" gbase="0.01e-6mS" erev="0mV">
+
+        <notes>Simple example of a synaptic mechanism, which consists of a postsynaptic conductance which changes as 
+        double exponential function of time.</notes>
+</expTwoSynapse>
+
+</neuroml>
