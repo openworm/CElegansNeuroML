@@ -1245,7 +1245,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Generic_GJ</string>
+    <string>Acetylcholine_GJ</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
@@ -1253,7 +1253,7 @@
     </object>
    </void>
    <void method="put">
-    <string>Acetylcholine_GJ</string>
+    <string>Generic_GJ</string>
     <object class="java.util.Vector">
      <void method="add">
       <string>all</string>
