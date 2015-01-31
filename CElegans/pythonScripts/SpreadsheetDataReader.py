@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
-from NeuroMLUtilities import ConnectionInfo
-
-from xlrd import open_workbook
 
 ############################################################
 
 #    A simple script to read the values in CElegansNeuronTables.xls.
 
+#    Note: this file will be replaced with a call to PyOpenWorm
+#    when that package is updated to read all of this data from the 
+#    spreadseet
+
 ############################################################
 
+
+from NeuroMLUtilities import ConnectionInfo
+
+from xlrd import open_workbook
 
 def readDataFromSpreadsheet(dir="../../", include_nonconnected_cells=False, neuron_connect=False):
 

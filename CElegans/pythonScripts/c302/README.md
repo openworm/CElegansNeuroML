@@ -31,11 +31,29 @@ visualising, analysing, etc. *independent of the parameter set used*, so they ca
 
 ### To install & test
 
-Install [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) & [jNeuroML](https://github.com/NeuroML/jNeuroML) 
-(make sure you get the **latest development version**)
+The full set of dependencies for c302 can be installed with the following (see also the [Travis-CI script](https://github.com/openworm/CElegansNeuroML/blob/master/.travis.yml)):
 
-    python c302_Full.py            # To regenerate the NeuroML & LEMS files
-    jnml LEMS_c302_A_Full.xml      # Run a simulation with jNeuroML
+    git clone https://github.com/openworm/CElegansNeuroML.git
+    svn checkout svn://svn.code.sf.net/p/neuroml/code/jNeuroMLJar
+    pip install lxml
+    pip install xlrd
+    pip install xlwt
+    git clone https://github.com/purcell/airspeed.git
+    cd airspeed
+    python setup.py install
+    cd ..
+    git clone git://github.com/NeuralEnsemble/libNeuroML.git
+    cd libNeuroML
+    git checkout development
+    python setup.py install
+    cd ..
+    cd CElegans/pythonScripts/c302
+    export JNML_HOME=../../../jNeuroMLJar
+
+To regenerate a set of NeuroML & LEMS files for one instance of the model and execute it:
+
+    python c302_Full.py                           # To regenerate the NeuroML & LEMS files
+    ../jNeuroMLJar/jnml LEMS_c302_A_Full.xml      # Run a simulation with jNeuroML
     
 This will produce the following (6 cells visualised with the jNeuroML GUI):
 
