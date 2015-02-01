@@ -31,9 +31,8 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
 </notes>
-    <expTwoSynapse id="elec_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.4nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.4nS" tauDecay="10ms" tauRise="3ms"/>
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <pulseGenerator id="stim_RMGR" delay="100ms" duration="200ms" amplitude="0.35nA"/>
@@ -82,64 +81,64 @@ Parameters and setting used to generate this network:
                 <location y="-7.35" x="-269.875" z="48.274999999999999"/>
             </instance>
         </population>
-        <projection id="NC_ASHR_ASKR_Generic_GJ" postsynapticPopulation="ASKR" presynapticPopulation="ASHR" synapse="elec_syn_1conns">
+        <projection id="NC_ASHR_ASKR_innexin" postsynapticPopulation="ASKR" presynapticPopulation="ASHR" synapse="exc_syn_1conns">
             <connection preCellId="../ASHR/0/generic_iaf_cell" postCellId="../ASKR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_ASHR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="ASHR" synapse="elec_syn_1conns">
+        <projection id="NC_ASHR_RMGR_innexin" postsynapticPopulation="RMGR" presynapticPopulation="ASHR" synapse="exc_syn_1conns">
             <connection preCellId="../ASHR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_ASHR_RMGR_Glutamate" postsynapticPopulation="RMGR" presynapticPopulation="ASHR" synapse="exc_syn_2conns">
             <connection preCellId="../ASHR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_ASKR_ASHR_Generic_GJ" postsynapticPopulation="ASHR" presynapticPopulation="ASKR" synapse="elec_syn_1conns">
+        <projection id="NC_ASKR_ASHR_innexin" postsynapticPopulation="ASHR" presynapticPopulation="ASKR" synapse="exc_syn_1conns">
             <connection preCellId="../ASKR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_ASKR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="ASKR" synapse="elec_syn_1conns">
+        <projection id="NC_ASKR_RMGR_innexin" postsynapticPopulation="RMGR" presynapticPopulation="ASKR" synapse="exc_syn_1conns">
             <connection preCellId="../ASKR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_AWBR_ASHR_Glutamate" postsynapticPopulation="ASHR" presynapticPopulation="AWBR" synapse="exc_syn_2conns">
             <connection preCellId="../AWBR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_AWBR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="AWBR" synapse="elec_syn_1conns">
+        <projection id="NC_AWBR_RMGR_innexin" postsynapticPopulation="RMGR" presynapticPopulation="AWBR" synapse="exc_syn_1conns">
             <connection preCellId="../AWBR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_IL2R_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="IL2R" synapse="elec_syn_1conns">
+        <projection id="NC_IL2R_RMGR_innexin" postsynapticPopulation="RMGR" presynapticPopulation="IL2R" synapse="exc_syn_1conns">
             <connection preCellId="../IL2R/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_IL2R_URXR_Generic_GJ" postsynapticPopulation="URXR" presynapticPopulation="IL2R" synapse="elec_syn_1conns">
+        <projection id="NC_IL2R_URXR_innexin" postsynapticPopulation="URXR" presynapticPopulation="IL2R" synapse="exc_syn_1conns">
             <connection preCellId="../IL2R/0/generic_iaf_cell" postCellId="../URXR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RMGR_ASHR_Generic_GJ" postsynapticPopulation="ASHR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+        <projection id="NC_RMGR_ASHR_innexin" postsynapticPopulation="ASHR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_RMGR_ASHR_FMRFamide" postsynapticPopulation="ASHR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../ASHR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RMGR_ASKR_Generic_GJ" postsynapticPopulation="ASKR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+        <projection id="NC_RMGR_ASKR_innexin" postsynapticPopulation="ASKR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../ASKR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RMGR_AWBR_Generic_GJ" postsynapticPopulation="AWBR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+        <projection id="NC_RMGR_AWBR_innexin" postsynapticPopulation="AWBR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../AWBR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RMGR_IL2R_Generic_GJ" postsynapticPopulation="IL2R" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+        <projection id="NC_RMGR_IL2R_innexin" postsynapticPopulation="IL2R" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../IL2R/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RMGR_RMHR_Generic_GJ" postsynapticPopulation="RMHR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+        <projection id="NC_RMGR_RMHR_innexin" postsynapticPopulation="RMHR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../RMHR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_RMGR_URXR_FMRFamide" postsynapticPopulation="URXR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../URXR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RMGR_URXR_Generic_GJ" postsynapticPopulation="URXR" presynapticPopulation="RMGR" synapse="elec_syn_1conns">
+        <projection id="NC_RMGR_URXR_innexin" postsynapticPopulation="URXR" presynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection preCellId="../RMGR/0/generic_iaf_cell" postCellId="../URXR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RMHR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="RMHR" synapse="elec_syn_1conns">
+        <projection id="NC_RMHR_RMGR_innexin" postsynapticPopulation="RMGR" presynapticPopulation="RMHR" synapse="exc_syn_1conns">
             <connection preCellId="../RMHR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_URXR_IL2R_Generic_GJ" postsynapticPopulation="IL2R" presynapticPopulation="URXR" synapse="elec_syn_1conns">
+        <projection id="NC_URXR_IL2R_innexin" postsynapticPopulation="IL2R" presynapticPopulation="URXR" synapse="exc_syn_1conns">
             <connection preCellId="../URXR/0/generic_iaf_cell" postCellId="../IL2R/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_URXR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="URXR" synapse="elec_syn_1conns">
+        <projection id="NC_URXR_RMGR_innexin" postsynapticPopulation="RMGR" presynapticPopulation="URXR" synapse="exc_syn_1conns">
             <connection preCellId="../URXR/0/generic_iaf_cell" postCellId="../RMGR/0/generic_iaf_cell" id="0"/>
         </projection>
         <projection id="NC_URXR_RMGR_Glutamate" postsynapticPopulation="RMGR" presynapticPopulation="URXR" synapse="exc_syn_1conns">

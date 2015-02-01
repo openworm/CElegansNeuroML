@@ -3,8 +3,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         [ADAL,AIBL,RIVR,RMEV]
-    Cell stimulated:               [ADAL,RIVR]
+    Cells:                         ['URYDL', 'SMDDR', 'VD12', 'VB11']
+    Cell stimulated:               ['URYDL', 'VD12']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               False
@@ -31,40 +31,38 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
 </notes>
-    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
-        <population id="ADAL" component="generic_iaf_cell" type="populationList">
-            <property tag="OpenWormBackerAssignedName" value="Xabe"/>
+        <population id="SMDDR" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="8.65" x="-239.25" z="31.050000000000001"/>
+                <location y="-7.4500003" x="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="AIBL" component="generic_iaf_cell" type="populationList">
+        <population id="URYDL" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="2.7" x="-266.199979999999982" z="37."/>
+                <location y="4.125" x="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
-        <population id="RIVR" component="generic_iaf_cell" type="populationList">
-            <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
+        <population id="VB11" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="-8.75" x="-265.300020000000018" z="50.350000000000001"/>
+                <location y="-1.8249999" x="262.324999999999989" z="-21.949999999999999"/>
             </instance>
         </population>
-        <population id="RMEV" component="generic_iaf_cell" type="populationList">
+        <population id="VD12" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="-2.033" x="-272.966999999999985" z="35.667000000000002"/>
+                <location y="-0.75" x="345.5" z="-23.149999999999999"/>
             </instance>
         </population>
-        <projection id="NC_ADAL_AIBL_Glutamate" postsynapticPopulation="AIBL" presynapticPopulation="ADAL" synapse="exc_syn_1conns">
-            <connection preCellId="../ADAL/0/generic_iaf_cell" postCellId="../AIBL/0/generic_iaf_cell" id="0"/>
+        <projection id="NC_VD12_VB11_GABA" postsynapticPopulation="VB11" presynapticPopulation="VD12" synapse="inh_syn_1conns">
+            <connection preCellId="../VD12/0/generic_iaf_cell" postCellId="../VB11/0/generic_iaf_cell" id="0"/>
         </projection>
-        <projection id="NC_RIVR_RMEV_GABA" postsynapticPopulation="RMEV" presynapticPopulation="RIVR" synapse="inh_syn_1conns">
-            <connection preCellId="../RIVR/0/generic_iaf_cell" postCellId="../RMEV/0/generic_iaf_cell" id="0"/>
+        <projection id="NC_URYDL_SMDDR_Glutamate" postsynapticPopulation="SMDDR" presynapticPopulation="URYDL" synapse="exc_syn_1conns">
+            <connection preCellId="../URYDL/0/generic_iaf_cell" postCellId="../SMDDR/0/generic_iaf_cell" id="0"/>
         </projection>
-        <explicitInput input="offset_current" target="ADAL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="RIVR/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="URYDL/0/generic_iaf_cell"/>
+        <explicitInput input="offset_current" target="VD12/0/generic_iaf_cell"/>
     </network>
 </neuroml>
