@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd" id="MDL08">
+
+    <include href="LeakConductance.nml"/>
+
+    <cell id="MDL08">
+
+        <notes>
+        Body Wall Muscle
+      </notes>
+
+        <morphology id="morphology_MDL08">
+
+            <segment id="0" name="Seg0_soma_0">
+                <proximal x="12.577" y="-186.531" z="20.599" diameter="3.245049"/>
+                <distal x="2.794" y="-259.386" z="58.299" diameter="1.4865664"/>
+            </segment>
+
+            <segmentGroup id="Soma">
+                <member segment="0"/>
+            </segmentGroup>
+
+            <segmentGroup id="all">
+                <include segmentGroup="Soma"/>
+            </segmentGroup>
+
+            <segmentGroup id="soma_group">
+                <include segmentGroup="Soma"/>
+            </segmentGroup>
+
+            
+        </morphology>
+
+
+    </cell>
+    
+</neuroml>

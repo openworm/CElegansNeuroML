@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="network_CElegans">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd" id="network_CElegans">
 
-    <notes>
+<notes>
 
-Network structure (NeuroML 2beta4) for project: CElegans saved with neuroConstruct v1.7.1 on: 15:30:20, 29-Jan-15
+Network structure (NeuroML 2beta) for project: CElegans saved with neuroConstruct v1.6.1 on: 14:36:08, 19-Mar-13
 
 Cell Group: DA1 contains 1 cells
 Cell Group: AS2 contains 1 cells
@@ -12,8 +12,8 @@ Cell Group: SMDDR contains 1 cells
 Cell Group: SMDDL contains 1 cells
 Cell Group: DB1 contains 1 cells
 Cell Group: MDL08 contains 1 cells
-Cell Group: DA2 contains 1 cells
 Cell Group: DD1 contains 1 cells
+Cell Group: DA2 contains 1 cells
 
 Network connection: NCM_SMDDL_MDL08 contains 1 individual synaptic connections
 Network connection: NCM_DD1_MDL08 contains 4 individual synaptic connections
@@ -24,114 +24,62 @@ Network connection: NCM_SMDDR_MDL08 contains 1 individual synaptic connections
 Network connection: NCM_AS1_MDL08 contains 3 individual synaptic connections
 Network connection: NCM_AS2_MDL08 contains 2 individual synaptic connections
 
+</notes>
 
-    </notes>
 
+    <network id="network_CElegans">
 
-    <include href="Acetylcholine.synapse.nml"/>
-    <include href="AS1.cell.nml"/>
-    <include href="AS2.cell.nml"/>
-    <include href="DA1.cell.nml"/>
-    <include href="DA2.cell.nml"/>
-    <include href="DB1.cell.nml"/>
-    <include href="DD1.cell.nml"/>
-    <include href="GABA.synapse.nml"/>
-    <include href="LeakConductance.channel.nml"/>
-    <include href="MDL08.cell.nml"/>
-    <include href="SMDDL.cell.nml"/>
-    <include href="SMDDR.cell.nml"/>
+        <extracellularProperties temperature="6.3 degC"/>
 
-    <pulseGenerator id="Input_2" delay="0.22s" duration="0.005s" amplitude="5.0E-11A"/>
-
-    
-
-    <pulseGenerator id="Input_1" delay="0.12s" duration="0.005s" amplitude="5.0E-11A"/>
-
-    
-
-    <pulseGenerator id="Input_0" delay="0.02s" duration="0.005s" amplitude="5.0E-11A"/>
-
-    
-    <network id="network_CElegans" type="networkWithTemperature" temperature="20.0 degC">
-
-        
-
-        <population id="DA1" component="DA1" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.2265625 0.8046875 0.40625"/>
-            </annotation>
+        <population id="DA1" component="DA1" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="AS2" component="AS2" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.0859375 0.17578125 0.59375"/>
-            </annotation>
+        <population id="AS2" component="AS2" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="AS1" component="AS1" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.7109375 0.00390625 0.4375"/>
-            </annotation>
+        <population id="AS1" component="AS1" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="SMDDR" component="SMDDR" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.7890625 0.921875 0.33203125"/>
-            </annotation>
+        <population id="SMDDR" component="SMDDR" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="SMDDL" component="SMDDL" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.94921875 0.0546875 0.80078125"/>
-            </annotation>
+        <population id="SMDDL" component="SMDDL" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="DB1" component="DB1" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.625 0.94921875 0.03125"/>
-            </annotation>
+        <population id="DB1" component="DB1" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="MDL08" component="MDL08" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.671875 0.65234375 0.90234375"/>
-            </annotation>
+        <population id="MDL08" component="MDL08" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="DA2" component="DA2" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.64453125 0.74609375 0.9453125"/>
-            </annotation>
+        <population id="DD1" component="DD1" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
-        <population id="DD1" component="DD1" type="populationList" size="1">
-           <annotation>
-                <property tag="color" value="0.1015625 0.046875 0.72265625"/>
-            </annotation>
+        <population id="DA2" component="DA2" size="1">
             <instance id="0">
                 <location x="0.0" y="0.0" z="0.0"/>
             </instance>
@@ -139,69 +87,49 @@ Network connection: NCM_AS2_MDL08 contains 2 individual synaptic connections
 
 
 
-        <projection id="NCM_SMDDL_MDL08" presynapticPopulation="SMDDL" postsynapticPopulation="MDL08" synapse="Acetylcholine">
-            <connection id="0" preCellId="../SMDDL/0/SMDDL" postCellId="../MDL08/0/MDL08" preSegmentId="23" preFractionAlong="0.47055236" postSegmentId="0" postFractionAlong="0.009760916"/>
-        </projection>
+        <synapticConnection from="SMDDL[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
-        <projection id="NCM_DD1_MDL08" presynapticPopulation="DD1" postsynapticPopulation="MDL08" synapse="GABA">
-            <connection id="0" preCellId="../DD1/0/DD1" postCellId="../MDL08/0/MDL08" preSegmentId="7" preFractionAlong="0.15362467" postSegmentId="0" postFractionAlong="0.035345912"/>
-            <connection id="1" preCellId="../DD1/0/DD1" postCellId="../MDL08/0/MDL08" preSegmentId="17" preFractionAlong="0.38069355" postSegmentId="0" postFractionAlong="0.16138852"/>
-            <connection id="2" preCellId="../DD1/0/DD1" postCellId="../MDL08/0/MDL08" preSegmentId="19" preFractionAlong="0.4010261" postSegmentId="0" postFractionAlong="0.8099255"/>
-            <connection id="3" preCellId="../DD1/0/DD1" postCellId="../MDL08/0/MDL08" preSegmentId="18" preFractionAlong="0.54197305" postSegmentId="0" postFractionAlong="0.50367403"/>
-        </projection>
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
 
-        <projection id="NCM_DB1_MDL08" presynapticPopulation="DB1" postsynapticPopulation="MDL08" synapse="Acetylcholine">
-            <connection id="0" preCellId="../DB1/0/DB1" postCellId="../MDL08/0/MDL08" preSegmentId="25" preFractionAlong="0.38983375" postSegmentId="0" postFractionAlong="0.98644453"/>
-        </projection>
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
 
-        <projection id="NCM_DA1_MDL08" presynapticPopulation="DA1" postsynapticPopulation="MDL08" synapse="Acetylcholine">
-            <connection id="0" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="6" preFractionAlong="0.65731186" postSegmentId="0" postFractionAlong="0.41429472"/>
-            <connection id="1" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="4" preFractionAlong="0.031827666" postSegmentId="0" postFractionAlong="0.23573983"/>
-            <connection id="2" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="4" preFractionAlong="0.15827234" postSegmentId="0" postFractionAlong="0.030065179"/>
-            <connection id="3" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="5" preFractionAlong="0.42786407" postSegmentId="0" postFractionAlong="0.34497392"/>
-            <connection id="4" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="4" preFractionAlong="0.003737261" postSegmentId="0" postFractionAlong="0.17380571"/>
-            <connection id="5" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="4" preFractionAlong="0.13123569" postSegmentId="0" postFractionAlong="0.06581378"/>
-            <connection id="6" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="6" preFractionAlong="0.9676755" postSegmentId="0" postFractionAlong="0.678389"/>
-            <connection id="7" preCellId="../DA1/0/DA1" postCellId="../MDL08/0/MDL08" preSegmentId="6" preFractionAlong="0.9788549" postSegmentId="0" postFractionAlong="0.45488608"/>
-        </projection>
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
 
-        <projection id="NCM_DA2_MDL08" presynapticPopulation="DA2" postsynapticPopulation="MDL08" synapse="Acetylcholine">
-            <connection id="0" preCellId="../DA2/0/DA2" postCellId="../MDL08/0/MDL08" preSegmentId="5" preFractionAlong="0.99932945" postSegmentId="0" postFractionAlong="0.8060667"/>
-        </projection>
+        <synapticConnection from="DD1[0]" to="MDL08[0]" synapse="GABA"/>
 
-        <projection id="NCM_SMDDR_MDL08" presynapticPopulation="SMDDR" postsynapticPopulation="MDL08" synapse="Acetylcholine">
-            <connection id="0" preCellId="../SMDDR/0/SMDDR" postCellId="../MDL08/0/MDL08" preSegmentId="23" preFractionAlong="0.21121448" postSegmentId="0" postFractionAlong="0.17667866"/>
-        </projection>
+        <synapticConnection from="DB1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
-        <projection id="NCM_AS1_MDL08" presynapticPopulation="AS1" postsynapticPopulation="MDL08" synapse="Acetylcholine">
-            <connection id="0" preCellId="../AS1/0/AS1" postCellId="../MDL08/0/MDL08" preSegmentId="13" preFractionAlong="0.0160114" postSegmentId="0" postFractionAlong="0.3859092"/>
-            <connection id="1" preCellId="../AS1/0/AS1" postCellId="../MDL08/0/MDL08" preSegmentId="13" preFractionAlong="0.7291216" postSegmentId="0" postFractionAlong="0.6754039"/>
-            <connection id="2" preCellId="../AS1/0/AS1" postCellId="../MDL08/0/MDL08" preSegmentId="11" preFractionAlong="0.11429251" postSegmentId="0" postFractionAlong="0.08533859"/>
-        </projection>
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
-        <projection id="NCM_AS2_MDL08" presynapticPopulation="AS2" postsynapticPopulation="MDL08" synapse="Acetylcholine">
-            <connection id="0" preCellId="../AS2/0/AS2" postCellId="../MDL08/0/MDL08" preSegmentId="15" preFractionAlong="0.58323133" postSegmentId="0" postFractionAlong="0.20513582"/>
-            <connection id="1" preCellId="../AS2/0/AS2" postCellId="../MDL08/0/MDL08" preSegmentId="15" preFractionAlong="0.32537845" postSegmentId="0" postFractionAlong="0.12563527"/>
-        </projection>
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
-        <inputList id="Input_2" component="Input_2" population="DA1">
-            <input id="0" target="../DA1/0/DA1" destination="synapses"/>
-        </inputList>
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
-        <inputList id="Input_1" component="Input_1" population="AS2">
-            <input id="0" target="../AS2/0/AS2" destination="synapses"/>
-        </inputList>
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
+        <synapticConnection from="DA1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
-        <inputList id="Input_0" component="Input_0" population="AS1">
-            <input id="0" target="../AS1/0/AS1" destination="synapses"/>
-        </inputList>
+        <synapticConnection from="DA2[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
+        <synapticConnection from="SMDDR[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
+        <synapticConnection from="AS1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
 
+        <synapticConnection from="AS1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS1[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS2[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+        <synapticConnection from="AS2[0]" to="MDL08[0]" synapse="Acetylcholine"/>
+
+            <!--There are no electrical inputs present in the network-->
 
 
     </network>
