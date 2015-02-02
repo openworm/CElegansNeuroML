@@ -15,8 +15,8 @@ from bioparameters import BioParameter
     The values below are a FIRST APPROXIMATION of neurons for use in a network to 
     investigate the synaptic connectivity of C elegans
     
-    We plan more detailed parameter sets (parameters_B based on more detailed neurons & including 
-    electrical connections; parameters_C based on conductance based neurons) which use this 
+    We plan more detailed parameter sets (parameters_B based on Izhikevich or Adaptive
+    Exponential I&F; parameters_C based on conductance based neurons) which use this 
     framework.
 
 '''

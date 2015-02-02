@@ -1,9 +1,3 @@
-/CElegans/pythonScripts/c302/c302_B_Full.nml
-/CElegans/pythonScripts/c302/c302_B_Pharyngeal.nml
-/CElegans/pythonScripts/c302/LEMS_c302_B_Full.xml
-/CElegans/pythonScripts/c302/LEMS_c302_B_Pharyngeal.xml
-/OpenWormBackers/OpenWormBackers.xlsx
-/OpenWormBackers/extract.py
 /CElegans/pythonScripts/c302/c302_A_Weights.nml
 /CElegans/pythonScripts/c302/LEMS_c302_A_Weights.xml
 /CElegans/pythonScripts/c302/clean.sh
@@ -29,4 +23,3 @@ savedNetworks
 
 
 .DS_Store
-.idea

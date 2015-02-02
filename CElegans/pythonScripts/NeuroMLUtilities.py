@@ -7,6 +7,15 @@
 ############################################################
 
 
+from neuroml import NeuroMLDocument
+from neuroml import Network
+from neuroml import Population
+from neuroml import Instance
+from neuroml import Location
+from neuroml import Projection
+from neuroml import Connection
+
+
 class ConnectionInfo:
 
     def __init__(self,
@@ -25,9 +34,6 @@ class ConnectionInfo:
 
     def __str__(self):
         return "Connection from %s to %s (%i times, type: %s, neurotransmitter: %s)"%(self.pre_cell, self.post_cell, self.number, self.syntype, self.synclass)
-    
-    def __repr__(self):
-        return self.__str__()
 
 
 
