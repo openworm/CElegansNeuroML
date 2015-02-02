@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:meta="http://morphml.org/metadata/schema"
+           xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+           units="Physiological Units">
+
+    <meta:notes>ChannelML file for fast potassium based on Boyle and Cohen 2007</meta:notes>
+
+    <channel_type name="Kfast">
+
+        <status value="in_progress">
+            <meta:comment> Note: This is not (yet) based on experimental data from C. elegans</meta:comment>
+            <meta:contributor>
+                <meta:name>Stephen Larson</meta:name>
+            </meta:contributor>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+        </status>
+
+        <meta:notes>
+            Model of the Fast Potassium channel from Boyle and Cohen 2007.  Activation variables p and q are used here.
+        </meta:notes>
+
+
+        <parameters>
+            <parameter name="p0" value ="0"/>
+            <parameter name="q0" value ="0"/>
+        </parameters>
+        
+        <current_voltage_relation cond_law="ohmic" ion="ar" default_gmax="0.25" default_erev="-35">
+            
+            <gate name="p" instances="4">
+                <closed_state id="pc"/>
+                <open_state id="p"/>
+                
+                     <!-- An *incorrect* initialisation value for this, in order to compare to original mod file. Normally ignored-->
+                <initialisation value="p0"/>
+
+                     <!-- Note, extra brackets required to allow use of equation on GENESIS...-->
+                <time_course name="tau" from="pc" to="p" expr_form="generic" expr="1 /((exp (-14.6 - (0.086 * v) )) + (exp (-1.87 + (0.07 * v))))" />
+
+                <steady_state name="inf" from="pc" to="p" expr_form="sigmoid" rate="1" scale="5.5" midpoint="-75" />
+
+            </gate>
+            
+            <gate name="q" instances="1">
+                
+                <closed_state id="q0"/>
+                <open_state id="q"/>
+                
+                <time_course name="tau" from="q0" to="q" expr_form="generic" expr="0.225 + 1.125 / ( 1 + ( exp (( ( v + fastNa_shift * 0 ) + 37 ) / 15) ) )" />
+                
+                <steady_state name="inf" from="q0" to="q" expr_form="generic" expr="1 / ( 1 + (exp (( ( v + fastNa_shift * 0 ) + 58.3 ) / 6.7)) )" />
+                
+            </gate>
+            
+        </current_voltage_relation>
+
+
+
+
+        <impl_prefs>
+            <comment>Using broad range of voltages for sufficient coverage</comment>
+            <table_settings max_v="60" min_v="-120" table_divisions="741"/>
+        </impl_prefs>
+
+    </channel_type>
+</channelml>
+
+
