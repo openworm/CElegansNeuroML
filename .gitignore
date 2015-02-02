@@ -10,15 +10,12 @@
 /CElegans/pythonScripts/c302/*.mod
 /CElegans/pythonScripts/c302/*.hoc
 /CElegans/pythonScripts/c302/*.dat
-/CElegans/pythonScripts/c302/*brian.py
-
 *.tmp
 *.svg
 *.bak
 *~
 *.pyc
 *py.class
-
 generatedMOOSE
 CElegans/pythonScripts/*.mod
 CElegans/pythonScripts/*.hoc
@@ -28,19 +25,6 @@ generatedGENESIS
 generatedNEURON
 simulations
 savedNetworks
-
-CElegans/generatedNeuroML2/*.hoc
-CElegans/generatedNeuroML2/*.mod
-CElegans/generatedNeuroML2/*.log
-CElegans/generatedNeuroML2/runsim.sh
-
-x86_64
-i386
-umac
-*.dll
-
-CElegans/pythonScripts/c302/unittests/*.nml
-CElegans/pythonScripts/c302/unittests/*.xml
 
 
 
