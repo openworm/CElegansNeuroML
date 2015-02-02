@@ -19,7 +19,5 @@ generatedGENESIS
 generatedNEURON
 simulations
 savedNetworks
-
-
-
 .DS_Store
+.idea
