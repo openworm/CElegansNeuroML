@@ -1386,961 +1386,961 @@ Parameters and setting used to generate this network:
         <synapticConnection to="MVR22[0]" synapse="inh_syn_6conns" destination="synapses" from="VD13[0]"/>
         <synapticConnection to="MVR23[0]" synapse="inh_syn_6conns" destination="synapses" from="VD13[0]"/>
         <electricalProjection id="NC_AS1_VA3_Generic_GJ" postsynapticPopulation="VA3" presynapticPopulation="AS1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS1_VD2_Generic_GJ" postsynapticPopulation="VD2" presynapticPopulation="AS1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS11_PDB_Generic_GJ" postsynapticPopulation="PDB" presynapticPopulation="AS11">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS2_DA2_Generic_GJ" postsynapticPopulation="DA2" presynapticPopulation="AS2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS2_VA4_Generic_GJ" postsynapticPopulation="VA4" presynapticPopulation="AS2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS3_DA2_Generic_GJ" postsynapticPopulation="DA2" presynapticPopulation="AS3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS3_VA5_Generic_GJ" postsynapticPopulation="VA5" presynapticPopulation="AS3">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS4_DA3_Generic_GJ" postsynapticPopulation="DA3" presynapticPopulation="AS4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS5_VA7_Generic_GJ" postsynapticPopulation="VA7" presynapticPopulation="AS5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AS6">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS6_DA5_Generic_GJ" postsynapticPopulation="DA5" presynapticPopulation="AS6">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS6_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="AS6">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="AS7">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AS7">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AS9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="AS9">
-            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_7conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_AS7_Generic_GJ" postsynapticPopulation="AS7" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_DB5_Generic_GJ" postsynapticPopulation="DB5" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_DB6_Generic_GJ" postsynapticPopulation="DB6" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_DB7_Generic_GJ" postsynapticPopulation="DB7" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB1_Generic_GJ" postsynapticPopulation="VB1" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB11_Generic_GJ" postsynapticPopulation="VB11" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_7conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBL_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="AVBL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_AS6_Generic_GJ" postsynapticPopulation="AS6" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_AS7_Generic_GJ" postsynapticPopulation="AS7" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DB5_Generic_GJ" postsynapticPopulation="DB5" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DB6_Generic_GJ" postsynapticPopulation="DB6" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DB7_Generic_GJ" postsynapticPopulation="DB7" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_DD1_Generic_GJ" postsynapticPopulation="DD1" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_PVNL_Generic_GJ" postsynapticPopulation="PVNL" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB11_Generic_GJ" postsynapticPopulation="VB11" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB3_Generic_GJ" postsynapticPopulation="VB3" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_6conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVBR_VD10_Generic_GJ" postsynapticPopulation="VD10" presynapticPopulation="AVBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVFL_AVFR_Generic_GJ" postsynapticPopulation="AVFR" presynapticPopulation="AVFL">
-            <electricalConnection synapse="elec_syn_23conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_23conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVFR_AVFL_Generic_GJ" postsynapticPopulation="AVFL" presynapticPopulation="AVFR">
-            <electricalConnection synapse="elec_syn_23conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_23conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVFR_VC4_Generic_GJ" postsynapticPopulation="VC4" presynapticPopulation="AVFR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVKR_SMBDL_Generic_GJ" postsynapticPopulation="SMBDL" presynapticPopulation="AVKR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVKR_SMBDR_Generic_GJ" postsynapticPopulation="SMBDR" presynapticPopulation="AVKR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVKR_SMBVR_Generic_GJ" postsynapticPopulation="SMBVR" presynapticPopulation="AVKR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AVL_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="AVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA1_DA4_Generic_GJ" postsynapticPopulation="DA4" presynapticPopulation="DA1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA2_AS2_Generic_GJ" postsynapticPopulation="AS2" presynapticPopulation="DA2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA2_AS3_Generic_GJ" postsynapticPopulation="AS3" presynapticPopulation="DA2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA2_VA1_Generic_GJ" postsynapticPopulation="VA1" presynapticPopulation="DA2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA3_AS4_Generic_GJ" postsynapticPopulation="AS4" presynapticPopulation="DA3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA4_DA1_Generic_GJ" postsynapticPopulation="DA1" presynapticPopulation="DA4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA4_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="DA4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA4_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="DA4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA5_AS6_Generic_GJ" postsynapticPopulation="AS6" presynapticPopulation="DA5">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA5_VA4_Generic_GJ" postsynapticPopulation="VA4" presynapticPopulation="DA5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA5_VA5_Generic_GJ" postsynapticPopulation="VA5" presynapticPopulation="DA5">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA8_DA9_Generic_GJ" postsynapticPopulation="DA9" presynapticPopulation="DA8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA9_DA8_Generic_GJ" postsynapticPopulation="DA8" presynapticPopulation="DA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA9_PDA_Generic_GJ" postsynapticPopulation="PDA" presynapticPopulation="DA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DA9_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="DA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB1_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB1">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB1_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="DB1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB1_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="DB1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB1_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="DB1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB1_VB3_Generic_GJ" postsynapticPopulation="VB3" presynapticPopulation="DB1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB1_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="DB1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB2_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB2_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="DB2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB2_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="DB2">
-            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_6conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB2_VB1_Generic_GJ" postsynapticPopulation="VB1" presynapticPopulation="DB2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB3_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB3_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB3_DA4_Generic_GJ" postsynapticPopulation="DA4" presynapticPopulation="DB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB3_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="DB3">
-            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_6conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB3_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="DB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="DB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_DB3_Generic_GJ" postsynapticPopulation="DB3" presynapticPopulation="DB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="DB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB4_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="DB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB5_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB5_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB6_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB6">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB6">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="DB7">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DB7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DB7">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD1_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="DD1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD1_DD2_Generic_GJ" postsynapticPopulation="DD2" presynapticPopulation="DD1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD1_VD1_Generic_GJ" postsynapticPopulation="VD1" presynapticPopulation="DD1">
-            <electricalConnection synapse="elec_syn_4conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_4conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD1_VD2_Generic_GJ" postsynapticPopulation="VD2" presynapticPopulation="DD1">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD2_DD1_Generic_GJ" postsynapticPopulation="DD1" presynapticPopulation="DD2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD2_DD3_Generic_GJ" postsynapticPopulation="DD3" presynapticPopulation="DD2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD2_VD4_Generic_GJ" postsynapticPopulation="VD4" presynapticPopulation="DD2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD3_DD2_Generic_GJ" postsynapticPopulation="DD2" presynapticPopulation="DD3">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD3_DD4_Generic_GJ" postsynapticPopulation="DD4" presynapticPopulation="DD3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD4_DD3_Generic_GJ" postsynapticPopulation="DD3" presynapticPopulation="DD4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD4_VC3_Generic_GJ" postsynapticPopulation="VC3" presynapticPopulation="DD4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD4_VD8_Generic_GJ" postsynapticPopulation="VD8" presynapticPopulation="DD4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DD5_VD10_Generic_GJ" postsynapticPopulation="VD10" presynapticPopulation="DD5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DVB_AS9_Generic_GJ" postsynapticPopulation="AS9" presynapticPopulation="DVB">
-            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_7conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DVB_AVL_Generic_GJ" postsynapticPopulation="AVL" presynapticPopulation="DVB">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DVB_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="DVB">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_DVB_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="DVB">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_HSNL_HSNR_Generic_GJ" postsynapticPopulation="HSNR" presynapticPopulation="HSNL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_HSNR_HSNL_Generic_GJ" postsynapticPopulation="HSNL" presynapticPopulation="HSNR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_HSNR_PVNR_Generic_GJ" postsynapticPopulation="PVNR" presynapticPopulation="HSNR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1DL_IL1DR_Generic_GJ" postsynapticPopulation="IL1DR" presynapticPopulation="IL1DL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1DL_IL1L_Generic_GJ" postsynapticPopulation="IL1L" presynapticPopulation="IL1DL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1DL_RMEV_Generic_GJ" postsynapticPopulation="RMEV" presynapticPopulation="IL1DL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1DR_IL1DL_Generic_GJ" postsynapticPopulation="IL1DL" presynapticPopulation="IL1DR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1DR_IL1R_Generic_GJ" postsynapticPopulation="IL1R" presynapticPopulation="IL1DR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1DR_RMEV_Generic_GJ" postsynapticPopulation="RMEV" presynapticPopulation="IL1DR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1L_IL1DL_Generic_GJ" postsynapticPopulation="IL1DL" presynapticPopulation="IL1L">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1L_IL1VL_Generic_GJ" postsynapticPopulation="IL1VL" presynapticPopulation="IL1L">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1R_IL1DR_Generic_GJ" postsynapticPopulation="IL1DR" presynapticPopulation="IL1R">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1R_IL1VR_Generic_GJ" postsynapticPopulation="IL1VR" presynapticPopulation="IL1R">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1VL_IL1L_Generic_GJ" postsynapticPopulation="IL1L" presynapticPopulation="IL1VL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1VL_IL1VR_Generic_GJ" postsynapticPopulation="IL1VR" presynapticPopulation="IL1VL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1VL_RMED_Generic_GJ" postsynapticPopulation="RMED" presynapticPopulation="IL1VL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1VR_IL1R_Generic_GJ" postsynapticPopulation="IL1R" presynapticPopulation="IL1VR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL1VR_IL1VL_Generic_GJ" postsynapticPopulation="IL1VL" presynapticPopulation="IL1VR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC2_VC1_Generic_GJ" postsynapticPopulation="VC1" presynapticPopulation="VC2">
-            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_6conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC2_VC3_Generic_GJ" postsynapticPopulation="VC3" presynapticPopulation="VC2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC3_DD4_Generic_GJ" postsynapticPopulation="DD4" presynapticPopulation="VC3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC3_VC1_Generic_GJ" postsynapticPopulation="VC1" presynapticPopulation="VC3">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC3_VC2_Generic_GJ" postsynapticPopulation="VC2" presynapticPopulation="VC3">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC3_VC4_Generic_GJ" postsynapticPopulation="VC4" presynapticPopulation="VC3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC3_VC5_Generic_GJ" postsynapticPopulation="VC5" presynapticPopulation="VC3">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC4_AVFR_Generic_GJ" postsynapticPopulation="AVFR" presynapticPopulation="VC4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC4_VC3_Generic_GJ" postsynapticPopulation="VC3" presynapticPopulation="VC4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC4_VC5_Generic_GJ" postsynapticPopulation="VC5" presynapticPopulation="VC4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC5_VC3_Generic_GJ" postsynapticPopulation="VC3" presynapticPopulation="VC5">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC5_VC4_Generic_GJ" postsynapticPopulation="VC4" presynapticPopulation="VC5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD1_DD1_Generic_GJ" postsynapticPopulation="DD1" presynapticPopulation="VD1">
-            <electricalConnection synapse="elec_syn_4conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_4conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD1_SMDDR_Generic_GJ" postsynapticPopulation="SMDDR" presynapticPopulation="VD1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD1_VA2_Generic_GJ" postsynapticPopulation="VA2" presynapticPopulation="VD1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD1_VC1_Generic_GJ" postsynapticPopulation="VC1" presynapticPopulation="VD1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD1_VD2_Generic_GJ" postsynapticPopulation="VD2" presynapticPopulation="VD1">
-            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_7conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD10_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VD10">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD10_DD5_Generic_GJ" postsynapticPopulation="DD5" presynapticPopulation="VD10">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD10_VD9_Generic_GJ" postsynapticPopulation="VD9" presynapticPopulation="VD10">
-            <electricalConnection synapse="elec_syn_5conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_5conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD2_AS1_Generic_GJ" postsynapticPopulation="AS1" presynapticPopulation="VD2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD2_DD1_Generic_GJ" postsynapticPopulation="DD1" presynapticPopulation="VD2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD2_VA2_Generic_GJ" postsynapticPopulation="VA2" presynapticPopulation="VD2">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD2_VD1_Generic_GJ" postsynapticPopulation="VD1" presynapticPopulation="VD2">
-            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_7conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD2_VD3_Generic_GJ" postsynapticPopulation="VD3" presynapticPopulation="VD2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD3_VD2_Generic_GJ" postsynapticPopulation="VD2" presynapticPopulation="VD3">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD3_VD4_Generic_GJ" postsynapticPopulation="VD4" presynapticPopulation="VD3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD4_DD2_Generic_GJ" postsynapticPopulation="DD2" presynapticPopulation="VD4">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD4_VD3_Generic_GJ" postsynapticPopulation="VD3" presynapticPopulation="VD4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD4_VD5_Generic_GJ" postsynapticPopulation="VD5" presynapticPopulation="VD4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD5_VD4_Generic_GJ" postsynapticPopulation="VD4" presynapticPopulation="VD5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD5_VD6_Generic_GJ" postsynapticPopulation="VD6" presynapticPopulation="VD5">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD6_VD5_Generic_GJ" postsynapticPopulation="VD5" presynapticPopulation="VD6">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD6_VD7_Generic_GJ" postsynapticPopulation="VD7" presynapticPopulation="VD6">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD7_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="VD7">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD7_VD6_Generic_GJ" postsynapticPopulation="VD6" presynapticPopulation="VD7">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD8_DD4_Generic_GJ" postsynapticPopulation="DD4" presynapticPopulation="VD8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD8_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VD8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VD9_VD10_Generic_GJ" postsynapticPopulation="VD10" presynapticPopulation="VD9">
-            <electricalConnection synapse="elec_syn_5conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_5conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PDA_DA9_Generic_GJ" postsynapticPopulation="DA9" presynapticPopulation="PDA">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PDB_AS11_Generic_GJ" postsynapticPopulation="AS11" presynapticPopulation="PDB">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PDB_RID_Generic_GJ" postsynapticPopulation="RID" presynapticPopulation="PDB">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVCL_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="PVCL">
-            <electricalConnection synapse="elec_syn_5conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_5conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVCL_VB10_Generic_GJ" postsynapticPopulation="VB10" presynapticPopulation="PVCL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVCL_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="PVCL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVCR_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="PVCR">
-            <electricalConnection synapse="elec_syn_5conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_5conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVCR_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="PVCR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVCR_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="PVCR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVNL_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="PVNL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_PVNR_HSNR_Generic_GJ" postsynapticPopulation="HSNR" presynapticPopulation="PVNR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RID_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="RID">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RID_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="RID">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RID_DA9_Generic_GJ" postsynapticPopulation="DA9" presynapticPopulation="RID">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RID_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="RID">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RID_PDB_Generic_GJ" postsynapticPopulation="PDB" presynapticPopulation="RID">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RIVL_RIVR_Generic_GJ" postsynapticPopulation="RIVR" presynapticPopulation="RIVL">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RIVL_SMDVL_Generic_GJ" postsynapticPopulation="SMDVL" presynapticPopulation="RIVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RIVR_RIVL_Generic_GJ" postsynapticPopulation="RIVL" presynapticPopulation="RIVR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RIVR_SMDVR_Generic_GJ" postsynapticPopulation="SMDVR" presynapticPopulation="RIVR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDDL_RMDL_Generic_GJ" postsynapticPopulation="RMDL" presynapticPopulation="RMDDL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDDL_RMDVL_Generic_GJ" postsynapticPopulation="RMDVL" presynapticPopulation="RMDDL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDDL_SMDDL_Generic_GJ" postsynapticPopulation="SMDDL" presynapticPopulation="RMDDL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDDR_RMDVR_Generic_GJ" postsynapticPopulation="RMDVR" presynapticPopulation="RMDDR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDDR_SMDDR_Generic_GJ" postsynapticPopulation="SMDDR" presynapticPopulation="RMDDR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDL_RMDDL_Generic_GJ" postsynapticPopulation="RMDDL" presynapticPopulation="RMDL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDL_RMDVL_Generic_GJ" postsynapticPopulation="RMDVL" presynapticPopulation="RMDL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDR_RMDVR_Generic_GJ" postsynapticPopulation="RMDVR" presynapticPopulation="RMDR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVL_RMDDL_Generic_GJ" postsynapticPopulation="RMDDL" presynapticPopulation="RMDVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVL_RMDL_Generic_GJ" postsynapticPopulation="RMDL" presynapticPopulation="RMDVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVL_RMDVR_Generic_GJ" postsynapticPopulation="RMDVR" presynapticPopulation="RMDVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVL_SMDVL_Generic_GJ" postsynapticPopulation="SMDVL" presynapticPopulation="RMDVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVR_RMDDR_Generic_GJ" postsynapticPopulation="RMDDR" presynapticPopulation="RMDVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVR_RMDR_Generic_GJ" postsynapticPopulation="RMDR" presynapticPopulation="RMDVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVR_RMDVL_Generic_GJ" postsynapticPopulation="RMDVL" presynapticPopulation="RMDVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMDVR_SMDVR_Generic_GJ" postsynapticPopulation="SMDVR" presynapticPopulation="RMDVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMED_IL1VL_Generic_GJ" postsynapticPopulation="IL1VL" presynapticPopulation="RMED">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMED_RMEV_Generic_GJ" postsynapticPopulation="RMEV" presynapticPopulation="RMED">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMEL_RMEV_Generic_GJ" postsynapticPopulation="RMEV" presynapticPopulation="RMEL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMER_RMEV_Generic_GJ" postsynapticPopulation="RMEV" presynapticPopulation="RMER">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMEV_IL1DL_Generic_GJ" postsynapticPopulation="IL1DL" presynapticPopulation="RMEV">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMEV_IL1DR_Generic_GJ" postsynapticPopulation="IL1DR" presynapticPopulation="RMEV">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMEV_RMED_Generic_GJ" postsynapticPopulation="RMED" presynapticPopulation="RMEV">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMEV_RMEL_Generic_GJ" postsynapticPopulation="RMEL" presynapticPopulation="RMEV">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMEV_RMER_Generic_GJ" postsynapticPopulation="RMER" presynapticPopulation="RMEV">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGL_RMHL_Generic_GJ" postsynapticPopulation="RMHL" presynapticPopulation="RMGL">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_RMHR_Generic_GJ" postsynapticPopulation="RMHR" presynapticPopulation="RMGR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMHL_RMGL_Generic_GJ" postsynapticPopulation="RMGL" presynapticPopulation="RMHL">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMHR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="RMHR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMBDL_AVKR_Generic_GJ" postsynapticPopulation="AVKR" presynapticPopulation="SMBDL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMBDR_AVKR_Generic_GJ" postsynapticPopulation="AVKR" presynapticPopulation="SMBDR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMBVR_AVKR_Generic_GJ" postsynapticPopulation="AVKR" presynapticPopulation="SMBVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDDL_RMDDL_Generic_GJ" postsynapticPopulation="RMDDL" presynapticPopulation="SMDDL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDDR_RMDDR_Generic_GJ" postsynapticPopulation="RMDDR" presynapticPopulation="SMDDR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDDR_VD1_Generic_GJ" postsynapticPopulation="VD1" presynapticPopulation="SMDDR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDVL_RIVL_Generic_GJ" postsynapticPopulation="RIVL" presynapticPopulation="SMDVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDVL_RMDVL_Generic_GJ" postsynapticPopulation="RMDVL" presynapticPopulation="SMDVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDVL_SMDVR_Generic_GJ" postsynapticPopulation="SMDVR" presynapticPopulation="SMDVL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDVR_RIVR_Generic_GJ" postsynapticPopulation="RIVR" presynapticPopulation="SMDVR">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDVR_RMDVR_Generic_GJ" postsynapticPopulation="RMDVR" presynapticPopulation="SMDVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDVR_SMDVL_Generic_GJ" postsynapticPopulation="SMDVL" presynapticPopulation="SMDVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_SMDVR_VB1_Generic_GJ" postsynapticPopulation="VB1" presynapticPopulation="SMDVR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA1_DA2_Generic_GJ" postsynapticPopulation="DA2" presynapticPopulation="VA1">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA12_VB11_Generic_GJ" postsynapticPopulation="VB11" presynapticPopulation="VA12">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA2_VD1_Generic_GJ" postsynapticPopulation="VD1" presynapticPopulation="VA2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA2_VD2_Generic_GJ" postsynapticPopulation="VD2" presynapticPopulation="VA2">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA3_AS1_Generic_GJ" postsynapticPopulation="AS1" presynapticPopulation="VA3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA4_AS2_Generic_GJ" postsynapticPopulation="AS2" presynapticPopulation="VA4">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA4_DA5_Generic_GJ" postsynapticPopulation="DA5" presynapticPopulation="VA4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA5_AS3_Generic_GJ" postsynapticPopulation="AS3" presynapticPopulation="VA5">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA5_DA5_Generic_GJ" postsynapticPopulation="DA5" presynapticPopulation="VA5">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA7_AS5_Generic_GJ" postsynapticPopulation="AS5" presynapticPopulation="VA7">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA7_VB3_Generic_GJ" postsynapticPopulation="VB3" presynapticPopulation="VA7">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA8_AS6_Generic_GJ" postsynapticPopulation="AS6" presynapticPopulation="VA8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA8_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VA8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA8_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="VA8">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA8_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VA8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA8_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="VA8">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA8_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="VA8">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA8_VD8_Generic_GJ" postsynapticPopulation="VD8" presynapticPopulation="VA8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA9_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="VA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA9_PVCR_Generic_GJ" postsynapticPopulation="PVCR" presynapticPopulation="VA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA9_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="VA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA9_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="VA9">
-            <electricalConnection synapse="elec_syn_4conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_4conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VA9_VD7_Generic_GJ" postsynapticPopulation="VD7" presynapticPopulation="VA9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB1_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB1_DB2_Generic_GJ" postsynapticPopulation="DB2" presynapticPopulation="VB1">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB1_SMDVR_Generic_GJ" postsynapticPopulation="SMDVR" presynapticPopulation="VB1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB1_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB1">
-            <electricalConnection synapse="elec_syn_4conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_4conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB10_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB10">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB10_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB10">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB10_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="VB10">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB11_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB11">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB11_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB11">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB11_VA12_Generic_GJ" postsynapticPopulation="VA12" presynapticPopulation="VB11">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB2">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="VB2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_VB1_Generic_GJ" postsynapticPopulation="VB1" presynapticPopulation="VB2">
-            <electricalConnection synapse="elec_syn_4conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_4conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_VB3_Generic_GJ" postsynapticPopulation="VB3" presynapticPopulation="VB2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="VB2">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_VB7_Generic_GJ" postsynapticPopulation="VB7" presynapticPopulation="VB2">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB3_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB3_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="VB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB3_VA7_Generic_GJ" postsynapticPopulation="VA7" presynapticPopulation="VB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB3_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB3">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB4_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB4_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB4_DB1_Generic_GJ" postsynapticPopulation="DB1" presynapticPopulation="VB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB4_DB4_Generic_GJ" postsynapticPopulation="DB4" presynapticPopulation="VB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB4_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="VB4">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB5_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB5_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB5_VB4_Generic_GJ" postsynapticPopulation="VB4" presynapticPopulation="VB5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB5_VB6_Generic_GJ" postsynapticPopulation="VB6" presynapticPopulation="VB5">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB6_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB6">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB6_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB6">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB6_DA4_Generic_GJ" postsynapticPopulation="DA4" presynapticPopulation="VB6">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB6_VB5_Generic_GJ" postsynapticPopulation="VB5" presynapticPopulation="VB6">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB7_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB7">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB7_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB7">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB7_VB2_Generic_GJ" postsynapticPopulation="VB2" presynapticPopulation="VB7">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB8_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB8">
-            <electricalConnection synapse="elec_syn_7conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_7conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB8_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB8">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB8_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VB8">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB8_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="VB8">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB8_VB9_Generic_GJ" postsynapticPopulation="VB9" presynapticPopulation="VB8">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_AVBL_Generic_GJ" postsynapticPopulation="AVBL" presynapticPopulation="VB9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_AVBR_Generic_GJ" postsynapticPopulation="AVBR" presynapticPopulation="VB9">
-            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_6conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_DVB_Generic_GJ" postsynapticPopulation="DVB" presynapticPopulation="VB9">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_PVCL_Generic_GJ" postsynapticPopulation="PVCL" presynapticPopulation="VB9">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_VA8_Generic_GJ" postsynapticPopulation="VA8" presynapticPopulation="VB9">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_VA9_Generic_GJ" postsynapticPopulation="VA9" presynapticPopulation="VB9">
-            <electricalConnection synapse="elec_syn_4conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_4conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VB9_VB8_Generic_GJ" postsynapticPopulation="VB8" presynapticPopulation="VB9">
-            <electricalConnection synapse="elec_syn_3conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_3conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC1_VC2_Generic_GJ" postsynapticPopulation="VC2" presynapticPopulation="VC1">
-            <electricalConnection synapse="elec_syn_6conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_6conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC1_VC3_Generic_GJ" postsynapticPopulation="VC3" presynapticPopulation="VC1">
-            <electricalConnection synapse="elec_syn_2conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_2conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_VC1_VD1_Generic_GJ" postsynapticPopulation="VD1" presynapticPopulation="VC1">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <explicitInput input="offset_current" target="PVCL[0]"/>
         <explicitInput input="offset_current" target="PVCR[0]"/>

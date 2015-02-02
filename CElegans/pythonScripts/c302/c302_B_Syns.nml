@@ -44,10 +44,10 @@ Parameters and setting used to generate this network:
         <synapticConnection to="VB11[0]" synapse="inh_syn_1conns" destination="synapses" from="VD12[0]"/>
         <synapticConnection to="SMDDR[0]" synapse="exc_syn_1conns" destination="synapses" from="URYDL[0]"/>
         <electricalProjection id="NC_AIZL_ASHL_Generic_GJ" postsynapticPopulation="ASHL" presynapticPopulation="AIZL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_ASHL_AIZL_Generic_GJ" postsynapticPopulation="AIZL" presynapticPopulation="ASHL">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <explicitInput input="offset_current" target="AIZL[0]"/>
         <explicitInput input="offset_current" target="URYDL[0]"/>

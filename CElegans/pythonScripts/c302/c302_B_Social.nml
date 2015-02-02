@@ -61,52 +61,52 @@ Parameters and setting used to generate this network:
         <synapticConnection to="URXR[0]" synapse="exc_syn_1conns" destination="synapses" from="RMGR[0]"/>
         <synapticConnection to="RMGR[0]" synapse="exc_syn_1conns" destination="synapses" from="URXR[0]"/>
         <electricalProjection id="NC_ASHR_ASKR_Generic_GJ" postsynapticPopulation="ASKR" presynapticPopulation="ASHR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_ASHR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="ASHR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_ASKR_ASHR_Generic_GJ" postsynapticPopulation="ASHR" presynapticPopulation="ASKR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_ASKR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="ASKR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_AWBR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="AWBR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL2R_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="IL2R">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_IL2R_URXR_Generic_GJ" postsynapticPopulation="URXR" presynapticPopulation="IL2R">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_ASHR_Generic_GJ" postsynapticPopulation="ASHR" presynapticPopulation="RMGR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_ASKR_Generic_GJ" postsynapticPopulation="ASKR" presynapticPopulation="RMGR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_AWBR_Generic_GJ" postsynapticPopulation="AWBR" presynapticPopulation="RMGR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_IL2R_Generic_GJ" postsynapticPopulation="IL2R" presynapticPopulation="RMGR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_RMHR_Generic_GJ" postsynapticPopulation="RMHR" presynapticPopulation="RMGR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_URXR_Generic_GJ" postsynapticPopulation="URXR" presynapticPopulation="RMGR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_RMHR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="RMHR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_URXR_IL2R_Generic_GJ" postsynapticPopulation="IL2R" presynapticPopulation="URXR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <electricalProjection id="NC_URXR_RMGR_Generic_GJ" postsynapticPopulation="RMGR" presynapticPopulation="URXR">
-            <electricalConnection synapse="elec_syn_1conns" preCell="0" id="0" postCell="0"/>
+            <electricalConnection id="0" synapse="elec_syn_1conns" postCell="0" preCell="0"/>
         </electricalProjection>
         <explicitInput input="stim_RMGR" target="RMGR[0]"/>
         <explicitInput input="stim_ASHR" target="ASHR[0]"/>
