@@ -256,7 +256,9 @@ def generate(net_id,
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
     if params.level == "A" or params.level == "B":
-        nml_doc.iaf_cells.append(params.generic_cell)    
+        nml_doc.iaf_cells.append(params.generic_cell) 
+    elif params.level == "C":
+        nml_doc.cells.append(params.generic_cell) 
 
     net = Network(id=net_id)
 

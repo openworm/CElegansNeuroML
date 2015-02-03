@@ -15,6 +15,12 @@ python c302_Pharyngeal.py B
 python c302_Full.py B
 python c302_Muscles.py B
 
+python c302_Syns.py C
+python c302_Social.py C
+python c302_Pharyngeal.py C
+python c302_Full.py C
+python c302_Muscles.py C
+
 
 ## Validate generated NeuroML 2
 
@@ -22,6 +28,16 @@ jnml -validate c302_A_Full.nml
 jnml -validate c302_A_Pharyngeal.nml
 jnml -validate c302_A_Syns.nml
 jnml -validate c302_A_Social.nml
+jnml -validate c302_A_Muscles.nml
+
+# Not validating B files as they use non NeuroML 2 compliant IaFCell model with activity...
+
+jnml -validate c302_C_Full.nml
+jnml -validate c302_C_Pharyngeal.nml
+jnml -validate c302_C_Syns.nml
+jnml -validate c302_C_Social.nml
+jnml -validate c302_C_Muscles.nml
+
 
 
 ## Try running these in jNeuroML with no GUI
