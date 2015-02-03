@@ -1,18 +1,26 @@
 from c302 import generate
 import sys
 
+
 if __name__ == '__main__':
     
     parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
     
-    exec('import parameters_%s as params'%parameter_set)
+    exec('from parameters_%s import ParameterisedModel'%parameter_set)
+    params = ParameterisedModel()
+    
+    params.set_bioparameter("unphysiological_offset_current", "0.21nA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_del", "100 ms", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_dur", "200 ms", "Testing IClamp", "0")
+    
     
     my_cell = "ADAL"
     
-    cells = [my_cell]
-    cells_to_stimulate      = [my_cell]
+    cells               = [my_cell]
+    cells_to_stimulate  = [my_cell]
     
     reference = "c302_%s_IClamp"%parameter_set
+    
     
     generate(reference, 
              params, 

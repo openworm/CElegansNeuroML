@@ -17,7 +17,6 @@ from neuroml import Property
 
 import neuroml.writers as writers
 import neuroml.loaders as loaders
-from bioparameters import bioparameter_info
 
 import airspeed
 
@@ -243,6 +242,8 @@ def generate(net_id,
              seed = 1234,
              validate=True, test=False):
 
+    params.create_models()
+    
     random.seed(seed)
 
     info = "\n\nParameters and setting used to generate this network:\n\n"+\
@@ -251,7 +252,7 @@ def generate(net_id,
            "    Connection numbers overridden: %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
            "    Connection numbers scaled:     %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+\
            "    Include muscles:               %s\n" % include_muscles
-    info += "\n%s\n"%(bioparameter_info("    "))
+    info += "\n%s\n"%(params.bioparameter_info("    "))
 
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
@@ -682,8 +683,9 @@ def parse_dict_arg(dict_arg):
 def main():
 
     args = process_args()
-
-    exec("import %s as params"%args.parameters)
+    
+    exec('from %s import ParameterisedModel'%args.parameters)
+    params = ParameterisedModel()
 
     generate(args.reference,
              params,

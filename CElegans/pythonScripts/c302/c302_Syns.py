@@ -5,7 +5,8 @@ if __name__ == '__main__':
     
     parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
     
-    exec('import parameters_%s as params'%parameter_set)
+    exec('from parameters_%s import ParameterisedModel'%parameter_set)
+    params = ParameterisedModel()
     
     exc_pre = "URYDL"
     exc_post = "SMDDR"

@@ -1,9 +1,9 @@
-from neuroml import IafCell
+
 from neuroml import ExpTwoSynapse
 from neuroml import GapJunction
 from neuroml import PulseGenerator
 
-from bioparameters import BioParameter
+from bioparameters import c302ModelPrototype
 
 '''
 
@@ -22,33 +22,77 @@ from bioparameters import BioParameter
 
 '''
 
-level = "B"
+class ParameterisedModel(c302ModelPrototype):
+
+    def __init__(self):
+        self.level = "B"
+        self.set_default_bioparameters()
+
+    def set_default_bioparameters(self):
+
+        self.add_bioparameter("iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_reset", "-50mV", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_thresh", "-30mV", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_C", "0.1nF", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_conductance", "0.01uS", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_tau1", "50ms", "BlindGuess", "0.1")
 
 
-iaf_leak_reversal =     BioParameter("iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
-iaf_reset =             BioParameter("iaf_reset", "-50mV", "BlindGuess", "0.1")
-iaf_thresh =            BioParameter("iaf_thresh", "-30mV", "BlindGuess", "0.1")
-iaf_C =                 BioParameter("iaf_C", "0.1nF", "BlindGuess", "0.1")
-iaf_conductance =       BioParameter("iaf_conductance", "0.01uS", "BlindGuess", "0.1")
-iaf_tau1 =              BioParameter("iaf_tau1", "50ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_gbase", "0.4nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_erev", "0mV", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_rise", "1ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_decay", "10ms", "BlindGuess", "0.1")
+
+        self.add_bioparameter("chem_inh_syn_gbase", "1nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_erev", "-55mV", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_rise", "2ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_decay", "40ms", "BlindGuess", "0.1")
+
+        self.add_bioparameter("elec_syn_gbase", "0.3nS", "BlindGuess", "0.1")
 
 
-chem_exc_syn_gbase =       BioParameter("chem_exc_syn_gbase", "0.4nS", "BlindGuess", "0.1")
-chem_exc_syn_erev =        BioParameter("chem_exc_syn_erev", "0mV", "BlindGuess", "0.1")
-chem_exc_syn_rise =        BioParameter("chem_exc_syn_rise", "1ms", "BlindGuess", "0.1")
-chem_exc_syn_decay =       BioParameter("chem_exc_syn_decay", "10ms", "BlindGuess", "0.1")
+        self.add_bioparameter("unphysiological_offset_current", "0.35nA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current_del", "0ms", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current_dur", "2000ms", "KnownError", "0")
+        
+        
 
-chem_inh_syn_gbase =       BioParameter("chem_inh_syn_gbase", "1nS", "BlindGuess", "0.1")
-chem_inh_syn_erev =        BioParameter("chem_inh_syn_erev", "-55mV", "BlindGuess", "0.1")
-chem_inh_syn_rise =        BioParameter("chem_inh_syn_rise", "2ms", "BlindGuess", "0.1")
-chem_inh_syn_decay =       BioParameter("chem_inh_syn_decay", "40ms", "BlindGuess", "0.1")
-
-elec_syn_gbase =       BioParameter("elec_syn_gbase", "0.3nS", "BlindGuess", "0.1")
+    def create_models(self):
 
 
-unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.35nA", "KnownError", "0")
-unphysiological_offset_current_del = BioParameter("unphysiological_offset_current_del", "0ms", "KnownError", "0")
-unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "2000ms", "KnownError", "0")
+        self.generic_cell = IafActivityCell(id="generic_iaf_cell", 
+                                    C =                 self.get_bioparameter("iaf_C").value,
+                                    thresh =            self.get_bioparameter("iaf_thresh").value,
+                                    reset =             self.get_bioparameter("iaf_reset").value,
+                                    leak_conductance =  self.get_bioparameter("iaf_conductance").value,
+                                    leak_reversal =     self.get_bioparameter("iaf_leak_reversal").value,
+                                    tau1 =              self.get_bioparameter("iaf_tau1").value)
+
+
+        self.exc_syn = ExpTwoSynapse(id="exc_syn",
+                                gbase =         self.get_bioparameter("chem_exc_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_exc_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_exc_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_exc_syn_rise").value)
+
+
+        self.inh_syn = ExpTwoSynapse(id="inh_syn",
+                                gbase =         self.get_bioparameter("chem_inh_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_inh_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_inh_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_inh_syn_rise").value)
+                      
+                                
+        self.elec_syn = GapJunction(id="elec_syn",
+                                conductance =    self.get_bioparameter("elec_syn_gbase").value)
+
+
+        self.offset_current = PulseGenerator(id="offset_current",
+                                delay= self.get_bioparameter("unphysiological_offset_current_del").value,
+                                duration= self.get_bioparameter("unphysiological_offset_current_dur").value,
+                                amplitude= self.get_bioparameter("unphysiological_offset_current").value)
+                        
+                        
 
 class IafActivityCell():
     
@@ -67,33 +111,3 @@ class IafActivityCell():
     def export(self, outfile, level, namespace, name_, pretty_print=True):
         outfile.write('    '*level + '<iafCell type="iafActivityCell" id="%s" C="%s" thresh="%s" reset="%s" leakConductance="%s" leakReversal="%s" tau1="%s"/>\n'%(self.id, self.C, self.thresh, self.reset, self.leak_conductance, self.leak_reversal, self.tau1))
 
-generic_cell = IafActivityCell(id = "generic_iaf_cell",
-                            C =                 iaf_C.value,
-                            thresh =            iaf_thresh.value,
-                            reset =             iaf_reset.value,
-                            leak_conductance =  iaf_conductance.value,
-                            leak_reversal =     iaf_leak_reversal.value,
-                            tau1 =              iaf_tau1.value)
-
-
-exc_syn = ExpTwoSynapse(id="exc_syn",
-                        gbase =         chem_exc_syn_gbase.value,
-                        erev =          chem_exc_syn_erev.value,
-                        tau_decay =     chem_exc_syn_decay.value,
-                        tau_rise =      chem_exc_syn_rise.value)
-    
-
-inh_syn = ExpTwoSynapse(id="inh_syn",
-                        gbase =         chem_inh_syn_gbase.value,
-                        erev =          chem_inh_syn_erev.value,
-                        tau_decay =     chem_inh_syn_decay.value,
-                        tau_rise =      chem_inh_syn_rise.value)
-
-elec_syn = GapJunction(id="elec_syn",
-                       conductance =    elec_syn_gbase.value)
-
-
-offset_current = PulseGenerator(id="offset_current",
-                        delay=unphysiological_offset_current_del.value,
-                        duration=unphysiological_offset_current_dur.value,
-                        amplitude=unphysiological_offset_current.value)
