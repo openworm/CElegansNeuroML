@@ -1,0 +1,179 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.7.3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.neuroml.org/lems/0.7.3 https://raw.githubusercontent.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.7.3.xsd"
+      description="A new simple cell type for c302">
+
+    <Include file="NeuroMLCoreDimensions.xml"/>
+    <Include file="Cells.xml"/>
+    
+    <!--
+    
+    Parameters C for c302 still under developemnt!!
+    
+    Subject to hange without notice!!
+    
+    -->
+    
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
+    
+    <ionChannel id="Leak" conductance="10pS" type="ionChannelPassive"/>
+    
+    <ionChannel id="ca_boyle" conductance="10pS" type="ionChannelHH" species="ca">
+
+        <notes>Ca channel from Boyle and Cohen 2008</notes>
+
+        <gateHHtauInf id="e" instances="2">
+
+            <timeCourse type="fixedTimeCourse" tau="0.100027 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="6.74821 mV" midpoint="-3.3568 mV"/>
+
+        </gateHHtauInf>
+
+        <gateHHtauInf id="f" instances="1">
+
+            <timeCourse type="fixedTimeCourse" tau="150.88 ms"/>
+            
+            <!-- Note!!! 
+
+                f gate is "inactivation" a/c B&C 2008 p172 
+                but the scale value from Table A1 (kf) is positive (5mV), i.e. steady 
+                state is zero for v << midpoint and 1 for v >> midpoint 
+                Couple this with a very slow time course & the ion channel never 
+                conducts as e^2 x f is always ~0 
+
+                Using -5.03176mV NOT 5mV for k/scale to make this INACTIVATION 
+                
+                This is suggested by the value used here:
+                https://github.com/openworm/muscle_model/blob/master/BoyleCohen2008/MatlabSupport/Main_Version/data/input.csv#L20
+                
+                see also
+                https://github.com/openworm/muscle_model/blob/master/BoyleCohen2008/PythonSupport/Main_Version/compareToNeuroML2.py
+            -->
+            <steadyState type="HHSigmoidVariable" rate="1" scale="-5.03176 mV" midpoint="25.1815 mV"/>
+
+        </gateHHtauInf>
+
+        <customHGate id="h" instances="1" alpha="0.282473" ca_half="6.41889e-8 mM" k="-1.00056e-8 mM"/>
+
+    </ionChannel>
+
+
+    <ComponentType name="customHGate"
+                   extends="gateHHtauInf"
+                   description="Custom gate for h">
+
+        <Parameter name="alpha" dimension="none"/>
+        <Parameter name="k" dimension="concentration"/>
+        <Parameter name="ca_half" dimension="concentration"/>
+
+
+        <Constant name="SEC" dimension="time" value="1s"/>
+
+
+        <Exposure name="tau" dimension="time"/>
+        <Exposure name="inf" dimension="none"/>
+
+        <Requirement name="caConc" dimension="concentration"/>
+
+        <Dynamics>
+
+            <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" value="1"/>
+
+            <DerivedVariable name="inf" dimension="none" exposure="inf" value="1 / (1 + (exp( (ca_half - caConc) / k)))"/>
+
+
+            <DerivedVariable name="tau" dimension="time" exposure="tau" value="0 * SEC"/>
+            <DerivedVariable name="q" exposure="q" dimension="none" value="inf"/>
+            <DerivedVariable name="fcond" exposure="fcond" dimension="none" value="1 +((q-1) * alpha)"/>
+
+        </Dynamics>
+    </ComponentType>
+    
+    
+    
+    <ionChannel id="k_fast" conductance="10pS" type="ionChannelHH" species="k">
+
+        <notes>K fast channel from Boyle and Cohen 2008</notes>
+
+        <gateHHtauInf id="p" instances="4">
+
+            <timeCourse type="fixedTimeCourse" tau="2.25518 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="7.42636 mV" midpoint="-8.05232 mV"/>
+
+        </gateHHtauInf>
+        
+        <gateHHtauInf id="q" instances="1">
+
+            <timeCourse type="fixedTimeCourse" tau="149.963 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="-9.97468 mV" midpoint="-15.6456 mV"/>
+
+        </gateHHtauInf>
+
+    </ionChannel>
+    
+    
+    <ionChannel id="k_slow" conductance="10pS" type="ionChannelHH" species="k">
+
+        <notes>K slow channel from Boyle and Cohen 2008</notes>
+
+        <gateHHtauInf id="n" instances="1">
+
+            <timeCourse type="fixedTimeCourse" tau="25.0007 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="15.8512 mV" midpoint="19.8741 mV"/>
+            
+        </gateHHtauInf>
+        
+    </ionChannel>
+    
+    
+    <cell id="SingleCompMuscleCell">
+
+        <notes>Only muscle cell body...</notes>
+
+        <morphology id="morphology_SingleCompMuscleCell">
+
+            <segment id="0" name="Body">
+                <proximal x="0.0" y="0.0" z="0.0" diameter="10"/>
+                <distal x="0.0" y="0.0" z="230.3459" diameter="10"/>
+            </segment>
+
+        </morphology>
+
+
+        <biophysicalProperties id="biophys">
+
+            <membraneProperties>
+
+                <channelDensity condDensity="0.0193181 mS_per_cm2" id="Leak_all" ionChannel="Leak" erev="10 mV" ion="non_specific"/>
+
+                <channelDensity condDensity="0.43584 mS_per_cm2" id="k_slow_all" ionChannel="k_slow" erev="-64.3461 mV" ion="k"/>
+
+                <channelDensity condDensity="0.399994 mS_per_cm2" id="k_fast_all" ionChannel="k_fast" erev="-54.9998 mV" ion="k"/>
+
+                <channelDensity condDensity="0.220209 mS_per_cm2" id="ca_boyle_all" ionChannel="ca_boyle" erev="49.11 mV" ion="ca"/>
+
+                <spikeThresh value="0 mV"/>
+
+                <specificCapacitance value="1 uF_per_cm2"/>
+
+                <initMembPotential value="-75 mV"/>
+
+            </membraneProperties>
+
+            <intracellularProperties>
+                
+                <species id="ca" 
+                         ion="ca" 
+                         concentrationModel="CaPool" 
+                         initialConcentration="0 mM" 
+                         initialExtConcentration="2E-6 mol_per_cm3"/>  <!-- Ext conc is not used here -->
+
+                <resistivity value="0.1 kohm_cm"/>
+
+            </intracellularProperties>
+
+        </biophysicalProperties>
+
+    </cell>
+    
+</Lems>

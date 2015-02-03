@@ -255,7 +255,8 @@ def generate(net_id,
 
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
-    nml_doc.iaf_cells.append(params.generic_cell)
+    if params.level == "A" or params.level == "B":
+        nml_doc.iaf_cells.append(params.generic_cell)    
 
     net = Network(id=net_id)
 
@@ -300,6 +301,9 @@ def generate(net_id,
 
     if hasattr(params.generic_cell, 'custom_component_type_definition'):
         lems_info["includes"].append(params.generic_cell.custom_component_type_definition)
+    
+    if params.level == "C":
+        lems_info["includes"].append("cell_C.xml")
 
     backers_dir = "../../../../OpenWormBackers/" if test else "../../../OpenWormBackers/"
     sys.path.append(backers_dir)

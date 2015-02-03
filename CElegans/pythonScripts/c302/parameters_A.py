@@ -21,6 +21,7 @@ from bioparameters import BioParameter
 
 '''
 
+level = "A"
 
 
 iaf_leak_reversal =     BioParameter("iaf_leak_reversal", "-70mV", "BlindGuess", "0.1")
