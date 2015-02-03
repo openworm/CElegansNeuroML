@@ -47,6 +47,7 @@ elec_syn_gbase =       BioParameter("elec_syn_gbase", "0.3nS", "BlindGuess", "0.
 
 
 unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.35nA", "KnownError", "0")
+unphysiological_offset_current_del = BioParameter("unphysiological_offset_current_del", "0ms", "KnownError", "0")
 unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "2000ms", "KnownError", "0")
 
 class IafActivityCell():
@@ -93,6 +94,6 @@ elec_syn = GapJunction(id="elec_syn",
 
 
 offset_current = PulseGenerator(id="offset_current",
-                        delay="0ms",
+                        delay=unphysiological_offset_current_del.value,
                         duration=unphysiological_offset_current_dur.value,
                         amplitude=unphysiological_offset_current.value)

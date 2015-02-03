@@ -48,6 +48,7 @@ elec_syn_decay =       BioParameter("elec_syn_decay", "10ms", "BlindGuess", "0.1
 
 
 unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.21nA", "KnownError", "0")
+unphysiological_offset_current_del = BioParameter("unphysiological_offset_current_del", "0ms", "KnownError", "0")
 unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "200ms", "KnownError", "0")
 
 
@@ -80,6 +81,6 @@ elec_syn = ExpTwoSynapse(id="elec_syn",
 
 
 offset_current = PulseGenerator(id="offset_current",
-                        delay="0ms",
+                        delay=unphysiological_offset_current_del.value,
                         duration=unphysiological_offset_current_dur.value,
                         amplitude=unphysiological_offset_current.value)

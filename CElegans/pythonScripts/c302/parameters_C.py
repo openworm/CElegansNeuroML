@@ -38,14 +38,14 @@ level = "C"
 cell_length =              BioParameter("cell_length", "230.3459", "BlindGuess", "0.1")
 cell_diameter =            BioParameter("cell_diameter", "10", "BlindGuess", "0.1")
 
-initial_memb_pot =         BioParameter("initial_memb_pot", "-75 mV", "BlindGuess", "0.1")
+initial_memb_pot =         BioParameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
 
 specific_capacitance =     BioParameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
-spike_thresh =             BioParameter("spike_thresh", "0 mV", "BlindGuess", "0.1")
+spike_thresh =             BioParameter("spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
 leak_cond_density =        BioParameter("leak_cond_density", "0.0193181 mS_per_cm2", "BlindGuess", "0.1")
-leak_erev =                BioParameter("leak_erev", "10 mV", "BlindGuess", "0.1")
+leak_erev =                BioParameter("leak_erev", "-40 mV", "BlindGuess", "0.1")
 
 k_slow_cond_density =      BioParameter("k_slow_cond_density", "0.43584 mS_per_cm2", "BlindGuess", "0.1")
 k_slow_erev =              BioParameter("k_slow_erev", "-64.3461 mV", "BlindGuess", "0.1")
@@ -69,8 +69,9 @@ chem_inh_syn_decay =       BioParameter("chem_inh_syn_decay", "40ms", "BlindGues
 
 elec_syn_gbase =           BioParameter("elec_syn_gbase", "0.3nS", "BlindGuess", "0.1")
 
-unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.035nA", "KnownError", "0")
-unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "20ms", "KnownError", "0")
+unphysiological_offset_current = BioParameter("unphysiological_offset_current", "0.15nA", "KnownError", "0")
+unphysiological_offset_current_del = BioParameter("unphysiological_offset_current_del", "100ms", "KnownError", "0")
+unphysiological_offset_current_dur = BioParameter("unphysiological_offset_current_dur", "200ms", "KnownError", "0")
 
 
 
@@ -161,6 +162,6 @@ elec_syn = GapJunction(id="elec_syn",
 
 
 offset_current = PulseGenerator(id="offset_current",
-                        delay="0ms",
+                        delay=unphysiological_offset_current_del.value,
                         duration=unphysiological_offset_current_dur.value,
                         amplitude=unphysiological_offset_current.value)
