@@ -24,6 +24,8 @@ from c302 import generate
 
 class C302Simulation(object):
 
+    target_cell = 'ADAL'
+    params = None
 
     def __init__(self, reference, parameter_set, sim_time=1000, dt=0.05):
 
@@ -31,23 +33,11 @@ class C302Simulation(object):
         self.dt = dt
         self.go_already = False
         
-        cells = ['ADAL']
-        
         exec('from parameters_%s import ParameterisedModel'%parameter_set)
-        params = ParameterisedModel()
+        self.params = ParameterisedModel()
         
-        generate(reference, 
-             params, 
-             cells=cells, 
-             cells_to_stimulate=cells, 
-             duration=sim_time, 
-             dt=dt, 
-             vmin=-72 if parameter_set=='A' else -52, 
-             vmax=-48 if parameter_set=='A' else -28,
-             validate=(parameter_set!='B'))
-             
-        self.lems_file = "LEMS_%s.xml"%(reference)
-
+        self.reference = reference
+        
 
 
     def show(self):
@@ -69,21 +59,39 @@ class C302Simulation(object):
         else:
             print("""First you have to `go()` the simulation.""")
         plt.show()
+        
     
     def go(self):
         """
         Start the simulation once it's been intialized
         """
+        
+        cells = [self.target_cell]
+        
 
+        self.params.set_bioparameter("unphysiological_offset_current", "0.21nA", "Testing IClamp", "0")
+        self.params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing IClamp", "0")
+        self.params.set_bioparameter("unphysiological_offset_current_dur", "%f ms"%self.sim_time, "Testing IClamp", "0")
+        
+        generate(self.reference, 
+             self.params, 
+             cells=cells, 
+             cells_to_stimulate=cells, 
+             duration=self.sim_time, 
+             dt=self.dt, 
+             vmin=-72 if self.params.level=='A' else -52, 
+             vmax=-48 if self.params.level=='A' else -28,
+             validate=(self.params.level!='B'))
+             
+        self.lems_file = "LEMS_%s.xml"%(self.reference)
+        
         print("Running a simulation of %s ms with timestep %s ms"%(self.sim_time, self.dt))
         
         self.go_already = True
-
-
-        pynml.run_lems_with_jneuroml(self.lems_file, nogui=True)
+        results = pynml.run_lems_with_jneuroml(self.lems_file, nogui=True, load_saved_data=True)
         
-        self.rec_t = [0,1,2,3,4,5]
-        self.rec_v = [0,.1,.2,.3,.4,.5]
+        self.rec_t = results['neurons_v']['t']
+        self.rec_v = results['neurons_v']['%s_v'%self.target_cell]
         
 
 class C302Controller():
@@ -122,44 +130,10 @@ class C302Controller():
         Simulation object (see Simulation class above).
 
         """
-
-        #make compartments and connect them
-        soma=h.Section()
-        axon=h.Section()
-        soma.connect(axon)
     
-        axon.insert('na')
-        axon.insert('kv')
-        axon.insert('kv_3')
-        soma.insert('na')
-        soma.insert('kv')
-        soma.insert('kv_3')
-    
-        soma.diam=10
-        soma.L=10
-        axon.diam=2
-        axon.L=100
-    
-        #soma.insert('canrgc')
-        #soma.insert('cad2')
-    
-        self.set_section_mechanism(axon,'na','gbar',sim_var['axon_gbar_na'])
-        self.set_section_mechanism(axon,'kv','gbar',sim_var['axon_gbar_kv'])
-        self.set_section_mechanism(axon,'kv_3','gbar',sim_var['axon_gbar_kv3'])
-        self.set_section_mechanism(soma,'na','gbar',sim_var['soma_gbar_na'])
-        self.set_section_mechanism(soma,'kv','gbar',sim_var['soma_gbar_kv'])
-        self.set_section_mechanism(soma,'kv_3','gbar',sim_var['soma_gbar_kv3'])
-    
-        for sec in h.allsec():
-            sec.insert('pas')
-            sec.Ra=300
-            sec.cm=0.75
-            self.set_section_mechanism(sec,'pas','g',1.0/30000)
-            self.set_section_mechanism(sec,'pas','e',-70)
-    
-        h.vshift_na=-5.0
-        sim=Simulation(soma,sim_time=1000,v_init=-70.0)
-        sim.set_IClamp(150, 0.1, 750)
+        
+        sim=C302Simulation('SimpleTest', 'A')
+        
         sim.go()
 
         if show:
@@ -172,6 +146,72 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 2:
         if sys.argv[1] == '-sim':
-            sim = C302Simulation('SimpleTest', 'C')
+            sim = C302Simulation('SimpleTest', 'A')
             sim.go()
             sim.show()
+        if sys.argv[1] == '-cont':
+            
+            my_controller = C302Controller()
+            
+            parameters = ['iaf_leak_reversal',
+                  'iaf_reset',
+                  'iaf_thresh',
+                  'iaf_C',
+                  'iaf_conductance']
+    
+            #above parameters will not be modified outside these bounds:
+            min_constraints = [-80, -80, -60, 0.1, 0.005]
+            max_constraints = [-50, -50, -20, 2, 0.02]
+            
+            analysis_var={'peak_delta':1,'baseline':0,'dvdt_threshold':2}
+
+            weights={'average_minimum': 1.0,
+                     'spike_frequency_adaptation': 1.0,
+                     'trough_phase_adaptation': 1.0,
+                     'mean_spike_frequency': 1.0,
+                     'average_maximum': 1.0,
+                     'trough_decay_exponent': 1.0,
+                     'interspike_time_covar': 1.0,
+                     'min_peak_no': 1.0,
+                     'spike_broadening': 1.0,
+                     'spike_width_adaptation': 1.0,
+                     'max_peak_no': 1.0,
+                     'first_spike_time': 1.0,
+                     'peak_decay_exponent': 1.0,
+                     'pptd_error':1.0}
+                     
+            data = 'SimpleTest.dat'
+            
+            sim_var = {}
+            
+            surrogate_t, surrogate_v = my_controller.run_individual(sim_var,show=False)
+            
+
+            analysis_var={'peak_delta':1e-4,'baseline':0,'dvdt_threshold':0.0}
+
+            surrogate_analysis=analysis.IClampAnalysis(surrogate_v,
+                                                       surrogate_t,
+                                                       analysis_var,
+                                                       start_analysis=0,
+                                                       end_analysis=900,
+                                                       smooth_data=False,
+                                                       show_smoothed_data=True)
+                                                       
+            '''
+
+            # The output of the analysis will serve as the basis for model optimization:
+            surrogate_targets = surrogate_analysis.analyse()
+                     
+
+            #make an evaluator, using automatic target evaluation:
+            my_evaluator=evaluators.IClampEvaluator(controller=my_controller,
+                                                    analysis_start_time=0,
+                                                    analysis_end_time=900,
+                                                    target_data_path=data,
+                                                    parameters=parameters,
+                                                    analysis_var=analysis_var,
+                                                    weights=weights,
+                                                    targets=targets,
+                                                    automatic=False)
+                                                    '''
+            
