@@ -28,6 +28,7 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 0.35nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
 
    

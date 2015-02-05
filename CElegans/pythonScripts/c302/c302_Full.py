@@ -4,7 +4,8 @@ import sys
 if __name__ == '__main__':
     
     parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
-    exec('import parameters_%s as params'%parameter_set)
+    exec('from parameters_%s import ParameterisedModel'%parameter_set)
+    params = ParameterisedModel()
     
     # Some random set of neurons
     cells_to_stimulate = ["ADAL", "ADAR", "M1","M2L","M3L","M3R","M4","I1R","I2L","I5","I6","MI","NSMR","MCL","ASEL", "AVEL", "AWAR", "DB1", "DVC", "RIAR", "RMDDL"]

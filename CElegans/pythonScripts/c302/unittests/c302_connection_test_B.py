@@ -14,7 +14,9 @@ import SpreadsheetDataReader
 
 sys.path.append("..")
 from c302 import generate
-import parameters_B as params
+
+from parameters_B import ParameterisedModel
+params = ParameterisedModel()
 
 import neuroml.loaders as loaders
 
