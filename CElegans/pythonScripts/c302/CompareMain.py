@@ -2,6 +2,7 @@ __author__ = 'Ari'
 
 from operator import itemgetter
 import xlrd
+import os
 
 def comparitor(file1, file2):
 
@@ -217,8 +218,12 @@ def typeMapping(cols1, cols2, indexName1, indexName2):
 
 
 if __name__ == '__main__':
-    file1 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\book1.txt"
-    file2 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\book2.txt"
-    xfile1 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\CElegansNeuroML\\CElegansNeuronTables.xls"
-    xfile2 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\CElegansNeuroML\\NeuronConnectFormatted.xlsx"
-    comparitor(xfile1,xfile2)
+    dir = os.path.dirname(__file__)
+    file1 = os.path.join(dir, "../../../CElegansNeuronTables.xls")
+    file2 = os.path.join(dir, "../../../NeuronConnectFormatted.xlsx")
+
+    # file1 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\book1.txt"
+    # file2 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\book2.txt"
+    # xfile1 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\CElegansNeuroML\\CElegansNeuronTables.xls"
+    # xfile2 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\CElegansNeuroML\\NeuronConnectFormatted.xlsx"
+    comparitor(file1,file2)
