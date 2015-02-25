@@ -88,10 +88,13 @@ class C302Simulation(object):
         print("Running a simulation of %s ms with timestep %s ms"%(self.sim_time, self.dt))
         
         self.go_already = True
-        results = pynml.run_lems_with_jneuroml(self.lems_file, nogui=True, load_saved_data=True)
+        results = pynml.run_lems_with_jneuroml(self.lems_file, nogui=True, load_saved_data=True, plot=False)
         
-        self.rec_t = results['neurons_v']['t']
-        self.rec_v = results['neurons_v']['%s_v'%self.target_cell]
+        self.rec_t = results['t']
+        res_template = '%s/0/generic_iaf_cell/v'
+        if self.params.level == 'C' or self.params.level == 'D':
+            res_template = '%s[0]/v'
+        self.rec_v = results[res_template%self.target_cell]
         
 
 class C302Controller():
@@ -118,7 +121,7 @@ class C302Controller():
 
         print("Setting %s = %s"%(name, value))
     
-    def run_individual(self,sim_var,show=False):
+    def run_individual(self, sim_var, show=False):
         """
         Run an individual simulation.
 
@@ -130,12 +133,11 @@ class C302Controller():
         Simulation object (see Simulation class above).
 
         """
-    
         
         sim=C302Simulation('SimpleTest', 'A')
         
         sim.go()
-
+        
         if show:
             sim.show()
     
@@ -145,10 +147,12 @@ class C302Controller():
 if __name__ == '__main__':
 
     if len(sys.argv) == 2:
+        
         if sys.argv[1] == '-sim':
             sim = C302Simulation('SimpleTest', 'A')
             sim.go()
             sim.show()
+            
         if sys.argv[1] == '-cont':
             
             my_controller = C302Controller()
@@ -184,10 +188,11 @@ if __name__ == '__main__':
             
             sim_var = {}
             
-            surrogate_t, surrogate_v = my_controller.run_individual(sim_var,show=False)
+            surrogate_t, surrogate_v = my_controller.run_individual(sim_var, show=False)
             
+            print("Have run individual instance...")
 
-            analysis_var={'peak_delta':1e-4,'baseline':0,'dvdt_threshold':0.0}
+            analysis_var={'peak_delta':1e-4,'baseline':-70,'dvdt_threshold':0.0}
 
             surrogate_analysis=analysis.IClampAnalysis(surrogate_v,
                                                        surrogate_t,
@@ -195,7 +200,11 @@ if __name__ == '__main__':
                                                        start_analysis=0,
                                                        end_analysis=900,
                                                        smooth_data=False,
-                                                       show_smoothed_data=True)
+                                                       show_smoothed_data=False)
+                                                       
+            surrogate_targets = surrogate_analysis.analyse()
+            
+            print(surrogate_targets)
                                                        
             '''
 
