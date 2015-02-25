@@ -1,17 +1,15 @@
-c302: simple NeuroML based network models of C elegans
-------------------------------------------------------
+
+![c302 structure](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/c302.png)
 
 *NOTE: Still a work in progress!!* 
 
-This is an experimental set of files for generating network models in NeuroML 2 based on C elegans connectivity data.
+c302 is an experimental framework for generating network models in NeuroML 2 based on C elegans connectivity data.
 
 It uses information on the synaptic connectivity of the network (from 
 [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegansNeuronTables.xls)) and uses 
 [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) to generate 
 a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/NeuroML/jNeuroML).
 
-
-![c302 structure](https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/c302.png)
 
 ### Multiple versions of the network
 
