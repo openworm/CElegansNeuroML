@@ -1,7 +1,7 @@
 C. elegans models in NeuroML and neuroConstruct
 ==============================================
 
-This repository contains a neuroConstruct (http://www.neuroConstruct.org) project containing a model of the c. elegans nervous system, see [here](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans).
+This repository contains a neuroConstruct (http://www.neuroConstruct.org) project containing a model of the *C. elegans* nervous system, see [here](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans).
 
 The NeuroML files are available under the directories [generatedNeuroML](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML), and [generatedNeuroML2](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML).
 
