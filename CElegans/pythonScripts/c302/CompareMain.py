@@ -4,15 +4,13 @@ from operator import itemgetter
 import xlrd
 import os
 
-def comparitor(file1, file2):
+def comparitor(fName1, fName2):
 
-    # Open .txt files, read, place data in dictionary, and close files.
-    # fileIn1 = open(file1,"r")
-    # cols1, indexName1 = getColumnsXls(fileIn1)
-    # fileIn1.close()
-    # fileIn2 = open(file2,"r")
-    # cols2, indexName2 = getColumns(fileIn2)
-    # fileIn2.close()
+    path1 = "../../../" + fName1
+    path2 = "../../../" + fName2
+    dir = os.path.dirname(__file__)
+    file1 = os.path.join(dir, path1)
+    file2 = os.path.join(dir, path2)
 
     # read .xls files, place data in dictionary.
     cols1, indexName1 = getColumnsXls(file1)
@@ -27,24 +25,17 @@ def comparitor(file1, file2):
     # Create column with matching values, while removing those values from original lists.
     matches, col1, col2 = matchLists(cols1, cols2, indexName1, indexName2)
 
-    # Print information about matching pairs in the two lists
-    print matches[indexName2[0]]
-    print matches[indexName2[1]]
-    print matches[indexName2[2]]
-    print matches[indexName2[3]]
-    print len(matches[indexName2[0]]), len(matches[indexName2[1]]), len(matches[indexName2[2]]), len(matches[indexName2[3]])
-    # Print the remainder of the longer list after matched pairs are removed
-    print col1[indexName2[0]]
-    print col1[indexName2[1]]
-    print col1[indexName2[2]]
-    print col1[indexName2[3]]
-    print len(col1[indexName2[0]]), len(col1[indexName2[1]]), len(col1[indexName2[2]]), len(col1[indexName2[3]])
-    # Print the remainder of the shorter list after matched pairs are removed
-    print col2[indexName1[0]]
-    print col2[indexName1[1]]
-    print col2[indexName1[2]]
-    print col2[indexName1[3]]
-    print len(col2[indexName1[0]]), len(col2[indexName1[1]]), len(col2[indexName1[2]]), len(col2[indexName1[3]])
+    # Print results. Give number of pairs that are matched, remained from unmatched files, and associated pairs.
+    print "Number of matching pairs: " + str(len(matches[indexName2[0]]))
+    for p in range(len(matches[indexName2[0]])):
+        print str(matches[indexName2[0]][p])+" -> "+str(matches[indexName2[1]][p])+" ("+str(matches[indexName2[2]][p])+", "+str(matches[indexName2[3]][p])+")"
+    print "\nNumber of pairs unmatched in " + fName1 + " is: " + str(len(col1[indexName2[0]]))
+    for p in range(len(col1[indexName2[0]])):
+        print str(col1[indexName2[0]][p])+" -> "+str(col1[indexName2[1]][p])+" ("+str(col1[indexName2[2]][p])+", "+str(col1[indexName2[3]][p])+")"
+    print "\nNumber of pairs unmatched in " + fName2 + " is: " + str(len(col2[indexName1[0]]))
+    for p in range(len(col2[indexName1[0]])):
+        print str(col2[indexName1[0]][p])+" -> "+str(col2[indexName1[1]][p])+" ("+str(col2[indexName1[2]][p])+", "+str(col2[indexName1[3]][p])+")"
+
 
 # Get columns from .txt files
 def getColumns(fileIn, delim = "\t", header = True):
@@ -86,7 +77,7 @@ def getColumnsXls(fileIn):
     for c in range(4):
         indexName[c] = str(worksheet.cell_value(curr_row, c))
         cols[indexName[c]] = []
-        print indexName[c]
+        # print indexName[c]
     while curr_row < num_rows:
         curr_row += 1
         row = worksheet.row(curr_row)
@@ -216,14 +207,12 @@ def typeMapping(cols1, cols2, indexName1, indexName2):
     type2 = cols2[indexName2[2]]
 
 
-
 if __name__ == '__main__':
-    dir = os.path.dirname(__file__)
-    file1 = os.path.join(dir, "../../../CElegansNeuronTables.xls")
-    file2 = os.path.join(dir, "../../../NeuronConnectFormatted.xlsx")
+    fName1 = "CElegansNeuronTables.xls"
+    fName2 = "NeuronConnectFormatted.xlsx"
 
     # file1 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\book1.txt"
     # file2 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\book2.txt"
     # xfile1 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\CElegansNeuroML\\CElegansNeuronTables.xls"
     # xfile2 = "C:\\Users\\Ari\\Documents\\Projects\\OpenWorm\\CElegansNeuroML\\NeuronConnectFormatted.xlsx"
-    comparitor(file1,file2)
+    comparitor(fName1,fName2)
