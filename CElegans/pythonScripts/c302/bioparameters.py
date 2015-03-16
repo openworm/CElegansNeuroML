@@ -13,7 +13,13 @@ class BioParameter():
     
     def __str__(self):
         return "BioParameter: %s = %s (SRC: %s, certainty %s)"%(self.name, self.value, self.source, self.certainty)
-
+    
+    def change_magnitude(self, magnitude):
+        if not ' ' in self.value:
+            # TODO check for case where no space is used in value, e.g. -60mV
+            self.value = magnitude
+        else:
+            self.value = '%f %s'%(magnitude, self.value.split(' ')[1])
 
 
 class ParameterisedModelPrototype():

@@ -75,7 +75,7 @@ class C302Simulation(object):
         cells = [self.target_cell]
         
 
-        self.params.set_bioparameter("unphysiological_offset_current", "0.28nA", "Testing IClamp", "0")
+        self.params.set_bioparameter("unphysiological_offset_current", "0.2nA", "Testing IClamp", "0")
         self.params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing IClamp", "0")
         self.params.set_bioparameter("unphysiological_offset_current_dur", "%f ms"%self.sim_time, "Testing IClamp", "0")
         
@@ -123,9 +123,7 @@ class C302Controller():
 
         return traces
 
-    def set_bio_parameter(self, name, value):
-
-        print("Setting %s = %s"%(name, value))
+        
     
     def run_individual(self, sim_var, show=False):
         """
@@ -141,6 +139,14 @@ class C302Controller():
         """
         
         sim=C302Simulation('SimpleTest', 'C')
+        
+        for var_name in sim_var.keys():
+            bp = sim.params.get_bioparameter(var_name)
+            print("Changing param %s: %s -> %s"%(var_name, bp.value, sim_var[var_name]))
+            bp.change_magnitude(sim_var[var_name])
+            print bp
+            #self.set_bio_parameter(var_name, sim_var[var_name])
+        
         
         sim.go()
         
@@ -161,15 +167,11 @@ if __name__ == '__main__':
 
         my_controller = C302Controller()
 
-        parameters = ['iaf_leak_reversal',
-              'iaf_reset',
-              'iaf_thresh',
-              'iaf_C',
-              'iaf_conductance']
+        parameters = ['leak_cond_density','k_slow_cond_density','k_fast_cond_density','ca_boyle_cond_density']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [-80, -80, -60, 0.1, 0.005]
-        max_constraints = [-50, -50, -20, 2, 0.02]
+        min_constraints = [0.001, 0.01, 0.01, 0.01]
+        max_constraints = [0.05,  0.6,    0.2,    0.6   ]
 
         analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':-6.82}
 
@@ -191,6 +193,10 @@ if __name__ == '__main__':
         data = 'SimpleTest.dat'
 
         sim_var = {}
+        for i in range(len(parameters)):
+            sim_var[parameters[i]] = max_constraints[i]
+        print(sim_var)
+        
 
         surrogate_t, surrogate_v = my_controller.run_individual(sim_var, show=False)
 
