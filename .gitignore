@@ -1,3 +1,17 @@
+/CElegans/pythonScripts/c302/LEMS_c302_A_IClamp.xml
+/CElegans/pythonScripts/c302/LEMS_c302_B_IClamp.xml
+/CElegans/pythonScripts/c302/LEMS_c302_C_Full.xml
+/CElegans/pythonScripts/c302/LEMS_c302_C_IClamp.xml
+/CElegans/pythonScripts/c302/LEMS_c302_C_Muscles.xml
+/CElegans/pythonScripts/c302/LEMS_c302_C_Pharyngeal.xml
+/CElegans/pythonScripts/c302/LEMS_c302_C_Syns.xml
+/CElegans/pythonScripts/c302/c302_A_IClamp.nml
+/CElegans/pythonScripts/c302/c302_B_IClamp.nml
+/CElegans/pythonScripts/c302/c302_C_Full.nml
+/CElegans/pythonScripts/c302/c302_C_IClamp.nml
+/CElegans/pythonScripts/c302/c302_C_Muscles.nml
+/CElegans/pythonScripts/c302/c302_C_Pharyngeal.nml
+/CElegans/pythonScripts/c302/c302_C_Syns.nml
 /CElegans/pythonScripts/c302/SimpleTest.nml
 /CElegans/pythonScripts/c302/LEMS_SimpleTest.xml
 /CElegans/pythonScripts/c302/c302_A_Syns2.nml
