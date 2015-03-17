@@ -75,7 +75,7 @@ class C302Simulation(object):
         cells = [self.target_cell]
         
 
-        self.params.set_bioparameter("unphysiological_offset_current", "0.2nA", "Testing IClamp", "0")
+        self.params.set_bioparameter("unphysiological_offset_current", "0.25nA", "Testing IClamp", "0")
         self.params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing IClamp", "0")
         self.params.set_bioparameter("unphysiological_offset_current_dur", "%f ms"%self.sim_time, "Testing IClamp", "0")
         
@@ -138,15 +138,12 @@ class C302Controller():
 
         """
         
-        sim=C302Simulation('SimpleTest', 'C')
+        sim = C302Simulation('SimpleTest', 'C')
         
         for var_name in sim_var.keys():
             bp = sim.params.get_bioparameter(var_name)
             print("Changing param %s: %s -> %s"%(var_name, bp.value, sim_var[var_name]))
             bp.change_magnitude(sim_var[var_name])
-            print bp
-            #self.set_bio_parameter(var_name, sim_var[var_name])
-        
         
         sim.go()
         
@@ -160,11 +157,11 @@ if __name__ == '__main__':
     
     my_controller = C302Controller()
 
-    parameters = ['leak_cond_density','k_slow_cond_density','k_fast_cond_density','ca_boyle_cond_density']
+    parameters = ['leak_cond_density','k_slow_cond_density','k_fast_cond_density','ca_boyle_cond_density', 'specific_capacitance']
 
     #above parameters will not be modified outside these bounds:
-    min_constraints = [0.001, 0.01, 0.01, 0.01]
-    max_constraints = [0.05,  0.6,    0.2,    0.6   ]
+    min_constraints = [0.001, 0.01,   0.01,   0.01, 0.1]
+    max_constraints = [0.05,  0.6,    0.2,    0.6,  3]
 
     analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':-6.82}
 
@@ -182,6 +179,20 @@ if __name__ == '__main__':
              'first_spike_time': 1.0,
              'peak_decay_exponent': 1.0,
              'pptd_error':1.0}
+             
+    weights = {'peak_linear_gradient': 20,
+               'average_minimum': 5.0, 
+               'spike_frequency_adaptation': 0.0, 
+               'trough_phase_adaptation': 0.0, 
+               'mean_spike_frequency': 1.0, 
+               'average_maximum': 2.0, 
+               'trough_decay_exponent': 0.0, 
+               'interspike_time_covar': 0.0, 
+               'min_peak_no': 1.0, 
+               'spike_width_adaptation': 0.0, 
+               'max_peak_no': 50.0, 
+               'first_spike_time': 1.0, 
+               'peak_decay_exponent': 0.0}
 
     data = 'SimpleTest.dat'
 
@@ -221,7 +232,7 @@ if __name__ == '__main__':
 
         analysis_i=analysis.IClampAnalysis(v,t,analysis_var,
                               start_analysis=0,
-                              end_analysis=5000,
+                              end_analysis=900,
                               smooth_data=True,
                               show_smoothed_data=False,
                               smoothing_window_len=33)
@@ -240,15 +251,15 @@ if __name__ == '__main__':
                                                 targets=target_data,
                                                 automatic=False)
 
-        evals = 5
+        evals = 100
         #make an optimizer
         my_optimizer=optimizers.CustomOptimizerA(max_constraints,
                                                  min_constraints,
                                                  my_evaluator,
-                                                 population_size=10,
+                                                 population_size=50,
                                                  max_evaluations=evals,
-                                                 num_selected=4,
-                                                 num_offspring=3,
+                                                 num_selected=5,
+                                                 num_offspring=5,
                                                  num_elites=1,
                                                  mutation_rate=0.5,
                                                  seeds=None,
