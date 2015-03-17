@@ -157,46 +157,126 @@ class C302Controller():
 
 
 if __name__ == '__main__':
+    
+    my_controller = C302Controller()
+
+    parameters = ['leak_cond_density','k_slow_cond_density','k_fast_cond_density','ca_boyle_cond_density']
+
+    #above parameters will not be modified outside these bounds:
+    min_constraints = [0.001, 0.01, 0.01, 0.01]
+    max_constraints = [0.05,  0.6,    0.2,    0.6   ]
+
+    analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':-6.82}
+
+    weights={'average_minimum': 1.0,
+             'spike_frequency_adaptation': 1.0,
+             'trough_phase_adaptation': 1.0,
+             'mean_spike_frequency': 1.0,
+             'average_maximum': 1.0,
+             'trough_decay_exponent': 1.0,
+             'interspike_time_covar': 1.0,
+             'min_peak_no': 1.0,
+             'spike_broadening': 1.0,
+             'spike_width_adaptation': 1.0,
+             'max_peak_no': 1.0,
+             'first_spike_time': 1.0,
+             'peak_decay_exponent': 1.0,
+             'pptd_error':1.0}
+
+    data = 'SimpleTest.dat'
+
+
+    sim_var = {}
+    for i in range(len(parameters)):
+        sim_var[parameters[i]] = max_constraints[i]
+    print(sim_var)
+        
 
     if len(sys.argv) == 2 and sys.argv[1] == '-sim':
         sim = C302Simulation('SimpleTest', 'C')
         sim.go()
         sim.show()
+        
+    elif len(sys.argv) == 2 and sys.argv[1] == '-opt':
+        
+        # Based on: https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/data_analysis.py
+        data_fname = "tune/redacted_data.txt"
+        dt = 0.0002
+
+        #load the voltage:
+        file=open(data_fname)
+
+        #make voltage into a numpy array in mV:
+        v = np.array([float(i) for i in file.readlines()])*1000
+
+        t_init = 0.0
+        t_final = len(v)*dt
+
+        t = np.linspace(t_init,t_final,len(v))*1000
+
+        #pyplot.plot(t,v)
+        #pyplot.show()
+
+        analysis_var={'peak_delta':0.0,'baseline':5,'dvdt_threshold':0.0}
+
+        analysis_i=analysis.IClampAnalysis(v,t,analysis_var,
+                              start_analysis=0,
+                              end_analysis=5000,
+                              smooth_data=True,
+                              show_smoothed_data=False,
+                              smoothing_window_len=33)
+
+        target_data = analysis_i.analyse()
+
+
+        #make an evaluator, using automatic target evaluation:
+        my_evaluator=evaluators.IClampEvaluator(controller=my_controller,
+                                                analysis_start_time=0,
+                                                analysis_end_time=900,
+                                                target_data_path=data,
+                                                parameters=parameters,
+                                                analysis_var=analysis_var,
+                                                weights=weights,
+                                                targets=target_data,
+                                                automatic=False)
+
+        evals = 5
+        #make an optimizer
+        my_optimizer=optimizers.CustomOptimizerA(max_constraints,
+                                                 min_constraints,
+                                                 my_evaluator,
+                                                 population_size=10,
+                                                 max_evaluations=evals,
+                                                 num_selected=4,
+                                                 num_offspring=3,
+                                                 num_elites=1,
+                                                 mutation_rate=0.5,
+                                                 seeds=None,
+                                                 verbose=True)
+
+        #run the optimizer
+        best_candidate = my_optimizer.optimize(do_plot=False)
+        
+        for key,value in zip(parameters,best_candidate):
+            sim_var[key]=value
+        best_candidate_t,best_candidate_v = my_controller.run_individual(sim_var,show=False)
+
+        
+        data_plot = plt.plot(np.array(t),np.array(v))
+        best_candidate_plot = plt.plot(np.array(best_candidate_t),np.array(best_candidate_v))
+
+        plt.legend([data_plot,best_candidate_plot],
+                   ["Original data","Best model - %i evaluations"%evals])
+
+        plt.ylim(-80.0,80.0)
+        plt.xlim(0.0,1000.0)
+        plt.title("Models optimized from data")
+        plt.xlabel("Time (ms)")
+        plt.ylabel("Membrane potential(mV)")
+        plt.savefig("data_vs_candidate.png",bbox_inches='tight',format='png')
+        plt.show()
 
     else:
-
-        my_controller = C302Controller()
-
-        parameters = ['leak_cond_density','k_slow_cond_density','k_fast_cond_density','ca_boyle_cond_density']
-
-        #above parameters will not be modified outside these bounds:
-        min_constraints = [0.001, 0.01, 0.01, 0.01]
-        max_constraints = [0.05,  0.6,    0.2,    0.6   ]
-
-        analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':-6.82}
-
-        weights={'average_minimum': 1.0,
-                 'spike_frequency_adaptation': 1.0,
-                 'trough_phase_adaptation': 1.0,
-                 'mean_spike_frequency': 1.0,
-                 'average_maximum': 1.0,
-                 'trough_decay_exponent': 1.0,
-                 'interspike_time_covar': 1.0,
-                 'min_peak_no': 1.0,
-                 'spike_broadening': 1.0,
-                 'spike_width_adaptation': 1.0,
-                 'max_peak_no': 1.0,
-                 'first_spike_time': 1.0,
-                 'peak_decay_exponent': 1.0,
-                 'pptd_error':1.0}
-
-        data = 'SimpleTest.dat'
-
-        sim_var = {}
-        for i in range(len(parameters)):
-            sim_var[parameters[i]] = max_constraints[i]
-        print(sim_var)
-        
 
         surrogate_t, surrogate_v = my_controller.run_individual(sim_var, show=False)
 
@@ -213,25 +293,5 @@ if __name__ == '__main__':
 
         print(surrogate_analysis.max_min_dictionary)
 
-        #surrogate_targets = surrogate_analysis.analyse()
 
-        #print(surrogate_targets)
-
-        '''
-
-        # The output of the analysis will serve as the basis for model optimization:
-        surrogate_targets = surrogate_analysis.analyse()
-
-
-        #make an evaluator, using automatic target evaluation:
-        my_evaluator=evaluators.IClampEvaluator(controller=my_controller,
-                                                analysis_start_time=0,
-                                                analysis_end_time=900,
-                                                target_data_path=data,
-                                                parameters=parameters,
-                                                analysis_var=analysis_var,
-                                                weights=weights,
-                                                targets=targets,
-                                                automatic=False)
-                                                '''
 
