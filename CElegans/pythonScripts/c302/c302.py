@@ -131,14 +131,15 @@ def merge_with_template(model, templfile):
 
 
 
-def write_to_file(nml_doc, lems_info, reference, template_path='', validate=True):
+def write_to_file(nml_doc, lems_info, reference, template_path='', validate=True, verbose=True):
 
     #######   Write to file  ######
 
     nml_file = reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file)
 
-    print("Written network file to: "+nml_file)
+    if verbose: 
+        print("Written network file to: "+nml_file)
 
     lems_file_name = 'LEMS_%s.xml'%reference
     lems = open(lems_file_name, 'w')
@@ -148,7 +149,8 @@ def write_to_file(nml_doc, lems_info, reference, template_path='', validate=True
     merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
     lems.write(merged)
 
-    print("Written LEMS file to: "+lems_file_name)
+    if verbose: 
+        print("Written LEMS file to: "+lems_file_name)
 
     if validate:
 
@@ -240,7 +242,10 @@ def generate(net_id,
              vmin = -75,
              vmax = 20,
              seed = 1234,
-             validate=True, test=False):
+             validate=True, 
+             test=False,
+             verbose=True):
+                
 
     params.create_models()
     
@@ -350,7 +355,8 @@ def generate(net_id,
             doc = loaders.NeuroMLLoader.load(cell_file)
             all_cells[cell] = doc.cells[0]
             location = doc.cells[0].morphology.segments[0].proximal
-            print("Loaded morphology file from: %s, with id: %s, location: (%s, %s, %s)"%(cell_file, all_cells[cell].id, location.x, location.y, location.z))
+            if verbose: 
+                print("Loaded morphology file from: %s, with id: %s, location: (%s, %s, %s)"%(cell_file, all_cells[cell].id, location.x, location.y, location.z))
 
 
             inst.location = Location(float(location.x), float(location.y), float(location.z))
@@ -403,7 +409,8 @@ def generate(net_id,
 
             count+=1
 
-    print("Finished loading %i cells"%count)
+    if verbose: 
+        print("Finished loading %i cells"%count)
 
     mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
 
@@ -481,7 +488,8 @@ def generate(net_id,
 
             muscle_count+=1
 
-        print("Finished creating %i muscles"%muscle_count)
+        if verbose: 
+            print("Finished creating %i muscles"%muscle_count)
 
     for conn in conns:
 
@@ -515,7 +523,8 @@ def generate(net_id,
                 magnitude, unit = split_neuroml_quantity(syn0.gbase)
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s"%(magnitude*number_syns, unit)
-                print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                if verbose: 
+                    print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
 
 
@@ -604,7 +613,8 @@ def generate(net_id,
                 magnitude, unit = split_neuroml_quantity(syn0.gbase)
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s"%(magnitude*number_syns, unit)
-                print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                if verbose: 
+                    print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
 
 
@@ -662,7 +672,7 @@ def generate(net_id,
     # import pprint
     # pprint.pprint(lems_info)
     template_path = '../' if test else '' # if running test
-    write_to_file(nml_doc, lems_info, net_id, template_path, validate=validate)
+    write_to_file(nml_doc, lems_info, net_id, template_path, validate=validate, verbose=verbose)
 
 
     return nml_doc

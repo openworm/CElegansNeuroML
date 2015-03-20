@@ -27,8 +27,16 @@ class ParameterisedModelPrototype():
     bioparameters = []
 
     def add_bioparameter(self, name, value, source, certainty):
-        bp = BioParameter(name, value, source, certainty)
-        self.bioparameters.append(bp)
+        found = False
+        for bp in self.bioparameters:
+            if bp.name == name:
+                bp.value = value
+                bp.source = source
+                bp.certainty = certainty
+                found = True
+        if not found:
+            bp = BioParameter(name, value, source, certainty)
+            self.bioparameters.append(bp)
 
     def get_bioparameter(self, name):
         for bp in self.bioparameters:
