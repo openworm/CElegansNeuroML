@@ -192,17 +192,25 @@ if __name__ == '__main__':
     
     my_controller = C302Controller()
 
-    parameters = ['leak_cond_density','k_slow_cond_density','k_fast_cond_density','ca_boyle_cond_density', 'specific_capacitance']
+    parameters = ['leak_cond_density',
+                  'k_slow_cond_density',
+	              'k_fast_cond_density',
+                  'ca_boyle_cond_density', 
+                  'specific_capacitance',
+                  'leak_erev',
+                  'k_slow_erev',
+                  'k_fast_erev',
+                  'ca_boyle_erev']
 
     #above parameters will not be modified outside these bounds:
-    min_constraints = [0.0002, 0.01,   0.01,   0.01, 0.1]
-    max_constraints = [0.1,   1,    1,    1,  3]
+    min_constraints = [0.0002, 0.01,   0.01,   0.01, 0.1, -60, -70, -70, 30]
+    max_constraints = [0.1,    1,      1,      1,    3,   -40, -50, -50, 50]
 
     analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0}
 
              
     weights = {'peak_linear_gradient': 0,
-               'average_minimum': 0.1, 
+               'average_minimum': 1, 
                'spike_frequency_adaptation': 0.0, 
                'trough_phase_adaptation': 0.0, 
                'mean_spike_frequency': 10.0, 
@@ -245,25 +253,26 @@ if __name__ == '__main__':
                                                 targets=target_data,
                                                 automatic=False)
 
-        evals = 50
+        evals = 250
         #make an optimizer
         my_optimizer=optimizers.CustomOptimizerA(max_constraints,
                                                  min_constraints,
                                                  my_evaluator,
                                                  population_size=30,
                                                  max_evaluations=evals,
-                                                 num_selected=5,
-                                                 num_offspring=10,
+                                                 num_selected=15,
+                                                 num_offspring=30,
                                                  num_elites=1,
-                                                 mutation_rate=0.5,
+                                                 mutation_rate=0.1,
                                                  seeds=None,
                                                  verbose=True)
                                                  
         start = time.time()
         #run the optimizer
-        best_candidate = my_optimizer.optimize(do_plot=True, seed=12364)
+        best_candidate = my_optimizer.optimize(do_plot=True, seed=12345)
         
-        print("----------------------------------------------------\n\nRan %i evaluations in %f seconds\n"%(evals, time.time()-start))
+        secs = time.time()-start
+        print("----------------------------------------------------\n\nRan %i evaluations in %f seconds (%f mins)\n"%(evals, secs, secs/60.0))
         
         for key,value in zip(parameters,best_candidate):
             sim_var[key]=value
