@@ -24,6 +24,8 @@ import random
 
 import argparse
 
+import shutil
+
 try:
     from urllib2 import URLError  # Python 2
 except:
@@ -131,17 +133,23 @@ def merge_with_template(model, templfile):
 
 
 
-def write_to_file(nml_doc, lems_info, reference, template_path='', validate=True, verbose=True):
+def write_to_file(nml_doc, 
+                  lems_info, 
+                  reference, 
+                  template_path='', 
+                  validate=True, 
+                  verbose=True,
+                  target_directory='.'):
 
     #######   Write to file  ######
 
-    nml_file = reference+'.nml'
+    nml_file = target_directory+'/'+reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file)
 
     if verbose: 
         print("Written network file to: "+nml_file)
 
-    lems_file_name = 'LEMS_%s.xml'%reference
+    lems_file_name = target_directory+'/'+'LEMS_%s.xml'%reference
     lems = open(lems_file_name, 'w')
 
     # if running unittest concat template_path
@@ -244,7 +252,8 @@ def generate(net_id,
              seed = 1234,
              validate=True, 
              test=False,
-             verbose=True):
+             verbose=True,
+             target_directory='.'):
                 
 
     params.create_models()
@@ -307,11 +316,11 @@ def generate(net_id,
     lems_info["muscles"] = []
     lems_info["includes"] = []
 
-    if hasattr(params.generic_cell, 'custom_component_type_definition'):
-        lems_info["includes"].append(params.generic_cell.custom_component_type_definition)
+    if params.custom_component_types_definitions:
+        lems_info["includes"].append(params.custom_component_types_definitions)
+        if target_directory != './':
+            shutil.copy(params.custom_component_types_definitions, target_directory)
     
-    if params.level == "C":
-        lems_info["includes"].append("cell_C.xml")
 
     backers_dir = "../../../../OpenWormBackers/" if test else "../../../OpenWormBackers/"
     sys.path.append(backers_dir)
@@ -380,7 +389,7 @@ def generate(net_id,
                     plot["quantity"] = "%s[0]/v" % (cell)
                 lems_info["plots"].append(plot)
 
-                if hasattr(params.generic_cell, 'custom_component_type_definition'):
+                if params.generic_cell.__class__.__name__ == 'IafActivityCell':
                     plot = {}
 
                     plot["cell"] = cell
@@ -390,6 +399,16 @@ def generate(net_id,
                         plot["quantity"] = "%s[0]/activity" % (cell)
                     lems_info["activity_plots"].append(plot)
 
+                if params.generic_cell.__class__.__name__ == 'Cell':
+                    plot = {}
+
+                    plot["cell"] = cell
+                    plot["colour"] = get_random_colour_hex()
+                    plot["quantity"] = "%s/0/%s/caConc" % (cell, params.generic_cell.id)
+                    if populations_without_location:
+                        plot["quantity"] = "%s[0]/caConc" % (cell)
+                    lems_info["activity_plots"].append(plot)
+
             save = {}
             save["cell"] = cell
             save["quantity"] = "%s/0/%s/v" % (cell, params.generic_cell.id)
@@ -397,11 +416,11 @@ def generate(net_id,
                 save["quantity"] = "%s[0]/v" % (cell)
             lems_info["to_save"].append(save)
 
-            if hasattr(params.generic_cell, 'custom_component_type_definition'):
+            if params.generic_cell.__class__.__name__ == 'IafActivityCell':
                 save = {}
                 save["cell"] = cell
                 save["quantity"] = "%s/0/%s/activity" % (cell, params.generic_cell.id)
-                if populations_without_location:
+                if populations_without_location: 
                     save["quantity"] = "%s[0]/activity" % (cell)
                 lems_info["activity_to_save"].append(save)
 
@@ -672,7 +691,7 @@ def generate(net_id,
     # import pprint
     # pprint.pprint(lems_info)
     template_path = '../' if test else '' # if running test
-    write_to_file(nml_doc, lems_info, net_id, template_path, validate=validate, verbose=verbose)
+    write_to_file(nml_doc, lems_info, net_id, template_path, validate=validate, verbose=verbose, target_directory=target_directory)
 
 
     return nml_doc

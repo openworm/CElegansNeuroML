@@ -1,0 +1,688 @@
+<Lems>
+    
+    <!--
+
+
+Parameters and setting used to generate this network:
+
+    Cells:                         All cells
+    Cell stimulated:               ['ADAL', 'ADAR', 'M1', 'M2L', 'M3L', 'M3R', 'M4', 'I1R', 'I2L', 'I5', 'I6', 'MI', 'NSMR', 'MCL', 'ASEL', 'AVEL', 'AWAR', 'DB1', 'DVC', 'RIAR', 'RMDDL']
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+    Include muscles:               False
+
+    Known BioParameters:
+        BioParameter: iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.1nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -55mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.35nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
+
+   
+    -->
+
+    <Target component="sim_c302_B_Full" />
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+
+    <Include file="Cells.xml" />
+    <Include file="Networks.xml" />
+    <Include file="Simulation.xml" />
+    
+    <Include file="cell_B.xml" />
+    
+    <Include file="c302_B_Full.nml" />
+
+    <!-- End of NeuroML2 content -->
+    
+
+    <Simulation id="sim_c302_B_Full" length="500ms" step="0.1ms" target="c302_B_Full">
+
+        <Display id="neurons" title="c302_B_Full: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+            
+            <Line id="ADAL" quantity="ADAL[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ADAR" quantity="ADAR[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="BDUR" quantity="BDUR[0]/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="I1R" quantity="I1R[0]/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="I2L" quantity="I2L[0]/v" scale="1mV" color="#9a1694" timeScale="1ms" />
+            <Line id="PVDR" quantity="PVDR[0]/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
+            
+        </Display>
+      
+        <Display id="activity_neurons" title="c302_B_Full: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+            
+            <Line id="ADAL" quantity="ADAL[0]/activity" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="ADAR" quantity="ADAR[0]/activity" scale="1" color="#3c00ca" timeScale="1ms" />
+            <Line id="BDUR" quantity="BDUR[0]/activity" scale="1" color="#262f1d" timeScale="1ms" />
+            <Line id="I1R" quantity="I1R[0]/activity" scale="1" color="#108b77" timeScale="1ms" />
+            <Line id="I2L" quantity="I2L[0]/activity" scale="1" color="#458fa5" timeScale="1ms" />
+            <Line id="PVDR" quantity="PVDR[0]/activity" scale="1" color="#ef7488" timeScale="1ms" />
+
+        </Display>
+
+        <OutputFile id="neurons_v" fileName="c302_B_Full.dat">
+            <OutputColumn id="ADAL_v" quantity="ADAL[0]/v"/>
+            <OutputColumn id="ADAR_v" quantity="ADAR[0]/v"/>
+            <OutputColumn id="ADEL_v" quantity="ADEL[0]/v"/>
+            <OutputColumn id="ADER_v" quantity="ADER[0]/v"/>
+            <OutputColumn id="ADFL_v" quantity="ADFL[0]/v"/>
+            <OutputColumn id="ADFR_v" quantity="ADFR[0]/v"/>
+            <OutputColumn id="ADLL_v" quantity="ADLL[0]/v"/>
+            <OutputColumn id="ADLR_v" quantity="ADLR[0]/v"/>
+            <OutputColumn id="AFDL_v" quantity="AFDL[0]/v"/>
+            <OutputColumn id="AFDR_v" quantity="AFDR[0]/v"/>
+            <OutputColumn id="AIAL_v" quantity="AIAL[0]/v"/>
+            <OutputColumn id="AIAR_v" quantity="AIAR[0]/v"/>
+            <OutputColumn id="AIBL_v" quantity="AIBL[0]/v"/>
+            <OutputColumn id="AIBR_v" quantity="AIBR[0]/v"/>
+            <OutputColumn id="AIML_v" quantity="AIML[0]/v"/>
+            <OutputColumn id="AIMR_v" quantity="AIMR[0]/v"/>
+            <OutputColumn id="AINL_v" quantity="AINL[0]/v"/>
+            <OutputColumn id="AINR_v" quantity="AINR[0]/v"/>
+            <OutputColumn id="AIYL_v" quantity="AIYL[0]/v"/>
+            <OutputColumn id="AIYR_v" quantity="AIYR[0]/v"/>
+            <OutputColumn id="AIZL_v" quantity="AIZL[0]/v"/>
+            <OutputColumn id="AIZR_v" quantity="AIZR[0]/v"/>
+            <OutputColumn id="ALA_v" quantity="ALA[0]/v"/>
+            <OutputColumn id="ALML_v" quantity="ALML[0]/v"/>
+            <OutputColumn id="ALMR_v" quantity="ALMR[0]/v"/>
+            <OutputColumn id="ALNL_v" quantity="ALNL[0]/v"/>
+            <OutputColumn id="ALNR_v" quantity="ALNR[0]/v"/>
+            <OutputColumn id="AQR_v" quantity="AQR[0]/v"/>
+            <OutputColumn id="AS1_v" quantity="AS1[0]/v"/>
+            <OutputColumn id="AS10_v" quantity="AS10[0]/v"/>
+            <OutputColumn id="AS11_v" quantity="AS11[0]/v"/>
+            <OutputColumn id="AS2_v" quantity="AS2[0]/v"/>
+            <OutputColumn id="AS3_v" quantity="AS3[0]/v"/>
+            <OutputColumn id="AS4_v" quantity="AS4[0]/v"/>
+            <OutputColumn id="AS5_v" quantity="AS5[0]/v"/>
+            <OutputColumn id="AS6_v" quantity="AS6[0]/v"/>
+            <OutputColumn id="AS7_v" quantity="AS7[0]/v"/>
+            <OutputColumn id="AS8_v" quantity="AS8[0]/v"/>
+            <OutputColumn id="AS9_v" quantity="AS9[0]/v"/>
+            <OutputColumn id="ASEL_v" quantity="ASEL[0]/v"/>
+            <OutputColumn id="ASER_v" quantity="ASER[0]/v"/>
+            <OutputColumn id="ASGL_v" quantity="ASGL[0]/v"/>
+            <OutputColumn id="ASGR_v" quantity="ASGR[0]/v"/>
+            <OutputColumn id="ASHL_v" quantity="ASHL[0]/v"/>
+            <OutputColumn id="ASHR_v" quantity="ASHR[0]/v"/>
+            <OutputColumn id="ASIL_v" quantity="ASIL[0]/v"/>
+            <OutputColumn id="ASIR_v" quantity="ASIR[0]/v"/>
+            <OutputColumn id="ASJL_v" quantity="ASJL[0]/v"/>
+            <OutputColumn id="ASJR_v" quantity="ASJR[0]/v"/>
+            <OutputColumn id="ASKL_v" quantity="ASKL[0]/v"/>
+            <OutputColumn id="ASKR_v" quantity="ASKR[0]/v"/>
+            <OutputColumn id="AUAL_v" quantity="AUAL[0]/v"/>
+            <OutputColumn id="AUAR_v" quantity="AUAR[0]/v"/>
+            <OutputColumn id="AVAL_v" quantity="AVAL[0]/v"/>
+            <OutputColumn id="AVAR_v" quantity="AVAR[0]/v"/>
+            <OutputColumn id="AVBL_v" quantity="AVBL[0]/v"/>
+            <OutputColumn id="AVBR_v" quantity="AVBR[0]/v"/>
+            <OutputColumn id="AVDL_v" quantity="AVDL[0]/v"/>
+            <OutputColumn id="AVDR_v" quantity="AVDR[0]/v"/>
+            <OutputColumn id="AVEL_v" quantity="AVEL[0]/v"/>
+            <OutputColumn id="AVER_v" quantity="AVER[0]/v"/>
+            <OutputColumn id="AVFL_v" quantity="AVFL[0]/v"/>
+            <OutputColumn id="AVFR_v" quantity="AVFR[0]/v"/>
+            <OutputColumn id="AVG_v" quantity="AVG[0]/v"/>
+            <OutputColumn id="AVHL_v" quantity="AVHL[0]/v"/>
+            <OutputColumn id="AVHR_v" quantity="AVHR[0]/v"/>
+            <OutputColumn id="AVJL_v" quantity="AVJL[0]/v"/>
+            <OutputColumn id="AVJR_v" quantity="AVJR[0]/v"/>
+            <OutputColumn id="AVKL_v" quantity="AVKL[0]/v"/>
+            <OutputColumn id="AVKR_v" quantity="AVKR[0]/v"/>
+            <OutputColumn id="AVL_v" quantity="AVL[0]/v"/>
+            <OutputColumn id="AVM_v" quantity="AVM[0]/v"/>
+            <OutputColumn id="AWAL_v" quantity="AWAL[0]/v"/>
+            <OutputColumn id="AWAR_v" quantity="AWAR[0]/v"/>
+            <OutputColumn id="AWBL_v" quantity="AWBL[0]/v"/>
+            <OutputColumn id="AWBR_v" quantity="AWBR[0]/v"/>
+            <OutputColumn id="AWCL_v" quantity="AWCL[0]/v"/>
+            <OutputColumn id="AWCR_v" quantity="AWCR[0]/v"/>
+            <OutputColumn id="BAGL_v" quantity="BAGL[0]/v"/>
+            <OutputColumn id="BAGR_v" quantity="BAGR[0]/v"/>
+            <OutputColumn id="BDUL_v" quantity="BDUL[0]/v"/>
+            <OutputColumn id="BDUR_v" quantity="BDUR[0]/v"/>
+            <OutputColumn id="CANL_v" quantity="CANL[0]/v"/>
+            <OutputColumn id="CANR_v" quantity="CANR[0]/v"/>
+            <OutputColumn id="CEPDL_v" quantity="CEPDL[0]/v"/>
+            <OutputColumn id="CEPDR_v" quantity="CEPDR[0]/v"/>
+            <OutputColumn id="CEPVL_v" quantity="CEPVL[0]/v"/>
+            <OutputColumn id="CEPVR_v" quantity="CEPVR[0]/v"/>
+            <OutputColumn id="DA1_v" quantity="DA1[0]/v"/>
+            <OutputColumn id="DA2_v" quantity="DA2[0]/v"/>
+            <OutputColumn id="DA3_v" quantity="DA3[0]/v"/>
+            <OutputColumn id="DA4_v" quantity="DA4[0]/v"/>
+            <OutputColumn id="DA5_v" quantity="DA5[0]/v"/>
+            <OutputColumn id="DA6_v" quantity="DA6[0]/v"/>
+            <OutputColumn id="DA7_v" quantity="DA7[0]/v"/>
+            <OutputColumn id="DA8_v" quantity="DA8[0]/v"/>
+            <OutputColumn id="DA9_v" quantity="DA9[0]/v"/>
+            <OutputColumn id="DB1_v" quantity="DB1[0]/v"/>
+            <OutputColumn id="DB2_v" quantity="DB2[0]/v"/>
+            <OutputColumn id="DB3_v" quantity="DB3[0]/v"/>
+            <OutputColumn id="DB4_v" quantity="DB4[0]/v"/>
+            <OutputColumn id="DB5_v" quantity="DB5[0]/v"/>
+            <OutputColumn id="DB6_v" quantity="DB6[0]/v"/>
+            <OutputColumn id="DB7_v" quantity="DB7[0]/v"/>
+            <OutputColumn id="DD1_v" quantity="DD1[0]/v"/>
+            <OutputColumn id="DD2_v" quantity="DD2[0]/v"/>
+            <OutputColumn id="DD3_v" quantity="DD3[0]/v"/>
+            <OutputColumn id="DD4_v" quantity="DD4[0]/v"/>
+            <OutputColumn id="DD5_v" quantity="DD5[0]/v"/>
+            <OutputColumn id="DD6_v" quantity="DD6[0]/v"/>
+            <OutputColumn id="DVA_v" quantity="DVA[0]/v"/>
+            <OutputColumn id="DVB_v" quantity="DVB[0]/v"/>
+            <OutputColumn id="DVC_v" quantity="DVC[0]/v"/>
+            <OutputColumn id="FLPL_v" quantity="FLPL[0]/v"/>
+            <OutputColumn id="FLPR_v" quantity="FLPR[0]/v"/>
+            <OutputColumn id="HSNL_v" quantity="HSNL[0]/v"/>
+            <OutputColumn id="HSNR_v" quantity="HSNR[0]/v"/>
+            <OutputColumn id="I1L_v" quantity="I1L[0]/v"/>
+            <OutputColumn id="I1R_v" quantity="I1R[0]/v"/>
+            <OutputColumn id="I2L_v" quantity="I2L[0]/v"/>
+            <OutputColumn id="I2R_v" quantity="I2R[0]/v"/>
+            <OutputColumn id="I3_v" quantity="I3[0]/v"/>
+            <OutputColumn id="I4_v" quantity="I4[0]/v"/>
+            <OutputColumn id="I5_v" quantity="I5[0]/v"/>
+            <OutputColumn id="I6_v" quantity="I6[0]/v"/>
+            <OutputColumn id="IL1DL_v" quantity="IL1DL[0]/v"/>
+            <OutputColumn id="IL1DR_v" quantity="IL1DR[0]/v"/>
+            <OutputColumn id="IL1L_v" quantity="IL1L[0]/v"/>
+            <OutputColumn id="IL1R_v" quantity="IL1R[0]/v"/>
+            <OutputColumn id="IL1VL_v" quantity="IL1VL[0]/v"/>
+            <OutputColumn id="IL1VR_v" quantity="IL1VR[0]/v"/>
+            <OutputColumn id="IL2DL_v" quantity="IL2DL[0]/v"/>
+            <OutputColumn id="IL2DR_v" quantity="IL2DR[0]/v"/>
+            <OutputColumn id="IL2L_v" quantity="IL2L[0]/v"/>
+            <OutputColumn id="IL2R_v" quantity="IL2R[0]/v"/>
+            <OutputColumn id="IL2VL_v" quantity="IL2VL[0]/v"/>
+            <OutputColumn id="IL2VR_v" quantity="IL2VR[0]/v"/>
+            <OutputColumn id="LUAL_v" quantity="LUAL[0]/v"/>
+            <OutputColumn id="LUAR_v" quantity="LUAR[0]/v"/>
+            <OutputColumn id="M1_v" quantity="M1[0]/v"/>
+            <OutputColumn id="M2L_v" quantity="M2L[0]/v"/>
+            <OutputColumn id="M2R_v" quantity="M2R[0]/v"/>
+            <OutputColumn id="M3L_v" quantity="M3L[0]/v"/>
+            <OutputColumn id="M3R_v" quantity="M3R[0]/v"/>
+            <OutputColumn id="M4_v" quantity="M4[0]/v"/>
+            <OutputColumn id="M5_v" quantity="M5[0]/v"/>
+            <OutputColumn id="MCL_v" quantity="MCL[0]/v"/>
+            <OutputColumn id="MCR_v" quantity="MCR[0]/v"/>
+            <OutputColumn id="MI_v" quantity="MI[0]/v"/>
+            <OutputColumn id="NSML_v" quantity="NSML[0]/v"/>
+            <OutputColumn id="NSMR_v" quantity="NSMR[0]/v"/>
+            <OutputColumn id="OLLL_v" quantity="OLLL[0]/v"/>
+            <OutputColumn id="OLLR_v" quantity="OLLR[0]/v"/>
+            <OutputColumn id="OLQDL_v" quantity="OLQDL[0]/v"/>
+            <OutputColumn id="OLQDR_v" quantity="OLQDR[0]/v"/>
+            <OutputColumn id="OLQVL_v" quantity="OLQVL[0]/v"/>
+            <OutputColumn id="OLQVR_v" quantity="OLQVR[0]/v"/>
+            <OutputColumn id="PDA_v" quantity="PDA[0]/v"/>
+            <OutputColumn id="PDB_v" quantity="PDB[0]/v"/>
+            <OutputColumn id="PDEL_v" quantity="PDEL[0]/v"/>
+            <OutputColumn id="PDER_v" quantity="PDER[0]/v"/>
+            <OutputColumn id="PHAL_v" quantity="PHAL[0]/v"/>
+            <OutputColumn id="PHAR_v" quantity="PHAR[0]/v"/>
+            <OutputColumn id="PHBL_v" quantity="PHBL[0]/v"/>
+            <OutputColumn id="PHBR_v" quantity="PHBR[0]/v"/>
+            <OutputColumn id="PHCL_v" quantity="PHCL[0]/v"/>
+            <OutputColumn id="PHCR_v" quantity="PHCR[0]/v"/>
+            <OutputColumn id="PLML_v" quantity="PLML[0]/v"/>
+            <OutputColumn id="PLMR_v" quantity="PLMR[0]/v"/>
+            <OutputColumn id="PLNL_v" quantity="PLNL[0]/v"/>
+            <OutputColumn id="PLNR_v" quantity="PLNR[0]/v"/>
+            <OutputColumn id="PQR_v" quantity="PQR[0]/v"/>
+            <OutputColumn id="PVCL_v" quantity="PVCL[0]/v"/>
+            <OutputColumn id="PVCR_v" quantity="PVCR[0]/v"/>
+            <OutputColumn id="PVDL_v" quantity="PVDL[0]/v"/>
+            <OutputColumn id="PVDR_v" quantity="PVDR[0]/v"/>
+            <OutputColumn id="PVM_v" quantity="PVM[0]/v"/>
+            <OutputColumn id="PVNL_v" quantity="PVNL[0]/v"/>
+            <OutputColumn id="PVNR_v" quantity="PVNR[0]/v"/>
+            <OutputColumn id="PVPL_v" quantity="PVPL[0]/v"/>
+            <OutputColumn id="PVPR_v" quantity="PVPR[0]/v"/>
+            <OutputColumn id="PVQL_v" quantity="PVQL[0]/v"/>
+            <OutputColumn id="PVQR_v" quantity="PVQR[0]/v"/>
+            <OutputColumn id="PVR_v" quantity="PVR[0]/v"/>
+            <OutputColumn id="PVT_v" quantity="PVT[0]/v"/>
+            <OutputColumn id="PVWL_v" quantity="PVWL[0]/v"/>
+            <OutputColumn id="PVWR_v" quantity="PVWR[0]/v"/>
+            <OutputColumn id="RIAL_v" quantity="RIAL[0]/v"/>
+            <OutputColumn id="RIAR_v" quantity="RIAR[0]/v"/>
+            <OutputColumn id="RIBL_v" quantity="RIBL[0]/v"/>
+            <OutputColumn id="RIBR_v" quantity="RIBR[0]/v"/>
+            <OutputColumn id="RICL_v" quantity="RICL[0]/v"/>
+            <OutputColumn id="RICR_v" quantity="RICR[0]/v"/>
+            <OutputColumn id="RID_v" quantity="RID[0]/v"/>
+            <OutputColumn id="RIFL_v" quantity="RIFL[0]/v"/>
+            <OutputColumn id="RIFR_v" quantity="RIFR[0]/v"/>
+            <OutputColumn id="RIGL_v" quantity="RIGL[0]/v"/>
+            <OutputColumn id="RIGR_v" quantity="RIGR[0]/v"/>
+            <OutputColumn id="RIH_v" quantity="RIH[0]/v"/>
+            <OutputColumn id="RIML_v" quantity="RIML[0]/v"/>
+            <OutputColumn id="RIMR_v" quantity="RIMR[0]/v"/>
+            <OutputColumn id="RIPL_v" quantity="RIPL[0]/v"/>
+            <OutputColumn id="RIPR_v" quantity="RIPR[0]/v"/>
+            <OutputColumn id="RIR_v" quantity="RIR[0]/v"/>
+            <OutputColumn id="RIS_v" quantity="RIS[0]/v"/>
+            <OutputColumn id="RIVL_v" quantity="RIVL[0]/v"/>
+            <OutputColumn id="RIVR_v" quantity="RIVR[0]/v"/>
+            <OutputColumn id="RMDDL_v" quantity="RMDDL[0]/v"/>
+            <OutputColumn id="RMDDR_v" quantity="RMDDR[0]/v"/>
+            <OutputColumn id="RMDL_v" quantity="RMDL[0]/v"/>
+            <OutputColumn id="RMDR_v" quantity="RMDR[0]/v"/>
+            <OutputColumn id="RMDVL_v" quantity="RMDVL[0]/v"/>
+            <OutputColumn id="RMDVR_v" quantity="RMDVR[0]/v"/>
+            <OutputColumn id="RMED_v" quantity="RMED[0]/v"/>
+            <OutputColumn id="RMEL_v" quantity="RMEL[0]/v"/>
+            <OutputColumn id="RMER_v" quantity="RMER[0]/v"/>
+            <OutputColumn id="RMEV_v" quantity="RMEV[0]/v"/>
+            <OutputColumn id="RMFL_v" quantity="RMFL[0]/v"/>
+            <OutputColumn id="RMFR_v" quantity="RMFR[0]/v"/>
+            <OutputColumn id="RMGL_v" quantity="RMGL[0]/v"/>
+            <OutputColumn id="RMGR_v" quantity="RMGR[0]/v"/>
+            <OutputColumn id="RMHL_v" quantity="RMHL[0]/v"/>
+            <OutputColumn id="RMHR_v" quantity="RMHR[0]/v"/>
+            <OutputColumn id="SAADL_v" quantity="SAADL[0]/v"/>
+            <OutputColumn id="SAADR_v" quantity="SAADR[0]/v"/>
+            <OutputColumn id="SAAVL_v" quantity="SAAVL[0]/v"/>
+            <OutputColumn id="SAAVR_v" quantity="SAAVR[0]/v"/>
+            <OutputColumn id="SABD_v" quantity="SABD[0]/v"/>
+            <OutputColumn id="SABVL_v" quantity="SABVL[0]/v"/>
+            <OutputColumn id="SABVR_v" quantity="SABVR[0]/v"/>
+            <OutputColumn id="SDQL_v" quantity="SDQL[0]/v"/>
+            <OutputColumn id="SDQR_v" quantity="SDQR[0]/v"/>
+            <OutputColumn id="SIADL_v" quantity="SIADL[0]/v"/>
+            <OutputColumn id="SIADR_v" quantity="SIADR[0]/v"/>
+            <OutputColumn id="SIAVL_v" quantity="SIAVL[0]/v"/>
+            <OutputColumn id="SIAVR_v" quantity="SIAVR[0]/v"/>
+            <OutputColumn id="SIBDL_v" quantity="SIBDL[0]/v"/>
+            <OutputColumn id="SIBDR_v" quantity="SIBDR[0]/v"/>
+            <OutputColumn id="SIBVL_v" quantity="SIBVL[0]/v"/>
+            <OutputColumn id="SIBVR_v" quantity="SIBVR[0]/v"/>
+            <OutputColumn id="SMBDL_v" quantity="SMBDL[0]/v"/>
+            <OutputColumn id="SMBDR_v" quantity="SMBDR[0]/v"/>
+            <OutputColumn id="SMBVL_v" quantity="SMBVL[0]/v"/>
+            <OutputColumn id="SMBVR_v" quantity="SMBVR[0]/v"/>
+            <OutputColumn id="SMDDL_v" quantity="SMDDL[0]/v"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR[0]/v"/>
+            <OutputColumn id="SMDVL_v" quantity="SMDVL[0]/v"/>
+            <OutputColumn id="SMDVR_v" quantity="SMDVR[0]/v"/>
+            <OutputColumn id="URADL_v" quantity="URADL[0]/v"/>
+            <OutputColumn id="URADR_v" quantity="URADR[0]/v"/>
+            <OutputColumn id="URAVL_v" quantity="URAVL[0]/v"/>
+            <OutputColumn id="URAVR_v" quantity="URAVR[0]/v"/>
+            <OutputColumn id="URBL_v" quantity="URBL[0]/v"/>
+            <OutputColumn id="URBR_v" quantity="URBR[0]/v"/>
+            <OutputColumn id="URXL_v" quantity="URXL[0]/v"/>
+            <OutputColumn id="URXR_v" quantity="URXR[0]/v"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL[0]/v"/>
+            <OutputColumn id="URYDR_v" quantity="URYDR[0]/v"/>
+            <OutputColumn id="URYVL_v" quantity="URYVL[0]/v"/>
+            <OutputColumn id="URYVR_v" quantity="URYVR[0]/v"/>
+            <OutputColumn id="VA1_v" quantity="VA1[0]/v"/>
+            <OutputColumn id="VA10_v" quantity="VA10[0]/v"/>
+            <OutputColumn id="VA11_v" quantity="VA11[0]/v"/>
+            <OutputColumn id="VA12_v" quantity="VA12[0]/v"/>
+            <OutputColumn id="VA2_v" quantity="VA2[0]/v"/>
+            <OutputColumn id="VA3_v" quantity="VA3[0]/v"/>
+            <OutputColumn id="VA4_v" quantity="VA4[0]/v"/>
+            <OutputColumn id="VA5_v" quantity="VA5[0]/v"/>
+            <OutputColumn id="VA6_v" quantity="VA6[0]/v"/>
+            <OutputColumn id="VA7_v" quantity="VA7[0]/v"/>
+            <OutputColumn id="VA8_v" quantity="VA8[0]/v"/>
+            <OutputColumn id="VA9_v" quantity="VA9[0]/v"/>
+            <OutputColumn id="VB1_v" quantity="VB1[0]/v"/>
+            <OutputColumn id="VB10_v" quantity="VB10[0]/v"/>
+            <OutputColumn id="VB11_v" quantity="VB11[0]/v"/>
+            <OutputColumn id="VB2_v" quantity="VB2[0]/v"/>
+            <OutputColumn id="VB3_v" quantity="VB3[0]/v"/>
+            <OutputColumn id="VB4_v" quantity="VB4[0]/v"/>
+            <OutputColumn id="VB5_v" quantity="VB5[0]/v"/>
+            <OutputColumn id="VB6_v" quantity="VB6[0]/v"/>
+            <OutputColumn id="VB7_v" quantity="VB7[0]/v"/>
+            <OutputColumn id="VB8_v" quantity="VB8[0]/v"/>
+            <OutputColumn id="VB9_v" quantity="VB9[0]/v"/>
+            <OutputColumn id="VC1_v" quantity="VC1[0]/v"/>
+            <OutputColumn id="VC2_v" quantity="VC2[0]/v"/>
+            <OutputColumn id="VC3_v" quantity="VC3[0]/v"/>
+            <OutputColumn id="VC4_v" quantity="VC4[0]/v"/>
+            <OutputColumn id="VC5_v" quantity="VC5[0]/v"/>
+            <OutputColumn id="VC6_v" quantity="VC6[0]/v"/>
+            <OutputColumn id="VD1_v" quantity="VD1[0]/v"/>
+            <OutputColumn id="VD10_v" quantity="VD10[0]/v"/>
+            <OutputColumn id="VD11_v" quantity="VD11[0]/v"/>
+            <OutputColumn id="VD12_v" quantity="VD12[0]/v"/>
+            <OutputColumn id="VD13_v" quantity="VD13[0]/v"/>
+            <OutputColumn id="VD2_v" quantity="VD2[0]/v"/>
+            <OutputColumn id="VD3_v" quantity="VD3[0]/v"/>
+            <OutputColumn id="VD4_v" quantity="VD4[0]/v"/>
+            <OutputColumn id="VD5_v" quantity="VD5[0]/v"/>
+            <OutputColumn id="VD6_v" quantity="VD6[0]/v"/>
+            <OutputColumn id="VD7_v" quantity="VD7[0]/v"/>
+            <OutputColumn id="VD8_v" quantity="VD8[0]/v"/>
+            <OutputColumn id="VD9_v" quantity="VD9[0]/v"/>
+        </OutputFile>
+        
+        <OutputFile id="neurons_activity" fileName="c302_B_Full.activity.dat">
+            <OutputColumn id="ADAL_v" quantity="ADAL[0]/activity"/>
+            <OutputColumn id="ADAR_v" quantity="ADAR[0]/activity"/>
+            <OutputColumn id="ADEL_v" quantity="ADEL[0]/activity"/>
+            <OutputColumn id="ADER_v" quantity="ADER[0]/activity"/>
+            <OutputColumn id="ADFL_v" quantity="ADFL[0]/activity"/>
+            <OutputColumn id="ADFR_v" quantity="ADFR[0]/activity"/>
+            <OutputColumn id="ADLL_v" quantity="ADLL[0]/activity"/>
+            <OutputColumn id="ADLR_v" quantity="ADLR[0]/activity"/>
+            <OutputColumn id="AFDL_v" quantity="AFDL[0]/activity"/>
+            <OutputColumn id="AFDR_v" quantity="AFDR[0]/activity"/>
+            <OutputColumn id="AIAL_v" quantity="AIAL[0]/activity"/>
+            <OutputColumn id="AIAR_v" quantity="AIAR[0]/activity"/>
+            <OutputColumn id="AIBL_v" quantity="AIBL[0]/activity"/>
+            <OutputColumn id="AIBR_v" quantity="AIBR[0]/activity"/>
+            <OutputColumn id="AIML_v" quantity="AIML[0]/activity"/>
+            <OutputColumn id="AIMR_v" quantity="AIMR[0]/activity"/>
+            <OutputColumn id="AINL_v" quantity="AINL[0]/activity"/>
+            <OutputColumn id="AINR_v" quantity="AINR[0]/activity"/>
+            <OutputColumn id="AIYL_v" quantity="AIYL[0]/activity"/>
+            <OutputColumn id="AIYR_v" quantity="AIYR[0]/activity"/>
+            <OutputColumn id="AIZL_v" quantity="AIZL[0]/activity"/>
+            <OutputColumn id="AIZR_v" quantity="AIZR[0]/activity"/>
+            <OutputColumn id="ALA_v" quantity="ALA[0]/activity"/>
+            <OutputColumn id="ALML_v" quantity="ALML[0]/activity"/>
+            <OutputColumn id="ALMR_v" quantity="ALMR[0]/activity"/>
+            <OutputColumn id="ALNL_v" quantity="ALNL[0]/activity"/>
+            <OutputColumn id="ALNR_v" quantity="ALNR[0]/activity"/>
+            <OutputColumn id="AQR_v" quantity="AQR[0]/activity"/>
+            <OutputColumn id="AS1_v" quantity="AS1[0]/activity"/>
+            <OutputColumn id="AS10_v" quantity="AS10[0]/activity"/>
+            <OutputColumn id="AS11_v" quantity="AS11[0]/activity"/>
+            <OutputColumn id="AS2_v" quantity="AS2[0]/activity"/>
+            <OutputColumn id="AS3_v" quantity="AS3[0]/activity"/>
+            <OutputColumn id="AS4_v" quantity="AS4[0]/activity"/>
+            <OutputColumn id="AS5_v" quantity="AS5[0]/activity"/>
+            <OutputColumn id="AS6_v" quantity="AS6[0]/activity"/>
+            <OutputColumn id="AS7_v" quantity="AS7[0]/activity"/>
+            <OutputColumn id="AS8_v" quantity="AS8[0]/activity"/>
+            <OutputColumn id="AS9_v" quantity="AS9[0]/activity"/>
+            <OutputColumn id="ASEL_v" quantity="ASEL[0]/activity"/>
+            <OutputColumn id="ASER_v" quantity="ASER[0]/activity"/>
+            <OutputColumn id="ASGL_v" quantity="ASGL[0]/activity"/>
+            <OutputColumn id="ASGR_v" quantity="ASGR[0]/activity"/>
+            <OutputColumn id="ASHL_v" quantity="ASHL[0]/activity"/>
+            <OutputColumn id="ASHR_v" quantity="ASHR[0]/activity"/>
+            <OutputColumn id="ASIL_v" quantity="ASIL[0]/activity"/>
+            <OutputColumn id="ASIR_v" quantity="ASIR[0]/activity"/>
+            <OutputColumn id="ASJL_v" quantity="ASJL[0]/activity"/>
+            <OutputColumn id="ASJR_v" quantity="ASJR[0]/activity"/>
+            <OutputColumn id="ASKL_v" quantity="ASKL[0]/activity"/>
+            <OutputColumn id="ASKR_v" quantity="ASKR[0]/activity"/>
+            <OutputColumn id="AUAL_v" quantity="AUAL[0]/activity"/>
+            <OutputColumn id="AUAR_v" quantity="AUAR[0]/activity"/>
+            <OutputColumn id="AVAL_v" quantity="AVAL[0]/activity"/>
+            <OutputColumn id="AVAR_v" quantity="AVAR[0]/activity"/>
+            <OutputColumn id="AVBL_v" quantity="AVBL[0]/activity"/>
+            <OutputColumn id="AVBR_v" quantity="AVBR[0]/activity"/>
+            <OutputColumn id="AVDL_v" quantity="AVDL[0]/activity"/>
+            <OutputColumn id="AVDR_v" quantity="AVDR[0]/activity"/>
+            <OutputColumn id="AVEL_v" quantity="AVEL[0]/activity"/>
+            <OutputColumn id="AVER_v" quantity="AVER[0]/activity"/>
+            <OutputColumn id="AVFL_v" quantity="AVFL[0]/activity"/>
+            <OutputColumn id="AVFR_v" quantity="AVFR[0]/activity"/>
+            <OutputColumn id="AVG_v" quantity="AVG[0]/activity"/>
+            <OutputColumn id="AVHL_v" quantity="AVHL[0]/activity"/>
+            <OutputColumn id="AVHR_v" quantity="AVHR[0]/activity"/>
+            <OutputColumn id="AVJL_v" quantity="AVJL[0]/activity"/>
+            <OutputColumn id="AVJR_v" quantity="AVJR[0]/activity"/>
+            <OutputColumn id="AVKL_v" quantity="AVKL[0]/activity"/>
+            <OutputColumn id="AVKR_v" quantity="AVKR[0]/activity"/>
+            <OutputColumn id="AVL_v" quantity="AVL[0]/activity"/>
+            <OutputColumn id="AVM_v" quantity="AVM[0]/activity"/>
+            <OutputColumn id="AWAL_v" quantity="AWAL[0]/activity"/>
+            <OutputColumn id="AWAR_v" quantity="AWAR[0]/activity"/>
+            <OutputColumn id="AWBL_v" quantity="AWBL[0]/activity"/>
+            <OutputColumn id="AWBR_v" quantity="AWBR[0]/activity"/>
+            <OutputColumn id="AWCL_v" quantity="AWCL[0]/activity"/>
+            <OutputColumn id="AWCR_v" quantity="AWCR[0]/activity"/>
+            <OutputColumn id="BAGL_v" quantity="BAGL[0]/activity"/>
+            <OutputColumn id="BAGR_v" quantity="BAGR[0]/activity"/>
+            <OutputColumn id="BDUL_v" quantity="BDUL[0]/activity"/>
+            <OutputColumn id="BDUR_v" quantity="BDUR[0]/activity"/>
+            <OutputColumn id="CANL_v" quantity="CANL[0]/activity"/>
+            <OutputColumn id="CANR_v" quantity="CANR[0]/activity"/>
+            <OutputColumn id="CEPDL_v" quantity="CEPDL[0]/activity"/>
+            <OutputColumn id="CEPDR_v" quantity="CEPDR[0]/activity"/>
+            <OutputColumn id="CEPVL_v" quantity="CEPVL[0]/activity"/>
+            <OutputColumn id="CEPVR_v" quantity="CEPVR[0]/activity"/>
+            <OutputColumn id="DA1_v" quantity="DA1[0]/activity"/>
+            <OutputColumn id="DA2_v" quantity="DA2[0]/activity"/>
+            <OutputColumn id="DA3_v" quantity="DA3[0]/activity"/>
+            <OutputColumn id="DA4_v" quantity="DA4[0]/activity"/>
+            <OutputColumn id="DA5_v" quantity="DA5[0]/activity"/>
+            <OutputColumn id="DA6_v" quantity="DA6[0]/activity"/>
+            <OutputColumn id="DA7_v" quantity="DA7[0]/activity"/>
+            <OutputColumn id="DA8_v" quantity="DA8[0]/activity"/>
+            <OutputColumn id="DA9_v" quantity="DA9[0]/activity"/>
+            <OutputColumn id="DB1_v" quantity="DB1[0]/activity"/>
+            <OutputColumn id="DB2_v" quantity="DB2[0]/activity"/>
+            <OutputColumn id="DB3_v" quantity="DB3[0]/activity"/>
+            <OutputColumn id="DB4_v" quantity="DB4[0]/activity"/>
+            <OutputColumn id="DB5_v" quantity="DB5[0]/activity"/>
+            <OutputColumn id="DB6_v" quantity="DB6[0]/activity"/>
+            <OutputColumn id="DB7_v" quantity="DB7[0]/activity"/>
+            <OutputColumn id="DD1_v" quantity="DD1[0]/activity"/>
+            <OutputColumn id="DD2_v" quantity="DD2[0]/activity"/>
+            <OutputColumn id="DD3_v" quantity="DD3[0]/activity"/>
+            <OutputColumn id="DD4_v" quantity="DD4[0]/activity"/>
+            <OutputColumn id="DD5_v" quantity="DD5[0]/activity"/>
+            <OutputColumn id="DD6_v" quantity="DD6[0]/activity"/>
+            <OutputColumn id="DVA_v" quantity="DVA[0]/activity"/>
+            <OutputColumn id="DVB_v" quantity="DVB[0]/activity"/>
+            <OutputColumn id="DVC_v" quantity="DVC[0]/activity"/>
+            <OutputColumn id="FLPL_v" quantity="FLPL[0]/activity"/>
+            <OutputColumn id="FLPR_v" quantity="FLPR[0]/activity"/>
+            <OutputColumn id="HSNL_v" quantity="HSNL[0]/activity"/>
+            <OutputColumn id="HSNR_v" quantity="HSNR[0]/activity"/>
+            <OutputColumn id="I1L_v" quantity="I1L[0]/activity"/>
+            <OutputColumn id="I1R_v" quantity="I1R[0]/activity"/>
+            <OutputColumn id="I2L_v" quantity="I2L[0]/activity"/>
+            <OutputColumn id="I2R_v" quantity="I2R[0]/activity"/>
+            <OutputColumn id="I3_v" quantity="I3[0]/activity"/>
+            <OutputColumn id="I4_v" quantity="I4[0]/activity"/>
+            <OutputColumn id="I5_v" quantity="I5[0]/activity"/>
+            <OutputColumn id="I6_v" quantity="I6[0]/activity"/>
+            <OutputColumn id="IL1DL_v" quantity="IL1DL[0]/activity"/>
+            <OutputColumn id="IL1DR_v" quantity="IL1DR[0]/activity"/>
+            <OutputColumn id="IL1L_v" quantity="IL1L[0]/activity"/>
+            <OutputColumn id="IL1R_v" quantity="IL1R[0]/activity"/>
+            <OutputColumn id="IL1VL_v" quantity="IL1VL[0]/activity"/>
+            <OutputColumn id="IL1VR_v" quantity="IL1VR[0]/activity"/>
+            <OutputColumn id="IL2DL_v" quantity="IL2DL[0]/activity"/>
+            <OutputColumn id="IL2DR_v" quantity="IL2DR[0]/activity"/>
+            <OutputColumn id="IL2L_v" quantity="IL2L[0]/activity"/>
+            <OutputColumn id="IL2R_v" quantity="IL2R[0]/activity"/>
+            <OutputColumn id="IL2VL_v" quantity="IL2VL[0]/activity"/>
+            <OutputColumn id="IL2VR_v" quantity="IL2VR[0]/activity"/>
+            <OutputColumn id="LUAL_v" quantity="LUAL[0]/activity"/>
+            <OutputColumn id="LUAR_v" quantity="LUAR[0]/activity"/>
+            <OutputColumn id="M1_v" quantity="M1[0]/activity"/>
+            <OutputColumn id="M2L_v" quantity="M2L[0]/activity"/>
+            <OutputColumn id="M2R_v" quantity="M2R[0]/activity"/>
+            <OutputColumn id="M3L_v" quantity="M3L[0]/activity"/>
+            <OutputColumn id="M3R_v" quantity="M3R[0]/activity"/>
+            <OutputColumn id="M4_v" quantity="M4[0]/activity"/>
+            <OutputColumn id="M5_v" quantity="M5[0]/activity"/>
+            <OutputColumn id="MCL_v" quantity="MCL[0]/activity"/>
+            <OutputColumn id="MCR_v" quantity="MCR[0]/activity"/>
+            <OutputColumn id="MI_v" quantity="MI[0]/activity"/>
+            <OutputColumn id="NSML_v" quantity="NSML[0]/activity"/>
+            <OutputColumn id="NSMR_v" quantity="NSMR[0]/activity"/>
+            <OutputColumn id="OLLL_v" quantity="OLLL[0]/activity"/>
+            <OutputColumn id="OLLR_v" quantity="OLLR[0]/activity"/>
+            <OutputColumn id="OLQDL_v" quantity="OLQDL[0]/activity"/>
+            <OutputColumn id="OLQDR_v" quantity="OLQDR[0]/activity"/>
+            <OutputColumn id="OLQVL_v" quantity="OLQVL[0]/activity"/>
+            <OutputColumn id="OLQVR_v" quantity="OLQVR[0]/activity"/>
+            <OutputColumn id="PDA_v" quantity="PDA[0]/activity"/>
+            <OutputColumn id="PDB_v" quantity="PDB[0]/activity"/>
+            <OutputColumn id="PDEL_v" quantity="PDEL[0]/activity"/>
+            <OutputColumn id="PDER_v" quantity="PDER[0]/activity"/>
+            <OutputColumn id="PHAL_v" quantity="PHAL[0]/activity"/>
+            <OutputColumn id="PHAR_v" quantity="PHAR[0]/activity"/>
+            <OutputColumn id="PHBL_v" quantity="PHBL[0]/activity"/>
+            <OutputColumn id="PHBR_v" quantity="PHBR[0]/activity"/>
+            <OutputColumn id="PHCL_v" quantity="PHCL[0]/activity"/>
+            <OutputColumn id="PHCR_v" quantity="PHCR[0]/activity"/>
+            <OutputColumn id="PLML_v" quantity="PLML[0]/activity"/>
+            <OutputColumn id="PLMR_v" quantity="PLMR[0]/activity"/>
+            <OutputColumn id="PLNL_v" quantity="PLNL[0]/activity"/>
+            <OutputColumn id="PLNR_v" quantity="PLNR[0]/activity"/>
+            <OutputColumn id="PQR_v" quantity="PQR[0]/activity"/>
+            <OutputColumn id="PVCL_v" quantity="PVCL[0]/activity"/>
+            <OutputColumn id="PVCR_v" quantity="PVCR[0]/activity"/>
+            <OutputColumn id="PVDL_v" quantity="PVDL[0]/activity"/>
+            <OutputColumn id="PVDR_v" quantity="PVDR[0]/activity"/>
+            <OutputColumn id="PVM_v" quantity="PVM[0]/activity"/>
+            <OutputColumn id="PVNL_v" quantity="PVNL[0]/activity"/>
+            <OutputColumn id="PVNR_v" quantity="PVNR[0]/activity"/>
+            <OutputColumn id="PVPL_v" quantity="PVPL[0]/activity"/>
+            <OutputColumn id="PVPR_v" quantity="PVPR[0]/activity"/>
+            <OutputColumn id="PVQL_v" quantity="PVQL[0]/activity"/>
+            <OutputColumn id="PVQR_v" quantity="PVQR[0]/activity"/>
+            <OutputColumn id="PVR_v" quantity="PVR[0]/activity"/>
+            <OutputColumn id="PVT_v" quantity="PVT[0]/activity"/>
+            <OutputColumn id="PVWL_v" quantity="PVWL[0]/activity"/>
+            <OutputColumn id="PVWR_v" quantity="PVWR[0]/activity"/>
+            <OutputColumn id="RIAL_v" quantity="RIAL[0]/activity"/>
+            <OutputColumn id="RIAR_v" quantity="RIAR[0]/activity"/>
+            <OutputColumn id="RIBL_v" quantity="RIBL[0]/activity"/>
+            <OutputColumn id="RIBR_v" quantity="RIBR[0]/activity"/>
+            <OutputColumn id="RICL_v" quantity="RICL[0]/activity"/>
+            <OutputColumn id="RICR_v" quantity="RICR[0]/activity"/>
+            <OutputColumn id="RID_v" quantity="RID[0]/activity"/>
+            <OutputColumn id="RIFL_v" quantity="RIFL[0]/activity"/>
+            <OutputColumn id="RIFR_v" quantity="RIFR[0]/activity"/>
+            <OutputColumn id="RIGL_v" quantity="RIGL[0]/activity"/>
+            <OutputColumn id="RIGR_v" quantity="RIGR[0]/activity"/>
+            <OutputColumn id="RIH_v" quantity="RIH[0]/activity"/>
+            <OutputColumn id="RIML_v" quantity="RIML[0]/activity"/>
+            <OutputColumn id="RIMR_v" quantity="RIMR[0]/activity"/>
+            <OutputColumn id="RIPL_v" quantity="RIPL[0]/activity"/>
+            <OutputColumn id="RIPR_v" quantity="RIPR[0]/activity"/>
+            <OutputColumn id="RIR_v" quantity="RIR[0]/activity"/>
+            <OutputColumn id="RIS_v" quantity="RIS[0]/activity"/>
+            <OutputColumn id="RIVL_v" quantity="RIVL[0]/activity"/>
+            <OutputColumn id="RIVR_v" quantity="RIVR[0]/activity"/>
+            <OutputColumn id="RMDDL_v" quantity="RMDDL[0]/activity"/>
+            <OutputColumn id="RMDDR_v" quantity="RMDDR[0]/activity"/>
+            <OutputColumn id="RMDL_v" quantity="RMDL[0]/activity"/>
+            <OutputColumn id="RMDR_v" quantity="RMDR[0]/activity"/>
+            <OutputColumn id="RMDVL_v" quantity="RMDVL[0]/activity"/>
+            <OutputColumn id="RMDVR_v" quantity="RMDVR[0]/activity"/>
+            <OutputColumn id="RMED_v" quantity="RMED[0]/activity"/>
+            <OutputColumn id="RMEL_v" quantity="RMEL[0]/activity"/>
+            <OutputColumn id="RMER_v" quantity="RMER[0]/activity"/>
+            <OutputColumn id="RMEV_v" quantity="RMEV[0]/activity"/>
+            <OutputColumn id="RMFL_v" quantity="RMFL[0]/activity"/>
+            <OutputColumn id="RMFR_v" quantity="RMFR[0]/activity"/>
+            <OutputColumn id="RMGL_v" quantity="RMGL[0]/activity"/>
+            <OutputColumn id="RMGR_v" quantity="RMGR[0]/activity"/>
+            <OutputColumn id="RMHL_v" quantity="RMHL[0]/activity"/>
+            <OutputColumn id="RMHR_v" quantity="RMHR[0]/activity"/>
+            <OutputColumn id="SAADL_v" quantity="SAADL[0]/activity"/>
+            <OutputColumn id="SAADR_v" quantity="SAADR[0]/activity"/>
+            <OutputColumn id="SAAVL_v" quantity="SAAVL[0]/activity"/>
+            <OutputColumn id="SAAVR_v" quantity="SAAVR[0]/activity"/>
+            <OutputColumn id="SABD_v" quantity="SABD[0]/activity"/>
+            <OutputColumn id="SABVL_v" quantity="SABVL[0]/activity"/>
+            <OutputColumn id="SABVR_v" quantity="SABVR[0]/activity"/>
+            <OutputColumn id="SDQL_v" quantity="SDQL[0]/activity"/>
+            <OutputColumn id="SDQR_v" quantity="SDQR[0]/activity"/>
+            <OutputColumn id="SIADL_v" quantity="SIADL[0]/activity"/>
+            <OutputColumn id="SIADR_v" quantity="SIADR[0]/activity"/>
+            <OutputColumn id="SIAVL_v" quantity="SIAVL[0]/activity"/>
+            <OutputColumn id="SIAVR_v" quantity="SIAVR[0]/activity"/>
+            <OutputColumn id="SIBDL_v" quantity="SIBDL[0]/activity"/>
+            <OutputColumn id="SIBDR_v" quantity="SIBDR[0]/activity"/>
+            <OutputColumn id="SIBVL_v" quantity="SIBVL[0]/activity"/>
+            <OutputColumn id="SIBVR_v" quantity="SIBVR[0]/activity"/>
+            <OutputColumn id="SMBDL_v" quantity="SMBDL[0]/activity"/>
+            <OutputColumn id="SMBDR_v" quantity="SMBDR[0]/activity"/>
+            <OutputColumn id="SMBVL_v" quantity="SMBVL[0]/activity"/>
+            <OutputColumn id="SMBVR_v" quantity="SMBVR[0]/activity"/>
+            <OutputColumn id="SMDDL_v" quantity="SMDDL[0]/activity"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR[0]/activity"/>
+            <OutputColumn id="SMDVL_v" quantity="SMDVL[0]/activity"/>
+            <OutputColumn id="SMDVR_v" quantity="SMDVR[0]/activity"/>
+            <OutputColumn id="URADL_v" quantity="URADL[0]/activity"/>
+            <OutputColumn id="URADR_v" quantity="URADR[0]/activity"/>
+            <OutputColumn id="URAVL_v" quantity="URAVL[0]/activity"/>
+            <OutputColumn id="URAVR_v" quantity="URAVR[0]/activity"/>
+            <OutputColumn id="URBL_v" quantity="URBL[0]/activity"/>
+            <OutputColumn id="URBR_v" quantity="URBR[0]/activity"/>
+            <OutputColumn id="URXL_v" quantity="URXL[0]/activity"/>
+            <OutputColumn id="URXR_v" quantity="URXR[0]/activity"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL[0]/activity"/>
+            <OutputColumn id="URYDR_v" quantity="URYDR[0]/activity"/>
+            <OutputColumn id="URYVL_v" quantity="URYVL[0]/activity"/>
+            <OutputColumn id="URYVR_v" quantity="URYVR[0]/activity"/>
+            <OutputColumn id="VA1_v" quantity="VA1[0]/activity"/>
+            <OutputColumn id="VA10_v" quantity="VA10[0]/activity"/>
+            <OutputColumn id="VA11_v" quantity="VA11[0]/activity"/>
+            <OutputColumn id="VA12_v" quantity="VA12[0]/activity"/>
+            <OutputColumn id="VA2_v" quantity="VA2[0]/activity"/>
+            <OutputColumn id="VA3_v" quantity="VA3[0]/activity"/>
+            <OutputColumn id="VA4_v" quantity="VA4[0]/activity"/>
+            <OutputColumn id="VA5_v" quantity="VA5[0]/activity"/>
+            <OutputColumn id="VA6_v" quantity="VA6[0]/activity"/>
+            <OutputColumn id="VA7_v" quantity="VA7[0]/activity"/>
+            <OutputColumn id="VA8_v" quantity="VA8[0]/activity"/>
+            <OutputColumn id="VA9_v" quantity="VA9[0]/activity"/>
+            <OutputColumn id="VB1_v" quantity="VB1[0]/activity"/>
+            <OutputColumn id="VB10_v" quantity="VB10[0]/activity"/>
+            <OutputColumn id="VB11_v" quantity="VB11[0]/activity"/>
+            <OutputColumn id="VB2_v" quantity="VB2[0]/activity"/>
+            <OutputColumn id="VB3_v" quantity="VB3[0]/activity"/>
+            <OutputColumn id="VB4_v" quantity="VB4[0]/activity"/>
+            <OutputColumn id="VB5_v" quantity="VB5[0]/activity"/>
+            <OutputColumn id="VB6_v" quantity="VB6[0]/activity"/>
+            <OutputColumn id="VB7_v" quantity="VB7[0]/activity"/>
+            <OutputColumn id="VB8_v" quantity="VB8[0]/activity"/>
+            <OutputColumn id="VB9_v" quantity="VB9[0]/activity"/>
+            <OutputColumn id="VC1_v" quantity="VC1[0]/activity"/>
+            <OutputColumn id="VC2_v" quantity="VC2[0]/activity"/>
+            <OutputColumn id="VC3_v" quantity="VC3[0]/activity"/>
+            <OutputColumn id="VC4_v" quantity="VC4[0]/activity"/>
+            <OutputColumn id="VC5_v" quantity="VC5[0]/activity"/>
+            <OutputColumn id="VC6_v" quantity="VC6[0]/activity"/>
+            <OutputColumn id="VD1_v" quantity="VD1[0]/activity"/>
+            <OutputColumn id="VD10_v" quantity="VD10[0]/activity"/>
+            <OutputColumn id="VD11_v" quantity="VD11[0]/activity"/>
+            <OutputColumn id="VD12_v" quantity="VD12[0]/activity"/>
+            <OutputColumn id="VD13_v" quantity="VD13[0]/activity"/>
+            <OutputColumn id="VD2_v" quantity="VD2[0]/activity"/>
+            <OutputColumn id="VD3_v" quantity="VD3[0]/activity"/>
+            <OutputColumn id="VD4_v" quantity="VD4[0]/activity"/>
+            <OutputColumn id="VD5_v" quantity="VD5[0]/activity"/>
+            <OutputColumn id="VD6_v" quantity="VD6[0]/activity"/>
+            <OutputColumn id="VD7_v" quantity="VD7[0]/activity"/>
+            <OutputColumn id="VD8_v" quantity="VD8[0]/activity"/>
+            <OutputColumn id="VD9_v" quantity="VD9[0]/activity"/>
+        </OutputFile>
+    </Simulation>
+
+
+</Lems>

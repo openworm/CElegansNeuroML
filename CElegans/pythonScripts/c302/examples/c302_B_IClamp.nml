@@ -1,0 +1,41 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_B_IClamp">
+    <notes>
+
+Parameters and setting used to generate this network:
+
+    Cells:                         ['ADAL']
+    Cell stimulated:               ['ADAL']
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+    Include muscles:               False
+
+    Known BioParameters:
+        BioParameter: iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.1nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -55mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.21nA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: Testing IClamp, certainty 0)
+
+</notes>
+    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.1nF" thresh="-30mV" reset="-50mV" leakConductance="0.01uS" leakReversal="-50mV" tau1="50ms"/>
+    <pulseGenerator id="offset_current" delay="100 ms" duration="200 ms" amplitude="0.21nA"/>
+    <network id="c302_B_IClamp">
+        <population id="ADAL" component="generic_iaf_cell" size="1">
+            <property tag="OpenWormBackerAssignedName" value="Xabe"/>
+        </population>
+        <explicitInput input="offset_current" target="ADAL[0]"/>
+    </network>
+</neuroml>

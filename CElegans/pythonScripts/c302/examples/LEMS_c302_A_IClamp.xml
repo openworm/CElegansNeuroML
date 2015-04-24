@@ -1,0 +1,67 @@
+<Lems>
+    
+    <!--
+
+
+Parameters and setting used to generate this network:
+
+    Cells:                         ['ADAL']
+    Cell stimulated:               ['ADAL']
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+    Include muscles:               False
+
+    Known BioParameters:
+        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.2nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.21nA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: Testing IClamp, certainty 0)
+
+   
+    -->
+
+    <Target component="sim_c302_A_IClamp" />
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+
+    <Include file="Cells.xml" />
+    <Include file="Networks.xml" />
+    <Include file="Simulation.xml" />
+    
+    <Include file="c302_A_IClamp.nml" />
+
+    <!-- End of NeuroML2 content -->
+    
+
+    <Simulation id="sim_c302_A_IClamp" length="500ms" step="0.1ms" target="c302_A_IClamp">
+
+        <Display id="neurons" title="c302_A_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
+            
+            <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            
+        </Display>
+
+        <OutputFile id="neurons_v" fileName="c302_A_IClamp.dat">
+            <OutputColumn id="ADAL_v" quantity="ADAL/0/generic_iaf_cell/v"/>
+        </OutputFile>
+        
+    </Simulation>
+
+
+</Lems>

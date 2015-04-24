@@ -26,6 +26,8 @@ class ParameterisedModel(c302ModelPrototype):
 
     def __init__(self):
         self.level = "B"
+        self.custom_component_types_definitions = 'cell_B.xml'
+        
         self.set_default_bioparameters()
 
     def set_default_bioparameters(self):
@@ -105,7 +107,6 @@ class IafActivityCell():
         self.leak_reversal = leak_reversal
         self.tau1 = tau1
         
-        self.custom_component_type_definition = 'cell_B.xml'
         
     
     def export(self, outfile, level, namespace, name_, pretty_print=True):

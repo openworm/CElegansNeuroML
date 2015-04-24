@@ -33,4 +33,5 @@ if __name__ == '__main__':
              dt=0.1, 
              vmin=-72 if parameter_set=='A' else -52, 
              vmax=-48 if parameter_set=='A' else -28,
-             validate=(parameter_set!='B'))
+             validate=(parameter_set!='B'),
+             target_directory='examples')

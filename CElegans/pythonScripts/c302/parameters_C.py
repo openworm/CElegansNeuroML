@@ -37,6 +37,8 @@ class ParameterisedModel(c302ModelPrototype):
 
     def __init__(self):
         self.level = "C"
+        self.custom_component_types_definitions = 'cell_C.xml'
+        
         self.set_default_bioparameters()
 
     def set_default_bioparameters(self):

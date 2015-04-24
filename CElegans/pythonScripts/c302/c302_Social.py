@@ -46,6 +46,8 @@ if __name__ == '__main__':
     
     reference = "c302_%s_Social"%parameter_set
     
+    target_directory='examples'
+    
     nml_doc = generate(reference, 
                        params, 
                        cells=cells, 
@@ -54,7 +56,8 @@ if __name__ == '__main__':
                        dt=0.1, 
                        vmin=-72 if parameter_set=='A' else -52, 
                        vmax=-48 if parameter_set=='A' else -28,
-                       validate=(parameter_set!='B'))
+                       validate=(parameter_set!='B'),
+                       target_directory=target_directory)
              
     stim_amplitude = "0.35nA"
     add_new_input(nml_doc, "RMGR", "100ms", "200ms", stim_amplitude)
@@ -66,7 +69,7 @@ if __name__ == '__main__':
     add_new_input(nml_doc, "URXR", "1900ms", "200ms", stim_amplitude)
     
     
-    nml_file = reference+'.nml'
+    nml_file = target_directory+'/'+reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
     
     print("(Re)written network file to: "+nml_file)

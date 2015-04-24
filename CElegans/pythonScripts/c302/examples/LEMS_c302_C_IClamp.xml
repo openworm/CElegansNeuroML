@@ -1,0 +1,80 @@
+<Lems>
+    
+    <!--
+
+
+Parameters and setting used to generate this network:
+
+    Cells:                         ['ADAL']
+    Cell stimulated:               ['ADAL']
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+    Include muscles:               False
+
+    Known BioParameters:
+        BioParameter: cell_length = 230.3459 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: cell_diameter = 10 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_cond_density = 0.0193181 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -40 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_cond_density = 0.43584 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -64.3461 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_cond_density = 0.399994 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_erev = -54.9998 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_cond_density = 0.220209 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_erev = 49.11 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -55mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.21nA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: Testing IClamp, certainty 0)
+
+   
+    -->
+
+    <Target component="sim_c302_C_IClamp" />
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+
+    <Include file="Cells.xml" />
+    <Include file="Networks.xml" />
+    <Include file="Simulation.xml" />
+    
+    <Include file="cell_C.xml" />
+    
+    <Include file="c302_C_IClamp.nml" />
+
+    <!-- End of NeuroML2 content -->
+    
+
+    <Simulation id="sim_c302_C_IClamp" length="500ms" step="0.1ms" target="c302_C_IClamp">
+
+        <Display id="neurons" title="c302_C_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+            
+            <Line id="ADAL" quantity="ADAL[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            
+        </Display>
+      
+        <Display id="activity_neurons" title="c302_C_IClamp: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+            
+            <Line id="ADAL" quantity="ADAL[0]/caConc" scale="1" color="#eaf195" timeScale="1ms" />
+
+        </Display>
+
+        <OutputFile id="neurons_v" fileName="c302_C_IClamp.dat">
+            <OutputColumn id="ADAL_v" quantity="ADAL[0]/v"/>
+        </OutputFile>
+        
+    </Simulation>
+
+
+</Lems>

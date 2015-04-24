@@ -25,6 +25,7 @@ class ParameterisedModel(c302ModelPrototype):
 
     def __init__(self):
         self.level = "A"
+        self.custom_component_types_definitions = None
         self.set_default_bioparameters()
 
     def set_default_bioparameters(self):
