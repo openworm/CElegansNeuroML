@@ -8,12 +8,12 @@ c302 is an experimental framework for generating network models in NeuroML 2 bas
 It uses information on the synaptic connectivity of the network (from 
 [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegansNeuronTables.xls)) and uses 
 [libNeuroML](https://github.com/NeuralEnsemble/libNeuroML) to generate 
-a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/NeuroML/jNeuroML).
+a network in valid NeuroML, which can be run in [jNeuroML](https://github.com/NeuroML/jNeuroML) or [pyNeuroML](https://github.com/NeuroML/pyNeuroML).
 
 
 ### Multiple versions of the network
 
-There will be multiple version of this network, based on increasingly complex cell models, e.g.
+There will be multiple version of this network (see figure above), based on increasingly complex cell models, e.g.
 
 **[Parameters_A](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_A.py)** Integrate & fire cells (not very physiological) connected by chemical (event triggered, conductance based) synapses
 
@@ -21,7 +21,7 @@ There will be multiple version of this network, based on increasingly complex ce
 
 **[Parameters_C](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_C.py)** Single compartment, conductance based neurons (will be initially based on [muscle cell model](https://github.com/openworm/muscle_model))
 
-**Parameters_D** Multicompartmental, conductance based cells 
+**Parameters_D** (TODO) Multicompartmental, conductance based cells 
 
 Parameters A, B and C are the only parameter sets tested so far, but the aim is to make all of the associated tools below for running, visualising, analysing, etc. *independent of the parameter set used*, so they can be ready for more detailed networks from c302 in the future. 
 
@@ -48,8 +48,8 @@ The full set of dependencies for c302 can be installed with the following (see a
 
 To regenerate a set of NeuroML & LEMS files for one instance of the model and execute it:
 
-    python c302_Full.py                           # To regenerate the NeuroML & LEMS files
-    ../jNeuroMLJar/jnml LEMS_c302_A_Full.xml      # Run a simulation with jNeuroML
+    python c302_Full.py                                    # To regenerate the NeuroML & LEMS files
+    ../jNeuroMLJar/jnml examples/LEMS_c302_A_Full.xml      # Run a simulation with jNeuroML
     
 This will produce the following (6 cells visualised with the jNeuroML GUI):
 
@@ -84,6 +84,7 @@ More options can be found with
 
 Due to the fact that the cells are in pure NeuroML2, they can be mapped to other formats using the export feature of jNeuroML. [Install NEURON](http://www.neuron.yale.edu/neuron/download) and map the network to this format using:
 
+    cd examples 
     jnml LEMS_c302_A_Pharyngeal.xml -neuron
     nrnivmodl
     nrngui -python LEMS_c302_A_Pharyngeal_nrn.py
@@ -99,7 +100,7 @@ Image above shows the network run in NEURON (top) and a comparison of the activi
 
 Future plans include:
 
-- Implement & correctly tune **Parameters_B** (started), **Parameters_C**
+- Implement & correctly tune **Parameters_C** (started), **Parameters_D**
 
 - Modify to use [PyOpenWorm](https://github.com/openworm/PyOpenWorm) as source of connection data
 
