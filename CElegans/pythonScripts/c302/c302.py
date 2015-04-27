@@ -21,10 +21,9 @@ import neuroml.loaders as loaders
 import airspeed
 
 import random
-
 import argparse
-
 import shutil
+import os
 
 try:
     from urllib2 import URLError  # Python 2
@@ -253,7 +252,7 @@ def generate(net_id,
              validate=True, 
              test=False,
              verbose=True,
-             target_directory='.'):
+             target_directory='./'):
                 
 
     params.create_models()
@@ -319,7 +318,8 @@ def generate(net_id,
     if params.custom_component_types_definitions:
         lems_info["includes"].append(params.custom_component_types_definitions)
         if target_directory != './':
-            shutil.copy(params.custom_component_types_definitions, target_directory)
+            def_file = "%s/%s"%(os.path.dirname(__file__), params.custom_component_types_definitions)
+            shutil.copy(def_file, target_directory)
     
 
     backers_dir = "../../../../OpenWormBackers/" if test else "../../../OpenWormBackers/"
