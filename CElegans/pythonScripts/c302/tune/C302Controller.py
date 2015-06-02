@@ -12,6 +12,7 @@ import sys
 
 import numpy as np
 
+from collections import OrderedDict
 
 if not os.path.isfile('c302.py'):
     print('This script should be run from dir: CElegansNeuroML/CElegans/pythonScripts/c302')
@@ -72,5 +73,21 @@ class C302Controller():
         if show:
             sim.show()
     
-        return np.array(sim.rec_t)*1000, np.array(sim.rec_v)*1000
+        return sim.t, sim.volts
 
+
+if __name__ == '__main__':
+    
+    cont = C302Controller()
+    
+    sim_vars = OrderedDict([('leak_cond_density', 0.05), 
+                            ('k_slow_cond_density', 0.5), 
+                            ('k_fast_cond_density', 0.05), 
+                            ('ca_boyle_cond_density', 0.5), 
+                            ('specific_capacitance', 1.05), 
+                            ('leak_erev', -50), 
+                            ('k_slow_erev', -60), 
+                            ('k_fast_erev', -60), 
+                            ('ca_boyle_erev', 40)])
+                            
+    cont.run_individual(sim_vars, show=True)

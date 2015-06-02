@@ -18,7 +18,10 @@ import sys
 import os.path
 import time
 
+import pprint
+
 from collections import OrderedDict
+pp = pprint.PrettyPrinter(indent=4)
 
 
 if not os.path.isfile('c302.py'):
@@ -27,12 +30,11 @@ if not os.path.isfile('c302.py'):
         
 sys.path.append(".")
 
-from C302Simulation import C302Simulation
 
 from C302Controller import C302Controller
 
 
-def get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time):
+def get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cell_ref, targets):
         # Based on: https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/data_analysis.py
         data_fname = "tune/redacted_data.txt"
         data_dt = 0.0002
@@ -41,24 +43,36 @@ def get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time):
         file=open(data_fname)
 
         #make voltage into a numpy array in mV:
-        v = np.array([float(i) for i in file.readlines()])*1000
+        v = [float(i)*1000 for i in file.readlines()]
+        volts = {cell_ref: v}
 
-        t_init = 0.0
-        t_final = len(v)*data_dt
-
-        t = np.linspace(t_init,t_final,len(v))*1000
-
-
-        analysis_i=analysis.IClampAnalysis(v,t,analysis_var,
-                                        start_analysis=analysis_start_time,
-                                        end_analysis=sim_time,
-                                        smooth_data=True,
-                                        show_smoothed_data=False,
-                                        smoothing_window_len=33)
-
-        target_data = analysis_i.analyse()
+        print 99
+        print len(v)
         
-        return target_data, v, t
+        times = []
+        for i in range(len(v)):
+            times.append(float(data_dt*i*1000))
+
+        print times[0]
+        print times[-1]
+        print len(times)
+
+        analysis_i=analysis.NetworkAnalysis(volts,
+                                            times,
+                                            analysis_var,
+                                            start_analysis=analysis_start_time,
+                                            smooth_data=True,
+                                            show_smoothed_data=False,
+                                            smoothing_window_len=33)
+
+        target_data = analysis_i.analyse(targets)
+        print 22
+        print(len(times))
+        
+        print(len(volts[cell_ref]))
+        print 222
+        
+        return target_data, volts, times
 
 if __name__ == '__main__':
     
@@ -80,59 +94,45 @@ if __name__ == '__main__':
 
     #above parameters will not be modified outside these bounds:
     min_constraints = [0.0001, 0.01,   0.01,   0.01, 0.1, -60, -70, -70, 30]
-    max_constraints = [0.2,    1,      1,      1,    3,   -40, -50, -50, 50]
+    max_constraints = [0.01,    1,      1,      1,    3,   -40, -50, -50, 50]
 
     analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0}
 
+    cell_ref = 'ADAL[0]/v'
              
-    weights = {'peak_linear_gradient': 0,
-               'average_minimum': 0.5, 
-               'spike_frequency_adaptation': 0.0, 
-               'trough_phase_adaptation': 0.0, 
-               'mean_spike_frequency': 10.0, 
-               'average_maximum': 5.0, 
-               'trough_decay_exponent': 0.0, 
-               'interspike_time_covar': 0.0, 
-               'min_peak_no': 0.0, 
-               'spike_width_adaptation': 0.0, 
-               'max_peak_no': 50.0, 
-               'first_spike_time': 10.0, 
-               'peak_decay_exponent': 0.0,
-               'spike_broadening': 0.0}
+    weights = {cell_ref+':average_minimum': 0.5, 
+               cell_ref+':mean_spike_frequency': 10.0, 
+               cell_ref+':average_maximum': 5.0,  
+               cell_ref+':max_peak_no': 50.0, 
+               cell_ref+':first_spike_time': 10.0}
 
     data = 'SimpleTest.dat'
 
 
     sim_var = OrderedDict()
     for i in range(len(parameters)):
-        sim_var[parameters[i]] = max_constraints[i]/2 - min_constraints[i]/2
-    print(sim_var)
-    print(sim_var.keys())
-    
+        sim_var[parameters[i]] = max_constraints[i]/2 + min_constraints[i]/2
+        
 
-    if len(sys.argv) == 2 and sys.argv[1] == '-sim':
-        sim = C302Simulation('SimpleTest', 'C')
-        sim.go()
-        sim.show()
+    if len(sys.argv) == 2 and sys.argv[1] == '-opt':
         
-    elif len(sys.argv) == 2 and sys.argv[1] == '-opt':
-        
-        target_data, v, t = get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time)
+        target_data, v, t = get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cell_ref, weights.keys())
+     
+        print("Analysis of experimental data:")
+        pp.pprint(target_data)
 
         #make an evaluator, using automatic target evaluation:
-        my_evaluator=evaluators.IClampEvaluator(controller=my_controller,
+        my_evaluator=evaluators.NetworkEvaluator(controller=my_controller,
                                                 analysis_start_time=analysis_start_time,
                                                 analysis_end_time=sim_time,
-                                                target_data_path=data,
                                                 parameters=parameters,
                                                 analysis_var=analysis_var,
                                                 weights=weights,
-                                                targets=target_data,
-                                                automatic=False)
+                                                targets=target_data)
 
         population_size =  20
         max_evaluations =  50
-        num_selected =     10
+        num_selected =     15
         num_offspring =    10
         mutation_rate =    0.5
         num_elites =       1
@@ -152,7 +152,7 @@ if __name__ == '__main__':
                                                  
         start = time.time()
         #run the optimizer
-        best_candidate = my_optimizer.optimize(do_plot=False, seed=1234567)
+        best_candidate = my_optimizer.optimize(do_plot=False, seed=12345)
         
         secs = time.time()-start
         print("----------------------------------------------------\n\n"
@@ -161,27 +161,24 @@ if __name__ == '__main__':
         for key,value in zip(parameters,best_candidate):
             sim_var[key]=value
             
-        print(sim_var.keys())
             
-        best_candidate_t,best_candidate_v = my_controller.run_individual(sim_var,show=False)
+        best_candidate_t, best_candidate_v = my_controller.run_individual(sim_var,show=False)
         
-        best_candidate_analysis=analysis.IClampAnalysis(best_candidate_v,
+        best_candidate_analysis=analysis.NetworkAnalysis(best_candidate_v,
                                                    best_candidate_t,
                                                    analysis_var,
                                                    start_analysis=analysis_start_time,
-                                                   end_analysis=sim_time,
-                                                   smooth_data=False,
-                                                   show_smoothed_data=False)
+                                                   end_analysis=sim_time)
                                                    
         best_candidate_analysis.analyse()
                                                    
         best_candidate_analysis.evaluate_fitness(target_data, weights)                                           
         
-        data_plot = plt.plot(np.array(t),np.array(v))
-        best_candidate_plot = plt.plot(np.array(best_candidate_t),np.array(best_candidate_v))
+        
+        data_plot = plt.plot(t,v[cell_ref], label="Original data")
+        best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[cell_ref], label="Best model - %i evaluations"%max_evaluations)
 
-        plt.legend([data_plot,best_candidate_plot],
-                   ["Original data","Best model - %i evaluations"%max_evaluations])
+        plt.legend()
 
         plt.ylim(-80.0,80.0)
         plt.xlim(0.0,1000.0)
@@ -196,23 +193,31 @@ if __name__ == '__main__':
     else:
 
 
-        target_data, v, t = get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time)
-        print("target_data: %s"%target_data)
+        sim_var = OrderedDict([('leak_cond_density', 0.05), 
+                                ('k_slow_cond_density', 0.5), 
+                                ('k_fast_cond_density', 0.05), 
+                                ('ca_boyle_cond_density', 0.5), 
+                                ('specific_capacitance', 1.05), 
+                                ('leak_erev', -50), 
+                                ('k_slow_erev', -60), 
+                                ('k_fast_erev', -60), 
+                                ('ca_boyle_erev', 40)])
         
-        example_run_t, example_run_v = my_controller.run_individual(sim_var, show=False)
+        
+        example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
 
         print("Have run individual instance...")
 
 
-        example_run_analysis=analysis.IClampAnalysis(example_run_v,
+        example_run_analysis=analysis.NetworkAnalysis(example_run_v,
                                                    example_run_t,
                                                    analysis_var,
                                                    start_analysis=analysis_start_time,
-                                                   end_analysis=sim_time,
-                                                   smooth_data=False,
-                                                   show_smoothed_data=True)
+                                                   end_analysis=sim_time)
 
-        print(example_run_analysis.max_min_dictionary)
+        analysis = example_run_analysis.analyse()
+        
+        pp.pprint(analysis)
 
 
 

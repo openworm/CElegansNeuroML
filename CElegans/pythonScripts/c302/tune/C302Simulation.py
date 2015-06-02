@@ -6,8 +6,6 @@
     
 '''
 
-
-import numpy as np
 import sys
 import os.path
 
@@ -47,13 +45,14 @@ class C302Simulation(object):
         from matplotlib import pyplot as plt
 
         if self.go_already:
-            x = np.array(self.rec_t)
-            y = np.array(self.rec_v)
+            
+            for ref in self.volts.keys():
 
-            plt.plot(x, y)
-            plt.title("Simulation voltage vs time")
-            plt.xlabel("Time [ms]")
-            plt.ylabel("Voltage [mV]")
+                plt.plot(self.t, self.volts[ref], label=ref)
+                plt.title("Simulation voltage vs time")
+                plt.legend()
+                plt.xlabel("Time [ms]")
+                plt.ylabel("Voltage [mV]")
 
         else:
             print("""First you have to `go()` the simulation.""")
@@ -89,12 +88,15 @@ class C302Simulation(object):
         
         self.go_already = True
         results = pynml.run_lems_with_jneuroml(self.lems_file, nogui=True, load_saved_data=True, plot=False, verbose=False)
+        #results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, nogui=True, load_saved_data=True, plot=False)
         
-        self.rec_t = results['t']
+        self.t = [t*1000 for t in results['t']]
         res_template = '%s/0/generic_iaf_cell/v'
         if self.params.level == 'C' or self.params.level == 'D':
             res_template = '%s[0]/v'
-        self.rec_v = results[res_template%self.target_cell]
+        self.volts = {}
+        for cell in cells:
+            self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]
         
 
 
