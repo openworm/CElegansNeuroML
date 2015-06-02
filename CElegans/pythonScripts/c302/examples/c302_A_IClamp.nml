@@ -27,15 +27,15 @@ Parameters and setting used to generate this network:
         BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.21nA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current = 0.25nA (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
-    <pulseGenerator id="offset_current" delay="100 ms" duration="200 ms" amplitude="0.21nA"/>
+    <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="0.25nA"/>
     <network id="c302_A_IClamp">
-        <population id="ADAL" component="generic_iaf_cell" type="populationList">
+        <population id="ADAL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">
                 <location y="8.65" x="-239.25" z="31.050000000000001"/>

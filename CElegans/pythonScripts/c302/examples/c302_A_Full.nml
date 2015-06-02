@@ -88,1577 +88,1577 @@ Parameters and setting used to generate this network:
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Full">
-        <population id="ADAL" component="generic_iaf_cell" type="populationList">
+        <population id="ADAL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">
                 <location y="8.65" x="-239.25" z="31.050000000000001"/>
             </instance>
         </population>
-        <population id="ADAR" component="generic_iaf_cell" type="populationList">
+        <population id="ADAR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Aurolessa"/>
             <instance id="0">
                 <location y="-12.9" x="-239.25" z="31.050000000000001"/>
             </instance>
         </population>
-        <population id="ADEL" component="generic_iaf_cell" type="populationList">
+        <population id="ADEL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="11." x="-242.375" z="32.450000000000003"/>
             </instance>
         </population>
-        <population id="ADER" component="generic_iaf_cell" type="populationList">
+        <population id="ADER" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-15.299999" x="-242.375" z="32.450000000000003"/>
             </instance>
         </population>
-        <population id="ADFL" component="generic_iaf_cell" type="populationList">
+        <population id="ADFL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Lloyd Watts"/>
             <instance id="0">
                 <location y="3.7250001" x="-267.899999999999977" z="41.600002000000003"/>
             </instance>
         </population>
-        <population id="ADFR" component="generic_iaf_cell" type="populationList">
+        <population id="ADFR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8." x="-267.899999999999977" z="41.600002000000003"/>
             </instance>
         </population>
-        <population id="ADLL" component="generic_iaf_cell" type="populationList">
+        <population id="ADLL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.7" x="-265.75" z="47.549999999999997"/>
             </instance>
         </population>
-        <population id="ADLR" component="generic_iaf_cell" type="populationList">
+        <population id="ADLR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-6.95" x="-265.75" z="47.549999999999997"/>
             </instance>
         </population>
-        <population id="AFDL" component="generic_iaf_cell" type="populationList">
+        <population id="AFDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.5" x="-268.375" z="43.5"/>
             </instance>
         </population>
-        <population id="AFDR" component="generic_iaf_cell" type="populationList">
+        <population id="AFDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.75" x="-268.375" z="43.5"/>
             </instance>
         </population>
-        <population id="AIAL" component="generic_iaf_cell" type="populationList">
+        <population id="AIAL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Hylowyrm"/>
             <instance id="0">
                 <location y="0.8" x="-264.149999999999977" z="35.550002999999997"/>
             </instance>
         </population>
-        <population id="AIAR" component="generic_iaf_cell" type="populationList">
+        <population id="AIAR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="brunni"/>
             <instance id="0">
                 <location y="-5.1" x="-264.149999999999977" z="35.550002999999997"/>
             </instance>
         </population>
-        <population id="AIBL" component="generic_iaf_cell" type="populationList">
+        <population id="AIBL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.7" x="-266.199979999999982" z="37."/>
             </instance>
         </population>
-        <population id="AIBR" component="generic_iaf_cell" type="populationList">
+        <population id="AIBR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-6.8999996" x="-266.199979999999982" z="37."/>
             </instance>
         </population>
-        <population id="AIML" component="generic_iaf_cell" type="populationList">
+        <population id="AIML" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="9.25" x="-253.449980000000011" z="28.400002000000001"/>
             </instance>
         </population>
-        <population id="AIMR" component="generic_iaf_cell" type="populationList">
+        <population id="AIMR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-13.500000999999999" x="-253.449980000000011" z="28.400002000000001"/>
             </instance>
         </population>
-        <population id="AINL" component="generic_iaf_cell" type="populationList">
+        <population id="AINL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.4499999" x="-269.541999999999973" z="39.357998000000002"/>
             </instance>
         </population>
-        <population id="AINR" component="generic_iaf_cell" type="populationList">
+        <population id="AINR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.067" x="-269.541999999999973" z="39.357998000000002"/>
             </instance>
         </population>
-        <population id="AIYL" component="generic_iaf_cell" type="populationList">
+        <population id="AIYL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="7.4500003" x="-252.500020000000006" z="28.949999999999999"/>
             </instance>
         </population>
-        <population id="AIYR" component="generic_iaf_cell" type="populationList">
+        <population id="AIYR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-11.699999999999999" x="-252.500020000000006" z="28.949999999999999"/>
             </instance>
         </population>
-        <population id="AIZL" component="generic_iaf_cell" type="populationList">
+        <population id="AIZL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="5.6000004" x="-258.75" z="37.450000000000003"/>
             </instance>
         </population>
-        <population id="AIZR" component="generic_iaf_cell" type="populationList">
+        <population id="AIZR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Robleda de Salamanca"/>
             <instance id="0">
                 <location y="-9.949999999999999" x="-258.75" z="37.450000000000003"/>
             </instance>
         </population>
-        <population id="ALA" component="generic_iaf_cell" type="populationList">
+        <population id="ALA" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Rosa"/>
             <instance id="0">
                 <location y="-1.35" x="-271." z="50.850000000000001"/>
             </instance>
         </population>
-        <population id="ALML" component="generic_iaf_cell" type="populationList">
+        <population id="ALML" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="22.675000000000001" x="-60.75" z="-37.149997999999997"/>
             </instance>
         </population>
-        <population id="ALMR" component="generic_iaf_cell" type="populationList">
+        <population id="ALMR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-24.149999999999999" x="-60.75" z="-37.149997999999997"/>
             </instance>
         </population>
-        <population id="ALNL" component="generic_iaf_cell" type="populationList">
+        <population id="ALNL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.32500002" x="406.699979999999982" z="12.375"/>
             </instance>
         </population>
-        <population id="ALNR" component="generic_iaf_cell" type="populationList">
+        <population id="ALNR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.925" x="406.699979999999982" z="12.375"/>
             </instance>
         </population>
-        <population id="AQR" component="generic_iaf_cell" type="populationList">
+        <population id="AQR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Christian A. Seebauer"/>
             <instance id="0">
                 <location y="-14.800000000000001" x="-243.050000000000011" z="33.950000000000003"/>
             </instance>
         </population>
-        <population id="AS1" component="generic_iaf_cell" type="populationList">
+        <population id="AS1" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Kottbusser Tor"/>
             <instance id="0">
                 <location y="-0.275" x="-229.038000000000011" z="4.738"/>
             </instance>
         </population>
-        <population id="AS10" component="generic_iaf_cell" type="populationList">
+        <population id="AS10" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="278.25" z="-24."/>
             </instance>
         </population>
-        <population id="AS11" component="generic_iaf_cell" type="populationList">
+        <population id="AS11" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8750001" x="315.699999999999989" z="-26.124998000000001"/>
             </instance>
         </population>
-        <population id="AS2" component="generic_iaf_cell" type="populationList">
+        <population id="AS2" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Geraldine"/>
             <instance id="0">
                 <location y="-1.8750001" x="-203.875" z="-12.725"/>
             </instance>
         </population>
-        <population id="AS3" component="generic_iaf_cell" type="populationList">
+        <population id="AS3" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="-151.400010000000009" z="-45.649997999999997"/>
             </instance>
         </population>
-        <population id="AS4" component="generic_iaf_cell" type="populationList">
+        <population id="AS4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8750001" x="-90.200005000000004" z="-65.375"/>
             </instance>
         </population>
-        <population id="AS5" component="generic_iaf_cell" type="populationList">
+        <population id="AS5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8750001" x="-3.7500002" z="-52.524999999999999"/>
             </instance>
         </population>
-        <population id="AS6" component="generic_iaf_cell" type="populationList">
+        <population id="AS6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="28.25" z="-34.25"/>
             </instance>
         </population>
-        <population id="AS7" component="generic_iaf_cell" type="populationList">
+        <population id="AS7" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="119.900000000000006" z="3.9500003"/>
             </instance>
         </population>
-        <population id="AS8" component="generic_iaf_cell" type="populationList">
+        <population id="AS8" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="181.849999999999994" z="-1.7750001"/>
             </instance>
         </population>
-        <population id="AS9" component="generic_iaf_cell" type="populationList">
+        <population id="AS9" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8750001" x="228.924990000000008" z="-14.5"/>
             </instance>
         </population>
-        <population id="ASEL" component="generic_iaf_cell" type="populationList">
+        <population id="ASEL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.125" x="-263.675000000000011" z="40.049999999999997"/>
             </instance>
         </population>
-        <population id="ASER" component="generic_iaf_cell" type="populationList">
+        <population id="ASER" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.375" x="-263.675000000000011" z="40.049999999999997"/>
             </instance>
         </population>
-        <population id="ASGL" component="generic_iaf_cell" type="populationList">
+        <population id="ASGL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.7" x="-265.350000000000023" z="45.424999999999997"/>
             </instance>
         </population>
-        <population id="ASGR" component="generic_iaf_cell" type="populationList">
+        <population id="ASGR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8." x="-265.350000000000023" z="45.424999999999997"/>
             </instance>
         </population>
-        <population id="ASHL" component="generic_iaf_cell" type="populationList">
+        <population id="ASHL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="5.55" x="-265.625" z="41."/>
             </instance>
         </population>
-        <population id="ASHR" component="generic_iaf_cell" type="populationList">
+        <population id="ASHR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.800000000000001" x="-265.625" z="41."/>
             </instance>
         </population>
-        <population id="ASIL" component="generic_iaf_cell" type="populationList">
+        <population id="ASIL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.6499999" x="-263.699999999999989" z="46.875"/>
             </instance>
         </population>
-        <population id="ASIR" component="generic_iaf_cell" type="populationList">
+        <population id="ASIR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-6.8999996" x="-263.699999999999989" z="46.875"/>
             </instance>
         </population>
-        <population id="ASJL" component="generic_iaf_cell" type="populationList">
+        <population id="ASJL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.9750001" x="-263." z="37.475000000000001"/>
             </instance>
         </population>
-        <population id="ASJR" component="generic_iaf_cell" type="populationList">
+        <population id="ASJR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.25" x="-263." z="37.475000000000001"/>
             </instance>
         </population>
-        <population id="ASKL" component="generic_iaf_cell" type="populationList">
+        <population id="ASKL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.7" x="-268.024999999999977" z="46.399997999999997"/>
             </instance>
         </population>
-        <population id="ASKR" component="generic_iaf_cell" type="populationList">
+        <population id="ASKR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Z.B."/>
             <instance id="0">
                 <location y="-8." x="-268.024999999999977" z="46.399997999999997"/>
             </instance>
         </population>
-        <population id="AUAL" component="generic_iaf_cell" type="populationList">
+        <population id="AUAL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.5" x="-263.975000000000023" z="37.475000000000001"/>
             </instance>
         </population>
-        <population id="AUAR" component="generic_iaf_cell" type="populationList">
+        <population id="AUAR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.800000000000001" x="-263.975000000000023" z="37.475000000000001"/>
             </instance>
         </population>
-        <population id="AVAL" component="generic_iaf_cell" type="populationList">
+        <population id="AVAL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="JUD"/>
             <instance id="0">
                 <location y="-0.55" x="-271.5" z="37.982999999999997"/>
             </instance>
         </population>
-        <population id="AVAR" component="generic_iaf_cell" type="populationList">
+        <population id="AVAR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.5" x="-271.5" z="37.982999999999997"/>
             </instance>
         </population>
-        <population id="AVBL" component="generic_iaf_cell" type="populationList">
+        <population id="AVBL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.225" x="-269.793999999999983" z="37.863002999999999"/>
             </instance>
         </population>
-        <population id="AVBR" component="generic_iaf_cell" type="populationList">
+        <population id="AVBR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="mn"/>
             <instance id="0">
                 <location y="-4.581" x="-269.793999999999983" z="37.863002999999999"/>
             </instance>
         </population>
-        <population id="AVDL" component="generic_iaf_cell" type="populationList">
+        <population id="AVDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.167" x="-268.699999999999989" z="37.299999999999997"/>
             </instance>
         </population>
-        <population id="AVDR" component="generic_iaf_cell" type="populationList">
+        <population id="AVDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.033" x="-268.682999999999993" z="37.283000000000001"/>
             </instance>
         </population>
-        <population id="AVEL" component="generic_iaf_cell" type="populationList">
+        <population id="AVEL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.75" x="-269.350000000000023" z="40.649999999999999"/>
             </instance>
         </population>
-        <population id="AVER" component="generic_iaf_cell" type="populationList">
+        <population id="AVER" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.4" x="-269.350000000000023" z="40.649999999999999"/>
             </instance>
         </population>
-        <population id="AVFL" component="generic_iaf_cell" type="populationList">
+        <population id="AVFL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.1" x="-246.400000000000006" z="18.600000000000001"/>
             </instance>
         </population>
-        <population id="AVFR" component="generic_iaf_cell" type="populationList">
+        <population id="AVFR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-6.5" x="-246.400000000000006" z="18.600000000000001"/>
             </instance>
         </population>
-        <population id="AVG" component="generic_iaf_cell" type="populationList">
+        <population id="AVG" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="JRW-UK"/>
             <instance id="0">
                 <location y="-2." x="-237.099999999999994" z="12.85"/>
             </instance>
         </population>
-        <population id="AVHL" component="generic_iaf_cell" type="populationList">
+        <population id="AVHL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.1499996" x="-264.399999999999977" z="45."/>
             </instance>
         </population>
-        <population id="AVHR" component="generic_iaf_cell" type="populationList">
+        <population id="AVHR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.900001" x="-264.399999999999977" z="45."/>
             </instance>
         </population>
-        <population id="AVJL" component="generic_iaf_cell" type="populationList">
+        <population id="AVJL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.2" x="-264.899999999999977" z="47.549999999999997"/>
             </instance>
         </population>
-        <population id="AVJR" component="generic_iaf_cell" type="populationList">
+        <population id="AVJR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.75" x="-264.899999999999977" z="47.549999999999997"/>
             </instance>
         </population>
-        <population id="AVKL" component="generic_iaf_cell" type="populationList">
+        <population id="AVKL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="1.65" x="-255." z="22.574999999999999"/>
             </instance>
         </population>
-        <population id="AVKR" component="generic_iaf_cell" type="populationList">
+        <population id="AVKR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.583" x="-246.950009999999992" z="19."/>
             </instance>
         </population>
-        <population id="AVL" component="generic_iaf_cell" type="populationList">
+        <population id="AVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.5000005" x="-263.449999999999989" z="36.350000000000001"/>
             </instance>
         </population>
-        <population id="AVM" component="generic_iaf_cell" type="populationList">
+        <population id="AVM" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="chinsangian"/>
             <instance id="0">
                 <location y="-20.5" x="-55.649999999999999" z="-44.600002000000003"/>
             </instance>
         </population>
-        <population id="AWAL" component="generic_iaf_cell" type="populationList">
+        <population id="AWAL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.9" x="-265.875" z="42.75"/>
             </instance>
         </population>
-        <population id="AWAR" component="generic_iaf_cell" type="populationList">
+        <population id="AWAR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.199999999999999" x="-265.875" z="42.75"/>
             </instance>
         </population>
-        <population id="AWBL" component="generic_iaf_cell" type="populationList">
+        <population id="AWBL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="5.5" x="-266.225000000000023" z="43.100000000000001"/>
             </instance>
         </population>
-        <population id="AWBR" component="generic_iaf_cell" type="populationList">
+        <population id="AWBR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.75" x="-266.225000000000023" z="43.100000000000001"/>
             </instance>
         </population>
-        <population id="AWCL" component="generic_iaf_cell" type="populationList">
+        <population id="AWCL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.8" x="-267.949999999999989" z="38.950000000000003"/>
             </instance>
         </population>
-        <population id="AWCR" component="generic_iaf_cell" type="populationList">
+        <population id="AWCR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.1" x="-267.949999999999989" z="38.950000000000003"/>
             </instance>
         </population>
-        <population id="BAGL" component="generic_iaf_cell" type="populationList">
+        <population id="BAGL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="carcode"/>
             <instance id="0">
                 <location y="4.675" x="-277.099980000000016" z="44.975002000000003"/>
             </instance>
         </population>
-        <population id="BAGR" component="generic_iaf_cell" type="populationList">
+        <population id="BAGR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9." x="-277.099980000000016" z="44.975002000000003"/>
             </instance>
         </population>
-        <population id="BDUL" component="generic_iaf_cell" type="populationList">
+        <population id="BDUL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="15.35" x="-187.150000000000006" z="-0.2"/>
             </instance>
         </population>
-        <population id="BDUR" component="generic_iaf_cell" type="populationList">
+        <population id="BDUR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-19.649999999999999" x="-187.150000000000006" z="-0.2"/>
             </instance>
         </population>
-        <population id="CANL" component="generic_iaf_cell" type="populationList">
+        <population id="CANL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Ruben Kamran"/>
             <instance id="0">
                 <location y="25.350002" x="47.950000000000003" z="1.65"/>
             </instance>
         </population>
-        <population id="CANR" component="generic_iaf_cell" type="populationList">
+        <population id="CANR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="neurobelle"/>
             <instance id="0">
                 <location y="-27.25" x="47.950000000000003" z="1.65"/>
             </instance>
         </population>
-        <population id="CEPDL" component="generic_iaf_cell" type="populationList">
+        <population id="CEPDL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Tauber"/>
             <instance id="0">
                 <location y="1.35" x="-275.025019999999984" z="54.075004999999997"/>
             </instance>
         </population>
-        <population id="CEPDR" component="generic_iaf_cell" type="populationList">
+        <population id="CEPDR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="foxx"/>
             <instance id="0">
                 <location y="-5.625" x="-275.025019999999984" z="54.075004999999997"/>
             </instance>
         </population>
-        <population id="CEPVL" component="generic_iaf_cell" type="populationList">
+        <population id="CEPVL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Gernot Weiser"/>
             <instance id="0">
                 <location y="0.70000005" x="-277.125" z="39.924999999999997"/>
             </instance>
         </population>
-        <population id="CEPVR" component="generic_iaf_cell" type="populationList">
+        <population id="CEPVR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="The Swarm"/>
             <instance id="0">
                 <location y="-4.95" x="-277.125" z="39.924999999999997"/>
             </instance>
         </population>
-        <population id="DA1" component="generic_iaf_cell" type="populationList">
+        <population id="DA1" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="KR"/>
             <instance id="0">
                 <location y="-0.75" x="-227.075009999999992" z="3.425"/>
             </instance>
         </population>
-        <population id="DA2" component="generic_iaf_cell" type="populationList">
+        <population id="DA2" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Ruzila"/>
             <instance id="0">
                 <location y="-1.9" x="-190.75" z="-21.675000000000001"/>
             </instance>
         </population>
-        <population id="DA3" component="generic_iaf_cell" type="populationList">
+        <population id="DA3" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Magoo"/>
             <instance id="0">
                 <location y="-1.65" x="-123.650000000000006" z="-58.350002000000003"/>
             </instance>
         </population>
-        <population id="DA4" component="generic_iaf_cell" type="populationList">
+        <population id="DA4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.7" x="-32.399999999999999" z="-61.75"/>
             </instance>
         </population>
-        <population id="DA5" component="generic_iaf_cell" type="populationList">
+        <population id="DA5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.65" x="84.200000000000003" z="-3.15"/>
             </instance>
         </population>
-        <population id="DA6" component="generic_iaf_cell" type="populationList">
+        <population id="DA6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.65" x="198.675000000000011" z="-6.3500004"/>
             </instance>
         </population>
-        <population id="DA7" component="generic_iaf_cell" type="populationList">
+        <population id="DA7" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.65" x="281.600000000000023" z="-24.949999999999999"/>
             </instance>
         </population>
-        <population id="DA8" component="generic_iaf_cell" type="populationList">
+        <population id="DA8" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="1.275" x="376.800000000000011" z="-10.925000000000001"/>
             </instance>
         </population>
-        <population id="DA9" component="generic_iaf_cell" type="populationList">
+        <population id="DA9" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.6" x="376.800000000000011" z="-10.925000000000001"/>
             </instance>
         </population>
-        <population id="DB1" component="generic_iaf_cell" type="populationList">
+        <population id="DB1" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="-230.349989999999991" z="6.85"/>
             </instance>
         </population>
-        <population id="DB2" component="generic_iaf_cell" type="populationList">
+        <population id="DB2" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.2" x="-244.5" z="15.787000000000001"/>
             </instance>
         </population>
-        <population id="DB3" component="generic_iaf_cell" type="populationList">
+        <population id="DB3" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="-195.275000000000006" z="-18.524999999999999"/>
             </instance>
         </population>
-        <population id="DB4" component="generic_iaf_cell" type="populationList">
+        <population id="DB4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8750001" x="-96.275000000000006" z="-64.650000000000006"/>
             </instance>
         </population>
-        <population id="DB5" component="generic_iaf_cell" type="populationList">
+        <population id="DB5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.05" x="35.25" z="-30.449999999999999"/>
             </instance>
         </population>
-        <population id="DB6" component="generic_iaf_cell" type="populationList">
+        <population id="DB6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8249999" x="178.099999999999994" z="-0.2"/>
             </instance>
         </population>
-        <population id="DB7" component="generic_iaf_cell" type="populationList">
+        <population id="DB7" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="267.75" z="-22.625"/>
             </instance>
         </population>
-        <population id="DD1" component="generic_iaf_cell" type="populationList">
+        <population id="DD1" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Stanislav Petrov"/>
             <instance id="0">
                 <location y="-0.9" x="-231.949999999999989" z="6.85"/>
             </instance>
         </population>
-        <population id="DD2" component="generic_iaf_cell" type="populationList">
+        <population id="DD2" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Evolver"/>
             <instance id="0">
                 <location y="-1.85" x="-156.474989999999991" z="-42.850000000000001"/>
             </instance>
         </population>
-        <population id="DD3" component="generic_iaf_cell" type="populationList">
+        <population id="DD3" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="-28.600002" z="-60.524999999999999"/>
             </instance>
         </population>
-        <population id="DD4" component="generic_iaf_cell" type="populationList">
+        <population id="DD4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8750001" x="122.899994000000007" z="4.5499997"/>
             </instance>
         </population>
-        <population id="DD5" component="generic_iaf_cell" type="populationList">
+        <population id="DD5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8750001" x="234.050019999999989" z="-15.775"/>
             </instance>
         </population>
-        <population id="DD6" component="generic_iaf_cell" type="populationList">
+        <population id="DD6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.9" x="365.774999999999977" z="-16.475000000000001"/>
             </instance>
         </population>
-        <population id="DVA" component="generic_iaf_cell" type="populationList">
+        <population id="DVA" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Jeff Alstott"/>
             <instance id="0">
                 <location y="-2.345" x="394.600000000000023" z="3.678"/>
             </instance>
         </population>
-        <population id="DVB" component="generic_iaf_cell" type="populationList">
+        <population id="DVB" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.75" x="394.5" z="4."/>
             </instance>
         </population>
-        <population id="DVC" component="generic_iaf_cell" type="populationList">
+        <population id="DVC" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.116" x="395.432979999999986" z="5.992"/>
             </instance>
         </population>
-        <population id="FLPL" component="generic_iaf_cell" type="populationList">
+        <population id="FLPL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="10.875" x="-246.300000000000011" z="31.050000000000001"/>
             </instance>
         </population>
-        <population id="FLPR" component="generic_iaf_cell" type="populationList">
+        <population id="FLPR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Geoff Fortytwo's Neuron of Awesomeness"/>
             <instance id="0">
                 <location y="-15.050000000000001" x="-246.300000000000011" z="31.050000000000001"/>
             </instance>
         </population>
-        <population id="HSNL" component="generic_iaf_cell" type="populationList">
+        <population id="HSNL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="The Stoner Neuron"/>
             <instance id="0">
                 <location y="17.449999999999999" x="61.049999999999997" z="6.95"/>
             </instance>
         </population>
-        <population id="HSNR" component="generic_iaf_cell" type="populationList">
+        <population id="HSNR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="OpenScienceFTW"/>
             <instance id="0">
                 <location y="-21.649999999999999" x="61.049999999999997" z="6.95"/>
             </instance>
         </population>
-        <population id="I1L" component="generic_iaf_cell" type="populationList">
+        <population id="I1L" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="sitructa"/>
             <instance id="0">
                 <location y="2.8999999" x="-300.350000000000023" z="53.149997999999997"/>
             </instance>
         </population>
-        <population id="I1R" component="generic_iaf_cell" type="populationList">
+        <population id="I1R" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Jesus Martinez"/>
             <instance id="0">
                 <location y="-7.1500006" x="-300.350000000000023" z="53.149997999999997"/>
             </instance>
         </population>
-        <population id="I2L" component="generic_iaf_cell" type="populationList">
+        <population id="I2L" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="MetaMal"/>
             <instance id="0">
                 <location y="1.55" x="-311.649999999999977" z="54.450000000000003"/>
             </instance>
         </population>
-        <population id="I2R" component="generic_iaf_cell" type="populationList">
+        <population id="I2R" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Flying Armbar"/>
             <instance id="0">
                 <location y="-5.7999997" x="-311.649999999999977" z="54.450000000000003"/>
             </instance>
         </population>
-        <population id="I3" component="generic_iaf_cell" type="populationList">
+        <population id="I3" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.05" x="-296.550020000000018" z="58.25"/>
             </instance>
         </population>
-        <population id="I4" component="generic_iaf_cell" type="populationList">
+        <population id="I4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.05" x="-253.900010000000009" z="43.100000000000001"/>
             </instance>
         </population>
-        <population id="I5" component="generic_iaf_cell" type="populationList">
+        <population id="I5" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="yates"/>
             <instance id="0">
                 <location y="-2.1" x="-247.849989999999991" z="30.675000000000001"/>
             </instance>
         </population>
-        <population id="I6" component="generic_iaf_cell" type="populationList">
+        <population id="I6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="1.7" x="-251.650000000000006" z="43.049999999999997"/>
             </instance>
         </population>
-        <population id="IL1DL" component="generic_iaf_cell" type="populationList">
+        <population id="IL1DL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.825" x="-282.762999999999977" z="52.762996999999999"/>
             </instance>
         </population>
-        <population id="IL1DR" component="generic_iaf_cell" type="populationList">
+        <population id="IL1DR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.0620003" x="-282.762999999999977" z="52.762996999999999"/>
             </instance>
         </population>
-        <population id="IL1L" component="generic_iaf_cell" type="populationList">
+        <population id="IL1L" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.8" x="-282.675020000000018" z="47.850002000000003"/>
             </instance>
         </population>
-        <population id="IL1R" component="generic_iaf_cell" type="populationList">
+        <population id="IL1R" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.075001" x="-282.675020000000018" z="47.850002000000003"/>
             </instance>
         </population>
-        <population id="IL1VL" component="generic_iaf_cell" type="populationList">
+        <population id="IL1VL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.25" x="-279.5" z="41."/>
             </instance>
         </population>
-        <population id="IL1VR" component="generic_iaf_cell" type="populationList">
+        <population id="IL1VR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-6.5499997" x="-279.5" z="41."/>
             </instance>
         </population>
-        <population id="IL2DL" component="generic_iaf_cell" type="populationList">
+        <population id="IL2DL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="7.1000004" x="-287.474980000000016" z="57.125003999999997"/>
             </instance>
         </population>
-        <population id="IL2DR" component="generic_iaf_cell" type="populationList">
+        <population id="IL2DR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-11.35" x="-287.474980000000016" z="57.125003999999997"/>
             </instance>
         </population>
-        <population id="IL2L" component="generic_iaf_cell" type="populationList">
+        <population id="IL2L" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Alessandro Russo"/>
             <instance id="0">
                 <location y="6.7500005" x="-285." z="49.350000000000001"/>
             </instance>
         </population>
-        <population id="IL2R" component="generic_iaf_cell" type="populationList">
+        <population id="IL2R" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-11." x="-285." z="49.350000000000001"/>
             </instance>
         </population>
-        <population id="IL2VL" component="generic_iaf_cell" type="populationList">
+        <population id="IL2VL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.3" x="-288.875" z="42.950000000000003"/>
             </instance>
         </population>
-        <population id="IL2VR" component="generic_iaf_cell" type="populationList">
+        <population id="IL2VR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.6" x="-288.875" z="42.950000000000003"/>
             </instance>
         </population>
-        <population id="LUAL" component="generic_iaf_cell" type="populationList">
+        <population id="LUAL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="VSAZEL"/>
             <instance id="0">
                 <location y="1.35" x="403.800020000000018" z="4.1"/>
             </instance>
         </population>
-        <population id="LUAR" component="generic_iaf_cell" type="populationList">
+        <population id="LUAR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.85" x="403.800020000000018" z="4.1"/>
             </instance>
         </population>
-        <population id="M1" component="generic_iaf_cell" type="populationList">
+        <population id="M1" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="albertwenger"/>
             <instance id="0">
                 <location y="-0.86700004" x="-252.134999999999991" z="44.420001999999997"/>
             </instance>
         </population>
-        <population id="M2L" component="generic_iaf_cell" type="populationList">
+        <population id="M2L" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.7" x="-254.349989999999991" z="38.649999999999999"/>
             </instance>
         </population>
-        <population id="M2R" component="generic_iaf_cell" type="populationList">
+        <population id="M2R" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8." x="-254.349989999999991" z="38.649999999999999"/>
             </instance>
         </population>
-        <population id="M3L" component="generic_iaf_cell" type="populationList">
+        <population id="M3L" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.7500002" x="-295.399999999999977" z="48.149999999999999"/>
             </instance>
         </population>
-        <population id="M3R" component="generic_iaf_cell" type="populationList">
+        <population id="M3R" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.050000000000001" x="-295.399999999999977" z="48.149999999999999"/>
             </instance>
         </population>
-        <population id="M4" component="generic_iaf_cell" type="populationList">
+        <population id="M4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.033" x="-288.932979999999986" z="57.582999999999998"/>
             </instance>
         </population>
-        <population id="M5" component="generic_iaf_cell" type="populationList">
+        <population id="M5" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Asher"/>
             <instance id="0">
                 <location y="-2.2" x="-241.449999999999989" z="41.800002999999997"/>
             </instance>
         </population>
-        <population id="MCL" component="generic_iaf_cell" type="populationList">
+        <population id="MCL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.2" x="-296.149999999999977" z="52.299999999999997"/>
             </instance>
         </population>
-        <population id="MCR" component="generic_iaf_cell" type="populationList">
+        <population id="MCR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.25" x="-296.149999999999977" z="52.299999999999997"/>
             </instance>
         </population>
-        <population id="MI" component="generic_iaf_cell" type="populationList">
+        <population id="MI" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="NeuroMind technology"/>
             <instance id="0">
                 <location y="-2.1539998" x="-293.512020000000007" z="56.707000000000001"/>
             </instance>
         </population>
-        <population id="NSML" component="generic_iaf_cell" type="populationList">
+        <population id="NSML" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.6000001" x="-292.25" z="51.799999999999997"/>
             </instance>
         </population>
-        <population id="NSMR" component="generic_iaf_cell" type="populationList">
+        <population id="NSMR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-6.3500004" x="-292.25" z="51.799999999999997"/>
             </instance>
         </population>
-        <population id="OLLL" component="generic_iaf_cell" type="populationList">
+        <population id="OLLL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.4" x="-283.899999999999977" z="50.024997999999997"/>
             </instance>
         </population>
-        <population id="OLLR" component="generic_iaf_cell" type="populationList">
+        <population id="OLLR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.65" x="-283.899999999999977" z="50.024997999999997"/>
             </instance>
         </population>
-        <population id="OLQDL" component="generic_iaf_cell" type="populationList">
+        <population id="OLQDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="2.775" x="-280." z="53.425002999999997"/>
             </instance>
         </population>
-        <population id="OLQDR" component="generic_iaf_cell" type="populationList">
+        <population id="OLQDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.0249996" x="-280." z="53.425002999999997"/>
             </instance>
         </population>
-        <population id="OLQVL" component="generic_iaf_cell" type="populationList">
+        <population id="OLQVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.2" x="-279.25" z="43.924999999999997"/>
             </instance>
         </population>
-        <population id="OLQVR" component="generic_iaf_cell" type="populationList">
+        <population id="OLQVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.474999" x="-279.25" z="43.924999999999997"/>
             </instance>
         </population>
-        <population id="PDA" component="generic_iaf_cell" type="populationList">
+        <population id="PDA" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.95" x="387.25" z="-5.5"/>
             </instance>
         </population>
-        <population id="PDB" component="generic_iaf_cell" type="populationList">
+        <population id="PDB" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.3" x="384.649999999999977" z="-7.75"/>
             </instance>
         </population>
-        <population id="PDEL" component="generic_iaf_cell" type="populationList">
+        <population id="PDEL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="25.75" x="143.800000000000011" z="25.600000000000001"/>
             </instance>
         </population>
-        <population id="PDER" component="generic_iaf_cell" type="populationList">
+        <population id="PDER" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-27.350000000000001" x="143.800000000000011" z="25.600000000000001"/>
             </instance>
         </population>
-        <population id="PHAL" component="generic_iaf_cell" type="populationList">
+        <population id="PHAL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="1.2" x="402.899999999999977" z="4.1"/>
             </instance>
         </population>
-        <population id="PHAR" component="generic_iaf_cell" type="populationList">
+        <population id="PHAR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Eliot Attridge"/>
             <instance id="0">
                 <location y="-3.8" x="402.899999999999977" z="4.1"/>
             </instance>
         </population>
-        <population id="PHBL" component="generic_iaf_cell" type="populationList">
+        <population id="PHBL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="1.2" x="405.600039999999979" z="5.475"/>
             </instance>
         </population>
-        <population id="PHBR" component="generic_iaf_cell" type="populationList">
+        <population id="PHBR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.7250001" x="405.600039999999979" z="5.475"/>
             </instance>
         </population>
-        <population id="PHCL" component="generic_iaf_cell" type="populationList">
+        <population id="PHCL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.75" x="408.774999999999977" z="7.275"/>
             </instance>
         </population>
-        <population id="PHCR" component="generic_iaf_cell" type="populationList">
+        <population id="PHCR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="unusual connectivity"/>
             <instance id="0">
                 <location y="-3.425" x="408.774999999999977" z="7.275"/>
             </instance>
         </population>
-        <population id="PLML" component="generic_iaf_cell" type="populationList">
+        <population id="PLML" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Isaac Spear"/>
             <instance id="0">
                 <location y="2.5" x="410.149999999999977" z="8.175000000000001"/>
             </instance>
         </population>
-        <population id="PLMR" component="generic_iaf_cell" type="populationList">
+        <population id="PLMR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Altman"/>
             <instance id="0">
                 <location y="-3.675" x="410.149999999999977" z="8.175000000000001"/>
             </instance>
         </population>
-        <population id="PLNL" component="generic_iaf_cell" type="populationList">
+        <population id="PLNL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.225" x="402.300000000000011" z="6.8999996"/>
             </instance>
         </population>
-        <population id="PLNR" component="generic_iaf_cell" type="populationList">
+        <population id="PLNR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-6.225" x="402.300000000000011" z="6.8999996"/>
             </instance>
         </population>
-        <population id="PQR" component="generic_iaf_cell" type="populationList">
+        <population id="PQR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.32500002" x="407.300000000000011" z="7.6499996"/>
             </instance>
         </population>
-        <population id="PVCL" component="generic_iaf_cell" type="populationList">
+        <population id="PVCL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
             <instance id="0">
                 <location y="0.85" x="404.150019999999984" z="5.5"/>
             </instance>
         </population>
-        <population id="PVCR" component="generic_iaf_cell" type="populationList">
+        <population id="PVCR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="J. Pablo Fernandez"/>
             <instance id="0">
                 <location y="-3.4499998" x="404.150019999999984" z="5.5"/>
             </instance>
         </population>
-        <population id="PVDL" component="generic_iaf_cell" type="populationList">
+        <population id="PVDL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Andreas Makoto Hein"/>
             <instance id="0">
                 <location y="24.748999999999999" x="175.15100000000001" z="24.952000000000002"/>
             </instance>
         </population>
-        <population id="PVDR" component="generic_iaf_cell" type="populationList">
+        <population id="PVDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-26.113997999999999" x="175.15100000000001" z="24.952000000000002"/>
             </instance>
         </population>
-        <population id="PVM" component="generic_iaf_cell" type="populationList">
+        <population id="PVM" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="aKzenT"/>
             <instance id="0">
                 <location y="24.850000000000001" x="188.800000000000011" z="20.550001000000002"/>
             </instance>
         </population>
-        <population id="PVNL" component="generic_iaf_cell" type="populationList">
+        <population id="PVNL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.55" x="410." z="8.900001"/>
             </instance>
         </population>
-        <population id="PVNR" component="generic_iaf_cell" type="populationList">
+        <population id="PVNR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.25" x="409.949999999999989" z="8.900001"/>
             </instance>
         </population>
-        <population id="PVPL" component="generic_iaf_cell" type="populationList">
+        <population id="PVPL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.1" x="366.650019999999984" z="-14.699999999999999"/>
             </instance>
         </population>
-        <population id="PVPR" component="generic_iaf_cell" type="populationList">
+        <population id="PVPR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.15" x="356.550000000000011" z="-16.649999999999999"/>
             </instance>
         </population>
-        <population id="PVQL" component="generic_iaf_cell" type="populationList">
+        <population id="PVQL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.85" x="402.400019999999984" z="5.15"/>
             </instance>
         </population>
-        <population id="PVQR" component="generic_iaf_cell" type="populationList">
+        <population id="PVQR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.3" x="402.400019999999984" z="5.15"/>
             </instance>
         </population>
-        <population id="PVR" component="generic_iaf_cell" type="populationList">
+        <population id="PVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="407.350000000000023" z="7.7"/>
             </instance>
         </population>
-        <population id="PVT" component="generic_iaf_cell" type="populationList">
+        <population id="PVT" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.1" x="358.75" z="-17.5"/>
             </instance>
         </population>
-        <population id="PVWL" component="generic_iaf_cell" type="populationList">
+        <population id="PVWL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.8" x="405.399999999999977" z="6.8"/>
             </instance>
         </population>
-        <population id="PVWR" component="generic_iaf_cell" type="populationList">
+        <population id="PVWR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.4" x="405.399999999999977" z="6.8"/>
             </instance>
         </population>
-        <population id="RIAL" component="generic_iaf_cell" type="populationList">
+        <population id="RIAL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Sara"/>
             <instance id="0">
                 <location y="4." x="-270.25" z="45."/>
             </instance>
         </population>
-        <population id="RIAR" component="generic_iaf_cell" type="populationList">
+        <population id="RIAR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.199999999999999" x="-270.25" z="45."/>
             </instance>
         </population>
-        <population id="RIBL" component="generic_iaf_cell" type="populationList">
+        <population id="RIBL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="5.5" x="-264.350000000000023" z="38."/>
             </instance>
         </population>
-        <population id="RIBR" component="generic_iaf_cell" type="populationList">
+        <population id="RIBR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="robkirkup"/>
             <instance id="0">
                 <location y="-9.800000000000001" x="-264.350000000000023" z="38."/>
             </instance>
         </population>
-        <population id="RICL" component="generic_iaf_cell" type="populationList">
+        <population id="RICL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.737" x="-267.062999999999988" z="38.087000000000003"/>
             </instance>
         </population>
-        <population id="RICR" component="generic_iaf_cell" type="populationList">
+        <population id="RICR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.563" x="-267.062999999999988" z="38.087000000000003"/>
             </instance>
         </population>
-        <population id="RID" component="generic_iaf_cell" type="populationList">
+        <population id="RID" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.225" x="-272.350000000000023" z="54.938000000000002"/>
             </instance>
         </population>
-        <population id="RIFL" component="generic_iaf_cell" type="populationList">
+        <population id="RIFL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0." x="-239.849989999999991" z="18.350000000000001"/>
             </instance>
         </population>
-        <population id="RIFR" component="generic_iaf_cell" type="populationList">
+        <population id="RIFR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-5.15" x="-245.5" z="23.899999999999999"/>
             </instance>
         </population>
-        <population id="RIGL" component="generic_iaf_cell" type="populationList">
+        <population id="RIGL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0." x="-233.25" z="16.350000000000001"/>
             </instance>
         </population>
-        <population id="RIGR" component="generic_iaf_cell" type="populationList">
+        <population id="RIGR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.7" x="-241.950009999999992" z="20.649999999999999"/>
             </instance>
         </population>
-        <population id="RIH" component="generic_iaf_cell" type="populationList">
+        <population id="RIH" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2." x="-267.350000000000023" z="35.950000000000003"/>
             </instance>
         </population>
-        <population id="RIML" component="generic_iaf_cell" type="populationList">
+        <population id="RIML" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.5" x="-260.899999999999977" z="39."/>
             </instance>
         </population>
-        <population id="RIMR" component="generic_iaf_cell" type="populationList">
+        <population id="RIMR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.75" x="-260.899999999999977" z="39."/>
             </instance>
         </population>
-        <population id="RIPL" component="generic_iaf_cell" type="populationList">
+        <population id="RIPL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.3750002" x="-278.574979999999982" z="48.824997000000003"/>
             </instance>
         </population>
-        <population id="RIPR" component="generic_iaf_cell" type="populationList">
+        <population id="RIPR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.625" x="-278.574979999999982" z="48.824997000000003"/>
             </instance>
         </population>
-        <population id="RIR" component="generic_iaf_cell" type="populationList">
+        <population id="RIR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-11.599999" x="-265.899999999999977" z="36.649997999999997"/>
             </instance>
         </population>
-        <population id="RIS" component="generic_iaf_cell" type="populationList">
+        <population id="RIS" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.8250003" x="-262.163000000000011" z="33.637999999999998"/>
             </instance>
         </population>
-        <population id="RIVL" component="generic_iaf_cell" type="populationList">
+        <population id="RIVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.5" x="-265.300020000000018" z="50.350000000000001"/>
             </instance>
         </population>
-        <population id="RIVR" component="generic_iaf_cell" type="populationList">
+        <population id="RIVR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
             <instance id="0">
                 <location y="-8.75" x="-265.300020000000018" z="50.350000000000001"/>
             </instance>
         </population>
-        <population id="RMDDL" component="generic_iaf_cell" type="populationList">
+        <population id="RMDDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.6" x="-269.074979999999982" z="37.649999999999999"/>
             </instance>
         </population>
-        <population id="RMDDR" component="generic_iaf_cell" type="populationList">
+        <population id="RMDDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.75" x="-269.074979999999982" z="37.649999999999999"/>
             </instance>
         </population>
-        <population id="RMDL" component="generic_iaf_cell" type="populationList">
+        <population id="RMDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.1" x="-271." z="41.200000000000003"/>
             </instance>
         </population>
-        <population id="RMDR" component="generic_iaf_cell" type="populationList">
+        <population id="RMDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.4" x="-271." z="41.200000000000003"/>
             </instance>
         </population>
-        <population id="RMDVL" component="generic_iaf_cell" type="populationList">
+        <population id="RMDVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.8500004" x="-271.199979999999982" z="44.399999999999999"/>
             </instance>
         </population>
-        <population id="RMDVR" component="generic_iaf_cell" type="populationList">
+        <population id="RMDVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.049999" x="-271.199979999999982" z="44.399999999999999"/>
             </instance>
         </population>
-        <population id="RMED" component="generic_iaf_cell" type="populationList">
+        <population id="RMED" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.5" x="-275.75" z="58.499996000000003"/>
             </instance>
         </population>
-        <population id="RMEL" component="generic_iaf_cell" type="populationList">
+        <population id="RMEL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.65" x="-274.399999999999977" z="46.987000000000002"/>
             </instance>
         </population>
-        <population id="RMER" component="generic_iaf_cell" type="populationList">
+        <population id="RMER" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.900001" x="-274.399999999999977" z="46.987000000000002"/>
             </instance>
         </population>
-        <population id="RMEV" component="generic_iaf_cell" type="populationList">
+        <population id="RMEV" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.033" x="-272.966999999999985" z="35.667000000000002"/>
             </instance>
         </population>
-        <population id="RMFL" component="generic_iaf_cell" type="populationList">
+        <population id="RMFL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="1.1" x="-265.050020000000018" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="RMFR" component="generic_iaf_cell" type="populationList">
+        <population id="RMFR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-5.4" x="-265.050020000000018" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="RMGL" component="generic_iaf_cell" type="populationList">
+        <population id="RMGL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="8.25" x="-238.299990000000008" z="32.700000000000003"/>
             </instance>
         </population>
-        <population id="RMGR" component="generic_iaf_cell" type="populationList">
+        <population id="RMGR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
             <instance id="0">
                 <location y="-12.5" x="-238.299990000000008" z="32.700000000000003"/>
             </instance>
         </population>
-        <population id="RMHL" component="generic_iaf_cell" type="populationList">
+        <population id="RMHL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="1.1" x="-265.899999999999977" z="35.700000000000003"/>
             </instance>
         </population>
-        <population id="RMHR" component="generic_iaf_cell" type="populationList">
+        <population id="RMHR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Martino"/>
             <instance id="0">
                 <location y="-5.2999997" x="-265.899999999999977" z="35.700000000000003"/>
             </instance>
         </population>
-        <population id="SAADL" component="generic_iaf_cell" type="populationList">
+        <population id="SAADL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.6879997" x="-270.168999999999983" z="42.131"/>
             </instance>
         </population>
-        <population id="SAADR" component="generic_iaf_cell" type="populationList">
+        <population id="SAADR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.531" x="-270.168999999999983" z="42.131"/>
             </instance>
         </population>
-        <population id="SAAVL" component="generic_iaf_cell" type="populationList">
+        <population id="SAAVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.9" x="-270.900019999999984" z="45.424999999999997"/>
             </instance>
         </population>
-        <population id="SAAVR" component="generic_iaf_cell" type="populationList">
+        <population id="SAAVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.175000000000001" x="-270.900019999999984" z="45.424999999999997"/>
             </instance>
         </population>
-        <population id="SABD" component="generic_iaf_cell" type="populationList">
+        <population id="SABD" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.2" x="-234.800000000000011" z="14.925000000000001"/>
             </instance>
         </population>
-        <population id="SABVL" component="generic_iaf_cell" type="populationList">
+        <population id="SABVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.325" x="-249.25" z="24.349997999999999"/>
             </instance>
         </population>
-        <population id="SABVR" component="generic_iaf_cell" type="populationList">
+        <population id="SABVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.1" x="-249.25" z="24.349997999999999"/>
             </instance>
         </population>
-        <population id="SDQL" component="generic_iaf_cell" type="populationList">
+        <population id="SDQL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="21.399999999999999" x="222.799990000000008" z="19.199999999999999"/>
             </instance>
         </population>
-        <population id="SDQR" component="generic_iaf_cell" type="populationList">
+        <population id="SDQR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="ogachyuallincheck"/>
             <instance id="0">
                 <location y="-14.200001" x="-131.75" z="-10.550000000000001"/>
             </instance>
         </population>
-        <population id="SIADL" component="generic_iaf_cell" type="populationList">
+        <population id="SIADL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-3.958" x="-267.658000000000015" z="43.966999999999999"/>
             </instance>
         </population>
-        <population id="SIADR" component="generic_iaf_cell" type="populationList">
+        <population id="SIADR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.38300002" x="-269.199979999999982" z="43.649999999999999"/>
             </instance>
         </population>
-        <population id="SIAVL" component="generic_iaf_cell" type="populationList">
+        <population id="SIAVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="5.9500003" x="-259.800020000000018" z="32.25"/>
             </instance>
         </population>
-        <population id="SIAVR" component="generic_iaf_cell" type="populationList">
+        <population id="SIAVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-10.199999999999999" x="-259.800020000000018" z="32.25"/>
             </instance>
         </population>
-        <population id="SIBDL" component="generic_iaf_cell" type="populationList">
+        <population id="SIBDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-5.2669997" x="-269.132999999999981" z="45.799999999999997"/>
             </instance>
         </population>
-        <population id="SIBDR" component="generic_iaf_cell" type="populationList">
+        <population id="SIBDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.96699995" x="-269.132999999999981" z="45.799999999999997"/>
             </instance>
         </population>
-        <population id="SIBVL" component="generic_iaf_cell" type="populationList">
+        <population id="SIBVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.667" x="-269.867000000000019" z="35.408000000000001"/>
             </instance>
         </population>
-        <population id="SIBVR" component="generic_iaf_cell" type="populationList">
+        <population id="SIBVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-2.767" x="-269.867000000000019" z="35.408000000000001"/>
             </instance>
         </population>
-        <population id="SMBDL" component="generic_iaf_cell" type="populationList">
+        <population id="SMBDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.1" x="-264.300000000000011" z="33.100000000000001"/>
             </instance>
         </population>
-        <population id="SMBDR" component="generic_iaf_cell" type="populationList">
+        <population id="SMBDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7." x="-264.300000000000011" z="33.100000000000001"/>
             </instance>
         </population>
-        <population id="SMBVL" component="generic_iaf_cell" type="populationList">
+        <population id="SMBVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.425" x="-263.449999999999989" z="33.049999999999997"/>
             </instance>
         </population>
-        <population id="SMBVR" component="generic_iaf_cell" type="populationList">
+        <population id="SMBVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.6" x="-263.449999999999989" z="33.049999999999997"/>
             </instance>
         </population>
-        <population id="SMDDL" component="generic_iaf_cell" type="populationList">
+        <population id="SMDDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.25" x="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="SMDDR" component="generic_iaf_cell" type="populationList">
+        <population id="SMDDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.4500003" x="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="SMDVL" component="generic_iaf_cell" type="populationList">
+        <population id="SMDVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.7" x="-270.949999999999989" z="46.649999999999999"/>
             </instance>
         </population>
-        <population id="SMDVR" component="generic_iaf_cell" type="populationList">
+        <population id="SMDVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.900001" x="-270.949999999999989" z="46.649999999999999"/>
             </instance>
         </population>
-        <population id="URADL" component="generic_iaf_cell" type="populationList">
+        <population id="URADL" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="akizzles"/>
             <instance id="0">
                 <location y="5." x="-284.649999999999977" z="52.200000000000003"/>
             </instance>
         </population>
-        <population id="URADR" component="generic_iaf_cell" type="populationList">
+        <population id="URADR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.300000000000001" x="-284.649999999999977" z="52.200000000000003"/>
             </instance>
         </population>
-        <population id="URAVL" component="generic_iaf_cell" type="populationList">
+        <population id="URAVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="0.32500002" x="-279.600000000000023" z="41.399999999999999"/>
             </instance>
         </population>
-        <population id="URAVR" component="generic_iaf_cell" type="populationList">
+        <population id="URAVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-4.575" x="-279.600000000000023" z="41.399999999999999"/>
             </instance>
         </population>
-        <population id="URBL" component="generic_iaf_cell" type="populationList">
+        <population id="URBL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="5.05" x="-279.949999999999989" z="47.549999999999997"/>
             </instance>
         </population>
-        <population id="URBR" component="generic_iaf_cell" type="populationList">
+        <population id="URBR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.324999999999999" x="-279.949999999999989" z="47.549999999999997"/>
             </instance>
         </population>
-        <population id="URXL" component="generic_iaf_cell" type="populationList">
+        <population id="URXL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.05" x="-269.875" z="48.274999999999999"/>
             </instance>
         </population>
-        <population id="URXR" component="generic_iaf_cell" type="populationList">
+        <population id="URXR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.35" x="-269.875" z="48.274999999999999"/>
             </instance>
         </population>
-        <population id="URYDL" component="generic_iaf_cell" type="populationList">
+        <population id="URYDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.125" x="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
-        <population id="URYDR" component="generic_iaf_cell" type="populationList">
+        <population id="URYDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-8.4" x="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
-        <population id="URYVL" component="generic_iaf_cell" type="populationList">
+        <population id="URYVL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="3.4" x="-280.925020000000018" z="45.350000000000001"/>
             </instance>
         </population>
-        <population id="URYVR" component="generic_iaf_cell" type="populationList">
+        <population id="URYVR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.7" x="-280.925020000000018" z="45.350000000000001"/>
             </instance>
         </population>
-        <population id="VA1" component="generic_iaf_cell" type="populationList">
+        <population id="VA1" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.35" x="-235.550000000000011" z="11.75"/>
             </instance>
         </population>
-        <population id="VA10" component="generic_iaf_cell" type="populationList">
+        <population id="VA10" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="254.625020000000006" z="-21.25"/>
             </instance>
         </population>
-        <population id="VA11" component="generic_iaf_cell" type="populationList">
+        <population id="VA11" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.55" x="312.350000000000023" z="-26.249998000000001"/>
             </instance>
         </population>
-        <population id="VA12" component="generic_iaf_cell" type="populationList">
+        <population id="VA12" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.1" x="362.449999999999989" z="-18.149999999999999"/>
             </instance>
         </population>
-        <population id="VA2" component="generic_iaf_cell" type="populationList">
+        <population id="VA2" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Marquam Hill"/>
             <instance id="0">
                 <location y="-1.85" x="-217.099999999999994" z="-3.9500003"/>
             </instance>
         </population>
-        <population id="VA3" component="generic_iaf_cell" type="populationList">
+        <population id="VA3" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.475" x="-184.099989999999991" z="-26.374998000000001"/>
             </instance>
         </population>
-        <population id="VA4" component="generic_iaf_cell" type="populationList">
+        <population id="VA4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="-119.500010000000003" z="-58.700000000000003"/>
             </instance>
         </population>
-        <population id="VA5" component="generic_iaf_cell" type="populationList">
+        <population id="VA5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="-54.299999999999997" z="-66.049994999999996"/>
             </instance>
         </population>
-        <population id="VA6" component="generic_iaf_cell" type="populationList">
+        <population id="VA6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="21.550000000000001" z="-41.149999999999999"/>
             </instance>
         </population>
-        <population id="VA7" component="generic_iaf_cell" type="populationList">
+        <population id="VA7" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="98.049994999999996" z="1.175"/>
             </instance>
         </population>
-        <population id="VA8" component="generic_iaf_cell" type="populationList">
+        <population id="VA8" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8" x="150.300000000000011" z="3.4"/>
             </instance>
         </population>
-        <population id="VA9" component="generic_iaf_cell" type="populationList">
+        <population id="VA9" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8" x="208.824999999999989" z="-9.049999"/>
             </instance>
         </population>
-        <population id="VB1" component="generic_iaf_cell" type="populationList">
+        <population id="VB1" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
             <instance id="0">
                 <location y="-1.55" x="-246.449999999999989" z="16.399999999999999"/>
             </instance>
         </population>
-        <population id="VB10" component="generic_iaf_cell" type="populationList">
+        <population id="VB10" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="218.074980000000011" z="-11.4"/>
             </instance>
         </population>
-        <population id="VB11" component="generic_iaf_cell" type="populationList">
+        <population id="VB11" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8249999" x="262.324999999999989" z="-21.949999999999999"/>
             </instance>
         </population>
-        <population id="VB2" component="generic_iaf_cell" type="populationList">
+        <population id="VB2" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
             <instance id="0">
                 <location y="-2." x="-253.300000000000011" z="19.850000000000001"/>
             </instance>
         </population>
-        <population id="VB3" component="generic_iaf_cell" type="populationList">
+        <population id="VB3" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
             <instance id="0">
                 <location y="-1.85" x="-210.224999999999994" z="-8.725"/>
             </instance>
         </population>
-        <population id="VB4" component="generic_iaf_cell" type="populationList">
+        <population id="VB4" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Worm"/>
             <instance id="0">
                 <location y="-2." x="-173.25" z="-33.5"/>
             </instance>
         </population>
-        <population id="VB5" component="generic_iaf_cell" type="populationList">
+        <population id="VB5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="-109.549999999999997" z="-62.149999999999999"/>
             </instance>
         </population>
-        <population id="VB6" component="generic_iaf_cell" type="populationList">
+        <population id="VB6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="-36.575000000000003" z="-62.699997000000003"/>
             </instance>
         </population>
-        <population id="VB7" component="generic_iaf_cell" type="populationList">
+        <population id="VB7" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.675000000000001" x="41.450000000000003" z="-24.361999999999998"/>
             </instance>
         </population>
-        <population id="VB8" component="generic_iaf_cell" type="populationList">
+        <population id="VB8" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8249999" x="108.799999999999997" z="2.875"/>
             </instance>
         </population>
-        <population id="VB9" component="generic_iaf_cell" type="populationList">
+        <population id="VB9" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.85" x="159.550000000000011" z="3.2"/>
             </instance>
         </population>
-        <population id="VC1" component="generic_iaf_cell" type="populationList">
+        <population id="VC1" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Gnothi seauton"/>
             <instance id="0">
                 <location y="-0.72499996" x="-170.025010000000009" z="-35.75"/>
             </instance>
         </population>
-        <population id="VC2" component="generic_iaf_cell" type="populationList">
+        <population id="VC2" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="M.Habryn"/>
             <instance id="0">
                 <location y="-0.625" x="-105.325000000000003" z="-63.399999999999999"/>
             </instance>
         </population>
-        <population id="VC3" component="generic_iaf_cell" type="populationList">
+        <population id="VC3" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.4499999" x="-6.45" z="-54.000003999999997"/>
             </instance>
         </population>
-        <population id="VC4" component="generic_iaf_cell" type="populationList">
+        <population id="VC4" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Klob Le Grand"/>
             <instance id="0">
                 <location y="-1.15" x="43.850000000000001" z="-24.199999999999999"/>
             </instance>
         </population>
-        <population id="VC5" component="generic_iaf_cell" type="populationList">
+        <population id="VC5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.15" x="66.549994999999996" z="-12.5"/>
             </instance>
         </population>
-        <population id="VC6" component="generic_iaf_cell" type="populationList">
+        <population id="VC6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8249999" x="174.175000000000011" z="1."/>
             </instance>
         </population>
-        <population id="VD1" component="generic_iaf_cell" type="populationList">
+        <population id="VD1" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Ackley Lab"/>
             <instance id="0">
                 <location y="-0.70000005" x="-228.599999999999994" z="4.05"/>
             </instance>
         </population>
-        <population id="VD10" component="generic_iaf_cell" type="populationList">
+        <population id="VD10" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.75" x="236.099999999999994" z="-16.5"/>
             </instance>
         </population>
-        <population id="VD11" component="generic_iaf_cell" type="populationList">
+        <population id="VD11" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.8" x="283.800020000000018" z="-24.800000000000001"/>
             </instance>
         </population>
-        <population id="VD12" component="generic_iaf_cell" type="populationList">
+        <population id="VD12" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.75" x="345.5" z="-23.149999999999999"/>
             </instance>
         </population>
-        <population id="VD13" component="generic_iaf_cell" type="populationList">
+        <population id="VD13" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.75" x="379.850000000000023" z="-10.75"/>
             </instance>
         </population>
-        <population id="VD2" component="generic_iaf_cell" type="populationList">
+        <population id="VD2" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.65000004" x="-226.049990000000008" z="2.35"/>
             </instance>
         </population>
-        <population id="VD3" component="generic_iaf_cell" type="populationList">
+        <population id="VD3" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.8" x="-188.099999999999994" z="-23.449999999999999"/>
             </instance>
         </population>
-        <population id="VD4" component="generic_iaf_cell" type="populationList">
+        <population id="VD4" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.8" x="-137.199999999999989" z="-52.700000000000003"/>
             </instance>
         </population>
-        <population id="VD5" component="generic_iaf_cell" type="populationList">
+        <population id="VD5" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.75" x="-68.299999999999997" z="-66.75"/>
             </instance>
         </population>
-        <population id="VD6" component="generic_iaf_cell" type="populationList">
+        <population id="VD6" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.70000005" x="-1.4000001" z="-52.149997999999997"/>
             </instance>
         </population>
-        <population id="VD7" component="generic_iaf_cell" type="populationList">
+        <population id="VD7" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-12.349999" x="57.950000000000003" z="-14.200001"/>
             </instance>
         </population>
-        <population id="VD8" component="generic_iaf_cell" type="populationList">
+        <population id="VD8" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.75" x="135.099989999999991" z="3.9500003"/>
             </instance>
         </population>
-        <population id="VD9" component="generic_iaf_cell" type="populationList">
+        <population id="VD9" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.8" x="191.5" z="-3.8"/>
             </instance>

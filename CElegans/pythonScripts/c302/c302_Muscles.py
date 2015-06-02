@@ -1,12 +1,15 @@
-from c302 import generate
+import c302
 import sys
-import random
 
-if __name__ == '__main__':
     
-    parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
+def setup(parameter_set, generate=False):
+    
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
+    
+    params.set_bioparameter("unphysiological_offset_current", "0.25nA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_del", "50 ms", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_dur", "1000 ms", "Testing IClamp", "0")
     
     # Any neurons connected to muscles
     
@@ -49,15 +52,22 @@ if __name__ == '__main__':
     
     reference = "c302_%s_Muscles"%parameter_set
     
-    generate(reference, 
-             params, 
-             cells=cells,
-             cells_to_plot=cells_to_plot, 
-             cells_to_stimulate=cells_to_stimulate, 
-             include_muscles = True,
-             duration=500, 
-             dt=0.1, 
-             vmin=-52, 
-             vmax=-28, 
-             validate=(parameter_set!='B'),
-             target_directory='examples')    
+    if generate:
+        c302.generate(reference, 
+                    params, 
+                    cells=cells,
+                    cells_to_plot=cells_to_plot, 
+                    cells_to_stimulate=cells_to_stimulate, 
+                    include_muscles = True,
+                    duration=1000, 
+                    dt=0.1, 
+                    validate=(parameter_set!='B'),
+                    target_directory='examples')    
+
+    return cells, cells_to_stimulate, params
+             
+if __name__ == '__main__':
+    
+    parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
+    
+    setup(parameter_set, generate=True)

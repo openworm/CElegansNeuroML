@@ -17,26 +17,26 @@ Parameters and setting used to generate this network:
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_cond_density = 0.0193181 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_cond_density = 0.43584 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -64.3461 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_cond_density = 0.399994 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_erev = -54.9998 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_cond_density = 0.220209 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_erev = 49.11 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = 1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -55mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.15nA (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 100ms (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
+        BioParameter: leak_cond_density = 0.05 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_cond_density = 0.05 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.4 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -55 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.3 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.25 nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: KnownError, certainty 0)
 
    
     -->
@@ -58,7 +58,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_C_Syns" length="500ms" step="0.1ms" target="c302_C_Syns">
 
-        <Display id="neurons" title="c302_C_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_C_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
             
             <Line id="SMDDR" quantity="SMDDR[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="URYDL" quantity="URYDL[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />

@@ -29,9 +29,9 @@ Parameters and setting used to generate this network:
         BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.21nA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current = 0.25nA (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
 
    
     -->
@@ -49,9 +49,9 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_A_IClamp" length="500ms" step="0.1ms" target="c302_A_IClamp">
+    <Simulation id="sim_c302_A_IClamp" length="1000ms" step="0.1ms" target="c302_A_IClamp">
 
-        <Display id="neurons" title="c302_A_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
+        <Display id="neurons" title="c302_A_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-72" ymax="-48">
             
             <Line id="ADAL" quantity="ADAL/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             

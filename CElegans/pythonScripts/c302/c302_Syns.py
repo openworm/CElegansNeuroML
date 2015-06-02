@@ -1,9 +1,8 @@
-from c302 import generate
+import c302
 import sys
 
-if __name__ == '__main__':
     
-    parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
+def setup(parameter_set, generate=False):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -25,13 +24,20 @@ if __name__ == '__main__':
     
     reference = "c302_%s_Syns"%parameter_set
     
-    generate(reference, 
-             params, 
-             cells=cells, 
-             cells_to_stimulate=cells_to_stimulate, 
-             duration=500, 
-             dt=0.1, 
-             vmin=-72 if parameter_set=='A' else -52, 
-             vmax=-48 if parameter_set=='A' else -28,
-             validate=(parameter_set!='B'),
-             target_directory='examples')
+    if generate:
+        c302.generate(reference, 
+                 params, 
+                 cells=cells, 
+                 cells_to_stimulate=cells_to_stimulate, 
+                 duration=500, 
+                 dt=0.1, 
+                 validate=(parameter_set!='B'),
+                 target_directory='examples')
+             
+    return cells, cells_to_stimulate, params
+             
+if __name__ == '__main__':
+    
+    parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
+    
+    setup(parameter_set, generate=True)

@@ -15,35 +15,35 @@ Parameters and setting used to generate this network:
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_cond_density = 0.0193181 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_cond_density = 0.43584 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -64.3461 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_cond_density = 0.399994 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_erev = -54.9998 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_cond_density = 0.220209 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_erev = 49.11 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 0.4nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = 1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -55mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.3nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.15nA (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 100ms (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
+        BioParameter: leak_cond_density = 0.05 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_cond_density = 0.05 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 0.4 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -55 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.3 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0.25 nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: KnownError, certainty 0)
 
 </notes>
-    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.4nS" tauDecay="10ms" tauRise="1ms"/>
-    <expTwoSynapse id="exc_syn_2conns" erev="0mV" gbase="0.8nS" tauDecay="10ms" tauRise="1ms"/>
-    <expTwoSynapse id="exc_syn_5conns" erev="0mV" gbase="2.0nS" tauDecay="10ms" tauRise="1ms"/>
-    <expTwoSynapse id="exc_syn_3conns" erev="0mV" gbase="1.2nS" tauDecay="10ms" tauRise="1ms"/>
-    <expTwoSynapse id="exc_syn_4conns" erev="0mV" gbase="1.6nS" tauDecay="10ms" tauRise="1ms"/>
-    <expTwoSynapse id="exc_syn_6conns" erev="0mV" gbase="2.4nS" tauDecay="10ms" tauRise="1ms"/>
-    <expTwoSynapse id="exc_syn_13conns" erev="0mV" gbase="5.2nS" tauDecay="10ms" tauRise="1ms"/>
+    <expTwoSynapse id="exc_syn_1conns" erev="0 mV" gbase="0.4nS" tauDecay="10 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="exc_syn_2conns" erev="0 mV" gbase="0.8nS" tauDecay="10 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="exc_syn_5conns" erev="0 mV" gbase="2.0nS" tauDecay="10 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="exc_syn_3conns" erev="0 mV" gbase="1.2nS" tauDecay="10 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="exc_syn_4conns" erev="0 mV" gbase="1.6nS" tauDecay="10 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="exc_syn_6conns" erev="0 mV" gbase="2.4nS" tauDecay="10 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="exc_syn_13conns" erev="0 mV" gbase="5.2nS" tauDecay="10 ms" tauRise="1 ms"/>
     <gapJunction id="elec_syn_1conns" conductance="0.3nS"/>
     <gapJunction id="elec_syn_2conns" conductance="0.6nS"/>
     <gapJunction id="elec_syn_6conns" conductance="1.8nS"/>
@@ -57,10 +57,10 @@ Parameters and setting used to generate this network:
         </morphology>
         <biophysicalProperties id="biophys_GenericCell">
             <membraneProperties>
-                <channelDensity id="Leak_all" segmentGroup="all" ion="non_specific" ionChannel="Leak" erev="-40 mV" condDensity="0.0193181 mS_per_cm2"/>
-                <channelDensity id="k_slow_all" segmentGroup="all" ion="k" ionChannel="k_slow" erev="-64.3461 mV" condDensity="0.43584 mS_per_cm2"/>
-                <channelDensity id="k_fast_all" segmentGroup="all" ion="k" ionChannel="k_fast" erev="-54.9998 mV" condDensity="0.399994 mS_per_cm2"/>
-                <channelDensity id="ca_boyle_all" segmentGroup="all" ion="ca" ionChannel="ca_boyle" erev="49.11 mV" condDensity="0.220209 mS_per_cm2"/>
+                <channelDensity id="Leak_all" segmentGroup="all" ion="non_specific" ionChannel="Leak" erev="-50 mV" condDensity="0.05 mS_per_cm2"/>
+                <channelDensity id="k_slow_all" segmentGroup="all" ion="k" ionChannel="k_slow" erev="-60 mV" condDensity="0.5 mS_per_cm2"/>
+                <channelDensity id="k_fast_all" segmentGroup="all" ion="k" ionChannel="k_fast" erev="-60 mV" condDensity="0.05 mS_per_cm2"/>
+                <channelDensity id="ca_boyle_all" segmentGroup="all" ion="ca" ionChannel="ca_boyle" erev="40 mV" condDensity="0.5 mS_per_cm2"/>
                 <spikeThresh segmentGroup="all" value="-20 mV"/>
                 <specificCapacitance segmentGroup="all" value="1 uF_per_cm2"/>
                 <initMembPotential segmentGroup="all" value="-45 mV"/>
@@ -71,7 +71,7 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="100ms" duration="200ms" amplitude="0.15nA"/>
+    <pulseGenerator id="offset_current" delay="100 ms" duration="200 ms" amplitude="0.25 nA"/>
     <network id="c302_C_Pharyngeal">
         <population id="I1L" component="GenericCell" size="1">
             <property tag="OpenWormBackerAssignedName" value="sitructa"/>

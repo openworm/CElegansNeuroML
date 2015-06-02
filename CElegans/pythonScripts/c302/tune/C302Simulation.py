@@ -24,14 +24,15 @@ class C302Simulation(object):
     target_cell = 'ADAL'
     params = None
 
-    def __init__(self, reference, parameter_set, sim_time=1000, dt=0.05):
+    def __init__(self, reference, parameter_set, config, sim_time=1000, dt=0.05):
 
         self.sim_time = sim_time
         self.dt = dt
         self.go_already = False
         
-        exec('from parameters_%s import ParameterisedModel'%parameter_set)
-        self.params = ParameterisedModel()
+        exec('from c302_%s import setup'%config)
+        
+        self.cells, self.cells_to_stimulate, self.params = setup(parameter_set)
         
         self.reference = reference
         
@@ -64,8 +65,6 @@ class C302Simulation(object):
         Start the simulation once it's been intialized
         """
         
-        cells = [self.target_cell]
-        
 
         self.params.set_bioparameter("unphysiological_offset_current", "0.25nA", "Testing IClamp", "0")
         self.params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing IClamp", "0")
@@ -73,12 +72,10 @@ class C302Simulation(object):
         
         c302.generate(self.reference, 
              self.params, 
-             cells=cells, 
-             cells_to_stimulate=cells, 
+             cells=self.cells, 
+             cells_to_stimulate=self.cells_to_stimulate, 
              duration=self.sim_time, 
              dt=self.dt, 
-             vmin=-72 if self.params.level=='A' else -52, 
-             vmax=-48 if self.params.level=='A' else -28,
              validate=(self.params.level!='B'),
              verbose=False)
              
@@ -88,14 +85,15 @@ class C302Simulation(object):
         
         self.go_already = True
         results = pynml.run_lems_with_jneuroml(self.lems_file, nogui=True, load_saved_data=True, plot=False, verbose=False)
+        print results.keys()
         #results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, nogui=True, load_saved_data=True, plot=False)
         
         self.t = [t*1000 for t in results['t']]
         res_template = '%s/0/generic_iaf_cell/v'
-        if self.params.level == 'C' or self.params.level == 'D':
+        if self.params.level == 'B' or self.params.level == 'C' or self.params.level == 'D':
             res_template = '%s[0]/v'
         self.volts = {}
-        for cell in cells:
+        for cell in self.cells:
             self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]
         
 
@@ -106,8 +104,16 @@ if __name__ == '__main__':
     sim_time = 1000
     dt = 0.05
     
-    sim = C302Simulation('SimpleTest', 'C', sim_time, dt)
-    sim.go()
-    sim.show()
+    if len(sys.argv) == 2 and sys.argv[1] == '-net':
+        
+        sim = C302Simulation('NetTest', 'B', 'Muscles', sim_time, dt)
+        sim.go()
+        sim.show()
+        
+    else:
+
+        sim = C302Simulation('SimpleTest', 'C', 'IClamp', sim_time, dt)
+        sim.go()
+        sim.show()
 
 

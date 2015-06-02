@@ -10,8 +10,6 @@
 import os.path
 import sys
 
-import numpy as np
-
 from collections import OrderedDict
 
 if not os.path.isfile('c302.py'):
@@ -24,8 +22,11 @@ from C302Simulation import C302Simulation
 
 class C302Controller():
 
-    def __init__(self, sim_time=1000, dt=0.05):
+    def __init__(self, ref, params, config, sim_time=1000, dt=0.05):
         
+        self.ref = ref
+        self.params = params
+        self.config = config
         self.sim_time = sim_time
         self.dt = dt
 
@@ -61,7 +62,7 @@ class C302Controller():
 
         """
         
-        sim = C302Simulation('SimpleTest', 'C', sim_time=self.sim_time, dt=self.dt)
+        sim = C302Simulation(self.ref, self.params, self.config, sim_time=self.sim_time, dt=self.dt)
         
         for var_name in sim_var.keys():
             bp = sim.params.get_bioparameter(var_name)
@@ -78,16 +79,29 @@ class C302Controller():
 
 if __name__ == '__main__':
     
-    cont = C302Controller()
+    if len(sys.argv) == 2 and sys.argv[1] == '-net':
+                
+        cont = C302Controller('NetTest', 'B', 'Muscles')
+
+        sim_vars = OrderedDict([('chem_exc_syn_gbase',0.4),
+                  ('chem_exc_syn_decay',10),
+                  ('chem_inh_syn_gbase',1),
+                  ('chem_inh_syn_decay',40)])
+
+        cont.run_individual(sim_vars, show=True)
+        
+    else:
     
-    sim_vars = OrderedDict([('leak_cond_density', 0.05), 
-                            ('k_slow_cond_density', 0.5), 
-                            ('k_fast_cond_density', 0.05), 
-                            ('ca_boyle_cond_density', 0.5), 
-                            ('specific_capacitance', 1.05), 
-                            ('leak_erev', -50), 
-                            ('k_slow_erev', -60), 
-                            ('k_fast_erev', -60), 
-                            ('ca_boyle_erev', 40)])
-                            
-    cont.run_individual(sim_vars, show=True)
+        cont = C302Controller('SimpleTest', 'C', 'IClamp')
+
+        sim_vars = OrderedDict([('leak_cond_density', 0.05), 
+                                ('k_slow_cond_density', 0.5), 
+                                ('k_fast_cond_density', 0.05), 
+                                ('ca_boyle_cond_density', 0.5), 
+                                ('specific_capacitance', 1.05), 
+                                ('leak_erev', -50), 
+                                ('k_slow_erev', -60), 
+                                ('k_fast_erev', -60), 
+                                ('ca_boyle_erev', 40)])
+
+        cont.run_individual(sim_vars, show=True)

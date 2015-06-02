@@ -37,22 +37,22 @@ Parameters and setting used to generate this network:
     <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
-        <population id="SMDDR" component="generic_iaf_cell" type="populationList">
+        <population id="SMDDR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.4500003" x="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="URYDL" component="generic_iaf_cell" type="populationList">
+        <population id="URYDL" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="4.125" x="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
-        <population id="VB11" component="generic_iaf_cell" type="populationList">
+        <population id="VB11" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-1.8249999" x="262.324999999999989" z="-21.949999999999999"/>
             </instance>
         </population>
-        <population id="VD12" component="generic_iaf_cell" type="populationList">
+        <population id="VD12" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-0.75" x="345.5" z="-23.149999999999999"/>
             </instance>

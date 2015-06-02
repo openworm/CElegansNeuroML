@@ -45,40 +45,40 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_RMHR" delay="1600ms" duration="200ms" amplitude="0.35nA"/>
     <pulseGenerator id="stim_URXR" delay="1900ms" duration="200ms" amplitude="0.35nA"/>
     <network id="c302_A_Social">
-        <population id="ASHR" component="generic_iaf_cell" type="populationList">
+        <population id="ASHR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.800000000000001" x="-265.625" z="41."/>
             </instance>
         </population>
-        <population id="ASKR" component="generic_iaf_cell" type="populationList">
+        <population id="ASKR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Z.B."/>
             <instance id="0">
                 <location y="-8." x="-268.024999999999977" z="46.399997999999997"/>
             </instance>
         </population>
-        <population id="AWBR" component="generic_iaf_cell" type="populationList">
+        <population id="AWBR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-9.75" x="-266.225000000000023" z="43.100000000000001"/>
             </instance>
         </population>
-        <population id="IL2R" component="generic_iaf_cell" type="populationList">
+        <population id="IL2R" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-11." x="-285." z="49.350000000000001"/>
             </instance>
         </population>
-        <population id="RMGR" component="generic_iaf_cell" type="populationList">
+        <population id="RMGR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
             <instance id="0">
                 <location y="-12.5" x="-238.299990000000008" z="32.700000000000003"/>
             </instance>
         </population>
-        <population id="RMHR" component="generic_iaf_cell" type="populationList">
+        <population id="RMHR" type="populationList" component="generic_iaf_cell">
             <property tag="OpenWormBackerAssignedName" value="Martino"/>
             <instance id="0">
                 <location y="-5.2999997" x="-265.899999999999977" z="35.700000000000003"/>
             </instance>
         </population>
-        <population id="URXR" component="generic_iaf_cell" type="populationList">
+        <population id="URXR" type="populationList" component="generic_iaf_cell">
             <instance id="0">
                 <location y="-7.35" x="-269.875" z="48.274999999999999"/>
             </instance>

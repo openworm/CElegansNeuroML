@@ -40,15 +40,15 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("iaf_tau1", "50ms", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("chem_exc_syn_gbase", "0.4nS", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_exc_syn_erev", "0mV", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_exc_syn_rise", "1ms", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_exc_syn_decay", "10ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_gbase", "0.4 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_erev", "0 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_rise", "1 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_decay", "10 ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("chem_inh_syn_gbase", "1nS", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_inh_syn_erev", "-55mV", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_inh_syn_rise", "2ms", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_inh_syn_decay", "40ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_gbase", "1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_erev", "-55 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_rise", "2 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_decay", "40 ms", "BlindGuess", "0.1")
 
         self.add_bioparameter("elec_syn_gbase", "0.3nS", "BlindGuess", "0.1")
 

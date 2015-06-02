@@ -246,8 +246,8 @@ def generate(net_id,
              conn_number_scaling = None,
              duration = 500,
              dt = 0.01,
-             vmin = -75,
-             vmax = 20,
+             vmin = None,
+             vmax = None,
              seed = 1234,
              validate=True, 
              test=False,
@@ -256,6 +256,22 @@ def generate(net_id,
                 
 
     params.create_models()
+    
+    if vmin==None:
+        if params.level == 'A':
+            vmin=-72
+        elif params.level == 'B':
+            vmin=-52 
+        elif params.level == 'C':
+            vmin=-60
+    
+    if vmax==None:
+        if params.level == 'A':
+            vmax=-48
+        elif params.level == 'B':
+            vmax=-28
+        elif params.level == 'C':
+            vmax=25
     
     random.seed(seed)
 
@@ -478,7 +494,7 @@ def generate(net_id,
                 plot["quantity"] = "%s[0]/v" % (muscle)
             lems_info["muscle_plots"].append(plot)
 
-            if hasattr(params.generic_cell, 'custom_component_type_definition'):
+            if params.generic_cell.__class__.__name__ == 'IafActivityCell':
                 plot = {}
 
                 plot["cell"] = muscle
@@ -495,7 +511,7 @@ def generate(net_id,
                 save["quantity"] = "%s[0]/v" % (muscle)
             lems_info["muscles_to_save"].append(save)
 
-            if hasattr(params.generic_cell, 'custom_component_type_definition'):
+            if params.generic_cell.__class__.__name__ == 'IafActivityCell':
                 save = {}
                 save["cell"] = muscle
                 save["quantity"] = "%s/0/%s/activity" % (muscle, params.generic_cell.id)

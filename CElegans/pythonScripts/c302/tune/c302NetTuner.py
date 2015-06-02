@@ -13,7 +13,6 @@ from neurotune import utils
 from matplotlib import pyplot as plt
 from pyelectro import analysis
 
-import numpy as np
 import sys
 import os.path
 import time
@@ -34,79 +33,33 @@ sys.path.append(".")
 from C302Controller import C302Controller
 
 
-def get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cell_ref, targets):
-        # Based on: https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/data_analysis.py
-        data_fname = "tune/redacted_data.txt"
-        data_dt = 0.0002
-
-        #load the voltage:
-        file=open(data_fname)
-
-        #make voltage into a numpy array in mV:
-        v = [float(i)*1000 for i in file.readlines()]
-        volts = {cell_ref: v}
-
-        print 99
-        print len(v)
-        
-        times = []
-        for i in range(len(v)):
-            times.append(float(data_dt*i*1000))
-
-        print times[0]
-        print times[-1]
-        print len(times)
-
-        analysis_i=analysis.NetworkAnalysis(volts,
-                                            times,
-                                            analysis_var,
-                                            start_analysis=analysis_start_time,
-                                            smooth_data=True,
-                                            show_smoothed_data=False,
-                                            smoothing_window_len=33)
-
-        target_data = analysis_i.analyse(targets)
-        print 22
-        print(len(times))
-        
-        print(len(volts[cell_ref]))
-        print 222
-        
-        return target_data, volts, times
 
 if __name__ == '__main__':
     
-    sim_time = 1000
+    sim_time = 200
     analysis_start_time = 0
     dt = 0.05
     
-    my_controller = C302Controller('SimpleTest', 'C', 'IClamp')
+    ref = 'NetTest'
+    
+    my_controller = C302Controller(ref, 'B', 'Muscles')
 
-    parameters = ['leak_cond_density',
-                  'k_slow_cond_density',
-	              'k_fast_cond_density',
-                  'ca_boyle_cond_density', 
-                  'specific_capacitance',
-                  'leak_erev',
-                  'k_slow_erev',
-                  'k_fast_erev',
-                  'ca_boyle_erev']
+    parameters = ['chem_exc_syn_gbase',
+                  'chem_exc_syn_decay',
+                  'chem_inh_syn_gbase',
+                  'chem_inh_syn_decay']
 
     #above parameters will not be modified outside these bounds:
-    min_constraints = [0.0001, 0.01,   0.01,   0.01, 0.1, -60, -70, -70, 30]
-    max_constraints = [0.01,    1,      1,      1,    3,   -40, -50, -50, 50]
+    min_constraints = [0.1, 5,  0.1, 5]
+    max_constraints = [1,   50, 1,   50]
 
-    analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0}
+    analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0.6}
 
     cell_ref = 'ADAL[0]/v'
              
-    weights = {cell_ref+':average_minimum': 0.5, 
-               cell_ref+':mean_spike_frequency': 10.0, 
-               cell_ref+':average_maximum': 5.0,  
-               cell_ref+':max_peak_no': 50.0, 
-               cell_ref+':first_spike_time': 10.0}
+    weights = {cell_ref+':mean_spike_frequency': 1}
 
-    data = 'SimpleTest.dat'
+    data = ref+'.dat'
 
 
     sim_var = OrderedDict()
@@ -193,15 +146,10 @@ if __name__ == '__main__':
     else:
 
 
-        sim_var = OrderedDict([('leak_cond_density', 0.05), 
-                                ('k_slow_cond_density', 0.5), 
-                                ('k_fast_cond_density', 0.05), 
-                                ('ca_boyle_cond_density', 0.5), 
-                                ('specific_capacitance', 1.05), 
-                                ('leak_erev', -50), 
-                                ('k_slow_erev', -60), 
-                                ('k_fast_erev', -60), 
-                                ('ca_boyle_erev', 40)])
+        sim_var = OrderedDict([('chem_exc_syn_gbase',0.4),
+                  ('chem_exc_syn_decay',10),
+                  ('chem_inh_syn_gbase',1),
+                  ('chem_inh_syn_decay',40)])
         
         
         example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
