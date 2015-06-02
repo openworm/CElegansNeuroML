@@ -19,7 +19,7 @@ if not os.path.isfile('c302.py'):
     exit()
         
 sys.path.append(".")
-from c302 import generate
+import c302
 
 class C302Simulation(object):
 
@@ -72,7 +72,7 @@ class C302Simulation(object):
         self.params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing IClamp", "0")
         self.params.set_bioparameter("unphysiological_offset_current_dur", "%f ms"%self.sim_time, "Testing IClamp", "0")
         
-        generate(self.reference, 
+        c302.generate(self.reference, 
              self.params, 
              cells=cells, 
              cells_to_stimulate=cells, 

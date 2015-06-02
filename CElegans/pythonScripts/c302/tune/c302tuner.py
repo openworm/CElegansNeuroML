@@ -18,6 +18,7 @@ import sys
 import os.path
 import time
 
+from collections import OrderedDict
 
 
 if not os.path.isfile('c302.py'):
@@ -102,11 +103,12 @@ if __name__ == '__main__':
     data = 'SimpleTest.dat'
 
 
-    sim_var = {}
+    sim_var = OrderedDict()
     for i in range(len(parameters)):
         sim_var[parameters[i]] = max_constraints[i]/2 - min_constraints[i]/2
     print(sim_var)
-        
+    print(sim_var.keys())
+    
 
     if len(sys.argv) == 2 and sys.argv[1] == '-sim':
         sim = C302Simulation('SimpleTest', 'C')
@@ -128,9 +130,9 @@ if __name__ == '__main__':
                                                 targets=target_data,
                                                 automatic=False)
 
-        population_size =  30
-        max_evaluations =  150
-        num_selected =     15
+        population_size =  20
+        max_evaluations =  50
+        num_selected =     10
         num_offspring =    10
         mutation_rate =    0.5
         num_elites =       1
@@ -146,17 +148,21 @@ if __name__ == '__main__':
                                                  num_elites=num_elites,
                                                  mutation_rate=mutation_rate,
                                                  seeds=None,
-                                                 verbose=True)
+                                                 verbose=False)
                                                  
         start = time.time()
         #run the optimizer
-        best_candidate = my_optimizer.optimize(do_plot=True, seed=1234567)
+        best_candidate = my_optimizer.optimize(do_plot=False, seed=1234567)
         
         secs = time.time()-start
-        print("----------------------------------------------------\n\nRan %s evaluations in %f seconds (%f mins)\n"%(max_evaluations, secs, secs/60.0))
+        print("----------------------------------------------------\n\n"
+              +"Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n"%(max_evaluations, population_size, secs, secs/60.0))
         
         for key,value in zip(parameters,best_candidate):
             sim_var[key]=value
+            
+        print(sim_var.keys())
+            
         best_candidate_t,best_candidate_v = my_controller.run_individual(sim_var,show=False)
         
         best_candidate_analysis=analysis.IClampAnalysis(best_candidate_v,
