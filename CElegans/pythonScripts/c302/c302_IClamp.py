@@ -1,6 +1,5 @@
 import c302
 import sys
-
     
 def setup(parameter_set, generate=False):
 

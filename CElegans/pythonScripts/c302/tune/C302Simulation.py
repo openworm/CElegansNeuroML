@@ -104,9 +104,9 @@ if __name__ == '__main__':
     sim_time = 1000
     dt = 0.05
     
-    if len(sys.argv) == 2 and sys.argv[1] == '-net':
+    if len(sys.argv) == 2 and sys.argv[1] == '-phar':
         
-        sim = C302Simulation('NetTest', 'B', 'Muscles', sim_time, dt)
+        sim = C302Simulation('NetTest', 'B', 'Pharyngeal', sim_time, dt)
         sim.go()
         sim.show()
         

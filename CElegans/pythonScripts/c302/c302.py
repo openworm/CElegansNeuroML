@@ -203,9 +203,8 @@ def split_neuroml_quantity(quantity):
     return magnitude, unit
 
 
-existing_synapses = {}
 
-def create_n_connection_synapse(prototype_syn, n, nml_doc):
+def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
     new_id = "%s_%sconns"%(prototype_syn.id, str(n).replace('.', '_'))
 
@@ -525,6 +524,9 @@ def generate(net_id,
 
         if verbose: 
             print("Finished creating %i muscles"%muscle_count)
+        
+    
+    existing_synapses = {}
 
     for conn in conns:
 
@@ -563,7 +565,7 @@ def generate(net_id,
                      (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
 
 
-            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc)
+            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
             if not elect_conn:
 
@@ -653,7 +655,7 @@ def generate(net_id,
                      (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
 
 
-            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc)
+            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
             if not elect_conn:
 
@@ -749,5 +751,6 @@ def main():
 
 if __name__ == '__main__':
 
+    '''print split_neuroml_quantity('0.3nS')'''
     main()
 

@@ -45,17 +45,10 @@ def get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cel
         #make voltage into a numpy array in mV:
         v = [float(i)*1000 for i in file.readlines()]
         volts = {cell_ref: v}
-
-        print 99
-        print len(v)
         
         times = []
         for i in range(len(v)):
             times.append(float(data_dt*i*1000))
-
-        print times[0]
-        print times[-1]
-        print len(times)
 
         analysis_i=analysis.NetworkAnalysis(volts,
                                             times,
@@ -66,11 +59,6 @@ def get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cel
                                             smoothing_window_len=33)
 
         target_data = analysis_i.analyse(targets)
-        print 22
-        print(len(times))
-        
-        print(len(volts[cell_ref]))
-        print 222
         
         return target_data, volts, times
 

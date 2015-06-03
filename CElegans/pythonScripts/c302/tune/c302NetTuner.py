@@ -33,31 +33,37 @@ sys.path.append(".")
 from C302Controller import C302Controller
 
 
-
 if __name__ == '__main__':
     
-    sim_time = 200
+    sim_time = 1000
     analysis_start_time = 0
     dt = 0.05
     
-    ref = 'NetTest'
+    ref = 'PharNetTest'
     
-    my_controller = C302Controller(ref, 'B', 'Muscles')
+    my_controller = C302Controller(ref, 'B', 'Pharyngeal', sim_time, dt)
 
     parameters = ['chem_exc_syn_gbase',
                   'chem_exc_syn_decay',
                   'chem_inh_syn_gbase',
-                  'chem_inh_syn_decay']
+                  'chem_inh_syn_decay',
+                  'elec_syn_gbase']
+                  
+    parameters = ['chem_exc_syn_gbase',
+                  'chem_exc_syn_decay',
+                  'elec_syn_gbase']
 
     #above parameters will not be modified outside these bounds:
-    min_constraints = [0.1, 5,  0.1, 5]
-    max_constraints = [1,   50, 1,   50]
+    min_constraints = [0.05, 3, 0.01]
+    max_constraints = [1,    50, 1]
 
-    analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0.6}
+    analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':-31}
 
-    cell_ref = 'ADAL[0]/v'
+    M5_max_peak = 'M5[0]/v:max_peak_no'
+    MCL_max_peak = 'MCL[0]/v:max_peak_no'
              
-    weights = {cell_ref+':mean_spike_frequency': 1}
+    weights = {M5_max_peak: 1,
+               MCL_max_peak: 1}
 
     data = ref+'.dat'
 
@@ -69,9 +75,10 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 2 and sys.argv[1] == '-opt':
         
-        target_data, v, t = get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cell_ref, weights.keys())
+        target_data = {M5_max_peak:  70,
+                       MCL_max_peak: 70}
      
-        print("Analysis of experimental data:")
+        print("Target data:")
         pp.pprint(target_data)
 
         #make an evaluator, using automatic target evaluation:
@@ -83,10 +90,10 @@ if __name__ == '__main__':
                                                 weights=weights,
                                                 targets=target_data)
 
-        population_size =  20
-        max_evaluations =  50
-        num_selected =     15
-        num_offspring =    10
+        population_size =  10
+        max_evaluations =  100
+        num_selected =     6
+        num_offspring =    6
         mutation_rate =    0.5
         num_elites =       1
         
@@ -125,20 +132,25 @@ if __name__ == '__main__':
                                                    
         best_candidate_analysis.analyse()
                                                    
-        best_candidate_analysis.evaluate_fitness(target_data, weights)                                           
+        best_candidate_analysis.evaluate_fitness(target_data, weights)    
         
+        print(best_candidate_v.keys())
         
-        data_plot = plt.plot(t,v[cell_ref], label="Original data")
-        best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[cell_ref], label="Best model - %i evaluations"%max_evaluations)
+        added =[]
+        for wref in weights.keys():
+            ref = wref.split(':')[0]
+            if not ref in added:
+                added.append(ref)
+                best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[ref], label="%s - %i evaluations"%(ref,max_evaluations))
 
         plt.legend()
 
         plt.ylim(-80.0,80.0)
         plt.xlim(0.0,1000.0)
-        plt.title("Models optimized from data")
+        plt.title("Models")
         plt.xlabel("Time (ms)")
         plt.ylabel("Membrane potential(mV)")
-        plt.savefig("data_vs_candidate.png",bbox_inches='tight',format='png')
+        
         plt.show()
 
         utils.plot_generation_evolution(sim_var.keys())
@@ -164,6 +176,10 @@ if __name__ == '__main__':
                                                    end_analysis=sim_time)
 
         analysis = example_run_analysis.analyse()
+        
+        pp.pprint(analysis)
+        
+        analysis = example_run_analysis.analyse(weights.keys())
         
         pp.pprint(analysis)
 

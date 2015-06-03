@@ -90,6 +90,18 @@ if __name__ == '__main__':
 
         cont.run_individual(sim_vars, show=True)
         
+    elif len(sys.argv) == 2 and sys.argv[1] == '-phar':
+                
+        cont = C302Controller('PharTest', 'B', 'Pharyngeal')
+
+        sim_vars = OrderedDict([('chem_exc_syn_gbase',0.2),
+                  ('chem_exc_syn_decay',20),
+                  ('chem_inh_syn_gbase',0.5),
+                  ('chem_inh_syn_decay',40)])
+
+        t, volts = cont.run_individual(sim_vars, show=True)
+        print(volts.keys())
+        
     else:
     
         cont = C302Controller('SimpleTest', 'C', 'IClamp')

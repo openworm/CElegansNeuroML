@@ -34,9 +34,9 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.3 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.25 nA (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 200 ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current = 0.35 nA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
    
     -->
@@ -58,7 +58,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_C_Pharyngeal" length="500ms" step="0.025ms" target="c302_C_Pharyngeal">
 
-        <Display id="neurons" title="c302_C_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_C_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
             
             <Line id="I1L" quantity="I1L[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="I1R" quantity="I1R[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
