@@ -41,7 +41,9 @@ if __name__ == '__main__':
     
     ref = 'PharNetTest'
     
-    my_controller = C302Controller(ref, 'B', 'Pharyngeal', sim_time, dt)
+    level = 'C'
+    
+    my_controller = C302Controller(ref, level, 'Pharyngeal', sim_time, dt)
 
     parameters = ['chem_exc_syn_gbase',
                   'chem_exc_syn_decay',
@@ -56,14 +58,21 @@ if __name__ == '__main__':
     #above parameters will not be modified outside these bounds:
     min_constraints = [0.05, 3, 0.01]
     max_constraints = [1,    50, 1]
+    
+    peak_threshold = -31 if level is 'A' or level is 'B' else 0
 
-    analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':-31}
+    analysis_var = {'peak_delta':     0,
+                    'baseline':       0,
+                    'dvdt_threshold': 0, 
+                    'peak_threshold': peak_threshold}
 
     M5_max_peak = 'M5[0]/v:max_peak_no'
+    I6_max_peak = 'I6[0]/v:max_peak_no'
     MCL_max_peak = 'MCL[0]/v:max_peak_no'
              
     weights = {M5_max_peak: 1,
-               MCL_max_peak: 1}
+               MCL_max_peak: 1,
+               I6_max_peak: 1}
 
     data = ref+'.dat'
 
@@ -75,8 +84,9 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 2 and sys.argv[1] == '-opt':
         
-        target_data = {M5_max_peak:  70,
-                       MCL_max_peak: 70}
+        target_data = {M5_max_peak:  8,
+                       MCL_max_peak: 8,
+                       I6_max_peak: 8}
      
         print("Target data:")
         pp.pprint(target_data)
@@ -91,7 +101,7 @@ if __name__ == '__main__':
                                                 targets=target_data)
 
         population_size =  10
-        max_evaluations =  100
+        max_evaluations =  20
         num_selected =     6
         num_offspring =    6
         mutation_rate =    0.5
