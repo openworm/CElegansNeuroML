@@ -18,6 +18,8 @@ from neuroml import Property
 import neuroml.writers as writers
 import neuroml.loaders as loaders
 
+import bioparameters
+
 import airspeed
 
 import random
@@ -188,21 +190,6 @@ def get_random_colour_hex():
     return col
 
 
-def split_neuroml_quantity(quantity):
-
-    i=len(quantity)
-    while i>0:
-        magnitude = quantity[0:i].strip()
-        unit = quantity[i:].strip()
-
-        try:
-            magnitude = float(magnitude)
-            i=0
-        except ValueError:
-            i -= 1
-    return magnitude, unit
-
-
 
 def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
@@ -211,7 +198,7 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
     if not existing_synapses.has_key(new_id):
 
         if isinstance(prototype_syn, ExpTwoSynapse):
-            magnitude, unit = split_neuroml_quantity(prototype_syn.gbase)
+            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.gbase)
             new_syn = ExpTwoSynapse(id=new_id,
                                 gbase =       "%s%s"%(magnitude*n, unit),
                                 erev =        prototype_syn.erev,
@@ -222,7 +209,7 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
             nml_doc.exp_two_synapses.append(new_syn)
 
         elif isinstance(prototype_syn, GapJunction):
-            magnitude, unit = split_neuroml_quantity(prototype_syn.conductance)
+            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
             new_syn = GapJunction(id=new_id,
                                   conductance =       "%s%s"%(magnitude*n, unit))
 
@@ -557,7 +544,7 @@ def generate(net_id,
                 print conn_number_scaling'''
 
             if number_syns != conn.number:
-                magnitude, unit = split_neuroml_quantity(syn0.gbase)
+                magnitude, unit = bioparameters.split_neuroml_quantity(syn0.gbase)
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s"%(magnitude*number_syns, unit)
                 if verbose: 
@@ -647,7 +634,7 @@ def generate(net_id,
                 print conn_number_scaling'''
 
             if number_syns != conn.number:
-                magnitude, unit = split_neuroml_quantity(syn0.gbase)
+                magnitude, unit = bioparameters.split_neuroml_quantity(syn0.gbase)
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s"%(magnitude*number_syns, unit)
                 if verbose: 

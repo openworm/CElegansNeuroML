@@ -65,19 +65,15 @@ class C302Simulation(object):
         Start the simulation once it's been intialized
         """
         
-
-        self.params.set_bioparameter("unphysiological_offset_current", "0.25nA", "Testing IClamp", "0")
-        self.params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing IClamp", "0")
-        self.params.set_bioparameter("unphysiological_offset_current_dur", "%f ms"%self.sim_time, "Testing IClamp", "0")
         
-        c302.generate(self.reference, 
-             self.params, 
-             cells=self.cells, 
-             cells_to_stimulate=self.cells_to_stimulate, 
-             duration=self.sim_time, 
-             dt=self.dt, 
-             validate=(self.params.level!='B'),
-             verbose=False)
+        nml_doc = c302.generate(self.reference, 
+                                self.params, 
+                                cells=self.cells, 
+                                cells_to_stimulate=self.cells_to_stimulate, 
+                                duration=self.sim_time, 
+                                dt=self.dt, 
+                                validate=(self.params.level!='B'),
+                                verbose=False)
              
         self.lems_file = "LEMS_%s.xml"%(self.reference)
         
@@ -85,7 +81,6 @@ class C302Simulation(object):
         
         self.go_already = True
         results = pynml.run_lems_with_jneuroml(self.lems_file, nogui=True, load_saved_data=True, plot=False, verbose=False)
-        print results.keys()
         #results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, nogui=True, load_saved_data=True, plot=False)
         
         self.t = [t*1000 for t in results['t']]
@@ -93,6 +88,13 @@ class C302Simulation(object):
         if self.params.level == 'B' or self.params.level == 'C' or self.params.level == 'D':
             res_template = '%s[0]/v'
         self.volts = {}
+        
+        if self.cells is None:
+            self.cells = []
+            for pop in nml_doc.networks[0].populations:
+                self.cells.append(pop.id)
+            
+                
         for cell in self.cells:
             self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]
         
@@ -106,13 +108,19 @@ if __name__ == '__main__':
     
     if len(sys.argv) == 2 and sys.argv[1] == '-phar':
         
-        sim = C302Simulation('NetTest', 'B', 'Pharyngeal', sim_time, dt)
+        sim = C302Simulation('TestPhar', 'B', 'Pharyngeal', sim_time, dt)
+        sim.go()
+        sim.show()
+        
+    elif len(sys.argv) == 2 and sys.argv[1] == '-musc':
+        
+        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt)
         sim.go()
         sim.show()
         
     else:
 
-        sim = C302Simulation('SimpleTest', 'C', 'IClamp', sim_time, dt)
+        sim = C302Simulation('TestIClamp', 'C', 'IClamp', sim_time, dt)
         sim.go()
         sim.show()
 

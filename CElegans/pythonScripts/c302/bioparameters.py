@@ -1,8 +1,23 @@
 
-
 '''
     Subject to much change & refactoring once PyOpenWorm is stable...
 '''
+
+
+def split_neuroml_quantity(quantity):
+
+    i=len(quantity)
+    while i>0:
+        magnitude = quantity[0:i].strip()
+        unit = quantity[i:].strip()
+
+        try:
+            magnitude = float(magnitude)
+            i=0
+        except ValueError:
+            i -= 1
+    return magnitude, unit
+
 class BioParameter():
 
     def __init__(self, name, value, source, certainty):
@@ -15,11 +30,8 @@ class BioParameter():
         return "BioParameter: %s = %s (SRC: %s, certainty %s)"%(self.name, self.value, self.source, self.certainty)
     
     def change_magnitude(self, magnitude):
-        if not ' ' in self.value:
-            # TODO check for case where no space is used in value, e.g. -60mV
-            self.value = magnitude
-        else:
-            self.value = '%f %s'%(magnitude, self.value.split(' ')[1])
+        
+        self.value = '%f %s'%(magnitude, split_neuroml_quantity(self.value)[1])
 
 
 class ParameterisedModelPrototype():

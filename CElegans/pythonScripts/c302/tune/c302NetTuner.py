@@ -35,29 +35,34 @@ from C302Controller import C302Controller
 
 if __name__ == '__main__':
     
-    sim_time = 1000
+    sim_time = 500
     analysis_start_time = 0
     dt = 0.05
     
-    ref = 'PharNetTest'
+    config = 'Muscles'
+    ref = 'Test'+config
     
-    level = 'C'
+    level = 'B'
     
-    my_controller = C302Controller(ref, level, 'Pharyngeal', sim_time, dt)
+    my_controller = C302Controller(ref, level, config, sim_time, dt)
 
-    parameters = ['chem_exc_syn_gbase',
-                  'chem_exc_syn_decay',
-                  'chem_inh_syn_gbase',
-                  'chem_inh_syn_decay',
-                  'elec_syn_gbase']
                   
     parameters = ['chem_exc_syn_gbase',
                   'chem_exc_syn_decay',
                   'elec_syn_gbase']
+                  
+    parameters = ['chem_exc_syn_gbase',
+                  'chem_exc_syn_decay',
+                  'chem_inh_syn_gbase',
+                  'chem_inh_syn_decay',
+                  'elec_syn_gbase',
+                  'unphysiological_offset_current']
 
     #above parameters will not be modified outside these bounds:
-    min_constraints = [0.05, 3, 0.01]
-    max_constraints = [1,    50, 1]
+    #min_constraints = [0.05, 3, 0.01]
+    #max_constraints = [1,    50, 1]
+    min_constraints = [0.05, 3,  0.05, 3,    0.01, 0.20]
+    max_constraints = [1,    40, 1,    100,  0.5,    0.45]
     
     peak_threshold = -31 if level is 'A' or level is 'B' else 0
 
@@ -69,10 +74,22 @@ if __name__ == '__main__':
     M5_max_peak = 'M5[0]/v:max_peak_no'
     I6_max_peak = 'I6[0]/v:max_peak_no'
     MCL_max_peak = 'MCL[0]/v:max_peak_no'
+    
+    VA1_max_peak = 'VA1[0]/v:max_peak_no'
+    VB5_max_peak = 'VB5[0]/v:max_peak_no'
+    VB9_max_peak = 'VB9[0]/v:max_peak_no'
+    DB1_max_peak = 'DB1[0]/v:max_peak_no'
+    PVCL_max_peak = 'PVCL[0]/v:max_peak_no'
              
     weights = {M5_max_peak: 1,
                MCL_max_peak: 1,
                I6_max_peak: 1}
+               
+    weights = {PVCL_max_peak: 3,
+               VA1_max_peak: 1,
+               VB5_max_peak: 1,
+               VB9_max_peak: 1,
+               DB1_max_peak: 1}
 
     data = ref+'.dat'
 
@@ -87,6 +104,12 @@ if __name__ == '__main__':
         target_data = {M5_max_peak:  8,
                        MCL_max_peak: 8,
                        I6_max_peak: 8}
+                       
+        target_data = {VA1_max_peak:  70,
+                       VB5_max_peak:  70,
+                       VB9_max_peak:  70,
+                       DB1_max_peak: 70,
+                       PVCL_max_peak: 80}
      
         print("Target data:")
         pp.pprint(target_data)
@@ -100,10 +123,10 @@ if __name__ == '__main__':
                                                 weights=weights,
                                                 targets=target_data)
 
-        population_size =  10
+        population_size =  20
         max_evaluations =  20
-        num_selected =     6
-        num_offspring =    6
+        num_selected =     10
+        num_offspring =    20
         mutation_rate =    0.5
         num_elites =       1
         
@@ -122,7 +145,7 @@ if __name__ == '__main__':
                                                  
         start = time.time()
         #run the optimizer
-        best_candidate = my_optimizer.optimize(do_plot=False, seed=12345)
+        best_candidate = my_optimizer.optimize(do_plot=False, seed=123456)
         
         secs = time.time()-start
         print("----------------------------------------------------\n\n"
@@ -140,11 +163,13 @@ if __name__ == '__main__':
                                                    start_analysis=analysis_start_time,
                                                    end_analysis=sim_time)
                                                    
-        best_candidate_analysis.analyse()
+        analysis = best_candidate_analysis.analyse(weights.keys())
                                                    
-        best_candidate_analysis.evaluate_fitness(target_data, weights)    
+        fitness = best_candidate_analysis.evaluate_fitness(target_data, weights)    
         
-        print(best_candidate_v.keys())
+        print("---------- Best candidate ------------------------------------------")
+        pp.pprint(analysis)
+        print("Fitness: %f"%fitness)
         
         added =[]
         for wref in weights.keys():
@@ -168,10 +193,11 @@ if __name__ == '__main__':
     else:
 
 
-        sim_var = OrderedDict([('chem_exc_syn_gbase',0.4),
+        sim_var = OrderedDict([('chem_exc_syn_gbase',0.5),
                   ('chem_exc_syn_decay',10),
-                  ('chem_inh_syn_gbase',1),
-                  ('chem_inh_syn_decay',40)])
+                  ('chem_inh_syn_gbase',0.5),
+                  ('chem_inh_syn_decay',40),
+                  ('unphysiological_offset_current',0.38)])
         
         
         example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)

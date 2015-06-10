@@ -42,6 +42,7 @@ class C302Controller():
         traces = []
         for candidate in candidates:
             sim_var = dict(zip(parameters,candidate))
+            print('\nRunning with variables: %s'%sim_var)
             t,v = self.run_individual(sim_var)
             traces.append([t,v])
 
