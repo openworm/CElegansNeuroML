@@ -40,15 +40,16 @@ def run_optimisation(prefix,
                      min_constraints,
                      weights,
                      target_data,
-                     sim_time = 500,
-                     dt = 0.05,
+                     sim_time =            500,
+                     dt =                  0.05,
                      analysis_start_time = 0,
-                     population_size =  20,
-                     max_evaluations =  20,
-                     num_selected =     10,
-                     num_offspring =    20,
-                     mutation_rate =    0.5,
-                     num_elites =       1):
+                     population_size =     20,
+                     max_evaluations =     20,
+                     num_selected =        10,
+                     num_offspring =       20,
+                     mutation_rate =       0.5,
+                     num_elites =          1,
+                     nogui =               True):  
 
     ref = prefix+config
 
@@ -120,31 +121,35 @@ def run_optimisation(prefix,
     pp.pprint(best_cand_analysis)
     print("Fitness: %f"%fitness)
 
-    added =[]
-    for wref in weights.keys():
-        ref = wref.split(':')[0]
-        if not ref in added:
-            added.append(ref)
-            best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[ref], label="%s - %i evaluations"%(ref,max_evaluations))
+    if not nogui:
+        added =[]
+        for wref in weights.keys():
+            ref = wref.split(':')[0]
+            if not ref in added:
+                added.append(ref)
+                best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[ref], label="%s - %i evaluations"%(ref,max_evaluations))
 
-    plt.legend()
+        plt.legend()
 
-    plt.ylim(-80.0,80.0)
-    plt.xlim(0.0,sim_time)
-    plt.title("Models")
-    plt.xlabel("Time (ms)")
-    plt.ylabel("Membrane potential(mV)")
+        plt.ylim(-80.0,80.0)
+        plt.xlim(0.0,sim_time)
+        plt.title("Models")
+        plt.xlabel("Time (ms)")
+        plt.ylabel("Membrane potential(mV)")
 
-    plt.show()
+        plt.show()
 
-    utils.plot_generation_evolution(sim_var.keys())
+        utils.plot_generation_evolution(sim_var.keys())
 
 
 
 
 if __name__ == '__main__':
+    
+    nogui = '-nogui' in sys.argv
+        
 
-    if len(sys.argv) == 2 and sys.argv[1] == '-musc':
+    if '-musc' in sys.argv:
 
         parameters = ['chem_exc_syn_gbase',
                       'chem_exc_syn_decay',
@@ -190,7 +195,7 @@ if __name__ == '__main__':
                          mutation_rate =    0.5,
                          num_elites =       1)
 
-    elif len(sys.argv) == 2 and sys.argv[1] == '-phar':
+    elif '-phar' in sys.argv:
 
         parameters = ['chem_exc_syn_gbase',
                                   'chem_exc_syn_decay',
@@ -232,7 +237,7 @@ if __name__ == '__main__':
                          num_elites =       1)
 
 
-    elif len(sys.argv) == 2 and sys.argv[1] == '-simple':
+    elif '-simple' in sys.argv:
 
 
         parameters = ['unphysiological_offset_current']
