@@ -7,9 +7,13 @@ def setup(parameter_set, generate=False):
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "0.42nA", "Testing IClamp", "0")
-    params.set_bioparameter("unphysiological_offset_current_del", "50 ms", "Testing IClamp", "0")
-    params.set_bioparameter("unphysiological_offset_current_dur", "100 ms", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current", "0.5nA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_del", "5 ms", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_dur", "1000 ms", "Testing IClamp", "0")
+    
+    params.add_bioparameter("chem_exc_syn_gbase", "1.2 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_inh_syn_gbase", "2.2 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("elec_syn_gbase", "0.2 nS", "BlindGuess", "0.1")
     
     # Any neurons connected to muscles
     
@@ -34,10 +38,10 @@ def setup(parameter_set, generate=False):
              'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
              
     cells+=['AVAL', 'AVAR', 'AVBL', 'AVBR','AVDL', 'AVDR', 'PVCL', 'PVCR']
-    #cells=None  # implies all cells...     
+    cells=None  # implies all cells...     
     
-    # Some random set of neurons
-    probability = 0.1
+    ## Some random set of neurons
+    #probability = 0.1
     cells_to_stimulate = []
     '''
     for cell in cells:
@@ -62,7 +66,7 @@ def setup(parameter_set, generate=False):
                     cells_to_plot=cells_to_plot, 
                     cells_to_stimulate=cells_to_stimulate, 
                     include_muscles = True,
-                    duration=1000, 
+                    duration=300, 
                     dt=0.1, 
                     validate=(parameter_set!='B'),
                     target_directory='examples')    

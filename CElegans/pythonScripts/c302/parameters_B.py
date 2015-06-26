@@ -43,7 +43,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("chem_exc_syn_gbase", "0.4 nS", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_erev", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_rise", "1 ms", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_exc_syn_decay", "10 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_decay", "3 ms", "BlindGuess", "0.1")
 
         self.add_bioparameter("chem_inh_syn_gbase", "1 nS", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_erev", "-55 mV", "BlindGuess", "0.1")
