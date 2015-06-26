@@ -113,9 +113,11 @@ def run_optimisation(prefix,
                                                start_analysis=analysis_start_time,
                                                end_analysis=sim_time)
 
+    best_cand_analysis_full = best_candidate_analysis.analyse()
     best_cand_analysis = best_candidate_analysis.analyse(weights.keys())
 
     print("---------- Best candidate ------------------------------------------")
+    pp.pprint(best_cand_analysis_full)
     pp.pprint(best_cand_analysis)
     print("Fitness: %f"%fitness)
 
@@ -157,9 +159,13 @@ if __name__ == '__main__':
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [0.05, 3,  0.05, 3,    0.01, 0.20]
+        min_constraints = [0.05, 3,  0.05, 3,    0.01,   0.20]
         max_constraints = [1,    40, 1,    100,  0.5,    0.45]
-
+        
+        weights = {}
+        target_data = {}
+        
+        '''
         VA1_max_peak = 'VA1[0]/v:max_peak_no'
         VB5_max_peak = 'VB5[0]/v:max_peak_no'
         VB9_max_peak = 'VB9[0]/v:max_peak_no'
@@ -177,6 +183,12 @@ if __name__ == '__main__':
                        VB9_max_peak:  70,
                        DB1_max_peak: 70,
                        PVCL_max_peak: 80}
+        '''
+        
+        for cell in ['VA1','DB1','VB9','PVCL']:
+            var = '%s[0]/v:mean_spike_frequency'%cell
+            weights[var] = 1
+            target_data[var] = 100
 
         run_optimisation('Test',
                          'Muscles',
@@ -186,10 +198,12 @@ if __name__ == '__main__':
                          min_constraints,
                          weights,
                          target_data,
-                         population_size =  20,
-                         max_evaluations =  20,
+                         sim_time = 300,
+                         dt = 0.1,
+                         population_size =  30,
+                         max_evaluations =  100,
                          num_selected =     10,
-                         num_offspring =    20,
+                         num_offspring =    10,
                          mutation_rate =    0.5,
                          num_elites =       1)
 
@@ -272,7 +286,7 @@ if __name__ == '__main__':
 
         level = 'B'
         config = 'Muscles'
-        sim_time = 500
+        sim_time = 300
 
         my_controller = C302Controller('Test', level, config, sim_time, 0.1)
 

@@ -39,7 +39,7 @@ def setup(parameter_set, generate=False):
              'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
              
     cells+=['AVAL', 'AVAR', 'AVBL', 'AVBR','AVDL', 'AVDR', 'PVCL', 'PVCR']
-    cells=None  # implies all cells...     
+    #cells=None  # implies all cells...     
     
     ## Some random set of neurons
     #probability = 0.1
