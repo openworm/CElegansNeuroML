@@ -12,6 +12,7 @@ def setup(parameter_set, generate=False):
     params.set_bioparameter("unphysiological_offset_current_dur", "1000 ms", "Testing IClamp", "0")
     
     params.add_bioparameter("chem_exc_syn_gbase", "1.2 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_exc_syn_decay", "3 ms", "BlindGuess", "0.1")
     params.add_bioparameter("chem_inh_syn_gbase", "2.2 nS", "BlindGuess", "0.1")
     params.add_bioparameter("elec_syn_gbase", "0.2 nS", "BlindGuess", "0.1")
     
