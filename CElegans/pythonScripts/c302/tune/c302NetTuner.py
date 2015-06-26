@@ -49,7 +49,7 @@ def run_optimisation(prefix,
                      num_offspring =       20,
                      mutation_rate =       0.5,
                      num_elites =          1,
-                     nogui =               True):  
+                     nogui =               False):  
 
     ref = prefix+config
 
@@ -81,7 +81,7 @@ def run_optimisation(prefix,
 
 
     #make an optimizer
-    my_optimizer=optimizers.CustomOptimizerA(max_constraints,
+    my_optimizer = optimizers.CustomOptimizerA(max_constraints,
                                              min_constraints,
                                              my_evaluator,
                                              population_size=population_size,
@@ -95,7 +95,7 @@ def run_optimisation(prefix,
 
     start = time.time()
     #run the optimizer
-    best_candidate = my_optimizer.optimize(do_plot=False, seed=123456)
+    best_candidate, fitness = my_optimizer.optimize(do_plot=False, seed=123456)
 
     secs = time.time()-start
     print("----------------------------------------------------\n\n"
@@ -114,8 +114,6 @@ def run_optimisation(prefix,
                                                end_analysis=sim_time)
 
     best_cand_analysis = best_candidate_analysis.analyse(weights.keys())
-
-    fitness = best_candidate_analysis.evaluate_fitness(target_data, weights)    
 
     print("---------- Best candidate ------------------------------------------")
     pp.pprint(best_cand_analysis)
@@ -243,8 +241,8 @@ if __name__ == '__main__':
         parameters = ['unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [0.10]
-        max_constraints = [0.45]
+        min_constraints = [0.20]
+        max_constraints = [0.35]
 
 
         ADAL_max_peak = 'ADAL[0]/v:max_peak_no'
@@ -263,10 +261,10 @@ if __name__ == '__main__':
                          weights,
                          target_data,
                          sim_time = 1000,
-                         population_size =  20,
-                         max_evaluations =  40,
-                         num_selected =     10,
-                         num_offspring =    10,
+                         population_size =  10,
+                         max_evaluations =  20,
+                         num_selected =     5,
+                         num_offspring =    5,
                          mutation_rate =    0.5,
                          num_elites =       1)
 

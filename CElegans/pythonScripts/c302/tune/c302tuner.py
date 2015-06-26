@@ -126,7 +126,7 @@ if __name__ == '__main__':
         num_elites =       1
         
         #make an optimizer
-        my_optimizer=optimizers.CustomOptimizerA(max_constraints,
+        my_optimizer = optimizers.CustomOptimizerA(max_constraints,
                                                  min_constraints,
                                                  my_evaluator,
                                                  population_size=population_size,
@@ -140,7 +140,7 @@ if __name__ == '__main__':
                                                  
         start = time.time()
         #run the optimizer
-        best_candidate = my_optimizer.optimize(do_plot=False, seed=12345)
+        best_candidate, fitness = my_optimizer.optimize(do_plot=False, seed=12345)
         
         secs = time.time()-start
         print("----------------------------------------------------\n\n"
@@ -158,9 +158,7 @@ if __name__ == '__main__':
                                                    start_analysis=analysis_start_time,
                                                    end_analysis=sim_time)
                                                    
-        best_candidate_analysis.analyse()
-                                                   
-        best_candidate_analysis.evaluate_fitness(target_data, weights)                                           
+        best_candidate_analysis.analyse()                                       
         
         
         data_plot = plt.plot(t,v[cell_ref], label="Original data")
