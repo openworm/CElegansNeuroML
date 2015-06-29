@@ -14,6 +14,7 @@ from neuroml import ElectricalConnection
 from neuroml import ExpTwoSynapse
 from neuroml import GapJunction
 from neuroml import Property
+from neuroml import PulseGenerator
 
 import neuroml.writers as writers
 import neuroml.loaders as loaders
@@ -113,6 +114,21 @@ quadrant1 = 'MVR'
 quadrant2 = 'MVL'
 quadrant3 = 'MDL'
 
+
+def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
+    
+    stim = PulseGenerator(id="stim_"+cell, delay=delay, duration=duration, amplitude=amplitude)
+    
+    nml_doc.pulse_generators.append(stim)
+    
+    populations_without_location = isinstance(params.elec_syn, GapJunction)
+    
+    target ="%s/0/%s"%(cell, params.generic_cell.id)
+    if populations_without_location:
+        target ="%s[0]"%(cell)
+    exp_input = ExplicitInput(target=target, input=stim.id)
+
+    nml_doc.networks[0].explicit_inputs.append(exp_input)
 
 def get_muscle_names():
     names = []

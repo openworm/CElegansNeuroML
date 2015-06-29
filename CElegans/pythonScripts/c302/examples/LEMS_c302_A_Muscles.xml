@@ -5,7 +5,7 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         All cells
+    Cells:                         ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'AVAL', 'AVAR', 'AVBL', 'AVBR', 'AVDL', 'AVDR', 'PVCL', 'PVCR']
     Cell stimulated:               ['PVCL', 'AVBL']
     Connection numbers overridden: None
     Connection numbers scaled:     None
@@ -169,34 +169,6 @@ Parameters and setting used to generate this network:
         </Display>
 
         <OutputFile id="neurons_v" fileName="c302_A_Muscles.dat">
-            <OutputColumn id="ADAL_v" quantity="ADAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ADAR_v" quantity="ADAR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ADEL_v" quantity="ADEL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ADER_v" quantity="ADER/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ADFL_v" quantity="ADFL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ADFR_v" quantity="ADFR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ADLL_v" quantity="ADLL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ADLR_v" quantity="ADLR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AFDL_v" quantity="AFDL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AFDR_v" quantity="AFDR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIAL_v" quantity="AIAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIAR_v" quantity="AIAR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIBL_v" quantity="AIBL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIBR_v" quantity="AIBR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIML_v" quantity="AIML/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIMR_v" quantity="AIMR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AINL_v" quantity="AINL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AINR_v" quantity="AINR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIYL_v" quantity="AIYL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIYR_v" quantity="AIYR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIZL_v" quantity="AIZL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AIZR_v" quantity="AIZR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ALA_v" quantity="ALA/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ALML_v" quantity="ALML/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ALMR_v" quantity="ALMR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ALNL_v" quantity="ALNL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ALNR_v" quantity="ALNR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AQR_v" quantity="AQR/0/generic_iaf_cell/v"/>
             <OutputColumn id="AS1_v" quantity="AS1/0/generic_iaf_cell/v"/>
             <OutputColumn id="AS10_v" quantity="AS10/0/generic_iaf_cell/v"/>
             <OutputColumn id="AS11_v" quantity="AS11/0/generic_iaf_cell/v"/>
@@ -208,53 +180,16 @@ Parameters and setting used to generate this network:
             <OutputColumn id="AS7_v" quantity="AS7/0/generic_iaf_cell/v"/>
             <OutputColumn id="AS8_v" quantity="AS8/0/generic_iaf_cell/v"/>
             <OutputColumn id="AS9_v" quantity="AS9/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASEL_v" quantity="ASEL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASER_v" quantity="ASER/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASGL_v" quantity="ASGL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASGR_v" quantity="ASGR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASHL_v" quantity="ASHL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASHR_v" quantity="ASHR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASIL_v" quantity="ASIL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASIR_v" quantity="ASIR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASJL_v" quantity="ASJL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASJR_v" quantity="ASJR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASKL_v" quantity="ASKL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="ASKR_v" quantity="ASKR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AUAL_v" quantity="AUAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AUAR_v" quantity="AUAR/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVAL_v" quantity="AVAL/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVAR_v" quantity="AVAR/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVBL_v" quantity="AVBL/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVBR_v" quantity="AVBR/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVDL_v" quantity="AVDL/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVDR_v" quantity="AVDR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVEL_v" quantity="AVEL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVER_v" quantity="AVER/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVFL_v" quantity="AVFL/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVFR_v" quantity="AVFR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVG_v" quantity="AVG/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVHL_v" quantity="AVHL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVHR_v" quantity="AVHR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVJL_v" quantity="AVJL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVJR_v" quantity="AVJR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVKL_v" quantity="AVKL/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVKR_v" quantity="AVKR/0/generic_iaf_cell/v"/>
             <OutputColumn id="AVL_v" quantity="AVL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AVM_v" quantity="AVM/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AWAL_v" quantity="AWAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AWAR_v" quantity="AWAR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AWBL_v" quantity="AWBL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AWBR_v" quantity="AWBR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AWCL_v" quantity="AWCL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="AWCR_v" quantity="AWCR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="BAGL_v" quantity="BAGL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="BAGR_v" quantity="BAGR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="BDUL_v" quantity="BDUL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="BDUR_v" quantity="BDUR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="CANL_v" quantity="CANL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="CANR_v" quantity="CANR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="CEPDL_v" quantity="CEPDL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="CEPDR_v" quantity="CEPDR/0/generic_iaf_cell/v"/>
             <OutputColumn id="CEPVL_v" quantity="CEPVL/0/generic_iaf_cell/v"/>
             <OutputColumn id="CEPVR_v" quantity="CEPVR/0/generic_iaf_cell/v"/>
             <OutputColumn id="DA1_v" quantity="DA1/0/generic_iaf_cell/v"/>
@@ -279,101 +214,24 @@ Parameters and setting used to generate this network:
             <OutputColumn id="DD4_v" quantity="DD4/0/generic_iaf_cell/v"/>
             <OutputColumn id="DD5_v" quantity="DD5/0/generic_iaf_cell/v"/>
             <OutputColumn id="DD6_v" quantity="DD6/0/generic_iaf_cell/v"/>
-            <OutputColumn id="DVA_v" quantity="DVA/0/generic_iaf_cell/v"/>
             <OutputColumn id="DVB_v" quantity="DVB/0/generic_iaf_cell/v"/>
-            <OutputColumn id="DVC_v" quantity="DVC/0/generic_iaf_cell/v"/>
-            <OutputColumn id="FLPL_v" quantity="FLPL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="FLPR_v" quantity="FLPR/0/generic_iaf_cell/v"/>
             <OutputColumn id="HSNL_v" quantity="HSNL/0/generic_iaf_cell/v"/>
             <OutputColumn id="HSNR_v" quantity="HSNR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I1L_v" quantity="I1L/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I1R_v" quantity="I1R/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I2L_v" quantity="I2L/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I2R_v" quantity="I2R/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I3_v" quantity="I3/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I4_v" quantity="I4/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I5_v" quantity="I5/0/generic_iaf_cell/v"/>
-            <OutputColumn id="I6_v" quantity="I6/0/generic_iaf_cell/v"/>
             <OutputColumn id="IL1DL_v" quantity="IL1DL/0/generic_iaf_cell/v"/>
             <OutputColumn id="IL1DR_v" quantity="IL1DR/0/generic_iaf_cell/v"/>
             <OutputColumn id="IL1L_v" quantity="IL1L/0/generic_iaf_cell/v"/>
             <OutputColumn id="IL1R_v" quantity="IL1R/0/generic_iaf_cell/v"/>
             <OutputColumn id="IL1VL_v" quantity="IL1VL/0/generic_iaf_cell/v"/>
             <OutputColumn id="IL1VR_v" quantity="IL1VR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="IL2DL_v" quantity="IL2DL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="IL2DR_v" quantity="IL2DR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="IL2L_v" quantity="IL2L/0/generic_iaf_cell/v"/>
-            <OutputColumn id="IL2R_v" quantity="IL2R/0/generic_iaf_cell/v"/>
-            <OutputColumn id="IL2VL_v" quantity="IL2VL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="IL2VR_v" quantity="IL2VR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="LUAL_v" quantity="LUAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="LUAR_v" quantity="LUAR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="M1_v" quantity="M1/0/generic_iaf_cell/v"/>
-            <OutputColumn id="M2L_v" quantity="M2L/0/generic_iaf_cell/v"/>
-            <OutputColumn id="M2R_v" quantity="M2R/0/generic_iaf_cell/v"/>
-            <OutputColumn id="M3L_v" quantity="M3L/0/generic_iaf_cell/v"/>
-            <OutputColumn id="M3R_v" quantity="M3R/0/generic_iaf_cell/v"/>
-            <OutputColumn id="M4_v" quantity="M4/0/generic_iaf_cell/v"/>
-            <OutputColumn id="M5_v" quantity="M5/0/generic_iaf_cell/v"/>
-            <OutputColumn id="MCL_v" quantity="MCL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="MCR_v" quantity="MCR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="MI_v" quantity="MI/0/generic_iaf_cell/v"/>
-            <OutputColumn id="NSML_v" quantity="NSML/0/generic_iaf_cell/v"/>
-            <OutputColumn id="NSMR_v" quantity="NSMR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="OLLL_v" quantity="OLLL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="OLLR_v" quantity="OLLR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="OLQDL_v" quantity="OLQDL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="OLQDR_v" quantity="OLQDR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="OLQVL_v" quantity="OLQVL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="OLQVR_v" quantity="OLQVR/0/generic_iaf_cell/v"/>
             <OutputColumn id="PDA_v" quantity="PDA/0/generic_iaf_cell/v"/>
             <OutputColumn id="PDB_v" quantity="PDB/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PDEL_v" quantity="PDEL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PDER_v" quantity="PDER/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PHAL_v" quantity="PHAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PHAR_v" quantity="PHAR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PHBL_v" quantity="PHBL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PHBR_v" quantity="PHBR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PHCL_v" quantity="PHCL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PHCR_v" quantity="PHCR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PLML_v" quantity="PLML/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PLMR_v" quantity="PLMR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PLNL_v" quantity="PLNL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PLNR_v" quantity="PLNR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PQR_v" quantity="PQR/0/generic_iaf_cell/v"/>
             <OutputColumn id="PVCL_v" quantity="PVCL/0/generic_iaf_cell/v"/>
             <OutputColumn id="PVCR_v" quantity="PVCR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVDL_v" quantity="PVDL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVDR_v" quantity="PVDR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVM_v" quantity="PVM/0/generic_iaf_cell/v"/>
             <OutputColumn id="PVNL_v" quantity="PVNL/0/generic_iaf_cell/v"/>
             <OutputColumn id="PVNR_v" quantity="PVNR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVPL_v" quantity="PVPL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVPR_v" quantity="PVPR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVQL_v" quantity="PVQL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVQR_v" quantity="PVQR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVR_v" quantity="PVR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVT_v" quantity="PVT/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVWL_v" quantity="PVWL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="PVWR_v" quantity="PVWR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIAL_v" quantity="RIAL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIAR_v" quantity="RIAR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIBL_v" quantity="RIBL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIBR_v" quantity="RIBR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RICL_v" quantity="RICL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RICR_v" quantity="RICR/0/generic_iaf_cell/v"/>
             <OutputColumn id="RID_v" quantity="RID/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIFL_v" quantity="RIFL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIFR_v" quantity="RIFR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIGL_v" quantity="RIGL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIGR_v" quantity="RIGR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIH_v" quantity="RIH/0/generic_iaf_cell/v"/>
             <OutputColumn id="RIML_v" quantity="RIML/0/generic_iaf_cell/v"/>
             <OutputColumn id="RIMR_v" quantity="RIMR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIPL_v" quantity="RIPL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIPR_v" quantity="RIPR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIR_v" quantity="RIR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RIS_v" quantity="RIS/0/generic_iaf_cell/v"/>
             <OutputColumn id="RIVL_v" quantity="RIVL/0/generic_iaf_cell/v"/>
             <OutputColumn id="RIVR_v" quantity="RIVR/0/generic_iaf_cell/v"/>
             <OutputColumn id="RMDDL_v" quantity="RMDDL/0/generic_iaf_cell/v"/>
@@ -387,28 +245,10 @@ Parameters and setting used to generate this network:
             <OutputColumn id="RMER_v" quantity="RMER/0/generic_iaf_cell/v"/>
             <OutputColumn id="RMEV_v" quantity="RMEV/0/generic_iaf_cell/v"/>
             <OutputColumn id="RMFL_v" quantity="RMFL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="RMFR_v" quantity="RMFR/0/generic_iaf_cell/v"/>
             <OutputColumn id="RMGL_v" quantity="RMGL/0/generic_iaf_cell/v"/>
             <OutputColumn id="RMGR_v" quantity="RMGR/0/generic_iaf_cell/v"/>
             <OutputColumn id="RMHL_v" quantity="RMHL/0/generic_iaf_cell/v"/>
             <OutputColumn id="RMHR_v" quantity="RMHR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SAADL_v" quantity="SAADL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SAADR_v" quantity="SAADR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SAAVL_v" quantity="SAAVL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SAAVR_v" quantity="SAAVR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SABD_v" quantity="SABD/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SABVL_v" quantity="SABVL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SABVR_v" quantity="SABVR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SDQL_v" quantity="SDQL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SDQR_v" quantity="SDQR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIADL_v" quantity="SIADL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIADR_v" quantity="SIADR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIAVL_v" quantity="SIAVL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIAVR_v" quantity="SIAVR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIBDL_v" quantity="SIBDL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIBDR_v" quantity="SIBDR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIBVL_v" quantity="SIBVL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="SIBVR_v" quantity="SIBVR/0/generic_iaf_cell/v"/>
             <OutputColumn id="SMBDL_v" quantity="SMBDL/0/generic_iaf_cell/v"/>
             <OutputColumn id="SMBDR_v" quantity="SMBDR/0/generic_iaf_cell/v"/>
             <OutputColumn id="SMBVL_v" quantity="SMBVL/0/generic_iaf_cell/v"/>
@@ -421,14 +261,6 @@ Parameters and setting used to generate this network:
             <OutputColumn id="URADR_v" quantity="URADR/0/generic_iaf_cell/v"/>
             <OutputColumn id="URAVL_v" quantity="URAVL/0/generic_iaf_cell/v"/>
             <OutputColumn id="URAVR_v" quantity="URAVR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URBL_v" quantity="URBL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URBR_v" quantity="URBR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URXL_v" quantity="URXL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URXR_v" quantity="URXR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URYDL_v" quantity="URYDL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URYDR_v" quantity="URYDR/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URYVL_v" quantity="URYVL/0/generic_iaf_cell/v"/>
-            <OutputColumn id="URYVR_v" quantity="URYVR/0/generic_iaf_cell/v"/>
             <OutputColumn id="VA1_v" quantity="VA1/0/generic_iaf_cell/v"/>
             <OutputColumn id="VA10_v" quantity="VA10/0/generic_iaf_cell/v"/>
             <OutputColumn id="VA11_v" quantity="VA11/0/generic_iaf_cell/v"/>

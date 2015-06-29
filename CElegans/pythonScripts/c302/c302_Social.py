@@ -10,29 +10,12 @@
 #                                     experimental branches to run: 'python getNeuroML experimental'
 #                                     see https://github.com/NeuroML/jNeuroML)
 
-from c302 import generate
+from c302 import generate, add_new_input
 
-from neuroml import PulseGenerator
-from neuroml import ExplicitInput
-from neuroml import GapJunction
 import neuroml.writers as writers
 
 import sys
 
-def add_new_input(nml_doc, cell, delay, duration, amplitude):
-    
-    stim = PulseGenerator(id="stim_"+cell, delay=delay, duration=duration, amplitude=amplitude)
-    
-    nml_doc.pulse_generators.append(stim)
-    
-    populations_without_location = isinstance(params.elec_syn, GapJunction)
-    
-    target ="%s/0/%s"%(cell, params.generic_cell.id)
-    if populations_without_location:
-        target ="%s[0]"%(cell)
-    exp_input = ExplicitInput(target=target, input=stim.id)
-
-    nml_doc.networks[0].explicit_inputs.append(exp_input)
 
 if __name__ == '__main__':
     
@@ -60,13 +43,13 @@ if __name__ == '__main__':
                        target_directory=target_directory)
              
     stim_amplitude = "0.35nA"
-    add_new_input(nml_doc, "RMGR", "100ms", "200ms", stim_amplitude)
-    add_new_input(nml_doc, "ASHR", "400ms", "200ms", stim_amplitude)
-    add_new_input(nml_doc, "ASKR", "700ms", "200ms", stim_amplitude)
-    add_new_input(nml_doc, "AWBR", "1000ms", "200ms", stim_amplitude)
-    add_new_input(nml_doc, "IL2R", "1300ms", "200ms", stim_amplitude)
-    add_new_input(nml_doc, "RMHR", "1600ms", "200ms", stim_amplitude)
-    add_new_input(nml_doc, "URXR", "1900ms", "200ms", stim_amplitude)
+    add_new_input(nml_doc, "RMGR", "100ms", "200ms", stim_amplitude, params)
+    add_new_input(nml_doc, "ASHR", "400ms", "200ms", stim_amplitude, params)
+    add_new_input(nml_doc, "ASKR", "700ms", "200ms", stim_amplitude, params)
+    add_new_input(nml_doc, "AWBR", "1000ms", "200ms", stim_amplitude, params)
+    add_new_input(nml_doc, "IL2R", "1300ms", "200ms", stim_amplitude, params)
+    add_new_input(nml_doc, "RMHR", "1600ms", "200ms", stim_amplitude, params)
+    add_new_input(nml_doc, "URXR", "1900ms", "200ms", stim_amplitude, params)
     
     
     nml_file = target_directory+'/'+reference+'.nml'
