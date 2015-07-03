@@ -205,7 +205,8 @@ if __name__ == '__main__':
                          num_selected =     10,
                          num_offspring =    10,
                          mutation_rate =    0.5,
-                         num_elites =       1)
+                         num_elites =       1,
+                         nogui =            nogui)
 
     elif '-phar' in sys.argv:
 
@@ -246,7 +247,8 @@ if __name__ == '__main__':
                          num_selected =     10,
                          num_offspring =    20,
                          mutation_rate =    0.5,
-                         num_elites =       1)
+                         num_elites =       1,
+                         nogui =            nogui)
 
 
     elif '-simple' in sys.argv:
@@ -280,7 +282,8 @@ if __name__ == '__main__':
                          num_selected =     5,
                          num_offspring =    5,
                          mutation_rate =    0.5,
-                         num_elites =       1)
+                         num_elites =       1,
+                         nogui =            nogui)
 
     else:
 
