@@ -9,6 +9,10 @@ This is being developed as part of the [OpenWorm project](http://www.openworm.or
 
 **There is also a new initiative which uses Python scripts to generate network models in NeuroML2 at multiple levels of details: [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302).** This will eventually be fully integrated with the neuroConstruct version.
 
+### Installation
+
+  python setup.py install
+
 ### Data on which this model is based
 
 The *C. elegans* 3D model this was derived from was produced by Dr. Christian Grove and Dr. Paul Sternberg at the VirtualWorm project (WormBase, CalTech) and released into the public domain. You can visit the VirtualWorm home page at http://caltech.wormbase.org/virtualworm/
@@ -17,7 +21,7 @@ We have converted all 302 neurons described in the [WormBase Virtual Worm Blende
 
 ### Important Limitations
 
-Please note: 
+Please note:
 
 * An accurate representation of the ion channels and their distributions in each neuron has not yet been attempted. Work on a cell model from *C. elegans* with ion channels can be found [here](https://github.com/openworm/muscle_model/tree/master/NeuroML2)
 * An accurate representation of the synapses between the neurons has not yet been attempted.  They are simplistic synapses only for the moment.
@@ -26,10 +30,7 @@ More accurate models of conductance based neurons and more realistic synapses wi
 
 ### Running the neuroConstruct model
 
-For full details on running this neuroConstruct project see: 
+For full details on running this neuroConstruct project see:
 https://github.com/openworm/OpenWorm/wiki/Running-the-C.-elegans-model-in-neuroConstruct.
 
 [![Build Status](https://travis-ci.org/openworm/CElegansNeuroML.svg?branch=master)](https://travis-ci.org/openworm/CElegansNeuroML)
-
-
-

@@ -84,6 +84,10 @@ umac
 CElegans/pythonScripts/c302/unittests/*.nml
 CElegans/pythonScripts/c302/unittests/*.xml
 
-
-
 .DS_Store
+
+CElegansNeuroML.egg-info/*
+
+dist/*
+
+c302_A_Full.dat
