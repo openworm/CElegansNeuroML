@@ -8,17 +8,17 @@ python:
 
 env:
      - OMV_ENGINE=jNeuroML
-     - OMV_ENGINE=jNeuroML_NEURON
-     - OMV_ENGINE=jNeuroML_validatev1
-     - OMV_ENGINE=jNeuroML_validate
-     - OMV_ENGINE=NON_OMV_TESTS
+#     - OMV_ENGINE=jNeuroML_NEURON
+#     - OMV_ENGINE=jNeuroML_validatev1
+#     - OMV_ENGINE=jNeuroML_validate
+#     - OMV_ENGINE=NON_OMV_TESTS
 
 install:
     - python setup.py install
 
 script:
-    - omv all -V; export OMV_SUCCESS=$?; echo $OMV_SUCCESS
-    - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then echo "Continuing with tests not under OMV..."; else exit $OMV_SUCCESS; fi
+#    - omv all -V; export OMV_SUCCESS=$?; echo $OMV_SUCCESS
+#    - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then echo "Continuing with tests not under OMV..."; else exit $OMV_SUCCESS; fi
     - cd CElegans/pythonScripts/c302/unittests/
     - python -m unittest c302_connection_test_A
     - python -m unittest c302_connection_test_B
