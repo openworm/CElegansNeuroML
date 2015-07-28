@@ -13,6 +13,8 @@ from matplotlib import pyplot as plt
 from pyelectro import analysis
 
 import sys
+import os
+import shutil
 import os.path
 import time
 
@@ -50,7 +52,7 @@ def run_optimisation(prefix,
                      mutation_rate =       0.5,
                      num_elites =          1,
                      nogui =               False):  
-
+                         
     ref = prefix+config
 
     my_controller = C302Controller(ref, level, config, sim_time, dt)
@@ -98,8 +100,9 @@ def run_optimisation(prefix,
     best_candidate, fitness = my_optimizer.optimize(do_plot=False, seed=123456)
 
     secs = time.time()-start
-    print("----------------------------------------------------\n\n"
-          +"Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n"%(max_evaluations, population_size, secs, secs/60.0))
+    
+    report = "----------------------------------------------------\n\n"+ \
+             "Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n\n"%(max_evaluations, population_size, secs, secs/60.0)
 
     for key,value in zip(parameters,best_candidate):
         sim_var[key]=value
@@ -116,10 +119,29 @@ def run_optimisation(prefix,
     best_cand_analysis_full = best_candidate_analysis.analyse()
     best_cand_analysis = best_candidate_analysis.analyse(weights.keys())
 
-    print("---------- Best candidate ------------------------------------------")
-    pp.pprint(best_cand_analysis_full)
-    pp.pprint(best_cand_analysis)
-    print("Fitness: %f"%fitness)
+    report+="---------- Best candidate ------------------------------------------\n"
+    
+    report+=pp.pformat(best_cand_analysis_full)
+    report+=pp.pformat(best_cand_analysis)
+    report+="Fitness: %f\n\n"%fitness
+    
+    print(report)
+    
+    report+="analysis_var: %s\n\n"%analysis_var
+    report+="target_data: %s\n\n"%target_data
+    report+="weights: %s\n\n"%weights
+    report+="analysis_start_time: %s\n\n"%analysis_start_time
+    report+="sim_time: %s\n\n"%sim_time
+    report+="dt: %s\n\n"%dt
+    
+    report_dir = "NT_%s"%(time.ctime().replace(' ','_' ).replace(':','.' ))
+    os.mkdir(report_dir)
+    report_file = open("%s/report.txt"%report_dir,'w')
+    report_file.write(report)
+    report_file.close()
+    shutil.copy('../data/ga_individuals.csv', report_dir)
+    shutil.copy('../data/ga_statistics.csv', report_dir)
+    
 
     if not nogui:
         added =[]
