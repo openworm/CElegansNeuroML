@@ -121,9 +121,9 @@ def run_optimisation(prefix,
 
     report+="---------- Best candidate ------------------------------------------\n"
     
-    report+=pp.pformat(best_cand_analysis_full)
-    report+=pp.pformat(best_cand_analysis)
-    report+="Fitness: %f\n\n"%fitness
+    report+=pp.pformat(best_cand_analysis_full)+"\n"
+    report+=pp.pformat(best_cand_analysis)+"\n\n"
+    report+="FITNESS: %f\n\n"%fitness
     
     print(report)
     
@@ -134,7 +134,7 @@ def run_optimisation(prefix,
     report+="sim_time: %s\n\n"%sim_time
     report+="dt: %s\n\n"%dt
     
-    report_dir = "NT_%s"%(time.ctime().replace(' ','_' ).replace(':','.' ))
+    report_dir = "NT_%s+%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
     os.mkdir(report_dir)
     report_file = open("%s/report.txt"%report_dir,'w')
     report_file.write(report)
