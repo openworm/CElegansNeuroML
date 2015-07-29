@@ -260,6 +260,48 @@ if __name__ == '__main__':
                          mutation_rate =    0.1,
                          num_elites =       1,
                          nogui =            nogui)
+                         
+                         
+    if '-osc' in sys.argv:
+
+        parameters = ['chem_exc_syn_gbase',
+                      'chem_exc_syn_decay',
+                      'chem_inh_syn_gbase',
+                      'chem_inh_syn_decay',
+                      'elec_syn_gbase',
+                      'unphysiological_offset_current']
+
+        #above parameters will not be modified outside these bounds:
+        min_constraints = [0.05, 3,  0.05, 3,    0.01,   0.20]
+        max_constraints = [1,    40, 1,    100,  0.5,    0.45]
+        
+        weights = {}
+        target_data = {}
+        
+        
+        for cell in ['DB2','VB2','DB3','VB3','DB4','VB4']:
+            var = '%s[0]/v:mean_spike_frequency'%cell
+            weights[var] = 1
+            target_data[var] = 30
+
+        run_optimisation('Test',
+                         'Oscillator',
+                         'B',
+                         parameters,
+                         max_constraints,
+                         min_constraints,
+                         weights,
+                         target_data,
+                         sim_time = 500,
+                         dt = 0.1,
+                         population_size =  50,
+                         max_evaluations =  600,
+                         num_selected =     20,
+                         num_offspring =    20,
+                         mutation_rate =    0.1,
+                         num_elites =       1,
+                         seed =             123477,
+                         nogui =            nogui)
 
     elif '-phar' in sys.argv:
 
