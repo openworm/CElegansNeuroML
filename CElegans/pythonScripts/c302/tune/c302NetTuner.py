@@ -142,7 +142,16 @@ def run_optimisation(prefix,
     reportj['analysis_var']=analysis_var
     reportj['target_data']=target_data
     reportj['weights']=weights
+    
     reportj['analysis_start_time']=analysis_start_time
+    
+    reportj['population_size']=population_size
+    reportj['max_evaluations']=max_evaluations
+    reportj['num_selected']=num_selected
+    reportj['num_offspring']=num_offspring
+    reportj['mutation_rate']=mutation_rate
+    reportj['num_elites']=num_elites
+    
     reportj['sim_time']=sim_time
     reportj['dt']=dt
     
@@ -243,11 +252,11 @@ if __name__ == '__main__':
                          target_data,
                          sim_time = 300,
                          dt = 0.1,
-                         population_size =  30,
-                         max_evaluations =  100,
-                         num_selected =     10,
-                         num_offspring =    10,
-                         mutation_rate =    0.5,
+                         population_size =  50,
+                         max_evaluations =  500,
+                         num_selected =     20,
+                         num_offspring =    20,
+                         mutation_rate =    0.1,
                          num_elites =       1,
                          nogui =            nogui)
 
