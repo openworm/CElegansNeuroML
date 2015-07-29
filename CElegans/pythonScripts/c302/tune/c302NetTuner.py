@@ -51,6 +51,7 @@ def run_optimisation(prefix,
                      num_offspring =       20,
                      mutation_rate =       0.5,
                      num_elites =          1,
+                     seed =                12345,
                      nogui =               False):  
                          
     ref = prefix+config
@@ -100,7 +101,9 @@ def run_optimisation(prefix,
 
     start = time.time()
     #run the optimizer
-    best_candidate, fitness = my_optimizer.optimize(do_plot=False, seed=123456)
+    best_candidate, fitness = my_optimizer.optimize(do_plot=False, 
+                                                    seed=seed,
+                                                    summary_dir = run_dir)
 
     secs = time.time()-start
     
@@ -169,8 +172,6 @@ def run_optimisation(prefix,
     plot_file.write("plot_generation_evolution(parameters, individuals_file_name = '%s/ga_individuals.csv'%curr_dir)\n")
     plot_file.close()
     
-    shutil.copy('../data/ga_individuals.csv', run_dir)
-    shutil.copy('../data/ga_statistics.csv', run_dir)
     
 
     if not nogui:
@@ -191,7 +192,7 @@ def run_optimisation(prefix,
 
         plt.show()
 
-        utils.plot_generation_evolution(sim_var.keys())
+        utils.plot_generation_evolution(sim_var.keys(), individuals_file_name = '%s/ga_individuals.csv'%run_dir)
 
 
 
