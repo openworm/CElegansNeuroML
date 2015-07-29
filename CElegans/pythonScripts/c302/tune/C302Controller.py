@@ -22,13 +22,14 @@ from C302Simulation import C302Simulation
 
 class C302Controller():
 
-    def __init__(self, ref, params, config, sim_time=1000, dt=0.05):
+    def __init__(self, ref, params, config, sim_time=1000, dt=0.05, generate_dir = './'):
         
         self.ref = ref
         self.params = params
         self.config = config
         self.sim_time = sim_time
         self.dt = dt
+        self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
 
     def run(self,candidates,parameters):
         """
@@ -63,7 +64,7 @@ class C302Controller():
 
         """
         
-        sim = C302Simulation(self.ref, self.params, self.config, sim_time=self.sim_time, dt=self.dt)
+        sim = C302Simulation(self.ref, self.params, self.config, sim_time=self.sim_time, dt=self.dt, generate_dir = self.generate_dir)
         
         for var_name in sim_var.keys():
             bp = sim.params.get_bioparameter(var_name)
@@ -93,7 +94,7 @@ if __name__ == '__main__':
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-phar':
                 
-        cont = C302Controller('PharTest', 'B', 'Pharyngeal')
+        cont = C302Controller('PharTest', 'B', 'Pharyngeal', generate_dir = 'temp')
 
         sim_vars = OrderedDict([('chem_exc_syn_gbase',0.2),
                   ('chem_exc_syn_decay',20),

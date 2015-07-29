@@ -8,6 +8,7 @@
 
 import sys
 import os.path
+import time
 
 from pyneuroml import pynml
 
@@ -24,11 +25,13 @@ class C302Simulation(object):
     target_cell = 'ADAL'
     params = None
 
-    def __init__(self, reference, parameter_set, config, sim_time=1000, dt=0.05):
+    def __init__(self, reference, parameter_set, config, sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './'):
 
         self.sim_time = sim_time
         self.dt = dt
+        self.simulator = simulator
         self.go_already = False
+        self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
         
         exec('from c302_%s import setup'%config)
         
@@ -65,7 +68,6 @@ class C302Simulation(object):
         Start the simulation once it's been intialized
         """
         
-        
         nml_doc = c302.generate(self.reference, 
                                 self.params, 
                                 cells=self.cells, 
@@ -73,15 +75,37 @@ class C302Simulation(object):
                                 duration=self.sim_time, 
                                 dt=self.dt, 
                                 validate=(self.params.level!='B'),
-                                verbose=False)
+                                verbose=False,
+                                target_directory = self.generate_dir)
              
-        self.lems_file = "LEMS_%s.xml"%(self.reference)
+        self.lems_file ="LEMS_%s.xml"%(self.reference)
         
-        print("Running a simulation of %s ms with timestep %s ms"%(self.sim_time, self.dt))
+        print("Running a simulation of %s ms with timestep %s ms: %s"%(self.sim_time, self.dt, self.lems_file))
         
         self.go_already = True
-        results = pynml.run_lems_with_jneuroml(self.lems_file, nogui=True, load_saved_data=True, plot=False, verbose=False)
-        #results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, nogui=True, load_saved_data=True, plot=False)
+        
+        start = time.time()
+        if self.simulator == 'jNeuroML':
+            results = pynml.run_lems_with_jneuroml(self.lems_file, 
+                                                   nogui=True, 
+                                                   load_saved_data=True, 
+                                                   plot=False, 
+                                                   exec_in_dir = self.generate_dir,
+                                                   verbose=False)
+        elif self.simulator == 'jNeuroML_NEURON':
+            results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, 
+                                                          nogui=True, 
+                                                          load_saved_data=True, 
+                                                          plot=False, 
+                                                          exec_in_dir = self.generate_dir,
+                                                          verbose=False)
+        else:
+            print('Unsupported simulator: %s'%self.simulator)
+            exit()
+            
+        secs = time.time()-start
+    
+        print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
         
         self.t = [t*1000 for t in results['t']]
         res_template = '%s/0/generic_iaf_cell/v'
@@ -103,18 +127,30 @@ class C302Simulation(object):
 
 if __name__ == '__main__':
     
-    sim_time = 1000
+    sim_time = 100
     dt = 0.05
     
     if len(sys.argv) == 2 and sys.argv[1] == '-phar':
         
-        sim = C302Simulation('TestPhar', 'B', 'Pharyngeal', sim_time, dt)
+        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt, 'jNeuroML', 'temp')
+        sim.go()
+        sim.show()
+
+    elif len(sys.argv) == 2 and sys.argv[1] == '-pharN':
+        
+        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt, 'jNeuroML_NEURON', 'temp')
         sim.go()
         sim.show()
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-musc':
         
         sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt)
+        sim.go()
+        sim.show()
+        
+    elif len(sys.argv) == 2 and sys.argv[1] == '-muscN':
+        
+        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt, 'jNeuroML_NEURON')
         sim.go()
         sim.show()
         

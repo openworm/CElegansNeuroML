@@ -54,8 +54,11 @@ def run_optimisation(prefix,
                      nogui =               False):  
                          
     ref = prefix+config
+    
+    run_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
+    os.mkdir(run_dir)
 
-    my_controller = C302Controller(ref, level, config, sim_time, dt)
+    my_controller = C302Controller(ref, level, config, sim_time, dt, generate_dir=run_dir)
 
     peak_threshold = -31 if level is 'A' or level is 'B' else 0
 
@@ -101,8 +104,13 @@ def run_optimisation(prefix,
 
     secs = time.time()-start
     
-    report = "----------------------------------------------------\n\n"+ \
-             "Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n\n"%(max_evaluations, population_size, secs, secs/60.0)
+    reportj = {}
+    info = "Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n\n"%(max_evaluations, population_size, secs, secs/60.0)
+    report = "----------------------------------------------------\n\n"+ info
+             
+             
+    reportj['comment'] = info
+    reportj['time'] = secs
 
     for key,value in zip(parameters,best_candidate):
         sim_var[key]=value
@@ -127,22 +135,23 @@ def run_optimisation(prefix,
     
     print(report)
     
-    report+="parameters: %s\n\n"%parameters
-    report+="analysis_var: %s\n\n"%analysis_var
-    report+="target_data: %s\n\n"%target_data
-    report+="weights: %s\n\n"%weights
-    report+="analysis_start_time: %s\n\n"%analysis_start_time
-    report+="sim_time: %s\n\n"%sim_time
-    report+="dt: %s\n\n"%dt
+    reportj['fitness']=fitness
+    reportj['best_cand_analysis_full']=best_cand_analysis_full
+    reportj['best_cand_analysis']=best_cand_analysis
+    reportj['parameters']=parameters
+    reportj['analysis_var']=analysis_var
+    reportj['target_data']=target_data
+    reportj['weights']=weights
+    reportj['analysis_start_time']=analysis_start_time
+    reportj['sim_time']=sim_time
+    reportj['dt']=dt
     
-    report_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
-    os.mkdir(report_dir)
     
-    report_file = open("%s/report.txt"%report_dir,'w')
-    report_file.write(report)
+    report_file = open("%s/report.json"%run_dir,'w')
+    report_file.write(pp.pformat(reportj))
     report_file.close()
     
-    plot_file = open("%s/plotgens.py"%report_dir,'w')
+    plot_file = open("%s/plotgens.py"%run_dir,'w')
     plot_file.write('from neurotune.utils import plot_generation_evolution\nimport os\n')
     plot_file.write('\n')
     plot_file.write('parameters = %s\n'%parameters)
@@ -151,8 +160,8 @@ def run_optimisation(prefix,
     plot_file.write("plot_generation_evolution(parameters, individuals_file_name = '%s/ga_individuals.csv'%curr_dir)\n")
     plot_file.close()
     
-    shutil.copy('../data/ga_individuals.csv', report_dir)
-    shutil.copy('../data/ga_statistics.csv', report_dir)
+    shutil.copy('../data/ga_individuals.csv', run_dir)
+    shutil.copy('../data/ga_statistics.csv', run_dir)
     
 
     if not nogui:
