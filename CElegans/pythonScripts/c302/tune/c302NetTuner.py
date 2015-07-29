@@ -127,6 +127,7 @@ def run_optimisation(prefix,
     
     print(report)
     
+    report+="parameters: %s\n\n"%parameters
     report+="analysis_var: %s\n\n"%analysis_var
     report+="target_data: %s\n\n"%target_data
     report+="weights: %s\n\n"%weights
@@ -136,9 +137,20 @@ def run_optimisation(prefix,
     
     report_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
     os.mkdir(report_dir)
+    
     report_file = open("%s/report.txt"%report_dir,'w')
     report_file.write(report)
     report_file.close()
+    
+    plot_file = open("%s/plotgens.py"%report_dir,'w')
+    plot_file.write('from neurotune.utils import plot_generation_evolution\nimport os\n')
+    plot_file.write('\n')
+    plot_file.write('parameters = %s\n'%parameters)
+    plot_file.write('\n')
+    plot_file.write("curr_dir = os.path.dirname(__file__) if len(os.path.dirname(__file__))>0 else '.'\n")
+    plot_file.write("plot_generation_evolution(parameters, individuals_file_name = '%s/ga_individuals.csv'%curr_dir)\n")
+    plot_file.close()
+    
     shutil.copy('../data/ga_individuals.csv', report_dir)
     shutil.copy('../data/ga_statistics.csv', report_dir)
     
@@ -299,8 +311,8 @@ if __name__ == '__main__':
                          weights,
                          target_data,
                          sim_time = 1000,
-                         population_size =  10,
-                         max_evaluations =  20,
+                         population_size =  5,
+                         max_evaluations =  10,
                          num_selected =     5,
                          num_offspring =    5,
                          mutation_rate =    0.5,
