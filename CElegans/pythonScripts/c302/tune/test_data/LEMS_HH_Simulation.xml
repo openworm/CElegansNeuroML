@@ -1,0 +1,41 @@
+<Lems>
+
+    <!-- Example with Simple Hodgkin-Huxley cell specifying segment details-->
+
+    <!-- This is a file which can be read and executed by the LEMS Interpreter.
+         It imports the LEMS definitions of the core NeuroML 2 Components, 
+         imports in "pure" NeuroML 2 and contains some LEMS elements for running 
+         a simulation -->
+
+
+    <Target component="sim1"/>
+
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+
+    <Include file="HHCellNetwork.net.nml"/>
+    <Include file="hhcell.cell.nml"/>
+    <Include file="passiveChan.channel.nml"/>
+    <Include file="naChan.channel.nml"/>
+    <Include file="kChan.channel.nml"/>
+
+
+    <Simulation id="sim1" length="700ms" step="0.05ms" target="HHCellNetwork">
+    
+        <Display id="d1" title="Hodgkin-Huxley Neuron: V (mV)" timeScale="1ms" xmin="-20" xmax="720" ymin="-90" ymax="50">
+            <Line id="V" quantity="hhpop[0]/v" scale="1mV" color="#000000" timeScale="1ms"/>
+        </Display>
+
+        
+        <!-- Saved the membrane potential to file: hh_v.dat -->
+        <OutputFile id="of0" fileName="hh_v.dat">
+            <OutputColumn id="v" quantity="hhpop[0]/v"/> 
+        </OutputFile>  
+    
+        
+    </Simulation>
+
+
+</Lems>

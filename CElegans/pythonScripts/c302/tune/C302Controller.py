@@ -22,13 +22,14 @@ from C302Simulation import C302Simulation
 
 class C302Controller():
 
-    def __init__(self, ref, params, config, sim_time=1000, dt=0.05, generate_dir = './'):
+    def __init__(self, ref, params, config, sim_time=1000, dt=0.05, generate_dir = './', simulator='jNeuroML'):
         
         self.ref = ref
         self.params = params
         self.config = config
         self.sim_time = sim_time
         self.dt = dt
+        self.simulator = simulator
         self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
 
     def run(self,candidates,parameters):
@@ -64,7 +65,13 @@ class C302Controller():
 
         """
         
-        sim = C302Simulation(self.ref, self.params, self.config, sim_time=self.sim_time, dt=self.dt, generate_dir = self.generate_dir)
+        sim = C302Simulation(self.ref, 
+                             self.params, 
+                             self.config, 
+                             sim_time = self.sim_time, 
+                             dt = self.dt, 
+                             simulator = self.simulator, 
+                             generate_dir = self.generate_dir)
         
         for var_name in sim_var.keys():
             bp = sim.params.get_bioparameter(var_name)

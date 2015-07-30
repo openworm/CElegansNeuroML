@@ -12,32 +12,26 @@ import time
 
 from pyneuroml import pynml
 
+from pyneuroml.lems import generate_lems_file_for_neuroml
 
-if not os.path.isfile('c302.py'):
-    print('This script should be run from dir: CElegansNeuroML/CElegans/pythonScripts/c302')
-    exit()
-        
-sys.path.append(".")
-import c302
 
-class C302Simulation(object):
+class NeuroMLSimulation(object):
 
     target_cell = 'ADAL'
     params = None
 
-    def __init__(self, reference, parameter_set, config, sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './'):
+    def __init__(self, reference, neuroml_file, target, sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './'):
 
         self.sim_time = sim_time
         self.dt = dt
         self.simulator = simulator
-        self.already_run = False
         self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
         
-        exec('from c302_%s import setup'%config)
-        
-        self.cells, self.cells_to_stimulate, self.params, self.include_muscles = setup(parameter_set)
-        
         self.reference = reference
+        self.target = target
+        self.neuroml_file = neuroml_file
+        
+        self.already_run = False
         
 
 
@@ -68,33 +62,29 @@ class C302Simulation(object):
         Start the simulation once it's been intialized
         """
         
-        nml_doc = c302.generate(self.reference, 
-                                self.params, 
-                                cells=self.cells, 
-                                cells_to_stimulate=self.cells_to_stimulate, 
-                                include_muscles = self.include_muscles,
-                                duration=self.sim_time, 
-                                dt=self.dt, 
-                                validate=(self.params.level!='B'),
-                                verbose=False,
-                                target_directory = self.generate_dir)
-             
-        self.lems_file ="LEMS_%s.xml"%(self.reference)
+        lems_file_name = 'LEMS_%s.xml'%self.reference
         
-        print("Running a simulation of %s ms with timestep %s ms: %s"%(self.sim_time, self.dt, self.lems_file))
+        generate_lems_file_for_neuroml(self.reference, 
+                                       self.neuroml_file, 
+                                       self.target, 
+                                       self.sim_time, 
+                                       self.dt, 
+                                       lems_file_name = lems_file_name)
+        
+        print("Running a simulation of %s ms with timestep %s ms: %s"%(self.sim_time, self.dt, lems_file_name))
         
         self.already_run = True
         
         start = time.time()
         if self.simulator == 'jNeuroML':
-            results = pynml.run_lems_with_jneuroml(self.lems_file, 
+            results = pynml.run_lems_with_jneuroml(lems_file_name, 
                                                    nogui=True, 
                                                    load_saved_data=True, 
                                                    plot=False, 
                                                    exec_in_dir = self.generate_dir,
                                                    verbose=False)
         elif self.simulator == 'jNeuroML_NEURON':
-            results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, 
+            results = pynml.run_lems_with_jneuroml_neuron(lems_file_name, 
                                                           nogui=True, 
                                                           load_saved_data=True, 
                                                           plot=False, 
@@ -108,6 +98,7 @@ class C302Simulation(object):
     
         print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
         
+        '''
         self.t = [t*1000 for t in results['t']]
         res_template = '%s/0/generic_iaf_cell/v'
         if self.params.level == 'B' or self.params.level == 'C' or self.params.level == 'D':
@@ -121,7 +112,7 @@ class C302Simulation(object):
             
                 
         for cell in self.cells:
-            self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]
+            self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]'''
         
 
 
@@ -131,46 +122,18 @@ if __name__ == '__main__':
     sim_time = 500
     dt = 0.05
     
-    if len(sys.argv) == 2 and sys.argv[1] == '-phar':
+    if len(sys.argv) == 2 and sys.argv[1] == '-hh':
         
-        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt, 'jNeuroML', 'temp')
+        sim = NeuroMLSimulation('TestHH', 
+                                'tune/test_data/HHCellNetwork.net.nml',
+                                'HHCellNetwork',
+                                sim_time, 
+                                dt, 
+                                'jNeuroML', 
+                                'temp')
         sim.go()
         sim.show()
 
-    elif len(sys.argv) == 2 and sys.argv[1] == '-pharN':
-        
-        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt, 'jNeuroML_NEURON', 'temp')
-        sim.go()
-        sim.show()
-        
-    elif len(sys.argv) == 2 and sys.argv[1] == '-musc':
-        
-        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt)
-        sim.go()
-        sim.show()
-        
-    elif len(sys.argv) == 2 and sys.argv[1] == '-muscN':
-        
-        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt, 'jNeuroML_NEURON')
-        sim.go()
-        sim.show()
-        
-    elif len(sys.argv) == 2 and sys.argv[1] == '-osc':
-        
-        sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt, 'jNeuroML', 'temp')
-        sim.go()
-        sim.show()
-        
-    elif len(sys.argv) == 2 and sys.argv[1] == '-oscN':
-        
-        sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt, 'jNeuroML_NEURON', 'temp')
-        sim.go()
-        sim.show()
-        
-    else:
 
-        sim = C302Simulation('TestIClamp', 'C', 'IClamp', sim_time, dt)
-        sim.go()
-        sim.show()
 
 

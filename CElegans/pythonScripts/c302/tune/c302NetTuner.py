@@ -52,6 +52,7 @@ def run_optimisation(prefix,
                      mutation_rate =       0.5,
                      num_elites =          1,
                      seed =                12345,
+                     simulator =           'jNeuroML',
                      nogui =               False):  
                          
     ref = prefix+config
@@ -59,7 +60,7 @@ def run_optimisation(prefix,
     run_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
     os.mkdir(run_dir)
 
-    my_controller = C302Controller(ref, level, config, sim_time, dt, generate_dir=run_dir)
+    my_controller = C302Controller(ref, level, config, sim_time, dt, simulator = simulator, generate_dir=run_dir)
 
     peak_threshold = -31 if level is 'A' or level is 'B' else 0
 
@@ -302,6 +303,47 @@ if __name__ == '__main__':
                          num_elites =       1,
                          seed =             123477,
                          nogui =            nogui)
+                         
+    if '-oscC' in sys.argv:
+
+        parameters = ['chem_exc_syn_gbase',
+                      'chem_exc_syn_decay',
+                      'chem_inh_syn_gbase',
+                      'chem_inh_syn_decay',
+                      'elec_syn_gbase',
+                      'unphysiological_offset_current']
+
+        #above parameters will not be modified outside these bounds:
+        min_constraints = [0.05, 3,  0.05, 3,    0.01,   0.20]
+        max_constraints = [1,    40, 1,    100,  0.5,    0.45]
+        
+        weights = {}
+        target_data = {}
+        
+        
+        for cell in ['DB2','VB2','DB3','VB3','DB4','VB4']:
+            var = '%s[0]/v:mean_spike_frequency'%cell
+            weights[var] = 1
+            target_data[var] = 5
+
+        run_optimisation('Test',
+                         'Oscillator',
+                         'C',
+                         parameters,
+                         max_constraints,
+                         min_constraints,
+                         weights,
+                         target_data,
+                         sim_time = 500,
+                         dt = 0.1,
+                         population_size =  10,
+                         max_evaluations =  50,
+                         num_selected =     5,
+                         num_offspring =    5,
+                         mutation_rate =    0.1,
+                         num_elites =       1,
+                         seed =             123477,
+                         nogui =            nogui)
 
     elif '-phar' in sys.argv:
 
@@ -346,7 +388,7 @@ if __name__ == '__main__':
                          nogui =            nogui)
 
 
-    elif '-simple' in sys.argv:
+    elif '-simple' in sys.argv or '-simpleN' in sys.argv:
 
 
         parameters = ['unphysiological_offset_current']
@@ -362,6 +404,7 @@ if __name__ == '__main__':
 
         target_data = {ADAL_max_peak:  8}
 
+        simulator  = 'jNeuroML_NEURON' if '-simpleN' in sys.argv else 'jNeuroML'
 
         run_optimisation('Test',
                          'IClamp',
@@ -372,12 +415,13 @@ if __name__ == '__main__':
                          weights,
                          target_data,
                          sim_time = 1000,
-                         population_size =  5,
-                         max_evaluations =  10,
+                         population_size =  10,
+                         max_evaluations =  20,
                          num_selected =     5,
                          num_offspring =    5,
-                         mutation_rate =    0.5,
+                         mutation_rate =    0.1,
                          num_elites =       1,
+                         simulator =        simulator,
                          nogui =            nogui)
 
     else:

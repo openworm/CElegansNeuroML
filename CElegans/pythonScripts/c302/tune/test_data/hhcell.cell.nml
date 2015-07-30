@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta3.xsd"   
+         id="hhcell">
+
+    <include href="passiveChan.channel.nml"/> <!-- Include the channel definitions -->
+    <include href="naChan.channel.nml"/>
+    <include href="kChan.channel.nml"/>
+
+    <cell id="hhcell">
+        
+        <notes>Conductance based cell model NeuroML2 format: standard Hodgkin Huxley model cell with Na, K and passive conductances</notes>
+
+        <morphology id="morph1">
+            <segment id="0" name="soma">
+                <proximal x="0" y="0" z="0" diameter="17.841242"/> <!--Gives a convenient surface area of 1000.0 um^2-->
+                <distal x="0" y="0" z="0" diameter="17.841242"/>
+            </segment>
+
+            <segmentGroup id="soma_group">
+                <member segment="0"/>
+            </segmentGroup>
+
+        </morphology>
+
+        <biophysicalProperties id="bioPhys1">
+
+            <membraneProperties>
+                        
+                <channelDensity id="leak" ionChannel="passiveChan" condDensity="0.3 mS_per_cm2" erev="-54.387mV"/>
+                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="kChans" ionChannel="kChan" condDensity="36 mS_per_cm2" erev="-77mV" ion="k"/>
+
+                <spikeThresh value="-20mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-65mV"/>
+
+            </membraneProperties>
+
+            <intracellularProperties>
+                <resistivity value="0.03 kohm_cm"/>   <!-- Note: not used in single compartment simulations -->
+            </intracellularProperties>
+
+        </biophysicalProperties>
+
+    </cell>
+
+
+</neuroml>
+
