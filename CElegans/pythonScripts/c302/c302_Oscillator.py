@@ -32,19 +32,21 @@ def setup(parameter_set, generate=False):
     
     reference = "c302_%s_Oscillator"%parameter_set
     
+    include_muscles = True
+    
     if generate:
         c302.generate(reference, 
                     params, 
                     cells=cells,
                     cells_to_plot=cells_to_plot, 
                     cells_to_stimulate=cells_to_stimulate, 
-                    include_muscles = True,
+                    include_muscles = include_muscles,
                     duration=300, 
                     dt=0.1, 
                     validate=(parameter_set!='B'),
                     target_directory='examples')    
 
-    return cells, cells_to_stimulate, params
+    return cells, cells_to_stimulate, params, include_muscles
              
 if __name__ == '__main__':
     

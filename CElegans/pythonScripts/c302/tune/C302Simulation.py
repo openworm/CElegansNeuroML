@@ -35,7 +35,7 @@ class C302Simulation(object):
         
         exec('from c302_%s import setup'%config)
         
-        self.cells, self.cells_to_stimulate, self.params = setup(parameter_set)
+        self.cells, self.cells_to_stimulate, self.params, self.include_muscles = setup(parameter_set)
         
         self.reference = reference
         
@@ -72,6 +72,7 @@ class C302Simulation(object):
                                 self.params, 
                                 cells=self.cells, 
                                 cells_to_stimulate=self.cells_to_stimulate, 
+                                include_muscles = self.include_muscles,
                                 duration=self.sim_time, 
                                 dt=self.dt, 
                                 validate=(self.params.level!='B'),
@@ -127,7 +128,7 @@ class C302Simulation(object):
 
 if __name__ == '__main__':
     
-    sim_time = 100
+    sim_time = 500
     dt = 0.05
     
     if len(sys.argv) == 2 and sys.argv[1] == '-phar':
@@ -151,6 +152,12 @@ if __name__ == '__main__':
     elif len(sys.argv) == 2 and sys.argv[1] == '-muscN':
         
         sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt, 'jNeuroML_NEURON')
+        sim.go()
+        sim.show()
+        
+    elif len(sys.argv) == 2 and sys.argv[1] == '-osc':
+        
+        sim = C302Simulation('TestOsc', 'B', 'Oscillator', sim_time, dt, 'jNeuroML', 'temp')
         sim.go()
         sim.show()
         

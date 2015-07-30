@@ -72,7 +72,7 @@ def setup(parameter_set, generate=False):
                     validate=(parameter_set!='B'),
                     target_directory='examples')    
 
-    return cells, cells_to_stimulate, params
+    return cells, cells_to_stimulate, params, True
              
 if __name__ == '__main__':
     
