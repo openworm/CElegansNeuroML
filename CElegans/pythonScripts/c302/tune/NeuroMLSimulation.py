@@ -5,10 +5,11 @@
     Subject to change without notice!!
     
 '''
+import os.path
 
 import sys
-import os.path
 import time
+import shutil
 
 from pyneuroml import pynml
 
@@ -20,7 +21,14 @@ class NeuroMLSimulation(object):
     target_cell = 'ADAL'
     params = None
 
-    def __init__(self, reference, neuroml_file, target, sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './'):
+    def __init__(self, 
+                 reference, 
+                 neuroml_file, 
+                 target, 
+                 sim_time=1000, 
+                 dt=0.05, 
+                 simulator='jNeuroML', 
+                 generate_dir = './'):
 
         self.sim_time = sim_time
         self.dt = dt
@@ -62,14 +70,20 @@ class NeuroMLSimulation(object):
         Start the simulation once it's been intialized
         """
         
-        lems_file_name = 'LEMS_%s.xml'%self.reference
+        #shutil.copy(self.neuroml_file, self.generate_dir)
+        
+        #neuroml_file_name = os.path.basename(self.neuroml_file)
+        #new_neuroml_file = '%s%s'%(self.generate_dir,neuroml_file_name)
+        
+        lems_file_name = 'LEMS_%s.xml'%(self.reference)
         
         generate_lems_file_for_neuroml(self.reference, 
                                        self.neuroml_file, 
                                        self.target, 
                                        self.sim_time, 
                                        self.dt, 
-                                       lems_file_name = lems_file_name)
+                                       lems_file_name = lems_file_name,
+                                       target_dir = self.generate_dir)
         
         print("Running a simulation of %s ms with timestep %s ms: %s"%(self.sim_time, self.dt, lems_file_name))
         
@@ -100,9 +114,8 @@ class NeuroMLSimulation(object):
         
         '''
         self.t = [t*1000 for t in results['t']]
-        res_template = '%s/0/generic_iaf_cell/v'
-        if self.params.level == 'B' or self.params.level == 'C' or self.params.level == 'D':
-            res_template = '%s[0]/v'
+        
+
         self.volts = {}
         
         if self.cells is None:
@@ -130,9 +143,9 @@ if __name__ == '__main__':
                                 sim_time, 
                                 dt, 
                                 'jNeuroML', 
-                                'temp')
+                                'temp/')
         sim.go()
-        sim.show()
+        #sim.show()
 
 
 
