@@ -1,15 +1,13 @@
 '''
 
-    Still under developemnt!!
+    Still under development!!
     
     Subject to change without notice!!
     
 '''
-import os.path
 
 import sys
 import time
-import shutil
 
 from pyneuroml import pynml
 
@@ -18,8 +16,6 @@ from pyneuroml.lems import generate_lems_file_for_neuroml
 
 class NeuroMLSimulation(object):
 
-    target_cell = 'ADAL'
-    params = None
 
     def __init__(self, 
                  reference, 
@@ -66,14 +62,7 @@ class NeuroMLSimulation(object):
         
     
     def go(self):
-        """
-        Start the simulation once it's been intialized
-        """
         
-        #shutil.copy(self.neuroml_file, self.generate_dir)
-        
-        #neuroml_file_name = os.path.basename(self.neuroml_file)
-        #new_neuroml_file = '%s%s'%(self.generate_dir,neuroml_file_name)
         
         lems_file_name = 'LEMS_%s.xml'%(self.reference)
         
@@ -117,7 +106,6 @@ class NeuroMLSimulation(object):
         
         self.t = [t*1000 for t in results['t']]
         
-
         self.volts = {}
         
         for key in results.keys():
