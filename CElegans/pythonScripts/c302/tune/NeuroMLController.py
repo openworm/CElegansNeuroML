@@ -14,6 +14,9 @@ from pyneuroml.pynml import read_neuroml2_file, write_neuroml2_file
 
 from NeuroMLSimulation import NeuroMLSimulation
 
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
+
 class NeuroMLController():
 
     def __init__(self, 
@@ -128,6 +131,9 @@ if __name__ == '__main__':
     sim_time = 500
     dt = 0.05
     
+    import logging
+    logging.basicConfig(level=logging.WARNING)
+    
     if len(sys.argv) == 2 and sys.argv[1] == '-net':
         ''' '''
         
@@ -144,4 +150,18 @@ if __name__ == '__main__':
         sim_vars = OrderedDict([('cell:hhcell/channelDensity:naChans/mS_per_cm2', 100),
                                 ('cell:hhcell/channelDensity:kChans/mS_per_cm2', 20)])
 
-        cont.run_individual(sim_vars, show=True)
+        t, v = cont.run_individual(sim_vars, show=True)
+        
+        from pyelectro import analysis
+        
+        analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0}
+        
+        data_analysis=analysis.NetworkAnalysis(v,
+                                               t,
+                                               analysis_var,
+                                               start_analysis=0,
+                                               end_analysis=sim_time)
+                                                   
+        analysed = data_analysis.analyse()     
+        
+        pp.pprint(analysed)

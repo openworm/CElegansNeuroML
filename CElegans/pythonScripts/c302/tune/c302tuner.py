@@ -13,7 +13,6 @@ from neurotune import utils
 from matplotlib import pyplot as plt
 from pyelectro import analysis
 
-import numpy as np
 import sys
 import os.path
 import time
