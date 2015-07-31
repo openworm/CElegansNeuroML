@@ -112,20 +112,17 @@ class NeuroMLSimulation(object):
     
         print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
         
-        '''
+        print results.keys()
+        
+        
         self.t = [t*1000 for t in results['t']]
         
 
         self.volts = {}
         
-        if self.cells is None:
-            self.cells = []
-            for pop in nml_doc.networks[0].populations:
-                self.cells.append(pop.id)
-            
-                
-        for cell in self.cells:
-            self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]'''
+        for key in results.keys():
+            if key != 't':
+                self.volts[key] = [v*1000 for v in results[key]]
         
 
 
@@ -145,7 +142,19 @@ if __name__ == '__main__':
                                 'jNeuroML', 
                                 'temp/')
         sim.go()
-        #sim.show()
+        sim.show()
+    
+    if len(sys.argv) == 2 and sys.argv[1] == '-net':
+        
+        sim = NeuroMLSimulation('TestNet', 
+                                'tune/test_data/simplenet.nml',
+                                'simplenet',
+                                sim_time, 
+                                dt, 
+                                'jNeuroML', 
+                                'temp/')
+        sim.go()
+        sim.show()
 
 
 

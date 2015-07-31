@@ -1,0 +1,46 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="simplenet">
+    <expTwoSynapse id="syn0" erev="0mV" gbase="10nS" tauDecay="10ms" tauRise="0.5ms"/>
+    <iafCell id="iaf0" reset="-65mV" C="1.0 nF" thresh="-50mV" leakConductance="10 nS" leakReversal="-65mV"/>
+    <pulseGenerator id="input0" delay="0ms" duration="500ms" amplitude="0.916620nA"/>
+    <pulseGenerator id="input1" delay="0ms" duration="500ms" amplitude="1.066008nA"/>
+    <pulseGenerator id="input2" delay="0ms" duration="500ms" amplitude="1.053221nA"/>
+    <pulseGenerator id="input3" delay="0ms" duration="500ms" amplitude="1.003935nA"/>
+    <pulseGenerator id="input4" delay="0ms" duration="500ms" amplitude="0.839518nA"/>
+    <network id="simplenet">
+        <population id="Pop0" component="iaf0" size="5"/>
+        <population id="Pop1" component="iaf0" size="5"/>
+        <projection id="Proj0" postsynapticPopulation="Pop1" presynapticPopulation="Pop0" synapse="syn0">
+            <connection id="0" preCellId="../Pop0[0]" postCellId="../Pop1[0]"/>
+            <connection id="1" preCellId="../Pop0[0]" postCellId="../Pop1[2]"/>
+            <connection id="2" preCellId="../Pop0[0]" postCellId="../Pop1[3]"/>
+            <connection id="3" preCellId="../Pop0[0]" postCellId="../Pop1[4]"/>
+            <connection id="4" preCellId="../Pop0[1]" postCellId="../Pop1[0]"/>
+            <connection id="5" preCellId="../Pop0[1]" postCellId="../Pop1[1]"/>
+            <connection id="6" preCellId="../Pop0[1]" postCellId="../Pop1[2]"/>
+            <connection id="7" preCellId="../Pop0[1]" postCellId="../Pop1[4]"/>
+            <connection id="8" preCellId="../Pop0[2]" postCellId="../Pop1[0]"/>
+            <connection id="9" preCellId="../Pop0[2]" postCellId="../Pop1[2]"/>
+            <connection id="10" preCellId="../Pop0[2]" postCellId="../Pop1[4]"/>
+            <connection id="11" preCellId="../Pop0[3]" postCellId="../Pop1[0]"/>
+            <connection id="12" preCellId="../Pop0[3]" postCellId="../Pop1[2]"/>
+            <connection id="13" preCellId="../Pop0[3]" postCellId="../Pop1[3]"/>
+            <connection id="14" preCellId="../Pop0[3]" postCellId="../Pop1[4]"/>
+            <connection id="15" preCellId="../Pop0[4]" postCellId="../Pop1[3]"/>
+        </projection>
+        <inputList id="il0" component="input0" population="Pop0">
+            <input destination="synapses" id="0" target="../Pop0[0]"/>
+        </inputList>
+        <inputList id="il1" component="input1" population="Pop0">
+            <input destination="synapses" id="1" target="../Pop0[1]"/>
+        </inputList>
+        <inputList id="il2" component="input2" population="Pop0">
+            <input destination="synapses" id="2" target="../Pop0[2]"/>
+        </inputList>
+        <inputList id="il3" component="input3" population="Pop0">
+            <input destination="synapses" id="3" target="../Pop0[3]"/>
+        </inputList>
+        <inputList id="il4" component="input4" population="Pop0">
+            <input destination="synapses" id="4" target="../Pop0[4]"/>
+        </inputList>
+    </network>
+</neuroml>
