@@ -101,8 +101,6 @@ class NeuroMLSimulation(object):
     
         print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
         
-        print results.keys()
-        
         
         self.t = [t*1000 for t in results['t']]
         
