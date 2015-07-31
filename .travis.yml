@@ -3,7 +3,7 @@
 
 
 language: python
-python: 
+python:
      - "2.7"
 
 env:
@@ -14,25 +14,12 @@ env:
      - OMV_ENGINE=NON_OMV_TESTS
 
 install:
-    - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+    - python setup.py install
 
 script:
     - omv all -V; export OMV_SUCCESS=$?; echo $OMV_SUCCESS
     - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then echo "Continuing with tests not under OMV..."; else exit $OMV_SUCCESS; fi
-    - pip install lxml
-    - pip install xlrd
-    - pip install xlwt
-    - git clone https://github.com/purcell/airspeed.git
-    - cd airspeed
-    - python setup.py install
-    - cd ..
-    - git clone git://github.com/NeuralEnsemble/libNeuroML.git
-    - cd libNeuroML
-    - git checkout development
-    - python setup.py install
-    - cd ..
-    - cd CElegans/pythonScripts/c302/unittests/
-    - python -m unittest c302_connection_test_A
-    - python -m unittest c302_connection_test_B
-    - python -m unittest spreadsheet_comparison_test
-
+#    - cd CElegans/pythonScripts/c302/unittests/
+#    - python -m unittest c302_connection_test_A
+#    - python -m unittest c302_connection_test_B
+#    - python -m unittest spreadsheet_comparison_test
