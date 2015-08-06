@@ -21,7 +21,7 @@ setup(
     name = 'CElegansNeuroML',
     install_requires=[
         'numpy', 'xlrd', 'xlwt', 'libNeuroML', 'airspeed', 'OSBModelValidation',
-        'pyNeuroML', 'PySide'
+        'pyNeuroML'
     ],
     dependency_links = [
         'git://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation',
