@@ -23,10 +23,10 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 0.4 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 8 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 10 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_gbase = 1 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_erev = -55 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
@@ -38,7 +38,7 @@ Parameters and setting used to generate this network:
 
 </notes>
     <expTwoSynapse id="inh_syn_1conns" erev="-55 mV" gbase="1.0nS" tauDecay="40 ms" tauRise="2 ms"/>
-    <expTwoSynapse id="exc_syn_1conns" erev="0 mV" gbase="0.4nS" tauDecay="10 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="exc_syn_1conns" erev="0 mV" gbase="8.0nS" tauDecay="5 ms" tauRise="1 ms"/>
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">

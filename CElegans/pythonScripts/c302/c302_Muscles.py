@@ -7,13 +7,14 @@ def setup(parameter_set, generate=False):
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "0.5nA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current", "0.35nA", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "5 ms", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "1000 ms", "Testing IClamp", "0")
     
-    params.add_bioparameter("chem_exc_syn_gbase", "1.2 nS", "BlindGuess", "0.1")
-    params.add_bioparameter("chem_exc_syn_decay", "3 ms", "BlindGuess", "0.1")
-    params.add_bioparameter("chem_inh_syn_gbase", "2.2 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_exc_syn_gbase", "5 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_exc_syn_decay", "5 ms", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_inh_syn_gbase", "5 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_inh_syn_decay", "20 ms", "BlindGuess", "0.1")
     params.add_bioparameter("elec_syn_gbase", "0.2 nS", "BlindGuess", "0.1")
     
     # Any neurons connected to muscles

@@ -263,7 +263,7 @@ if __name__ == '__main__':
                          nogui =            nogui)
                          
                          
-    if '-osc' in sys.argv:
+    elif '-osc' in sys.argv:
 
         parameters = ['chem_exc_syn_gbase',
                       'chem_exc_syn_decay',
@@ -296,7 +296,7 @@ if __name__ == '__main__':
                          sim_time = 500,
                          dt = 0.1,
                          population_size =  10,
-                         max_evaluations =  50,
+                         max_evaluations =  20,
                          num_selected =     5,
                          num_offspring =    5,
                          mutation_rate =    0.1,
@@ -304,7 +304,7 @@ if __name__ == '__main__':
                          seed =             123477,
                          nogui =            nogui)
                          
-    if '-oscC' in sys.argv:
+    elif '-oscC' in sys.argv:
 
         parameters = ['chem_exc_syn_gbase',
                       'chem_exc_syn_decay',

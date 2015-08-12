@@ -7,13 +7,14 @@ def setup(parameter_set, generate=False):
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "0.5nA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current", "0.35nA", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "5 ms", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "1000 ms", "Testing IClamp", "0")
     
-    params.add_bioparameter("chem_exc_syn_gbase", "2 nS", "BlindGuess", "0.1")
-    params.add_bioparameter("chem_exc_syn_decay", "3 ms", "BlindGuess", "0.1")
-    params.add_bioparameter("chem_inh_syn_gbase", "2.2 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_exc_syn_gbase", "5 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_exc_syn_decay", "5 ms", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_inh_syn_gbase", "5 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_inh_syn_decay", "20 ms", "BlindGuess", "0.1")
     params.add_bioparameter("elec_syn_gbase", "0.2 nS", "BlindGuess", "0.1")
     
     # Any neurons connected to muscles
@@ -28,11 +29,12 @@ def setup(parameter_set, generate=False):
     cells_to_stimulate = ['PVCL', 'AVBL']
     
     # Plot some directly stimulated & some not stimulated
-    cells_to_plot      = ['AVBL','PVCL', 'PVCR', 'DB1','DB2','VB1','VB2']
+    cells_to_plot      = ['AVBL','PVCL', 'PVCR', 'DB1','DB2', 'DB4','DB4','VB1','VB2', 'VB3', 'VB4']
     
     reference = "c302_%s_Oscillator"%parameter_set
     
     include_muscles = True
+    #include_muscles = False
     
     if generate:
         c302.generate(reference, 
@@ -41,7 +43,7 @@ def setup(parameter_set, generate=False):
                     cells_to_plot=cells_to_plot, 
                     cells_to_stimulate=cells_to_stimulate, 
                     include_muscles = include_muscles,
-                    duration=300, 
+                    duration=600, 
                     dt=0.1, 
                     validate=(parameter_set!='B'),
                     target_directory='examples')    

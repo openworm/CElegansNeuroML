@@ -31,6 +31,8 @@ class C302Controller():
         self.dt = dt
         self.simulator = simulator
         self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
+        
+        self.count = 0
 
     def run(self,candidates,parameters):
         """
@@ -44,7 +46,8 @@ class C302Controller():
         traces = []
         for candidate in candidates:
             sim_var = dict(zip(parameters,candidate))
-            print('\nRunning with variables: %s'%sim_var)
+            print_comment_v('\n\n  - RUN %i; variables: %s\n'%(self.count,sim_var))
+            self.count+=1
             t,v = self.run_individual(sim_var)
             traces.append([t,v])
 
