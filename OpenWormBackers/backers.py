@@ -29,7 +29,7 @@ if __name__ == '__main__':
     info+='  <img src="https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/OpenWormBackers/SomeCells.png" alt="Some cells"/>\n'
     info+='</p>\n\n'
     
-    url = "https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_A_Full.nml#L%i"
+    url = "https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_A_Full.nml#L%i"
     
     osb_3d_url = "http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2F"
     
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         info+="----------\n\n"
         info+="Adopted name: **"+name+"**\n\n\n"
         i = 0
-        search_file = open("../CElegans/pythonScripts/c302/c302_A_Full.nml",'r')
+        search_file = open("../CElegans/pythonScripts/c302/examples/c302_A_Full.nml",'r')
         for line in search_file:
             i+=1
             if 'tag="OpenWormBackerAssignedName" value="%s"'%name in line:
