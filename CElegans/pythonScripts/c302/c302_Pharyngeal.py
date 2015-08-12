@@ -18,7 +18,7 @@ def setup(parameter_set, generate=False):
                       cells=cells, 
                       cells_to_stimulate=cells_to_stimulate, 
                       duration=500, 
-                      dt=0.025, 
+                      dt=0.01, 
                       validate=(parameter_set!='B'),
                       target_directory='examples')
              

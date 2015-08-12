@@ -2,7 +2,7 @@
 # See https://github.com/OpenSourceBrain/osb-model-validation for more details
  
 target: LEMS_c302_A_Pharyngeal.xml 
-engine: jNeuroML
+engine: jNeuroML_NEURON
 mep: .test.pharyngeal.mep
 experiments:
   TestOneCell:
@@ -15,5 +15,5 @@ experiments:
         spike detection: 
           method: threshold
           threshold: -55
-        tolerance: 0.001
+        tolerance: 0.00
 
