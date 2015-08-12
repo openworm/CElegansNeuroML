@@ -31,7 +31,7 @@ if __name__ == '__main__':
     
     url = "https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_A_Full.nml#L%i"
     
-    osb_3d_url = "http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.github.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2F"
+    osb_3d_url = "http://www.opensourcebrain.org/projects/celegans?explorer=https%3A%2F%2Fraw.githubusercontent.com%2Fopenworm%2FCElegansNeuroML%2Fmaster%2FCElegans%2FgeneratedNeuroML2%2F"
     
     for cell in sorted(ads.keys()):
         name = ads[cell]
@@ -45,11 +45,11 @@ if __name__ == '__main__':
             if 'tag="OpenWormBackerAssignedName" value="%s"'%name in line:
                 info+="Added to c302 network files [here](%s).\n\n"%(url%i)
                 
-        info+="This cell can be viewed in 3D [here](%s) (requires WebGL).\n\n"%(osb_3d_url+cell+".nml")
+        info+="This cell can be viewed in 3D [here](%s) (requires WebGL).\n\n"%(osb_3d_url+cell+".cell.nml")
         
     print info
     file.write(info)
     file.close()
-        
+ 
     
     
