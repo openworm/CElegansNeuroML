@@ -258,7 +258,7 @@ if __name__ == '__main__':
                          max_evaluations =  100,
                          num_selected =     10,
                          num_offspring =    10,
-                         mutation_rate =    0.1,
+                         mutation_rate =    0.9,
                          num_elites =       1,
                          nogui =            nogui)
                          
@@ -304,7 +304,7 @@ if __name__ == '__main__':
                          seed =             123477,
                          nogui =            nogui)
                          
-    elif '-oscC' in sys.argv:
+    elif '-oscC' in sys.argv or '-oscCone' in sys.argv:
 
         parameters = ['chem_exc_syn_gbase',
                       'chem_exc_syn_decay',
@@ -325,25 +325,62 @@ if __name__ == '__main__':
             var = '%s[0]/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 5
+            
+        if '-oscC' in sys.argv:
 
-        run_optimisation('Test',
-                         'Oscillator',
-                         'C',
-                         parameters,
-                         max_constraints,
-                         min_constraints,
-                         weights,
-                         target_data,
-                         sim_time = 500,
-                         dt = 0.1,
-                         population_size =  10,
-                         max_evaluations =  50,
-                         num_selected =     5,
-                         num_offspring =    5,
-                         mutation_rate =    0.1,
-                         num_elites =       1,
-                         seed =             123477,
-                         nogui =            nogui)
+            run_optimisation('Test',
+                             'Oscillator',
+                             'C',
+                             parameters,
+                             max_constraints,
+                             min_constraints,
+                             weights,
+                             target_data,
+                             sim_time = 50,
+                             dt = 0.1,
+                             population_size =  3,
+                             max_evaluations =  4,
+                             num_selected =     2,
+                             num_offspring =    2,
+                             mutation_rate =    0.1,
+                             num_elites =       1,
+                             seed =             123477,
+                             nogui =            nogui)
+        else:
+               
+            sim_time = 200
+            my_controller = C302Controller('TestOsc', 'C', 'Oscillator', sim_time, 0.1)
+
+            sim_var = OrderedDict([('chem_exc_syn_gbase',0.5),
+                      ('chem_exc_syn_decay',10),
+                      ('chem_inh_syn_gbase',0.5),
+                      ('chem_inh_syn_decay',40),
+                      ('unphysiological_offset_current',0.38)])
+                  
+            example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
+
+            print("Have run individual instance...")
+
+            peak_threshold = 0
+
+            analysis_var = {'peak_delta':     0,
+                            'baseline':       0,
+                            'dvdt_threshold': 0, 
+                            'peak_threshold': peak_threshold}
+
+            example_run_analysis=analysis.NetworkAnalysis(example_run_v,
+                                                       example_run_t,
+                                                       analysis_var,
+                                                       start_analysis=0,
+                                                       end_analysis=sim_time)
+
+            analysis = example_run_analysis.analyse()
+
+            pp.pprint(analysis)
+
+            analysis = example_run_analysis.analyse(weights.keys())
+
+            pp.pprint(analysis)
 
     elif '-phar' in sys.argv:
 
