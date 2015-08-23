@@ -170,15 +170,19 @@ if __name__ == "__main__":
 
     validate_neuroml2(nml_file)
     
-    from pylab import *
+    plotLengths = False
+    
+    if plotLengths:
 
-    plot(dists, '.')
+        from pylab import *
 
-    xlabel('Connection number')
-    ylabel('Length of connection (um)')
-    title('Connection lengths')
-    savefig("test.png")
-    show()
+        plot(dists, '.')
+
+        xlabel('Connection number')
+        ylabel('Length of connection (um)')
+        title('Connection lengths')
+        savefig("test.png")
+        show()
 
 
 
