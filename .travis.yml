@@ -24,7 +24,12 @@ script:
     - echo "Running non OMV tests..."
     - python setup.py install
     
-#    - cd CElegans/pythonScripts/c302/unittests/
-#    - python -m unittest c302_connection_test_A
-#    - python -m unittest c302_connection_test_B
-#    - python -m unittest spreadsheet_comparison_test
+     #    Test readers
+    - cd CElegans/pythonScripts
+    - python OpenWormReader.py
+    - python SpreadsheetDataReader.py
+    
+     #    Test regenerate connectome
+    - python RegenerateConnectome.py
+
+    
