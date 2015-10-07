@@ -68,13 +68,13 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("exc_syn_conductance", "3 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_conductance", "8 nS", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_vth", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_erev", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_k", "0.025per_ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("inh_syn_conductance", "3 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_conductance", "8 nS", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_vth", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_erev", "-70 mV", "BlindGuess", "0.1")

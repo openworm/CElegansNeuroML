@@ -330,7 +330,7 @@ if __name__ == '__main__':
 
             run_optimisation('Test',
                              'Oscillator',
-                             'C',
+                             'C1',
                              parameters,
                              max_constraints,
                              min_constraints,
@@ -348,13 +348,11 @@ if __name__ == '__main__':
                              nogui =            nogui)
         else:
                
-            sim_time = 200
-            my_controller = C302Controller('TestOsc', 'C', 'Oscillator', sim_time, 0.1)
+            sim_time = 300
+            my_controller = C302Controller('TestOsc', 'C1', 'Oscillator', sim_time, 0.1)
 
-            sim_var = OrderedDict([('chem_exc_syn_gbase',0.5),
-                      ('chem_exc_syn_decay',10),
-                      ('chem_inh_syn_gbase',0.5),
-                      ('chem_inh_syn_decay',40),
+            sim_var = OrderedDict([('exc_syn_conductance',10),
+                      ('inh_syn_conductance',10),
                       ('unphysiological_offset_current',0.38)])
                   
             example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
