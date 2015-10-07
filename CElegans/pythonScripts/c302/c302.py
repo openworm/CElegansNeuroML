@@ -11,10 +11,14 @@ from neuroml import Connection
 from neuroml import SynapticConnection
 from neuroml import ElectricalProjection
 from neuroml import ElectricalConnection
+from neuroml import ContinuousProjection
+from neuroml import ContinuousConnection
 from neuroml import ExpTwoSynapse
 from neuroml import GapJunction
+from neuroml import GradedSynapse
 from neuroml import Property
 from neuroml import PulseGenerator
+from neuroml import SilentSynapse
 
 import neuroml.writers as writers
 import neuroml.loaders as loaders
@@ -231,6 +235,18 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
             existing_synapses[new_id] = new_syn
             nml_doc.gap_junctions.append(new_syn)
+
+        elif isinstance(prototype_syn, GradedSynapse):
+            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
+            new_syn = GradedSynapse(id=new_id,
+                                    conductance =       "%s%s"%(magnitude*n, unit),
+                                    delta =             prototype_syn.delta,
+                                    Vth =               prototype_syn.Vth,
+                                    erev =              prototype_syn.erev,
+                                    k =                 prototype_syn.k)
+
+            existing_synapses[new_id] = new_syn
+            nml_doc.graded_synapses.append(new_syn)
 
     else:
         new_syn = existing_synapses[new_id]
@@ -539,12 +555,19 @@ def generate(net_id,
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
 
             elect_conn = False
+            analog_conn = False
             syn0 = params.exc_syn
             if 'GABA' in conn.synclass:
                 syn0 = params.inh_syn
             if '_GJ' in conn.synclass:
                 syn0 = params.elec_syn
                 elect_conn = isinstance(params.elec_syn, GapJunction)
+                
+            if isinstance(syn0, GradedSynapse):
+                analog_conn = True
+                if len(nml_doc.silent_synapses)==0:
+                    silent = SilentSynapse(id="silent")
+                    nml_doc.silent_synapses.append(silent)
 
             number_syns = conn.number
             conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
@@ -570,7 +593,42 @@ def generate(net_id,
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
-            if not elect_conn:
+            if elect_conn:
+                proj0 = ElectricalProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell)
+
+                net.electrical_projections.append(proj0)
+
+                # Add a Connection with the closest locations
+                conn0 = ElectricalConnection(id="0", \
+                           pre_cell="0",
+                           post_cell="0",
+                           synapse=syn_new.id)
+
+                proj0.electrical_connections.append(conn0)
+                
+            elif analog_conn:
+        
+                proj0 = ContinuousProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell)
+
+                net.continuous_projections.append(proj0)
+
+                pre_cell_id="%s"%(0)
+                post_cell_id="%s"%(0)
+
+                conn0 = ContinuousConnection(id="0", \
+                           pre_cell=pre_cell_id,
+                           post_cell=post_cell_id,
+                           pre_component="silent",
+                           post_component=syn_new.id)
+
+                proj0.continuous_connections.append(conn0)
+                
+                
+            else:
 
                 if not populations_without_location:
                     proj0 = Projection(id=proj_id, \
@@ -579,8 +637,6 @@ def generate(net_id,
                                        synapse=syn_new.id)
 
                     net.projections.append(proj0)
-
-                    # Add a Connection with the closest locations
 
                     pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id)
                     post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id)
@@ -603,21 +659,6 @@ def generate(net_id,
 
                     net.synaptic_connections.append(conn0)
 
-
-            else:
-                proj0 = ElectricalProjection(id=proj_id, \
-                                   presynaptic_population=conn.pre_cell,
-                                   postsynaptic_population=conn.post_cell)
-
-                net.electrical_projections.append(proj0)
-
-                # Add a Connection with the closest locations
-                conn0 = ElectricalConnection(id="0", \
-                           pre_cell="0",
-                           post_cell="0",
-                           synapse=syn_new.id)
-
-                proj0.electrical_connections.append(conn0)
 
 
     if include_muscles:
@@ -629,6 +670,7 @@ def generate(net_id,
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
 
             elect_conn = False
+            analog_conn = False
             syn0 = params.exc_syn
             if 'GABA' in conn.synclass:
                 syn0 = params.inh_syn
@@ -636,6 +678,12 @@ def generate(net_id,
                 syn0 = params.elec_syn
                 elect_conn = isinstance(params.elec_syn, GapJunction)
 
+            if isinstance(syn0, GradedSynapse):
+                analog_conn = True
+                if len(nml_doc.silent_synapses)==0:
+                    silent = SilentSynapse(id="silent")
+                    nml_doc.silent_synapses.append(silent)
+                    
             number_syns = conn.number
             conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
 
@@ -660,8 +708,43 @@ def generate(net_id,
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
-            if not elect_conn:
+            if elect_conn:
+                
+                proj0 = ElectricalProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell)
 
+                net.electrical_projections.append(proj0)
+
+                # Add a Connection with the closest locations
+                conn0 = ElectricalConnection(id="0", \
+                           pre_cell="0",
+                           post_cell="0",
+                           synapse=syn_new.id)
+
+                proj0.electrical_connections.append(conn0)
+                
+            elif analog_conn:
+        
+                proj0 = ContinuousProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell)
+
+                net.continuous_projections.append(proj0)
+
+                pre_cell_id="%s"%(0)
+                post_cell_id="%s"%(0)
+
+                conn0 = ContinuousConnection(id="0", \
+                           pre_cell=pre_cell_id,
+                           post_cell=post_cell_id,
+                           pre_component="silent",
+                           post_component=syn_new.id)
+
+                proj0.continuous_connections.append(conn0)
+
+            else:
+                
                 if not populations_without_location:
                     proj0 = Projection(id=proj_id, \
                                        presynaptic_population=conn.pre_cell,
@@ -692,22 +775,8 @@ def generate(net_id,
                                destination="synapses")
 
                     net.synaptic_connections.append(conn0)
+                    
 
-
-            else:
-                proj0 = ElectricalProjection(id=proj_id, \
-                                   presynaptic_population=conn.pre_cell,
-                                   postsynaptic_population=conn.post_cell)
-
-                net.electrical_projections.append(proj0)
-
-                # Add a Connection with the closest locations
-                conn0 = ElectricalConnection(id="0", \
-                           pre_cell="0",
-                           post_cell="0",
-                           synapse=syn_new.id)
-
-                proj0.electrical_connections.append(conn0)
 
     # import pprint
     # pprint.pprint(lems_info)

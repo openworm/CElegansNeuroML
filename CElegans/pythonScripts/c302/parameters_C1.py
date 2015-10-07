@@ -1,6 +1,9 @@
 '''
 
-    Parameters C for c302 still under developemnt!!
+    Parameters C1 for c302 still under developemnt!!
+    
+    
+    C1 adds analogue synapses... Might be merged into C
     
     Subject to change without notice!!
     
@@ -19,7 +22,7 @@ from neuroml import SpecificCapacitance
 from neuroml import ChannelDensity
 from neuroml import SpikeThresh
 
-from neuroml import ExpTwoSynapse
+from neuroml import GradedSynapse
 from neuroml import GapJunction
 from neuroml import PulseGenerator
 
@@ -65,15 +68,18 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("chem_exc_syn_gbase", "8 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_exc_syn_erev", "0 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_exc_syn_rise", "1 ms", "Bli ndGuess", "0.1")
-        self.add_bioparameter("chem_exc_syn_decay", "5 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_conductance", "3 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_delta", "5 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_vth", "0 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_erev", "0 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_k", "0.025per_ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("chem_inh_syn_gbase", "1 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_inh_syn_erev", "-55 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_inh_syn_rise", "2 ms", "BlindGuess", "0.1")
-        self.add_bioparameter("chem_inh_syn_decay", "40 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_conductance", "3 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_delta", "5 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_vth", "0 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_erev", "-70 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_k", "0.025per_ms", "BlindGuess", "0.1")
+        
 
         self.add_bioparameter("elec_syn_gbase", "0.3 nS", "BlindGuess", "0.1")
 
@@ -154,18 +160,20 @@ class ParameterisedModel(c302ModelPrototype):
         ip.species.append(species)
 
 
-        self.exc_syn = ExpTwoSynapse(id="exc_syn",
-                                gbase =         self.get_bioparameter("chem_exc_syn_gbase").value,
-                                erev =          self.get_bioparameter("chem_exc_syn_erev").value,
-                                tau_decay =     self.get_bioparameter("chem_exc_syn_decay").value,
-                                tau_rise =      self.get_bioparameter("chem_exc_syn_rise").value)
+        self.exc_syn = GradedSynapse(id="exc_syn",
+                                conductance =        self.get_bioparameter("exc_syn_conductance").value,
+                                delta =              self.get_bioparameter("exc_syn_delta").value,
+                                Vth =                self.get_bioparameter("exc_syn_vth").value,
+                                erev =               self.get_bioparameter("exc_syn_erev").value,
+                                k =                  self.get_bioparameter("exc_syn_k").value)
 
 
-        self.inh_syn = ExpTwoSynapse(id="inh_syn",
-                                gbase =         self.get_bioparameter("chem_inh_syn_gbase").value,
-                                erev =          self.get_bioparameter("chem_inh_syn_erev").value,
-                                tau_decay =     self.get_bioparameter("chem_inh_syn_decay").value,
-                                tau_rise =      self.get_bioparameter("chem_inh_syn_rise").value)
+        self.inh_syn = GradedSynapse(id="inh_syn",
+                                conductance =        self.get_bioparameter("inh_syn_conductance").value,
+                                delta =              self.get_bioparameter("inh_syn_delta").value,
+                                Vth =                self.get_bioparameter("inh_syn_vth").value,
+                                erev =               self.get_bioparameter("inh_syn_erev").value,
+                                k =                  self.get_bioparameter("inh_syn_k").value)
 
         self.elec_syn = GapJunction(id="elec_syn",
                                conductance =    self.get_bioparameter("elec_syn_gbase").value)
