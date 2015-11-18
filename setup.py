@@ -26,10 +26,8 @@ setup(
     dependency_links = [
         'git://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation',
         'git://github.com/purcell/airspeed.git#egg=airspeed',
-        #grab a specific tag from the 'development' branch to avoid downstream breaking changes
-        'git://github.com/NeuralEnsemble/libNeuroML.git@b02b6467146d52aecbbaa1c4cda9c08a5e971e3f#egg=libNeuroML',
-        #grab a specific tag from the 'master' branch to avoid downstream breaking changes
-        'git://github.com/NeuroML/pyNeuroML.git@c64eabc8bc397a1acada15433eb4444db295f391#egg=pyNeuroML',
+        'git://github.com/NeuralEnsemble/libNeuroML.git@development#egg=libNeuroML',
+        'git://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML',
     ],
     version = '0.3',
     author = 'OpenWorm.org authors and contributors',
