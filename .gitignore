@@ -61,3 +61,4 @@ CElegansNeuroML.egg-info/*
 dist/*
 
 c302_A_Full.dat
+/CElegans/pythonScripts/c302/examples/GenericCell.hoc

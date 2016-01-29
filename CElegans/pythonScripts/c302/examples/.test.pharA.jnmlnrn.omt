@@ -3,7 +3,7 @@
  
 target: LEMS_c302_A_Pharyngeal.xml 
 engine: jNeuroML_NEURON
-mep: .test.pharyngeal.mep
+mep: .test.pharyngealA.mep
 experiments:
   TestOneCell:
     observables:

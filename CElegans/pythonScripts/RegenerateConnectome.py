@@ -8,6 +8,8 @@
 
 ############################################################
 
+from __future__ import print_function
+
 import SpreadsheetDataReader
 
 from neuroml import NeuroMLDocument
@@ -27,6 +29,7 @@ from random import randint
 
 from NeuroMLUtilities import getSegmentIds
 from NeuroMLUtilities import get3DPosition
+
 
 import math
 import time
@@ -100,7 +103,7 @@ if __name__ == "__main__":
         debug = False
         #if "VC5" in conn.pre_cell: debug = True
         debug = True
-        if debug: print "Projection between %s and %s has %i conns"%(conn.pre_cell,conn.post_cell,conn.number)
+        if debug: print("Projection between %s and %s has %i conns"%(conn.pre_cell,conn.post_cell,conn.number))
 
         for conn_id in range(0,conn.number):
 
@@ -139,7 +142,7 @@ if __name__ == "__main__":
             
                     if dist < best_dist:
                         best_dist = dist
-                        if debug: print "Shortest length of connection: %f um"%best_dist
+                        if debug: print("Shortest length: %f um... "%best_dist, end="")
                         best_pre_seg = pre_segment_id
                         best_pre_fract = pre_fraction_along
                         best_post_seg = post_segment_id
@@ -160,7 +163,7 @@ if __name__ == "__main__":
 
         net.projections.append(proj0)
 
-    print ("Connections generated in %f seconds, mean length: %f um"%((time.time() - start_time), sum(dists)/len(dists)))
+    print("Connections generated in %f seconds, mean length: %f um"%((time.time() - start_time), sum(dists)/len(dists)))
     nml_file = net_id+'.nml'
     writers.NeuroMLWriter.write(nml_network_doc, nml_file)
 
