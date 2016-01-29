@@ -34,7 +34,7 @@ script:
      #    Install PyOpenWorm
     - git clone https://github.com/openworm/PyOpenWorm.git
     - cd PyOpenWorm
-    - sudo python setup.py install
+    - python setup.py install
     - cd ..
     - python OpenWormReader.py
 
