@@ -33,9 +33,12 @@ Parameters and setting used to generate this network:
     <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.1nF" thresh="-30mV" reset="-50mV" leakConductance="0.01uS" leakReversal="-50mV" tau1="50ms"/>
     <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="0.25nA"/>
     <network id="c302_B_IClamp">
-        <population id="ADAL" component="generic_iaf_cell" size="1">
+        <population id="ADAL" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
+            <instance id="0">
+                <location x="8.65" y="-239.25" z="31.050000000000001"/>
+            </instance>
         </population>
-        <explicitInput target="ADAL[0]" input="offset_current"/>
+        <explicitInput target="ADAL/0/generic_iaf_cell" input="offset_current"/>
     </network>
 </neuroml>

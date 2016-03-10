@@ -53,46 +53,46 @@ Parameters and setting used to generate this network:
 
         <Display id="neurons" title="c302_B_Social: Membrane potential of a number of neurons" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-52" ymax="-28">
             
-            <Line id="ASHR" quantity="ASHR[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
-            <Line id="ASKR" quantity="ASKR[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
-            <Line id="AWBR" quantity="AWBR[0]/v" scale="1mV" color="#58a09e" timeScale="1ms" />
-            <Line id="IL2R" quantity="IL2R[0]/v" scale="1mV" color="#007df7" timeScale="1ms" />
-            <Line id="RMGR" quantity="RMGR[0]/v" scale="1mV" color="#9a1694" timeScale="1ms" />
-            <Line id="RMHR" quantity="RMHR[0]/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
-            <Line id="URXR" quantity="URXR[0]/v" scale="1mV" color="#008200" timeScale="1ms" />
+            <Line id="ASHR" quantity="ASHR/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ASKR" quantity="ASKR/0/generic_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="AWBR" quantity="AWBR/0/generic_iaf_cell/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="IL2R" quantity="IL2R/0/generic_iaf_cell/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="RMGR" quantity="RMGR/0/generic_iaf_cell/v" scale="1mV" color="#9a1694" timeScale="1ms" />
+            <Line id="RMHR" quantity="RMHR/0/generic_iaf_cell/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
+            <Line id="URXR" quantity="URXR/0/generic_iaf_cell/v" scale="1mV" color="#008200" timeScale="1ms" />
             
         </Display>
       
         <Display id="activity_neurons" title="c302_B_Social: Activity of a number of neurons" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-0.1" ymax="1.1">
             
-            <Line id="ASHR" quantity="ASHR[0]/activity" scale="1" color="#eaf195" timeScale="1ms" />
-            <Line id="ASKR" quantity="ASKR[0]/activity" scale="1" color="#3c00ca" timeScale="1ms" />
-            <Line id="AWBR" quantity="AWBR[0]/activity" scale="1" color="#262f1d" timeScale="1ms" />
-            <Line id="IL2R" quantity="IL2R[0]/activity" scale="1" color="#108b77" timeScale="1ms" />
-            <Line id="RMGR" quantity="RMGR[0]/activity" scale="1" color="#458fa5" timeScale="1ms" />
-            <Line id="RMHR" quantity="RMHR[0]/activity" scale="1" color="#ef7488" timeScale="1ms" />
-            <Line id="URXR" quantity="URXR[0]/activity" scale="1" color="#247960" timeScale="1ms" />
+            <Line id="ASHR" quantity="ASHR/0/generic_iaf_cell/activity" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="ASKR" quantity="ASKR/0/generic_iaf_cell/activity" scale="1" color="#3c00ca" timeScale="1ms" />
+            <Line id="AWBR" quantity="AWBR/0/generic_iaf_cell/activity" scale="1" color="#262f1d" timeScale="1ms" />
+            <Line id="IL2R" quantity="IL2R/0/generic_iaf_cell/activity" scale="1" color="#108b77" timeScale="1ms" />
+            <Line id="RMGR" quantity="RMGR/0/generic_iaf_cell/activity" scale="1" color="#458fa5" timeScale="1ms" />
+            <Line id="RMHR" quantity="RMHR/0/generic_iaf_cell/activity" scale="1" color="#ef7488" timeScale="1ms" />
+            <Line id="URXR" quantity="URXR/0/generic_iaf_cell/activity" scale="1" color="#247960" timeScale="1ms" />
 
         </Display>
 
         <OutputFile id="neurons_v" fileName="c302_B_Social.dat">
-            <OutputColumn id="ASHR_v" quantity="ASHR[0]/v"/>
-            <OutputColumn id="ASKR_v" quantity="ASKR[0]/v"/>
-            <OutputColumn id="AWBR_v" quantity="AWBR[0]/v"/>
-            <OutputColumn id="IL2R_v" quantity="IL2R[0]/v"/>
-            <OutputColumn id="RMGR_v" quantity="RMGR[0]/v"/>
-            <OutputColumn id="RMHR_v" quantity="RMHR[0]/v"/>
-            <OutputColumn id="URXR_v" quantity="URXR[0]/v"/>
+            <OutputColumn id="ASHR_v" quantity="ASHR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="ASKR_v" quantity="ASKR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="AWBR_v" quantity="AWBR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="IL2R_v" quantity="IL2R/0/generic_iaf_cell/v"/>
+            <OutputColumn id="RMGR_v" quantity="RMGR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="RMHR_v" quantity="RMHR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="URXR_v" quantity="URXR/0/generic_iaf_cell/v"/>
         </OutputFile>
         
         <OutputFile id="neurons_activity" fileName="c302_B_Social.activity.dat">
-            <OutputColumn id="ASHR_v" quantity="ASHR[0]/activity"/>
-            <OutputColumn id="ASKR_v" quantity="ASKR[0]/activity"/>
-            <OutputColumn id="AWBR_v" quantity="AWBR[0]/activity"/>
-            <OutputColumn id="IL2R_v" quantity="IL2R[0]/activity"/>
-            <OutputColumn id="RMGR_v" quantity="RMGR[0]/activity"/>
-            <OutputColumn id="RMHR_v" quantity="RMHR[0]/activity"/>
-            <OutputColumn id="URXR_v" quantity="URXR[0]/activity"/>
+            <OutputColumn id="ASHR_v" quantity="ASHR/0/generic_iaf_cell/activity"/>
+            <OutputColumn id="ASKR_v" quantity="ASKR/0/generic_iaf_cell/activity"/>
+            <OutputColumn id="AWBR_v" quantity="AWBR/0/generic_iaf_cell/activity"/>
+            <OutputColumn id="IL2R_v" quantity="IL2R/0/generic_iaf_cell/activity"/>
+            <OutputColumn id="RMGR_v" quantity="RMGR/0/generic_iaf_cell/activity"/>
+            <OutputColumn id="RMHR_v" quantity="RMHR/0/generic_iaf_cell/activity"/>
+            <OutputColumn id="URXR_v" quantity="URXR/0/generic_iaf_cell/activity"/>
         </OutputFile>
     </Simulation>
 

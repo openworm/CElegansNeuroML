@@ -60,18 +60,18 @@ Parameters and setting used to generate this network:
 
         <Display id="neurons" title="c302_C_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-60" ymax="25">
             
-            <Line id="ADAL" quantity="ADAL[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ADAL" quantity="ADAL/0/GenericCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             
         </Display>
       
         <Display id="activity_neurons" title="c302_C_IClamp: Activity of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-0.1" ymax="1.1">
             
-            <Line id="ADAL" quantity="ADAL[0]/caConc" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="ADAL" quantity="ADAL/0/GenericCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
 
         </Display>
 
         <OutputFile id="neurons_v" fileName="c302_C_IClamp.dat">
-            <OutputColumn id="ADAL_v" quantity="ADAL[0]/v"/>
+            <OutputColumn id="ADAL_v" quantity="ADAL/0/GenericCell/v"/>
         </OutputFile>
         
     </Simulation>

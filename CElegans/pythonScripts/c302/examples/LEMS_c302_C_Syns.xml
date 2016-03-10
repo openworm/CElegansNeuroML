@@ -60,27 +60,27 @@ Parameters and setting used to generate this network:
 
         <Display id="neurons" title="c302_C_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
             
-            <Line id="SMDDR" quantity="SMDDR[0]/v" scale="1mV" color="#f87100" timeScale="1ms" />
-            <Line id="URYDL" quantity="URYDL[0]/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
-            <Line id="VB11" quantity="VB11[0]/v" scale="1mV" color="#58a09e" timeScale="1ms" />
-            <Line id="VD12" quantity="VD12[0]/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/GenericCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/GenericCell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/GenericCell/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/GenericCell/v" scale="1mV" color="#007df7" timeScale="1ms" />
             
         </Display>
       
         <Display id="activity_neurons" title="c302_C_Syns: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
             
-            <Line id="SMDDR" quantity="SMDDR[0]/caConc" scale="1" color="#eaf195" timeScale="1ms" />
-            <Line id="URYDL" quantity="URYDL[0]/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
-            <Line id="VB11" quantity="VB11[0]/caConc" scale="1" color="#262f1d" timeScale="1ms" />
-            <Line id="VD12" quantity="VD12[0]/caConc" scale="1" color="#108b77" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/GenericCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/GenericCell/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/GenericCell/caConc" scale="1" color="#262f1d" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/GenericCell/caConc" scale="1" color="#108b77" timeScale="1ms" />
 
         </Display>
 
         <OutputFile id="neurons_v" fileName="c302_C_Syns.dat">
-            <OutputColumn id="SMDDR_v" quantity="SMDDR[0]/v"/>
-            <OutputColumn id="URYDL_v" quantity="URYDL[0]/v"/>
-            <OutputColumn id="VB11_v" quantity="VB11[0]/v"/>
-            <OutputColumn id="VD12_v" quantity="VD12[0]/v"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR/0/GenericCell/v"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL/0/GenericCell/v"/>
+            <OutputColumn id="VB11_v" quantity="VB11/0/GenericCell/v"/>
+            <OutputColumn id="VD12_v" quantity="VD12/0/GenericCell/v"/>
         </OutputFile>
         
     </Simulation>

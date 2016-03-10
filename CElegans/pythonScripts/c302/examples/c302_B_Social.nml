@@ -43,71 +43,106 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_RMHR" delay="1600ms" duration="200ms" amplitude="0.35nA"/>
     <pulseGenerator id="stim_URXR" delay="1900ms" duration="200ms" amplitude="0.35nA"/>
     <network id="c302_B_Social">
-        <population id="ASHR" component="generic_iaf_cell" size="1"/>
-        <population id="ASKR" component="generic_iaf_cell" size="1">
+        <population id="ASHR" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location x="-9.800000000000001" y="-265.625" z="41."/>
+            </instance>
+        </population>
+        <population id="ASKR" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Z.B."/>
+            <instance id="0">
+                <location x="-8." y="-268.024999999999977" z="46.399997999999997"/>
+            </instance>
         </population>
-        <population id="AWBR" component="generic_iaf_cell" size="1"/>
-        <population id="IL2R" component="generic_iaf_cell" size="1"/>
-        <population id="RMGR" component="generic_iaf_cell" size="1">
+        <population id="AWBR" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location x="-9.75" y="-266.225000000000023" z="43.100000000000001"/>
+            </instance>
+        </population>
+        <population id="IL2R" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location x="-11." y="-285." z="49.350000000000001"/>
+            </instance>
+        </population>
+        <population id="RMGR" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
+            <instance id="0">
+                <location x="-12.5" y="-238.299990000000008" z="32.700000000000003"/>
+            </instance>
         </population>
-        <population id="RMHR" component="generic_iaf_cell" size="1">
+        <population id="RMHR" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Martino"/>
+            <instance id="0">
+                <location x="-5.2999997" y="-265.899999999999977" z="35.700000000000003"/>
+            </instance>
         </population>
-        <population id="URXR" component="generic_iaf_cell" size="1"/>
-        <synapticConnection from="ASHR[0]" to="RMGR[0]" synapse="exc_syn_2conns" destination="synapses"/>
-        <synapticConnection from="AWBR[0]" to="ASHR[0]" synapse="exc_syn_2conns" destination="synapses"/>
-        <synapticConnection from="RMGR[0]" to="ASHR[0]" synapse="exc_syn_1conns" destination="synapses"/>
-        <synapticConnection from="RMGR[0]" to="URXR[0]" synapse="exc_syn_1conns" destination="synapses"/>
-        <synapticConnection from="URXR[0]" to="RMGR[0]" synapse="exc_syn_1conns" destination="synapses"/>
+        <population id="URXR" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location x="-7.35" y="-269.875" z="48.274999999999999"/>
+            </instance>
+        </population>
+        <projection id="NC_ASHR_RMGR_Glutamate" presynapticPopulation="ASHR" postsynapticPopulation="RMGR" synapse="exc_syn_2conns">
+            <connection id="0" preCellId="../ASHR/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../RMGR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+        <projection id="NC_AWBR_ASHR_Glutamate" presynapticPopulation="AWBR" postsynapticPopulation="ASHR" synapse="exc_syn_2conns">
+            <connection id="0" preCellId="../AWBR/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../ASHR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+        <projection id="NC_RMGR_ASHR_FMRFamide" presynapticPopulation="RMGR" postsynapticPopulation="ASHR" synapse="exc_syn_1conns">
+            <connection id="0" preCellId="../RMGR/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../ASHR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+        <projection id="NC_RMGR_URXR_FMRFamide" presynapticPopulation="RMGR" postsynapticPopulation="URXR" synapse="exc_syn_1conns">
+            <connection id="0" preCellId="../RMGR/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../URXR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+        <projection id="NC_URXR_RMGR_Glutamate" presynapticPopulation="URXR" postsynapticPopulation="RMGR" synapse="exc_syn_1conns">
+            <connection id="0" preCellId="../URXR/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../RMGR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
         <electricalProjection id="NC_ASHR_ASKR_Generic_GJ" presynapticPopulation="ASHR" postsynapticPopulation="ASKR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../ASHR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../ASKR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_ASHR_RMGR_Generic_GJ" presynapticPopulation="ASHR" postsynapticPopulation="RMGR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../ASHR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../RMGR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_ASKR_ASHR_Generic_GJ" presynapticPopulation="ASKR" postsynapticPopulation="ASHR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../ASKR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../ASHR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_ASKR_RMGR_Generic_GJ" presynapticPopulation="ASKR" postsynapticPopulation="RMGR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../ASKR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../RMGR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_AWBR_RMGR_Generic_GJ" presynapticPopulation="AWBR" postsynapticPopulation="RMGR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../AWBR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../RMGR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_IL2R_RMGR_Generic_GJ" presynapticPopulation="IL2R" postsynapticPopulation="RMGR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../IL2R/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../RMGR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_IL2R_URXR_Generic_GJ" presynapticPopulation="IL2R" postsynapticPopulation="URXR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../IL2R/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../URXR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_ASHR_Generic_GJ" presynapticPopulation="RMGR" postsynapticPopulation="ASHR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../RMGR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../ASHR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_ASKR_Generic_GJ" presynapticPopulation="RMGR" postsynapticPopulation="ASKR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../RMGR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../ASKR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_AWBR_Generic_GJ" presynapticPopulation="RMGR" postsynapticPopulation="AWBR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../RMGR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../AWBR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_IL2R_Generic_GJ" presynapticPopulation="RMGR" postsynapticPopulation="IL2R">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../RMGR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../IL2R/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_RMHR_Generic_GJ" presynapticPopulation="RMGR" postsynapticPopulation="RMHR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../RMGR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../RMHR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_RMGR_URXR_Generic_GJ" presynapticPopulation="RMGR" postsynapticPopulation="URXR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../RMGR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../URXR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_RMHR_RMGR_Generic_GJ" presynapticPopulation="RMHR" postsynapticPopulation="RMGR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../RMHR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../RMGR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_URXR_IL2R_Generic_GJ" presynapticPopulation="URXR" postsynapticPopulation="IL2R">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../URXR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../IL2R/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_URXR_RMGR_Generic_GJ" presynapticPopulation="URXR" postsynapticPopulation="RMGR">
-            <electricalConnection id="0" preCell="0" preSegment="0" preFractionAlong="0.5" postCell="0" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../URXR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../RMGR/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <explicitInput target="RMGR[0]" input="stim_RMGR"/>
         <explicitInput target="ASHR[0]" input="stim_ASHR"/>

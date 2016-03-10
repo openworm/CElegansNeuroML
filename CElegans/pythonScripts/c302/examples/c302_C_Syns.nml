@@ -64,13 +64,33 @@ Parameters and setting used to generate this network:
     </cell>
     <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="0.35 nA"/>
     <network id="c302_C_Syns">
-        <population id="SMDDR" component="GenericCell" size="1"/>
-        <population id="URYDL" component="GenericCell" size="1"/>
-        <population id="VB11" component="GenericCell" size="1"/>
-        <population id="VD12" component="GenericCell" size="1"/>
-        <synapticConnection from="VD12[0]" to="VB11[0]" synapse="inh_syn_1conns" destination="synapses"/>
-        <synapticConnection from="URYDL[0]" to="SMDDR[0]" synapse="exc_syn_1conns" destination="synapses"/>
-        <explicitInput target="URYDL[0]" input="offset_current"/>
-        <explicitInput target="VD12[0]" input="offset_current"/>
+        <population id="SMDDR" component="GenericCell" type="populationList">
+            <instance id="0">
+                <location x="-7.4500003" y="-266.25" z="34.100000000000001"/>
+            </instance>
+        </population>
+        <population id="URYDL" component="GenericCell" type="populationList">
+            <instance id="0">
+                <location x="4.125" y="-281.425000000000011" z="51.899997999999997"/>
+            </instance>
+        </population>
+        <population id="VB11" component="GenericCell" type="populationList">
+            <instance id="0">
+                <location x="-1.8249999" y="262.324999999999989" z="-21.949999999999999"/>
+            </instance>
+        </population>
+        <population id="VD12" component="GenericCell" type="populationList">
+            <instance id="0">
+                <location x="-0.75" y="345.5" z="-23.149999999999999"/>
+            </instance>
+        </population>
+        <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="inh_syn_1conns">
+            <connection id="0" preCellId="../VD12/0/GenericCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/GenericCell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+        <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn_1conns">
+            <connection id="0" preCellId="../URYDL/0/GenericCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/GenericCell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+        <explicitInput target="URYDL/0/GenericCell" input="offset_current"/>
+        <explicitInput target="VD12/0/GenericCell" input="offset_current"/>
     </network>
 </neuroml>
