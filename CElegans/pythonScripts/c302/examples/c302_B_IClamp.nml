@@ -36,6 +36,6 @@ Parameters and setting used to generate this network:
         <population id="ADAL" component="generic_iaf_cell" size="1">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
         </population>
-        <explicitInput input="offset_current" target="ADAL[0]"/>
+        <explicitInput target="ADAL[0]" input="offset_current"/>
     </network>
 </neuroml>

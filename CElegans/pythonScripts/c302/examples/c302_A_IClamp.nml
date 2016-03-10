@@ -32,15 +32,15 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
-    <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
+    <iafCell id="generic_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS"/>
     <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="0.25nA"/>
     <network id="c302_A_IClamp">
-        <population id="ADAL" type="populationList" component="generic_iaf_cell">
+        <population id="ADAL" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">
-                <location y="8.65" x="-239.25" z="31.050000000000001"/>
+                <location x="8.65" y="-239.25" z="31.050000000000001"/>
             </instance>
         </population>
-        <explicitInput input="offset_current" target="ADAL/0/generic_iaf_cell"/>
+        <explicitInput target="ADAL/0/generic_iaf_cell" input="offset_current"/>
     </network>
 </neuroml>

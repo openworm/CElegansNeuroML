@@ -32,38 +32,38 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
 </notes>
-    <expTwoSynapse id="inh_syn_1conns" erev="-80mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="0.2nS" tauDecay="10ms" tauRise="3ms"/>
-    <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
+    <expTwoSynapse id="inh_syn_1conns" gbase="0.2nS" erev="-80mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_1conns" gbase="0.2nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <iafCell id="generic_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0.21nA"/>
     <network id="c302_A_Syns">
-        <population id="SMDDR" type="populationList" component="generic_iaf_cell">
+        <population id="SMDDR" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="-7.4500003" x="-266.25" z="34.100000000000001"/>
+                <location x="-7.4500003" y="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="URYDL" type="populationList" component="generic_iaf_cell">
+        <population id="URYDL" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="4.125" x="-281.425000000000011" z="51.899997999999997"/>
+                <location x="4.125" y="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
-        <population id="VB11" type="populationList" component="generic_iaf_cell">
+        <population id="VB11" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="-1.8249999" x="262.324999999999989" z="-21.949999999999999"/>
+                <location x="-1.8249999" y="262.324999999999989" z="-21.949999999999999"/>
             </instance>
         </population>
-        <population id="VD12" type="populationList" component="generic_iaf_cell">
+        <population id="VD12" component="generic_iaf_cell" type="populationList">
             <instance id="0">
-                <location y="-0.75" x="345.5" z="-23.149999999999999"/>
+                <location x="-0.75" y="345.5" z="-23.149999999999999"/>
             </instance>
         </population>
-        <projection id="NC_VD12_VB11_GABA" postsynapticPopulation="VB11" presynapticPopulation="VD12" synapse="inh_syn_1conns">
-            <connection id="0" preFractionAlong="0.5" preCellId="../VD12/0/generic_iaf_cell" postFractionAlong="0.5" postSegmentId="0" postCellId="../VB11/0/generic_iaf_cell" preSegmentId="0"/>
+        <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="inh_syn_1conns">
+            <connection id="0" preCellId="../VD12/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
-        <projection id="NC_URYDL_SMDDR_Glutamate" postsynapticPopulation="SMDDR" presynapticPopulation="URYDL" synapse="exc_syn_1conns">
-            <connection id="0" preFractionAlong="0.5" preCellId="../URYDL/0/generic_iaf_cell" postFractionAlong="0.5" postSegmentId="0" postCellId="../SMDDR/0/generic_iaf_cell" preSegmentId="0"/>
+        <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn_1conns">
+            <connection id="0" preCellId="../URYDL/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
-        <explicitInput input="offset_current" target="URYDL/0/generic_iaf_cell"/>
-        <explicitInput input="offset_current" target="VD12/0/generic_iaf_cell"/>
+        <explicitInput target="URYDL/0/generic_iaf_cell" input="offset_current"/>
+        <explicitInput target="VD12/0/generic_iaf_cell" input="offset_current"/>
     </network>
 </neuroml>
