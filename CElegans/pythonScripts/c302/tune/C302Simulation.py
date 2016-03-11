@@ -110,8 +110,8 @@ class C302Simulation(object):
         
         self.t = [t*1000 for t in results['t']]
         res_template = '%s/0/generic_iaf_cell/v'
-        if self.params.level == 'B' or self.params.level == 'C' or self.params.level == 'D':
-            res_template = '%s[0]/v'
+        if self.params.level == 'C' or self.params.level == 'D':
+            res_template = '%s/0/GenericCell/v'
         self.volts = {}
         
         if self.cells is None:
@@ -119,7 +119,6 @@ class C302Simulation(object):
             for pop in nml_doc.networks[0].populations:
                 self.cells.append(pop.id)
             
-                
         for cell in self.cells:
             self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]
         
