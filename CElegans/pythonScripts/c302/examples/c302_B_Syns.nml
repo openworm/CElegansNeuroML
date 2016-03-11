@@ -30,6 +30,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
 
 </notes>
+    <include href="cell_B.xml"></include>
     <expTwoSynapse id="inh_syn_1conns" gbase="1.0nS" erev="-55 mV" tauDecay="40 ms" tauRise="2 ms"/>
     <expTwoSynapse id="exc_syn_1conns" gbase="0.4nS" erev="0 mV" tauDecay="10 ms" tauRise="1 ms"/>
     <gapJunction id="elec_syn_1conns" conductance="0.3nS"/>
@@ -78,8 +79,14 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_ASHL_AIZL_Generic_GJ" presynapticPopulation="ASHL" postsynapticPopulation="AIZL">
             <electricalConnectionInstance id="0" preCell="../ASHL/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../AIZL/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
-        <explicitInput target="AIZL/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="URYDL/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="VD12/0/generic_iaf_cell" input="offset_current"/>
+        <inputList id="Input_AIZL_offset_current" population="AIZL" component="offset_current">
+            <input id="0" target="../AIZL/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_URYDL_offset_current" population="URYDL" component="offset_current">
+            <input id="0" target="../URYDL/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_VD12_offset_current" population="VD12" component="offset_current">
+            <input id="0" target="../VD12/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

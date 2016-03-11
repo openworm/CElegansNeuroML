@@ -41,6 +41,8 @@ Parameters and setting used to generate this network:
                 <location x="8.65" y="-239.25" z="31.050000000000001"/>
             </instance>
         </population>
-        <explicitInput target="ADAL/0/generic_iaf_cell" input="offset_current"/>
+        <inputList id="Input_ADAL_offset_current" population="ADAL" component="offset_current">
+            <input id="0" target="../ADAL/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

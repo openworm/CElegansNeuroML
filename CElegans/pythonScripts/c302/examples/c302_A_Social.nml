@@ -146,12 +146,26 @@ Parameters and setting used to generate this network:
         <projection id="NC_URXR_RMGR_Glutamate" presynapticPopulation="URXR" postsynapticPopulation="RMGR" synapse="exc_syn_1conns">
             <connection id="0" preCellId="../URXR/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../RMGR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
-        <explicitInput target="RMGR/0/generic_iaf_cell" input="stim_RMGR"/>
-        <explicitInput target="ASHR/0/generic_iaf_cell" input="stim_ASHR"/>
-        <explicitInput target="ASKR/0/generic_iaf_cell" input="stim_ASKR"/>
-        <explicitInput target="AWBR/0/generic_iaf_cell" input="stim_AWBR"/>
-        <explicitInput target="IL2R/0/generic_iaf_cell" input="stim_IL2R"/>
-        <explicitInput target="RMHR/0/generic_iaf_cell" input="stim_RMHR"/>
-        <explicitInput target="URXR/0/generic_iaf_cell" input="stim_URXR"/>
+        <inputList id="Input_RMGR_stim_RMGR" population="RMGR" component="stim_RMGR">
+            <input id="0" target="../RMGR/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ASHR_stim_ASHR" population="ASHR" component="stim_ASHR">
+            <input id="0" target="../ASHR/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ASKR_stim_ASKR" population="ASKR" component="stim_ASKR">
+            <input id="0" target="../ASKR/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AWBR_stim_AWBR" population="AWBR" component="stim_AWBR">
+            <input id="0" target="../AWBR/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_IL2R_stim_IL2R" population="IL2R" component="stim_IL2R">
+            <input id="0" target="../IL2R/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_RMHR_stim_RMHR" population="RMHR" component="stim_RMHR">
+            <input id="0" target="../RMHR/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_URXR_stim_URXR" population="URXR" component="stim_URXR">
+            <input id="0" target="../URXR/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

@@ -74,6 +74,7 @@ class ParameterisedModelPrototype():
 class c302ModelPrototype(ParameterisedModelPrototype):
 
     level = "Level not yet set"
+    custom_component_types_definitions = None
     generic_cell = None
     exc_syn = None
     inh_syn = None

@@ -37,6 +37,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
+    <include href="cell_C.xml"></include>
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">
@@ -68,6 +69,8 @@ Parameters and setting used to generate this network:
                 <location x="8.65" y="-239.25" z="31.050000000000001"/>
             </instance>
         </population>
-        <explicitInput target="ADAL/0/GenericCell" input="offset_current"/>
+        <inputList id="Input_ADAL_offset_current" population="ADAL" component="offset_current">
+            <input id="0" target="../ADAL/0/GenericCell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

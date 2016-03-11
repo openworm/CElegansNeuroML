@@ -37,6 +37,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
 </notes>
+    <include href="cell_C.xml"></include>
     <expTwoSynapse id="inh_syn_1conns" gbase="1.0nS" erev="-55 mV" tauDecay="40 ms" tauRise="2 ms"/>
     <expTwoSynapse id="exc_syn_1conns" gbase="8.0nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
     <cell id="GenericCell">
@@ -90,7 +91,11 @@ Parameters and setting used to generate this network:
         <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn_1conns">
             <connection id="0" preCellId="../URYDL/0/GenericCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/GenericCell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
-        <explicitInput target="URYDL/0/GenericCell" input="offset_current"/>
-        <explicitInput target="VD12/0/GenericCell" input="offset_current"/>
+        <inputList id="Input_URYDL_offset_current" population="URYDL" component="offset_current">
+            <input id="0" target="../URYDL/0/GenericCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_VD12_offset_current" population="VD12" component="offset_current">
+            <input id="0" target="../VD12/0/GenericCell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

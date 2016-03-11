@@ -1,28 +1,57 @@
-<Lems xmlns="http://www.neuroml.org/lems/0.7.3"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.neuroml.org/lems/0.7.3 https://raw.githubusercontent.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.7.3.xsd"
-      description="A new simple cell type for c302">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cell_C">
 
-    <Include file="NeuroMLCoreDimensions.xml"/>
-    <Include file="Cells.xml"/>
-    
+    <!-- Note: Not fully valid NML2: <customHGate> -->
+
     <!--
     
     Parameters C for c302 still under developemnt!!
     
     Subject to change without notice!!
     
-    
-    
-    
+  
     The fixed values for the parameters here will have to be replaced by parameters set in parameters_C.py & 
     built using libNeuroML classes
     
     -->
     
-    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
     
     <ionChannel id="Leak" conductance="10pS" type="ionChannelPassive"/>
+    
+    
+    <ionChannel id="k_fast" conductance="10pS" type="ionChannelHH" species="k">
+
+        <notes>K fast channel from Boyle and Cohen 2008</notes>
+
+        <gateHHtauInf id="p" instances="4">
+
+            <timeCourse type="fixedTimeCourse" tau="2.25518 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="7.42636 mV" midpoint="-8.05232 mV"/>
+
+        </gateHHtauInf>
+        
+        <gateHHtauInf id="q" instances="1">
+
+            <timeCourse type="fixedTimeCourse" tau="149.963 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="-9.97468 mV" midpoint="-15.6456 mV"/>
+
+        </gateHHtauInf>
+
+    </ionChannel>
+    
+    
+    <ionChannel id="k_slow" conductance="10pS" type="ionChannelHH" species="k">
+
+        <notes>K slow channel from Boyle and Cohen 2008</notes>
+
+        <gateHHtauInf id="n" instances="1">
+
+            <timeCourse type="fixedTimeCourse" tau="25.0007 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="15.8512 mV" midpoint="19.8741 mV"/>
+            
+        </gateHHtauInf>
+        
+    </ionChannel>
+    
     
     <ionChannel id="ca_boyle" conductance="10pS" type="ionChannelHH" species="ca">
 
@@ -63,6 +92,9 @@
 
     </ionChannel>
 
+    
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
+    
 
     <ComponentType name="customHGate"
                    extends="gateHHtauInf"
@@ -96,40 +128,4 @@
     </ComponentType>
     
     
-    
-    <ionChannel id="k_fast" conductance="10pS" type="ionChannelHH" species="k">
-
-        <notes>K fast channel from Boyle and Cohen 2008</notes>
-
-        <gateHHtauInf id="p" instances="4">
-
-            <timeCourse type="fixedTimeCourse" tau="2.25518 ms"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="7.42636 mV" midpoint="-8.05232 mV"/>
-
-        </gateHHtauInf>
-        
-        <gateHHtauInf id="q" instances="1">
-
-            <timeCourse type="fixedTimeCourse" tau="149.963 ms"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="-9.97468 mV" midpoint="-15.6456 mV"/>
-
-        </gateHHtauInf>
-
-    </ionChannel>
-    
-    
-    <ionChannel id="k_slow" conductance="10pS" type="ionChannelHH" species="k">
-
-        <notes>K slow channel from Boyle and Cohen 2008</notes>
-
-        <gateHHtauInf id="n" instances="1">
-
-            <timeCourse type="fixedTimeCourse" tau="25.0007 ms"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="15.8512 mV" midpoint="19.8741 mV"/>
-            
-        </gateHHtauInf>
-        
-    </ionChannel>
-    
-    
-</Lems>
+</neuroml>

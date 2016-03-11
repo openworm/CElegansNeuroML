@@ -4,8 +4,11 @@ from neuroml import NeuroMLDocument
 from neuroml import Network
 from neuroml import Population
 from neuroml import Instance
+from neuroml import IncludeType
 from neuroml import Location
 from neuroml import ExplicitInput
+from neuroml import Input
+from neuroml import InputList
 from neuroml import Projection
 from neuroml import Connection
 from neuroml import SynapticConnection
@@ -126,14 +129,21 @@ def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
     
     nml_doc.pulse_generators.append(stim)
     
-    populations_without_location = isinstance(params.elec_syn, GapJunction)
+    populations_without_location = False # isinstance(params.elec_syn, GapJunction)
     
-    target ="%s/0/%s"%(cell, params.generic_cell.id)
+    target ="../%s/0/%s"%(cell, params.generic_cell.id)
     if populations_without_location:
         target ="%s[0]"%(cell)
-    exp_input = ExplicitInput(target=target, input=stim.id)
+        
+    input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
+                         component=stim.id,
+                         populations='%s'%cell)
 
-    nml_doc.networks[0].explicit_inputs.append(exp_input)
+    input_list.input.append(Input(id=0, 
+                  target=target, 
+                  destination="synapses"))
+                  
+    nml_doc.networks[0].input_lists.append(input_list)
 
 def get_muscle_names():
     names = []
@@ -355,6 +365,7 @@ def generate(net_id,
         if target_directory != './':
             def_file = "%s/%s"%(os.path.dirname(__file__), params.custom_component_types_definitions)
             shutil.copy(def_file, target_directory)
+        nml_doc.includes.append(IncludeType(href=params.custom_component_types_definitions))
     
 
     backers_dir = "../../../../OpenWormBackers/" if test else "../../../OpenWormBackers/"
@@ -405,14 +416,21 @@ def generate(net_id,
 
             inst.location = Location(float(location.x), float(location.y), float(location.z))
 
-            target = "%s/0/%s"%(pop0.id, params.generic_cell.id)
+            target = "../%s/0/%s"%(pop0.id, params.generic_cell.id)
             if populations_without_location:
-                target = "%s[0]" % (cell)
-
-            exp_input = ExplicitInput(target=target, input=params.offset_current.id)
-
+                target = "../%s[0]" % (cell)
+                
             if cells_to_stimulate is None or cell in cells_to_stimulate:
-                net.explicit_inputs.append(exp_input)
+                input_list = InputList(id="Input_%s_%s"%(cell,params.offset_current.id),
+                                     component=params.offset_current.id,
+                                     populations='%s'%cell)
+
+                input_list.input.append(Input(id=0, 
+                              target=target, 
+                              destination="synapses"))
+
+                net.input_lists.append(input_list)
+
 
             if cells_to_plot is None or cell in cells_to_plot:
                 plot = {}

@@ -30,6 +30,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 1000 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
+    <include href="cell_B.xml"></include>
     <expTwoSynapse id="exc_syn_2conns" gbase="10.0nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
     <expTwoSynapse id="exc_syn_5conns" gbase="25.0nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
     <expTwoSynapse id="exc_syn_1conns" gbase="5.0nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
@@ -6085,7 +6086,11 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VC1_VD1_Generic_GJ" presynapticPopulation="VC1" postsynapticPopulation="VD1">
             <electricalConnectionInstance id="0" preCell="../VC1/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../VD1/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
-        <explicitInput target="AVBL/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="PVCL/0/generic_iaf_cell" input="offset_current"/>
+        <inputList id="Input_AVBL_offset_current" population="AVBL" component="offset_current">
+            <input id="0" target="../AVBL/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
+            <input id="0" target="../PVCL/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

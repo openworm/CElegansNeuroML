@@ -30,6 +30,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
 
 </notes>
+    <include href="cell_B.xml"></include>
     <expTwoSynapse id="exc_syn_1conns" gbase="0.4nS" erev="0 mV" tauDecay="10 ms" tauRise="1 ms"/>
     <expTwoSynapse id="exc_syn_2conns" gbase="0.8nS" erev="0 mV" tauDecay="10 ms" tauRise="1 ms"/>
     <expTwoSynapse id="exc_syn_5conns" gbase="2.0nS" erev="0 mV" tauDecay="10 ms" tauRise="1 ms"/>
@@ -554,15 +555,35 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_MCR_M2R_Generic_GJ" presynapticPopulation="MCR" postsynapticPopulation="M2R">
             <electricalConnectionInstance id="0" preCell="../MCR/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../M2R/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_2conns"/>
         </electricalProjection>
-        <explicitInput target="I1L/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="I4/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="I5/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="I6/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="M1/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="M3R/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="M4/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="M5/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="MCL/0/generic_iaf_cell" input="offset_current"/>
-        <explicitInput target="MCR/0/generic_iaf_cell" input="offset_current"/>
+        <inputList id="Input_I1L_offset_current" population="I1L" component="offset_current">
+            <input id="0" target="../I1L/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_I4_offset_current" population="I4" component="offset_current">
+            <input id="0" target="../I4/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_I5_offset_current" population="I5" component="offset_current">
+            <input id="0" target="../I5/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_I6_offset_current" population="I6" component="offset_current">
+            <input id="0" target="../I6/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_M1_offset_current" population="M1" component="offset_current">
+            <input id="0" target="../M1/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_M3R_offset_current" population="M3R" component="offset_current">
+            <input id="0" target="../M3R/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_M4_offset_current" population="M4" component="offset_current">
+            <input id="0" target="../M4/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_M5_offset_current" population="M5" component="offset_current">
+            <input id="0" target="../M5/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MCL_offset_current" population="MCL" component="offset_current">
+            <input id="0" target="../MCL/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MCR_offset_current" population="MCR" component="offset_current">
+            <input id="0" target="../MCR/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

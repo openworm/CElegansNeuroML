@@ -37,6 +37,7 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
 </notes>
+    <include href="cell_C.xml"></include>
     <expTwoSynapse id="exc_syn_2conns" gbase="16.0nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
     <expTwoSynapse id="exc_syn_1conns" gbase="8.0nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
     <gapJunction id="elec_syn_1conns" conductance="0.3nS"/>
@@ -173,12 +174,26 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_URXR_RMGR_Generic_GJ" presynapticPopulation="URXR" postsynapticPopulation="RMGR">
             <electricalConnectionInstance id="0" preCell="../URXR/0/GenericCell" preSegment="0" preFractionAlong="0.5" postCell="../RMGR/0/GenericCell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
-        <explicitInput target="RMGR[0]" input="stim_RMGR"/>
-        <explicitInput target="ASHR[0]" input="stim_ASHR"/>
-        <explicitInput target="ASKR[0]" input="stim_ASKR"/>
-        <explicitInput target="AWBR[0]" input="stim_AWBR"/>
-        <explicitInput target="IL2R[0]" input="stim_IL2R"/>
-        <explicitInput target="RMHR[0]" input="stim_RMHR"/>
-        <explicitInput target="URXR[0]" input="stim_URXR"/>
+        <inputList id="Input_RMGR_stim_RMGR" population="RMGR" component="stim_RMGR">
+            <input id="0" target="../RMGR/0/GenericCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ASHR_stim_ASHR" population="ASHR" component="stim_ASHR">
+            <input id="0" target="../ASHR/0/GenericCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ASKR_stim_ASKR" population="ASKR" component="stim_ASKR">
+            <input id="0" target="../ASKR/0/GenericCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AWBR_stim_AWBR" population="AWBR" component="stim_AWBR">
+            <input id="0" target="../AWBR/0/GenericCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_IL2R_stim_IL2R" population="IL2R" component="stim_IL2R">
+            <input id="0" target="../IL2R/0/GenericCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_RMHR_stim_RMHR" population="RMHR" component="stim_RMHR">
+            <input id="0" target="../RMHR/0/GenericCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_URXR_stim_URXR" population="URXR" component="stim_URXR">
+            <input id="0" target="../URXR/0/GenericCell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>
