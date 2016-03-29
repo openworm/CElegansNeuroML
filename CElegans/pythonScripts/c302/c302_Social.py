@@ -16,7 +16,11 @@ import neuroml.writers as writers
 
 import sys
     
-def setup(parameter_set, generate=False):
+def setup(parameter_set, 
+          generate=False,
+          duration=2500, 
+          dt=0.1,
+          target_directory='examples'):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -33,8 +37,8 @@ def setup(parameter_set, generate=False):
                        params, 
                        cells=cells, 
                        cells_to_stimulate=cells_to_stimulate, 
-                       duration=2500, 
-                       dt=0.1, 
+                       duration=duration, 
+                       dt=dt, 
                        validate=(parameter_set!='B'),
                        target_directory=target_directory)
              
@@ -53,7 +57,6 @@ def setup(parameter_set, generate=False):
     
     print("(Re)written network file to: "+nml_file)
     
-             
     return cells, cells_to_stimulate, params, False
     
     

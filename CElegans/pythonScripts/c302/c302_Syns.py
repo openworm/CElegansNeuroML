@@ -2,7 +2,11 @@ import c302
 import sys
 
     
-def setup(parameter_set, generate=False):
+def setup(parameter_set, 
+          generate=False,
+          duration=500, 
+          dt=0.1,
+          target_directory='examples'):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -29,10 +33,10 @@ def setup(parameter_set, generate=False):
                  params, 
                  cells=cells, 
                  cells_to_stimulate=cells_to_stimulate, 
-                 duration=500, 
-                 dt=0.1, 
+                 duration=duration, 
+                 dt=dt, 
                  validate=(parameter_set!='B'),
-                 target_directory='examples')
+                 target_directory=target_directory)
              
     return cells, cells_to_stimulate, params, False
              

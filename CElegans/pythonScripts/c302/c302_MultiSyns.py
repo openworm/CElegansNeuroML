@@ -1,14 +1,4 @@
 
-# Model of a decision making circuit
-
-# See https://github.com/openworm/OpenWorm/issues/212
-
-# To run:
-#          python c302_Social.py A   (uses parameters_A, requires jNeuroML to run)
-# or
-#          python c302_Social.py B   (uses parameters_B, requires jNeuroML built from the 
-#                                     experimental branches to run: 'python getNeuroML experimental'
-#                                     see https://github.com/NeuroML/jNeuroML)
 
 from c302 import generate, add_new_input
 
