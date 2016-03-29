@@ -131,6 +131,28 @@ Parameters and setting used to generate this network:
             <OutputColumn id="NSMR_v" quantity="NSMR/0/GenericCell/v"/>
         </OutputFile>
         
+        <OutputFile id="neurons_activity" fileName="c302_C_Pharyngeal.activity.dat">
+            <OutputColumn id="I1L_v" quantity="I1L/0/GenericCell/caConc"/>
+            <OutputColumn id="I1R_v" quantity="I1R/0/GenericCell/caConc"/>
+            <OutputColumn id="I2L_v" quantity="I2L/0/GenericCell/caConc"/>
+            <OutputColumn id="I2R_v" quantity="I2R/0/GenericCell/caConc"/>
+            <OutputColumn id="I3_v" quantity="I3/0/GenericCell/caConc"/>
+            <OutputColumn id="I4_v" quantity="I4/0/GenericCell/caConc"/>
+            <OutputColumn id="I5_v" quantity="I5/0/GenericCell/caConc"/>
+            <OutputColumn id="I6_v" quantity="I6/0/GenericCell/caConc"/>
+            <OutputColumn id="M1_v" quantity="M1/0/GenericCell/caConc"/>
+            <OutputColumn id="M2L_v" quantity="M2L/0/GenericCell/caConc"/>
+            <OutputColumn id="M2R_v" quantity="M2R/0/GenericCell/caConc"/>
+            <OutputColumn id="M3L_v" quantity="M3L/0/GenericCell/caConc"/>
+            <OutputColumn id="M3R_v" quantity="M3R/0/GenericCell/caConc"/>
+            <OutputColumn id="M4_v" quantity="M4/0/GenericCell/caConc"/>
+            <OutputColumn id="M5_v" quantity="M5/0/GenericCell/caConc"/>
+            <OutputColumn id="MCL_v" quantity="MCL/0/GenericCell/caConc"/>
+            <OutputColumn id="MCR_v" quantity="MCR/0/GenericCell/caConc"/>
+            <OutputColumn id="MI_v" quantity="MI/0/GenericCell/caConc"/>
+            <OutputColumn id="NSML_v" quantity="NSML/0/GenericCell/caConc"/>
+            <OutputColumn id="NSMR_v" quantity="NSMR/0/GenericCell/caConc"/>
+        </OutputFile>
     </Simulation>
 
 

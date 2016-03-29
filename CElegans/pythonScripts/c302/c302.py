@@ -489,6 +489,13 @@ def generate(net_id,
                 if populations_without_location: 
                     save["quantity"] = "%s[0]/activity" % (cell)
                 lems_info["activity_to_save"].append(save)
+            if params.generic_cell.__class__.__name__ == 'Cell':
+                save = {}
+                save["cell"] = cell
+                save["quantity"] = "%s/0/%s/caConc" % (cell, params.generic_cell.id)
+                if populations_without_location: 
+                    save["quantity"] = "%s[0]/caConc" % (cell)
+                lems_info["activity_to_save"].append(save)
 
             lems_info["cells"].append(cell)
 
@@ -553,6 +560,16 @@ def generate(net_id,
                 if populations_without_location:
                     plot["quantity"] = "%s[0]/activity" % (muscle)
                 lems_info["muscle_activity_plots"].append(plot)
+                
+            if params.generic_cell.__class__.__name__ == 'Cell':
+                plot = {}
+
+                plot["cell"] = muscle
+                plot["colour"] = get_random_colour_hex()
+                plot["quantity"] = "%s/0/%s/caConc" % (muscle, params.generic_cell.id)
+                if populations_without_location:
+                    plot["quantity"] = "%s[0]/caConc" % (muscle)
+                lems_info["muscle_activity_plots"].append(plot)
 
             save = {}
             save["cell"] = muscle
@@ -567,6 +584,13 @@ def generate(net_id,
                 save["quantity"] = "%s/0/%s/activity" % (muscle, params.generic_cell.id)
                 if populations_without_location:
                     save["quantity"] = "%s[0]/activity" % (muscle)
+                lems_info["muscles_activity_to_save"].append(save)
+            if params.generic_cell.__class__.__name__ == 'Cell':
+                save = {}
+                save["cell"] = muscle
+                save["quantity"] = "%s/0/%s/caConc" % (muscle, params.generic_cell.id)
+                if populations_without_location:
+                    save["quantity"] = "%s[0]/caConc" % (muscle)
                 lems_info["muscles_activity_to_save"].append(save)
 
             lems_info["muscles"].append(muscle)
