@@ -264,6 +264,27 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
     return new_syn
 
+def get_cell_names_and_connection(test=False):
+    
+    # Use the spreadsheet reader to give a list of all cells and a list of all connections
+    # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
+    # If called from unittest folder ammend path to "../../../../"
+    spreadsheet_location = "../../../../" if test else "../../../"
+
+    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet(spreadsheet_location, include_nonconnected_cells=True)
+
+    cell_names.sort()
+    
+    return cell_names, conns
+
+def get_cell_muscle_names_and_connection(test=False):
+    
+    spreadsheet_location = "../../../../" if test else "../../../"
+
+    mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
+    
+    return mneurons, all_muscles, muscle_conns
+
 
 def generate(net_id,
              params,
@@ -326,14 +347,7 @@ def generate(net_id,
 
     nml_doc.pulse_generators.append(params.offset_current)
 
-    # Use the spreadsheet reader to give a list of all cells and a list of all connections
-    # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    # If called from unittest folder ammend path to "../../../../"
-    spreadsheet_location = "../../../../" if test else "../../../"
-
-    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet(spreadsheet_location, include_nonconnected_cells=True)
-
-    cell_names.sort()
+    cell_names, conns = get_cell_names_and_connection()
 
     # To hold all Cell NeuroML objects vs. names
     all_cells = {}
@@ -484,7 +498,7 @@ def generate(net_id,
     if verbose: 
         print("Finished loading %i cells"%count)
 
-    mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
+    mneurons, all_muscles, muscle_conns = get_cell_muscle_names_and_connection()
 
     muscles = get_muscle_names()
 
@@ -883,6 +897,5 @@ def main():
 
 if __name__ == '__main__':
 
-    '''print split_neuroml_quantity('0.3nS')'''
     main()
 
