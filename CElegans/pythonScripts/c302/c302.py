@@ -6,7 +6,6 @@ from neuroml import Population
 from neuroml import Instance
 from neuroml import IncludeType
 from neuroml import Location
-from neuroml import ExplicitInput
 from neuroml import Input
 from neuroml import InputList
 from neuroml import Projection

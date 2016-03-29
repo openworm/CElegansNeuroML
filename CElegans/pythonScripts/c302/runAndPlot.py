@@ -27,16 +27,28 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
     template = '%s/0/GenericCell/v'
     if parameter_set=='A' or parameter_set=='B':
         template = '%s/0/generic_iaf_cell/v'
+        
+    cells.sort()
+    cells.reverse()
     for cell in cells:
         v = results[template%cell]
         volts.append(v)
+        
+    volts_n = np.array(volts)
 
     fig, ax = plt.subplots()
-    plot0 = ax.pcolor(np.array(volts))
+    plot0 = ax.pcolor(volts_n)
+    ax.set_yticks(np.arange(volts_n.shape[0]) + 0.5, minor=False)
+    ax.set_yticklabels(cells)
     
     fig.colorbar(plot0)
     
     plt.title('Membrane potentials of %i cells'%(len(cells)))
+ 
+    fig.canvas.draw()
+    labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
+
+    ax.set_xticklabels(labels)
 
     plt.show()
     

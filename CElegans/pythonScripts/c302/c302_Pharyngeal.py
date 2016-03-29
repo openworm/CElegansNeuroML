@@ -4,7 +4,7 @@ import sys
 def setup(parameter_set, 
           generate=False,
           duration=500, 
-          dt=0.1,
+          dt=0.01,
           target_directory='examples'):
 
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
