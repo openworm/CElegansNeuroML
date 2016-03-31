@@ -829,16 +829,16 @@ def generate(net_id,
 
                 net.continuous_projections.append(proj0)
 
-                pre_cell_id="%s"%(0)
-                post_cell_id="%s"%(0)
+                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id)
+                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id)
 
-                conn0 = ContinuousConnection(id="0", \
+                conn0 = ContinuousConnectionInstance(id="0", \
                            pre_cell=pre_cell_id,
                            post_cell=post_cell_id,
                            pre_component="silent",
                            post_component=syn_new.id)
 
-                proj0.continuous_connections.append(conn0)
+                proj0.continuous_connection_instances.append(conn0)
 
             else:
                 

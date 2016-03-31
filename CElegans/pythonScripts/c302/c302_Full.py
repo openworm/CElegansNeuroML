@@ -5,7 +5,8 @@ def setup(parameter_set,
           generate=False,
           duration=500, 
           dt=0.1,
-          target_directory='examples'):
+          target_directory='examples',
+          include_muscles = True):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -25,6 +26,7 @@ def setup(parameter_set,
              params, 
              cells_to_plot=cells_to_plot, 
              cells_to_stimulate=cells_to_stimulate, 
+             include_muscles = include_muscles,
              duration=duration, 
              dt=dt, 
              vmin=-72 if parameter_set=='A' else -52, 
@@ -32,7 +34,7 @@ def setup(parameter_set,
              validate=(parameter_set!='B'),
              target_directory=target_directory) 
              
-    return cell_names, cells_to_stimulate, params, False
+    return cell_names, cells_to_stimulate, params, include_muscles
 
 
 if __name__ == '__main__':

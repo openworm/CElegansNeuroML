@@ -24,23 +24,25 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
     elif simulator == 'jNeuroML_NEURON':
         results = pynml.run_lems_with_jneuroml_neuron(lems_file, nogui=True, load_saved_data=True, verbose=True)
     
-    print("Reloading data: %s"%results.keys())
+    print("Reloaded data: %s"%results.keys())
     cells.sort()
     cells.reverse()
     
     ################################################
     ## Plot voltages cells
     
-    volts = []
+    print("Plotting neuron voltages")
     template = '%s/0/GenericCell/v'
     if parameter_set=='A' or parameter_set=='B':
         template = '%s/0/generic_iaf_cell/v'
         
     for cell in cells:
         v = results[template%cell]
-        volts.append(v)
+        if cell==cells[0]:
+            volts_n = np.array([v])
+        else:
+            volts_n = np.append(volts_n,[v],axis=0)
         
-    volts_n = np.array(volts)
     info = 'Membrane potentials of %i cells'%(len(cells))
     fig, ax = plt.subplots()
     plot0 = ax.pcolor(volts_n)
@@ -66,14 +68,15 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
     all_muscles.remove('MVR24')
 
     if muscles:
-        
-        mvolts = []
 
+        print("Plotting muscle voltages")
         for muscle in all_muscles:
             mv = results[template%muscle]
-            mvolts.append(mv)
+            if muscle==all_muscles[0]:
+                mvolts_n = np.array([mv])
+            else:
+                mvolts_n = np.append(mvolts_n,[mv],axis=0)
 
-        mvolts_n = np.array(mvolts)
         info = 'Membrane potentials of %i muscles'%(len(all_muscles))
         fig, ax = plt.subplots()
         plot0 = ax.pcolor(mvolts_n)
@@ -95,22 +98,24 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
     ## Plot activity/[Ca2+] in cells
     
     if parameter_set!='A':
-        activities = []
+        
+        print("Plotting neuron activities")
         variable = 'activity'
         description = 'Activity'
         template = '%s/0/GenericCell/%s'
         if parameter_set=='A' or parameter_set=='B':
             template = '%s/0/generic_iaf_cell/%s'
-        if parameter_set=='C':
+        if parameter_set=='C' or parameter_set=='C1':
             variable = 'caConc'
             description = '[Ca2+]'
 
         info = '%s of %i cells'%(description, len(cells))
         for cell in cells:
             a = results[template%(cell,variable)]
-            activities.append(a)
-
-        activities_n = np.array(activities)
+            if cell==cells[0]:
+                activities_n = np.array([a])
+            else:
+                activities_n = np.append(activities_n,[a],axis=0)
 
         fig, ax = plt.subplots()
         plot0 = ax.pcolor(activities_n)
@@ -131,22 +136,24 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
     ## Plot activity/[Ca2+] in muscles
     
     if parameter_set!='A' and muscles:
-        activities = []
+        
+        print("Plotting muscle activities")
         variable = 'activity'
         description = 'Activity'
         template = '%s/0/GenericCell/%s'
         if parameter_set=='A' or parameter_set=='B':
             template = '%s/0/generic_iaf_cell/%s'
-        if parameter_set=='C':
+        if parameter_set=='C' or parameter_set=='C1':
             variable = 'caConc'
             description = '[Ca2+]'
 
         info = '%s of %i muscles'%(description, len(all_muscles))
         for m in all_muscles:
             a = results[template%(m,variable)]
-            activities.append(a)
-
-        activities_n = np.array(activities)
+            if m==all_muscles[0]:
+                activities_n = np.array([a])
+            else:
+                activities_n = np.append(activities_n,[a],axis=0)
 
         fig, ax = plt.subplots()
         plot0 = ax.pcolor(activities_n)
@@ -173,6 +180,9 @@ if __name__ == '__main__':
     if '-full' in sys.argv or '-muscles' in sys.argv:
         main('Full','C','',300,0.05,'jNeuroML_NEURON')
         
+    if '-fullC1' in sys.argv or '-muscles' in sys.argv:
+        main('Full','C1','',1000,0.05,'jNeuroML_NEURON')
+        
     elif '-muscle' in sys.argv or '-muscles' in sys.argv:
         main('Muscles','C','',500,0.05,'jNeuroML_NEURON')
         
@@ -181,6 +191,9 @@ if __name__ == '__main__':
         
     elif '-pharB' in sys.argv or '-pharyngealB' in sys.argv:
         main('Pharyngeal','B','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-pharC1' in sys.argv or '-pharyngealC1' in sys.argv:
+        main('Pharyngeal','C1','',500,0.05,'jNeuroML_NEURON')
         
     elif '-phar' in sys.argv or '-pharyngeal' in sys.argv:
         main('Pharyngeal','C','',500,0.05,'jNeuroML_NEURON')

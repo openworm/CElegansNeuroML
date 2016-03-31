@@ -15,71 +15,71 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 0.2nF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 5 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = 8 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = 5 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 10 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 20 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.35nA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current = 0.34nA (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_del = 5 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 1000 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 10000 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
-    <expTwoSynapse id="elec_syn_3conns" gbase="0.6nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_2conns" gbase="0.4nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_2conns" gbase="10.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_1conns" gbase="0.2nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_5conns" gbase="25.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_1conns" gbase="5.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_10conns" gbase="50.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_15conns" gbase="75.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_11conns" gbase="55.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_9conns" gbase="45.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_13conns" gbase="65.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_6conns" gbase="1.2nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_5conns" gbase="1.0nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_4conns" gbase="0.8nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_7conns" gbase="1.4nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_4conns" gbase="20.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_3conns" gbase="15.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_8conns" gbase="40.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_6conns" gbase="30.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_7conns" gbase="35.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_10conns" gbase="2.0nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_12conns" gbase="60.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_19conns" gbase="95.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_16conns" gbase="80.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="elec_syn_23conns" gbase="4.6nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_1conns" gbase="5.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_2conns" gbase="10.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_4conns" gbase="20.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_17conns" gbase="85.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_25conns" gbase="125.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_21conns" gbase="105.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_23conns" gbase="115.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_14conns" gbase="70.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_26conns" gbase="130.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_5conns" gbase="25.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_3conns" gbase="15.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_6conns" gbase="30.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_18conns" gbase="90.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_24conns" gbase="120.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_20conns" gbase="100.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_37conns" gbase="185.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_27conns" gbase="135.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_30conns" gbase="150.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_13conns" gbase="65.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_12conns" gbase="60.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
-    <expTwoSynapse id="inh_syn_7conns" gbase="35.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_3conns" gbase="0.3nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_2conns" gbase="0.2nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_2conns" gbase="16.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_1conns" gbase="0.1nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_5conns" gbase="40.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_1conns" gbase="8.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_10conns" gbase="80.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_15conns" gbase="120.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_11conns" gbase="88.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_9conns" gbase="72.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_13conns" gbase="104.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_6conns" gbase="0.6nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_5conns" gbase="0.5nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_4conns" gbase="0.4nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_7conns" gbase="0.7nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_4conns" gbase="32.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_3conns" gbase="24.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_8conns" gbase="64.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_6conns" gbase="48.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_7conns" gbase="56.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_10conns" gbase="1.0nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_12conns" gbase="96.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_19conns" gbase="152.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_16conns" gbase="128.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="elec_syn_23conns" gbase="2.3nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_1conns" gbase="10.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_2conns" gbase="20.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_4conns" gbase="40.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_17conns" gbase="136.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_25conns" gbase="200.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_21conns" gbase="168.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_23conns" gbase="184.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_14conns" gbase="112.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_26conns" gbase="208.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_5conns" gbase="50.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_3conns" gbase="30.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_6conns" gbase="60.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_18conns" gbase="144.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_24conns" gbase="192.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_20conns" gbase="160.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_37conns" gbase="296.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_27conns" gbase="216.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn_30conns" gbase="240.0nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_13conns" gbase="130.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_12conns" gbase="120.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn_7conns" gbase="70.0nS" erev="-80mV" tauDecay="20 ms" tauRise="3ms"/>
     <iafCell id="generic_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="0.2nF" leakConductance="0.01uS"/>
-    <pulseGenerator id="offset_current" delay="5 ms" duration="1000 ms" amplitude="0.35nA"/>
+    <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="0.34nA"/>
     <network id="c302_A_Muscles">
         <population id="AS1" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Kottbusser Tor"/>
