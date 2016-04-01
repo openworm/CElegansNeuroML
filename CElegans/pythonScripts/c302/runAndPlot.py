@@ -66,6 +66,8 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
     all_muscles.remove('MANAL')
     all_muscles.remove('MVULVA')
     all_muscles.remove('MVR24')
+    all_muscles.sort()
+    all_muscles.reverse()
 
     if muscles:
 
@@ -186,6 +188,9 @@ if __name__ == '__main__':
     elif '-muscle' in sys.argv or '-muscles' in sys.argv:
         main('Muscles','C','',500,0.05,'jNeuroML_NEURON')
         
+    elif '-musclesC1' in sys.argv:
+        main('Muscles','C1','',1000,0.05,'jNeuroML_NEURON')
+        
     elif '-pharA' in sys.argv or '-pharyngealA' in sys.argv:
         main('Pharyngeal','A','',500,0.05,'jNeuroML_NEURON')
         
@@ -212,6 +217,9 @@ if __name__ == '__main__':
         
     elif '-oscC' in sys.argv:
         main('Oscillator','C','',600,0.05,'jNeuroML_NEURON')
+        
+    elif '-oscC1' in sys.argv:
+        main('Oscillator','C1','',600,0.05,'jNeuroML_NEURON')
         
         
     else:
