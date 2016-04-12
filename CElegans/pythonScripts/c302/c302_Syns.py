@@ -21,7 +21,7 @@ def setup(parameter_set,
     cells = [exc_pre, exc_post, inh_pre, inh_post]
     cells_to_stimulate      = [exc_pre, inh_pre]
     
-    if parameter_set=='B':
+    if parameter_set!='A':
         cells.append(gap_1)
         cells.append(gap_2)
         cells_to_stimulate.append(gap_1)

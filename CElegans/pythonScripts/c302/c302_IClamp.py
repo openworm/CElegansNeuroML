@@ -10,7 +10,7 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "0.25nA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current", "5pA", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "100 ms", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "800 ms", "Testing IClamp", "0")
     
