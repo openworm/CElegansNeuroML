@@ -313,6 +313,9 @@ def generate(net_id,
             vmin=-52 
         elif params.level == 'C':
             vmin=-60
+        else:
+            vmin=-52 
+            
     
     if vmax==None:
         if params.level == 'A':
@@ -321,6 +324,8 @@ def generate(net_id,
             vmax=-28
         elif params.level == 'C':
             vmax=25
+        else:
+            vmax=-28
     
     random.seed(seed)
 
@@ -334,7 +339,7 @@ def generate(net_id,
 
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
-    if params.level == "A" or params.level == "B":
+    if params.level == "A" or params.level == "B" or params.level == "BC1":
         nml_doc.iaf_cells.append(params.generic_cell) 
     elif params.level == "C":
         nml_doc.cells.append(params.generic_cell) 
