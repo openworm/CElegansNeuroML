@@ -42,7 +42,7 @@ def setup(parameter_set,
                        validate=(parameter_set!='B'),
                        target_directory=target_directory)
              
-    stim_amplitude = "0.35nA"
+    stim_amplitude = "5pA"
     c302.add_new_input(nml_doc, "RMGR", "100ms", "200ms", stim_amplitude, params)
     c302.add_new_input(nml_doc, "ASHR", "400ms", "200ms", stim_amplitude, params)
     c302.add_new_input(nml_doc, "ASKR", "700ms", "200ms", stim_amplitude, params)

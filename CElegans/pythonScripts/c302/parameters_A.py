@@ -33,29 +33,29 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("iaf_leak_reversal", "-70mV", "BlindGuess", "0.1")
         self.add_bioparameter("iaf_reset", "-70mV", "BlindGuess", "0.1")
         self.add_bioparameter("iaf_thresh", "-50mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_C", "0.2nF", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_conductance", "0.01uS", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_C", "3pF", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_conductance", "0.1nS", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("chem_exc_syn_gbase", "0.2nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_gbase", "0.01nS", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_erev", "0mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_rise", "3ms", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_decay", "10ms", "BlindGuess", "0.1")
         
 
-        self.add_bioparameter("chem_inh_syn_gbase", "0.2nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_gbase", "0.01nS", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_erev", "-80mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_rise", "3ms", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_decay", "10ms", "BlindGuess", "0.1")
         
 
-        self.add_bioparameter("elec_syn_gbase", "0.2nS", "BlindGuess", "0.1")
+        self.add_bioparameter("elec_syn_gbase", "0nS", "BlindGuess", "0.1")
         self.add_bioparameter("elec_syn_erev", "0mV", "BlindGuess", "0.1")
         self.add_bioparameter("elec_syn_rise", "3ms", "BlindGuess", "0.1")
         self.add_bioparameter("elec_syn_decay", "10ms", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("unphysiological_offset_current", "0.21nA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current", "2.5pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "200ms", "KnownError", "0")
 

@@ -51,8 +51,8 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
         self.add_bioparameter("iaf_reset", "-50mV", "BlindGuess", "0.1")
         self.add_bioparameter("iaf_thresh", "-30mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_C", "0.1nF", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_conductance", "0.01uS", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_C", "3pF", "BlindGuess", "0.1")
+        self.add_bioparameter("iaf_conductance", "0.1nS", "BlindGuess", "0.1")
         self.add_bioparameter("iaf_tau1", "50ms", "BlindGuess", "0.1")
 
 

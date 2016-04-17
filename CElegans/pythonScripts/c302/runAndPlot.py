@@ -221,6 +221,12 @@ if __name__ == '__main__':
     elif '-oscC1' in sys.argv:
         main('Oscillator','C1','',600,0.05,'jNeuroML_NEURON')
         
+    elif '-iA' in sys.argv:
+        main('IClamp','A','',1000,0.05,'jNeuroML')
+    elif '-iB' in sys.argv:
+        main('IClamp','B','',1000,0.05,'jNeuroML')
+    elif '-iC' in sys.argv:
+        main('IClamp','C','',1000,0.05,'jNeuroML')
         
     else:
         main('Syns','C','',500,0.05,'jNeuroML')
