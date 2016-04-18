@@ -10,17 +10,19 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "0.34nA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current", "4.3pA", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "5 ms", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "10000 ms", "Testing IClamp", "0")
     
-    params.add_bioparameter("chem_exc_syn_gbase", "8 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_exc_syn_gbase", ".15 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("exc_syn_conductance", ".20 nS", "BlindGuess", "0.1")  
     params.add_bioparameter("chem_exc_syn_decay", "5 ms", "BlindGuess", "0.1")
     
-    params.add_bioparameter("chem_inh_syn_gbase", "10 nS", "BlindGuess", "0.1")
-    params.add_bioparameter("chem_inh_syn_decay", "20 ms", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_inh_syn_gbase", ".15 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("inh_syn_conductance", ".35 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("chem_inh_syn_decay", "200 ms", "BlindGuess", "0.1")
     
-    params.add_bioparameter("elec_syn_gbase", "0.1 nS", "BlindGuess", "0.1")
+    params.add_bioparameter("elec_syn_gbase", "0.001 nS", "BlindGuess", "0.1")
     
     # Any neurons connected to muscles
     
@@ -59,6 +61,7 @@ def setup(parameter_set,
     #cells_to_stimulate = ['DB1', 'VB1']
     
     cells_to_stimulate = ['PVCL', 'AVBL']
+    cells_to_stimulate.extend(['DB1', 'VB1'])
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ['AS1', 'AS10', 'AVFL', 'DA1','DB1','DB4','DB7','IL1DL','RID', 'RIML','SMBDL', 'SMBDR', 'VB1', 'VB5', 'VB10','VC1', 'VC2']
