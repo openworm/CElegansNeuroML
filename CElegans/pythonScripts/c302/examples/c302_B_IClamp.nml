@@ -13,26 +13,26 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_C = 0.1nF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_conductance = 0.01uS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = 0.4 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 10 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = 1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -55 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.3 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0.25nA (SRC: Testing IClamp, certainty 0)
+        BioParameter: chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
     <include href="cell_B.xml"></include>
-    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="0.1nF" thresh="-30mV" reset="-50mV" leakConductance="0.01uS" leakReversal="-50mV" tau1="50ms"/>
-    <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="0.25nA"/>
+    <iafCell type="iafActivityCell" id="generic_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
+    <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="5pA"/>
     <network id="c302_B_IClamp">
         <population id="ADAL" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>

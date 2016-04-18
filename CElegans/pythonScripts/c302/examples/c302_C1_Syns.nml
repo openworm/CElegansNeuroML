@@ -1,4 +1,4 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_C_Syns">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_C1_Syns">
     <notes>
 
 Parameters and setting used to generate this network:
@@ -22,14 +22,16 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 5 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
@@ -37,9 +39,10 @@ Parameters and setting used to generate this network:
 
 </notes>
     <include href="cell_C.xml"></include>
-    <expTwoSynapse id="inh_syn_1conns" gbase="0.2nS" erev="-60 mV" tauDecay="40 ms" tauRise="2 ms"/>
-    <expTwoSynapse id="exc_syn_1conns" gbase="0.2nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
     <gapJunction id="elec_syn_1conns" conductance="0.01nS"/>
+    <silentSynapse id="silent"/>
+    <gradedSynapse id="inh_syn_1conns" conductance="0.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="exc_syn_1conns" conductance="0.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">
@@ -64,7 +67,7 @@ Parameters and setting used to generate this network:
         </biophysicalProperties>
     </cell>
     <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="5 pA"/>
-    <network id="c302_C_Syns">
+    <network id="c302_C1_Syns">
         <population id="AIZL" component="GenericCell" type="populationList">
             <instance id="0">
                 <location x="5.6000004" y="-258.75" z="37.450000000000003"/>
@@ -95,18 +98,18 @@ Parameters and setting used to generate this network:
                 <location x="-0.75" y="345.5" z="-23.149999999999999"/>
             </instance>
         </population>
-        <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="inh_syn_1conns">
-            <connection id="0" preCellId="../VD12/0/GenericCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/GenericCell" postSegmentId="0" postFractionAlong="0.5"/>
-        </projection>
-        <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn_1conns">
-            <connection id="0" preCellId="../URYDL/0/GenericCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/GenericCell" postSegmentId="0" postFractionAlong="0.5"/>
-        </projection>
         <electricalProjection id="NC_AIZL_ASHL_Generic_GJ" presynapticPopulation="AIZL" postsynapticPopulation="ASHL">
             <electricalConnectionInstance id="0" preCell="../AIZL/0/GenericCell" preSegment="0" preFractionAlong="0.5" postCell="../ASHL/0/GenericCell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_ASHL_AIZL_Generic_GJ" presynapticPopulation="ASHL" postsynapticPopulation="AIZL">
             <electricalConnectionInstance id="0" preCell="../ASHL/0/GenericCell" preSegment="0" preFractionAlong="0.5" postCell="../AIZL/0/GenericCell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
+        <continuousProjection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11">
+            <continuousConnectionInstance id="0" preCell="../VD12/0/GenericCell" preSegment="0" preFractionAlong="0.5" postCell="../VB11/0/GenericCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="inh_syn_1conns"/>
+        </continuousProjection>
+        <continuousProjection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR">
+            <continuousConnectionInstance id="0" preCell="../URYDL/0/GenericCell" preSegment="0" preFractionAlong="0.5" postCell="../SMDDR/0/GenericCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="exc_syn_1conns"/>
+        </continuousProjection>
         <inputList id="Input_AIZL_offset_current" population="AIZL" component="offset_current">
             <input id="0" target="../AIZL/0/GenericCell" destination="synapses"/>
         </inputList>

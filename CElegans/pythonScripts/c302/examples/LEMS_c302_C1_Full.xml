@@ -24,14 +24,16 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 5 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
@@ -40,7 +42,7 @@ Parameters and setting used to generate this network:
    
     -->
 
-    <Target component="sim_c302_C_Full" />
+    <Target component="sim_c302_C1_Full" />
 
     <!-- Include core NeuroML2 ComponentType definitions -->
 
@@ -50,14 +52,14 @@ Parameters and setting used to generate this network:
     
     <Include file="cell_C.xml" />
     
-    <Include file="c302_C_Full.nml" />
+    <Include file="c302_C1_Full.nml" />
 
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_C_Full" length="500ms" step="0.1ms" target="c302_C_Full">
+    <Simulation id="sim_c302_C1_Full" length="500ms" step="0.1ms" target="c302_C1_Full">
 
-        <Display id="neurons" title="c302_C_Full: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_C1_Full: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
             
             <Line id="ADAL" quantity="ADAL/0/GenericCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="ADAR" quantity="ADAR/0/GenericCell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
@@ -68,7 +70,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="muscles" title="c302_C_Full: Membrane potential of a number of muscles" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+        <Display id="muscles" title="c302_C1_Full: Membrane potential of a number of muscles" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
             
             <Line id="MDR01" quantity="MDR01/0/GenericCell/v" scale="1mV" color="#008200" timeScale="1ms" />
             <Line id="MDR02" quantity="MDR02/0/GenericCell/v" scale="1mV" color="#00962a" timeScale="1ms" />
@@ -168,7 +170,7 @@ Parameters and setting used to generate this network:
 
         </Display>
       
-        <Display id="activity_neurons" title="c302_C_Full: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_neurons" title="c302_C1_Full: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
             
             <Line id="ADAL" quantity="ADAL/0/GenericCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
             <Line id="ADAR" quantity="ADAR/0/GenericCell/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
@@ -179,7 +181,7 @@ Parameters and setting used to generate this network:
 
         </Display>
       
-        <Display id="activity_muscles" title="c302_C_Full: Activity of a number of muscles" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_muscles" title="c302_C1_Full: Activity of a number of muscles" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
             
             <Line id="MDR01" quantity="MDR01/0/GenericCell/caConc" scale="1" color="#247960" timeScale="1ms" />
             <Line id="MDR02" quantity="MDR02/0/GenericCell/caConc" scale="1" color="#8f25f0" timeScale="1ms" />
@@ -279,7 +281,7 @@ Parameters and setting used to generate this network:
 
         </Display>
 
-        <OutputFile id="neurons_v" fileName="c302_C_Full.dat">
+        <OutputFile id="neurons_v" fileName="c302_C1_Full.dat">
             <OutputColumn id="ADAL_v" quantity="ADAL/0/GenericCell/v"/>
             <OutputColumn id="ADAR_v" quantity="ADAR/0/GenericCell/v"/>
             <OutputColumn id="ADEL_v" quantity="ADEL/0/GenericCell/v"/>
@@ -584,7 +586,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="VD9_v" quantity="VD9/0/GenericCell/v"/>
         </OutputFile>
         
-        <OutputFile id="neurons_activity" fileName="c302_C_Full.activity.dat">
+        <OutputFile id="neurons_activity" fileName="c302_C1_Full.activity.dat">
             <OutputColumn id="ADAL_v" quantity="ADAL/0/GenericCell/caConc"/>
             <OutputColumn id="ADAR_v" quantity="ADAR/0/GenericCell/caConc"/>
             <OutputColumn id="ADEL_v" quantity="ADEL/0/GenericCell/caConc"/>
@@ -888,7 +890,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="VD8_v" quantity="VD8/0/GenericCell/caConc"/>
             <OutputColumn id="VD9_v" quantity="VD9/0/GenericCell/caConc"/>
         </OutputFile>
-        <OutputFile id="muscles_v" fileName="c302_C_Full.muscles.dat">
+        <OutputFile id="muscles_v" fileName="c302_C1_Full.muscles.dat">
             <OutputColumn id="MDR01_v" quantity="MDR01/0/GenericCell/v"/>
             <OutputColumn id="MDR02_v" quantity="MDR02/0/GenericCell/v"/>
             <OutputColumn id="MDR03_v" quantity="MDR03/0/GenericCell/v"/>
@@ -985,7 +987,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="MDL23_v" quantity="MDL23/0/GenericCell/v"/>
             <OutputColumn id="MDL24_v" quantity="MDL24/0/GenericCell/v"/>
         </OutputFile>
-        <OutputFile id="muscles_activity" fileName="c302_C_Full.muscles.activity.dat">
+        <OutputFile id="muscles_activity" fileName="c302_C1_Full.muscles.activity.dat">
             <OutputColumn id="MDR01_v" quantity="MDR01/0/GenericCell/caConc"/>
             <OutputColumn id="MDR02_v" quantity="MDR02/0/GenericCell/caConc"/>
             <OutputColumn id="MDR03_v" quantity="MDR03/0/GenericCell/caConc"/>

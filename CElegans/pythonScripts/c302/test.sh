@@ -28,6 +28,14 @@ python c302_Full.py C
 python c302_Muscles.py C
 python c302_Oscillator.py C
 
+python c302_IClamp.py C1
+python c302_Syns.py C1
+python c302_Social.py C1
+python c302_Pharyngeal.py C1
+python c302_Full.py C1
+python c302_Muscles.py C1
+python c302_Oscillator.py C1
+
 cd examples
 
 ## Validate generated NeuroML 2

@@ -24,14 +24,16 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 5 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
@@ -40,7 +42,7 @@ Parameters and setting used to generate this network:
    
     -->
 
-    <Target component="sim_c302_C_Pharyngeal" />
+    <Target component="sim_c302_C1_Pharyngeal" />
 
     <!-- Include core NeuroML2 ComponentType definitions -->
 
@@ -50,14 +52,14 @@ Parameters and setting used to generate this network:
     
     <Include file="cell_C.xml" />
     
-    <Include file="c302_C_Pharyngeal.nml" />
+    <Include file="c302_C1_Pharyngeal.nml" />
 
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_C_Pharyngeal" length="500ms" step="0.01ms" target="c302_C_Pharyngeal">
+    <Simulation id="sim_c302_C1_Pharyngeal" length="500ms" step="0.01ms" target="c302_C1_Pharyngeal">
 
-        <Display id="neurons" title="c302_C_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
+        <Display id="neurons" title="c302_C1_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
             
             <Line id="I1L" quantity="I1L/0/GenericCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="I1R" quantity="I1R/0/GenericCell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
@@ -82,7 +84,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="activity_neurons" title="c302_C_Pharyngeal: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_neurons" title="c302_C1_Pharyngeal: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
             
             <Line id="I1L" quantity="I1L/0/GenericCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
             <Line id="I1R" quantity="I1R/0/GenericCell/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
@@ -107,7 +109,7 @@ Parameters and setting used to generate this network:
 
         </Display>
 
-        <OutputFile id="neurons_v" fileName="c302_C_Pharyngeal.dat">
+        <OutputFile id="neurons_v" fileName="c302_C1_Pharyngeal.dat">
             <OutputColumn id="I1L_v" quantity="I1L/0/GenericCell/v"/>
             <OutputColumn id="I1R_v" quantity="I1R/0/GenericCell/v"/>
             <OutputColumn id="I2L_v" quantity="I2L/0/GenericCell/v"/>
@@ -130,7 +132,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="NSMR_v" quantity="NSMR/0/GenericCell/v"/>
         </OutputFile>
         
-        <OutputFile id="neurons_activity" fileName="c302_C_Pharyngeal.activity.dat">
+        <OutputFile id="neurons_activity" fileName="c302_C1_Pharyngeal.activity.dat">
             <OutputColumn id="I1L_v" quantity="I1L/0/GenericCell/caConc"/>
             <OutputColumn id="I1R_v" quantity="I1R/0/GenericCell/caConc"/>
             <OutputColumn id="I2L_v" quantity="I2L/0/GenericCell/caConc"/>

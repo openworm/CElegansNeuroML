@@ -1,4 +1,4 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_C_IClamp">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_C1_IClamp">
     <notes>
 
 Parameters and setting used to generate this network:
@@ -22,14 +22,16 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
@@ -61,7 +63,7 @@ Parameters and setting used to generate this network:
         </biophysicalProperties>
     </cell>
     <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="5pA"/>
-    <network id="c302_C_IClamp">
+    <network id="c302_C1_IClamp">
         <population id="ADAL" component="GenericCell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">

@@ -3,4 +3,4 @@ system: Testing a single cell activity
 experiments:
     TestOneCell:
         expected:
-            spike times:  [8.49, 73.67, 143.07, 213.62, 285.44, 358.01, 431.0]
+            spike times:  [7.590000000000001, 61.440000000000005, 114.8, 168.78, 220.07999999999998, 276.38, 337.61, 398.15, 458.28999999999996]
