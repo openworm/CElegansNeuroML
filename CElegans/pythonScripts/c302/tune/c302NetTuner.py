@@ -337,8 +337,8 @@ if __name__ == '__main__':
                              target_data,
                              sim_time = 500,
                              dt = 0.1,
-                             population_size =  40,
-                             max_evaluations =  120,
+                             population_size =  20,
+                             max_evaluations =  50,
                              num_selected =     3,
                              num_offspring =    3,
                              mutation_rate =    0.1,
@@ -353,15 +353,101 @@ if __name__ == '__main__':
             
             my_controller = C302Controller('TestOsc', 'C1', 'Oscillator', sim_time, 0.1, simulator = simulator)
 
-            sim_var = OrderedDict([('exc_syn_conductance',10),
-                      ('inh_syn_conductance',10),
-                      ('unphysiological_offset_current',0.38)])
+            sim_var = OrderedDict([('exc_syn_conductance',0.0440481886416),
+                                   ('inh_syn_conductance',0.0236199415714),
+                                   ('elec_syn_gbase',0.0005),
+                                   ('unphysiological_offset_current',4.38952826613)])
                   
             example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
 
             print("Have run individual instance...")
 
             peak_threshold = 0
+
+            analysis_var = {'peak_delta':     0,
+                            'baseline':       0,
+                            'dvdt_threshold': 0, 
+                            'peak_threshold': peak_threshold}
+
+            example_run_analysis=analysis.NetworkAnalysis(example_run_v,
+                                                       example_run_t,
+                                                       analysis_var,
+                                                       start_analysis=0,
+                                                       end_analysis=sim_time)
+
+            analysis = example_run_analysis.analyse()
+
+            pp.pprint(analysis)
+
+            analysis = example_run_analysis.analyse(weights.keys())
+
+            pp.pprint(analysis)
+  
+    elif '-icC1' in sys.argv or '-icC1one' in sys.argv:
+
+        '''
+        self.add_bioparameter("leak_cond_density", "0.1 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("k_slow_cond_density", "0.5 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("k_fast_cond_density", "0.05 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("ca_boyle_cond_density", "0.5 mS_per_cm2", "BlindGuess", "0.1")'''
+        
+        parameters = ['leak_cond_density',
+                      'k_slow_cond_density',
+                      'k_fast_cond_density',
+                      'ca_boyle_cond_density',
+                      'unphysiological_offset_current']
+
+        #above parameters will not be modified outside these bounds:
+        min_constraints = [.01,.1, 0.01, .1, 3]
+        max_constraints = [.2,  1, 0.1,   1, 8]
+        
+        weights = {}
+        target_data = {}
+        
+        for cell in ['ADAL']:
+            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+            weights[var] = 1
+            target_data[var] = 4
+            
+        if '-icC1' in sys.argv:
+
+            simulator  = 'jNeuroML_NEURON'
+            run_optimisation('Test',
+                             'IClamp',
+                             'C1',
+                             parameters,
+                             max_constraints,
+                             min_constraints,
+                             weights,
+                             target_data,
+                             sim_time = 1000,
+                             dt = 0.1,
+                             population_size =  50,
+                             max_evaluations =  120,
+                             num_selected =     10,
+                             num_offspring =    15,
+                             mutation_rate =    0.1,
+                             num_elites =       1,
+                             seed =             123477,
+                             nogui =            nogui,
+                             simulator = simulator)
+        else:
+               
+            sim_time = 1000
+            simulator  = 'jNeuroML_NEURON'
+            
+            my_controller = C302Controller('TestOsc', 'C1', 'IClamp', sim_time, 0.1, simulator = simulator)
+
+            sim_var = OrderedDict([('leak_cond_density',0.1),
+                                   ('k_slow_cond_density',0.5),
+                                   ('k_fast_cond_density',0.05),
+                                   ('ca_boyle_cond_density',0.5)])
+                  
+            example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
+
+            print("Have run individual instance...")
+
+            peak_threshold = -10
 
             analysis_var = {'peak_delta':     0,
                             'baseline':       0,
