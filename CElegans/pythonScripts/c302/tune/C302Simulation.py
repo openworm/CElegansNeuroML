@@ -160,6 +160,12 @@ if __name__ == '__main__':
         sim.go()
         sim.show()
         
+    elif len(sys.argv) == 2 and sys.argv[1] == '-oscC1':
+        
+        sim = C302Simulation('TestOsc', 'C1', 'Oscillator', sim_time, dt, 'jNeuroML', 'temp')
+        sim.go()
+        sim.show()
+        
     elif len(sys.argv) == 2 and sys.argv[1] == '-oscN':
         
         sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt, 'jNeuroML_NEURON', 'temp')

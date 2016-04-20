@@ -62,7 +62,7 @@ def run_optimisation(prefix,
 
     my_controller = C302Controller(ref, level, config, sim_time, dt, simulator = simulator, generate_dir=run_dir)
 
-    peak_threshold = -31 if level is 'A' or level is 'B' else 0
+    peak_threshold = -31 if level is 'A' or level is 'B' else (-20 if level is 'C1' else 0)
 
     analysis_var = {'peak_delta':     0,
                     'baseline':       0,
@@ -304,30 +304,29 @@ if __name__ == '__main__':
                          seed =             123477,
                          nogui =            nogui)
                          
-    elif '-oscC' in sys.argv or '-oscCone' in sys.argv:
+    elif '-oscC1' in sys.argv or '-oscC1one' in sys.argv:
 
-        parameters = ['chem_exc_syn_gbase',
-                      'chem_exc_syn_decay',
-                      'chem_inh_syn_gbase',
-                      'chem_inh_syn_decay',
+        parameters = ['exc_syn_conductance',
+                      'inh_syn_conductance',
                       'elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [0.05, 3,  0.05, 3,    0.01,   0.20]
-        max_constraints = [1,    40, 1,    100,  0.5,    0.45]
+        min_constraints = [.01,.01, 0.0005, 3]
+        max_constraints = [.05,  .05, 0.005,   6]
         
         weights = {}
         target_data = {}
         
         
-        for cell in ['DB2','VB2','DB3','VB3','DB4','VB4']:
-            var = '%s[0]/v:mean_spike_frequency'%cell
+        for cell in ['DB3','VB3','DB4','VB4','PVCL']:
+            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
             weights[var] = 1
-            target_data[var] = 5
+            target_data[var] = 4
             
-        if '-oscC' in sys.argv:
+        if '-oscC1' in sys.argv:
 
+            simulator  = 'jNeuroML_NEURON'
             run_optimisation('Test',
                              'Oscillator',
                              'C1',
@@ -336,20 +335,23 @@ if __name__ == '__main__':
                              min_constraints,
                              weights,
                              target_data,
-                             sim_time = 50,
+                             sim_time = 500,
                              dt = 0.1,
-                             population_size =  3,
-                             max_evaluations =  4,
-                             num_selected =     2,
-                             num_offspring =    2,
+                             population_size =  40,
+                             max_evaluations =  120,
+                             num_selected =     3,
+                             num_offspring =    3,
                              mutation_rate =    0.1,
                              num_elites =       1,
                              seed =             123477,
-                             nogui =            nogui)
+                             nogui =            nogui,
+                             simulator = simulator)
         else:
                
             sim_time = 300
-            my_controller = C302Controller('TestOsc', 'C1', 'Oscillator', sim_time, 0.1)
+            simulator  = 'jNeuroML_NEURON'
+            
+            my_controller = C302Controller('TestOsc', 'C1', 'Oscillator', sim_time, 0.1, simulator = simulator)
 
             sim_var = OrderedDict([('exc_syn_conductance',10),
                       ('inh_syn_conductance',10),
