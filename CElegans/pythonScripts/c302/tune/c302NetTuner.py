@@ -34,6 +34,9 @@ sys.path.append(".")
 from C302Controller import C302Controller
 
 
+def scale(scale, number, min=1):
+    return max(min, int(scale*number))
+
 def run_optimisation(prefix,
                      config,
                      level,
@@ -205,16 +208,14 @@ if __name__ == '__main__':
 
     if '-musc' in sys.argv:
 
-        parameters = ['chem_exc_syn_gbase',
-                      'chem_exc_syn_decay',
-                      'chem_inh_syn_gbase',
-                      'chem_inh_syn_decay',
+        parameters = ['exc_syn_conductance',
+                      'inh_syn_conductance',
                       'elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [0.05, 3,  0.05, 3,    0.01,   0.20]
-        max_constraints = [1,    40, 1,    100,  0.5,    0.45]
+        min_constraints = [.01,.01, 0.0005, 3]
+        max_constraints = [.05,  .05, 0.005,   6]
         
         weights = {}
         target_data = {}
@@ -239,28 +240,31 @@ if __name__ == '__main__':
                        PVCL_max_peak: 80}
         '''
         
-        for cell in ['VA1','DB1','VB9','PVCL']:
-            var = '%s[0]/v:mean_spike_frequency'%cell
+        for cell in ['DB3','VB3','DB4','VB4','PVCL']:
+            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
             weights[var] = 1
-            target_data[var] = 100
+            target_data[var] = 4
 
+        simulator  = 'jNeuroML_NEURON'
+        scalem = .1
         run_optimisation('Test',
                          'Muscles',
-                         'B',
+                         'C1',
                          parameters,
                          max_constraints,
                          min_constraints,
                          weights,
                          target_data,
-                         sim_time = 300,
+                         sim_time = 500,
                          dt = 0.1,
-                         population_size =  20,
-                         max_evaluations =  100,
-                         num_selected =     10,
-                         num_offspring =    10,
+                         population_size =  scale(scalem,100),
+                         max_evaluations =  scale(scalem,500),
+                         num_selected =     scale(scalem,20),
+                         num_offspring =    scale(scalem,20),
                          mutation_rate =    0.9,
-                         num_elites =       1,
-                         nogui =            nogui)
+                         num_elites =       scale(scalem,3),
+                         nogui =            nogui,
+                         simulator = simulator)
                          
                          
     elif '-osc' in sys.argv:
