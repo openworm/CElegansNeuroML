@@ -252,20 +252,27 @@ if __name__ == '__main__':
         
         param_sets = ['IClamp','Syns']
         param_sets = ['IClamp','Syns','Pharyngeal','Social']
+        param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles','Full']
         
-        durations = {'IClamp':1000,'Syns':500,'Pharyngeal':500,'Social':2500}
+        durations = {'IClamp':1000,
+                     'Syns':500,
+                     'Pharyngeal':500,
+                     'Social':2500,
+                     'Oscillator':600,
+                     'Muscles':500,
+                     'Full':500}
             
         html+='<tr>'
         html+='<td>&nbsp;</td>'
         for p in param_sets:
-            html+='<td align="center">%s</td>'%p
+            html+='<td align="center"><b>%s</b></td>'%p
 
         html+='</tr>\n'
         for c in ['A','B','C','C1']:
             
             
             html+='<tr>'
-            html+='<td>Parameters %s</td>'%c
+            html+='<td><b>Params %s</b></td>'%c
             for p in param_sets:
                 html+='<td>'
                 html+='<a href="summary_%s_%s.html"/>'%(c,p)
@@ -282,7 +289,7 @@ if __name__ == '__main__':
                 f3 = open('examples/'+save_fig_path%('summary_%s_%s.md'%(c,p)),'w')
                 f3.write('### Parameter config summary \n%s'%html2)
                 
-                ##main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save_only=True)
+                main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save_only=True)
                 html+='</td>'
                 
             html+='</tr>\n'
@@ -290,7 +297,7 @@ if __name__ == '__main__':
         html+='</table>\n'
                 
         f = open('examples/'+save_fig_path%'info.html','w')
-        f.write('<html><body>%s</body></html>'%html)
+        f.write('<html><body>\n%s\n</body></html>'%html)
         f2 = open('examples/'+save_fig_path%'README.md','w')
         f2.write('### c302 activity summary \n%s'%(html.replace('.html','.md')))
         
