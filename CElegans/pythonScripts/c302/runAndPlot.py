@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import c302
 
-def main(config, parameter_set, prefix, duration, dt, simulator):
+save_fig_path = 'summary/%s'
+
+def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False):
     
     
     exec('from c302_%s import setup'%config)
@@ -43,7 +45,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
         else:
             volts_n = np.append(volts_n,[v],axis=0)
         
-    info = 'Membrane potentials of %i cells'%(len(cells))
+    info = 'Membrane potentials of %i cells (%s %s)'%(len(cells),config,parameter_set)
     fig, ax = plt.subplots()
     plot0 = ax.pcolor(volts_n)
     ax.set_yticks(np.arange(volts_n.shape[0]) + 0.5, minor=False)
@@ -59,6 +61,9 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
     labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
 
     ax.set_xticklabels(labels)
+
+    if save_only:
+        plt.savefig(save_fig_path%('neurons_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
     
     ################################################
     ## Plot voltages muscles
@@ -79,7 +84,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
             else:
                 mvolts_n = np.append(mvolts_n,[mv],axis=0)
 
-        info = 'Membrane potentials of %i muscles'%(len(all_muscles))
+        info = 'Membrane potentials of %i muscles (%s %s)'%(len(all_muscles),config,parameter_set)
         fig, ax = plt.subplots()
         plot0 = ax.pcolor(mvolts_n)
         ax.set_yticks(np.arange(mvolts_n.shape[0]) + 0.5, minor=False)
@@ -95,6 +100,9 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
         labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
 
         ax.set_xticklabels(labels)
+        
+        if save_only:
+            plt.savefig(save_fig_path%('muscles_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
     
     ################################################
     ## Plot activity/[Ca2+] in cells
@@ -111,7 +119,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
             variable = 'caConc'
             description = '[Ca2+]'
 
-        info = '%s of %i cells'%(description, len(cells))
+        info = '%s of %i cells (%s %s)'%(description, len(cells),config,parameter_set)
         for cell in cells:
             a = results[template%(cell,variable)]
             if cell==cells[0]:
@@ -133,6 +141,9 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
         labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
 
         ax.set_xticklabels(labels)
+        
+        if save_only:
+            plt.savefig(save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
     
     ################################################
     ## Plot activity/[Ca2+] in muscles
@@ -149,7 +160,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
             variable = 'caConc'
             description = '[Ca2+]'
 
-        info = '%s of %i muscles'%(description, len(all_muscles))
+        info = '%s of %i muscles (%s %s)'%(description, len(all_muscles),config,parameter_set)
         for m in all_muscles:
             a = results[template%(m,variable)]
             if m==all_muscles[0]:
@@ -172,9 +183,14 @@ def main(config, parameter_set, prefix, duration, dt, simulator):
 
         ax.set_xticklabels(labels)
     
+        if save_only:
+            plt.savefig(save_fig_path%('muscle_activity_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
     
+    
+    os.chdir('..')
 
-    plt.show()
+    if not save_only:
+        plt.show()
     
 if __name__ == '__main__':
 
@@ -227,7 +243,55 @@ if __name__ == '__main__':
         main('IClamp','B','',1000,0.05,'jNeuroML')
     elif '-iC' in sys.argv:
         main('IClamp','C','',1000,0.05,'jNeuroML')
+    elif '-iC1' in sys.argv:
+        main('IClamp','C1','',1000,0.05,'jNeuroML')
+        
+    elif '-all' in sys.argv:
+        
+        html = '<html><body>\n<table>\n'
+        
+        param_sets = ['IClamp','Syns']
+        param_sets = ['IClamp','Syns','Pharyngeal','Social']
+        
+        durations = {'IClamp':1000,'Syns':500,'Pharyngeal':500,'Social':2500}
+            
+        html+='<tr>'
+        html+='<td>&nbsp;</td>'
+        for p in param_sets:
+            html+='<td align="center">%s</td>'%p
+
+        html+='</tr>\n'
+        for c in ['A','B','C','C1']:
+            
+            
+            html+='<tr>'
+            html+='<td>Parameters %s</td>'%c
+            for p in param_sets:
+                html+='<td>'
+                html+='<a href="summary_%s_%s.html"/>'%(c,p)
+                html+='<img alt="?" src="neurons_%s_%s.png" height="90"/></a>'%(c,p)
+                html2 ='<html><body>\n'
+                html2+='<p><img alt="?" src="neurons_%s_%s.png"/></p>\n'%(c,p)
+                html2+='<p><img alt=" " src="neuron_activity_%s_%s.png"/></p>\n'%(c,p)
+                html2+='<p><img alt=" " src="muscles_%s_%s.png"/></p>\n'%(c,p)
+                html2+='<p><img alt=" " src="muscle_activity_%s_%s.png"/></p>\n'%(c,p)
+                html2+='</html>'
+                f2 = open('examples/'+save_fig_path%('summary_%s_%s.html'%(c,p)),'w')
+                f2.write(html2)
+                
+                ##main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save_only=True)
+                html+='</td>'
+                
+            html+='</tr>\n'
+        
+        html+='</html>'
+                
+        f = open('examples/'+save_fig_path%'info.html','w')
+        f.write(html)
         
     else:
         main('Syns','C','',500,0.05,'jNeuroML')
+        
+        
+    
         
