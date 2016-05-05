@@ -248,7 +248,7 @@ if __name__ == '__main__':
         
     elif '-all' in sys.argv:
         
-        html = '<html><body>\n<table>\n'
+        html = '<table>\n'
         
         param_sets = ['IClamp','Syns']
         param_sets = ['IClamp','Syns','Pharyngeal','Social']
@@ -284,10 +284,12 @@ if __name__ == '__main__':
                 
             html+='</tr>\n'
         
-        html+='</html>'
+        html+='</table>\n'
                 
         f = open('examples/'+save_fig_path%'info.html','w')
-        f.write(html)
+        f.write('<html><body>%s</body></html>'%html)
+        f2 = open('examples/'+save_fig_path%'README.md','w')
+        f2.write('### c302 activity summary \n %s'%html)
         
     else:
         main('Syns','C','',500,0.05,'jNeuroML')
