@@ -270,14 +270,17 @@ if __name__ == '__main__':
                 html+='<td>'
                 html+='<a href="summary_%s_%s.html"/>'%(c,p)
                 html+='<img alt="?" src="neurons_%s_%s.png" height="90"/></a>'%(c,p)
-                html2 ='<html><body>\n'
+                
+                html2=''
                 html2+='<p><img alt="?" src="neurons_%s_%s.png"/></p>\n'%(c,p)
                 html2+='<p><img alt=" " src="neuron_activity_%s_%s.png"/></p>\n'%(c,p)
                 html2+='<p><img alt=" " src="muscles_%s_%s.png"/></p>\n'%(c,p)
                 html2+='<p><img alt=" " src="muscle_activity_%s_%s.png"/></p>\n'%(c,p)
-                html2+='</html>'
+                
                 f2 = open('examples/'+save_fig_path%('summary_%s_%s.html'%(c,p)),'w')
-                f2.write(html2)
+                f2.write('<html><body>%s</body></html>'%html2)
+                f3 = open('examples/'+save_fig_path%('summary_%s_%s.md'%(c,p)),'w')
+                f3.write('### Parameter config summary \n%s'%html2)
                 
                 ##main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save_only=True)
                 html+='</td>'
@@ -289,7 +292,7 @@ if __name__ == '__main__':
         f = open('examples/'+save_fig_path%'info.html','w')
         f.write('<html><body>%s</body></html>'%html)
         f2 = open('examples/'+save_fig_path%'README.md','w')
-        f2.write('### c302 activity summary \n %s'%html)
+        f2.write('### c302 activity summary \n%s'%(html.replace('.html','.md')))
         
     else:
         main('Syns','C','',500,0.05,'jNeuroML')
