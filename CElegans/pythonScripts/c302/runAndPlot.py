@@ -259,6 +259,9 @@ if __name__ == '__main__':
                 html+='<a href="summary_%s_%s.html"/>'%(c,p)
                 html+='<img alt="?" src="neurons_%s_%s.png" height="80"/></a>'%(c,p)
                 
+                html+='<br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml"/>NML</a>'%(c,p)
+                html+='&nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml"/>OSB</a>'%(c,p)
+                
                 html2=''
                 html2+='<p><img alt="?" src="neurons_%s_%s.png"/></p>\n'%(c,p)
                 html2+='<p><img alt=" " src="neuron_activity_%s_%s.png"/></p>\n'%(c,p)
@@ -270,7 +273,7 @@ if __name__ == '__main__':
                 f3 = open('examples/'+save_fig_path%('summary_%s_%s.md'%(c,p)),'w')
                 f3.write('### Parameter config summary \n%s'%html2)
                 
-                main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save_only=True)
+                #main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save_only=True)
                 html+='</td>'
                 
             html+='</tr>\n'
