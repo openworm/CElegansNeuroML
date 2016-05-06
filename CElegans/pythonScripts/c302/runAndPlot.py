@@ -11,9 +11,10 @@ def plots(a_n, info, cells, dt):
     print('Generating plots for: %s'%info)
     
     fig, ax = plt.subplots()
-    print a_n.shape
-    a_n_ = a_n[:,::10]
-    print(a_n_.shape) 
+    downscale = 10
+    #print a_n.shape
+    a_n_ = a_n[:,::downscale]
+    #print(a_n_.shape) 
     
     plot0 = ax.pcolor(a_n_)
     ax.set_yticks(np.arange(a_n_.shape[0]) + 0.5, minor=False)
@@ -26,9 +27,13 @@ def plots(a_n, info, cells, dt):
     plt.xlabel('Time (ms)')
  
     fig.canvas.draw()
-    labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
+    labels = [float(item.get_text())*dt*downscale for item in ax.get_xticklabels()]
 
     ax.set_xticklabels(labels)
+    #print labels
+    #print plt.xlim()
+    plt.xlim(0,a_n_.shape[1])
+    #print plt.xlim()
     
 
 def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False):
@@ -226,6 +231,7 @@ if __name__ == '__main__':
         html = '<table>\n'
         
         param_sets = ['IClamp','Syns']
+        param_sets = ['IClamp']
         param_sets = ['IClamp','Syns','Pharyngeal','Social']
         param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles','Full']
         
@@ -240,18 +246,18 @@ if __name__ == '__main__':
         html+='<tr>'
         html+='<td>&nbsp;</td>'
         for p in param_sets:
-            html+='<td align="center"><b>%s</b></td>'%p
+            html+='<td align="center"><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_%s.py">%s</a></b></td>'%(p,p)
 
         html+='</tr>\n'
         for c in ['A','B','C','C1']:
             
             
             html+='<tr>'
-            html+='<td><b>Params %s</b></td>'%c
+            html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)
             for p in param_sets:
                 html+='<td>'
                 html+='<a href="summary_%s_%s.html"/>'%(c,p)
-                html+='<img alt="?" src="neurons_%s_%s.png" height="90"/></a>'%(c,p)
+                html+='<img alt="?" src="neurons_%s_%s.png" height="80"/></a>'%(c,p)
                 
                 html2=''
                 html2+='<p><img alt="?" src="neurons_%s_%s.png"/></p>\n'%(c,p)
