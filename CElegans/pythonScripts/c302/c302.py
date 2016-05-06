@@ -541,7 +541,11 @@ def generate(net_id,
                 p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[muscle])
                 pop0.properties.append(p)
 
-            inst.location = Location(100, 10*muscle_count, 100)
+            x = 80 * (-1 if muscle[1] == 'V' else 1)
+            z = 80 * (-1 if muscle[2] == 'L' else 1)
+            y = -300 + 30 * int(muscle[3:5])
+            print('Positioning muscle: %s at (%s,%s,%s)'%(muscle,x,y,z))
+            inst.location = Location(x,y,z)
 
             target = "%s/0/%s"%(pop0.id, params.generic_cell.id)
             if populations_without_location:
