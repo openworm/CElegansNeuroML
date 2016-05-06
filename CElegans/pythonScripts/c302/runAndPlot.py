@@ -7,6 +7,30 @@ import c302
 
 save_fig_path = 'summary/%s'
 
+def plots(a_n, info, cells, dt):
+    print('Generating plots for: %s'%info)
+    
+    fig, ax = plt.subplots()
+    print a_n.shape
+    a_n_ = a_n[:,::10]
+    print(a_n_.shape) 
+    
+    plot0 = ax.pcolor(a_n_)
+    ax.set_yticks(np.arange(a_n_.shape[0]) + 0.5, minor=False)
+    ax.set_yticklabels(cells)
+    
+    fig.colorbar(plot0)
+    
+    fig.canvas.set_window_title(info)
+    plt.title(info)
+    plt.xlabel('Time (ms)')
+ 
+    fig.canvas.draw()
+    labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
+
+    ax.set_xticklabels(labels)
+    
+
 def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False):
     
     
@@ -46,21 +70,8 @@ def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False
             volts_n = np.append(volts_n,[v],axis=0)
         
     info = 'Membrane potentials of %i cells (%s %s)'%(len(cells),config,parameter_set)
-    fig, ax = plt.subplots()
-    plot0 = ax.pcolor(volts_n)
-    ax.set_yticks(np.arange(volts_n.shape[0]) + 0.5, minor=False)
-    ax.set_yticklabels(cells)
     
-    fig.colorbar(plot0)
-    
-    fig.canvas.set_window_title(info)
-    plt.title(info)
-    plt.xlabel('Time (ms)')
- 
-    fig.canvas.draw()
-    labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
-
-    ax.set_xticklabels(labels)
+    plots(volts_n, info, cells, dt)
 
     if save_only:
         plt.savefig(save_fig_path%('neurons_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
@@ -85,21 +96,8 @@ def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False
                 mvolts_n = np.append(mvolts_n,[mv],axis=0)
 
         info = 'Membrane potentials of %i muscles (%s %s)'%(len(all_muscles),config,parameter_set)
-        fig, ax = plt.subplots()
-        plot0 = ax.pcolor(mvolts_n)
-        ax.set_yticks(np.arange(mvolts_n.shape[0]) + 0.5, minor=False)
-        ax.set_yticklabels(all_muscles)
 
-        fig.colorbar(plot0)
-
-        fig.canvas.set_window_title(info)
-        plt.title(info)
-        plt.xlabel('Time (ms)')
-
-        fig.canvas.draw()
-        labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
-
-        ax.set_xticklabels(labels)
+        plots(mvolts_n, info, cells, dt)
         
         if save_only:
             plt.savefig(save_fig_path%('muscles_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
@@ -127,20 +125,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
-        fig, ax = plt.subplots()
-        plot0 = ax.pcolor(activities_n)
-        ax.set_yticks(np.arange(activities_n.shape[0]) + 0.5, minor=False)
-        ax.set_yticklabels(cells)
-
-        fig.colorbar(plot0)
-        fig.canvas.set_window_title(info)
-        plt.title(info)
-        plt.xlabel('Time (ms)')
-
-        fig.canvas.draw()
-        labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
-
-        ax.set_xticklabels(labels)
+        plots(activities_n, info, cells, dt)
         
         if save_only:
             plt.savefig(save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
@@ -168,20 +153,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
-        fig, ax = plt.subplots()
-        plot0 = ax.pcolor(activities_n)
-        ax.set_yticks(np.arange(activities_n.shape[0]) + 0.5, minor=False)
-        ax.set_yticklabels(all_muscles)
-
-        fig.colorbar(plot0)
-        fig.canvas.set_window_title(info)
-        plt.title(info)
-        plt.xlabel('Time (ms)')
-
-        fig.canvas.draw()
-        labels = [float(item.get_text())*dt for item in ax.get_xticklabels()]
-
-        ax.set_xticklabels(labels)
+        plots(activities_n, info, cells, dt)
     
         if save_only:
             plt.savefig(save_fig_path%('muscle_activity_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
@@ -203,6 +175,9 @@ if __name__ == '__main__':
         
     elif '-muscle' in sys.argv or '-muscles' in sys.argv:
         main('Muscles','C','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-musclesA' in sys.argv:
+        main('Muscles','A','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-musclesC1' in sys.argv:
         main('Muscles','C1','',1000,0.05,'jNeuroML_NEURON')

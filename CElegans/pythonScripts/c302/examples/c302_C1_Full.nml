@@ -22,77 +22,77 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_conductance = 0.033335 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_conductance = 0.049593 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 5 pA (SRC: KnownError, certainty 0)
+        BioParameter: elec_syn_gbase = 0.001287 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 5.104080 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
 </notes>
     <include href="cell_C.xml"></include>
-    <gapJunction id="elec_syn_1conns" conductance="0.01nS"/>
-    <gapJunction id="elec_syn_2conns" conductance="0.02nS"/>
-    <gapJunction id="elec_syn_3conns" conductance="0.03nS"/>
-    <gapJunction id="elec_syn_7conns" conductance="0.07nS"/>
-    <gapJunction id="elec_syn_9conns" conductance="0.09nS"/>
-    <gapJunction id="elec_syn_6conns" conductance="0.06nS"/>
-    <gapJunction id="elec_syn_5conns" conductance="0.05nS"/>
-    <gapJunction id="elec_syn_4conns" conductance="0.04nS"/>
-    <gapJunction id="elec_syn_10conns" conductance="0.1nS"/>
-    <gapJunction id="elec_syn_23conns" conductance="0.23nS"/>
-    <gapJunction id="elec_syn_13conns" conductance="0.13nS"/>
+    <gapJunction id="elec_syn_1conns" conductance="0.001287nS"/>
+    <gapJunction id="elec_syn_2conns" conductance="0.002574nS"/>
+    <gapJunction id="elec_syn_3conns" conductance="0.003861nS"/>
+    <gapJunction id="elec_syn_7conns" conductance="0.009009nS"/>
+    <gapJunction id="elec_syn_9conns" conductance="0.011583nS"/>
+    <gapJunction id="elec_syn_6conns" conductance="0.007722nS"/>
+    <gapJunction id="elec_syn_5conns" conductance="0.006435nS"/>
+    <gapJunction id="elec_syn_4conns" conductance="0.005148nS"/>
+    <gapJunction id="elec_syn_10conns" conductance="0.01287nS"/>
+    <gapJunction id="elec_syn_23conns" conductance="0.029601nS"/>
+    <gapJunction id="elec_syn_13conns" conductance="0.016731nS"/>
     <silentSynapse id="silent"/>
-    <gradedSynapse id="exc_syn_1conns" conductance="0.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_2conns" conductance="0.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_4conns" conductance="0.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_7conns" conductance="1.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_5conns" conductance="1.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_3conns" conductance="0.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_12conns" conductance="2.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_15conns" conductance="3.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_8conns" conductance="1.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_16conns" conductance="3.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_6conns" conductance="1.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_10conns" conductance="2.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_13conns" conductance="2.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_14conns" conductance="2.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_9conns" conductance="1.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_11conns" conductance="2.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_19conns" conductance="3.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="inh_syn_1conns" conductance="0.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_2conns" conductance="0.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_5conns" conductance="1.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_4conns" conductance="0.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_3conns" conductance="0.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="exc_syn_17conns" conductance="3.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_25conns" conductance="5.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_21conns" conductance="4.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_23conns" conductance="4.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_26conns" conductance="5.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="inh_syn_9conns" conductance="1.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_7conns" conductance="1.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_6conns" conductance="1.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="exc_syn_24conns" conductance="4.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_35conns" conductance="7.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="inh_syn_12conns" conductance="2.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_11conns" conductance="2.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_8conns" conductance="1.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_10conns" conductance="2.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="inh_syn_13conns" conductance="2.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
-    <gradedSynapse id="exc_syn_18conns" conductance="3.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_20conns" conductance="4.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_37conns" conductance="7.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_27conns" conductance="5.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_30conns" conductance="6.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_1conns" conductance="0.033335nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_2conns" conductance="0.06667nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_4conns" conductance="0.13334nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_7conns" conductance="0.233345nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_5conns" conductance="0.166675nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_3conns" conductance="0.100005nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_12conns" conductance="0.40002nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_15conns" conductance="0.500025nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_8conns" conductance="0.26668nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_16conns" conductance="0.53336nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_6conns" conductance="0.20001nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_10conns" conductance="0.33335nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_13conns" conductance="0.433355nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_14conns" conductance="0.46669nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_9conns" conductance="0.300015nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_11conns" conductance="0.366685nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_19conns" conductance="0.633365nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="inh_syn_1conns" conductance="0.049593nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_2conns" conductance="0.099186nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_5conns" conductance="0.247965nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_4conns" conductance="0.198372nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_3conns" conductance="0.148779nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="exc_syn_17conns" conductance="0.566695nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_25conns" conductance="0.833375nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_21conns" conductance="0.700035nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_23conns" conductance="0.766705nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_26conns" conductance="0.86671nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="inh_syn_9conns" conductance="0.446337nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_7conns" conductance="0.347151nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_6conns" conductance="0.297558nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="exc_syn_24conns" conductance="0.80004nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_35conns" conductance="1.166725nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="inh_syn_12conns" conductance="0.595116nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_11conns" conductance="0.545523nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_8conns" conductance="0.396744nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_10conns" conductance="0.49593nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="inh_syn_13conns" conductance="0.644709nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="-70 mV"/>
+    <gradedSynapse id="exc_syn_18conns" conductance="0.60003nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_20conns" conductance="0.6667nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_37conns" conductance="1.233395nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_27conns" conductance="0.900045nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_30conns" conductance="1.00005nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">
@@ -116,7 +116,7 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="5 pA"/>
+    <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="5.104080 pA"/>
     <network id="c302_C1_Full">
         <population id="ADAL" component="GenericCell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>

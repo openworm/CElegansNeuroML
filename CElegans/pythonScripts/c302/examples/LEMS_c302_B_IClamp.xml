@@ -49,7 +49,7 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_B_IClamp" length="1000ms" step="0.05ms" target="c302_B_IClamp">
+    <Simulation id="sim_c302_B_IClamp" length="1000ms" step="0.1ms" target="c302_B_IClamp">
 
         <Display id="neurons" title="c302_B_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-52" ymax="-28">
             

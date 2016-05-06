@@ -22,35 +22,35 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_conductance = 0.033335 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_conductance = .2 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_conductance = 0.049593 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 5 pA (SRC: KnownError, certainty 0)
+        BioParameter: elec_syn_gbase = 0.001287 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 5.104080 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
 </notes>
     <include href="cell_C.xml"></include>
-    <gapJunction id="elec_syn_1conns" conductance="0.01nS"/>
-    <gapJunction id="elec_syn_2conns" conductance="0.02nS"/>
-    <gapJunction id="elec_syn_6conns" conductance="0.06nS"/>
-    <gapJunction id="elec_syn_4conns" conductance="0.04nS"/>
+    <gapJunction id="elec_syn_1conns" conductance="0.001287nS"/>
+    <gapJunction id="elec_syn_2conns" conductance="0.002574nS"/>
+    <gapJunction id="elec_syn_6conns" conductance="0.007722nS"/>
+    <gapJunction id="elec_syn_4conns" conductance="0.005148nS"/>
     <silentSynapse id="silent"/>
-    <gradedSynapse id="exc_syn_1conns" conductance="0.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_2conns" conductance="0.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_5conns" conductance="1.0nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_3conns" conductance="0.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_4conns" conductance="0.8nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_6conns" conductance="1.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_13conns" conductance="2.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_1conns" conductance="0.033335nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_2conns" conductance="0.06667nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_5conns" conductance="0.166675nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_3conns" conductance="0.100005nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_4conns" conductance="0.13334nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_6conns" conductance="0.20001nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_13conns" conductance="0.433355nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">
@@ -74,7 +74,7 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="5 pA"/>
+    <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="5.104080 pA"/>
     <network id="c302_C1_Pharyngeal">
         <population id="I1L" component="GenericCell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="sitructa"/>
