@@ -36,9 +36,8 @@ h("objref p")
 h("p = new PythonObject()")
 
 class NeuronSimulation():
-    
-    
-    def __init__(self, tstop=500.0, dt=0.1):
+
+    def __init__(self, tstop, dt):
 
         # Adding simulation Component(id=sim_c302_C1_Syns type=Simulation) of network/component: c302_C1_Syns (Type: network)
         print("Population AIZL contains 1 instance(s) of component: GenericCell of type: cell")
@@ -186,9 +185,9 @@ class NeuronSimulation():
         h('{fih_ion_VD12 = new FInitializeHandler(1, "initialiseIons_VD12()")}')
 
         '''
-        Adding projection: NC_AIZL_ASHL_Generic_GJ
-        From AIZL to ASHL, with 1 connection(s)
-        '''
+Adding projection: NC_AIZL_ASHL_Generic_GJ
+From AIZL to ASHL, with 1 connection(s)
+'''
         h("objectvar syn_NC_AIZL_ASHL_Generic_GJ_elec_syn_1conns_A[1]")
 
         h("objectvar syn_NC_AIZL_ASHL_Generic_GJ_elec_syn_1conns_B[1]")
@@ -198,9 +197,9 @@ class NeuronSimulation():
         h("setpointer syn_NC_AIZL_ASHL_Generic_GJ_elec_syn_1conns_A[0].vpeer, a_ASHL[0].soma.v(0.500000)")
         h("setpointer syn_NC_AIZL_ASHL_Generic_GJ_elec_syn_1conns_B[0].vpeer, a_AIZL[0].soma.v(0.500000)")
         '''
-        Adding projection: NC_ASHL_AIZL_Generic_GJ
-        From ASHL to AIZL, with 1 connection(s)
-        '''
+Adding projection: NC_ASHL_AIZL_Generic_GJ
+From ASHL to AIZL, with 1 connection(s)
+'''
         h("objectvar syn_NC_ASHL_AIZL_Generic_GJ_elec_syn_1conns_A[1]")
 
         h("objectvar syn_NC_ASHL_AIZL_Generic_GJ_elec_syn_1conns_B[1]")
@@ -210,9 +209,9 @@ class NeuronSimulation():
         h("setpointer syn_NC_ASHL_AIZL_Generic_GJ_elec_syn_1conns_A[0].vpeer, a_AIZL[0].soma.v(0.500000)")
         h("setpointer syn_NC_ASHL_AIZL_Generic_GJ_elec_syn_1conns_B[0].vpeer, a_ASHL[0].soma.v(0.500000)")
         '''
-        Adding projection: NC_VD12_VB11_GABA
-        From VD12 to VB11 1 connection(s)
-        '''
+Adding projection: NC_VD12_VB11_GABA
+From VD12 to VB11 1 connection(s)
+'''
         h("objectvar syn_NC_VD12_VB11_GABA_silent_pre[1]")
 
         h("objectvar syn_NC_VD12_VB11_GABA_inh_syn_1conns_post[1]")
@@ -222,9 +221,9 @@ class NeuronSimulation():
         h("setpointer syn_NC_VD12_VB11_GABA_silent_pre[0].vpeer, a_VB11[0].soma.v(0.500000)")
         h("setpointer syn_NC_VD12_VB11_GABA_inh_syn_1conns_post[0].vpeer, a_VD12[0].soma.v(0.500000)")
         '''
-        Adding projection: NC_URYDL_SMDDR_Glutamate
-        From URYDL to SMDDR 1 connection(s)
-        '''
+Adding projection: NC_URYDL_SMDDR_Glutamate
+From URYDL to SMDDR 1 connection(s)
+'''
         h("objectvar syn_NC_URYDL_SMDDR_Glutamate_silent_pre[1]")
 
         h("objectvar syn_NC_URYDL_SMDDR_Glutamate_exc_syn_1conns_post[1]")
@@ -255,7 +254,7 @@ class NeuronSimulation():
 
         h.dt = dt
 
-        h.steps_per_ms = 10.0
+        h.steps_per_ms = int(1/h.dt)
 
         # Display: self.display_neurons
         self.display_neurons = h.Graph(0)
@@ -369,9 +368,9 @@ class NeuronSimulation():
 
 
         h.nrncontrolmenu()
-        
+
     def run(self):
-        
+
         sim_start = time.time()
         print("Running a simulation of %sms (dt = %sms)" % (h.tstop, h.dt))
 
@@ -426,9 +425,10 @@ class NeuronSimulation():
         print("Finished saving results in %f seconds"%(save_time))
 
         print("Done")
-    
+
 if __name__ == '__main__':
 
-    ns = NeuronSimulation(tstop=500.0, dt=0.1)
-    
+    ns = NeuronSimulation(tstop=500, dt=0.1)
+
     ns.run()
+
