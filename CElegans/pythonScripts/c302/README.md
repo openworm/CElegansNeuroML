@@ -71,7 +71,14 @@ More options can be found with
 Due to the fact that the cells are in pure NeuroML2, they can be mapped to other formats using the export feature of jNeuroML. [Install NEURON](http://www.neuron.yale.edu/neuron/download) and map the network to this format using:
 
     cd examples
+    
+for jNeuroML:
+
+    jnml LEMS_c302_A_Pharyngeal.xml -neuron
+or instead for pyNeuroML:    
+
     pynml LEMS_c302_A_Pharyngeal.xml -neuron
+
     nrnivmodl
     nrngui -python LEMS_c302_A_Pharyngeal_nrn.py
 
