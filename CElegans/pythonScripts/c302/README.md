@@ -94,7 +94,9 @@ Image above shows the network run in NEURON (top) and a comparison of the activi
 
 ### Comparing activity across scales/parameter sets
 
-See [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/summary/README.md) for more.
+<a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/summary/README.md"><img src="https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/images/activity.png" alt="activity"  height="250"/></a>
+
+See [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/summary/README.md) for more details on this.
 
 ### Planned work
 
