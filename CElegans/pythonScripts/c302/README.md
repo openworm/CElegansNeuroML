@@ -19,11 +19,11 @@ There will be multiple version of this network (see figure above), based on incr
 
 **[Parameters_B](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_B.py)** Updated I&F cells, with gap junction connections plus an "activity" measure (varies 0->1 depending on depolarisation of cell), which should be a better approximation for the relative activity of cells
 
-**[Parameters_C](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_C.py)** Single compartment, conductance based neurons (will be initially based on [muscle cell model](https://github.com/openworm/muscle_model))
+**[Parameters_C](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_C.py)** Single compartment, conductance based neurons (will be initially based on [muscle cell model](https://github.com/openworm/muscle_model)). A modified version of this (**[Parameters_C1](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_C1.py)**) has analogue (graded) synapses.
 
 **Parameters_D** (TODO) Multicompartmental, conductance based cells
 
-Parameters A, B and C are the only parameter sets tested so far, but the aim is to make all of the associated tools below for running, visualising, analysing, etc. *independent of the parameter set used*, so they can be ready for more detailed networks from c302 in the future.
+Parameters A, B and C/C1 are the only parameter sets tested so far, but the aim is to make all of the associated tools below for running, visualising, analysing, etc. *independent of the parameter set used*, so they can be ready for more detailed networks from c302 in the future.
 
 ### To install & test
 
@@ -35,7 +35,7 @@ To regenerate a set of NeuroML & LEMS files for one instance of the model and ex
 
     cd ./CElegans/pythonScripts/c302            # Enter c302 script directory
     python c302_Full.py                         # To regenerate the NeuroML & LEMS files
-    pynml examples/LEMS_c302_A_Full.xml         # Run a simulation with jNeuroML via [pyNeuroML](http://github.com/NeuroML/pyNeuroML)
+    pynml examples/LEMS_c302_A_Full.xml         # Run a simulation with jNeuroML via pyNeuroML
 
 This will produce the following (6 cells visualised with the jNeuroML GUI):
 
@@ -75,9 +75,12 @@ Due to the fact that the cells are in pure NeuroML2, they can be mapped to other
 for jNeuroML:
 
     jnml LEMS_c302_A_Pharyngeal.xml -neuron
+    
 or instead for pyNeuroML:    
 
     pynml LEMS_c302_A_Pharyngeal.xml -neuron
+    
+then
 
     nrnivmodl
     nrngui -python LEMS_c302_A_Pharyngeal_nrn.py
@@ -88,6 +91,10 @@ This will run the example network containing [just the 20 cells from the pharynx
 
 Image above shows the network run in NEURON (top) and a comparison of the activity of the 20 cells when run on jNeuroML
 (bottom left) and NEURON (bottom right). Bottom graphs generated with [analyse.py](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/analyse.py) and each of the traces are offset by a few mV for clarity.
+
+### Comparing activity across scales/parameter sets
+
+See [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/summary/README.md) for more.
 
 ### Planned work
 
