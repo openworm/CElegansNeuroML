@@ -33,6 +33,7 @@ The full set of dependencies for c302 can be installed with the following (see a
 
 To regenerate a set of NeuroML & LEMS files for one instance of the model and execute it:
 
+    cd ./CElegans/pythonScripts/c302            # Enter c302 script directory
     python c302_Full.py                         # To regenerate the NeuroML & LEMS files
     pynml examples/LEMS_c302_A_Full.xml         # Run a simulation with jNeuroML via [pyNeuroML](http://github.com/NeuroML/pyNeuroML)
 
@@ -70,7 +71,14 @@ More options can be found with
 Due to the fact that the cells are in pure NeuroML2, they can be mapped to other formats using the export feature of jNeuroML. [Install NEURON](http://www.neuron.yale.edu/neuron/download) and map the network to this format using:
 
     cd examples
+    
+for jNeuroML:
+
+    jnml LEMS_c302_A_Pharyngeal.xml -neuron
+or instead for pyNeuroML:    
+
     pynml LEMS_c302_A_Pharyngeal.xml -neuron
+
     nrnivmodl
     nrngui -python LEMS_c302_A_Pharyngeal_nrn.py
 
