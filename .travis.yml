@@ -25,9 +25,6 @@ script:
 
      #    Test readers
     - cd CElegans/pythonScripts
-
-    #Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
-    - py.test python_script_tester.py
 #    - python SpreadsheetDataReader.py
 
 #    - python RegenerateConnectome.py
@@ -37,4 +34,8 @@ script:
     - cd PyOpenWorm
     - python setup.py install
     - cd ..
-    - python OpenWormReader.py
+#    - python OpenWormReader.py
+
+
+     #Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
+    - py.test python_script_tester.py
