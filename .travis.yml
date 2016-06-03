@@ -26,10 +26,13 @@ script:
     
      #    Test readers
     - cd CElegans/pythonScripts
-    - python SpreadsheetDataReader.py
+
+    #Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
+    - py.test python_script_tester.py
+#    - python SpreadsheetDataReader.py
     
      #    Test regenerate connectome
-    - python RegenerateConnectome.py
+#    - python RegenerateConnectome.py
     
      #    Install PyOpenWorm
     - git clone https://github.com/openworm/PyOpenWorm.git
