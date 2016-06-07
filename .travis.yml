@@ -21,7 +21,7 @@ script:
     - echo "Finished all OMV tests"
     - if [[ ${OMV_ENGINE} == "NON_OMV_TESTS" ]]; then echo "Continuing with tests not under OMV..."; else exit $OMV_SUCCESS; fi
     - echo "Running non OMV tests..."
-    - python setup.py installz
+    - python setup.py install
 
      #    Test readers
     - cd CElegans/pythonScripts
