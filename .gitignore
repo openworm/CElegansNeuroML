@@ -25,6 +25,7 @@
 /CElegans/pythonScripts/c302/*.hoc
 /CElegans/pythonScripts/c302/*.dat
 /CElegans/pythonScripts/c302/*brian.py
+.idea/*
 
 *.tmp
 *.svg
