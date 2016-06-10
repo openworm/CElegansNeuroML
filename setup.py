@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 
 from setuptools import setup
 from setuptools.command.install import install as _install
