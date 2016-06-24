@@ -263,6 +263,14 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
     return new_syn
 
+
+def get_file_name_relative_to_c302(file_name):
+    
+    if os.environ.has_key('C302_HOME'):
+        return os.path.relpath(os.environ['C302_HOME'],file_name)
+    
+    
+
 def get_cell_names_and_connection(test=False):
     
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
