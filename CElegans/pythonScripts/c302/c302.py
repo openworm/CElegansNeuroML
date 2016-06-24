@@ -276,7 +276,8 @@ def get_cell_names_and_connection(test=False):
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
     # If called from unittest folder ammend path to "../../../../"
-    spreadsheet_location = "../../../../" if test else "../../../"
+    
+    spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
 
     cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet(spreadsheet_location, include_nonconnected_cells=True)
 
@@ -286,7 +287,7 @@ def get_cell_names_and_connection(test=False):
 
 def get_cell_muscle_names_and_connection(test=False):
     
-    spreadsheet_location = "../../../../" if test else "../../../"
+    spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
 
     mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
     
@@ -311,6 +312,7 @@ def generate(net_id,
              verbose=True,
              target_directory='./'):
                 
+    root_dir = os.path.dirname(os.path.abspath(__file__))
 
     params.create_models()
     
@@ -393,8 +395,8 @@ def generate(net_id,
             shutil.copy(def_file, target_directory)
         nml_doc.includes.append(IncludeType(href=params.custom_component_types_definitions))
     
-
-    backers_dir = "../../../../OpenWormBackers/" if test else "../../../OpenWormBackers/"
+    
+    backers_dir = root_dir+"/../../../../OpenWormBackers/" if test else root_dir+"/../../../OpenWormBackers/"
     sys.path.append(backers_dir)
     import backers
     cells_vs_name = backers.get_adopted_cell_names(backers_dir)
@@ -424,14 +426,14 @@ def generate(net_id,
 
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
-
+            
             if cells_vs_name.has_key(cell):
                 p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
                 pop0.properties.append(p)
 
             # also use the cell name to grab the morphology file, as a NeuroML data structure
             #  into the 'all_cells' dict
-            cell_file_path = "../../../" if test else "../../" #if running test
+            cell_file_path = root_dir+"/../../../" if test else root_dir+"/../../" #if running test
             cell_file = cell_file_path+'generatedNeuroML2/%s.cell.nml'%cell
             doc = loaders.NeuroMLLoader.load(cell_file)
             all_cells[cell] = doc.cells[0]
@@ -894,7 +896,7 @@ def generate(net_id,
 
     # import pprint
     # pprint.pprint(lems_info)
-    template_path = '../' if test else '' # if running test
+    template_path = root_dir+'/../' if test else root_dir+'/' # if running test
     write_to_file(nml_doc, lems_info, net_id, template_path, validate=validate, verbose=verbose, target_directory=target_directory)
 
 

@@ -2,7 +2,7 @@ import subprocess as sp
 
 def get_file_list():
     #Add the name of the python scripts to the list that needs to be tested
-    file_list = ['RegenerateConnectome.py', 'SpreadsheetDataReader.py', 'OpenWormReader.py']
+    file_list = ['RegenerateConnectome.py', 'c302/SpreadsheetDataReader.py', 'c302/OpenWormReader.py']
     return file_list
 
 

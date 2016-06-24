@@ -14,14 +14,19 @@
 from NeuroMLUtilities import ConnectionInfo
 
 from xlrd import open_workbook
+import os
 
-def readDataFromSpreadsheet(dir="../../", include_nonconnected_cells=False, neuron_connect=False):
+spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
 
+def readDataFromSpreadsheet(include_nonconnected_cells=False, neuron_connect=False):
+
+
+    
 # reading the NeuronConnect.xls file if neuron_connect = True
     if neuron_connect:
         conns = []
         cells = []
-        filename = dir+"NeuronConnectFormatted.xlsx"
+        filename = "%sNeuronConnectFormatted.xlsx"%spreadsheet_location
         rb = open_workbook(filename)
         print "Opened Excel file: " + filename
 
@@ -43,7 +48,7 @@ def readDataFromSpreadsheet(dir="../../", include_nonconnected_cells=False, neur
     else:
         conns = []
         cells = []
-        filename = dir+"CElegansNeuronTables.xls"
+        filename = "%sCElegansNeuronTables.xls"%spreadsheet_location
         rb = open_workbook(filename)
 
         print "Opened Excel file: " + filename
@@ -69,13 +74,13 @@ def readDataFromSpreadsheet(dir="../../", include_nonconnected_cells=False, neur
 
         return cells, conns
 
-def readMuscleDataFromSpreadsheet(dir="../../"):
+def readMuscleDataFromSpreadsheet():
 
     conns = []
     neurons = []
     muscles = []
 
-    filename = dir+"CElegansNeuronTables.xls"
+    filename = "%sCElegansNeuronTables.xls"%spreadsheet_location
     rb = open_workbook(filename)
 
     print "Opened Excel file: "+ filename
@@ -108,7 +113,7 @@ def main():
 
     from os import listdir
     from os.path import isfile
-    cell_names = [ f[:-9] for f in listdir('../morphologies/') if f.endswith('.java.xml')]
+    cell_names = [ f[:-9] for f in listdir('../../morphologies/') if f.endswith('.java.xml')]
 
     cell_names.remove('MDL08') # muscle
 

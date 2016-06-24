@@ -10,7 +10,7 @@
 
 from __future__ import print_function
 
-import SpreadsheetDataReader
+import c302.SpreadsheetDataReader
 
 from neuroml import NeuroMLDocument
 from neuroml import Network
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
-    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet()
+    cell_names, conns = c302.SpreadsheetDataReader.readDataFromSpreadsheet()
 
     net_id = "CElegansConnectome"
 

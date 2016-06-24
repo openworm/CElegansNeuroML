@@ -24,19 +24,21 @@ class OpenWormReader:
         conns = []
         cells = []
         for s in self.all_connections:
-            pre = str(s.pre_cell())
-            post = str(s.post_cell())
-            syntype = str(s.syntype())
-            num = int(s.number())
-            synclass = str(s.synclass())
+            pre = str(s.pre_cell().name())
+            post = str(s.post_cell().name())
+            
+            if isinstance(s.post_cell(), P.Neuron):  
+                syntype = str(s.syntype())
+                num = int(s.number())
+                synclass = str(s.synclass())
 
-            conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
+                conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
 
-            if pre not in cells:
-                cells.append(pre)
-            if post not in cells:
-                cells.append(post)
-
+                if pre not in cells:
+                    cells.append(pre)
+                if post not in cells:
+                    cells.append(post)
+                    
         logger.info("Total cells read " + str(len(cells)))
         logger.info("Total connections read " + str(len(conns)))
         P.disconnect()
