@@ -30,8 +30,6 @@ def setup(parameter_set,
     
     reference = "c302_%s_Social"%parameter_set
     
-    target_directory='examples'
-    
     if generate:
         nml_doc = c302.generate(reference, 
                        params, 

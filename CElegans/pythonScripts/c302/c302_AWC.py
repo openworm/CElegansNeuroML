@@ -4,7 +4,9 @@ import sys
 import neuroml.writers as writers
 
     
-def setup(parameter_set, generate=False):
+def setup(parameter_set, 
+          generate=False,
+          target_directory='examples'):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -15,7 +17,7 @@ def setup(parameter_set, generate=False):
     cells_to_stimulate = []
     
     reference = "c302_%s_AWC"%parameter_set
-    target_directory='examples'
+    
     
     if generate:
         nml_doc = c302.generate(reference, 

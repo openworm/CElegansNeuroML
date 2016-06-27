@@ -350,6 +350,7 @@ def generate(net_id,
            "    Connection numbers overridden: %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
            "    Connection numbers scaled:     %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+\
            "    Include muscles:               %s\n" % include_muscles
+    print_(info)
     info += "\n%s\n"%(params.bioparameter_info("    "))
 
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
