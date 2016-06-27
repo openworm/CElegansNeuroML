@@ -27,8 +27,8 @@ from neuroml.utils import validate_neuroml2
 from random import random
 from random import randint
 
-from NeuroMLUtilities import getSegmentIds
-from NeuroMLUtilities import get3DPosition
+from c302.NeuroMLUtilities import getSegmentIds
+from c302.NeuroMLUtilities import get3DPosition
 
 
 import math
