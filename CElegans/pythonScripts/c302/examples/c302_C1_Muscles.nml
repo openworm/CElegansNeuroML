@@ -91,8 +91,8 @@ Parameters and setting used to generate this network:
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">
-                <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5.000000e+00"/>
-                <distal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5.000000e+00"/>
+                <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5"/>
+                <distal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5"/>
             </segment>
         </morphology>
         <biophysicalProperties id="biophys_GenericCell">

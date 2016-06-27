@@ -163,6 +163,10 @@ def merge_with_template(model, templfile):
     return templ.merge(model)
 
 
+def print_(msg):
+    pre = "c302      >>> "
+    print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
+
 
 def write_to_file(nml_doc, 
                   lems_info, 
@@ -175,10 +179,11 @@ def write_to_file(nml_doc,
     #######   Write to file  ######
 
     nml_file = target_directory+'/'+reference+'.nml'
+    print_("Writing generated network to: %s"%os.path.realpath(nml_file))
     writers.NeuroMLWriter.write(nml_doc, nml_file)
 
     if verbose: 
-        print("Written network file to: "+nml_file)
+        print_("Written network file to: "+nml_file)
 
     lems_file_name = target_directory+'/'+'LEMS_%s.xml'%reference
     lems = open(lems_file_name, 'w')
@@ -189,7 +194,7 @@ def write_to_file(nml_doc,
     lems.write(merged)
 
     if verbose: 
-        print("Written LEMS file to: "+lems_file_name)
+        print_("Written LEMS file to: "+lems_file_name)
 
     if validate:
 
@@ -199,7 +204,7 @@ def write_to_file(nml_doc,
         try:
             validate_neuroml2(nml_file)
         except URLError:
-            print("Problem validating against remote Schema!")
+            print_("Problem validating against remote Schema!")
 
 
 # Get the standard name for a network connection
@@ -279,7 +284,7 @@ def get_cell_names_and_connection(test=False):
     
     spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
 
-    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet(spreadsheet_location, include_nonconnected_cells=True)
+    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet(include_nonconnected_cells=True)
 
     cell_names.sort()
     
@@ -289,7 +294,7 @@ def get_cell_muscle_names_and_connection(test=False):
     
     spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
 
-    mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet(spreadsheet_location)
+    mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet()
     
     return mneurons, all_muscles, muscle_conns
 
@@ -439,7 +444,7 @@ def generate(net_id,
             all_cells[cell] = doc.cells[0]
             location = doc.cells[0].morphology.segments[0].proximal
             if verbose: 
-                print("Loaded morphology file from: %s, with id: %s, location: (%s, %s, %s)"%(cell_file, all_cells[cell].id, location.x, location.y, location.z))
+                print_("Loaded morphology: %s; id: %s; location: (%s, %s, %s)"%(os.path.realpath(cell_file), all_cells[cell].id, location.x, location.y, location.z))
 
 
             inst.location = Location(float(location.x), float(location.y), float(location.z))
@@ -517,7 +522,7 @@ def generate(net_id,
             count+=1
 
     if verbose: 
-        print("Finished loading %i cells"%count)
+        print_("Finished loading %i cells"%count)
 
     mneurons, all_muscles, muscle_conns = get_cell_muscle_names_and_connection()
 
@@ -554,7 +559,7 @@ def generate(net_id,
             x = 80 * (-1 if muscle[1] == 'V' else 1)
             z = 80 * (-1 if muscle[2] == 'L' else 1)
             y = -300 + 30 * int(muscle[3:5])
-            print('Positioning muscle: %s at (%s,%s,%s)'%(muscle,x,y,z))
+            print_('Positioning muscle: %s at (%s,%s,%s)'%(muscle,x,y,z))
             inst.location = Location(x,y,z)
 
             target = "%s/0/%s"%(pop0.id, params.generic_cell.id)
@@ -617,7 +622,7 @@ def generate(net_id,
             muscle_count+=1
 
         if verbose: 
-            print("Finished creating %i muscles"%muscle_count)
+            print_("Finished creating %i muscles"%muscle_count)
         
     
     existing_synapses = {}
@@ -662,7 +667,7 @@ def generate(net_id,
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s"%(magnitude*number_syns, unit)
                 if verbose: 
-                    print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                    print_(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
 
 
@@ -694,7 +699,7 @@ def generate(net_id,
                     pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id)
                     post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id)
                     
-                    #print("Conn %s -> %s"%(pre_cell_id,post_cell_id))
+                    #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
                     
                     # Add a Connection with the closest locations
                     conn0 = ElectricalConnectionInstance(id="0", \
@@ -798,7 +803,7 @@ def generate(net_id,
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s"%(magnitude*number_syns, unit)
                 if verbose: 
-                    print(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                    print_(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
 
 
@@ -830,7 +835,7 @@ def generate(net_id,
                     pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id)
                     post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id)
                     
-                    #print("Conn %s -> %s"%(pre_cell_id,post_cell_id))
+                    #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
                     
                     # Add a Connection with the closest locations
                     conn0 = ElectricalConnectionInstance(id="0", \
@@ -912,7 +917,7 @@ def parse_dict_arg(dict_arg):
     entries = str(dict_arg[1:-1]).split(',')
     for e in entries:
         ret[e.split(':')[0]] = float(e.split(':')[1])
-    print("Command line argument %s parsed as: %s"%(dict_arg,ret))
+    print_("Command line argument %s parsed as: %s"%(dict_arg,ret))
     return ret
 
 def main():
