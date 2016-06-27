@@ -113,7 +113,7 @@ def main():
 
     from os import listdir
     from os.path import isfile
-    cell_names = [ f[:-9] for f in listdir('../../morphologies/') if f.endswith('.java.xml')]
+    cell_names = [ f[:-9] for f in listdir('%s/CElegans/morphologies/'%spreadsheet_location) if f.endswith('.java.xml')]
 
     cell_names.remove('MDL08') # muscle
 
