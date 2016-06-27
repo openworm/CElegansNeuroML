@@ -33,4 +33,4 @@ script:
     - cd ..
 
        #Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
-    - py.test python_script_tester.py
+    - py.test -vs python_script_tester.py
