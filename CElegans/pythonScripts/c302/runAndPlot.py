@@ -19,6 +19,9 @@ def plots(a_n, info, cells, dt):
     plot0 = ax.pcolor(a_n_)
     ax.set_yticks(np.arange(a_n_.shape[0]) + 0.5, minor=False)
     ax.set_yticklabels(cells)
+    ax.tick_params(axis='y', labelsize=4)
+    plt.setp(ax.get_yticklabels(), rotation=45)
+
     
     fig.colorbar(plot0)
     
