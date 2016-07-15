@@ -31,8 +31,8 @@ Parameters and setting used to generate this network:
 
 </notes>
     <include href="cell_B.xml"></include>
-    <expTwoSynapse id="inh_syn_1conns" gbase="0.01nS" erev="-80mV" tauDecay="10ms" tauRise="3ms"/>
-    <expTwoSynapse id="exc_syn_1conns" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
     <gapJunction id="elec_syn_1conns" conductance="0.1nS"/>
     <iafCell type="iafActivityCell" id="generic_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="3pA"/>
@@ -67,11 +67,11 @@ Parameters and setting used to generate this network:
                 <location x="-0.75" y="345.5" z="-23.149999999999999"/>
             </instance>
         </population>
-        <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="inh_syn_1conns">
-            <connection id="0" preCellId="../VD12/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
+        <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="inh_syn">
+            <connectionWD id="0" preCellId="../VD12/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
-        <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn_1conns">
-            <connection id="0" preCellId="../URYDL/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
+        <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn">
+            <connectionWD id="0" preCellId="../URYDL/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
         <electricalProjection id="NC_AIZL_ASHL_Generic_GJ" presynapticPopulation="AIZL" postsynapticPopulation="ASHL">
             <electricalConnectionInstance id="0" preCell="../AIZL/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../ASHL/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>

@@ -10,6 +10,7 @@ from neuroml import Input
 from neuroml import InputList
 from neuroml import Projection
 from neuroml import Connection
+from neuroml import ConnectionWD
 from neuroml import SynapticConnection
 from neuroml import ElectricalProjection
 from neuroml import ElectricalConnection
@@ -229,13 +230,16 @@ def get_random_colour_hex():
 def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
     new_id = "%s_%sconns"%(prototype_syn.id, str(n).replace('.', '_'))
+    
+    if isinstance(prototype_syn, ExpTwoSynapse):
+        new_id = "%s"%(prototype_syn.id)
 
     if not existing_synapses.has_key(new_id):
 
         if isinstance(prototype_syn, ExpTwoSynapse):
-            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.gbase)
+            
             new_syn = ExpTwoSynapse(id=new_id,
-                                gbase =       "%s%s"%(magnitude*n, unit),
+                                gbase =       prototype_syn.gbase,
                                 erev =        prototype_syn.erev,
                                 tau_decay =   prototype_syn.tau_decay,
                                 tau_rise =    prototype_syn.tau_rise)
@@ -743,13 +747,17 @@ def generate(net_id,
                     pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_cell.id)
                     post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_cell.id)
 
-                    conn0 = Connection(id="0", \
+                    conn0 = ConnectionWD(id="0", \
                                pre_cell_id=pre_cell_id,
-                               post_cell_id=post_cell_id)
+                               post_cell_id=post_cell_id,
+                               weight = number_syns,
+                               delay = '0ms')
 
-                    proj0.connections.append(conn0)
+                    proj0.connection_wds.append(conn0)
 
                 if populations_without_location:
+                    raise NotImplementedError
+                    '''
                     #         <synapticConnection from="hh1pop[0]" to="hh2pop[0]" synapse="syn1exp" destination="synapses"/>
                     pre_cell_id="%s[0]"%(conn.pre_cell)
                     post_cell_id="%s[0]"%(conn.post_cell)
@@ -759,7 +767,7 @@ def generate(net_id,
                                synapse=syn_new.id,
                                destination="synapses")
 
-                    net.synaptic_connections.append(conn0)
+                    net.synaptic_connections.append(conn0)'''
 
 
 
