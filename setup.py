@@ -20,16 +20,14 @@ This is being developed as part of the [OpenWorm project](http://www.openworm.or
 setup(
     name = 'CElegansNeuroML',
     install_requires=[
-        'numpy', 'xlrd', 'xlwt', 'libNeuroML', 'airspeed', 'OSBModelValidation',
+        'numpy', 'xlrd', 'xlwt', 'OSBModelValidation',
         'pyNeuroML'
     ],
     dependency_links = [
         'git://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation',
-        'git://github.com/purcell/airspeed.git#egg=airspeed',
-        'git://github.com/NeuralEnsemble/libNeuroML.git@development#egg=libNeuroML',
         'git://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML',
     ],
-    version = '0.3',
+    version = '0.4',
     author = 'OpenWorm.org authors and contributors',
     author_email = 'info@openworm.org',
     description = 'C. elegans models in NeuroConstruct and NeuroML',
