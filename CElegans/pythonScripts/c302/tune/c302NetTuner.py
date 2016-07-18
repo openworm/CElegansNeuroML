@@ -56,14 +56,22 @@ def run_optimisation(prefix,
                      num_elites =          1,
                      seed =                12345,
                      simulator =           'jNeuroML',
-                     nogui =               False):  
+                     nogui =               False,
+                     num_local_procesors_to_use = 1):  
                          
     ref = prefix+config
     
     run_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
     os.mkdir(run_dir)
 
-    my_controller = C302Controller(ref, level, config, sim_time, dt, simulator = simulator, generate_dir=run_dir)
+    my_controller = C302Controller(ref, 
+                                   level, 
+                                   config, 
+                                   sim_time, 
+                                   dt, 
+                                   simulator = simulator, 
+                                   generate_dir=run_dir,
+                                   num_local_procesors_to_use = num_local_procesors_to_use)
 
     peak_threshold = -31 if level is 'A' or level is 'B' else (-20 if level is 'C1' else 0)
 
@@ -112,7 +120,7 @@ def run_optimisation(prefix,
     secs = time.time()-start
     
     reportj = {}
-    info = "Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n\n"%(max_evaluations, population_size, secs, secs/60.0)
+    info = "Ran %s evaluations (pop: %s) in %f seconds (%f mins total; %fs per eval)\n\n"%(max_evaluations, population_size, secs, secs/60.0, (secs/max_evaluations))
     report = "----------------------------------------------------\n\n"+ info
              
              
@@ -143,6 +151,7 @@ def run_optimisation(prefix,
     print(report)
     
     reportj['fitness']=fitness
+    reportj['fittest vars']=dict(sim_var)
     reportj['best_cand_analysis_full']=best_cand_analysis_full
     reportj['best_cand_analysis']=best_cand_analysis
     reportj['parameters']=parameters
@@ -158,10 +167,14 @@ def run_optimisation(prefix,
     reportj['num_offspring']=num_offspring
     reportj['mutation_rate']=mutation_rate
     reportj['num_elites']=num_elites
+    reportj['seed']=seed
+    reportj['simulator']=simulator
     
     reportj['sim_time']=sim_time
     reportj['dt']=dt
     
+    reportj['run_directory'] = run_dir
+    reportj['reference'] = ref
     
     report_file = open("%s/report.json"%run_dir,'w')
     report_file.write(pp.pformat(reportj))
@@ -277,15 +290,15 @@ if __name__ == '__main__':
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [0.05, 3,  0.05, 3,    0.01,   0.20]
-        max_constraints = [1,    40, 1,    100,  0.5,    0.45]
+        min_constraints = [0.001, 3,   0.001, 3,    0.01,   2]
+        max_constraints = [0.02,  40, 0.02,   100,  0.2,    5]
         
         weights = {}
         target_data = {}
         
         
-        for cell in ['DB2','VB2','DB3','VB3','DB4','VB4']:
-            var = '%s[0]/v:mean_spike_frequency'%cell
+        for cell in ['DB3','VB3','DB4','VB4']:
+            var = '%s/0/generic_iaf_cell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 30
 
@@ -306,18 +319,23 @@ if __name__ == '__main__':
                          mutation_rate =    0.1,
                          num_elites =       1,
                          seed =             123477,
-                         nogui =            nogui)
+                         nogui =            nogui,
+                         num_local_procesors_to_use =10)
                          
     elif '-oscC1' in sys.argv or '-oscC1one' in sys.argv:
 
-        parameters = ['exc_syn_conductance',
+        parameters = ['leak_cond_density',
+                      'k_slow_cond_density',
+                      'k_fast_cond_density',
+                      'ca_boyle_cond_density',
+                      'exc_syn_conductance',
                       'inh_syn_conductance',
                       'elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [.01,.01, 0.0005, 3]
-        max_constraints = [.05,  .05, 0.005,   6]
+        min_constraints = [.01,.1, 0.01, .1, .01, .01, 0.0005, 1]
+        max_constraints = [.2,  1, 0.1,   1, .05, .05, 0.005,  6]
         
         weights = {}
         target_data = {}
@@ -339,17 +357,18 @@ if __name__ == '__main__':
                              min_constraints,
                              weights,
                              target_data,
-                             sim_time = 500,
+                             sim_time = 1000,
                              dt = 0.1,
-                             population_size =  20,
-                             max_evaluations =  50,
-                             num_selected =     3,
-                             num_offspring =    3,
+                             population_size =  100,
+                             max_evaluations =  200,
+                             num_selected =     30,
+                             num_offspring =    50,
                              mutation_rate =    0.1,
                              num_elites =       1,
                              seed =             123477,
                              nogui =            nogui,
-                             simulator = simulator)
+                             simulator = simulator,
+                             num_local_procesors_to_use = 10)
         else:
                
             sim_time = 300

@@ -401,7 +401,7 @@ def generate(net_id,
     if params.custom_component_types_definitions:
         lems_info["includes"].append(params.custom_component_types_definitions)
         if target_directory != './':
-            def_file = "%s/%s"%(os.path.dirname(__file__), params.custom_component_types_definitions)
+            def_file = "%s/%s"%(os.path.dirname(os.path.abspath(__file__)), params.custom_component_types_definitions)
             shutil.copy(def_file, target_directory)
         nml_doc.includes.append(IncludeType(href=params.custom_component_types_definitions))
     
