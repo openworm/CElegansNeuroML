@@ -219,66 +219,98 @@ if __name__ == '__main__':
     nogui = '-nogui' in sys.argv
         
 
-    if '-musc' in sys.argv:
+    if '-musc' in sys.argv or '-muscone' in sys.argv:
 
-        parameters = ['exc_syn_conductance',
+        parameters = ['leak_cond_density',
+                      'k_slow_cond_density',
+                      'k_fast_cond_density',
+                      'ca_boyle_cond_density',
+                      'exc_syn_conductance',
                       'inh_syn_conductance',
                       'elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [.01,.01, 0.0005, 3]
-        max_constraints = [.05,  .05, 0.005,   6]
+        min_constraints = [.005,.1, 0.005, .1, .01, .01, 0.0005, 1]
+        max_constraints = [.2,  2, 0.1,   2, .1, .1, 0.01,  8]
         
         weights = {}
         target_data = {}
         
-        '''
-        VA1_max_peak = 'VA1[0]/v:max_peak_no'
-        VB5_max_peak = 'VB5[0]/v:max_peak_no'
-        VB9_max_peak = 'VB9[0]/v:max_peak_no'
-        DB1_max_peak = 'DB1[0]/v:max_peak_no'
-        PVCL_max_peak = 'PVCL[0]/v:max_peak_no'
-
-        weights = {PVCL_max_peak: 3,
-                   VA1_max_peak: 1,
-                   VB5_max_peak: 1,
-                   VB9_max_peak: 1,
-                   DB1_max_peak: 1}
-
-        target_data = {VA1_max_peak:  70,
-                       VB5_max_peak:  70,
-                       VB9_max_peak:  70,
-                       DB1_max_peak: 70,
-                       PVCL_max_peak: 80}
-        '''
         
         for cell in ['DB3','VB3','DB4','VB4','PVCL']:
             var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 4
+            
 
         simulator  = 'jNeuroML_NEURON'
-        scalem = .1
-        run_optimisation('Test',
-                         'Muscles',
-                         'C1',
-                         parameters,
-                         max_constraints,
-                         min_constraints,
-                         weights,
-                         target_data,
-                         sim_time = 500,
-                         dt = 0.1,
-                         population_size =  scale(scalem,100),
-                         max_evaluations =  scale(scalem,500),
-                         num_selected =     scale(scalem,20),
-                         num_offspring =    scale(scalem,20),
-                         mutation_rate =    0.9,
-                         num_elites =       scale(scalem,3),
-                         nogui =            nogui,
-                         simulator = simulator)
-                         
+        
+        if '-musc' in sys.argv:
+            
+            scalem = 1
+            run_optimisation('Test',
+                             'Muscles',
+                             'C1',
+                             parameters,
+                             max_constraints,
+                             min_constraints,
+                             weights,
+                             target_data,
+                             sim_time = 500,
+                             dt = 0.1,
+                             population_size =  scale(scalem,100),
+                             max_evaluations =  scale(scalem,500),
+                             num_selected =     scale(scalem,20),
+                             num_offspring =    scale(scalem,20),
+                             mutation_rate =    0.9,
+                             num_elites =       scale(scalem,3),
+                             nogui =            nogui,
+                             simulator = simulator,
+                             num_local_procesors_to_use =10)
+        else:
+            
+            sim_time = 1000
+            simulator  = 'jNeuroML_NEURON'
+            
+            my_controller = C302Controller('TestOsc', 'C1', 'Muscles', sim_time, 0.1, simulator = simulator)
+
+            #test = [0.030982235821054638, 0.7380672812995235, 0.07252703867293844, 0.8087106170838071, 0.045423417312661474, 0.011449079144697817, 0.0049614426482976716, 2.361816408316808]
+            sim_var = OrderedDict({   'ca_boyle_cond_density': 2,
+                        'elec_syn_gbase': 0.0005,
+                        'exc_syn_conductance': 0.1,
+                        'inh_syn_conductance': 0.1,
+                        'k_fast_cond_density': 0.1,
+                        'k_slow_cond_density': 2,
+                        'leak_cond_density': 0.005,
+                        'unphysiological_offset_current': 7.083369886548855})
+            #for i in range(len(parameters)):
+            #    sim_var[parameters[i]] = test[i]
+                  
+            example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
+
+            print("Have run individual instance...")
+
+            peak_threshold = 0
+
+            analysis_var = {'peak_delta':     0,
+                            'baseline':       0,
+                            'dvdt_threshold': 0, 
+                            'peak_threshold': peak_threshold}
+
+            example_run_analysis=analysis.NetworkAnalysis(example_run_v,
+                                                       example_run_t,
+                                                       analysis_var,
+                                                       start_analysis=0,
+                                                       end_analysis=sim_time)
+
+            analysis = example_run_analysis.analyse()
+
+            pp.pprint(analysis)
+
+            analysis = example_run_analysis.analyse(weights.keys())
+
+            pp.pprint(analysis)
                          
     elif '-osc' in sys.argv:
 
@@ -359,27 +391,27 @@ if __name__ == '__main__':
                              target_data,
                              sim_time = 1000,
                              dt = 0.1,
-                             population_size =  100,
-                             max_evaluations =  200,
-                             num_selected =     30,
-                             num_offspring =    50,
+                             population_size =  1000,
+                             max_evaluations =  5000,
+                             num_selected =     100,
+                             num_offspring =    100,
                              mutation_rate =    0.1,
-                             num_elites =       1,
+                             num_elites =       6,
                              seed =             123477,
                              nogui =            nogui,
                              simulator = simulator,
                              num_local_procesors_to_use = 10)
         else:
                
-            sim_time = 300
+            sim_time = 1000
             simulator  = 'jNeuroML_NEURON'
             
             my_controller = C302Controller('TestOsc', 'C1', 'Oscillator', sim_time, 0.1, simulator = simulator)
 
-            sim_var = OrderedDict([('exc_syn_conductance',0.0440481886416),
-                                   ('inh_syn_conductance',0.0236199415714),
-                                   ('elec_syn_gbase',0.0005),
-                                   ('unphysiological_offset_current',4.38952826613)])
+            test = [0.030982235821054638, 0.7380672812995235, 0.07252703867293844, 0.8087106170838071, 0.045423417312661474, 0.011449079144697817, 0.0049614426482976716, 2.361816408316808]
+            sim_var = OrderedDict()
+            for i in range(len(parameters)):
+                sim_var[parameters[i]] = test[i]
                   
             example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
 

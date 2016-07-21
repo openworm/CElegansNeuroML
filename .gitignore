@@ -65,3 +65,7 @@ dist/*
 
 c302_A_Full.dat
 /CElegans/pythonScripts/c302/examples/GenericCell.hoc
+/CElegans/pythonScripts/c302/LEMS_NetTest.xml
+/CElegans/pythonScripts/c302/LEMS_SimpleTest.xml
+/CElegans/pythonScripts/c302/NetTest.nml
+/CElegans/pythonScripts/c302/SimpleTest.nml
