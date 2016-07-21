@@ -337,6 +337,9 @@ if __name__ == '__main__':
     elif '-oscC1' in sys.argv:
         main('Oscillator','C1','',1000,0.05,'jNeuroML_NEURON')
         
+    elif '-KatoC1' in sys.argv:
+        main('Kato','C1','',1080,0.05,'jNeuroML_NEURON')
+
     elif '-iA' in sys.argv:
         main('IClamp','A','',1000,0.05,'jNeuroML')
     elif '-iB' in sys.argv:
