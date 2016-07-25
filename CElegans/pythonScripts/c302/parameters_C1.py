@@ -54,35 +54,35 @@ class ParameterisedModel(c302ModelPrototype):
 
         self.add_bioparameter("spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("leak_cond_density", "0.01 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("k_slow_cond_density", "1 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("k_fast_cond_density", "0.01 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("ca_boyle_cond_density", "1 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("exc_syn_conductance", "0.05 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_conductance", "0.1 nS", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_vth", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_erev", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_k", "0.025per_ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("inh_syn_conductance", "0.05 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_conductance", "0.1 nS", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_vth", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_erev", "-70 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_k", "0.025per_ms", "BlindGuess", "0.1")
         
 
-        self.add_bioparameter("elec_syn_gbase", "0.005 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("unphysiological_offset_current", "5.872023805295083 pA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current", "6.076428433117039 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 

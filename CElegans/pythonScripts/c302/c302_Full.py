@@ -13,9 +13,11 @@ def setup(parameter_set,
     
     # Some random set of neurons
     cells_to_stimulate = ["ADAL", "ADAR", "M1","M2L","M3L","M3R","M4","I1R","I2L","I5","I6","MI","NSMR","MCL","ASEL", "AVEL", "AWAR", "DB1", "DVC", "RIAR", "RMDDL"]
+    cells_to_stimulate = ['PVCL']
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ["ADAL", "ADAR", "PVDR", "BDUR","I1R","I2L"]
+    cells_to_plot      = ['AVBL','AVBR','PVCL', 'PVCR', 'DB1','DB2','VB1','VB2','DD1','DD2','VD1','VD2']
     
     reference = "c302_%s_Full"%parameter_set
     

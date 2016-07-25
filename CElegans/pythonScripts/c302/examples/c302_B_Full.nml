@@ -4,7 +4,7 @@
 Parameters and setting used to generate this network:
 
     Cells:                         All cells
-    Cell stimulated:               ['ADAL', 'ADAR', 'M1', 'M2L', 'M3L', 'M3R', 'M4', 'I1R', 'I2L', 'I5', 'I6', 'MI', 'NSMR', 'MCL', 'ASEL', 'AVEL', 'AWAR', 'DB1', 'DVC', 'RIAR', 'RMDDL']
+    Cell stimulated:               ['PVCL']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               True
@@ -13833,68 +13833,8 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VC1_VD1_Generic_GJ" presynapticPopulation="VC1" postsynapticPopulation="VD1">
             <electricalConnectionInstance id="0" preCell="../VC1/0/generic_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../VD1/0/generic_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
         </electricalProjection>
-        <inputList id="Input_ADAL_offset_current" population="ADAL" component="offset_current">
-            <input id="0" target="../ADAL/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_ADAR_offset_current" population="ADAR" component="offset_current">
-            <input id="0" target="../ADAR/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_ASEL_offset_current" population="ASEL" component="offset_current">
-            <input id="0" target="../ASEL/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_AVEL_offset_current" population="AVEL" component="offset_current">
-            <input id="0" target="../AVEL/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_AWAR_offset_current" population="AWAR" component="offset_current">
-            <input id="0" target="../AWAR/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_DB1_offset_current" population="DB1" component="offset_current">
-            <input id="0" target="../DB1/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_DVC_offset_current" population="DVC" component="offset_current">
-            <input id="0" target="../DVC/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_I1R_offset_current" population="I1R" component="offset_current">
-            <input id="0" target="../I1R/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_I2L_offset_current" population="I2L" component="offset_current">
-            <input id="0" target="../I2L/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_I5_offset_current" population="I5" component="offset_current">
-            <input id="0" target="../I5/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_I6_offset_current" population="I6" component="offset_current">
-            <input id="0" target="../I6/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_M1_offset_current" population="M1" component="offset_current">
-            <input id="0" target="../M1/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_M2L_offset_current" population="M2L" component="offset_current">
-            <input id="0" target="../M2L/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_M3L_offset_current" population="M3L" component="offset_current">
-            <input id="0" target="../M3L/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_M3R_offset_current" population="M3R" component="offset_current">
-            <input id="0" target="../M3R/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_M4_offset_current" population="M4" component="offset_current">
-            <input id="0" target="../M4/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_MCL_offset_current" population="MCL" component="offset_current">
-            <input id="0" target="../MCL/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_MI_offset_current" population="MI" component="offset_current">
-            <input id="0" target="../MI/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_NSMR_offset_current" population="NSMR" component="offset_current">
-            <input id="0" target="../NSMR/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_RIAR_offset_current" population="RIAR" component="offset_current">
-            <input id="0" target="../RIAR/0/generic_iaf_cell" destination="synapses"/>
-        </inputList>
-        <inputList id="Input_RMDDL_offset_current" population="RMDDL" component="offset_current">
-            <input id="0" target="../RMDDL/0/generic_iaf_cell" destination="synapses"/>
+        <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
+            <input id="0" target="../PVCL/0/generic_iaf_cell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

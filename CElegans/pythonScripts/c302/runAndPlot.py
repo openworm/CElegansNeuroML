@@ -19,7 +19,7 @@ def plots(a_n, info, cells, dt):
     plot0 = ax.pcolor(a_n_)
     ax.set_yticks(np.arange(a_n_.shape[0]) + 0.5, minor=False)
     ax.set_yticklabels(cells)
-    ax.tick_params(axis='y', labelsize=4)
+    ax.tick_params(axis='y', labelsize=6)
     plt.setp(ax.get_yticklabels(), rotation=45)
 
     
@@ -71,7 +71,7 @@ def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save_only,
                         labels=labels,
                         xaxis="Time (ms)",
                         yaxis="Membrane potential (mV)" if voltage else "Activity",
-                        show_plot_already=(not save_only),
+                        show_plot_already=False,
                         save_figure_to=(None if not save_only else save_fig_path%(file_name)),
                         cols_in_legend_box=8)
     
@@ -86,6 +86,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
     print("Reloaded data: %s"%lems_results.keys())
     cells = []
     muscles = False
+    times = [t*1000 for t in lems_results['t']]
     for cm in lems_results.keys():
         if not cm=='t' and not cm.startswith('MD') and not cm.startswith('MV') and cm.endswith('/v'):
             cells.append(cm.split('/')[0])
@@ -113,7 +114,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
     for cell in cells:
         v = lems_results[template%cell]
         
-        xvals.append(lems_results['t'])
+        xvals.append(times)
         labels.append(cell)
         
         if cell==cells[0]:
@@ -160,7 +161,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
         for muscle in all_muscles:
             mv = lems_results[template%muscle]
 
-            xvals.append(lems_results['t'])
+            xvals.append(times)
             labels.append(muscle)
         
             if muscle==all_muscles[0]:
@@ -210,7 +211,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
         for cell in cells:
             a = lems_results[template%(cell,variable)]
             
-            xvals.append(lems_results['t'])
+            xvals.append(times)
             yvals.append(a)
             labels.append(cell)
             
@@ -258,7 +259,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
         for m in all_muscles:
             a = lems_results[template%(m,variable)]
             
-            xvals.append(lems_results['t'])
+            xvals.append(times)
             yvals.append(a)
             labels.append(m)
             
@@ -287,6 +288,8 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
 
     if not save_only:
         plt.show()
+    else:
+        plt.close("all")
         
     
 if __name__ == '__main__':
@@ -304,7 +307,7 @@ if __name__ == '__main__':
     elif '-musclesA' in sys.argv:
         main('Muscles','A','',1000,0.05,'jNeuroML_NEURON')
         
-    elif '-musclesC1' in sys.argv:
+    elif '-musclesC1' in sys.argv or  '-muscC1' in sys.argv:
         main('Muscles','C1','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-pharA' in sys.argv or '-pharyngealA' in sys.argv:
@@ -322,8 +325,11 @@ if __name__ == '__main__':
     elif '-socialB' in sys.argv:
         main('Social','B','',2500,0.05,'jNeuroML_NEURON')
         
-    elif '-social' in sys.argv:
+    elif '-socialC' in sys.argv:
         main('Social','C','',2500,0.05,'jNeuroML_NEURON')
+        
+    elif '-socialC1' in sys.argv:
+        main('Social','C1','',2500,0.05,'jNeuroML_NEURON')
         
     elif '-oscA' in sys.argv:
         main('Oscillator','A','',600,0.05,'jNeuroML_NEURON')
@@ -364,9 +370,9 @@ if __name__ == '__main__':
                      'Syns':500,
                      'Pharyngeal':500,
                      'Social':2500,
-                     'Oscillator':600,
-                     'Muscles':500,
-                     'Full':500}
+                     'Oscillator':1000,
+                     'Muscles':1000,
+                     'Full':1000}
             
         html+='<tr>'
         html+='<td>&nbsp;</td>'

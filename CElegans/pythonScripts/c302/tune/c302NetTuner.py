@@ -34,6 +34,35 @@ sys.path.append(".")
 from C302Controller import C302Controller
 
 
+
+parameters0 = ['leak_cond_density',
+              'k_slow_cond_density',
+              'k_fast_cond_density',
+              'ca_boyle_cond_density',
+              'exc_syn_conductance',
+              'inh_syn_conductance',
+              'elec_syn_gbase',
+              'unphysiological_offset_current']
+
+#above parameters will not be modified outside these bounds:
+min_constraints0 = [.005,.1, 0.005, .1, .01, .01, 0.0005, 2]
+max_constraints0 = [.2,  2, 0.1,   2, .1, .1, 0.01,  8]
+
+#above parameters will not be modified outside these bounds:
+min_constraints1 = [.005,.1, 0.005, .1, .01, .01, 0.0005, 5]
+max_constraints1 = [.2,  2, 0.1,   2, .1, .1, 0.01,  7]
+
+weights0 = {}
+target_data0 = {}
+
+for cell in ['DB1','VB1','DA1','VA1', 'DB4','VB4','DA4','VA4', 'DB9','VB9','DA9','VA9']:
+    
+    var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+    weights0[var] = 1
+    target_data0[var] = 4
+
+
+
 def scale(scale, number, min=1):
     return max(min, int(scale*number))
 
@@ -218,33 +247,10 @@ if __name__ == '__main__':
     
     nogui = '-nogui' in sys.argv
         
+    simulator  = 'jNeuroML_NEURON'
 
     if '-musc' in sys.argv or '-muscone' in sys.argv:
-
-        parameters = ['leak_cond_density',
-                      'k_slow_cond_density',
-                      'k_fast_cond_density',
-                      'ca_boyle_cond_density',
-                      'exc_syn_conductance',
-                      'inh_syn_conductance',
-                      'elec_syn_gbase',
-                      'unphysiological_offset_current']
-
-        #above parameters will not be modified outside these bounds:
-        min_constraints = [.005,.1, 0.005, .1, .01, .01, 0.0005, 1]
-        max_constraints = [.2,  2, 0.1,   2, .1, .1, 0.01,  8]
         
-        weights = {}
-        target_data = {}
-        
-        
-        for cell in ['DB3','VB3','DB4','VB4','PVCL']:
-            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
-            weights[var] = 1
-            target_data[var] = 4
-            
-
-        simulator  = 'jNeuroML_NEURON'
         
         if '-musc' in sys.argv:
             
@@ -252,11 +258,11 @@ if __name__ == '__main__':
             run_optimisation('Test',
                              'Muscles',
                              'C1',
-                             parameters,
-                             max_constraints,
-                             min_constraints,
-                             weights,
-                             target_data,
+                             parameters0,
+                             max_constraints0,
+                             min_constraints0,
+                             weights0,
+                             target_data0,
                              sim_time = 500,
                              dt = 0.1,
                              population_size =  scale(scalem,100),
@@ -276,14 +282,14 @@ if __name__ == '__main__':
             my_controller = C302Controller('TestOsc', 'C1', 'Muscles', sim_time, 0.1, simulator = simulator)
 
             #test = [0.030982235821054638, 0.7380672812995235, 0.07252703867293844, 0.8087106170838071, 0.045423417312661474, 0.011449079144697817, 0.0049614426482976716, 2.361816408316808]
-            sim_var = OrderedDict({   'ca_boyle_cond_density': 2,
+            sim_var = OrderedDict({   'ca_boyle_cond_density': 1.6862775772264702,
                         'elec_syn_gbase': 0.0005,
                         'exc_syn_conductance': 0.1,
                         'inh_syn_conductance': 0.1,
-                        'k_fast_cond_density': 0.1,
-                        'k_slow_cond_density': 2,
+                        'k_fast_cond_density': 0.0711643917483308,
+                        'k_slow_cond_density': 1.8333751019872582,
                         'leak_cond_density': 0.005,
-                        'unphysiological_offset_current': 7.083369886548855})
+                        'unphysiological_offset_current': 6.076428433117039})
             #for i in range(len(parameters)):
             #    sim_var[parameters[i]] = test[i]
                   
@@ -308,9 +314,32 @@ if __name__ == '__main__':
 
             pp.pprint(analysis)
 
-            analysis = example_run_analysis.analyse(weights.keys())
+            analysis = example_run_analysis.analyse(weights0.keys())
 
             pp.pprint(analysis)
+            
+    if '-full' in sys.argv:
+
+        scalem = .2
+        run_optimisation('Test',
+                         'Full',
+                         'C1',
+                         parameters0,
+                         max_constraints1,
+                         min_constraints1,
+                         weights0,
+                         target_data0,
+                         sim_time = 500,
+                         dt = 0.1,
+                         population_size =  scale(scalem,100),
+                         max_evaluations =  scale(scalem,500),
+                         num_selected =     scale(scalem,20),
+                         num_offspring =    scale(scalem,20),
+                         mutation_rate =    0.9,
+                         num_elites =       scale(scalem,3),
+                         nogui =            nogui,
+                         simulator = simulator,
+                         num_local_procesors_to_use =10)
                          
     elif '-osc' in sys.argv:
 
@@ -397,7 +426,7 @@ if __name__ == '__main__':
                              num_offspring =    100,
                              mutation_rate =    0.1,
                              num_elites =       6,
-                             seed =             123477,
+                             seed =             12347,
                              nogui =            nogui,
                              simulator = simulator,
                              num_local_procesors_to_use = 10)
@@ -440,27 +469,15 @@ if __name__ == '__main__':
   
     elif '-icC1' in sys.argv or '-icC1one' in sys.argv:
 
-        '''
-        self.add_bioparameter("leak_cond_density", "0.1 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("k_slow_cond_density", "0.5 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("k_fast_cond_density", "0.05 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("ca_boyle_cond_density", "0.5 mS_per_cm2", "BlindGuess", "0.1")'''
-        
-        parameters = ['leak_cond_density',
-                      'k_slow_cond_density',
-                      'k_fast_cond_density',
-                      'ca_boyle_cond_density',
-                      'unphysiological_offset_current']
-
-        #above parameters will not be modified outside these bounds:
-        min_constraints = [.01,.1, 0.01, .1, 3]
-        max_constraints = [.2,  1, 0.1,   1, 8]
         
         weights = {}
         target_data = {}
         
         for cell in ['ADAL']:
             var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+            weights[var] = 1
+            target_data[var] = 4
+            var = '%s/0/GenericCell/v:max_peak_no'%cell
             weights[var] = 1
             target_data[var] = 4
             
@@ -470,22 +487,23 @@ if __name__ == '__main__':
             run_optimisation('Test',
                              'IClamp',
                              'C1',
-                             parameters,
-                             max_constraints,
-                             min_constraints,
+                             parameters0,
+                             max_constraints0,
+                             min_constraints0,
                              weights,
                              target_data,
                              sim_time = 1000,
                              dt = 0.1,
-                             population_size =  50,
-                             max_evaluations =  120,
-                             num_selected =     10,
-                             num_offspring =    15,
+                             population_size =  200,
+                             max_evaluations =  500,
+                             num_selected =     20,
+                             num_offspring =    20,
                              mutation_rate =    0.1,
-                             num_elites =       1,
-                             seed =             123477,
+                             num_elites =       4,
+                             seed =             12347,
                              nogui =            nogui,
-                             simulator = simulator)
+                             simulator = simulator,
+                             num_local_procesors_to_use = 10)
         else:
                
             sim_time = 1000
