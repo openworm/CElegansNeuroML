@@ -371,6 +371,10 @@ def generate(net_id,
 
     nml_doc.pulse_generators.append(params.offset_current)
 
+    if params.level == "C" or params.level == "C1":
+        nml_doc.fixed_factor_concentration_models.append(params.concentration_model)
+
+
     cell_names, conns = get_cell_names_and_connection()
 
     # To hold all Cell NeuroML objects vs. names

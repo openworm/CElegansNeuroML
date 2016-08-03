@@ -21,6 +21,7 @@ from neuroml import InitMembPotential
 from neuroml import SpecificCapacitance
 from neuroml import ChannelDensity
 from neuroml import SpikeThresh
+from neuroml import FixedFactorConcentrationModel
 
 from neuroml import GradedSynapse
 from neuroml import GapJunction
@@ -65,6 +66,9 @@ class ParameterisedModel(c302ModelPrototype):
 
         self.add_bioparameter("ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
+        
+        self.add_bioparameter("ca_conc_decay_time", "100 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
 
         self.add_bioparameter("exc_syn_conductance", "0.1 nS", "BlindGuess", "0.1")
@@ -182,3 +186,10 @@ class ParameterisedModel(c302ModelPrototype):
                                 delay=self.get_bioparameter("unphysiological_offset_current_del").value,
                                 duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
                                 amplitude=self.get_bioparameter("unphysiological_offset_current").value)
+
+    
+        self.concentration_model = FixedFactorConcentrationModel(id="CaPool",
+                                            ion="ca",
+                                            resting_conc="0 mM",
+                                            decay_constant=self.get_bioparameter("ca_conc_decay_time").value,
+                                            rho=self.get_bioparameter("ca_conc_rho").value)

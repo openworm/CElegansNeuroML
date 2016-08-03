@@ -60,7 +60,7 @@ def setup(parameter_set,
     
     cells_to_stimulate = ['PVCL', 'AVBL']
     cells_to_stimulate.extend(['DB1', 'VB1'])
-    cells_to_stimulate = ['PVCL']
+    cells_to_stimulate = ['PVCL','PVCR']
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ['AS1', 'AS10', 'AVFL', 'DA1','DB1','DB4','DB7','IL1DL','RID', 'RIML','SMBDL', 'SMBDR', 'VB1', 'VB5', 'VB10','VC1', 'VC2']

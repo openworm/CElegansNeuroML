@@ -18,6 +18,7 @@ from neuroml import InitMembPotential
 from neuroml import SpecificCapacitance
 from neuroml import ChannelDensity
 from neuroml import SpikeThresh
+from neuroml import FixedFactorConcentrationModel
 
 from neuroml import ExpTwoSynapse
 from neuroml import GapJunction
@@ -51,32 +52,35 @@ class ParameterisedModel(c302ModelPrototype):
 
         self.add_bioparameter("spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("leak_cond_density", "0.1 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("k_slow_cond_density", "0.5 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("k_fast_cond_density", "0.05 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("ca_boyle_cond_density", "0.5 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
+        
+        self.add_bioparameter("ca_conc_decay_time", "11.5943 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("chem_exc_syn_gbase", ".2 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_gbase", ".1 nS", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_erev", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_rise", "1 ms", "Bli ndGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_decay", "5 ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("chem_inh_syn_gbase", ".2 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_gbase", ".1 nS", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_erev", "-60 mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_rise", "2 ms", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_decay", "40 ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("elec_syn_gbase", "0.01 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("unphysiological_offset_current", "5 pA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current", "6.076428433117039 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 
@@ -174,3 +178,10 @@ class ParameterisedModel(c302ModelPrototype):
                                 delay=self.get_bioparameter("unphysiological_offset_current_del").value,
                                 duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
                                 amplitude=self.get_bioparameter("unphysiological_offset_current").value)
+
+    
+        self.concentration_model = FixedFactorConcentrationModel(id="CaPool",
+                                            ion="ca",
+                                            resting_conc="0 mM",
+                                            decay_constant=self.get_bioparameter("ca_conc_decay_time").value,
+                                            rho=self.get_bioparameter("ca_conc_rho").value)

@@ -80,3 +80,4 @@ class c302ModelPrototype(ParameterisedModelPrototype):
     inh_syn = None
     elec_syn = None
     offset_current = None
+    concentration_model = None

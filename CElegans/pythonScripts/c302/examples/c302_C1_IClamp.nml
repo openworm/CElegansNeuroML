@@ -10,6 +10,28 @@ Parameters and setting used to generate this network:
     Include muscles:               False
 
     Known BioParameters:
+        BioParameter: iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
@@ -22,6 +44,8 @@ Parameters and setting used to generate this network:
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 100 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_conductance = 0.1 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
@@ -30,15 +54,11 @@ Parameters and setting used to generate this network:
         BioParameter: inh_syn_conductance = 0.1 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
     <include href="cell_C.xml"></include>
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="100 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">

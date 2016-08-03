@@ -10,33 +10,46 @@ Parameters and setting used to generate this network:
     Include muscles:               False
 
     Known BioParameters:
+        BioParameter: iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_cond_density = 0.1 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_cond_density = 0.05 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_cond_density = 0.5 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = .2 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
 
 </notes>
     <include href="cell_C.xml"></include>
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
     <cell id="GenericCell">
         <morphology id="morphology_GenericCell">
             <segment id="0" name="soma">
@@ -46,10 +59,10 @@ Parameters and setting used to generate this network:
         </morphology>
         <biophysicalProperties id="biophys_GenericCell">
             <membraneProperties>
-                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.1 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.5 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.05 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="0.5 mS_per_cm2" erev="40 mV" ion="ca"/>
+                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.005 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="1.8333751019872582 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.0711643917483308 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="1.6862775772264702 mS_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
                 <initMembPotential value="-45 mV"/>

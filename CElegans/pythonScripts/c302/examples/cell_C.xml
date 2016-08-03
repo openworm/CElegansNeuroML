@@ -91,9 +91,6 @@
         <customHGate id="h" instances="1" alpha="0.282473" ca_half="6.41889e-8 mM" k="-1.00056e-8 mM"/>
 
     </ionChannel>
-
-    
-    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
     
 
     <ComponentType name="customHGate"

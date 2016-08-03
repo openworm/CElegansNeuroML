@@ -4,7 +4,7 @@
 Parameters and setting used to generate this network:
 
     Cells:                         All cells
-    Cell stimulated:               ['PVCL']
+    Cell stimulated:               ['PVCL', 'PVCR']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               True
@@ -15,7 +15,6 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
@@ -25,9 +24,14 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 3pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
+        BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
 
 </notes>
     <include href="cell_B.xml"></include>
@@ -13835,6 +13839,9 @@ Parameters and setting used to generate this network:
         </electricalProjection>
         <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
             <input id="0" target="../PVCL/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCR_offset_current" population="PVCR" component="offset_current">
+            <input id="0" target="../PVCR/0/generic_iaf_cell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>
