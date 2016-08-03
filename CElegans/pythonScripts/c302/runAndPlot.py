@@ -9,7 +9,7 @@ import c302_utils
 save_fig_dir = 'summary/'
 
 
-def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False):
+def main(config, parameter_set, prefix, duration, dt, simulator, save=False, show_plot_already=True):
     
     
     exec('from c302_%s import setup'%config)
@@ -28,7 +28,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator, save_only=False
     elif simulator == 'jNeuroML_NEURON':
         results = pynml.run_lems_with_jneuroml_neuron(lems_file, nogui=True, load_saved_data=True, verbose=True)
         
-    c302_utils.plot_c302_results(results, config, parameter_set, directory=save_fig_dir,save_only=save_only)
+    c302_utils.plot_c302_results(results, config, parameter_set, directory=save_fig_dir,save=save,show_plot_already=show_plot_already)
     
     
     
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     elif '-iC' in sys.argv:
         main('IClamp','C','',1000,0.05,'jNeuroML')
     elif '-iC1' in sys.argv:
-        main('IClamp','C1','',1000,0.05,'jNeuroML')
+        main('IClamp','C1','',1000,0.05,'jNeuroML',save=True)
         
     elif '-all' in sys.argv:
         print('Generating all plots')
@@ -143,7 +143,7 @@ if __name__ == '__main__':
                 f3 = open('examples/'+save_fig_dir+'summary_%s_%s.md'%(c,p),'w')
                 f3.write('### Parameter config summary \n%s'%html2)
                 
-                main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save_only=True)
+                main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save=True,show_plot_already=False)
                 html+='</td>'
                 
             html+='</tr>\n'

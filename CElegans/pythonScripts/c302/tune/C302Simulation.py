@@ -24,6 +24,8 @@ class C302Simulation(object):
 
     target_cell = 'ADAL'
     params = None
+    
+    results = None
 
     def __init__(self, reference, parameter_set, config, sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './'):
 
@@ -51,7 +53,7 @@ class C302Simulation(object):
         if self.already_run:
             
             for ref in self.volts.keys():
-
+            
                 plt.plot(self.t, self.volts[ref], label=ref)
                 plt.title("Simulation voltage vs time")
                 plt.legend()
@@ -87,14 +89,14 @@ class C302Simulation(object):
         
         start = time.time()
         if self.simulator == 'jNeuroML':
-            results = pynml.run_lems_with_jneuroml(self.lems_file, 
+            self.results = pynml.run_lems_with_jneuroml(self.lems_file, 
                                                    nogui=True, 
                                                    load_saved_data=True, 
                                                    plot=False, 
                                                    exec_in_dir = self.generate_dir,
                                                    verbose=False)
         elif self.simulator == 'jNeuroML_NEURON':
-            results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, 
+            self.results = pynml.run_lems_with_jneuroml_neuron(self.lems_file, 
                                                           nogui=True, 
                                                           load_saved_data=True, 
                                                           plot=False, 
@@ -108,7 +110,7 @@ class C302Simulation(object):
     
         print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
         
-        self.t = [t*1000 for t in results['t']]
+        self.t = [t*1000 for t in self.results['t']]
         res_template = '%s/0/generic_iaf_cell/v'
         if self.params.level == 'C' or self.params.level == 'D':
             res_template = '%s/0/GenericCell/v'
@@ -120,7 +122,7 @@ class C302Simulation(object):
                 self.cells.append(pop.id)
             
         for cell in self.cells:
-            self.volts[res_template%cell] = [v*1000 for v in results[res_template%cell]]
+            self.volts[res_template%cell] = [v*1000 for v in self.results[res_template%cell]]
         
 
 

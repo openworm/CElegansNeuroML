@@ -18,6 +18,8 @@ import shutil
 import os.path
 import time
 
+import c302_utils
+
 import pprint
 
 from collections import OrderedDict
@@ -35,27 +37,35 @@ from C302Controller import C302Controller
 
 
 
-parameters0 = ['leak_cond_density',
+parameters_C_based_cells = ['leak_cond_density',
               'k_slow_cond_density',
               'k_fast_cond_density',
               'ca_boyle_cond_density',
-              'exc_syn_conductance',
-              'inh_syn_conductance',
-              'elec_syn_gbase',
+              'ca_conc_decay_time',
               'unphysiological_offset_current']
 
-#above parameters will not be modified outside these bounds:
-min_constraints0 = [.005,.1, 0.005, .1, .01, .01, 0.0005, 2]
-max_constraints0 = [.2,  2, 0.1,   2, .1, .1, 0.01,  8]
+parameters_C_based_net = ['exc_syn_conductance',
+              'inh_syn_conductance',
+              'elec_syn_gbase']
+              
+parameters_C_based = parameters_C_based_cells + parameters_C_based_net
 
-#above parameters will not be modified outside these bounds:
-min_constraints1 = [.005,.1, 0.005, .1, .01, .01, 0.0005, 5]
-max_constraints1 = [.2,  2, 0.1,   2, .1, .1, 0.01,  7]
+min_constraints_cells_loose = [.005, .1, 0.005, .1, 10,  2]
+max_constraints_cells_loose = [.2,   2,  0.1,   2,  100, 8]
+
+min_constraints_net_loose = [.01, .01, 0.0005]
+max_constraints_net_loose = [.1,  .1,  0.01]
+
+min_constraints_cells_tight = [0.0045, 1.8, 0.07, 1.6,  10, 6]
+max_constraints_cells_tight = [0.0055, 1.9,  0.08, 1.7, 12, 7]
+
+min_constraints_net_tight = [0.09, 0.09, 0.00048]
+max_constraints_net_tight = [0.11, 0.11, 0.00052]
 
 weights0 = {}
 target_data0 = {}
 
-for cell in ['DB1','VB1','DA1','VA1', 'DB4','VB4','DA4','VA4', 'DB9','VB9','DA9','VA9']:
+for cell in ['DB1','VB1','DA1','VA1', 'DB4','VB4','DA4','VA4', 'DB7','VB9','DA9','VA9']:
     
     var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
     weights0[var] = 1
@@ -161,6 +171,8 @@ def run_optimisation(prefix,
 
 
     best_candidate_t, best_candidate_v = my_controller.run_individual(sim_var,show=False)
+    
+    best_candidate_results = my_controller.last_results
 
     best_candidate_analysis = analysis.NetworkAnalysis(best_candidate_v,
                                                best_candidate_t,
@@ -236,10 +248,11 @@ def run_optimisation(prefix,
         plt.xlabel("Time (ms)")
         plt.ylabel("Membrane potential(mV)")
 
-        plt.show()
 
         utils.plot_generation_evolution(sim_var.keys(), individuals_file_name = '%s/ga_individuals.csv'%run_dir)
 
+        
+        c302_utils.plot_c302_results(best_candidate_results, config, level, directory=run_dir,save=True)
 
 
 
@@ -249,21 +262,44 @@ if __name__ == '__main__':
         
     simulator  = 'jNeuroML_NEURON'
 
-    if '-musc' in sys.argv or '-muscone' in sys.argv:
+    if '-full' in sys.argv:
+
+        scalem = 1
+        run_optimisation('Test',
+                         'Full',
+                         'C1',
+                         parameters_C_based,
+                         max_constraints_cells_loose + max_constraints_net_tight,
+                         min_constraints_cells_loose + min_constraints_net_tight,
+                         weights0,
+                         target_data0,
+                         sim_time = 1000,
+                         dt = 0.1,
+                         population_size =  scale(scalem,100),
+                         max_evaluations =  scale(scalem,500),
+                         num_selected =     scale(scalem,20),
+                         num_offspring =    scale(scalem,20),
+                         mutation_rate =    0.9,
+                         num_elites =       scale(scalem,3),
+                         nogui =            nogui,
+                         simulator = simulator,
+                         num_local_procesors_to_use =10)
+                         
+    elif '-musc' in sys.argv or '-muscone' in sys.argv:
         
         
         if '-musc' in sys.argv:
             
-            scalem = 1
+            scalem = 2
             run_optimisation('Test',
                              'Muscles',
                              'C1',
-                             parameters0,
-                             max_constraints0,
-                             min_constraints0,
+                             parameters_C_based,
+                             max_constraints_cells_loose + max_constraints_net_tight,
+                             min_constraints_cells_loose + min_constraints_net_tight,
                              weights0,
                              target_data0,
-                             sim_time = 500,
+                             sim_time = 1000,
                              dt = 0.1,
                              population_size =  scale(scalem,100),
                              max_evaluations =  scale(scalem,500),
@@ -318,28 +354,6 @@ if __name__ == '__main__':
 
             pp.pprint(analysis)
             
-    if '-full' in sys.argv:
-
-        scalem = .2
-        run_optimisation('Test',
-                         'Full',
-                         'C1',
-                         parameters0,
-                         max_constraints1,
-                         min_constraints1,
-                         weights0,
-                         target_data0,
-                         sim_time = 500,
-                         dt = 0.1,
-                         population_size =  scale(scalem,100),
-                         max_evaluations =  scale(scalem,500),
-                         num_selected =     scale(scalem,20),
-                         num_offspring =    scale(scalem,20),
-                         mutation_rate =    0.9,
-                         num_elites =       scale(scalem,3),
-                         nogui =            nogui,
-                         simulator = simulator,
-                         num_local_procesors_to_use =10)
                          
     elif '-osc' in sys.argv:
 
@@ -487,7 +501,7 @@ if __name__ == '__main__':
             run_optimisation('Test',
                              'IClamp',
                              'C1',
-                             parameters0,
+                             parameters_C_based,
                              max_constraints0,
                              min_constraints0,
                              weights,
@@ -509,7 +523,7 @@ if __name__ == '__main__':
             sim_time = 1000
             simulator  = 'jNeuroML_NEURON'
             
-            my_controller = C302Controller('TestOsc', 'C1', 'IClamp', sim_time, 0.1, simulator = simulator)
+            my_controller = C302Controller('TestIClamp', 'C1', 'IClamp', sim_time, 0.1, simulator = simulator)
 
             sim_var = OrderedDict([('leak_cond_density',0.1),
                                    ('k_slow_cond_density',0.5),
@@ -551,9 +565,9 @@ if __name__ == '__main__':
         min_constraints = [0.05, 3, 0.01]
         max_constraints = [1,    50, 1]
 
-        M5_max_peak = 'M5[0]/v:max_peak_no'
-        I6_max_peak = 'I6[0]/v:max_peak_no'
-        MCL_max_peak = 'MCL[0]/v:max_peak_no'
+        M5_max_peak = 'M5/0/GenericCell/v:max_peak_no'
+        I6_max_peak = 'I6/0/GenericCell/v:max_peak_no'
+        MCL_max_peak = 'MCL/0/GenericCell/v:max_peak_no'
 
 
         weights = {M5_max_peak: 1,
@@ -581,7 +595,8 @@ if __name__ == '__main__':
                          num_offspring =    20,
                          mutation_rate =    0.5,
                          num_elites =       1,
-                         nogui =            nogui)
+                         nogui =            nogui,
+                         num_local_procesors_to_use = 10)
 
 
     elif '-simple' in sys.argv or '-simpleN' in sys.argv:

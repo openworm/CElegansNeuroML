@@ -22,6 +22,8 @@ sys.path.append(".")
 import C302Simulation
 import pyneuroml.pynml
 
+last_results = None
+
 class C302Controller():
 
     def __init__(self, 
@@ -124,7 +126,7 @@ class C302Controller():
 
     def run_individual(self, sim_var, show=False):
         
-        return run_individual(sim_var,
+        t, volts = run_individual(sim_var,
                    self.ref,
                    self.params,
                    self.config,
@@ -133,6 +135,12 @@ class C302Controller():
                    self.simulator,
                    self.generate_dir,
                    show)
+
+        global last_results
+        
+        self.last_results = last_results
+        
+        return t, volts
         
 
 def run_individual(sim_var, 
@@ -155,6 +163,7 @@ def run_individual(sim_var,
     Simulation object (see Simulation class above).
 
     """
+    global last_results
 
     sim = C302Simulation.C302Simulation(ref, 
                          params, 
@@ -163,6 +172,7 @@ def run_individual(sim_var,
                          dt = dt, 
                          simulator = simulator, 
                          generate_dir = generate_dir)
+                         
 
     for var_name in sim_var.keys():
         bp = sim.params.get_bioparameter(var_name)
@@ -170,6 +180,9 @@ def run_individual(sim_var,
         bp.change_magnitude(sim_var[var_name])
 
     sim.go()
+    
+    global last_results
+    last_results = sim.results
 
     if show:
         sim.show()

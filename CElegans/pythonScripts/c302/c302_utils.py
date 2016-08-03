@@ -29,7 +29,7 @@ def plots(a_n, info, cells, dt):
     plt.xlabel('Time (ms)')
  
     fig.canvas.draw()
-    labels = [float(item.get_text())*dt*downscale for item in ax.get_xticklabels()]
+    labels = [float(item.get_text())*dt*downscale*1000 for item in ax.get_xticklabels()]
 
     ax.set_xticklabels(labels)
     #print labels
@@ -39,7 +39,7 @@ def plots(a_n, info, cells, dt):
     
 
     
-def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save_only,save_fig_path,voltage,muscles):
+def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save,save_fig_path,voltage,muscles):
                          
     file_name = 'traces_%s%s_%s_%s.png'%(('muscles' if muscles else 'neuron'),('' if voltage else '_activity'),config,parameter_set)
     
@@ -50,15 +50,17 @@ def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save_only,
                         xaxis="Time (ms)",
                         yaxis="Membrane potential (mV)" if voltage else "Activity",
                         show_plot_already=False,
-                        save_figure_to=(None if not save_only else save_fig_path%(file_name)),
+                        save_figure_to=(None if not save else save_fig_path%(file_name)),
                         cols_in_legend_box=8)
     
-def plot_c302_results(lems_results, config, parameter_set, directory='./',save_only=True):
+def plot_c302_results(lems_results, config, parameter_set, directory='./',save=True,show_plot_already=True):
     
     params = {'legend.fontsize': 8,
               'font.size': 10}
     plt.rcParams.update(params)
 
+    if not directory.endswith('/'):
+        directory += '/'
     save_fig_path = directory+'%s'
 
     print("Reloaded data: %s"%lems_results.keys())
@@ -105,8 +107,10 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
     
     plots(volts_n, info, cells, dt)
 
-    if save_only:
-        plt.savefig(save_fig_path%('neurons_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
+    if save:
+        f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
+        print("Saving figure to: %s"%os.path.abspath(f))
+        plt.savefig(f,bbox_inches='tight')
     
     generate_traces_plot(config,
                          parameter_set,
@@ -114,7 +118,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
                          yvals,
                          info,
                          labels,
-                         save_only=save_only,
+                         save=save,
                          save_fig_path=save_fig_path,
                          voltage=True,
                          muscles=False)
@@ -152,8 +156,10 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
 
         plots(mvolts_n, info, all_muscles, dt)
         
-        if save_only:
-            plt.savefig(save_fig_path%('muscles_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
+        if save:
+            f = save_fig_path%('muscles_%s_%s.png'%(parameter_set,config))
+            print("Saving figure to: %s"%os.path.abspath(f))
+            plt.savefig(f,bbox_inches='tight')
 
         generate_traces_plot(config,
                              parameter_set,
@@ -161,7 +167,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
                              yvals,
                              info,
                              labels,
-                             save_only=save_only,
+                             save=save,
                              save_fig_path=save_fig_path,
                              voltage=True,
                              muscles=True)
@@ -200,8 +206,10 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
 
         plots(activities_n, info, cells, dt)
         
-        if save_only:
-            plt.savefig(save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
+        if save:
+            f = save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config))
+            print("Saving figure to: %s"%os.path.abspath(f))
+            plt.savefig(f,bbox_inches='tight')
             
         generate_traces_plot(config,
                              parameter_set,
@@ -209,7 +217,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
                              yvals,
                              info,
                              labels,
-                             save_only=save_only,
+                             save=save,
                              save_fig_path=save_fig_path,
                              voltage=False,
                              muscles=False)
@@ -248,8 +256,10 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
 
         plots(activities_n, info, all_muscles, dt)
     
-        if save_only:
-            plt.savefig(save_fig_path%('muscle_activity_%s_%s.png'%(parameter_set,config)),bbox_inches='tight')
+        if save:
+            f = save_fig_path%('muscle_activity_%s_%s.png'%(parameter_set,config))
+            print("Saving figure to: %s"%os.path.abspath(f))
+            plt.savefig(f,bbox_inches='tight')
     
         generate_traces_plot(config,
                              parameter_set,
@@ -257,14 +267,14 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save_o
                              yvals,
                              info,
                              labels,
-                             save_only=save_only,
+                             save=save,
                              save_fig_path=save_fig_path,
                              voltage=False,
                              muscles=True)
     
     os.chdir('..')
 
-    if not save_only:
+    if show_plot_already:
         plt.show()
     else:
         plt.close("all")
