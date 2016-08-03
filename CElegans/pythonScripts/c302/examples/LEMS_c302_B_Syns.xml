@@ -17,6 +17,7 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
@@ -26,14 +27,9 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 3pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
-        BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
 
    
     -->
@@ -53,7 +49,7 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_B_Syns" length="500ms" step="0.05ms" target="c302_B_Syns">
+    <Simulation id="sim_c302_B_Syns" length="500ms" step="0.1ms" target="c302_B_Syns">
 
         <Display id="neurons" title="c302_B_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
             

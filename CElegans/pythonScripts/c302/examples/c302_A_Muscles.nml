@@ -30,7 +30,6 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current = 2.5pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 5 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 10000 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
 
 </notes>
     <expTwoSynapse id="elec_syn" gbase="0nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
