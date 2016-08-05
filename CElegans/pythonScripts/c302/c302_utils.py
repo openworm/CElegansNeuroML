@@ -29,8 +29,7 @@ def plots(a_n, info, cells, dt):
     plt.xlabel('Time (ms)')
  
     fig.canvas.draw()
-    labels = [float(item.get_text())*dt*downscale*1000 for item in ax.get_xticklabels()]
-
+    labels = [dt*downscale*1000 for item in ax.get_xticklabels()]#float(item.get_text())*
     ax.set_xticklabels(labels)
     #print labels
     #print plt.xlim()
@@ -83,9 +82,9 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     ## Plot voltages cells
     
     print("Plotting neuron voltages")
-    template = '%s/0/GenericCell/v'
+    template = '%s/0/GenericNeuronCell/v'
     if parameter_set=='A' or parameter_set=='B':
-        template = '%s/0/generic_iaf_cell/v'
+        template = '%s/0/generic_neuron_iaf_cell/v'
     
     xvals = []
     yvals = []
@@ -140,6 +139,10 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     if muscles:
 
         print("Plotting muscle voltages")
+        template = '%s/0/GenericMuscleCell/v'
+        if parameter_set=='A' or parameter_set=='B':
+            template = '%s/0/generic_muscle_iaf_cell/v'
+
         for muscle in all_muscles:
             mv = lems_results[template%muscle]
 
@@ -180,9 +183,9 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         print("Plotting neuron activities")
         variable = 'activity'
         description = 'Activity'
-        template = '%s/0/GenericCell/%s'
+        template = '%s/0/GenericNeuronCell/%s'
         if parameter_set=='A' or parameter_set=='B':
-            template = '%s/0/generic_iaf_cell/%s'
+            template = '%s/0/generic_neuron_iaf_cell/%s'
         if parameter_set=='C' or parameter_set=='C1':
             variable = 'caConc'
             description = '[Ca2+]'
@@ -230,9 +233,9 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         print("Plotting muscle activities")
         variable = 'activity'
         description = 'Activity'
-        template = '%s/0/GenericCell/%s'
+        template = '%s/0/GenericMuscleCell/%s'
         if parameter_set=='A' or parameter_set=='B':
-            template = '%s/0/generic_iaf_cell/%s'
+            template = '%s/0/generic_muscle_iaf_cell/%s'
         if parameter_set=='C' or parameter_set=='C1':
             variable = 'caConc'
             description = '[Ca2+]'

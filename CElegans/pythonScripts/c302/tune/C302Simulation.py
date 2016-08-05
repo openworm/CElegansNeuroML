@@ -111,9 +111,9 @@ class C302Simulation(object):
         print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
         
         self.t = [t*1000 for t in self.results['t']]
-        res_template = '%s/0/generic_iaf_cell/v'
+        res_template = '%s/0/generic_neuron_iaf_cell/v'
         if self.params.level == 'C' or self.params.level == 'D':
-            res_template = '%s/0/GenericCell/v'
+            res_template = '%s/0/GenericNeuronCell/v'
         self.volts = {}
         
         if self.cells is None:

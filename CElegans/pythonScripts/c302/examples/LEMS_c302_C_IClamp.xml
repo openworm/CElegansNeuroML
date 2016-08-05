@@ -12,20 +12,21 @@ Parameters and setting used to generate this network:
     Include muscles:               False
 
     Known BioParameters:
-        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
@@ -35,9 +36,34 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
 
    
     -->
@@ -57,26 +83,26 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_C_IClamp" length="1000ms" step="0.1ms" target="c302_C_IClamp">
+    <Simulation id="sim_c302_C_IClamp" length="1000ms" step="0.05ms" target="c302_C_IClamp">
 
         <Display id="neurons" title="c302_C_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-60" ymax="25">
             
-            <Line id="ADAL" quantity="ADAL/0/GenericCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ADAL" quantity="ADAL/0/GenericNeuronCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             
         </Display>
       
         <Display id="activity_neurons" title="c302_C_IClamp: Activity of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-0.1" ymax="1.1">
             
-            <Line id="ADAL" quantity="ADAL/0/GenericCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="ADAL" quantity="ADAL/0/GenericNeuronCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
 
         </Display>
 
         <OutputFile id="neurons_v" fileName="c302_C_IClamp.dat">
-            <OutputColumn id="ADAL_v" quantity="ADAL/0/GenericCell/v"/>
+            <OutputColumn id="ADAL_v" quantity="ADAL/0/GenericNeuronCell/v"/>
         </OutputFile>
         
         <OutputFile id="neurons_activity" fileName="c302_C_IClamp.activity.dat">
-            <OutputColumn id="ADAL_v" quantity="ADAL/0/GenericCell/caConc"/>
+            <OutputColumn id="ADAL_v" quantity="ADAL/0/GenericNeuronCell/caConc"/>
         </OutputFile>
     </Simulation>
 

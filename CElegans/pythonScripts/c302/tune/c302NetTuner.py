@@ -18,7 +18,6 @@ import shutil
 import os.path
 import time
 
-import c302_utils
 
 import pprint
 
@@ -32,6 +31,7 @@ if not os.path.isfile('c302.py'):
 
 sys.path.append(".")
 
+import c302_utils
 
 from C302Controller import C302Controller
 
@@ -67,7 +67,7 @@ target_data0 = {}
 
 for cell in ['DB1','VB1','DA1','VA1', 'DB4','VB4','DA4','VA4', 'DB7','VB9','DA9','VA9']:
     
-    var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+    var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
     weights0[var] = 1
     target_data0[var] = 4
 
@@ -96,7 +96,7 @@ def run_optimisation(prefix,
                      seed =                12345,
                      simulator =           'jNeuroML',
                      nogui =               False,
-                     num_local_procesors_to_use = 1):  
+                     num_local_procesors_to_use = 4):  
                          
     ref = prefix+config
     
@@ -185,6 +185,7 @@ def run_optimisation(prefix,
 
     report+="---------- Best candidate ------------------------------------------\n"
     
+    report+=pp.pformat(best_candidate)+"\n\n"
     report+=pp.pformat(best_cand_analysis_full)+"\n"
     report+=pp.pformat(best_cand_analysis)+"\n\n"
     report+="FITNESS: %f\n\n"%fitness
@@ -193,6 +194,7 @@ def run_optimisation(prefix,
     
     reportj['fitness']=fitness
     reportj['fittest vars']=dict(sim_var)
+    reportj['best_cand_details']=best_candidate
     reportj['best_cand_analysis_full']=best_cand_analysis_full
     reportj['best_cand_analysis']=best_cand_analysis
     reportj['parameters']=parameters
@@ -283,7 +285,7 @@ if __name__ == '__main__':
                          num_elites =       scale(scalem,3),
                          nogui =            nogui,
                          simulator = simulator,
-                         num_local_procesors_to_use =10)
+                         num_local_procesors_to_use =1)
                          
     elif '-musc' in sys.argv or '-muscone' in sys.argv:
         
@@ -309,7 +311,7 @@ if __name__ == '__main__':
                              num_elites =       scale(scalem,3),
                              nogui =            nogui,
                              simulator = simulator,
-                             num_local_procesors_to_use =10)
+                             num_local_procesors_to_use =1)
         else:
             
             sim_time = 1000
@@ -373,7 +375,7 @@ if __name__ == '__main__':
         
         
         for cell in ['DB3','VB3','DB4','VB4']:
-            var = '%s/0/generic_iaf_cell/v:mean_spike_frequency'%cell
+            var = '%s/0/generic_neuron_iaf_cell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 30
 
@@ -417,7 +419,7 @@ if __name__ == '__main__':
         
         
         for cell in ['DB3','VB3','DB4','VB4','PVCL']:
-            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+            var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 4
             
@@ -488,10 +490,10 @@ if __name__ == '__main__':
         target_data = {}
         
         for cell in ['ADAL']:
-            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+            var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 4
-            var = '%s/0/GenericCell/v:max_peak_no'%cell
+            var = '%s/0/GenericNeuronCell/v:max_peak_no'%cell
             weights[var] = 1
             target_data[var] = 4
             

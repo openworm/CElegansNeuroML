@@ -48,12 +48,19 @@ class ParameterisedModel(c302ModelPrototype):
 
     def set_default_bioparameters(self):
 
-        self.add_bioparameter("iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_reset", "-50mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_thresh", "-30mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_C", "3pF", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_conductance", "0.1nS", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_tau1", "50ms", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_reset", "-50mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_thresh", "-30mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_C", "3pF", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_conductance", "0.1nS", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_tau1", "50ms", "BlindGuess", "0.1")
+
+        self.add_bioparameter("neuron_iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_iaf_reset", "-50mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_iaf_thresh", "-30mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_iaf_C", "3pF", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_iaf_conductance", "0.1nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_iaf_tau1", "50ms", "BlindGuess", "0.1")
 
 
         self.add_bioparameter("exc_syn_conductance", "8 nS", "BlindGuess", "0.1")
@@ -75,20 +82,23 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 
+    def cerate_generic_muscle_cell(self):
+        self.generic_muscle_cell = IafActivityCell(id="generic_muscle_iaf_cell", 
+                                C =                 self.get_bioparameter("muscle_iaf_C").value,
+                                thresh =            self.get_bioparameter("muscle_iaf_thresh").value,
+                                reset =             self.get_bioparameter("muscle_iaf_reset").value,
+                                leak_conductance =  self.get_bioparameter("muscle_iaf_conductance").value,
+                                leak_reversal =     self.get_bioparameter("muscle_iaf_leak_reversal").value)   
+   
+    def cerate_generic_neuron_cell(self):
+        self.generic_neuron_cell = IafActivityCell(id="generic_neuron_iaf_cell", 
+                                C =                 self.get_bioparameter("neuron_iaf_C").value,
+                                thresh =            self.get_bioparameter("neuron_iaf_thresh").value,
+                                reset =             self.get_bioparameter("neuron_iaf_reset").value,
+                                leak_conductance =  self.get_bioparameter("neuron_iaf_conductance").value,
+                                leak_reversal =     self.get_bioparameter("neuron_iaf_leak_reversal").value)  
 
-
-    def create_models(self):
-        
-
-        self.generic_cell = IafActivityCell(id="generic_iaf_cell", 
-                                    C =                 self.get_bioparameter("iaf_C").value,
-                                    thresh =            self.get_bioparameter("iaf_thresh").value,
-                                    reset =             self.get_bioparameter("iaf_reset").value,
-                                    leak_conductance =  self.get_bioparameter("iaf_conductance").value,
-                                    leak_reversal =     self.get_bioparameter("iaf_leak_reversal").value,
-                                    tau1 =              self.get_bioparameter("iaf_tau1").value)
-
-
+    def create_syn_and_offset(self):
         self.exc_syn = GradedSynapse(id="exc_syn",
                                 conductance =        self.get_bioparameter("exc_syn_conductance").value,
                                 delta =              self.get_bioparameter("exc_syn_delta").value,
@@ -112,3 +122,44 @@ class ParameterisedModel(c302ModelPrototype):
                                 delay=self.get_bioparameter("unphysiological_offset_current_del").value,
                                 duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
                                 amplitude=self.get_bioparameter("unphysiological_offset_current").value)
+
+    def create_models(self):
+        self.cerate_generic_muscle_cell()
+        self.cerate_generic_neuron_cell()
+        self.create_syn_and_offset()
+
+    # def create_models(self):
+        
+
+    #     self.generic_cell = IafActivityCell(id="generic_iaf_cell", 
+    #                                 C =                 self.get_bioparameter("iaf_C").value,
+    #                                 thresh =            self.get_bioparameter("iaf_thresh").value,
+    #                                 reset =             self.get_bioparameter("iaf_reset").value,
+    #                                 leak_conductance =  self.get_bioparameter("iaf_conductance").value,
+    #                                 leak_reversal =     self.get_bioparameter("iaf_leak_reversal").value,
+    #                                 tau1 =              self.get_bioparameter("iaf_tau1").value)
+
+
+    #     self.exc_syn = GradedSynapse(id="exc_syn",
+    #                             conductance =        self.get_bioparameter("exc_syn_conductance").value,
+    #                             delta =              self.get_bioparameter("exc_syn_delta").value,
+    #                             Vth =                self.get_bioparameter("exc_syn_vth").value,
+    #                             erev =               self.get_bioparameter("exc_syn_erev").value,
+    #                             k =                  self.get_bioparameter("exc_syn_k").value)
+
+
+    #     self.inh_syn = GradedSynapse(id="inh_syn",
+    #                             conductance =        self.get_bioparameter("inh_syn_conductance").value,
+    #                             delta =              self.get_bioparameter("inh_syn_delta").value,
+    #                             Vth =                self.get_bioparameter("inh_syn_vth").value,
+    #                             erev =               self.get_bioparameter("inh_syn_erev").value,
+    #                             k =                  self.get_bioparameter("inh_syn_k").value)
+
+    #     self.elec_syn = GapJunction(id="elec_syn",
+    #                            conductance =    self.get_bioparameter("elec_syn_gbase").value)
+
+
+    #     self.offset_current = PulseGenerator(id="offset_current",
+    #                             delay=self.get_bioparameter("unphysiological_offset_current_del").value,
+    #                             duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
+                                # amplitude=self.get_bioparameter("unphysiological_offset_current").value)
