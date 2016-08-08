@@ -4,6 +4,7 @@ from pyneuroml import pynml
 import matplotlib.pyplot as plt
 import numpy as np
 import c302
+import unicodedata
 
 
 def plots(a_n, info, cells, dt):
@@ -29,7 +30,17 @@ def plots(a_n, info, cells, dt):
     plt.xlabel('Time (ms)')
  
     fig.canvas.draw()
-    labels = [dt*downscale*1000 for item in ax.get_xticklabels()]#float(item.get_text())*
+
+
+
+    labels = [] #issue is with unicode
+    for label in ax.get_xticklabels():
+        try:
+            labels.append(float( str((label.get_text())) )*dt*downscale*1000)
+        except:
+            print "Error value on forming axis values, value: ", label.get_text(), ", length: ",len(label.get_text())
+    
+    #labels = [float(label.get_text())*dt*downscale*1000 for item in ax.get_xticklabels()]
     ax.set_xticklabels(labels)
     #print labels
     #print plt.xlim()

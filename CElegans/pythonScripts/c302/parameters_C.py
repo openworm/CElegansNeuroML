@@ -50,22 +50,22 @@ class ParameterisedModel(c302ModelPrototype):
 
         self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
-        self.add_bioparameter("spike_thresh", "-20 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
         
@@ -125,27 +125,27 @@ class ParameterisedModel(c302ModelPrototype):
 
         mp.specific_capacitances.append(SpecificCapacitance(value=self.get_bioparameter("specific_capacitance").value))
 
-        mp.spike_threshes.append(SpikeThresh(value=self.get_bioparameter("spike_thresh").value))
+        mp.spike_threshes.append(SpikeThresh(value=self.get_bioparameter("muscle_spike_thresh").value))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("leak_cond_density").value, 
+        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_leak_cond_density").value, 
                                                    id="Leak_all", 
                                                    ion_channel="Leak", 
                                                    erev=self.get_bioparameter("leak_erev").value,
                                                    ion="non_specific"))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("k_slow_cond_density").value, 
+        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_slow_cond_density").value, 
                                                    id="k_slow_all", 
                                                    ion_channel="k_slow", 
                                                    erev=self.get_bioparameter("k_slow_erev").value,
                                                    ion="k"))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("k_fast_cond_density").value, 
+        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_fast_cond_density").value, 
                                                    id="k_fast_all", 
                                                    ion_channel="k_fast", 
                                                    erev=self.get_bioparameter("k_fast_erev").value,
                                                    ion="k"))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("ca_boyle_cond_density").value, 
+        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_ca_boyle_cond_density").value, 
                                                    id="ca_boyle_all", 
                                                    ion_channel="ca_boyle", 
                                                    erev=self.get_bioparameter("ca_boyle_erev").value,

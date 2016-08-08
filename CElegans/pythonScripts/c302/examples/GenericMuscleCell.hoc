@@ -36,21 +36,21 @@
     "ionChannel" : "k_slow",
     "ion" : "k",
     "group" : "all",
-    "condDens" : "0.0018333751",
+    "condDens" : "1.4082574E-4",
     "erev" : "-60.0"
   }, {
     "id" : "k_fast_all",
     "ionChannel" : "k_fast",
     "ion" : "k",
     "group" : "all",
-    "condDens" : "7.1164395E-5",
+    "condDens" : "5.0E-6",
     "erev" : "-60.0"
   }, {
     "id" : "ca_boyle_all",
     "ionChannel" : "ca_boyle",
     "ion" : "ca",
     "group" : "all",
-    "condDens" : "0.0016862776",
+    "condDens" : "0.0017139141",
     "erev" : "40.0"
   } ],
   "species" : [ {
@@ -158,17 +158,17 @@ proc biophys() {
     }
     forsec all {
         insert k_slow
-        gmax_k_slow = 0.0018333751  // units: S cm-2
+        gmax_k_slow = 1.4082574E-4  // units: S cm-2
         ek = -60.0  // units: mV
     }
     forsec all {
         insert k_fast
-        gmax_k_fast = 7.1164395E-5  // units: S cm-2
+        gmax_k_fast = 5.0E-6  // units: S cm-2
         ek = -60.0  // units: mV
     }
     forsec all {
         insert ca_boyle
-        gmax_ca_boyle = 0.0016862776  // units: S cm-2
+        gmax_ca_boyle = 0.0017139141  // units: S cm-2
         eca = 40.0  // units: mV
     }
 

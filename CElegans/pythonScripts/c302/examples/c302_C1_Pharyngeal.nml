@@ -33,11 +33,11 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 6.076428433117039 pA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current = 5.135697186048022 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
         BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
@@ -46,47 +46,47 @@ Parameters and setting used to generate this network:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 0.1408257307011203 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_cond_density = 1.7139140434941569 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_decay_time = 100 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 13.811870945509265 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_conductance = 0.1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_conductance = 0.1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
 
 </notes>
     <include href="cell_C.xml"></include>
-    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="100 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
-    <gapJunction id="elec_syn_1conns" conductance="0.0005nS"/>
-    <gapJunction id="elec_syn_2conns" conductance="0.001nS"/>
-    <gapJunction id="elec_syn_6conns" conductance="0.003nS"/>
-    <gapJunction id="elec_syn_4conns" conductance="0.002nS"/>
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="13.811870945509265 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
+    <gapJunction id="elec_syn_1conns" conductance="0.00052nS"/>
+    <gapJunction id="elec_syn_2conns" conductance="0.00104nS"/>
+    <gapJunction id="elec_syn_6conns" conductance="0.00312nS"/>
+    <gapJunction id="elec_syn_4conns" conductance="0.00208nS"/>
     <silentSynapse id="silent"/>
-    <gradedSynapse id="exc_syn_1conns" conductance="0.1nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_2conns" conductance="0.2nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_5conns" conductance="0.5nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_3conns" conductance="0.3nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_4conns" conductance="0.4nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_6conns" conductance="0.6nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
-    <gradedSynapse id="exc_syn_13conns" conductance="1.3nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_1conns" conductance="0.09nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_2conns" conductance="0.18nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_5conns" conductance="0.45nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_3conns" conductance="0.27nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_4conns" conductance="0.36nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_6conns" conductance="0.54nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="exc_syn_13conns" conductance="1.17nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
@@ -97,9 +97,9 @@ Parameters and setting used to generate this network:
         <biophysicalProperties id="biophys_GenericMuscleCell">
             <membraneProperties>
                 <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.005 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="1.8333751019872582 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.0711643917483308 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="1.6862775772264702 mS_per_cm2" erev="40 mV" ion="ca"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.1408257307011203 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.005 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="1.7139140434941569 mS_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
                 <initMembPotential value="-45 mV"/>
@@ -133,7 +133,7 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="6.076428433117039 pA"/>
+    <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="5.135697186048022 pA"/>
     <network id="c302_C1_Pharyngeal">
         <population id="I1L" component="GenericNeuronCell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="sitructa"/>

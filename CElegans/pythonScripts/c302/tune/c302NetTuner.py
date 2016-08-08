@@ -37,10 +37,10 @@ from C302Controller import C302Controller
 
 
 
-parameters_C_based_cells = ['leak_cond_density',
-              'k_slow_cond_density',
-              'k_fast_cond_density',
-              'ca_boyle_cond_density',
+parameters_C_based_cells = ['muscle_leak_cond_density',
+              'muscle_k_slow_cond_density',
+              'muscle_k_fast_cond_density',
+              'muscle_ca_boyle_cond_density',
               'ca_conc_decay_time',
               'unphysiological_offset_current']
 
@@ -285,7 +285,7 @@ if __name__ == '__main__':
                          num_elites =       scale(scalem,3),
                          nogui =            nogui,
                          simulator = simulator,
-                         num_local_procesors_to_use =1)
+                         num_local_procesors_to_use =4)
                          
     elif '-musc' in sys.argv or '-muscone' in sys.argv:
         
@@ -324,9 +324,9 @@ if __name__ == '__main__':
                         'elec_syn_gbase': 0.0005,
                         'exc_syn_conductance': 0.1,
                         'inh_syn_conductance': 0.1,
-                        'k_fast_cond_density': 0.0711643917483308,
-                        'k_slow_cond_density': 1.8333751019872582,
-                        'leak_cond_density': 0.005,
+                        'muscle_k_fast_cond_density': 0.0711643917483308,
+                        'muscle_k_slow_cond_density': 1.8333751019872582,
+                        'muscle_leak_cond_density': 0.005,
                         'unphysiological_offset_current': 6.076428433117039})
             #for i in range(len(parameters)):
             #    sim_var[parameters[i]] = test[i]
@@ -401,10 +401,10 @@ if __name__ == '__main__':
                          
     elif '-oscC1' in sys.argv or '-oscC1one' in sys.argv:
 
-        parameters = ['leak_cond_density',
-                      'k_slow_cond_density',
-                      'k_fast_cond_density',
-                      'ca_boyle_cond_density',
+        parameters = ['muscle_leak_cond_density',
+                      'muscle_k_slow_cond_density',
+                      'muscle_k_fast_cond_density',
+                      'muscle_ca_boyle_cond_density',
                       'exc_syn_conductance',
                       'inh_syn_conductance',
                       'elec_syn_gbase',
@@ -527,10 +527,10 @@ if __name__ == '__main__':
             
             my_controller = C302Controller('TestIClamp', 'C1', 'IClamp', sim_time, 0.1, simulator = simulator)
 
-            sim_var = OrderedDict([('leak_cond_density',0.1),
-                                   ('k_slow_cond_density',0.5),
-                                   ('k_fast_cond_density',0.05),
-                                   ('ca_boyle_cond_density',0.5)])
+            sim_var = OrderedDict([('muscle_leak_cond_density',0.1),
+                                   ('muscle_k_slow_cond_density',0.5),
+                                   ('muscle_k_fast_cond_density',0.05),
+                                   ('muscle_ca_boyle_cond_density',0.5)])
                   
             example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
 
