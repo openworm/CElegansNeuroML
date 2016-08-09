@@ -29,14 +29,14 @@
     "ionChannel" : "Leak",
     "ion" : "non_specific",
     "group" : "all",
-    "condDens" : "5.0E-6",
+    "condDens" : "1.9325833E-5",
     "erev" : "-50.0"
   }, {
     "id" : "k_slow_all",
     "ionChannel" : "k_slow",
     "ion" : "k",
     "group" : "all",
-    "condDens" : "1.4082574E-4",
+    "condDens" : "1.0E-4",
     "erev" : "-60.0"
   }, {
     "id" : "k_fast_all",
@@ -50,7 +50,7 @@
     "ionChannel" : "ca_boyle",
     "ion" : "ca",
     "group" : "all",
-    "condDens" : "0.0017139141",
+    "condDens" : "0.0019999999",
     "erev" : "40.0"
   } ],
   "species" : [ {
@@ -153,12 +153,12 @@ proc biophys() {
     // Channel densities
     forsec all {
         insert Leak
-        gmax_Leak = 5.0E-6  // units: S cm-2
+        gmax_Leak = 1.9325833E-5  // units: S cm-2
         e_Leak = -50.0  // units: mV
     }
     forsec all {
         insert k_slow
-        gmax_k_slow = 1.4082574E-4  // units: S cm-2
+        gmax_k_slow = 1.0E-4  // units: S cm-2
         ek = -60.0  // units: mV
     }
     forsec all {
@@ -168,7 +168,7 @@ proc biophys() {
     }
     forsec all {
         insert ca_boyle
-        gmax_ca_boyle = 0.0017139141  // units: S cm-2
+        gmax_ca_boyle = 0.0019999999  // units: S cm-2
         eca = 40.0  // units: mV
     }
 

@@ -1,4 +1,4 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_A_IClamp">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="c302_A_IClamp">
     <notes>
 
 Parameters and setting used to generate this network:
@@ -15,16 +15,6 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
@@ -42,18 +32,17 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
-    <iafCell id="generic_muscle_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
-    <iafCell id="generic_neuron_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
+    <iafCell id="generic_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
     <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="5pA"/>
     <network id="c302_A_IClamp">
-        <population id="ADAL" component="generic_neuron_iaf_cell" type="populationList">
+        <population id="ADAL" component="generic_iaf_cell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
             <instance id="0">
                 <location x="8.65" y="-239.25" z="31.050000000000001"/>
             </instance>
         </population>
         <inputList id="Input_ADAL_offset_current" population="ADAL" component="offset_current">
-            <input id="0" target="../ADAL/0/generic_neuron_iaf_cell" destination="synapses"/>
+            <input id="0" target="../ADAL/0/generic_iaf_cell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

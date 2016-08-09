@@ -4,7 +4,6 @@ from pyneuroml import pynml
 import matplotlib.pyplot as plt
 import numpy as np
 import c302
-import unicodedata
 
 
 def plots(a_n, info, cells, dt):

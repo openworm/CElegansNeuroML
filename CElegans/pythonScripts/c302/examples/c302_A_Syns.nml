@@ -1,4 +1,4 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="c302_A_Syns">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="c302_A_Syns">
     <notes>
 
 Parameters and setting used to generate this network:
@@ -15,16 +15,6 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
@@ -44,41 +34,40 @@ Parameters and setting used to generate this network:
 </notes>
     <expTwoSynapse id="inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <iafCell id="generic_muscle_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
-    <iafCell id="generic_neuron_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
+    <iafCell id="generic_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="2.5pA"/>
     <network id="c302_A_Syns">
-        <population id="SMDDR" component="generic_neuron_iaf_cell" type="populationList">
+        <population id="SMDDR" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location x="-7.4500003" y="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="URYDL" component="generic_neuron_iaf_cell" type="populationList">
+        <population id="URYDL" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location x="4.125" y="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
-        <population id="VB11" component="generic_neuron_iaf_cell" type="populationList">
+        <population id="VB11" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location x="-1.8249999" y="262.324999999999989" z="-21.949999999999999"/>
             </instance>
         </population>
-        <population id="VD12" component="generic_neuron_iaf_cell" type="populationList">
+        <population id="VD12" component="generic_iaf_cell" type="populationList">
             <instance id="0">
                 <location x="-0.75" y="345.5" z="-23.149999999999999"/>
             </instance>
         </population>
         <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="inh_syn">
-            <connectionWD id="0" preCellId="../VD12/0/generic_neuron_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/generic_neuron_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
+            <connectionWD id="0" preCellId="../VD12/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
         <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn">
-            <connectionWD id="0" preCellId="../URYDL/0/generic_neuron_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/generic_neuron_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
+            <connectionWD id="0" preCellId="../URYDL/0/generic_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/generic_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
         <inputList id="Input_URYDL_offset_current" population="URYDL" component="offset_current">
-            <input id="0" target="../URYDL/0/generic_neuron_iaf_cell" destination="synapses"/>
+            <input id="0" target="../URYDL/0/generic_iaf_cell" destination="synapses"/>
         </inputList>
         <inputList id="Input_VD12_offset_current" population="VD12" component="offset_current">
-            <input id="0" target="../VD12/0/generic_neuron_iaf_cell" destination="synapses"/>
+            <input id="0" target="../VD12/0/generic_iaf_cell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

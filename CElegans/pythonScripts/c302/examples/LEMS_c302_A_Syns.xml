@@ -17,16 +17,6 @@ Parameters and setting used to generate this network:
         BioParameter: iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
@@ -59,22 +49,22 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_A_Syns" length="500ms" step="0.05ms" target="c302_A_Syns">
+    <Simulation id="sim_c302_A_Syns" length="500ms" step="0.1ms" target="c302_A_Syns">
 
         <Display id="neurons" title="c302_A_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
-            <Line id="SMDDR" quantity="SMDDR/0/generic_neuron_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
-            <Line id="URYDL" quantity="URYDL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
-            <Line id="VB11" quantity="VB11/0/generic_neuron_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
-            <Line id="VD12" quantity="VD12/0/generic_neuron_iaf_cell/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/generic_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/generic_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/generic_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/generic_iaf_cell/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
             
         </Display>
 
         <OutputFile id="neurons_v" fileName="c302_A_Syns.dat">
-            <OutputColumn id="SMDDR_v" quantity="SMDDR/0/generic_neuron_iaf_cell/v"/>
-            <OutputColumn id="URYDL_v" quantity="URYDL/0/generic_neuron_iaf_cell/v"/>
-            <OutputColumn id="VB11_v" quantity="VB11/0/generic_neuron_iaf_cell/v"/>
-            <OutputColumn id="VD12_v" quantity="VD12/0/generic_neuron_iaf_cell/v"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR/0/generic_iaf_cell/v"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL/0/generic_iaf_cell/v"/>
+            <OutputColumn id="VB11_v" quantity="VB11/0/generic_iaf_cell/v"/>
+            <OutputColumn id="VD12_v" quantity="VD12/0/generic_iaf_cell/v"/>
         </OutputFile>
         
     </Simulation>
