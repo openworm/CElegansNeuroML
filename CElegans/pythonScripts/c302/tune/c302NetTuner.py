@@ -18,7 +18,6 @@ import shutil
 import os.path
 import time
 
-import c302_utils
 
 import pprint
 
@@ -32,15 +31,16 @@ if not os.path.isfile('c302.py'):
 
 sys.path.append(".")
 
+import c302_utils
 
 from C302Controller import C302Controller
 
 
 
-parameters_C_based_cells = ['leak_cond_density',
-              'k_slow_cond_density',
-              'k_fast_cond_density',
-              'ca_boyle_cond_density',
+parameters_C_based_cells = ['muscle_leak_cond_density',
+              'muscle_k_slow_cond_density',
+              'muscle_k_fast_cond_density',
+              'muscle_ca_boyle_cond_density',
               'ca_conc_decay_time',
               'unphysiological_offset_current']
 
@@ -67,7 +67,7 @@ target_data0 = {}
 
 for cell in ['DB1','VB1','DA1','VA1', 'DB4','VB4','DA4','VA4', 'DB7','VB9','DA9','VA9']:
     
-    var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+    var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
     weights0[var] = 1
     target_data0[var] = 4
 
@@ -96,7 +96,7 @@ def run_optimisation(prefix,
                      seed =                12345,
                      simulator =           'jNeuroML',
                      nogui =               False,
-                     num_local_procesors_to_use = 1):  
+                     num_local_procesors_to_use = 4):  
                          
     ref = prefix+config
     
@@ -185,6 +185,7 @@ def run_optimisation(prefix,
 
     report+="---------- Best candidate ------------------------------------------\n"
     
+    report+=pp.pformat(best_candidate)+"\n\n"
     report+=pp.pformat(best_cand_analysis_full)+"\n"
     report+=pp.pformat(best_cand_analysis)+"\n\n"
     report+="FITNESS: %f\n\n"%fitness
@@ -193,6 +194,7 @@ def run_optimisation(prefix,
     
     reportj['fitness']=fitness
     reportj['fittest vars']=dict(sim_var)
+    reportj['best_cand_details']=best_candidate
     reportj['best_cand_analysis_full']=best_cand_analysis_full
     reportj['best_cand_analysis']=best_cand_analysis
     reportj['parameters']=parameters
@@ -283,7 +285,7 @@ if __name__ == '__main__':
                          num_elites =       scale(scalem,3),
                          nogui =            nogui,
                          simulator = simulator,
-                         num_local_procesors_to_use =10)
+                         num_local_procesors_to_use =4)
                          
     elif '-musc' in sys.argv or '-muscone' in sys.argv:
         
@@ -309,7 +311,7 @@ if __name__ == '__main__':
                              num_elites =       scale(scalem,3),
                              nogui =            nogui,
                              simulator = simulator,
-                             num_local_procesors_to_use =10)
+                             num_local_procesors_to_use =1)
         else:
             
             sim_time = 1000
@@ -322,9 +324,9 @@ if __name__ == '__main__':
                         'elec_syn_gbase': 0.0005,
                         'exc_syn_conductance': 0.1,
                         'inh_syn_conductance': 0.1,
-                        'k_fast_cond_density': 0.0711643917483308,
-                        'k_slow_cond_density': 1.8333751019872582,
-                        'leak_cond_density': 0.005,
+                        'muscle_k_fast_cond_density': 0.0711643917483308,
+                        'muscle_k_slow_cond_density': 1.8333751019872582,
+                        'muscle_leak_cond_density': 0.005,
                         'unphysiological_offset_current': 6.076428433117039})
             #for i in range(len(parameters)):
             #    sim_var[parameters[i]] = test[i]
@@ -373,7 +375,7 @@ if __name__ == '__main__':
         
         
         for cell in ['DB3','VB3','DB4','VB4']:
-            var = '%s/0/generic_iaf_cell/v:mean_spike_frequency'%cell
+            var = '%s/0/generic_neuron_iaf_cell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 30
 
@@ -399,10 +401,10 @@ if __name__ == '__main__':
                          
     elif '-oscC1' in sys.argv or '-oscC1one' in sys.argv:
 
-        parameters = ['leak_cond_density',
-                      'k_slow_cond_density',
-                      'k_fast_cond_density',
-                      'ca_boyle_cond_density',
+        parameters = ['muscle_leak_cond_density',
+                      'muscle_k_slow_cond_density',
+                      'muscle_k_fast_cond_density',
+                      'muscle_ca_boyle_cond_density',
                       'exc_syn_conductance',
                       'inh_syn_conductance',
                       'elec_syn_gbase',
@@ -417,7 +419,7 @@ if __name__ == '__main__':
         
         
         for cell in ['DB3','VB3','DB4','VB4','PVCL']:
-            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+            var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 4
             
@@ -488,10 +490,10 @@ if __name__ == '__main__':
         target_data = {}
         
         for cell in ['ADAL']:
-            var = '%s/0/GenericCell/v:mean_spike_frequency'%cell
+            var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
             weights[var] = 1
             target_data[var] = 4
-            var = '%s/0/GenericCell/v:max_peak_no'%cell
+            var = '%s/0/GenericNeuronCell/v:max_peak_no'%cell
             weights[var] = 1
             target_data[var] = 4
             
@@ -525,10 +527,10 @@ if __name__ == '__main__':
             
             my_controller = C302Controller('TestIClamp', 'C1', 'IClamp', sim_time, 0.1, simulator = simulator)
 
-            sim_var = OrderedDict([('leak_cond_density',0.1),
-                                   ('k_slow_cond_density',0.5),
-                                   ('k_fast_cond_density',0.05),
-                                   ('ca_boyle_cond_density',0.5)])
+            sim_var = OrderedDict([('muscle_leak_cond_density',0.1),
+                                   ('muscle_k_slow_cond_density',0.5),
+                                   ('muscle_k_fast_cond_density',0.05),
+                                   ('muscle_ca_boyle_cond_density',0.5)])
                   
             example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)
 

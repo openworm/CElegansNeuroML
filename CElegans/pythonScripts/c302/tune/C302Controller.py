@@ -80,7 +80,7 @@ class C302Controller():
         else:
             import pp
             ppservers = ()
-            job_server = pp.Server(self.num_local_procesors_to_use, ppservers=ppservers)
+            job_server = pp.Server(self.num_local_procesors_to_use, ppservers=ppservers, secret="password")
             pyneuroml.pynml.print_comment_v('Running %i candidates across %i local processors'%(len(candidates),job_server.get_ncpus()))
             jobs = []
             
