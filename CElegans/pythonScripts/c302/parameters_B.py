@@ -64,7 +64,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("unphysiological_offset_current_del", "0ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000ms", "KnownError", "0")
         
-    def cerate_generic_muscle_cell(self):
+    def create_generic_muscle_cell(self):
         self.generic_muscle_cell = IafActivityCell(id="generic_muscle_iaf_cell", 
                                 C =                 self.get_bioparameter("muscle_iaf_C").value,
                                 thresh =            self.get_bioparameter("muscle_iaf_thresh").value,
@@ -73,7 +73,7 @@ class ParameterisedModel(c302ModelPrototype):
                                 leak_reversal =     self.get_bioparameter("muscle_iaf_leak_reversal").value,
                                 tau1 =              self.get_bioparameter("muscle_iaf_tau1").value)   
    
-    def cerate_generic_neuron_cell(self):
+    def create_generic_neuron_cell(self):
         self.generic_neuron_cell = IafActivityCell(id="generic_neuron_iaf_cell", 
                                 C =                 self.get_bioparameter("neuron_iaf_C").value,
                                 thresh =            self.get_bioparameter("neuron_iaf_thresh").value,
@@ -108,8 +108,8 @@ class ParameterisedModel(c302ModelPrototype):
                                 amplitude= self.get_bioparameter("unphysiological_offset_current").value)
 
     def create_models(self):
-        self.cerate_generic_muscle_cell()
-        self.cerate_generic_neuron_cell()
+        self.create_generic_muscle_cell()
+        self.create_generic_neuron_cell()
         self.create_syn_and_offset()
                         
 

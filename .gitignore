@@ -69,3 +69,7 @@ c302_A_Full.dat
 /CElegans/pythonScripts/c302/LEMS_SimpleTest.xml
 /CElegans/pythonScripts/c302/NetTest.nml
 /CElegans/pythonScripts/c302/SimpleTest.nml
+/CElegans/pythonScripts/c302/examples/GenericMuscleCell.hoc
+/CElegans/pythonScripts/c302/examples/GenericNeuronCell.hoc
+/CElegans/pythonScripts/c302/examples/output.avi
+/CElegans/pythonScripts/c302/examples/testim

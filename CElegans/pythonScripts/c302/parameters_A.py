@@ -30,12 +30,6 @@ class ParameterisedModel(c302ModelPrototype):
 
     def set_default_bioparameters(self):
 
-        self.add_bioparameter("iaf_leak_reversal", "-70mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_reset", "-70mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_thresh", "-50mV", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_C", "3pF", "BlindGuess", "0.1")
-        self.add_bioparameter("iaf_conductance", "0.1nS", "BlindGuess", "0.1")
-
         self.add_bioparameter("muscle_iaf_leak_reversal", "-70mV", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_iaf_reset", "-70mV", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_iaf_thresh", "-50mV", "BlindGuess", "0.1")
