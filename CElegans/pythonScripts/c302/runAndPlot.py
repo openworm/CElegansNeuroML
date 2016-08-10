@@ -51,16 +51,16 @@ if __name__ == '__main__':
         main('Muscles','C1','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-pharA' in sys.argv or '-pharyngealA' in sys.argv:
-        main('Pharyngeal','A','',500,0.05,'jNeuroML_NEURON')
+        main('Pharyngeal','A','',500,0.01,'jNeuroML_NEURON')
         
     elif '-pharB' in sys.argv or '-pharyngealB' in sys.argv:
-        main('Pharyngeal','B','',500,0.05,'jNeuroML_NEURON')
+        main('Pharyngeal','B','',500,0.01,'jNeuroML_NEURON')
         
     elif '-pharC1' in sys.argv or '-pharyngealC1' in sys.argv:
-        main('Pharyngeal','C1','',500,0.05,'jNeuroML_NEURON')
+        main('Pharyngeal','C1','',500,0.01,'jNeuroML_NEURON')
         
     elif '-phar' in sys.argv or '-pharyngeal' in sys.argv:
-        main('Pharyngeal','C','',500,0.05,'jNeuroML_NEURON')
+        main('Pharyngeal','C','',500,0.01,'jNeuroML_NEURON')
         
     elif '-socialB' in sys.argv:
         main('Social','B','',2500,0.05,'jNeuroML_NEURON')

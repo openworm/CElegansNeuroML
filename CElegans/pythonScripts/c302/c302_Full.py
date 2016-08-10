@@ -3,8 +3,8 @@ import sys
 
 def setup(parameter_set, 
           generate=False,
-          duration=500, 
-          dt=0.1,
+          duration=1000, 
+          dt=0.05,
           target_directory='examples',
           include_muscles = True):
     
