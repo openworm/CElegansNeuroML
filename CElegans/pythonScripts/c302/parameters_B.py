@@ -46,18 +46,25 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("neuron_iaf_conductance", "0.1nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_iaf_tau1", "50ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("chem_exc_syn_gbase", "0.01nS", "BlindGuess", "0.1")
+
+        self.add_bioparameter("neuron_to_neuron_chem_exc_syn_gbase", "0.01nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_chem_exc_syn_gbase", "0.01nS", "BlindGuess", "0.1")
+
         self.add_bioparameter("chem_exc_syn_erev", "0mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_rise", "3ms", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_decay", "10ms", "BlindGuess", "0.1")
         
 
-        self.add_bioparameter("chem_inh_syn_gbase", "0.01nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_chem_inh_syn_gbase", "0.01nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_chem_inh_syn_gbase", "0.01nS", "BlindGuess", "0.1")
+
         self.add_bioparameter("chem_inh_syn_erev", "-80mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_rise", "3ms", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_decay", "10ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("elec_syn_gbase", "0.1 nS", "BlindGuess", "0.1")
+
+        self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.1 nS", "BlindGuess", "0.1")
 
 
         self.add_bioparameter("unphysiological_offset_current", "3pA", "KnownError", "0")
@@ -82,35 +89,55 @@ class ParameterisedModel(c302ModelPrototype):
                                 leak_reversal =     self.get_bioparameter("neuron_iaf_leak_reversal").value,
                                 tau1 =              self.get_bioparameter("neuron_iaf_tau1").value)  
 
-    def create_syn_and_offset(self):        
-
-        self.exc_syn = ExpTwoSynapse(id="exc_syn",
-                                gbase =         self.get_bioparameter("chem_exc_syn_gbase").value,
-                                erev =          self.get_bioparameter("chem_exc_syn_erev").value,
-                                tau_decay =     self.get_bioparameter("chem_exc_syn_decay").value,
-                                tau_rise =      self.get_bioparameter("chem_exc_syn_rise").value)
-
-
-        self.inh_syn = ExpTwoSynapse(id="inh_syn",
-                                gbase =         self.get_bioparameter("chem_inh_syn_gbase").value,
-                                erev =          self.get_bioparameter("chem_inh_syn_erev").value,
-                                tau_decay =     self.get_bioparameter("chem_inh_syn_decay").value,
-                                tau_rise =      self.get_bioparameter("chem_inh_syn_rise").value)
-                      
-                                
-        self.elec_syn = GapJunction(id="elec_syn",
-                                conductance =    self.get_bioparameter("elec_syn_gbase").value)
-
-
+    def create_offset(self):        
         self.offset_current = PulseGenerator(id="offset_current",
                                 delay= self.get_bioparameter("unphysiological_offset_current_del").value,
                                 duration= self.get_bioparameter("unphysiological_offset_current_dur").value,
                                 amplitude= self.get_bioparameter("unphysiological_offset_current").value)
 
+    def create_neuron_to_neuron_syn(self):
+        self.neuron_to_neuron_exc_syn = ExpTwoSynapse(id="neuron_to_neuron_exc_syn",
+                                gbase =         self.get_bioparameter("neuron_to_neuron_chem_exc_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_exc_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_exc_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_exc_syn_rise").value)
+
+
+        self.neuron_to_neuron_inh_syn = ExpTwoSynapse(id="neuron_to_neuron_inh_syn",
+                                gbase =         self.get_bioparameter("neuron_to_neuron_chem_inh_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_inh_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_inh_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_inh_syn_rise").value)
+                      
+                                
+        self.neuron_to_neuron_elec_syn = GapJunction(id="neuron_to_neuron_elec_syn",
+                                conductance =    self.get_bioparameter("neuron_to_neuron_elec_syn_gbase").value)
+
+
+    def create_neuron_to_muscle_syn(self):
+        self.neuron_to_muscle_exc_syn = ExpTwoSynapse(id="neuron_to_muscle_exc_syn",
+                                gbase =         self.get_bioparameter("neuron_to_muscle_chem_exc_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_exc_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_exc_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_exc_syn_rise").value)
+
+
+        self.neuron_to_muscle_inh_syn = ExpTwoSynapse(id="neuron_to_muscle_inh_syn",
+                                gbase =         self.get_bioparameter("neuron_to_muscle_chem_inh_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_inh_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_inh_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_inh_syn_rise").value)
+                      
+                                
+        self.neuron_to_muscle_elec_syn = GapJunction(id="neuron_to_muscle_elec_syn",
+                                conductance =    self.get_bioparameter("neuron_to_muscle_elec_syn_gbase").value)
+
     def create_models(self):
         self.create_generic_muscle_cell()
         self.create_generic_neuron_cell()
-        self.create_syn_and_offset()
+        self.create_offset()
+        self.create_neuron_to_neuron_syn()
+        self.create_neuron_to_muscle_syn()
                         
 
 class IafActivityCell():

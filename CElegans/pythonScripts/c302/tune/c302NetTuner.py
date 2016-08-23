@@ -44,9 +44,9 @@ parameters_C_based_cells = ['muscle_leak_cond_density',
               'ca_conc_decay_time',
               'unphysiological_offset_current']
 
-parameters_C_based_net = ['exc_syn_conductance',
-              'inh_syn_conductance',
-              'elec_syn_gbase']
+parameters_C_based_net = ['neuron_to_muscle_exc_syn_conductance',
+              'neuron_to_muscle_inh_syn_conductance',
+              'neuron_to_muscle_elec_syn_gbase']
               
 parameters_C_based = parameters_C_based_cells + parameters_C_based_net
 
@@ -321,9 +321,9 @@ if __name__ == '__main__':
 
             #test = [0.030982235821054638, 0.7380672812995235, 0.07252703867293844, 0.8087106170838071, 0.045423417312661474, 0.011449079144697817, 0.0049614426482976716, 2.361816408316808]
             sim_var = OrderedDict({   'ca_boyle_cond_density': 1.6862775772264702,
-                        'elec_syn_gbase': 0.0005,
-                        'exc_syn_conductance': 0.1,
-                        'inh_syn_conductance': 0.1,
+                        'neuron_to_muscle_elec_syn_gbase': 0.0005,
+                        'neuron_to_muscle_exc_syn_conductance': 0.1,
+                        'neuron_to_muscle_inh_syn_conductance': 0.1,
                         'muscle_k_fast_cond_density': 0.0711643917483308,
                         'muscle_k_slow_cond_density': 1.8333751019872582,
                         'muscle_leak_cond_density': 0.005,
@@ -405,9 +405,9 @@ if __name__ == '__main__':
                       'muscle_k_slow_cond_density',
                       'muscle_k_fast_cond_density',
                       'muscle_ca_boyle_cond_density',
-                      'exc_syn_conductance',
-                      'inh_syn_conductance',
-                      'elec_syn_gbase',
+                      'neuron_to_muscle_exc_syn_conductance',
+                      'neuron_to_muscle_inh_syn_conductance',
+                      'neuron_to_muscle_elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:

@@ -648,12 +648,12 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = params.exc_syn
+            syn0 = params.neuron_to_neuron_exc_syn
             if 'GABA' in conn.synclass:
-                syn0 = params.inh_syn
+                syn0 = params.neuron_to_neuron_inh_syn
             if '_GJ' in conn.synclass:
-                syn0 = params.elec_syn
-                elect_conn = isinstance(params.elec_syn, GapJunction)
+                syn0 = params.neuron_to_neuron_elec_syn
+                elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction)
                 
             if isinstance(syn0, GradedSynapse):
                 analog_conn = True
@@ -788,12 +788,12 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = params.exc_syn
+            syn0 = params.neuron_to_muscle_exc_syn
             if 'GABA' in conn.synclass:
-                syn0 = params.inh_syn
+                syn0 = params.neuron_to_muscle_inh_syn
             if '_GJ' in conn.synclass:
-                syn0 = params.elec_syn
-                elect_conn = isinstance(params.elec_syn, GapJunction)
+                syn0 = params.neuron_to_muscle_elec_syn
+                elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
 
             if isinstance(syn0, GradedSynapse):
                 analog_conn = True
