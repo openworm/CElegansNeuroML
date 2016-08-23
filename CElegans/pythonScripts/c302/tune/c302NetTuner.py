@@ -359,11 +359,11 @@ if __name__ == '__main__':
                          
     elif '-osc' in sys.argv:
 
-        parameters = ['chem_exc_syn_gbase',
+        parameters = ['neuron_to_muscle_chem_exc_syn_gbase',
                       'chem_exc_syn_decay',
-                      'chem_inh_syn_gbase',
+                      'neuron_to_muscle_chem_inh_syn_gbase',
                       'chem_inh_syn_decay',
-                      'elec_syn_gbase',
+                      'neuron_to_muscle_elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
@@ -559,9 +559,9 @@ if __name__ == '__main__':
 
     elif '-phar' in sys.argv:
 
-        parameters = ['chem_exc_syn_gbase',
+        parameters = ['neuron_to_muscle_chem_exc_syn_gbase',
                                   'chem_exc_syn_decay',
-                                  'elec_syn_gbase']
+                                  'neuron_to_muscle_elec_syn_gbase']
 
         #above parameters will not be modified outside these bounds:
         min_constraints = [0.05, 3, 0.01]
@@ -645,9 +645,9 @@ if __name__ == '__main__':
 
         my_controller = C302Controller('Test', level, config, sim_time, 0.1)
 
-        sim_var = OrderedDict([('chem_exc_syn_gbase',0.5),
+        sim_var = OrderedDict([('neuron_to_muscle_chem_exc_syn_gbase',0.5),
                   ('chem_exc_syn_decay',10),
-                  ('chem_inh_syn_gbase',0.5),
+                  ('neuron_to_muscle_chem_inh_syn_gbase',0.5),
                   ('chem_inh_syn_decay',40),
                   ('unphysiological_offset_current',0.38)])
 
