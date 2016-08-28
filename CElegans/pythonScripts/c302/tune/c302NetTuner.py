@@ -17,7 +17,7 @@ import os
 import shutil
 import os.path
 import time
-
+import c302Evaluators
 
 import pprint
 
@@ -65,13 +65,25 @@ max_constraints_net_tight = [0.11, 0.11, 0.00052]
 weights0 = {}
 target_data0 = {}
 
-for cell in ['DB1','VB1','DA1','VA1', 'DB4','VB4','DA4','VA4', 'DB7','VB9','DA9','VA9']:
+for cell in ['DB1','VB1', 'DB2','VB2','DB3','VB3','DB4','VB4', 'DB5','VB5','DB6','VB6','DB7','VB7']:
     
     var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
     weights0[var] = 1
     target_data0[var] = 4
 
 
+#phase offset
+cells =['DB1','VB1', 'DB2','VB2','DB3','VB3','DB4','VB4', 'DB5','VB5','DB6','VB6','DB7','VB7']
+i = 0
+while i < len(cells):
+
+    if len(cells)%2 != 0:
+        raise Exception( "Error in phase target and weight formation, cells array does not contain a valid number of pairs")
+    
+    var = '%s/0/GenericNeuronCell/v'%cells[i] + ';%s/0/GenericNeuronCell/v'%cells[i+1] + ';phase_offset'
+    i+=2
+    weights0[var] = 1
+    target_data0[var] = 90
 
 def scale(scale, number, min=1):
     return max(min, int(scale*number))
@@ -128,13 +140,13 @@ def run_optimisation(prefix,
 
 
     #make an evaluator, using automatic target evaluation:
-    my_evaluator=evaluators.NetworkEvaluator(controller=my_controller,
-                                            analysis_start_time=analysis_start_time,
-                                            analysis_end_time=sim_time,
-                                            parameters=parameters,
-                                            analysis_var=analysis_var,
-                                            weights=weights,
-                                            targets=target_data)
+    my_evaluator = c302Evaluators.EnhancedNetworkEvaluator(controller=my_controller,
+                                                analysis_start_time=analysis_start_time,
+                                                analysis_end_time=sim_time,
+                                                parameters=parameters,
+                                                analysis_var=analysis_var,
+                                                weights=weights,
+                                                targets=target_data)
 
 
     #make an optimizer
@@ -238,7 +250,7 @@ def run_optimisation(prefix,
         added =[]
         for wref in weights.keys():
             ref = wref.split(':')[0]
-            if not ref in added:
+            if not ref in added and not "phase_offset" in ref:
                 added.append(ref)
                 best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[ref], label="%s - %i evaluations"%(ref,max_evaluations))
 
