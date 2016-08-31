@@ -72,7 +72,7 @@ class Data_Analyser(analysis.NetworkAnalysis):
 
 	    phase_targets = None  
 
-	    if any("phase_offset" in s for s in targets.keys()):
+	    if targets and any("phase_offset" in s for s in targets.keys()):
 
 	    	phase_targets = {}
 	    	tempTargets = {}
