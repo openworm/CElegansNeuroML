@@ -83,7 +83,7 @@ while i < len(cells):
     var = '%s/0/GenericNeuronCell/v'%cells[i] + ';%s/0/GenericNeuronCell/v'%cells[i+1] + ';phase_offset'
     i+=2
     weights0[var] = 1
-    target_data0[var] = 90
+    target_data0[var] = 180
 
 def scale(scale, number, min=1):
     return max(min, int(scale*number))
