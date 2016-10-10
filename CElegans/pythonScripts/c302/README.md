@@ -98,6 +98,10 @@ Image above shows the network run in NEURON (top) and a comparison of the activi
 
 See [here](https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/summary/README.md) for more details on this.
 
+### Understanding how c302_Full.py works
+
+<a href="https://docs.google.com/drawings/d/1urLRCe--ymaFTevRWp-etS06E9Rl82b627lC4RmUumI/edit?usp=sharing"<img src="https://docs.google.com/drawings/d/1urLRCe--ymaFTevRWp-etS06E9Rl82b627lC4RmUumI/pub?w=1307&amp;h=712"></a>
+
 ### Planned work
 
 Future plans include:
