@@ -300,9 +300,23 @@ def get_cell_muscle_names_and_connection(test=False):
     
     return mneurons, all_muscles, muscle_conns
 
+
 def is_cond_based_cell(params):
     return params.level == "C" or params.level == "C1" or params.level == "D"
 
+
+def get_conn_cell_id(cell, params, muscle=False):
+    
+    if not params.level == "D":
+        if not muscle:
+            return "../%s/0/%s"%(cell, params.generic_neuron_cell.id)
+        else:
+            return "../%s/0/%s"%(cell, params.generic_muscle_cell.id)
+    
+    else:
+        return "../%s/0/%s"%(cell, cell)
+    
+    
 def generate(net_id,
              params,
              cells = None,
@@ -686,8 +700,8 @@ def generate(net_id,
 
                 net.electrical_projections.append(proj0)
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_neuron_cell.id)
+                pre_cell_id=get_conn_cell_id(conn.pre_cell, params)
+                post_cell_id= get_conn_cell_id(conn.post_cell, params)
 
                 #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
 
@@ -707,8 +721,8 @@ def generate(net_id,
 
                 net.continuous_projections.append(proj0)
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_neuron_cell.id)
+                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
+                post_cell_id= get_conn_cell_id(conn.post_cell, params)
 
                 conn0 = ContinuousConnectionInstance(id="0", \
                            pre_cell=pre_cell_id,
@@ -728,8 +742,8 @@ def generate(net_id,
 
                 net.projections.append(proj0)
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_neuron_cell.id)
+                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
+                post_cell_id= get_conn_cell_id(conn.post_cell, params)
 
                 conn0 = ConnectionWD(id="0", \
                            pre_cell_id=pre_cell_id,
@@ -796,8 +810,8 @@ def generate(net_id,
 
                 net.electrical_projections.append(proj0)
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_muscle_cell.id)
+                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
+                post_cell_id= get_conn_cell_id(conn.post_cell, params, muscle=True)
 
                 #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
 
@@ -817,8 +831,8 @@ def generate(net_id,
 
                 net.continuous_projections.append(proj0)
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_muscle_cell.id)
+                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
+                post_cell_id= get_conn_cell_id(conn.post_cell, params, muscle=True)
 
                 conn0 = ContinuousConnectionInstance(id="0", \
                            pre_cell=pre_cell_id,
@@ -839,8 +853,8 @@ def generate(net_id,
 
                 # Add a Connection with the closest locations
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_muscle_cell.id)
+                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
+                post_cell_id= get_conn_cell_id(conn.post_cell, params, muscle=True)
 
                 conn0 = Connection(id="0", \
                            pre_cell_id=pre_cell_id,
