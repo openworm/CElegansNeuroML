@@ -130,7 +130,7 @@ def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
     nml_doc.pulse_generators.append(stim)
     
     
-    target ="../%s/0/%s"%(cell, params.generic_neuron_cell.id)
+    target = get_cell_id_string(cell, params)
         
     input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
                          component=stim.id,
@@ -305,7 +305,7 @@ def is_cond_based_cell(params):
     return params.level == "C" or params.level == "C1" or params.level == "D"
 
 
-def get_conn_cell_id(cell, params, muscle=False):
+def get_cell_id_string(cell, params, muscle=False):
     
     if not params.level == "D":
         if not muscle:
@@ -383,6 +383,8 @@ def generate(net_id,
     elif params.level == "C":
         nml_doc.cells.append(params.generic_muscle_cell)
         nml_doc.cells.append(params.generic_neuron_cell)
+    elif params.level == "D":
+        nml_doc.cells.append(params.generic_muscle_cell)
          
 
     net = Network(id=net_id)
@@ -700,8 +702,8 @@ def generate(net_id,
 
                 net.electrical_projections.append(proj0)
 
-                pre_cell_id=get_conn_cell_id(conn.pre_cell, params)
-                post_cell_id= get_conn_cell_id(conn.post_cell, params)
+                pre_cell_id=get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params)
 
                 #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
 
@@ -721,8 +723,8 @@ def generate(net_id,
 
                 net.continuous_projections.append(proj0)
 
-                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
-                post_cell_id= get_conn_cell_id(conn.post_cell, params)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params)
 
                 conn0 = ContinuousConnectionInstance(id="0", \
                            pre_cell=pre_cell_id,
@@ -742,8 +744,8 @@ def generate(net_id,
 
                 net.projections.append(proj0)
 
-                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
-                post_cell_id= get_conn_cell_id(conn.post_cell, params)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params)
 
                 conn0 = ConnectionWD(id="0", \
                            pre_cell_id=pre_cell_id,
@@ -810,8 +812,8 @@ def generate(net_id,
 
                 net.electrical_projections.append(proj0)
 
-                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
-                post_cell_id= get_conn_cell_id(conn.post_cell, params, muscle=True)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
                 #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
 
@@ -831,8 +833,8 @@ def generate(net_id,
 
                 net.continuous_projections.append(proj0)
 
-                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
-                post_cell_id= get_conn_cell_id(conn.post_cell, params, muscle=True)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
                 conn0 = ContinuousConnectionInstance(id="0", \
                            pre_cell=pre_cell_id,
@@ -853,8 +855,8 @@ def generate(net_id,
 
                 # Add a Connection with the closest locations
 
-                pre_cell_id= get_conn_cell_id(conn.pre_cell, params)
-                post_cell_id= get_conn_cell_id(conn.post_cell, params, muscle=True)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
                 conn0 = Connection(id="0", \
                            pre_cell_id=pre_cell_id,

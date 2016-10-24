@@ -1,9 +1,6 @@
 '''
 
-    Parameters C1 for c302 still under developemnt!!
-    
-    
-    C1 adds analogue synapses... Might be merged into C or bumped up to D
+    Parameters D for c302; still under developemnt!!
     
     Subject to change without notice!!
     
@@ -94,7 +91,7 @@ class ParameterisedModel(c302ModelPrototype):
 
         self.add_bioparameter("elec_syn_gbase", "0.00052 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("unphysiological_offset_current", "5.135697186048022 pA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current", "9 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 
