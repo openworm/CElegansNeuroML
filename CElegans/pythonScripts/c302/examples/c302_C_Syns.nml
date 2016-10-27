@@ -29,15 +29,18 @@ Parameters and setting used to generate this network:
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
         BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 6.076428433117039 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
@@ -45,9 +48,9 @@ Parameters and setting used to generate this network:
 </notes>
     <include href="cell_C.xml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
-    <expTwoSynapse id="inh_syn" gbase=".1 nS" erev="-60 mV" tauDecay="40 ms" tauRise="2 ms"/>
-    <expTwoSynapse id="exc_syn" gbase=".1 nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
-    <gapJunction id="elec_syn_1conns" conductance="0.0005nS"/>
+    <expTwoSynapse id="neuron_to_neuron_inh_syn" gbase=".1 nS" erev="-60 mV" tauDecay="40 ms" tauRise="2 ms"/>
+    <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase=".1 nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.0005nS"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
@@ -126,17 +129,17 @@ Parameters and setting used to generate this network:
                 <location x="-0.75" y="345.5" z="-23.149999999999999"/>
             </instance>
         </population>
-        <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="inh_syn">
+        <projection id="NC_VD12_VB11_GABA" presynapticPopulation="VD12" postsynapticPopulation="VB11" synapse="neuron_to_neuron_inh_syn">
             <connectionWD id="0" preCellId="../VD12/0/GenericNeuronCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../VB11/0/GenericNeuronCell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
-        <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="exc_syn">
+        <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../URYDL/0/GenericNeuronCell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/GenericNeuronCell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
         <electricalProjection id="NC_AIZL_ASHL_Generic_GJ" presynapticPopulation="AIZL" postsynapticPopulation="ASHL">
-            <electricalConnectionInstance id="0" preCell="../AIZL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../ASHL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../AIZL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../ASHL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn_1conns"/>
         </electricalProjection>
         <electricalProjection id="NC_ASHL_AIZL_Generic_GJ" presynapticPopulation="ASHL" postsynapticPopulation="AIZL">
-            <electricalConnectionInstance id="0" preCell="../ASHL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AIZL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="elec_syn_1conns"/>
+            <electricalConnectionInstance id="0" preCell="../ASHL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AIZL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn_1conns"/>
         </electricalProjection>
         <inputList id="Input_AIZL_offset_current" population="AIZL" component="offset_current">
             <input id="0" target="../AIZL/0/GenericNeuronCell" destination="synapses"/>

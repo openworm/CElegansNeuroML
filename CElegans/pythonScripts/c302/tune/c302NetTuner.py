@@ -17,7 +17,8 @@ import os
 import shutil
 import os.path
 import time
-
+import c302Evaluators
+import c302Analysis
 
 import pprint
 
@@ -37,41 +38,68 @@ from C302Controller import C302Controller
 
 
 
-parameters_C_based_cells = ['muscle_leak_cond_density',
+parameters_C_based_neuron = ['neuron_leak_cond_density',
+              'neuron_k_slow_cond_density',
+              'neuron_k_fast_cond_density',
+              'neuron_ca_boyle_cond_density']
+              
+parameters_C_based_muscle = ['muscle_leak_cond_density',
               'muscle_k_slow_cond_density',
               'muscle_k_fast_cond_density',
               'muscle_ca_boyle_cond_density',
               'ca_conc_decay_time',
               'unphysiological_offset_current']
 
-parameters_C_based_net = ['exc_syn_conductance',
-              'inh_syn_conductance',
-              'elec_syn_gbase']
+parameters_C_based_net = ['neuron_to_neuron_exc_syn_conductance',
+                          'neuron_to_neuron_inh_syn_conductance',
+                          'neuron_to_neuron_elec_syn_gbase',
+                          'neuron_to_muscle_exc_syn_conductance',
+                          'neuron_to_muscle_inh_syn_conductance'] # No neuron -> muscle elect syns
               
-parameters_C_based = parameters_C_based_cells + parameters_C_based_net
+parameters_C_based = parameters_C_based_neuron + parameters_C_based_muscle + parameters_C_based_net
 
-min_constraints_cells_loose = [.005, .1, 0.005, .1, 10,  2]
-max_constraints_cells_loose = [.2,   2,  0.1,   2,  100, 8]
+min_constraints_neuron_loose = [.005, .1, 0.005, .1]
+max_constraints_neuron_loose = [.2,   2,  0.1,   2]
+min_constraints_muscle_loose = [.005, .1, 0.005, .1, 10,  2]
+max_constraints_muscle_loose = [.2,   2,  0.1,   2,  100, 8]
 
-min_constraints_net_loose = [.01, .01, 0.0005]
-max_constraints_net_loose = [.1,  .1,  0.01]
+min_constraints_neuron_tight = [0.0045, 1.8, 0.07, 1.6]
+max_constraints_neuron_tight = [0.0055, 1.9,  0.08, 1.7]
+min_constraints_muscle_tight = [0.0045, 1.8, 0.07, 1.6,  10, 6]
+max_constraints_muscle_tight = [0.0055, 1.9,  0.08, 1.7, 12, 7]
 
-min_constraints_cells_tight = [0.0045, 1.8, 0.07, 1.6,  10, 6]
-max_constraints_cells_tight = [0.0055, 1.9,  0.08, 1.7, 12, 7]
+min_constraints_net_loose = [.01, .01, 0.0005, .01, .01]
+max_constraints_net_loose = [.1,  .1,  0.01,   .1,  .1]
 
-min_constraints_net_tight = [0.09, 0.09, 0.00048]
-max_constraints_net_tight = [0.11, 0.11, 0.00052]
+min_constraints_net_tight = [0.09, 0.09, 0.00048, 0.09, 0.09]
+max_constraints_net_tight = [0.11, 0.11, 0.00052, 0.11, 0.11]
 
 weights0 = {}
 target_data0 = {}
 
-for cell in ['DB1','VB1','DA1','VA1', 'DB4','VB4','DA4','VA4', 'DB7','VB9','DA9','VA9']:
+cells = ['DB1','VB1', 'DB2','VB2','DB3','VB3','DB4','VB4', 'DB5','VB5','DB6','VB6','DB7','VB7']
+
+for cell in cells:
     
     var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
     weights0[var] = 1
     target_data0[var] = 4
 
 
+#phase offset
+
+i = 0
+while i < len(cells):
+
+    if len(cells)%2 != 0:
+        raise Exception( "Error in phase target and weight formation, cells array does not contain a valid number of pairs")
+    
+    var = '%s/0/GenericNeuronCell/v'%cells[i] + ';%s/0/GenericNeuronCell/v'%cells[i+1] + ';phase_offset'
+    i+=2
+
+    weights0[var] = 1
+    
+    target_data0[var] = 180
 
 def scale(scale, number, min=1):
     return max(min, int(scale*number))
@@ -128,13 +156,13 @@ def run_optimisation(prefix,
 
 
     #make an evaluator, using automatic target evaluation:
-    my_evaluator=evaluators.NetworkEvaluator(controller=my_controller,
-                                            analysis_start_time=analysis_start_time,
-                                            analysis_end_time=sim_time,
-                                            parameters=parameters,
-                                            analysis_var=analysis_var,
-                                            weights=weights,
-                                            targets=target_data)
+    my_evaluator = c302Evaluators.EnhancedNetworkEvaluator(controller=my_controller,
+                                                analysis_start_time=analysis_start_time,
+                                                analysis_end_time=sim_time,
+                                                parameters=parameters,
+                                                analysis_var=analysis_var,
+                                                weights=weights,
+                                                targets=target_data)
 
 
     #make an optimizer
@@ -174,14 +202,14 @@ def run_optimisation(prefix,
     
     best_candidate_results = my_controller.last_results
 
-    best_candidate_analysis = analysis.NetworkAnalysis(best_candidate_v,
+    best_candidate_analysis = c302Analysis.Data_Analyser(best_candidate_v,
                                                best_candidate_t,
                                                analysis_var,
                                                start_analysis=analysis_start_time,
                                                end_analysis=sim_time)
 
     best_cand_analysis_full = best_candidate_analysis.analyse()
-    best_cand_analysis = best_candidate_analysis.analyse(weights.keys())
+    best_cand_analysis = best_candidate_analysis.analyse(target_data)
 
     report+="---------- Best candidate ------------------------------------------\n"
     
@@ -238,7 +266,7 @@ def run_optimisation(prefix,
         added =[]
         for wref in weights.keys():
             ref = wref.split(':')[0]
-            if not ref in added:
+            if not ref in added and not "phase_offset" in ref:
                 added.append(ref)
                 best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[ref], label="%s - %i evaluations"%(ref,max_evaluations))
 
@@ -266,13 +294,19 @@ if __name__ == '__main__':
 
     if '-full' in sys.argv:
 
-        scalem = 1
+        scalem = 5
+        max_c = max_constraints_neuron_tight + max_constraints_muscle_tight + max_constraints_net_loose
+        min_c = min_constraints_neuron_tight + min_constraints_muscle_tight + min_constraints_net_loose
+        
+        max_c = max_constraints_neuron_loose + max_constraints_muscle_tight + max_constraints_net_loose
+        min_c = min_constraints_neuron_loose + min_constraints_muscle_tight + min_constraints_net_loose
+        
         run_optimisation('Test',
                          'Full',
                          'C1',
                          parameters_C_based,
-                         max_constraints_cells_loose + max_constraints_net_tight,
-                         min_constraints_cells_loose + min_constraints_net_tight,
+                         max_c,
+                         min_c,
                          weights0,
                          target_data0,
                          sim_time = 1000,
@@ -285,20 +319,26 @@ if __name__ == '__main__':
                          num_elites =       scale(scalem,3),
                          nogui =            nogui,
                          simulator = simulator,
-                         num_local_procesors_to_use =4)
+                         num_local_procesors_to_use =8)
                          
     elif '-musc' in sys.argv or '-muscone' in sys.argv:
         
         
         if '-musc' in sys.argv:
             
-            scalem = 2
+            scalem = .2
+            max_c = max_constraints_neuron_tight + max_constraints_muscle_tight + max_constraints_net_loose
+            min_c = min_constraints_neuron_tight + min_constraints_muscle_tight + min_constraints_net_loose
+
+            max_c = max_constraints_neuron_loose + max_constraints_muscle_tight + max_constraints_net_loose
+            min_c = min_constraints_neuron_loose + min_constraints_muscle_tight + min_constraints_net_loose
+        
             run_optimisation('Test',
                              'Muscles',
                              'C1',
                              parameters_C_based,
-                             max_constraints_cells_loose + max_constraints_net_tight,
-                             min_constraints_cells_loose + min_constraints_net_tight,
+                             max_c,
+                             min_c,
                              weights0,
                              target_data0,
                              sim_time = 1000,
@@ -310,8 +350,9 @@ if __name__ == '__main__':
                              mutation_rate =    0.9,
                              num_elites =       scale(scalem,3),
                              nogui =            nogui,
+                             seed =             1234,
                              simulator = simulator,
-                             num_local_procesors_to_use =1)
+                             num_local_procesors_to_use = 8)
         else:
             
             sim_time = 1000
@@ -321,9 +362,9 @@ if __name__ == '__main__':
 
             #test = [0.030982235821054638, 0.7380672812995235, 0.07252703867293844, 0.8087106170838071, 0.045423417312661474, 0.011449079144697817, 0.0049614426482976716, 2.361816408316808]
             sim_var = OrderedDict({   'ca_boyle_cond_density': 1.6862775772264702,
-                        'elec_syn_gbase': 0.0005,
-                        'exc_syn_conductance': 0.1,
-                        'inh_syn_conductance': 0.1,
+                        'neuron_to_muscle_elec_syn_gbase': 0.0005,
+                        'neuron_to_muscle_exc_syn_conductance': 0.1,
+                        'neuron_to_muscle_inh_syn_conductance': 0.1,
                         'muscle_k_fast_cond_density': 0.0711643917483308,
                         'muscle_k_slow_cond_density': 1.8333751019872582,
                         'muscle_leak_cond_density': 0.005,
@@ -359,11 +400,11 @@ if __name__ == '__main__':
                          
     elif '-osc' in sys.argv:
 
-        parameters = ['chem_exc_syn_gbase',
+        parameters = ['neuron_to_muscle_chem_exc_syn_gbase',
                       'chem_exc_syn_decay',
-                      'chem_inh_syn_gbase',
+                      'neuron_to_muscle_chem_inh_syn_gbase',
                       'chem_inh_syn_decay',
-                      'elec_syn_gbase',
+                      'neuron_to_muscle_elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
@@ -405,9 +446,9 @@ if __name__ == '__main__':
                       'muscle_k_slow_cond_density',
                       'muscle_k_fast_cond_density',
                       'muscle_ca_boyle_cond_density',
-                      'exc_syn_conductance',
-                      'inh_syn_conductance',
-                      'elec_syn_gbase',
+                      'neuron_to_muscle_exc_syn_conductance',
+                      'neuron_to_muscle_inh_syn_conductance',
+                      'neuron_to_muscle_elec_syn_gbase',
                       'unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
@@ -559,9 +600,9 @@ if __name__ == '__main__':
 
     elif '-phar' in sys.argv:
 
-        parameters = ['chem_exc_syn_gbase',
+        parameters = ['neuron_to_muscle_chem_exc_syn_gbase',
                                   'chem_exc_syn_decay',
-                                  'elec_syn_gbase']
+                                  'neuron_to_muscle_elec_syn_gbase']
 
         #above parameters will not be modified outside these bounds:
         min_constraints = [0.05, 3, 0.01]
@@ -645,9 +686,9 @@ if __name__ == '__main__':
 
         my_controller = C302Controller('Test', level, config, sim_time, 0.1)
 
-        sim_var = OrderedDict([('chem_exc_syn_gbase',0.5),
+        sim_var = OrderedDict([('neuron_to_muscle_chem_exc_syn_gbase',0.5),
                   ('chem_exc_syn_decay',10),
-                  ('chem_inh_syn_gbase',0.5),
+                  ('neuron_to_muscle_chem_inh_syn_gbase',0.5),
                   ('chem_inh_syn_decay',40),
                   ('unphysiological_offset_current',0.38)])
 
