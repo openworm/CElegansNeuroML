@@ -1,0 +1,27 @@
+repo: openworm/CElegansNeuroML
+shortDescription: "NeuroML based C elegans model, contained in a neuroConstruct project, as well as c302"
+coordinator: stephen@openworm.org
+documentation: "https://github.com/openworm/CElegansNeuroML/blob/master/README.md"
+earnable-badges: 
+  - "http://www.badgelist.com/OpenWorm/Hodgkin-Huxley-Tutorial-Graduate"
+inputs: 
+  - openworm/ChannelWorm
+  - openworm/muscle_model
+keywords: 
+  - cells
+  - channels
+  - synapses
+  - neurons
+  - simulation
+  - conductance-based models
+  - "gap junctions"
+  - neurotransmitters
+languages: 
+  - python
+members: 
+  - pgleeson@gmail.com
+outputs: 
+  - openworm/sibernetic
+parent: 
+  - openworm/OpenWorm
+tests: true
