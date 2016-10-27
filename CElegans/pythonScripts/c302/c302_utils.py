@@ -34,10 +34,10 @@ def plots(a_n, info, cells, dt):
 
     labels = [] #issue is with unicode
     for label in ax.get_xticklabels():
-        try:
+        if(len(label.get_text()) >0):
             labels.append(float( str((label.get_text())) )*dt*downscale*1000)
-        except:
-            print "Error value on forming axis values, value: ", label.get_text(), ", length: ",len(label.get_text())
+        # except:
+        #     print "Error value on forming axis values, value: ", label.get_text(), ", length: ",len(label.get_text())
     
     #labels = [float(label.get_text())*dt*downscale*1000 for item in ax.get_xticklabels()]
     ax.set_xticklabels(labels)
