@@ -324,13 +324,19 @@ if __name__ == '__main__':
         
         if '-musc' in sys.argv:
             
-            scalem = .5
+            scalem = .2
+            max_c = max_constraints_neuron_tight + max_constraints_muscle_tight + max_constraints_net_loose
+            min_c = min_constraints_neuron_tight + min_constraints_muscle_tight + min_constraints_net_loose
+
+            max_c = max_constraints_neuron_loose + max_constraints_muscle_tight + max_constraints_net_loose
+            min_c = min_constraints_neuron_loose + min_constraints_muscle_tight + min_constraints_net_loose
+        
             run_optimisation('Test',
                              'Muscles',
                              'C1',
                              parameters_C_based,
-                             max_constraints_neuron_tight + max_constraints_muscle_tight + max_constraints_net_loose,
-                             min_constraints_neuron_tight + min_constraints_muscle_tight + min_constraints_net_loose,
+                             max_c,
+                             min_c,
                              weights0,
                              target_data0,
                              sim_time = 1000,
