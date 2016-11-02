@@ -71,6 +71,24 @@ if __name__ == '__main__':
     elif '-phar' in sys.argv or '-pharyngeal' in sys.argv:
         main('Pharyngeal','C','',500,0.01,'jNeuroML_NEURON')
         
+    elif '-synsA' in sys.argv:
+        main('Syns','A','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsB' in sys.argv:
+        main('Syns','B','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsC' in sys.argv:
+        main('Syns','C','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsC1' in sys.argv:
+        main('Syns','C1','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsD' in sys.argv:
+        main('Syns','D','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsD1' in sys.argv:
+        main('Syns','D1','',500,0.05,'jNeuroML_NEURON')
+        
     elif '-socialB' in sys.argv:
         main('Social','B','',2500,0.05,'jNeuroML_NEURON')
         
@@ -133,7 +151,7 @@ if __name__ == '__main__':
             html+='<td align="center"><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_%s.py">%s</a></b></td>'%(p,p)
 
         html+='</tr>\n'
-        for c in ['A','B','C','C1']:#['A','B','C','C1']:#['A']:
+        for c in ['A','B','C','C1','D','D1']:#['A','B','C','C1']:#['A']:
             print('Generating for: %s'%c)
             html+='<tr>'
             html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)
