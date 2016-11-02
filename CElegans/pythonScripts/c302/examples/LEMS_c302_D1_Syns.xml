@@ -20,37 +20,39 @@ Parameters and setting used to generate this network:
         BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 0.1408257307011203 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_cond_density = 1.7139140434941569 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 13.811870945509265 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 6.076428433117039 pA (SRC: KnownError, certainty 0)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 9 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
    
     -->
 
-    <Target component="sim_c302_D_Syns" />
+    <Target component="sim_c302_D1_Syns" />
 
     <!-- Include core NeuroML2 ComponentType definitions -->
 
@@ -72,14 +74,14 @@ Parameters and setting used to generate this network:
     
     <Include file="cells/VD12_D.cell.nml" />
     
-    <Include file="c302_D_Syns.nml" />
+    <Include file="c302_D1_Syns.nml" />
 
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_D_Syns" length="500ms" step="0.05ms" target="c302_D_Syns">
+    <Simulation id="sim_c302_D1_Syns" length="500ms" step="0.05ms" target="c302_D1_Syns">
 
-        <Display id="neurons" title="c302_D_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
+        <Display id="neurons" title="c302_D1_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
             
             <Line id="AIZL" quantity="AIZL/0/AIZL/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="ASHL" quantity="ASHL/0/ASHL/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
@@ -90,7 +92,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="activity_neurons" title="c302_D_Syns: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_neurons" title="c302_D1_Syns: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
             
             <Line id="AIZL" quantity="AIZL/0/AIZL/caConc" scale="1" color="#eaf195" timeScale="1ms" />
             <Line id="ASHL" quantity="ASHL/0/ASHL/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
@@ -101,7 +103,7 @@ Parameters and setting used to generate this network:
 
         </Display>
 
-        <OutputFile id="neurons_v" fileName="c302_D_Syns.dat">
+        <OutputFile id="neurons_v" fileName="c302_D1_Syns.dat">
             <OutputColumn id="AIZL_v" quantity="AIZL/0/AIZL/v"/>
             <OutputColumn id="ASHL_v" quantity="ASHL/0/ASHL/v"/>
             <OutputColumn id="SMDDR_v" quantity="SMDDR/0/SMDDR/v"/>
@@ -110,7 +112,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="VD12_v" quantity="VD12/0/VD12/v"/>
         </OutputFile>
         
-        <OutputFile id="neurons_activity" fileName="c302_D_Syns.activity.dat">
+        <OutputFile id="neurons_activity" fileName="c302_D1_Syns.activity.dat">
             <OutputColumn id="AIZL_v" quantity="AIZL/0/AIZL/caConc"/>
             <OutputColumn id="ASHL_v" quantity="ASHL/0/ASHL/caConc"/>
             <OutputColumn id="SMDDR_v" quantity="SMDDR/0/SMDDR/caConc"/>

@@ -81,3 +81,15 @@ class c302ModelPrototype(ParameterisedModelPrototype):
     elec_syn = None
     offset_current = None
     concentration_model = None
+    
+    def is_level_A(self):
+        return self.level.startswith('A')
+    
+    def is_level_B(self):
+        return self.level.startswith('B')
+    
+    def is_level_C(self):
+        return self.level.startswith('C')
+    
+    def is_level_D(self):
+        return self.level.startswith('D')

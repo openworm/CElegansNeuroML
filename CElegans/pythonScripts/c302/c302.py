@@ -302,12 +302,12 @@ def get_cell_muscle_names_and_connection(test=False):
 
 
 def is_cond_based_cell(params):
-    return params.level == "C" or params.level == "C1" or params.level == "D"
+    return params.is_level_C() or params.is_level_D()
 
 
 def get_cell_id_string(cell, params, muscle=False):
     
-    if not params.level == "D":
+    if not params.is_level_D():
         if not muscle:
             return "../%s/0/%s"%(cell, params.generic_neuron_cell.id)
         else:
@@ -377,13 +377,13 @@ def generate(net_id,
 
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
-    if params.level == "A" or params.level == "B" or params.level == "BC1":
+    if params.is_level_A() or params.is_level_B() or params.level == "BC1":
         nml_doc.iaf_cells.append(params.generic_muscle_cell) 
         nml_doc.iaf_cells.append(params.generic_neuron_cell) 
-    elif params.level == "C":
+    elif params.is_level_C():
         nml_doc.cells.append(params.generic_muscle_cell)
         nml_doc.cells.append(params.generic_neuron_cell)
-    elif params.level == "D":
+    elif params.is_level_D():
         nml_doc.cells.append(params.generic_muscle_cell)
          
 
@@ -445,7 +445,7 @@ def generate(net_id,
 
             inst = Instance(id="0")
 
-            if not params.level == "D":
+            if not params.is_level_D():
                 # build a Population data structure out of the cell name
                 pop0 = Population(id=cell,
                                   component=params.generic_neuron_cell.id,
@@ -477,7 +477,7 @@ def generate(net_id,
             all_cells[cell] = doc.cells[0]
             
             
-            if params.level == "D":
+            if params.is_level_D():
                 new_cell = params.create_neuron_cell(cell, doc.cells[0].morphology)
                 
                 nml_cell_doc = NeuroMLDocument(id=cell)
@@ -504,7 +504,7 @@ def generate(net_id,
             if cells_to_stimulate is None or cell in cells_to_stimulate:
 
                 target = "../%s/0/%s"%(pop0.id, cell_id)
-                if params.level == "D":
+                if params.is_level_D():
                     target+="/0"
                 
                 input_list = InputList(id="Input_%s_%s"%(cell,params.offset_current.id),
@@ -526,7 +526,7 @@ def generate(net_id,
                 plot["quantity"] = "%s/0/%s/v" % (cell, cell_id)
                 lems_info["plots"].append(plot)
 
-                if params.level == "B":
+                if params.is_level_B():
                     plot = {}
 
                     plot["cell"] = cell
@@ -547,7 +547,7 @@ def generate(net_id,
             save["quantity"] = "%s/0/%s/v" % (cell, cell_id)
             lems_info["to_save"].append(save)
 
-            if params.level == "B":
+            if params.is_level_B():
                 save = {}
                 save["cell"] = cell
                 save["quantity"] = "%s/0/%s/activity" % (cell, cell_id)
