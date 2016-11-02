@@ -47,8 +47,17 @@ if __name__ == '__main__':
     elif '-musclesA' in sys.argv:
         main('Muscles','A','',1000,0.05,'jNeuroML_NEURON')
         
+    elif '-musclesC' in sys.argv or  '-muscC' in sys.argv:
+        main('Muscles','C','',1000,0.05,'jNeuroML_NEURON')
+        
     elif '-musclesC1' in sys.argv or  '-muscC1' in sys.argv:
         main('Muscles','C1','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-musclesD' in sys.argv or  '-muscD' in sys.argv:
+        main('Muscles','D','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-musclesD1' in sys.argv or  '-muscD1' in sys.argv:
+        main('Muscles','D1','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-pharA' in sys.argv or '-pharyngealA' in sys.argv:
         main('Pharyngeal','A','',500,0.01,'jNeuroML_NEURON')
@@ -96,6 +105,8 @@ if __name__ == '__main__':
         main('IClamp','C1','',1000,0.05,'jNeuroML',save=True)
     elif '-iD' in sys.argv:
         main('IClamp','D','',1000,0.05,'jNeuroML_NEURON',save=True)
+    elif '-iD1' in sys.argv:
+        main('IClamp','D1','',1000,0.05,'jNeuroML_NEURON',save=True)
         
     elif '-all' in sys.argv:
         print('Generating all plots')

@@ -92,18 +92,22 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     ## Plot voltages cells
     
     print("Plotting neuron voltages")
-    template = '{0}/0/GenericNeuronCell/v'
-    if parameter_set=='A' or parameter_set=='B':
-        template = '{0}/0/generic_neuron_iaf_cell/v'
+    
+    template = '{0}/0/GenericNeuronCell/{1}'
+    template_m = '{0}/0/GenericMuscleCell/{1}'
+    if parameter_set.startswith('A') or parameter_set.startswith('B'):
+        template = '{0}/0/generic_neuron_iaf_cell/{1}'
+        template_m = '{0}/0/generic_muscle_iaf_cell/{1}'
     if parameter_set.startswith('D'):
-        template = '{0}/0/{0}/v'
+        template = '{0}/0/{0}/{1}'
+
     
     xvals = []
     yvals = []
     labels = []
     
     for cell in cells:
-        v = lems_results[template.format(cell)]
+        v = lems_results[template.format(cell,'v')]
         
         xvals.append(times)
         labels.append(cell)
@@ -151,12 +155,9 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     if muscles:
 
         print("Plotting muscle voltages")
-        template = '%s/0/GenericMuscleCell/v'
-        if parameter_set=='A' or parameter_set=='B':
-            template = '%s/0/generic_muscle_iaf_cell/v'
 
         for muscle in all_muscles:
-            mv = lems_results[template%muscle]
+            mv = lems_results[template_m.format(muscle,'v')]
 
             xvals.append(times)
             labels.append(muscle)
@@ -195,10 +196,8 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         print("Plotting neuron activities")
         variable = 'activity'
         description = 'Activity'
-        template = '%s/0/GenericNeuronCell/%s'
-        if parameter_set=='A' or parameter_set=='B':
-            template = '%s/0/generic_neuron_iaf_cell/%s'
-        if parameter_set=='C' or parameter_set=='C1':
+            
+        if parameter_set.startswith('C') or parameter_set.startswith('D'):
             variable = 'caConc'
             description = '[Ca2+]'
 
@@ -208,7 +207,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
 
         info = '%s of %i cells (%s %s)'%(description, len(cells),config,parameter_set)
         for cell in cells:
-            a = lems_results[template%(cell,variable)]
+            a = lems_results[template.format(cell,variable)]
             
             xvals.append(times)
             yvals.append(a)
@@ -245,10 +244,8 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         print("Plotting muscle activities")
         variable = 'activity'
         description = 'Activity'
-        template = '%s/0/GenericMuscleCell/%s'
-        if parameter_set=='A' or parameter_set=='B':
-            template = '%s/0/generic_muscle_iaf_cell/%s'
-        if parameter_set=='C' or parameter_set=='C1':
+            
+        if parameter_set.startswith('C') or parameter_set.startswith('D'):
             variable = 'caConc'
             description = '[Ca2+]'
             
@@ -258,7 +255,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
 
         info = '%s of %i muscles (%s %s)'%(description, len(all_muscles),config,parameter_set)
         for m in all_muscles:
-            a = lems_results[template%(m,variable)]
+            a = lems_results[template_m.format(m,variable)]
             
             xvals.append(times)
             yvals.append(a)

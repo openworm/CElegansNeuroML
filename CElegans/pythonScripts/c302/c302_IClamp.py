@@ -15,10 +15,12 @@ def setup(parameter_set,
     params.set_bioparameter("unphysiological_offset_current_dur", "800 ms", "Testing IClamp", "0")
     
     
-    my_cell = "ADAL"
+    my_cells = ["ADAL","PVCL","MDR1"]
+    my_cells = ["ADAL","PVCL"]
+    include_muscles = False
     
-    cells               = [my_cell]
-    cells_to_stimulate  = [my_cell]
+    cells               = my_cells
+    cells_to_stimulate  = my_cells
     
     reference = "c302_%s_IClamp"%parameter_set
     
@@ -27,12 +29,13 @@ def setup(parameter_set,
                     params, 
                     cells=cells, 
                     cells_to_stimulate=cells_to_stimulate, 
+                    include_muscles = include_muscles,
                     duration=duration, 
                     dt=dt, 
                     validate=('B' not in parameter_set),
                     target_directory=target_directory)
                     
-    return cells, cells_to_stimulate, params, False
+    return cells, cells_to_stimulate, params, include_muscles
              
 if __name__ == '__main__':
     

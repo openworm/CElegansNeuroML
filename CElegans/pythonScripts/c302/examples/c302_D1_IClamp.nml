@@ -3,8 +3,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['ADAL']
-    Cell stimulated:               ['ADAL']
+    Cells:                         ['ADAL', 'PVCL']
+    Cell stimulated:               ['ADAL', 'PVCL']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               False
@@ -50,6 +50,7 @@ Parameters and setting used to generate this network:
 </notes>
     <include href="cell_C.xml"></include>
     <include href="cells/ADAL_D.cell.nml"></include>
+    <include href="cells/PVCL_D.cell.nml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="13.811870945509265 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
@@ -82,8 +83,17 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
+        <population id="PVCL" component="PVCL" type="populationList">
+            <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
+            <instance id="0">
+                <location x="0." y="0." z="0."/>
+            </instance>
+        </population>
         <inputList id="Input_ADAL_offset_current" population="ADAL" component="offset_current">
             <input id="0" target="../ADAL/0/ADAL/0" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
+            <input id="0" target="../PVCL/0/PVCL/0" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

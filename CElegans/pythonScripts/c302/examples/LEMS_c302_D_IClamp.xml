@@ -5,8 +5,8 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['ADAL']
-    Cell stimulated:               ['ADAL']
+    Cells:                         ['ADAL', 'PVCL']
+    Cell stimulated:               ['ADAL', 'PVCL']
     Connection numbers overridden: None
     Connection numbers scaled:     None
     Include muscles:               False
@@ -62,6 +62,8 @@ Parameters and setting used to generate this network:
     
     <Include file="cells/ADAL_D.cell.nml" />
     
+    <Include file="cells/PVCL_D.cell.nml" />
+    
     <Include file="c302_D_IClamp.nml" />
 
     <!-- End of NeuroML2 content -->
@@ -72,21 +74,25 @@ Parameters and setting used to generate this network:
         <Display id="neurons" title="c302_D_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-60" ymax="25">
             
             <Line id="ADAL" quantity="ADAL/0/ADAL/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="PVCL" quantity="PVCL/0/PVCL/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
             
         </Display>
       
         <Display id="activity_neurons" title="c302_D_IClamp: Activity of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-0.1" ymax="1.1">
             
             <Line id="ADAL" quantity="ADAL/0/ADAL/caConc" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="PVCL" quantity="PVCL/0/PVCL/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
 
         </Display>
 
         <OutputFile id="neurons_v" fileName="c302_D_IClamp.dat">
             <OutputColumn id="ADAL_v" quantity="ADAL/0/ADAL/v"/>
+            <OutputColumn id="PVCL_v" quantity="PVCL/0/PVCL/v"/>
         </OutputFile>
         
         <OutputFile id="neurons_activity" fileName="c302_D_IClamp.activity.dat">
             <OutputColumn id="ADAL_v" quantity="ADAL/0/ADAL/caConc"/>
+            <OutputColumn id="PVCL_v" quantity="PVCL/0/PVCL/caConc"/>
         </OutputFile>
     </Simulation>
 

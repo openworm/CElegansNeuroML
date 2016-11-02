@@ -66,10 +66,15 @@ jnml -validate c302_A_Muscles.nml
 
 jnml -validate c302_C_Full.nml
 jnml -validate c302_C_Pharyngeal.nml
-jnml -validate c302_C_Syns.nml
-jnml -validate c302_C_Social.nml
-jnml -validate c302_C_Muscles.nml
 
+jnml -validate c302_C1_Full.nml
+jnml -validate c302_C1_Pharyngeal.nml
+
+jnml -validate c302_D_Full.nml
+jnml -validate c302_D_Pharyngeal.nml
+
+jnml -validate c302_D1_Full.nml
+jnml -validate c302_D1_Pharyngeal.nml
 
 
 ## Try running these in jNeuroML with no GUI

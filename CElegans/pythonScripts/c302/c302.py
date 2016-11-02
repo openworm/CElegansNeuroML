@@ -314,7 +314,10 @@ def get_cell_id_string(cell, params, muscle=False):
             return "../%s/0/%s"%(cell, params.generic_muscle_cell.id)
     
     else:
-        return "../%s/0/%s"%(cell, cell)
+        if not muscle:
+            return "../%s/0/%s"%(cell, cell)
+        else:
+            return "../%s/0/%s"%(cell, params.generic_muscle_cell.id)
     
     
 def generate(net_id,

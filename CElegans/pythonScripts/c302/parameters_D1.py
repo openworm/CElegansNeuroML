@@ -27,7 +27,6 @@ from neuroml import GapJunction
 from neuroml import PulseGenerator
 
 from bioparameters import c302ModelPrototype
-from c302 import get_cell_names_and_connection
 
 '''
 

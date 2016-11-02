@@ -25,7 +25,6 @@ from neuroml import GapJunction
 from neuroml import PulseGenerator
 
 from bioparameters import c302ModelPrototype
-from c302 import get_cell_names_and_connection
 
 '''
 
@@ -167,7 +166,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.generic_muscle_cell.biophysical_properties.intracellular_properties = ip
 
         # NOTE: resistivity/axial resistance not used for single compartment cell models, so value irrelevant!
-        ip.resistivities.append(Resistivity(value="0.045 kohm_cm"))
+        ip.resistivities.append(Resistivity(value="0.1 kohm_cm"))
 
 
         # NOTE: Ca reversal potential not calculated by Nernst, so initial_ext_concentration value irrelevant!
