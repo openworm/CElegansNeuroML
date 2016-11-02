@@ -20,7 +20,7 @@ from neuroml import ChannelDensity
 from neuroml import SpikeThresh
 from neuroml import FixedFactorConcentrationModel
 
-from neuroml import GradedSynapse
+from neuroml import ExpTwoSynapse
 from neuroml import GapJunction
 from neuroml import PulseGenerator
 
@@ -56,42 +56,42 @@ class ParameterisedModel(c302ModelPrototype):
 
         self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
-
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_slow_cond_density", "0.1408257307011203 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_fast_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.7139140434941569 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
-        
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
         
-        self.add_bioparameter("ca_conc_decay_time", "13.811870945509265 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("ca_conc_decay_time", "11.5943 ms", "BlindGuess", "0.1")
         self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("exc_syn_conductance", "0.09 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_delta", "5 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_vth", "0 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_erev", "0 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_k", "0.025per_ms", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_chem_exc_syn_gbase", ".1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_chem_exc_syn_gbase", ".1 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("inh_syn_conductance", "0.09 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_delta", "5 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_vth", "0 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_erev", "-70 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_k", "0.025per_ms", "BlindGuess", "0.1")
-        
+        self.add_bioparameter("chem_exc_syn_erev", "0 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_rise", "1 ms", "Bli ndGuess", "0.1")
+        self.add_bioparameter("chem_exc_syn_decay", "5 ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("elec_syn_gbase", "0.00052 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_chem_inh_syn_gbase", ".1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_chem_inh_syn_gbase", ".1 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("unphysiological_offset_current", "9 pA", "KnownError", "0")
+        self.add_bioparameter("chem_inh_syn_erev", "-60 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_rise", "2 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("chem_inh_syn_decay", "40 ms", "BlindGuess", "0.1")
+
+        self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
+
+        self.add_bioparameter("unphysiological_offset_current", "6.076428433117039 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 
@@ -104,39 +104,10 @@ class ParameterisedModel(c302ModelPrototype):
         for cell_name in cell_names:
             self.create_neuron_cell(cell_name)'''
             
-        self.create_syn_offsetcurrent_conc()
+        self.create_offsetcurrent_concentrationmodel()
+        self.create_neuron_to_neuron_syn()
+        self.create_neuron_to_muscle_syn()
 
-    def create_syn_offsetcurrent_conc(self):
-        self.exc_syn = GradedSynapse(id="exc_syn",
-                                conductance =        self.get_bioparameter("exc_syn_conductance").value,
-                                delta =              self.get_bioparameter("exc_syn_delta").value,
-                                Vth =                self.get_bioparameter("exc_syn_vth").value,
-                                erev =               self.get_bioparameter("exc_syn_erev").value,
-                                k =                  self.get_bioparameter("exc_syn_k").value)
-
-
-        self.inh_syn = GradedSynapse(id="inh_syn",
-                                conductance =        self.get_bioparameter("inh_syn_conductance").value,
-                                delta =              self.get_bioparameter("inh_syn_delta").value,
-                                Vth =                self.get_bioparameter("inh_syn_vth").value,
-                                erev =               self.get_bioparameter("inh_syn_erev").value,
-                                k =                  self.get_bioparameter("inh_syn_k").value)
-
-        self.elec_syn = GapJunction(id="elec_syn",
-                               conductance =    self.get_bioparameter("elec_syn_gbase").value)
-
-
-        self.offset_current = PulseGenerator(id="offset_current",
-                                delay=self.get_bioparameter("unphysiological_offset_current_del").value,
-                                duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
-                                amplitude=self.get_bioparameter("unphysiological_offset_current").value)
-
-    
-        self.concentration_model = FixedFactorConcentrationModel(id="CaPool",
-                                            ion="ca",
-                                            resting_conc="0 mM",
-                                            decay_constant=self.get_bioparameter("ca_conc_decay_time").value,
-                                            rho=self.get_bioparameter("ca_conc_rho").value)
 
     def create_generic_muscle_cell(self):
 
@@ -196,7 +167,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.generic_muscle_cell.biophysical_properties.intracellular_properties = ip
 
         # NOTE: resistivity/axial resistance not used for single compartment cell models, so value irrelevant!
-        ip.resistivities.append(Resistivity(value="0.1 kohm_cm"))
+        ip.resistivities.append(Resistivity(value="0.045 kohm_cm"))
 
 
         # NOTE: Ca reversal potential not calculated by Nernst, so initial_ext_concentration value irrelevant!
@@ -269,4 +240,53 @@ class ParameterisedModel(c302ModelPrototype):
         ip.species.append(species)
         
         return cell
+
+    def create_offsetcurrent_concentrationmodel(self):
+
+        self.offset_current = PulseGenerator(id="offset_current",
+                                delay=self.get_bioparameter("unphysiological_offset_current_del").value,
+                                duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
+                                amplitude=self.get_bioparameter("unphysiological_offset_current").value)
+
+    
+        self.concentration_model = FixedFactorConcentrationModel(id="CaPool",
+                                            ion="ca",
+                                            resting_conc="0 mM",
+                                            decay_constant=self.get_bioparameter("ca_conc_decay_time").value,
+                                            rho=self.get_bioparameter("ca_conc_rho").value)
+
+    def create_neuron_to_neuron_syn(self):
+        self.neuron_to_neuron_exc_syn = ExpTwoSynapse(id="neuron_to_neuron_exc_syn",
+                                gbase =         self.get_bioparameter("neuron_to_neuron_chem_exc_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_exc_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_exc_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_exc_syn_rise").value)
+
+
+        self.neuron_to_neuron_inh_syn = ExpTwoSynapse(id="neuron_to_neuron_inh_syn",
+                                gbase =         self.get_bioparameter("neuron_to_neuron_chem_inh_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_inh_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_inh_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_inh_syn_rise").value)
+
+        self.neuron_to_neuron_elec_syn = GapJunction(id="neuron_to_neuron_elec_syn",
+                               conductance =    self.get_bioparameter("neuron_to_neuron_elec_syn_gbase").value)
+
+
+    def create_neuron_to_muscle_syn(self):
+        self.neuron_to_muscle_exc_syn = ExpTwoSynapse(id="neuron_to_muscle_exc_syn",
+                                gbase =         self.get_bioparameter("neuron_to_muscle_chem_exc_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_exc_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_exc_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_exc_syn_rise").value)
+
+
+        self.neuron_to_muscle_inh_syn = ExpTwoSynapse(id="neuron_to_muscle_inh_syn",
+                                gbase =         self.get_bioparameter("neuron_to_muscle_chem_inh_syn_gbase").value,
+                                erev =          self.get_bioparameter("chem_inh_syn_erev").value,
+                                tau_decay =     self.get_bioparameter("chem_inh_syn_decay").value,
+                                tau_rise =      self.get_bioparameter("chem_inh_syn_rise").value)
+
+        self.neuron_to_muscle_elec_syn = GapJunction(id="neuron_to_muscle_elec_syn",
+                               conductance =    self.get_bioparameter("neuron_to_muscle_elec_syn_gbase").value)
 

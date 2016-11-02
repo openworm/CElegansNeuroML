@@ -92,16 +92,18 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     ## Plot voltages cells
     
     print("Plotting neuron voltages")
-    template = '%s/0/GenericNeuronCell/v'
+    template = '{0}/0/GenericNeuronCell/v'
     if parameter_set=='A' or parameter_set=='B':
-        template = '%s/0/generic_neuron_iaf_cell/v'
+        template = '{0}/0/generic_neuron_iaf_cell/v'
+    if parameter_set.startswith('D'):
+        template = '{0}/0/{0}/v'
     
     xvals = []
     yvals = []
     labels = []
     
     for cell in cells:
-        v = lems_results[template%cell]
+        v = lems_results[template.format(cell)]
         
         xvals.append(times)
         labels.append(cell)

@@ -11,7 +11,7 @@ save_fig_dir = 'summary/'
 
 def main(config, parameter_set, prefix, duration, dt, simulator, save=False, show_plot_already=True):
     
-    
+    print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
     exec('from c302_%s import setup'%config)
     cells, cells_to_stimulate, params, muscles = setup(parameter_set, 
                                                        generate=True,
@@ -94,6 +94,8 @@ if __name__ == '__main__':
         main('IClamp','C','',1000,0.05,'jNeuroML')
     elif '-iC1' in sys.argv:
         main('IClamp','C1','',1000,0.05,'jNeuroML',save=True)
+    elif '-iD' in sys.argv:
+        main('IClamp','D','',1000,0.05,'jNeuroML_NEURON',save=True)
         
     elif '-all' in sys.argv:
         print('Generating all plots')
