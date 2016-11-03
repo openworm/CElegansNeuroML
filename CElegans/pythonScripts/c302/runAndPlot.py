@@ -135,7 +135,9 @@ if __name__ == '__main__':
         #param_sets = ['IClamp']
         param_sets = ['IClamp','Syns','Pharyngeal','Social']
         param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles','Full']
-        #param_sets = ['IClamp','Muscles']
+        #param_sets = ['IClamp','Muscles','Full']
+        levels = ['A','B','C','C1','D','D1']
+        #levels = ['D','D1']
         
         durations = {'IClamp':1000,
                      'Syns':500,
@@ -151,7 +153,7 @@ if __name__ == '__main__':
             html+='<td align="center"><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_%s.py">%s</a></b></td>'%(p,p)
 
         html+='</tr>\n'
-        for c in ['A','B','C','C1','D','D1']:#['A','B','C','C1']:#['A']:
+        for c in levels:
             print('Generating for: %s'%c)
             html+='<tr>'
             html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)

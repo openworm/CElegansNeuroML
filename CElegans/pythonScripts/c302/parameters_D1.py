@@ -33,7 +33,6 @@ from bioparameters import c302ModelPrototype
     The values below are a FIRST APPROXIMATION of conductance based neurons for use in a network to 
     investigate the synaptic connectivity of C elegans
         
-
 '''
 
 class ParameterisedModel(c302ModelPrototype):
@@ -44,6 +43,7 @@ class ParameterisedModel(c302ModelPrototype):
         
         self.set_default_bioparameters()
 
+
     def set_default_bioparameters(self):
 
         self.add_bioparameter("cell_diameter", "5", "BlindGuess", "0.1")
@@ -52,28 +52,28 @@ class ParameterisedModel(c302ModelPrototype):
 
         self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
+        self.add_bioparameter("resistivity", "0.4 kohm_cm", "BlindGuess", "0.1")
+
         self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
-
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_slow_cond_density", "0.1408257307011203 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_fast_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.7139140434941569 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
-        
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
         
-        self.add_bioparameter("ca_conc_decay_time", "13.811870945509265 ms", "BlindGuess", "0.1")
+        self.add_bioparameter("ca_conc_decay_time", "11.5943 ms", "BlindGuess", "0.1")
         self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
 
@@ -102,7 +102,6 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 
 
-
     def create_models(self):
         self.create_generic_muscle_cell()
         
@@ -110,58 +109,6 @@ class ParameterisedModel(c302ModelPrototype):
         self.create_neuron_to_neuron_syn()
         self.create_neuron_to_muscle_syn()
         
-    def create_offsetcurrent_concentrationmodel(self):
-        self.offset_current = PulseGenerator(id="offset_current",
-                                delay=self.get_bioparameter("unphysiological_offset_current_del").value,
-                                duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
-                                amplitude=self.get_bioparameter("unphysiological_offset_current").value)
-            
-
-        self.concentration_model = FixedFactorConcentrationModel(id="CaPool",
-                                            ion="ca",
-                                            resting_conc="0 mM",
-                                            decay_constant=self.get_bioparameter("ca_conc_decay_time").value,
-                                            rho=self.get_bioparameter("ca_conc_rho").value)
-
-    def create_neuron_to_neuron_syn(self):
-        self.neuron_to_neuron_exc_syn = GradedSynapse(id="neuron_to_neuron_exc_syn",
-                                conductance =        self.get_bioparameter("neuron_to_neuron_exc_syn_conductance").value,
-                                delta =              self.get_bioparameter("exc_syn_delta").value,
-                                Vth =                self.get_bioparameter("exc_syn_vth").value,
-                                erev =               self.get_bioparameter("exc_syn_erev").value,
-                                k =                  self.get_bioparameter("exc_syn_k").value)
-
-
-        self.neuron_to_neuron_inh_syn = GradedSynapse(id="neuron_to_neuron_inh_syn",
-                                conductance =        self.get_bioparameter("neuron_to_neuron_inh_syn_conductance").value,
-                                delta =              self.get_bioparameter("inh_syn_delta").value,
-                                Vth =                self.get_bioparameter("inh_syn_vth").value,
-                                erev =               self.get_bioparameter("inh_syn_erev").value,
-                                k =                  self.get_bioparameter("inh_syn_k").value)
-
-        self.neuron_to_neuron_elec_syn = GapJunction(id="neuron_to_neuron_elec_syn",
-                               conductance =    self.get_bioparameter("neuron_to_neuron_elec_syn_gbase").value)
-
-
-
-    def create_neuron_to_muscle_syn(self):
-        self.neuron_to_muscle_exc_syn = GradedSynapse(id="neuron_to_muscle_exc_syn",
-                                conductance =        self.get_bioparameter("neuron_to_muscle_exc_syn_conductance").value,
-                                delta =              self.get_bioparameter("exc_syn_delta").value,
-                                Vth =                self.get_bioparameter("exc_syn_vth").value,
-                                erev =               self.get_bioparameter("exc_syn_erev").value,
-                                k =                  self.get_bioparameter("exc_syn_k").value)
-    
-
-        self.neuron_to_muscle_inh_syn = GradedSynapse(id="neuron_to_muscle_inh_syn",
-                                conductance =        self.get_bioparameter("neuron_to_muscle_inh_syn_conductance").value,
-                                delta =              self.get_bioparameter("inh_syn_delta").value,
-                                Vth =                self.get_bioparameter("inh_syn_vth").value,
-                                erev =               self.get_bioparameter("inh_syn_erev").value,
-                                k =                  self.get_bioparameter("inh_syn_k").value)
-
-        self.neuron_to_muscle_elec_syn = GapJunction(id="neuron_to_muscle_elec_syn",
-                               conductance =    self.get_bioparameter("neuron_to_muscle_elec_syn_gbase").value)
 
     def create_generic_muscle_cell(self):
 
@@ -221,7 +168,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.generic_muscle_cell.biophysical_properties.intracellular_properties = ip
 
         # NOTE: resistivity/axial resistance not used for single compartment cell models, so value irrelevant!
-        ip.resistivities.append(Resistivity(value="0.045 kohm_cm"))
+        ip.resistivities.append(Resistivity(value=self.get_bioparameter("resistivity").value))
 
 
         # NOTE: Ca reversal potential not calculated by Nernst, so initial_ext_concentration value irrelevant!
@@ -232,6 +179,7 @@ class ParameterisedModel(c302ModelPrototype):
                           initial_ext_concentration="2E-6 mol_per_cm3")
 
         ip.species.append(species)
+
 
     def create_neuron_cell(self, cell_name, morphology):
     
@@ -281,7 +229,7 @@ class ParameterisedModel(c302ModelPrototype):
         cell.biophysical_properties.intracellular_properties = ip
 
         # NOTE: resistivity/axial resistance not used for single compartment cell models, so value irrelevant!
-        ip.resistivities.append(Resistivity(value="0.1 kohm_cm"))
+        ip.resistivities.append(Resistivity(value=self.get_bioparameter("resistivity").value))
 
 
         # NOTE: Ca reversal potential not calculated by Nernst, so initial_ext_concentration value irrelevant!
@@ -294,4 +242,59 @@ class ParameterisedModel(c302ModelPrototype):
         ip.species.append(species)
         
         return cell
+
+
+    def create_offsetcurrent_concentrationmodel(self):
+
+        self.offset_current = PulseGenerator(id="offset_current",
+                                delay=self.get_bioparameter("unphysiological_offset_current_del").value,
+                                duration=self.get_bioparameter("unphysiological_offset_current_dur").value,
+                                amplitude=self.get_bioparameter("unphysiological_offset_current").value)
+            
+
+        self.concentration_model = FixedFactorConcentrationModel(id="CaPool",
+                                            ion="ca",
+                                            resting_conc="0 mM",
+                                            decay_constant=self.get_bioparameter("ca_conc_decay_time").value,
+                                            rho=self.get_bioparameter("ca_conc_rho").value)
+
+
+    def create_neuron_to_neuron_syn(self):
+        self.neuron_to_neuron_exc_syn = GradedSynapse(id="neuron_to_neuron_exc_syn",
+                                conductance =        self.get_bioparameter("neuron_to_neuron_exc_syn_conductance").value,
+                                delta =              self.get_bioparameter("exc_syn_delta").value,
+                                Vth =                self.get_bioparameter("exc_syn_vth").value,
+                                erev =               self.get_bioparameter("exc_syn_erev").value,
+                                k =                  self.get_bioparameter("exc_syn_k").value)
+
+
+        self.neuron_to_neuron_inh_syn = GradedSynapse(id="neuron_to_neuron_inh_syn",
+                                conductance =        self.get_bioparameter("neuron_to_neuron_inh_syn_conductance").value,
+                                delta =              self.get_bioparameter("inh_syn_delta").value,
+                                Vth =                self.get_bioparameter("inh_syn_vth").value,
+                                erev =               self.get_bioparameter("inh_syn_erev").value,
+                                k =                  self.get_bioparameter("inh_syn_k").value)
+
+        self.neuron_to_neuron_elec_syn = GapJunction(id="neuron_to_neuron_elec_syn",
+                               conductance =    self.get_bioparameter("neuron_to_neuron_elec_syn_gbase").value)
+
+
+    def create_neuron_to_muscle_syn(self):
+        self.neuron_to_muscle_exc_syn = GradedSynapse(id="neuron_to_muscle_exc_syn",
+                                conductance =        self.get_bioparameter("neuron_to_muscle_exc_syn_conductance").value,
+                                delta =              self.get_bioparameter("exc_syn_delta").value,
+                                Vth =                self.get_bioparameter("exc_syn_vth").value,
+                                erev =               self.get_bioparameter("exc_syn_erev").value,
+                                k =                  self.get_bioparameter("exc_syn_k").value)
+    
+
+        self.neuron_to_muscle_inh_syn = GradedSynapse(id="neuron_to_muscle_inh_syn",
+                                conductance =        self.get_bioparameter("neuron_to_muscle_inh_syn_conductance").value,
+                                delta =              self.get_bioparameter("inh_syn_delta").value,
+                                Vth =                self.get_bioparameter("inh_syn_vth").value,
+                                erev =               self.get_bioparameter("inh_syn_erev").value,
+                                k =                  self.get_bioparameter("inh_syn_k").value)
+
+        self.neuron_to_muscle_elec_syn = GapJunction(id="neuron_to_muscle_elec_syn",
+                               conductance =    self.get_bioparameter("neuron_to_muscle_elec_syn_gbase").value)
 

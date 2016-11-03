@@ -31,7 +31,6 @@ from bioparameters import c302ModelPrototype
     The values below are a FIRST APPROXIMATION of conductance based neurons for use in a network to 
     investigate the synaptic connectivity of C elegans
         
-
 '''
 
 class ParameterisedModel(c302ModelPrototype):
@@ -42,6 +41,7 @@ class ParameterisedModel(c302ModelPrototype):
         
         self.set_default_bioparameters()
 
+
     def set_default_bioparameters(self):
 
         self.add_bioparameter("cell_diameter", "5", "BlindGuess", "0.1")
@@ -49,6 +49,8 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
+        
+        self.add_bioparameter("resistivity", "0.4 kohm_cm", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_spike_thresh", "-20 mV", "BlindGuess", "0.1")
@@ -90,18 +92,13 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("unphysiological_offset_current", "6.076428433117039 pA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current", "4 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 
 
-
     def create_models(self):
         self.create_generic_muscle_cell()
-        
-        '''cell_names, conns = get_cell_names_and_connection()
-        for cell_name in cell_names:
-            self.create_neuron_cell(cell_name)'''
             
         self.create_offsetcurrent_concentrationmodel()
         self.create_neuron_to_neuron_syn()
@@ -166,7 +163,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.generic_muscle_cell.biophysical_properties.intracellular_properties = ip
 
         # NOTE: resistivity/axial resistance not used for single compartment cell models, so value irrelevant!
-        ip.resistivities.append(Resistivity(value="0.1 kohm_cm"))
+        ip.resistivities.append(Resistivity(value=self.get_bioparameter("resistivity").value))
 
 
         # NOTE: Ca reversal potential not calculated by Nernst, so initial_ext_concentration value irrelevant!
@@ -177,6 +174,7 @@ class ParameterisedModel(c302ModelPrototype):
                           initial_ext_concentration="2E-6 mol_per_cm3")
 
         ip.species.append(species)
+
 
     def create_neuron_cell(self, cell_name, morphology):
     
@@ -226,7 +224,7 @@ class ParameterisedModel(c302ModelPrototype):
         cell.biophysical_properties.intracellular_properties = ip
 
         # NOTE: resistivity/axial resistance not used for single compartment cell models, so value irrelevant!
-        ip.resistivities.append(Resistivity(value="0.1 kohm_cm"))
+        ip.resistivities.append(Resistivity(value=self.get_bioparameter("resistivity").value))
 
 
         # NOTE: Ca reversal potential not calculated by Nernst, so initial_ext_concentration value irrelevant!
@@ -239,6 +237,7 @@ class ParameterisedModel(c302ModelPrototype):
         ip.species.append(species)
         
         return cell
+
 
     def create_offsetcurrent_concentrationmodel(self):
 
@@ -253,6 +252,7 @@ class ParameterisedModel(c302ModelPrototype):
                                             resting_conc="0 mM",
                                             decay_constant=self.get_bioparameter("ca_conc_decay_time").value,
                                             rho=self.get_bioparameter("ca_conc_rho").value)
+
 
     def create_neuron_to_neuron_syn(self):
         self.neuron_to_neuron_exc_syn = ExpTwoSynapse(id="neuron_to_neuron_exc_syn",
