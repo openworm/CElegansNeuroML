@@ -15,6 +15,7 @@ Parameters and setting used to generate this network:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: resistivity = 0.4 kohm_cm (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)

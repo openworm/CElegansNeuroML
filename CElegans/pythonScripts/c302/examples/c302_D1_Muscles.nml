@@ -13,21 +13,22 @@ Parameters and setting used to generate this network:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: resistivity = 0.4 kohm_cm (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_cond_density = 0.1408257307011203 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_fast_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_ca_boyle_cond_density = 1.7139140434941569 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_decay_time = 13.811870945509265 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_neuron_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
@@ -185,7 +186,7 @@ Parameters and setting used to generate this network:
     <include href="cells/VD7_D.cell.nml"></include>
     <include href="cells/VD8_D.cell.nml"></include>
     <include href="cells/VD9_D.cell.nml"></include>
-    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="13.811870945509265 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
     <gapJunction id="neuron_to_neuron_elec_syn_3conns" conductance="0.00156nS"/>
     <gapJunction id="neuron_to_neuron_elec_syn_2conns" conductance="0.00104nS"/>
     <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.00052nS"/>
@@ -256,16 +257,16 @@ Parameters and setting used to generate this network:
         <biophysicalProperties id="biophys_GenericMuscleCell">
             <membraneProperties>
                 <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.005 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.1408257307011203 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.005 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="1.7139140434941569 mS_per_cm2" erev="40 mV" ion="ca"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="1.8333751019872582 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.0711643917483308 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="1.6862775772264702 mS_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
                 <initMembPotential value="-45 mV"/>
             </membraneProperties>
             <intracellularProperties>
                 <species id="ca" concentrationModel="CaPool" ion="ca" initialConcentration="0 mM" initialExtConcentration="2E-6 mol_per_cm3"/>
-                <resistivity value="0.045 kohm_cm"/>
+                <resistivity value="0.4 kohm_cm"/>
             </intracellularProperties>
         </biophysicalProperties>
     </cell>

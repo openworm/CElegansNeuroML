@@ -257,7 +257,7 @@
             </membraneProperties>
             <intracellularProperties>
                 <species id="ca" concentrationModel="CaPool" ion="ca" initialConcentration="0 mM" initialExtConcentration="2E-6 mol_per_cm3"/>
-                <resistivity value="0.1 kohm_cm"/>
+                <resistivity value="0.4 kohm_cm"/>
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
