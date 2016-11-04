@@ -11,7 +11,7 @@ save_fig_dir = 'summary/'
 
 def main(config, parameter_set, prefix, duration, dt, simulator, save=False, show_plot_already=True):
     
-    
+    print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
     exec('from c302_%s import setup'%config)
     cells, cells_to_stimulate, params, muscles = setup(parameter_set, 
                                                        generate=True,
@@ -47,8 +47,17 @@ if __name__ == '__main__':
     elif '-musclesA' in sys.argv:
         main('Muscles','A','',1000,0.05,'jNeuroML_NEURON')
         
+    elif '-musclesC' in sys.argv or  '-muscC' in sys.argv:
+        main('Muscles','C','',1000,0.05,'jNeuroML_NEURON')
+        
     elif '-musclesC1' in sys.argv or  '-muscC1' in sys.argv:
         main('Muscles','C1','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-musclesD' in sys.argv or  '-muscD' in sys.argv:
+        main('Muscles','D','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-musclesD1' in sys.argv or  '-muscD1' in sys.argv:
+        main('Muscles','D1','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-pharA' in sys.argv or '-pharyngealA' in sys.argv:
         main('Pharyngeal','A','',500,0.01,'jNeuroML_NEURON')
@@ -61,6 +70,24 @@ if __name__ == '__main__':
         
     elif '-phar' in sys.argv or '-pharyngeal' in sys.argv:
         main('Pharyngeal','C','',500,0.01,'jNeuroML_NEURON')
+        
+    elif '-synsA' in sys.argv:
+        main('Syns','A','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsB' in sys.argv:
+        main('Syns','B','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsC' in sys.argv:
+        main('Syns','C','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsC1' in sys.argv:
+        main('Syns','C1','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsD' in sys.argv:
+        main('Syns','D','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-synsD1' in sys.argv:
+        main('Syns','D1','',500,0.05,'jNeuroML_NEURON')
         
     elif '-socialB' in sys.argv:
         main('Social','B','',2500,0.05,'jNeuroML_NEURON')
@@ -94,6 +121,10 @@ if __name__ == '__main__':
         main('IClamp','C','',1000,0.05,'jNeuroML')
     elif '-iC1' in sys.argv:
         main('IClamp','C1','',1000,0.05,'jNeuroML',save=True)
+    elif '-iD' in sys.argv:
+        main('IClamp','D','',1000,0.05,'jNeuroML_NEURON',save=True)
+    elif '-iD1' in sys.argv:
+        main('IClamp','D1','',1000,0.05,'jNeuroML_NEURON',save=True)
         
     elif '-all' in sys.argv:
         print('Generating all plots')
@@ -104,7 +135,9 @@ if __name__ == '__main__':
         #param_sets = ['IClamp']
         param_sets = ['IClamp','Syns','Pharyngeal','Social']
         param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles','Full']
-        #param_sets = ['IClamp','Muscles']
+        #param_sets = ['IClamp','Muscles','Full']
+        levels = ['A','B','C','C1','D','D1']
+        #levels = ['D','D1']
         
         durations = {'IClamp':1000,
                      'Syns':500,
@@ -120,7 +153,7 @@ if __name__ == '__main__':
             html+='<td align="center"><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_%s.py">%s</a></b></td>'%(p,p)
 
         html+='</tr>\n'
-        for c in ['A','B','C','C1']:#['A','B','C','C1']:#['A']:
+        for c in levels:
             print('Generating for: %s'%c)
             html+='<tr>'
             html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)

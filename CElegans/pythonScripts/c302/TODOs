@@ -1,0 +1,16 @@
+Run/Plots selectable set of muscles
+
+Add muscle trace plot to IClamp
+
+Add neuron to muscle in Syns
+
+
+Change Syns to ensure small compact neurons for D params
+
+Iclamp:
+    plot multiple points for adal; pvcl
+
+* Adjust nseg in long axons/dends
+    nC python script to recomp
+    -> regen nml2 cells
+

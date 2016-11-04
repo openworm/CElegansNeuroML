@@ -36,6 +36,22 @@ python c302_Full.py C1
 python c302_Muscles.py C1
 python c302_Oscillator.py C1
 
+python c302_IClamp.py D
+python c302_Syns.py D
+python c302_Social.py D
+python c302_Pharyngeal.py D
+python c302_Full.py D
+python c302_Muscles.py D
+python c302_Oscillator.py D
+
+python c302_IClamp.py D1
+python c302_Syns.py D1
+python c302_Social.py D1
+python c302_Pharyngeal.py D1
+python c302_Full.py D1
+python c302_Muscles.py D1
+python c302_Oscillator.py D1
+
 cd examples
 
 ## Validate generated NeuroML 2
@@ -50,10 +66,15 @@ jnml -validate c302_A_Muscles.nml
 
 jnml -validate c302_C_Full.nml
 jnml -validate c302_C_Pharyngeal.nml
-jnml -validate c302_C_Syns.nml
-jnml -validate c302_C_Social.nml
-jnml -validate c302_C_Muscles.nml
 
+jnml -validate c302_C1_Full.nml
+jnml -validate c302_C1_Pharyngeal.nml
+
+jnml -validate c302_D_Full.nml
+jnml -validate c302_D_Pharyngeal.nml
+
+jnml -validate c302_D1_Full.nml
+jnml -validate c302_D1_Pharyngeal.nml
 
 
 ## Try running these in jNeuroML with no GUI

@@ -129,11 +129,8 @@ def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
     
     nml_doc.pulse_generators.append(stim)
     
-    populations_without_location = False # isinstance(params.elec_syn, GapJunction)
     
-    target ="../%s/0/%s"%(cell, params.generic_neuron_cell.id)
-    if populations_without_location:
-        target ="%s[0]"%(cell)
+    target = get_cell_id_string(cell, params)
         
     input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
                          component=stim.id,
@@ -144,6 +141,7 @@ def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
                   destination="synapses"))
                   
     nml_doc.networks[0].input_lists.append(input_list)
+
 
 def get_muscle_names():
     names = []
@@ -157,6 +155,7 @@ def get_muscle_names():
         names.append("%s%s"%(quadrant3, i+1 if i>8 else ("0%i"%(i+1))))
 
     return names
+
 
 def merge_with_template(model, templfile):
     with open(templfile) as f:
@@ -226,7 +225,6 @@ def get_random_colour_hex():
     return col
 
 
-
 def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
     new_id = "%s_%sconns"%(prototype_syn.id, str(n).replace('.', '_'))
@@ -279,7 +277,6 @@ def get_file_name_relative_to_c302(file_name):
         return os.path.relpath(os.environ['C302_HOME'],file_name)
     
     
-
 def get_cell_names_and_connection(test=False):
     
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
@@ -294,6 +291,7 @@ def get_cell_names_and_connection(test=False):
     
     return cell_names, conns
 
+
 def get_cell_muscle_names_and_connection(test=False):
     
     spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
@@ -303,6 +301,25 @@ def get_cell_muscle_names_and_connection(test=False):
     return mneurons, all_muscles, muscle_conns
 
 
+def is_cond_based_cell(params):
+    return params.is_level_C() or params.is_level_D()
+
+
+def get_cell_id_string(cell, params, muscle=False):
+    
+    if not params.is_level_D():
+        if not muscle:
+            return "../%s/0/%s"%(cell, params.generic_neuron_cell.id)
+        else:
+            return "../%s/0/%s"%(cell, params.generic_muscle_cell.id)
+    
+    else:
+        if not muscle:
+            return "../%s/0/%s"%(cell, cell)
+        else:
+            return "../%s/0/%s"%(cell, params.generic_muscle_cell.id)
+    
+    
 def generate(net_id,
              params,
              cells = None,
@@ -332,6 +349,8 @@ def generate(net_id,
             vmin=-52 
         elif params.level == 'C':
             vmin=-60
+        elif params.level == 'D':
+            vmin=-60
         else:
             vmin=-52 
             
@@ -342,6 +361,8 @@ def generate(net_id,
         elif params.level == 'B':
             vmax=-28
         elif params.level == 'C':
+            vmax=25
+        elif params.level == 'D':
             vmax=25
         else:
             vmax=-28
@@ -359,12 +380,14 @@ def generate(net_id,
 
     nml_doc = NeuroMLDocument(id=net_id, notes=info)
 
-    if params.level == "A" or params.level == "B" or params.level == "BC1":
+    if params.is_level_A() or params.is_level_B() or params.level == "BC1":
         nml_doc.iaf_cells.append(params.generic_muscle_cell) 
         nml_doc.iaf_cells.append(params.generic_neuron_cell) 
-    elif params.level == "C":
+    elif params.is_level_C():
         nml_doc.cells.append(params.generic_muscle_cell)
         nml_doc.cells.append(params.generic_neuron_cell)
+    elif params.is_level_D():
+        nml_doc.cells.append(params.generic_muscle_cell)
          
 
     net = Network(id=net_id)
@@ -374,7 +397,7 @@ def generate(net_id,
 
     nml_doc.pulse_generators.append(params.offset_current)
 
-    if params.level == "C" or params.level == "C1":
+    if is_cond_based_cell(params):
         nml_doc.fixed_factor_concentration_models.append(params.concentration_model)
 
 
@@ -389,8 +412,7 @@ def generate(net_id,
                  "duration":   duration,
                  "dt":         dt,
                  "vmin":       vmin,
-                 "vmax":       vmax,
-                 "cell_component":    params.generic_neuron_cell.id}
+                 "vmax":       vmax}
 
     lems_info["plots"] = []
     lems_info["activity_plots"] = []
@@ -418,7 +440,6 @@ def generate(net_id,
     import backers
     cells_vs_name = backers.get_adopted_cell_names(backers_dir)
 
-    populations_without_location = False # isinstance(params.elec_syn, GapJunction)
 
     count = 0
     for cell in cell_names:
@@ -427,18 +448,21 @@ def generate(net_id,
 
             inst = Instance(id="0")
 
-            if not populations_without_location:
+            if not params.is_level_D():
                 # build a Population data structure out of the cell name
                 pop0 = Population(id=cell,
                                   component=params.generic_neuron_cell.id,
                                   type="populationList")
-                pop0.instances.append(inst)
-
+                cell_id = params.generic_neuron_cell.id
             else:
                 # build a Population data structure out of the cell name
                 pop0 = Population(id=cell,
-                                  component=params.generic_neuron_cell.id,
-                                  size="1")
+                                  component=cell,
+                                  type="populationList")
+                cell_id = cell
+                                  
+            pop0.instances.append(inst)
+
 
 
             # put that Population into the Network data structure from above
@@ -454,18 +478,38 @@ def generate(net_id,
             cell_file = cell_file_path+'generatedNeuroML2/%s.cell.nml'%cell
             doc = loaders.NeuroMLLoader.load(cell_file)
             all_cells[cell] = doc.cells[0]
-            location = doc.cells[0].morphology.segments[0].proximal
+            
+            
+            if params.is_level_D():
+                new_cell = params.create_neuron_cell(cell, doc.cells[0].morphology)
+                
+                nml_cell_doc = NeuroMLDocument(id=cell)
+                nml_cell_doc.cells.append(new_cell)
+                new_cell_file = 'cells/'+cell+'_D.cell.nml'
+                nml_file = target_directory+'/'+new_cell_file
+                print_("Writing new cell to: %s"%os.path.realpath(nml_file))
+                writers.NeuroMLWriter.write(nml_cell_doc, nml_file)
+                
+                nml_doc.includes.append(IncludeType(href=new_cell_file))
+                lems_info["includes"].append(new_cell_file)
+                
+                inst.location = Location(0,0,0)
+            else:
+                location = doc.cells[0].morphology.segments[0].proximal
+            
+                inst.location = Location(float(location.x), float(location.y), float(location.z))
+            
             if verbose: 
-                print_("Loaded morphology: %s; id: %s; location: (%s, %s, %s)"%(os.path.realpath(cell_file), all_cells[cell].id, location.x, location.y, location.z))
+                print_("Loaded morphology: %s; id: %s; placing at location: (%s, %s, %s)"%(os.path.realpath(cell_file), all_cells[cell].id, inst.location.x, inst.location.y, inst.location.z))
 
 
-            inst.location = Location(float(location.x), float(location.y), float(location.z))
-
-            target = "../%s/0/%s"%(pop0.id, params.generic_neuron_cell.id)
-            if populations_without_location:
-                target = "../%s[0]" % (cell)
                 
             if cells_to_stimulate is None or cell in cells_to_stimulate:
+
+                target = "../%s/0/%s"%(pop0.id, cell_id)
+                if params.is_level_D():
+                    target+="/0"
+                
                 input_list = InputList(id="Input_%s_%s"%(cell,params.offset_current.id),
                                      component=params.offset_current.id,
                                      populations='%s'%cell)
@@ -482,51 +526,39 @@ def generate(net_id,
 
                 plot["cell"] = cell
                 plot["colour"] = get_random_colour_hex()
-                plot["quantity"] = "%s/0/%s/v" % (cell, params.generic_neuron_cell.id)
-                if populations_without_location:
-                    plot["quantity"] = "%s[0]/v" % (cell)
+                plot["quantity"] = "%s/0/%s/v" % (cell, cell_id)
                 lems_info["plots"].append(plot)
 
-                if params.generic_neuron_cell.__class__.__name__ == 'IafActivityCell':
+                if params.is_level_B():
                     plot = {}
 
                     plot["cell"] = cell
                     plot["colour"] = get_random_colour_hex()
-                    plot["quantity"] = "%s/0/%s/activity" % (cell, params.generic_neuron_cell.id)
-                    if populations_without_location:
-                        plot["quantity"] = "%s[0]/activity" % (cell)
+                    plot["quantity"] = "%s/0/%s/activity" % (cell, cell_id)
                     lems_info["activity_plots"].append(plot)
 
-                if params.generic_neuron_cell.__class__.__name__ == 'Cell':
+                if is_cond_based_cell(params):
                     plot = {}
 
                     plot["cell"] = cell
                     plot["colour"] = get_random_colour_hex()
-                    plot["quantity"] = "%s/0/%s/caConc" % (cell, params.generic_neuron_cell.id)
-                    if populations_without_location:
-                        plot["quantity"] = "%s[0]/caConc" % (cell)
+                    plot["quantity"] = "%s/0/%s/caConc" % (cell, cell_id)
                     lems_info["activity_plots"].append(plot)
 
             save = {}
             save["cell"] = cell
-            save["quantity"] = "%s/0/%s/v" % (cell, params.generic_neuron_cell.id)
-            if populations_without_location:
-                save["quantity"] = "%s[0]/v" % (cell)
+            save["quantity"] = "%s/0/%s/v" % (cell, cell_id)
             lems_info["to_save"].append(save)
 
-            if params.generic_neuron_cell.__class__.__name__ == 'IafActivityCell':
+            if params.is_level_B():
                 save = {}
                 save["cell"] = cell
-                save["quantity"] = "%s/0/%s/activity" % (cell, params.generic_neuron_cell.id)
-                if populations_without_location: 
-                    save["quantity"] = "%s[0]/activity" % (cell)
+                save["quantity"] = "%s/0/%s/activity" % (cell, cell_id)
                 lems_info["activity_to_save"].append(save)
-            if params.generic_neuron_cell.__class__.__name__ == 'Cell':
+            if is_cond_based_cell(params):
                 save = {}
                 save["cell"] = cell
-                save["quantity"] = "%s/0/%s/caConc" % (cell, params.generic_neuron_cell.id)
-                if populations_without_location: 
-                    save["quantity"] = "%s[0]/caConc" % (cell)
+                save["quantity"] = "%s/0/%s/caConc" % (cell, cell_id)
                 lems_info["activity_to_save"].append(save)
 
             lems_info["cells"].append(cell)
@@ -547,18 +579,12 @@ def generate(net_id,
 
             inst = Instance(id="0")
 
-            if not populations_without_location:
-                # build a Population data structure out of the cell name
-                pop0 = Population(id=muscle,
-                                  component=params.generic_muscle_cell.id,
-                                  type="populationList")
-                pop0.instances.append(inst)
+            # build a Population data structure out of the cell name
+            pop0 = Population(id=muscle,
+                              component=params.generic_muscle_cell.id,
+                              type="populationList")
+            pop0.instances.append(inst)
 
-            else:
-                # build a Population data structure out of the cell name
-                pop0 = Population(id=muscle,
-                                  component=params.generic_muscle_cell.id,
-                                  size="1")
 
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
@@ -575,16 +601,12 @@ def generate(net_id,
             inst.location = Location(x,y,z)
 
             target = "%s/0/%s"%(pop0.id, params.generic_muscle_cell.id)
-            if populations_without_location:
-                target = "%s[0]" % (muscle)
 
             plot = {}
 
             plot["cell"] = muscle
             plot["colour"] = get_random_colour_hex()
             plot["quantity"] = "%s/0/%s/v" % (muscle, params.generic_muscle_cell.id)
-            if populations_without_location:
-                plot["quantity"] = "%s[0]/v" % (muscle)
             lems_info["muscle_plots"].append(plot)
 
             if params.generic_muscle_cell.__class__.__name__ == 'IafActivityCell':
@@ -593,8 +615,6 @@ def generate(net_id,
                 plot["cell"] = muscle
                 plot["colour"] = get_random_colour_hex()
                 plot["quantity"] = "%s/0/%s/activity" % (muscle, params.generic_muscle_cell.id)
-                if populations_without_location:
-                    plot["quantity"] = "%s[0]/activity" % (muscle)
                 lems_info["muscle_activity_plots"].append(plot)
                 
             if params.generic_muscle_cell.__class__.__name__ == 'Cell':
@@ -603,30 +623,22 @@ def generate(net_id,
                 plot["cell"] = muscle
                 plot["colour"] = get_random_colour_hex()
                 plot["quantity"] = "%s/0/%s/caConc" % (muscle, params.generic_muscle_cell.id)
-                if populations_without_location:
-                    plot["quantity"] = "%s[0]/caConc" % (muscle)
                 lems_info["muscle_activity_plots"].append(plot)
 
             save = {}
             save["cell"] = muscle
             save["quantity"] = "%s/0/%s/v" % (muscle, params.generic_muscle_cell.id)
-            if populations_without_location:
-                save["quantity"] = "%s[0]/v" % (muscle)
             lems_info["muscles_to_save"].append(save)
 
             if params.generic_muscle_cell.__class__.__name__ == 'IafActivityCell':
                 save = {}
                 save["cell"] = muscle
                 save["quantity"] = "%s/0/%s/activity" % (muscle, params.generic_muscle_cell.id)
-                if populations_without_location:
-                    save["quantity"] = "%s[0]/activity" % (muscle)
                 lems_info["muscles_activity_to_save"].append(save)
             if params.generic_muscle_cell.__class__.__name__ == 'Cell':
                 save = {}
                 save["cell"] = muscle
                 save["quantity"] = "%s/0/%s/caConc" % (muscle, params.generic_muscle_cell.id)
-                if populations_without_location:
-                    save["quantity"] = "%s[0]/caConc" % (muscle)
                 lems_info["muscles_activity_to_save"].append(save)
 
             lems_info["muscles"].append(muscle)
@@ -686,40 +698,25 @@ def generate(net_id,
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
             if elect_conn:
-                
-                if populations_without_location:
-                    proj0 = ElectricalProjection(id=proj_id, \
-                                       presynaptic_population=conn.pre_cell,
-                                       postsynaptic_population=conn.post_cell)
 
-                    net.electrical_projections.append(proj0)
+                proj0 = ElectricalProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell)
 
-                    # Add a Connection with the closest locations
-                    conn0 = ElectricalConnection(id="0", \
-                               pre_cell="0",
-                               post_cell="0",
-                               synapse=syn_new.id)
+                net.electrical_projections.append(proj0)
 
-                    proj0.electrical_connections.append(conn0)
-                else:
-                    proj0 = ElectricalProjection(id=proj_id, \
-                                       presynaptic_population=conn.pre_cell,
-                                       postsynaptic_population=conn.post_cell)
+                pre_cell_id=get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params)
 
-                    net.electrical_projections.append(proj0)
+                #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
 
-                    pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                    post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_neuron_cell.id)
-                    
-                    #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
-                    
-                    # Add a Connection with the closest locations
-                    conn0 = ElectricalConnectionInstance(id="0", \
-                               pre_cell=pre_cell_id,
-                               post_cell=post_cell_id,
-                               synapse=syn_new.id)
+                # Add a Connection with the closest locations
+                conn0 = ElectricalConnectionInstance(id="0", \
+                           pre_cell=pre_cell_id,
+                           post_cell=post_cell_id,
+                           synapse=syn_new.id)
 
-                    proj0.electrical_connection_instances.append(conn0)
+                proj0.electrical_connection_instances.append(conn0)
                 
             elif analog_conn:
         
@@ -729,8 +726,8 @@ def generate(net_id,
 
                 net.continuous_projections.append(proj0)
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_neuron_cell.id)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params)
 
                 conn0 = ContinuousConnectionInstance(id="0", \
                            pre_cell=pre_cell_id,
@@ -743,38 +740,23 @@ def generate(net_id,
                 
             else:
 
-                if not populations_without_location:
-                    proj0 = Projection(id=proj_id, \
-                                       presynaptic_population=conn.pre_cell,
-                                       postsynaptic_population=conn.post_cell,
-                                       synapse=syn_new.id)
+                proj0 = Projection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell,
+                                   synapse=syn_new.id)
 
-                    net.projections.append(proj0)
+                net.projections.append(proj0)
 
-                    pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                    post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_neuron_cell.id)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params)
 
-                    conn0 = ConnectionWD(id="0", \
-                               pre_cell_id=pre_cell_id,
-                               post_cell_id=post_cell_id,
-                               weight = number_syns,
-                               delay = '0ms')
+                conn0 = ConnectionWD(id="0", \
+                           pre_cell_id=pre_cell_id,
+                           post_cell_id=post_cell_id,
+                           weight = number_syns,
+                           delay = '0ms')
 
-                    proj0.connection_wds.append(conn0)
-
-                if populations_without_location:
-                    raise NotImplementedError
-                    '''
-                    #         <synapticConnection from="hh1pop[0]" to="hh2pop[0]" synapse="syn1exp" destination="synapses"/>
-                    pre_cell_id="%s[0]"%(conn.pre_cell)
-                    post_cell_id="%s[0]"%(conn.post_cell)
-
-                    conn0 = SynapticConnection(from_=pre_cell_id,
-                               to=post_cell_id,
-                               synapse=syn_new.id,
-                               destination="synapses")
-
-                    net.synaptic_connections.append(conn0)'''
+                proj0.connection_wds.append(conn0)
 
 
 
@@ -826,40 +808,25 @@ def generate(net_id,
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
             if elect_conn:
-                
-                if populations_without_location:
-                    proj0 = ElectricalProjection(id=proj_id, \
-                                       presynaptic_population=conn.pre_cell,
-                                       postsynaptic_population=conn.post_cell)
 
-                    net.electrical_projections.append(proj0)
+                proj0 = ElectricalProjection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell)
 
-                    # Add a Connection with the closest locations
-                    conn0 = ElectricalConnection(id="0", \
-                               pre_cell="0",
-                               post_cell="0",
-                               synapse=syn_new.id)
+                net.electrical_projections.append(proj0)
 
-                    proj0.electrical_connections.append(conn0)
-                else:
-                    proj0 = ElectricalProjection(id=proj_id, \
-                                       presynaptic_population=conn.pre_cell,
-                                       postsynaptic_population=conn.post_cell)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
-                    net.electrical_projections.append(proj0)
+                #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
 
-                    pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                    post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_muscle_cell.id)
-                    
-                    #print_("Conn %s -> %s"%(pre_cell_id,post_cell_id))
-                    
-                    # Add a Connection with the closest locations
-                    conn0 = ElectricalConnectionInstance(id="0", \
-                               pre_cell=pre_cell_id,
-                               post_cell=post_cell_id,
-                               synapse=syn_new.id)
+                # Add a Connection with the closest locations
+                conn0 = ElectricalConnectionInstance(id="0", \
+                           pre_cell=pre_cell_id,
+                           post_cell=post_cell_id,
+                           synapse=syn_new.id)
 
-                    proj0.electrical_connection_instances.append(conn0)
+                proj0.electrical_connection_instances.append(conn0)
                 
             elif analog_conn:
         
@@ -869,8 +836,8 @@ def generate(net_id,
 
                 net.continuous_projections.append(proj0)
 
-                pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_muscle_cell.id)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
                 conn0 = ContinuousConnectionInstance(id="0", \
                            pre_cell=pre_cell_id,
@@ -881,38 +848,25 @@ def generate(net_id,
                 proj0.continuous_connection_instances.append(conn0)
 
             else:
-                
-                if not populations_without_location:
-                    proj0 = Projection(id=proj_id, \
-                                       presynaptic_population=conn.pre_cell,
-                                       postsynaptic_population=conn.post_cell,
-                                       synapse=syn_new.id)
 
-                    net.projections.append(proj0)
+                proj0 = Projection(id=proj_id, \
+                                   presynaptic_population=conn.pre_cell,
+                                   postsynaptic_population=conn.post_cell,
+                                   synapse=syn_new.id)
 
-                    # Add a Connection with the closest locations
+                net.projections.append(proj0)
 
-                    pre_cell_id="../%s/0/%s"%(conn.pre_cell, params.generic_neuron_cell.id)
-                    post_cell_id="../%s/0/%s"%(conn.post_cell, params.generic_muscle_cell.id)
+                # Add a Connection with the closest locations
 
-                    conn0 = Connection(id="0", \
-                               pre_cell_id=pre_cell_id,
-                               post_cell_id=post_cell_id)
+                pre_cell_id= get_cell_id_string(conn.pre_cell, params)
+                post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
-                    proj0.connections.append(conn0)
+                conn0 = Connection(id="0", \
+                           pre_cell_id=pre_cell_id,
+                           post_cell_id=post_cell_id)
 
-                if populations_without_location:
-                    #         <synapticConnection from="hh1pop[0]" to="hh2pop[0]" synapse="syn1exp" destination="synapses"/>
-                    pre_cell_id="%s[0]"%(conn.pre_cell)
-                    post_cell_id="%s[0]"%(conn.post_cell)
+                proj0.connections.append(conn0)
 
-                    conn0 = SynapticConnection(from_=pre_cell_id,
-                               to=post_cell_id,
-                               synapse=syn_new.id,
-                               destination="synapses")
-
-                    net.synaptic_connections.append(conn0)
-                    
 
 
     # import pprint
