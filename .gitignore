@@ -73,3 +73,8 @@ c302_A_Full.dat
 /CElegans/pythonScripts/c302/examples/GenericNeuronCell.hoc
 /CElegans/pythonScripts/c302/examples/output.avi
 /CElegans/pythonScripts/c302/examples/testim
+/CElegans/pythonScripts/c302/LEMS_c302_C1_Test.xml
+/CElegans/pythonScripts/c302/LEMS_c302_D1_Weights.xml
+/CElegans/pythonScripts/c302/c302_C1_Test.nml
+/CElegans/pythonScripts/c302/c302_D1_Weights.nml
+/CElegans/pythonScripts/c302/cells/*
