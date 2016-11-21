@@ -6,6 +6,13 @@ from neurotune import utils
 import pprint
 from pyelectro import analysis
 from collections import OrderedDict
+
+import sys
+
+sys.path.append("..")
+
+from c302Analysis import Data_Analyser
+from c302Evaluators import EnhancedNetworkEvaluator
     
 from SineWaveNetworkController import SineWaveNetworkController
     
@@ -32,20 +39,11 @@ if __name__ == '__main__':
 
     analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0}
 
-    surrogate_analysis=analysis.NetworkAnalysis(volts,
-                                               times,
-                                               analysis_var,
-                                               start_analysis=0,
-                                               end_analysis=1000)
 
     
     # The output of the analysis will serve as the basis for model optimization:
-    surrogate_targets = surrogate_analysis.analyse()
     pp = pprint.PrettyPrinter(indent=4)
-    print("Surrogate analysis")
-    pp.pprint(surrogate_targets)
     
-
     weights={'wave_2:average_maximum': 1,
              'wave_2:average_minimum': 1,
              'wave_3:average_maximum': 1,
@@ -73,13 +71,20 @@ if __name__ == '__main__':
              'wave_1:average_minimum': 1,
              'wave_1:mean_spike_frequency': 10}
              
-    surrogate_targets = surrogate_analysis.analyse(weights.keys())
+    surrogate_analysis=Data_Analyser(volts,
+                                               times,
+                                               analysis_var,
+                                               start_analysis=0,
+                                               end_analysis=1000)
+                                               
+    surrogate_targets = surrogate_analysis.analyse(targets=weights)
+    
     pp = pprint.PrettyPrinter(indent=4)
     print("Surrogate analysis")
     pp.pprint(surrogate_targets)
     
     #make an evaluator
-    my_evaluator=evaluators.NetworkEvaluator(controller=swc,
+    my_evaluator=EnhancedNetworkEvaluator(controller=swc,
                                             analysis_start_time=0,
                                             analysis_end_time=1000,
                                             parameters=sim_vars.keys(),
@@ -88,7 +93,7 @@ if __name__ == '__main__':
                                             targets=surrogate_targets)
     
     population_size =  100
-    max_evaluations =  1000
+    max_evaluations =  800
     num_selected =     10
     num_offspring =    10
     mutation_rate =    0.9

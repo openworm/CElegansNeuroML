@@ -78,3 +78,5 @@ c302_A_Full.dat
 /CElegans/pythonScripts/c302/c302_C1_Test.nml
 /CElegans/pythonScripts/c302/c302_D1_Weights.nml
 /CElegans/pythonScripts/c302/cells/*
+/CElegans/pythonScripts/c302/tune/data/ga_individuals.csv
+/CElegans/pythonScripts/c302/tune/data/ga_statistics.csv
