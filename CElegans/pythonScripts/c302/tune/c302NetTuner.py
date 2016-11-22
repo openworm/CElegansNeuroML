@@ -7,14 +7,12 @@
 '''
 
 from neurotune import optimizers
-from neurotune import evaluators
 from neurotune import utils
 from matplotlib import pyplot as plt
 from pyelectro import analysis
 
 import sys
 import os
-import shutil
 import os.path
 import time
 import c302Evaluators
@@ -37,6 +35,28 @@ import c302_utils
 from C302Controller import C302Controller
 
 
+parameters_B = ['neuron_to_neuron_chem_exc_syn_gbase',
+                'neuron_to_neuron_chem_inh_syn_gbase',
+                'neuron_to_neuron_elec_syn_gbase',
+                'chem_exc_syn_decay',
+                'chem_inh_syn_decay',
+                'unphysiological_offset_current']
+
+#above parameters will not be modified outside these bounds:
+min_constraints_B = [0.005, 0.005, 0.001,   3,    3,     2]
+max_constraints_B = [0.03,  0.03,  0.02,  20,   50,    6]
+
+weights_B = {}
+target_data_B = {}
+
+for cell in ['DB1','VB1', 'DB3','VB3' , 'DB5','VB5', 'DB7','VB7']:
+    var = '%s/0/generic_neuron_iaf_cell/v:mean_spike_frequency'%cell
+    weights_B[var] = 1
+    target_data_B[var] = 50
+    var = '%s/0/generic_neuron_iaf_cell/v:average_minimum'%cell
+    weights_B[var] = 1
+    target_data_B[var] = -50
+    
 
 parameters_C_based_neuron = ['neuron_leak_cond_density',
               'neuron_k_slow_cond_density',
@@ -83,7 +103,7 @@ for cell in cells:
     
     var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
     weights0[var] = 1
-    target_data0[var] = 4
+    target_data0[var] = 4 # Hz
 
 
 #phase offset
@@ -119,7 +139,7 @@ def run_optimisation(prefix,
                      max_evaluations =     20,
                      num_selected =        10,
                      num_offspring =       20,
-                     mutation_rate =       0.5,
+                     mutation_rate =       0.9,
                      num_elites =          1,
                      seed =                12345,
                      simulator =           'jNeuroML',
@@ -320,13 +340,38 @@ if __name__ == '__main__':
                          nogui =            nogui,
                          simulator = simulator,
                          num_local_procesors_to_use =8)
-                         
-    elif '-musc' in sys.argv or '-muscone' in sys.argv:
         
+    if '-muscB' in sys.argv:
+            
+            scalem = 1
+        
+            run_optimisation('Test',
+                             'Muscles',
+                             'B',
+                             parameters_B,
+                             max_constraints_B,
+                             min_constraints_B,
+                             weights_B,
+                             target_data_B,
+                             sim_time = 1000,
+                             dt = 0.1,
+                             population_size =  scale(scalem,100),
+                             max_evaluations =  scale(scalem,500),
+                             num_selected =     scale(scalem,20),
+                             num_offspring =    scale(scalem,20),
+                             mutation_rate =    0.9,
+                             num_elites =       scale(scalem,3),
+                             nogui =            nogui,
+                             seed =             1245637,
+                             simulator = simulator,
+                             num_local_procesors_to_use = 10)
+        
+        
+    elif '-musc' in sys.argv or '-muscone' in sys.argv:
         
         if '-musc' in sys.argv:
             
-            scalem = .2
+            scalem = 5
             max_c = max_constraints_neuron_tight + max_constraints_muscle_tight + max_constraints_net_loose
             min_c = min_constraints_neuron_tight + min_constraints_muscle_tight + min_constraints_net_loose
 
@@ -434,7 +479,7 @@ if __name__ == '__main__':
                          max_evaluations =  20,
                          num_selected =     5,
                          num_offspring =    5,
-                         mutation_rate =    0.1,
+                         mutation_rate =    0.9,
                          num_elites =       1,
                          seed =             123477,
                          nogui =            nogui,
@@ -481,7 +526,7 @@ if __name__ == '__main__':
                              max_evaluations =  5000,
                              num_selected =     100,
                              num_offspring =    100,
-                             mutation_rate =    0.1,
+                             mutation_rate =    0.9,
                              num_elites =       6,
                              seed =             12347,
                              nogui =            nogui,
@@ -555,7 +600,7 @@ if __name__ == '__main__':
                              max_evaluations =  500,
                              num_selected =     20,
                              num_offspring =    20,
-                             mutation_rate =    0.1,
+                             mutation_rate =    0.9,
                              num_elites =       4,
                              seed =             12347,
                              nogui =            nogui,
@@ -636,7 +681,7 @@ if __name__ == '__main__':
                          max_evaluations =  20,
                          num_selected =     10,
                          num_offspring =    20,
-                         mutation_rate =    0.5,
+                         mutation_rate =    0.9,
                          num_elites =       1,
                          nogui =            nogui,
                          num_local_procesors_to_use = 10)
@@ -673,7 +718,7 @@ if __name__ == '__main__':
                          max_evaluations =  20,
                          num_selected =     5,
                          num_offspring =    5,
-                         mutation_rate =    0.1,
+                         mutation_rate =    0.9,
                          num_elites =       1,
                          simulator =        simulator,
                          nogui =            nogui)
