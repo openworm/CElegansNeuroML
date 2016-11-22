@@ -35,17 +35,26 @@ def main(config, parameter_set, prefix, duration, dt, simulator, save=False, sho
 if __name__ == '__main__':
 
 
-    if '-full' in sys.argv or '-muscles' in sys.argv:
+    if '-full' in sys.argv:
         main('Full','C','',300,0.05,'jNeuroML_NEURON')
         
-    elif '-fullC1' in sys.argv or '-muscles' in sys.argv:
+    elif '-fullA' in sys.argv:
+        main('Full','A','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-fullB' in sys.argv:
+        main('Full','B','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-fullC1' in sys.argv:
         main('Full','C1','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-muscle' in sys.argv or '-muscles' in sys.argv:
         main('Muscles','C','',500,0.05,'jNeuroML_NEURON')
         
-    elif '-musclesA' in sys.argv:
+    elif '-musclesA' in sys.argv or  '-muscA' in sys.argv:
         main('Muscles','A','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-musclesB' in sys.argv or  '-muscB' in sys.argv:
+        main('Muscles','B','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-musclesC' in sys.argv or  '-muscC' in sys.argv:
         main('Muscles','C','',1000,0.05,'jNeuroML_NEURON')
@@ -88,6 +97,9 @@ if __name__ == '__main__':
         
     elif '-synsD1' in sys.argv:
         main('Syns','D1','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-socialA' in sys.argv:
+        main('Social','A','',2500,0.05,'jNeuroML_NEURON')
         
     elif '-socialB' in sys.argv:
         main('Social','B','',2500,0.05,'jNeuroML_NEURON')

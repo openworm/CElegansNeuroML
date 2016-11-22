@@ -32,13 +32,6 @@ class ParameterisedModel(c302ModelPrototype):
 
     def set_default_bioparameters(self):
 
-        self.add_bioparameter("muscle_iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_iaf_reset", "-50mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_iaf_thresh", "-30mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_iaf_C", "3pF", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_iaf_conductance", "0.1nS", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_iaf_tau1", "50ms", "BlindGuess", "0.1")
-
         self.add_bioparameter("neuron_iaf_leak_reversal", "-50mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_iaf_reset", "-50mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_iaf_thresh", "-30mV", "BlindGuess", "0.1")
@@ -46,9 +39,15 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("neuron_iaf_conductance", "0.1nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_iaf_tau1", "50ms", "BlindGuess", "0.1")
 
+        self.add_bioparameter("muscle_iaf_leak_reversal", self.get_bioparameter("neuron_iaf_leak_reversal").value, "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_reset", self.get_bioparameter("neuron_iaf_reset").value, "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_thresh", self.get_bioparameter("neuron_iaf_thresh").value, "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_C", self.get_bioparameter("neuron_iaf_C").value, "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_conductance", self.get_bioparameter("neuron_iaf_conductance").value, "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_iaf_tau1", self.get_bioparameter("neuron_iaf_tau1").value, "BlindGuess", "0.1")
 
-        self.add_bioparameter("neuron_to_neuron_chem_exc_syn_gbase", "0.01nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_chem_exc_syn_gbase", "0.01nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_chem_exc_syn_gbase", "0.015nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_chem_exc_syn_gbase", "0.015nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("chem_exc_syn_erev", "0mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_rise", "3ms", "BlindGuess", "0.1")
@@ -63,11 +62,11 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("chem_inh_syn_decay", "10ms", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.1 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.01 nS", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("unphysiological_offset_current", "3pA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current", "5pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000ms", "KnownError", "0")
         
