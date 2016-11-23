@@ -284,7 +284,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
                              voltage=False,
                              muscles=True)
     
-    os.chdir('..')
+    ##os.chdir('..')
 
     if show_plot_already:
         plt.show()

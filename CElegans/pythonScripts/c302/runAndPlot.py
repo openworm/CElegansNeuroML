@@ -30,6 +30,7 @@ def main(config, parameter_set, prefix, duration, dt, simulator, save=False, sho
         
     c302_utils.plot_c302_results(results, config, parameter_set, directory=save_fig_dir,save=save,show_plot_already=show_plot_already)
     
+    os.chdir('..')
     
     
 if __name__ == '__main__':
