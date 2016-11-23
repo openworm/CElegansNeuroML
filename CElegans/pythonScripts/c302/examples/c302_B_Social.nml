@@ -22,8 +22,8 @@ Parameters and setting used to generate this network:
         BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.015nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.015nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
@@ -32,19 +32,19 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 5pA (SRC: KnownError, certainty 0)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 3pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
 
 </notes>
     <include href="cell_B.xml"></include>
-    <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="0.015nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.01nS"/>
+    <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.1nS"/>
     <iafCell type="iafActivityCell" id="generic_muscle_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <iafCell type="iafActivityCell" id="generic_neuron_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
-    <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="5pA"/>
+    <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="3pA"/>
     <pulseGenerator id="stim_RMGR" delay="100ms" duration="200ms" amplitude="5pA"/>
     <pulseGenerator id="stim_ASHR" delay="400ms" duration="200ms" amplitude="5pA"/>
     <pulseGenerator id="stim_ASKR" delay="700ms" duration="200ms" amplitude="5pA"/>
