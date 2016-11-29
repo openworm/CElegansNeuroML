@@ -34,7 +34,7 @@ class BioParameter():
         self.value = '%f %s'%(magnitude, split_neuroml_quantity(self.value)[1])
 
 
-class ParameterisedModelPrototype():
+class ParameterisedModelPrototype(object):
     
     bioparameters = []
 

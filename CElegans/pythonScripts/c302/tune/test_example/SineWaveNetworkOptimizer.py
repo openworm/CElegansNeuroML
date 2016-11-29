@@ -22,15 +22,16 @@ if __name__ == '__main__':
                             ('amp_increment',    5),
                             ('period',           125),
                             ('period_increment', 50),
-                            ('offset',           10)])
+                            ('offset',           -10),
+                            ('offset_increment', 5)])
                
     print sim_vars.keys()
     
     swc = SineWaveNetworkController('wave', 2)
     
                
-    min_constraints = [4,  -5,   50,  0, -12]
-    max_constraints = [22, 20,   230, 160,  15]
+    min_constraints = [4,  -5,   50,  0,   -12, -20]
+    max_constraints = [22, 20,   230, 160, 15,  20]
     
 
     times, volts = swc.run_individual(sim_vars, True, False, prefix="Orig: ")
@@ -44,25 +45,7 @@ if __name__ == '__main__':
     # The output of the analysis will serve as the basis for model optimization:
     pp = pprint.PrettyPrinter(indent=4)
     
-    weights={'wave_2:average_maximum': 1,
-             'wave_2:average_minimum': 1,
-             'wave_3:average_maximum': 1,
-             'wave_3:average_minimum': 1,
-             'wave_3:mean_spike_frequency': 1}
 
-    weights={'wave_0:average_maximum': 1,
-             'wave_0:average_minimum': 1,
-             'wave_0:mean_spike_frequency': 1,
-             'wave_1:average_minimum': 1,
-             'wave_1:mean_spike_frequency': 1}
-             
-    weights={'wave_0:average_maximum': 1,
-             'wave_0:average_minimum': 1,
-             'wave_0:mean_spike_frequency': 1}
-             
-    weights={'wave_1:average_maximum': 1,
-             'wave_1:average_minimum': 1,
-             'wave_1:mean_spike_frequency': 1}
              
     weights={'wave_0:average_maximum': 1,
              'wave_0:average_minimum': 1,
@@ -70,6 +53,12 @@ if __name__ == '__main__':
              'wave_1:average_maximum': 1,
              'wave_1:average_minimum': 1,
              'wave_1:mean_spike_frequency': 10}
+             
+    weights={'wave_0:average_maximum': 1,
+             'wave_0:average_minimum': 1,
+             'wave_1:average_maximum': 1,
+             'wave_1:average_minimum': 1,
+             'wave_0;wave_1;phase_offset' : 10}
              
     surrogate_analysis=Data_Analyser(volts,
                                                times,
@@ -83,6 +72,8 @@ if __name__ == '__main__':
     print("Surrogate analysis")
     pp.pprint(surrogate_targets)
     
+    surrogate_targets['wave_0;wave_1;phase_offset'] = 180
+    
     #make an evaluator
     my_evaluator=EnhancedNetworkEvaluator(controller=swc,
                                             analysis_start_time=0,
@@ -93,7 +84,7 @@ if __name__ == '__main__':
                                             targets=surrogate_targets)
     
     population_size =  100
-    max_evaluations =  800
+    max_evaluations =  700
     num_selected =     10
     num_offspring =    10
     mutation_rate =    0.9
@@ -125,13 +116,13 @@ if __name__ == '__main__':
 
     fit_times, fit_volts = swc.run_individual(fittest_sim_vars, True, False)
 
-    fit_analysis=analysis.NetworkAnalysis(fit_volts,
+    fit_analysis=Data_Analyser(fit_volts,
                                           fit_times,
                                           analysis_var,
                                           start_analysis=0,
                                           end_analysis=1000)
 
-    fit_anal = fit_analysis.analyse(weights.keys())
+    fit_anal = fit_analysis.analyse(targets=weights)
 
     print("Surrogate analysis")
     pp.pprint(surrogate_targets)

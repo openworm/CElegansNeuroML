@@ -41,10 +41,12 @@ class ParameterisedModel(c302ModelPrototype):
         self.custom_component_types_definitions = 'cell_C.xml'
         
         self.set_default_bioparameters()
+        print("Set default parameters for %s"%self.level)
 
     def set_default_bioparameters(self):
 
         self.add_bioparameter("cell_diameter", "5", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_length", "20", "BlindGuess", "0.1")
 
         self.add_bioparameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
 
@@ -114,7 +116,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.generic_muscle_cell.morphology = morphology
 
         prox_point = Point3DWithDiam(x="0", y="0", z="0", diameter=self.get_bioparameter("cell_diameter").value)
-        dist_point = Point3DWithDiam(x="0", y="0", z="0", diameter=self.get_bioparameter("cell_diameter").value)
+        dist_point = Point3DWithDiam(x="0", y=self.get_bioparameter("muscle_length").value, z="0", diameter=self.get_bioparameter("cell_diameter").value)
 
         segment = Segment(id="0",
                           name="soma",

@@ -10,6 +10,7 @@ class SineWaveNetworkController():
     def __init__(self, population_id, pop_num):
         self.population_id = population_id
         self.pop_num = pop_num
+        self.count = 0 
         
     
     def run_individual(self, sim_var, gen_plot=False, show_plot=True, prefix=''):
@@ -34,7 +35,7 @@ class SineWaveNetworkController():
         while t <= sim_time:
             for i in range(self.pop_num):
                 period = max(sim_var['period']+i*sim_var['period_increment'], 1)
-                v = sim_var['offset'] + ( (sim_var['amp']+i*sim_var['amp_increment']) * (math.sin( 2*math.pi * t/period)))
+                v = (sim_var['offset']+i*sim_var['offset_increment']) + ( (sim_var['amp']+i*sim_var['amp_increment']) * (math.sin( 2*math.pi * t/period)))
              
                 volts['%s_%i'%(self.population_id, i)].append(v)
                 
@@ -76,6 +77,8 @@ class SineWaveNetworkController():
         for candidate in candidates:
             sim_var = dict(zip(parameters,candidate))
             t,v = self.run_individual(sim_var)
+            self.count+=1
+            print("------ Have run individual: %i"%self.count)
             traces.append([t,v])
 
         return traces
@@ -86,8 +89,9 @@ if __name__ == '__main__':
     sim_vars = {'amp':     5,
                'amp_increment':     20,
                'period':  1250,
-               'period_increment':  -300,
-               'offset':  -10}
+               'period_increment':  -200,
+               'offset':  -10,
+               'offset_increment':  15}
                
     
     swc = SineWaveNetworkController('wave', 5)

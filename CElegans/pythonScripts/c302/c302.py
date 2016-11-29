@@ -343,26 +343,26 @@ def generate(net_id,
     params.create_models()
     
     if vmin==None:
-        if params.level == 'A':
+        if params.is_level_A():
             vmin=-72
-        elif params.level == 'B':
+        elif params.is_level_B():
             vmin=-52 
-        elif params.level == 'C':
+        elif params.is_level_C():
             vmin=-60
-        elif params.level == 'D':
+        elif params.is_level_D():
             vmin=-60
         else:
             vmin=-52 
             
     
     if vmax==None:
-        if params.level == 'A':
+        if params.is_level_A():
             vmax=-48
-        elif params.level == 'B':
+        elif params.is_level_B():
             vmax=-28
-        elif params.level == 'C':
+        elif params.is_level_C():
             vmax=25
-        elif params.level == 'D':
+        elif params.is_level_D():
             vmax=25
         else:
             vmax=-28
