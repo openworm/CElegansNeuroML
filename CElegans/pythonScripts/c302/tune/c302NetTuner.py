@@ -119,7 +119,7 @@ min_constraints_muscle_tight_C0 = [0.0045, 1.65, 1.15]
 max_constraints_muscle_tight_C0 = [0.0055, 1.75, 1.25]
 
 min_constraints_net_loose_C0 = [.01, .01, 0.0005, .01, .01]
-max_constraints_net_loose_C0 = [.3,  .3,  0.01,   .3,  .3]
+max_constraints_net_loose_C0 = [.3,  .3,  0.0006,   .3,  .3]
 
 min_constraints_net_tight_C0 = [0.09, 0.09, 0.00048, 0.09, 0.09]
 max_constraints_net_tight_C0 = [0.11, 0.11, 0.00052, 0.11, 0.11]
@@ -404,7 +404,7 @@ if __name__ == '__main__':
                              num_local_procesors_to_use = 10)
         
         
-    elif '-musc' in sys.argv or '-muscone' in sys.argv:
+    elif '-musc' in sys.argv or '-muscC0' in sys.argv or '-muscone' in sys.argv:
         
         if '-musc' in sys.argv:
             
@@ -435,6 +435,33 @@ if __name__ == '__main__':
                              seed =             1234,
                              simulator = simulator,
                              num_local_procesors_to_use = 8)
+                             
+        elif '-muscC0' in sys.argv:
+            
+            scalem = .1
+            max_c0 = max_constraints_neuron_tight_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
+            min_c0 = min_constraints_neuron_tight_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
+        
+            run_optimisation('Test',
+                             'Muscles',
+                             'C0',
+                             parameters_C0_based,
+                             max_c0,
+                             min_c0,
+                             weights0,
+                             target_data0,
+                             sim_time = 1000,
+                             dt = 0.1,
+                             population_size =  scale(scalem,100),
+                             max_evaluations =  scale(scalem,500),
+                             num_selected =     scale(scalem,20),
+                             num_offspring =    scale(scalem,20),
+                             mutation_rate =    0.9,
+                             num_elites =       scale(scalem,3),
+                             nogui =            nogui,
+                             seed =             1234,
+                             simulator = simulator,
+                             num_local_procesors_to_use = 2)
         else:
             
             sim_time = 1000
@@ -524,7 +551,7 @@ if __name__ == '__main__':
                          
     elif '-oscC0' in sys.argv:
         
-        scalem = .05
+        scalem = .1
         max_c0 = max_constraints_neuron_tight_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
         min_c0 = min_constraints_neuron_tight_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
 
