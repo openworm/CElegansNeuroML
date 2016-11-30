@@ -92,6 +92,19 @@
 
     </ionChannel>
     
+    <ionChannel id="ca_simple" conductance="10pS" type="ionChannelHH" species="ca">
+
+        <notes>Simplified Ca channel</notes>
+
+        <gateHHtauInf id="e" instances="2">
+
+            <timeCourse type="fixedTimeCourse" tau="0.100027 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="6.74821 mV" midpoint="-3.3568 mV"/>
+
+        </gateHHtauInf>
+
+    </ionChannel>
+    
 
     <ComponentType name="customHGate"
                    extends="gateHHtauInf"
