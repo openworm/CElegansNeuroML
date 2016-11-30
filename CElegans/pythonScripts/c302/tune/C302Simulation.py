@@ -112,7 +112,7 @@ class C302Simulation(object):
         
         self.t = [t*1000 for t in self.results['t']]
         res_template = '%s/0/generic_neuron_iaf_cell/v'
-        if self.params.level == 'C' or self.params.level == 'D':
+        if self.params.level.startswith('C') or self.params.level.startswith('D'):
             res_template = '%s/0/GenericNeuronCell/v'
         self.volts = {}
         
