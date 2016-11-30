@@ -31,18 +31,22 @@ def setup(parameter_set,
              'VD1', 'VD10', 'VD11', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
     
     cells = ['DB3', 'VB3', 'DD3', 'VD3', 'DB4', 'VB4', 'DD4', 'VD4']
+    cells = ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3']
+    #cells = ['DB3', 'VB3', 'DB4', 'VB4']
              
     #cells+=['AVBL','PVCL','AVBR','PVCR']
-    #cells+=['AVBL']
-    cells+=['PVCL']
+    #cells+=[]
+    cells+=['PVCL', 'PVCR','AVBL','AVBR']
+    #cells+=['AVBL','AVBR']
     #cells=None  # implies all cells...     
     
     
-    cells_to_stimulate = ['PVCL', 'AVBL','AVBR','PVCR']
+    cells_to_stimulate = ['PVCL','PVCR']
+    #cells_to_stimulate = ['AVBL','AVBR']
     #cells_to_stimulate = ['AVBL']
     
     # Plot some directly stimulated & some not stimulated
-    cells_to_plot      = ['AVBL','PVCL', 'PVCR', 'DB1','DB2','DB3', 'DB4','DD1','DD2','DD3', 'DD4','DB4','VB1','VB2', 'VB3', 'VB4','VD1','VD2', 'VD3', 'VD4']
+    # cells_to_plot      = ['AVBL','PVCL', 'PVCR', 'DB1','DB2','DB3', 'DB4','DD1','DD2','DD3', 'DD4','DB4','VB1','VB2', 'VB3', 'VB4','VD1','VD2', 'VD3', 'VD4']
     cells_to_plot      = cells
     
     reference = "c302_%s_Oscillator"%parameter_set
