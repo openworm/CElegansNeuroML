@@ -8,25 +8,9 @@
     Subject to change without notice!!
     
 '''
-from neuroml import Cell
-from neuroml import Morphology
-from neuroml import Point3DWithDiam
-from neuroml import Segment
-from neuroml import BiophysicalProperties
-from neuroml import IntracellularProperties
-from neuroml import Resistivity
-from neuroml import Species
-from neuroml import MembraneProperties
-from neuroml import InitMembPotential
-from neuroml import SpecificCapacitance
-from neuroml import ChannelDensity
-from neuroml import SpikeThresh
-from neuroml import FixedFactorConcentrationModel
 
 from neuroml import GradedSynapse
 from neuroml import GapJunction
-from neuroml import PulseGenerator
-
 
 from parameters_C import ParameterisedModel as ParameterisedModel_C
 
@@ -34,8 +18,7 @@ from parameters_C import ParameterisedModel as ParameterisedModel_C
 '''
 
     The values below are a FIRST APPROXIMATION of conductance based neurons for use in a network to 
-    investigate the synaptic connectivity of C elegans
-        
+    investigate the synaptic connectivity of C elegans 
 
 '''
 

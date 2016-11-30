@@ -11,6 +11,8 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
+    params.set_bioparameter("unphysiological_offset_current_del", "50 ms", "Testing IClamp", "0")
+    
     exc_pre = "URYDL"
     exc_post = "SMDDR"
     inh_pre = "VD12" 
