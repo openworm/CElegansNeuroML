@@ -28,6 +28,14 @@ python c302_Full.py C
 python c302_Muscles.py C
 python c302_Oscillator.py C
 
+python c302_IClamp.py C0
+python c302_Syns.py C0
+python c302_Social.py C0
+python c302_Pharyngeal.py C0
+python c302_Full.py C0
+python c302_Muscles.py C0
+python c302_Oscillator.py C0
+
 python c302_IClamp.py C1
 python c302_Syns.py C1
 python c302_Social.py C1
