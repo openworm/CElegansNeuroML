@@ -108,18 +108,27 @@ parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
                           'neuron_to_neuron_elec_syn_gbase',
                           'neuron_to_muscle_exc_syn_conductance',
                           'neuron_to_muscle_inh_syn_conductance'] # No neuron -> muscle elect syns
+
+parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
+                          'neuron_to_neuron_inh_syn_conductance',
+                          'exc_syn_k',
+                          'inh_syn_k',
+                          'unphysiological_offset_current'] 
               
 parameters_C0_based = parameters_C0_based_neuron + parameters_C0_based_muscle + parameters_C0_based_net
 
 
-min_constraints_neuron_tight_C0 = [0.0049, 0.95, 0.095]
-max_constraints_neuron_tight_C0 = [0.0051, 1.05, 0.105]
+min_constraints_neuron_tight_C0 = [0.0049, 0.5, 0.05]
+max_constraints_neuron_tight_C0 = [0.0051, 1.8, 1.8]
 
 min_constraints_muscle_tight_C0 = [0.0045, 1.65, 1.15]
 max_constraints_muscle_tight_C0 = [0.0055, 1.75, 1.25]
 
 min_constraints_net_loose_C0 = [.01, .01, 0.0005, .01, .01]
 max_constraints_net_loose_C0 = [.3,  .3,  0.0006,   .3,  .3]
+
+min_constraints_net_loose_C0 = [.01, .01, 0.01, 0.01, 4]
+max_constraints_net_loose_C0 = [.8,  .8,  2,    2,    6]
 
 min_constraints_net_tight_C0 = [0.09, 0.09, 0.00048, 0.09, 0.09]
 max_constraints_net_tight_C0 = [0.11, 0.11, 0.00052, 0.11, 0.11]
@@ -461,7 +470,7 @@ if __name__ == '__main__':
                              nogui =            nogui,
                              seed =             1234,
                              simulator = simulator,
-                             num_local_procesors_to_use = 2)
+                             num_local_procesors_to_use = 8)
         else:
             
             sim_time = 1000
@@ -551,18 +560,26 @@ if __name__ == '__main__':
                          
     elif '-oscC0' in sys.argv:
         
-        scalem = .1
+        scalem = 4
         max_c0 = max_constraints_neuron_tight_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
         min_c0 = min_constraints_neuron_tight_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
 
         weights = {}
         target_data = {}
         
-        
         for cell in ['DB2','VB2','DB3','VB3']:
             var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
-            weights[var] = 1
             target_data[var] = 3
+            
+        var = 'VB2/0/GenericNeuronCell/v:maximum'
+        target_data[var] = -10
+        var = 'VB2/0/GenericNeuronCell/v:minimum'
+        target_data[var] = -70
+        
+        for key in target_data.keys():
+            weights[key] = 1
+            
+        #simulator = 'jNeuroML'
 
         run_optimisation('Test',
                          'Oscillator',
@@ -581,9 +598,9 @@ if __name__ == '__main__':
                          mutation_rate =    0.9,
                          num_elites =       scale(scalem,3),
                          nogui =            nogui,
-                         seed =             1234,
+                         seed =             12344,
                          simulator = simulator,
-                         num_local_procesors_to_use = 1)
+                         num_local_procesors_to_use = 8)
 
     elif '-oscC1' in sys.argv or '-oscC1one' in sys.argv:
 

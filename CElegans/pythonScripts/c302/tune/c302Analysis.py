@@ -1,16 +1,7 @@
-import matplotlib.pyplot
-import time
-import numpy, scipy
-import sys
 from scipy.signal import correlate
 from pyelectro import analysis
 
 import scipy.stats
-import numpy as np
-import math
-import logging
-from scipy import interpolate
-import operator
 
 
 class Data_Analyser(analysis.NetworkAnalysis):

@@ -1,0 +1,112 @@
+<Lems>
+    
+    <!--
+
+
+Parameters and setting used to generate this network:
+
+    Cells:                         ['URYDL', 'SMDDR', 'VD12', 'VB11', 'AIZL', 'ASHL']
+    Cell stimulated:               ['URYDL', 'VD12', 'AIZL']
+    Connection numbers overridden: None
+    Connection numbers scaled:     None
+    Include muscles:               False
+
+    Known BioParameters:
+        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 1.7 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 1.8 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_simple_cond_density = 1.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_simple_cond_density = 1.378 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_simple_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 200 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_rho = 0.0002 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.384 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.05 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_k = 0.5per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.01 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.05 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_k = 0.5per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 4 pA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 50 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
+
+   
+    -->
+
+    <Target component="sim_c302_C0_Syns" />
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+
+    <Include file="Cells.xml" />
+    <Include file="Networks.xml" />
+    <Include file="Simulation.xml" />
+    
+    <Include file="cell_C.xml" />
+    
+    <Include file="c302_C0_Syns.nml" />
+
+    <!-- End of NeuroML2 content -->
+    
+
+    <Simulation id="sim_c302_C0_Syns" length="500ms" step="0.05ms" target="c302_C0_Syns">
+
+        <Display id="neurons" title="c302_C0_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
+            
+            <Line id="AIZL" quantity="AIZL/0/GenericNeuronCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ASHL" quantity="ASHL/0/GenericNeuronCell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/GenericNeuronCell/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/GenericNeuronCell/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/GenericNeuronCell/v" scale="1mV" color="#9a1694" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/GenericNeuronCell/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
+            
+        </Display>
+      
+        <Display id="activity_neurons" title="c302_C0_Syns: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+            
+            <Line id="AIZL" quantity="AIZL/0/GenericNeuronCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="ASHL" quantity="ASHL/0/GenericNeuronCell/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/GenericNeuronCell/caConc" scale="1" color="#262f1d" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/GenericNeuronCell/caConc" scale="1" color="#108b77" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/GenericNeuronCell/caConc" scale="1" color="#458fa5" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/GenericNeuronCell/caConc" scale="1" color="#ef7488" timeScale="1ms" />
+
+        </Display>
+
+        <OutputFile id="neurons_v" fileName="c302_C0_Syns.dat">
+            <OutputColumn id="AIZL_v" quantity="AIZL/0/GenericNeuronCell/v"/>
+            <OutputColumn id="ASHL_v" quantity="ASHL/0/GenericNeuronCell/v"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR/0/GenericNeuronCell/v"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL/0/GenericNeuronCell/v"/>
+            <OutputColumn id="VB11_v" quantity="VB11/0/GenericNeuronCell/v"/>
+            <OutputColumn id="VD12_v" quantity="VD12/0/GenericNeuronCell/v"/>
+        </OutputFile>
+        
+        <OutputFile id="neurons_activity" fileName="c302_C0_Syns.activity.dat">
+            <OutputColumn id="AIZL_v" quantity="AIZL/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="ASHL_v" quantity="ASHL/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="VB11_v" quantity="VB11/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="VD12_v" quantity="VD12/0/GenericNeuronCell/caConc"/>
+        </OutputFile>
+    </Simulation>
+
+
+</Lems>

@@ -84,7 +84,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_D1_Social" length="2500ms" step="0.05ms" target="c302_D1_Social">
 
-        <Display id="neurons" title="c302_D1_Social: Membrane potential of a number of neurons" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_D1_Social: Membrane potential of a number of neurons" timeScale="1ms" xmin="-250.0" xmax="2750.0" ymin="-60" ymax="25">
             
             <Line id="ASHR" quantity="ASHR/0/ASHR/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="ASKR" quantity="ASKR/0/ASKR/v" scale="1mV" color="#ac15c4" timeScale="1ms" />

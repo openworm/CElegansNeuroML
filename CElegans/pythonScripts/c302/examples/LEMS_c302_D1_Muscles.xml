@@ -340,7 +340,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_D1_Muscles" length="1000ms" step="0.05ms" target="c302_D1_Muscles">
 
-        <Display id="neurons" title="c302_D1_Muscles: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_D1_Muscles: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-60" ymax="25">
             
             <Line id="AVBL" quantity="AVBL/0/AVBL/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="AVBR" quantity="AVBR/0/AVBR/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
@@ -357,7 +357,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="muscles" title="c302_D1_Muscles: Membrane potential of a number of muscles" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-52" ymax="-28">
+        <Display id="muscles" title="c302_D1_Muscles: Membrane potential of a number of muscles" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-60" ymax="25">
             
             <Line id="MDR01" quantity="MDR01/0/GenericMuscleCell/v" scale="1mV" color="#d14b1f" timeScale="1ms" />
             <Line id="MDR02" quantity="MDR02/0/GenericMuscleCell/v" scale="1mV" color="#88d57c" timeScale="1ms" />

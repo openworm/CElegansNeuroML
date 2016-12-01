@@ -110,7 +110,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_D1_Pharyngeal" length="500ms" step="0.01ms" target="c302_D1_Pharyngeal">
 
-        <Display id="neurons" title="c302_D1_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_D1_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
             
             <Line id="I1L" quantity="I1L/0/I1L/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="I1R" quantity="I1R/0/I1R/v" scale="1mV" color="#ac15c4" timeScale="1ms" />

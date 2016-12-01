@@ -1,13 +1,6 @@
 from neurotune import evaluators
-import os
-import sys
-from threading import Thread
-from pyelectro import analysis
 import c302Analysis
-import numpy
-import math
-import sys
- 
+
 class EnhancedNetworkEvaluator(evaluators.NetworkEvaluator):
 
 	def __init__(self,

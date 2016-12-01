@@ -1,9 +1,6 @@
 import sys
 import os
 from pyneuroml import pynml
-import matplotlib.pyplot as plt
-import numpy as np
-import c302
 import c302_utils
 
 from collections import OrderedDict
@@ -65,7 +62,7 @@ if __name__ == '__main__':
     elif '-musclesB' in sys.argv or  '-muscB' in sys.argv:
         main('Muscles','B','',1000,0.05,'jNeuroML_NEURON')
         
-    elif '-musclesC0' in sys.argv or  '-muscC' in sys.argv:
+    elif '-musclesC0' in sys.argv or  '-muscC0' in sys.argv:
         main('Muscles','C0','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-musclesC' in sys.argv or  '-muscC' in sys.argv:
@@ -119,6 +116,9 @@ if __name__ == '__main__':
     elif '-socialB' in sys.argv:
         main('Social','B','',2500,0.05,'jNeuroML_NEURON')
         
+    elif '-socialC0' in sys.argv:
+        main('Social','C0','',2500,0.05,'jNeuroML_NEURON')
+        
     elif '-socialC' in sys.argv:
         main('Social','C','',2500,0.05,'jNeuroML_NEURON')
         
@@ -130,6 +130,9 @@ if __name__ == '__main__':
         
     elif '-oscB' in sys.argv:
         main('Oscillator','B','',600,0.05,'jNeuroML_NEURON')
+        
+    elif '-oscC0' in sys.argv:
+        main('Oscillator','C0','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-oscC' in sys.argv:
         main('Oscillator','C','',1000,0.05,'jNeuroML_NEURON')
@@ -171,13 +174,13 @@ if __name__ == '__main__':
         #levels = ['C0']
 
         
-        durations = OrderedDict({'IClamp':1000,
-                     'Syns':500,
-                     'Pharyngeal':500,
-                     'Social':2500,
-                     'Oscillator':1000,
-                     'Muscles':1000,
-                     'Full':1000})
+        durations = OrderedDict([('IClamp',1000),
+                                ('Syns',500),
+                                ('Pharyngeal',500),
+                                ('Social',2500),
+                                ('Oscillator',1000),
+                                ('Muscles',1000),
+                                ('Full',1000)])
             
         html+='<tr>'
         html+='<td>&nbsp;</td>'

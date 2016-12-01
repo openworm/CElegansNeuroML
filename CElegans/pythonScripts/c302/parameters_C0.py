@@ -60,32 +60,34 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_k_slow_cond_density", "1.7 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_k_slow_cond_density", "1.0 mS_per_cm2", "BlindGuess", "0.1")
+        #self.add_bioparameter("neuron_k_slow_cond_density", "1.0 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_k_slow_cond_density", "1.8 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_ca_simple_cond_density", "1.2 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_ca_simple_cond_density", "0.1 mS_per_cm2", "BlindGuess", "0.1")
+        #self.add_bioparameter("neuron_ca_simple_cond_density", "0.1 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_ca_simple_cond_density", "1.378 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("ca_simple_erev", "40 mV", "BlindGuess", "0.1")
         
         self.add_bioparameter("ca_conc_decay_time", "200 ms", "BlindGuess", "0.1")
         self.add_bioparameter("ca_conc_rho", "0.0002 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "0.05 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "0.384 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "0.05 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("exc_syn_delta", "10 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_vth", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_erev", "0 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_k", "0.025per_ms", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_k", "0.5per_ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "0.05 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "0.01 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "0.05 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("inh_syn_delta", "10 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_vth", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_erev", "-70 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_k", "0.025per_ms", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_k", "0.5per_ms", "BlindGuess", "0.1")
         
 
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.0001 nS", "BlindGuess", "0.1")

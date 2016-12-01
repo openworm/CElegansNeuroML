@@ -36,7 +36,7 @@ Parameters and setting used to generate this network:
         BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 2.5pA (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 50 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
 </notes>
@@ -44,7 +44,7 @@ Parameters and setting used to generate this network:
     <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
     <iafCell id="generic_muscle_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
     <iafCell id="generic_neuron_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
-    <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="2.5pA"/>
+    <pulseGenerator id="offset_current" delay="50 ms" duration="200ms" amplitude="2.5pA"/>
     <network id="c302_A_Syns">
         <population id="SMDDR" component="generic_neuron_iaf_cell" type="populationList">
             <instance id="0">

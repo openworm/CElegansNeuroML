@@ -47,7 +47,7 @@ Parameters and setting used to generate this network:
         BioParameter: neuron_to_neuron_elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 9 pA (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 50 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
    
@@ -82,7 +82,7 @@ Parameters and setting used to generate this network:
 
     <Simulation id="sim_c302_D1_Syns" length="500ms" step="0.05ms" target="c302_D1_Syns">
 
-        <Display id="neurons" title="c302_D1_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_D1_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-60" ymax="25">
             
             <Line id="AIZL" quantity="AIZL/0/AIZL/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="ASHL" quantity="ASHL/0/ASHL/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
