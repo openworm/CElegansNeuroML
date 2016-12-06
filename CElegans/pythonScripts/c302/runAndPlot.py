@@ -142,6 +142,9 @@ if __name__ == '__main__':
         
     elif '-KatoC1' in sys.argv:
         main('Kato','C1','',1080,0.05,'jNeuroML_NEURON')
+        
+    elif '-twC2' in sys.argv:
+        main('TapWithdrawal','C2','',2000,0.05,'jNeuroML_NEURON')
 
     elif '-iA' in sys.argv:
         main('IClamp','A','',1000,0.05,'jNeuroML')
