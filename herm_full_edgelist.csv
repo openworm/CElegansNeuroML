@@ -6070,6 +6070,7 @@ PVCL , VB11        ,4,electrical
 PVCL , VD13        ,1,electrical
 PVCL , hyp         ,4,electrical
 PVCR , PLMR        ,8,electrical
+PVCR , PVDR        ,2,electrical
 PVCR , PVDL        ,1,electrical
 PVCR , PDEL        ,2,electrical
 PVCR , PHAR        ,2,electrical
