@@ -201,4 +201,4 @@ if __name__ == '__main__':
     
     parameter_set = sys.argv[1] if len(sys.argv)==2 else 'C2'
     
-    setup(parameter_set, generate=True, data_reader="SpreadsheetDataReader")
+    setup(parameter_set, generate=True, data_reader="UpdatedSpreadsheetDataReader")
