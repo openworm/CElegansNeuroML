@@ -208,10 +208,10 @@ if __name__ == '__main__':
                 html2+='<tr><td><img alt=" " src="muscles_%s_%s.png"/></td><td><img alt=" " src="traces_muscles_%s_%s.png"/></td></tr>\n'%(c,p,p,c)
                 html2+='<tr><td><img alt=" " src="muscle_activity_%s_%s.png"/></td><td><img alt=" " src="traces_muscles_activity_%s_%s.png"/></td></tr>\n'%(c,p,p,c)
                 
-                f2 = open('examples/'+save_fig_dir+'summary_%s_%s.html'%(c,p),'w')
-                f2.write('<html><body>%s</body></html>'%html2)
-                f3 = open('examples/'+save_fig_dir+'summary_%s_%s.md'%(c,p),'w')
-                f3.write('### Parameter config summary \n%s'%html2)
+                with open('examples/'+save_fig_dir+'summary_%s_%s.html'%(c,p),'w') as f2:
+                    f2.write('<html><body>%s</body></html>'%html2)
+                with open('examples/'+save_fig_dir+'summary_%s_%s.md'%(c,p),'w') as f3:
+                    f3.write('### Parameter config summary \n%s'%html2)
                 
                 main(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save=True,show_plot_already=False)
                 html+='</td>'
@@ -221,10 +221,10 @@ if __name__ == '__main__':
         html+='</table>\n'
         html2+='</table>\n'
                 
-        f = open('examples/'+save_fig_dir+'info.html','w')
-        f.write('<html><body>\n%s\n</body></html>'%html)
-        f2 = open('examples/'+save_fig_dir+'README.md','w')
-        f2.write('### c302 activity summary \n%s'%(html.replace('.html','.md')))
+        with open('examples/'+save_fig_dir+'info.html','w') as f:
+            f.write('<html><body>\n%s\n</body></html>'%html)
+        with open('examples/'+save_fig_dir+'README.md','w') as f2:
+            f2.write('### c302 activity summary \n%s'%(html.replace('.html','.md')))
         
     else:
         main('Syns','C','',500,0.05,'jNeuroML')
