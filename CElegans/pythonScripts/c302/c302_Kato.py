@@ -6,7 +6,8 @@ def setup(parameter_set,
           duration=1080, #Match time run in Figure 1C of Kato et. al, Cell 2015 http://dx.doi.org/10.1016/j.cell.2015.09.034
           dt=0.1,
           target_directory='examples',
-          include_muscles = True):
+          include_muscles = True,
+          data_reader="SpreadsheetDataReader"):
 
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
