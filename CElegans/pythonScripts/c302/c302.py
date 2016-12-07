@@ -1018,7 +1018,7 @@ def main():
              cells =                  args.cells,
              cells_to_plot =          args.cellstoplot,
              cells_to_stimulate =     args.cellstostimulate,
-             conn_polarity_override = parse_dict_arg(args.conn_polarity_override),
+             conn_polarity_override = parse_dict_arg(args.connpolarityoverride),
              conn_number_override =   parse_dict_arg(args.connnumberoverride),
              conn_number_scaling =    parse_dict_arg(args.connnumberscaling),
              duration =               args.duration,
