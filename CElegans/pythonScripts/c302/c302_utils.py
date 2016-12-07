@@ -62,7 +62,7 @@ def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save,save_
                         save_figure_to=(None if not save else save_fig_path%(file_name)),
                         cols_in_legend_box=8)
     
-def plot_c302_results(lems_results, config, parameter_set, directory='./',save=True,show_plot_already=True):
+def plot_c302_results(lems_results, config, parameter_set, directory='./',save=True,show_plot_already=True, data_reader="SpreadsheetDataReader"):
     
     params = {'legend.fontsize': 8,
               'font.size': 10}

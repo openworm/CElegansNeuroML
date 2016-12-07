@@ -6,7 +6,8 @@ def setup(parameter_set,
           duration=1000, 
           dt=0.05,
           target_directory='examples',
-          include_muscles = True):
+          include_muscles = True,
+          data_reader="SpreadsheetDataReader"):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()

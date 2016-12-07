@@ -6,7 +6,8 @@ import neuroml.writers as writers
     
 def setup(parameter_set, 
           generate=False,
-          target_directory='examples'):
+          target_directory='examples',
+          data_reader="SpreadsheetDataReader"):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
