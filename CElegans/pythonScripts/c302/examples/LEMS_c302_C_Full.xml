@@ -5,11 +5,13 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         All cells
-    Cell stimulated:               ['PVCL', 'PVCR']
-    Connection numbers overridden: None
-    Connection numbers scaled:     None
-    Include muscles:               True
+    Data reader:                    SpreadsheetDataReader
+    Cells:                          All cells
+    Cell stimulated:                ['PVCL', 'PVCR']
+    Connection numbers overridden:  None
+    Connection numbers scaled:      None
+    Connection polarities override: None
+    Include muscles:                True
 
     Known BioParameters:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
