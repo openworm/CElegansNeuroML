@@ -49,7 +49,6 @@ def remove_leading_index_zero(cell):
         return "%s%s" % (cell[:-2], cell[-1:])
     return cell
 
-
 def get_old_muscle_name(muscle):
     index = int(muscle[5:])
     if index < 10:
@@ -63,6 +62,21 @@ def get_old_muscle_name(muscle):
     if muscle.startswith("dBWMR"):
         return "MDR%s" % index
 
+def get_syntype(syntype):
+    if syntype == "electrical":
+        return "GapJunction"
+    elif syntype == "chemical":
+        return "Send"
+    else:
+        raise NotImplementedError("Cannot parse syntype '%s'" % syntype)
+    
+def get_synclass(syntype):
+    if syntype == "GapJunction":
+        return "Generic_GJ"
+    else:
+        #dirty hack
+        return "Acetylcholine"
+    
 
 def readDataFromSpreadsheet(include_nonconnected_cells=False):
     """
@@ -87,8 +101,9 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False):
             pre = str.strip(row["Source"])
             post = str.strip(row["Target"])
             num = int(row["Weight"])
-            syntype = str.strip(row["Type"])
-            synclass = 'Generic_GJ' if 'electrical' in syntype else 'Chemical_Synapse'
+            syntype = get_syntype(str.strip(row["Type"]))
+            #synclass = 'Generic_GJ' if 'electrical' in syntype else 'Chemical_Synapse'
+            synclass = get_synclass(syntype)
 
             if not is_neuron(pre) or not is_neuron(post):
                 continue  # pre or post is not a neuron
@@ -111,6 +126,8 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False):
             #        check = True
             #    print "######### %s-%s %s %s" % (pre, post, num, syntype)
 
+            #print "%s-%s %s %s %s" % (pre, post, syntype, num, synclass)
+            
             conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
             if pre not in cells:
                 cells.append(pre)
@@ -145,8 +162,10 @@ def readMuscleDataFromSpreadsheet():
             pre = str.strip(row["Source"])
             post = str.strip(row["Target"])
             num = int(row["Weight"])
-            syntype = str.strip(row["Type"])
-            synclass = 'Generic_GJ' if 'electrical' in syntype else 'Chemical_Synapse'
+            #syntype = str.strip(row["Type"])
+            #synclass = 'Generic_GJ' if 'electrical' in syntype else 'Chemical_Synapse'
+            syntype = get_syntype(str.strip(row["Type"]))
+            synclass = get_synclass(syntype)
 
             if not is_neuron(pre) or not is_body_wall_muscle(post):
                 # Don't add connections unless pre=neuron and post=body_wall_muscle
@@ -156,7 +175,8 @@ def readMuscleDataFromSpreadsheet():
 
             post = get_old_muscle_name(post)
 
-            # print "%s-%s" % (pre, post)
+            #print "%s-%s %s %s %s" % (pre, post, syntype, num, synclass)
+
 
             conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
             # print "NEWSpreadsheedDataReader >> %s-%s %s" % (pre, post, synclass)

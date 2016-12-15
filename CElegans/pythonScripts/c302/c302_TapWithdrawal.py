@@ -10,6 +10,7 @@ def setup(parameter_set,
           dt=0.05,
           target_directory='examples',
           data_reader="UpdatedSpreadsheetDataReader"):
+    
     exec ('from parameters_%s import ParameterisedModel' % parameter_set)
     params = ParameterisedModel()
 
