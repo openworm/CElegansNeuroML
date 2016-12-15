@@ -70,11 +70,11 @@ def get_str_from_expnotation(num):
     return '{0:.15f}'.format(num)
 
 def get_muscle_position(muscle, data_reader="SpreadsheetDataReader"):
-    if data_reader == "UpdatedSpreadsheetDataReader":
+    """if data_reader == "UpdatedSpreadsheetDataReader":
         x = 80 * (-1 if muscle[0] == 'v' else 1)
         z = 80 * (-1 if muscle[4] == 'L' else 1)
         y = -300 + 30 * int(muscle[5:7])
-        return x, y, z
+        return x, y, z"""
     
     x = 80 * (-1 if muscle[1] == 'V' else 1)
     z = 80 * (-1 if muscle[2] == 'L' else 1)
@@ -171,7 +171,15 @@ quadrant3 = 'MDL'
 
 def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
     
-    stim = PulseGenerator(id="stim_"+cell, delay=delay, duration=duration, amplitude=amplitude)
+    stim_id = "stim_"+cell
+    used_ids = [s.id for s in nml_doc.pulse_generators]
+
+    i = 2
+    while stim_id in used_ids:
+        stim_id = "stim_%s_%s" % (cell, i)
+        i = i + 1
+
+    stim = PulseGenerator(id=stim_id, delay=delay, duration=duration, amplitude=amplitude)
     
     nml_doc.pulse_generators.append(stim)
     
@@ -781,6 +789,10 @@ def generate(net_id,
                     print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
 
+            #print "######## %s-%s %s %s" % (conn.pre_cell, conn.post_cell, conn.synclass, number_syns)
+            #known_motor_prefixes = ["VA"]
+            #if conn.pre_cell.startswith(tuple(known_motor_prefixes)) or conn.post_cell.startswith(tuple(known_motor_prefixes)):
+            #    print "######### %s-%s %s %s" % (conn.pre_cell, conn.post_cell, number_syns, conn.synclass)
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 

@@ -43,6 +43,19 @@ def remove_leading_index_zero(cell):
         return "%s%s" % (cell[:-2], cell[-1:])
     return cell
 
+def get_old_muscle_name(muscle):
+    index = int(muscle[5:])
+    if index < 10:
+        index = "0%s" % index
+    if muscle.startswith("vBWML"):
+        return "MVL%s" % index
+    if muscle.startswith("vBWMR"):
+        return "MVR%s" % index
+    if muscle.startswith("dBWML"):
+        return "MDL%s" % index
+    if muscle.startswith("dBWMR"):
+        return "MDR%s" % index
+
 
 def readDataFromSpreadsheet(include_nonconnected_cells=False):
     """
@@ -61,6 +74,7 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False):
         print "Opened file: " + filename
 
         known_nonconnected_cells = ['CANL', 'CANR']
+        check = False
 
         for row in reader:
             pre = str.strip(row["Source"])
@@ -74,6 +88,21 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False):
 
             pre = remove_leading_index_zero(pre)
             post = remove_leading_index_zero(post)
+            
+            #if pre.startswith("AVA") or pre.startswith("AVB"):
+            #print "%s-%s" % (pre, post)
+            #twc = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR', 'AVM', 'ALML', 'ALMR']
+
+            #motors = ['VA1', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VA10', 'VA11', 'VA12']
+            #motors += ['VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9']
+            #motors += ['DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9']
+            #motors += ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
+            
+            #if pre in motors and post in motors:
+            #    if syntype == "electrical" and not check:
+            #        print "\n"
+            #        check = True
+            #    print "######### %s-%s %s %s" % (pre, post, num, syntype)
 
             conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
             if pre not in cells:
@@ -116,7 +145,12 @@ def readMuscleDataFromSpreadsheet():
                 # Don't add connections unless pre=neuron and post=body_wall_muscle
                 continue
 
+
             pre = remove_leading_index_zero(pre)
+
+            post = get_old_muscle_name(post)
+            
+            #print "%s-%s" % (pre, post)
 
             conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
             #print "NEWSpreadsheedDataReader >> %s-%s %s" % (pre, post, synclass)

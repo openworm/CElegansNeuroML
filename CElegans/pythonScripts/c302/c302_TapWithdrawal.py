@@ -9,7 +9,7 @@ def setup(parameter_set,
           duration=2000,
           dt=0.05,
           target_directory='examples',
-          data_reader="SpreadsheetDataReader"):
+          data_reader="UpdatedSpreadsheetDataReader"):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -19,11 +19,42 @@ def setup(parameter_set,
     params.set_bioparameter("unphysiological_offset_current_dur", "2000 ms", "Testing TapWithdrawal", "0")
 
     cells = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR', 'AVM', 'ALML', 'ALMR']
+
+    motors = []
+    motors += ['VA1', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VA10', 'VA11', 'VA12']
+    motors += ['VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9']
+    motors += ['DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9']
+    motors += ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
+
+    cells += motors
+
+    cells += [#'AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9',
+             #'AVFL', 'AVFR', 'AVKR', 'AVL',
+             #'CEPVL', 'CEPVR',
+             #
+             #
+             #'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6',
+             #'DVB',
+             #'HSNL', 'HSNR',
+             #'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR',
+             #'PDA', 'PDB',
+             #'PVNL', 'PVNR',
+             #'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR',
+             #'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR',
+             #'RMHL', 'RMHR',
+             #'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR',
+             #'URADL', 'URADR', 'URAVL', 'URAVR',
+             #'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6',
+             #'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9'
+             ]
+    
+    #cells = None
     cells_to_stimulate = ['PLML', 'PLMR', 'AVM']
     cells_to_stimulate = []
 
     cells_to_plot = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PLML', 'PLMR', 'AVM', 'PVDL', 'PVDR', 'AVDL', 'AVDR']
     cells_to_plot = ['PLML', 'AVM', 'AVBL', 'AVAL']
+    cells_to_plot += motors
     #cells_to_plot = cells
     reference = "c302_%s_TapWithdrawal"%parameter_set
 
@@ -126,6 +157,8 @@ def setup(parameter_set,
                     'AVDR-AVAR':'exc',
                     'AVDR-AVBL':'exc',
                     'AVDR-AVDL':'exc',
+
+                    'DA9-DVA':'inh',
                  },
                  conn_number_override={
                     #'PVCL-AVDL':7*0.1,
@@ -174,8 +207,74 @@ def setup(parameter_set,
                     'AVAR-PVDL_GJ':4*0.01,
                     'PVDR-AVAL_GJ':6*0.01,
                     'AVAL-PVDR_GJ':6*0.01,
+
+
+
+
+
+                    'AVBL-VA11_GJ':1*0.01,
+                    'VA11-AVBL_GJ':1*0.01,
+                    'AVBR-VA11_GJ':3*0.01,
+                    'VA11-AVBR_GJ':3*0.01,
+                    'PVCR-VA11_GJ':3*0.01,
+                    'VA11-PVCR_GJ':3*0.01,
+                    'DVA-VA11_GJ':1*0.01,
+                    'VA11-DVA_GJ':1*0.01,
+
+                    'PVCL-VA12_GJ':18*0.01,
+                    'VA12-PVCL_GJ':18*0.01,
+                    'PVCR-VA12_GJ':8*0.01,
+                    'VA12-PVCR_GJ':8*0.01,
+
+                    'AVAL-VB11_GJ':2*0.01,
+                    'VB11-AVAL_GJ':2*0.01,
+
+                    'PVCL-DA4_GJ':1*0.01,
+                    'DA4-PVCL_GJ':1*0.01,
+
+                    'PVCL-DA7_GJ':1*0.01,
+                    'DA7-PVCL_GJ':1*0.01,
+                    'PVCR-DA7_GJ':3*0.01,
+                    'DA7-PVCR_GJ':3*0.01,
+
+                    'PVCL-DA8_GJ':17*0.01,
+                    'DA8-PVCL_GJ':17*0.01,
+                    'PVCR-DA8_GJ':1*0.01,
+                    'DA8-PVCR_GJ':1*0.01,
+
+                    'DVA-DA9_GJ':3*0.01,
+                    'DA9-DVA_GJ':3*0.01,
+                    'PVCR-DA9_GJ':3*0.01,
+                    'DA9-PVCR_GJ':3*0.01,
+
+
+                    'DB7-VA10_GJ':1*0.01,
+                    'VA10-DB7_GJ':1*0.01,
+
+                    'VA4-VB3_GJ':1*0.01,
+                    'VB3-VA4_GJ':1*0.01,
+
+                    'VA10-DB7_GJ':1*0.01,
+                    'DB7-VA10_GJ':1*0.01,
+
+                    'VA11-VB10_GJ':3*0.01,
+                    'VB10-VA11_GJ':3*0.01,
+
+                    'VA12-VB11_GJ':7*0.01,
+                    'VB11-VA12_GJ':7*0.01,
+
+                    'VB3-VA4_GJ':1*0.01,
+                    'VA4-VB3_GJ':1*0.01,
+
+                    'VB10-VA11_GJ':3*0.01,
+                    'VA11-VB10_GJ':3*0.01,
+
+                    'VB11-DA9_GJ':7*0.01,
+                    'DA9-VB11_GJ':7*0.01,
+
+
                  },
-                 include_muscles=False,
+                 include_muscles=True,
                  duration=duration,
                  dt=dt,
                  validate=(parameter_set!='B'),
@@ -185,10 +284,10 @@ def setup(parameter_set,
         stim_amplitude = "14pA"
         #stim_amplitude = "5.135697186048022pA"
 
-        c302.add_new_input(nml_doc, "PLML", "100ms", "600ms", "14pA", params)
-        c302.add_new_input(nml_doc, "PLMR", "100ms", "600ms", "14pA", params)
+        c302.add_new_input(nml_doc, "PLML", "100ms", "600ms", "12pA", params)
+        c302.add_new_input(nml_doc, "PLMR", "100ms", "600ms", "12pA", params)
 
-        c302.add_new_input(nml_doc, "AVM", "1000ms", "600ms", "14pA", params)
+        c302.add_new_input(nml_doc, "AVM", "1000ms", "600ms", "12pA", params)
         
         nml_file = target_directory+'/'+reference+'.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
