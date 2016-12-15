@@ -142,9 +142,12 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     ################################################
     ## Plot voltages muscles
     mneurons, all_muscles, muscle_conns = c302.get_cell_muscle_names_and_connection(test=True)
-    all_muscles.remove('MANAL')
-    all_muscles.remove('MVULVA')
-    all_muscles.remove('MVR24')
+    if ("MANAL" in all_muscles):
+        all_muscles.remove('MANAL')
+    if ("MVULVA" in all_muscles):
+        all_muscles.remove('MVULVA')
+    if ("MVR24" in all_muscles):
+        all_muscles.remove('MVR24')
     all_muscles.sort()
     all_muscles.reverse()
 

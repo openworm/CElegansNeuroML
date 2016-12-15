@@ -352,8 +352,7 @@ def get_cell_muscle_names_and_connection(data_reader="SpreadsheetDataReader", te
 
     mneurons, all_muscles, muscle_conns = load_data_reader(data_reader).readMuscleDataFromSpreadsheet()
 
-    #if data_reader == "SpreadsheetDataReader":
-    #    all_muscles = get_muscle_names()
+    all_muscles = get_muscle_names()
         
     return mneurons, all_muscles, muscle_conns
 
@@ -633,8 +632,8 @@ def generate(net_id,
     
     mneurons, muscles, muscle_conns = get_cell_muscle_names_and_connection(data_reader)
 
-    if data_reader == "SpreadsheetDataReader":
-        muscles = get_muscle_names()
+    #if data_reader == "SpreadsheetDataReader":
+    #    muscles = get_muscle_names()
 
     if include_muscles:
 
