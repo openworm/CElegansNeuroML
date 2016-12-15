@@ -70,11 +70,11 @@ def get_str_from_expnotation(num):
     return '{0:.15f}'.format(num)
 
 def get_muscle_position(muscle, data_reader="SpreadsheetDataReader"):
-    if data_reader == "UpdatedSpreadsheetDataReader":
+    """if data_reader == "UpdatedSpreadsheetDataReader":
         x = 80 * (-1 if muscle[0] == 'v' else 1)
         z = 80 * (-1 if muscle[4] == 'L' else 1)
         y = -300 + 30 * int(muscle[5:7])
-        return x, y, z
+        return x, y, z"""
     
     x = 80 * (-1 if muscle[1] == 'V' else 1)
     z = 80 * (-1 if muscle[2] == 'L' else 1)
