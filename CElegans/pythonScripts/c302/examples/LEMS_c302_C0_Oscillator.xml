@@ -5,11 +5,13 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3', 'PVCL', 'PVCR', 'AVBL', 'AVBR']
-    Cell stimulated:               ['PVCL', 'PVCR']
-    Connection numbers overridden: None
-    Connection numbers scaled:     None
-    Include muscles:               False
+    Data reader:                    SpreadsheetDataReader
+    Cells:                          ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3', 'PVCL', 'PVCR', 'AVBL', 'AVBR']
+    Cell stimulated:                ['PVCL', 'PVCR']
+    Connection numbers overridden:  None
+    Connection numbers scaled:      None
+    Connection polarities override: None
+    Include muscles:                False
 
     Known BioParameters:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)

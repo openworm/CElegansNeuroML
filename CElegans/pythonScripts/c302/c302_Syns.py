@@ -6,7 +6,8 @@ def setup(parameter_set,
           generate=False,
           duration=500, 
           dt=0.05,
-          target_directory='examples'):
+          target_directory='examples',
+          data_reader="SpreadsheetDataReader"):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()

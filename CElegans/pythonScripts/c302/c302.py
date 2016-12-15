@@ -35,6 +35,7 @@ import random
 import argparse
 import shutil
 import os
+import importlib
 
 try:
     from urllib2 import URLError  # Python 2
@@ -43,9 +44,42 @@ except:
 
 import sys
 sys.path.append("..")
-import SpreadsheetDataReader
+#import SpreadsheetDataReader
 
 LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
+
+def load_data_reader(data_reader="SpreadsheetDataReader"):
+    """
+    Imports and returns data reader module
+    Args:
+        data_reader (str): The name of the data reader
+    Returns:
+        reader (obj): The data reader object
+    """
+    reader = importlib.import_module(data_reader)
+    return reader
+
+def get_str_from_expnotation(num):
+    """
+    Returns a formatted string representing a floating point number, e.g. 1*0.00001 would result into 1e-05. Returning 0.00001.
+    Args:
+        num (float): A number. Can be of type int or float,  float can have exponential notation.
+    Returns:
+       (str): A string representing a float with 15 fractional digits.
+    """
+    return '{0:.15f}'.format(num)
+
+def get_muscle_position(muscle, data_reader="SpreadsheetDataReader"):
+    if data_reader == "UpdatedSpreadsheetDataReader":
+        x = 80 * (-1 if muscle[0] == 'v' else 1)
+        z = 80 * (-1 if muscle[4] == 'L' else 1)
+        y = -300 + 30 * int(muscle[5:7])
+        return x, y, z
+    
+    x = 80 * (-1 if muscle[1] == 'V' else 1)
+    z = 80 * (-1 if muscle[2] == 'L' else 1)
+    y = -300 + 30 * int(muscle[3:5])
+    return x, y, z
 
 
 def process_args():
@@ -59,6 +93,12 @@ def process_args():
 
     parser.add_argument('parameters', type=str, metavar='<parameters>',
                         help='Set of biophysical parametes to use, e.g. parameters_A')
+
+    parser.add_argument('-datareader',
+                        type=str,
+                        metavar='<data-reader>',
+                        default="SpreadsheetDataReader",
+                        help='Use a specific data reader. Possible values are: "SpreadsheetDataReader". (default: SpreadsheetDataReader)')
 
     parser.add_argument('-cells',
                         type=str,
@@ -78,17 +118,23 @@ def process_args():
                         default=None,
                         help='List of cells to stimulate (default: all)')
 
+    parser.add_argument('-connpolarityoverride',
+                        type=str,
+                        metavar='<conn-polarity-override>',
+                        default=None,
+                        help='Map of connection polarities to override, e.g. {"AVAL-AVBR":"inh", ...} => use inhibitory connection for AVAL-AVBR')
+
     parser.add_argument('-connnumberoverride',
                         type=str,
                         metavar='<conn-number-override>',
                         default=None,
-                        help='Map of connection numbers to override, e.g. {"I1L-I3":2.5} => use 2.5 connections from I1L to I3')
+                        help='Map of connection numbers to override, e.g. {"I1L-I3":2.5, "AVAR-AVBL_GJ":2} => use 2.5 connections from I1L to I3, use 2 connections for GJ AVAR-AVBL')
 
     parser.add_argument('-connnumberscaling',
                         type=str,
                         metavar='<conn-number-scaling>',
                         default=None,
-                        help='Map of scaling factors for connection numbers, e.g. {"I1L-I3":2} => use 2 times as many connections from I1L to I3')
+                        help='Map of scaling factors for connection numbers, e.g. {"I1L-I3":2, "AVAR-AVBL_GJ":2} => use 2 times as many connections from I1L to I3, use 2 times as many connections for GJ AVAR-AVBL')
 
     parser.add_argument('-duration',
                         type=float,
@@ -228,6 +274,8 @@ def get_random_colour_hex():
 def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
     new_id = "%s_%sconns"%(prototype_syn.id, str(n).replace('.', '_'))
+    if type(n) is float:
+        new_id = "%s_%sconns" % (prototype_syn.id, get_str_from_expnotation(n).replace('.', '_'))
     
     if isinstance(prototype_syn, ExpTwoSynapse):
         new_id = "%s"%(prototype_syn.id)
@@ -247,16 +295,22 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
         elif isinstance(prototype_syn, GapJunction):
             magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
+            cond = "%s%s" % (magnitude * n, unit)
+            if type(n) is float:
+                cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
             new_syn = GapJunction(id=new_id,
-                                  conductance =       "%s%s"%(magnitude*n, unit))
+                                  conductance =       cond)
 
             existing_synapses[new_id] = new_syn
             nml_doc.gap_junctions.append(new_syn)
 
         elif isinstance(prototype_syn, GradedSynapse):
             magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
+            cond = "%s%s" % (magnitude * n, unit)
+            if type(n) is float:
+                cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
             new_syn = GradedSynapse(id=new_id,
-                                    conductance =       "%s%s"%(magnitude*n, unit),
+                                    conductance =       cond,
                                     delta =             prototype_syn.delta,
                                     Vth =               prototype_syn.Vth,
                                     erev =              prototype_syn.erev,
@@ -277,7 +331,7 @@ def get_file_name_relative_to_c302(file_name):
         return os.path.relpath(os.environ['C302_HOME'],file_name)
     
     
-def get_cell_names_and_connection(test=False):
+def get_cell_names_and_connection(data_reader="SpreadsheetDataReader", test=False):
     
     # Use the spreadsheet reader to give a list of all cells and a list of all connections
     # This could be replaced with a call to "DatabaseReader" or "OpenWormNeuroLexReader" in future...
@@ -285,19 +339,22 @@ def get_cell_names_and_connection(test=False):
     
     spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
 
-    cell_names, conns = SpreadsheetDataReader.readDataFromSpreadsheet(include_nonconnected_cells=True)
+    cell_names, conns = load_data_reader(data_reader).readDataFromSpreadsheet(include_nonconnected_cells=True)
 
     cell_names.sort()
     
     return cell_names, conns
 
 
-def get_cell_muscle_names_and_connection(test=False):
+def get_cell_muscle_names_and_connection(data_reader="SpreadsheetDataReader", test=False):
     
-    spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
+    #spreadsheet_location = os.path.dirname(os.path.abspath(__file__))+"/../../../"
 
-    mneurons, all_muscles, muscle_conns = SpreadsheetDataReader.readMuscleDataFromSpreadsheet()
-    
+    mneurons, all_muscles, muscle_conns = load_data_reader(data_reader).readMuscleDataFromSpreadsheet()
+
+    #if data_reader == "SpreadsheetDataReader":
+    #    all_muscles = get_muscle_names()
+        
     return mneurons, all_muscles, muscle_conns
 
 
@@ -322,12 +379,14 @@ def get_cell_id_string(cell, params, muscle=False):
     
 def generate(net_id,
              params,
+             data_reader = "SpreadsheetDataReader",
              cells = None,
              cells_to_plot = None,
              cells_to_stimulate = None,
              include_muscles=False,
              conn_number_override = None,
              conn_number_scaling = None,
+             conn_polarity_override = None,
              duration = 500,
              dt = 0.01,
              vmin = None,
@@ -370,11 +429,13 @@ def generate(net_id,
     random.seed(seed)
 
     info = "\n\nParameters and setting used to generate this network:\n\n"+\
-           "    Cells:                         %s\n" % (cells if cells is not None else "All cells")+\
-           "    Cell stimulated:               %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All cells")+\
-           "    Connection numbers overridden: %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
-           "    Connection numbers scaled:     %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+\
-           "    Include muscles:               %s\n" % include_muscles
+           "    Data reader:                    %s\n" % data_reader+\
+           "    Cells:                          %s\n" % (cells if cells is not None else "All cells")+\
+           "    Cell stimulated:                %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All cells")+\
+           "    Connection numbers overridden:  %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
+           "    Connection numbers scaled:      %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+ \
+           "    Connection polarities override: %s\n" % conn_polarity_override + \
+           "    Include muscles:                %s\n" % include_muscles
     print_(info)
     info += "\n%s\n"%(params.bioparameter_info("    "))
 
@@ -400,8 +461,7 @@ def generate(net_id,
     if is_cond_based_cell(params):
         nml_doc.fixed_factor_concentration_models.append(params.concentration_model)
 
-
-    cell_names, conns = get_cell_names_and_connection()
+    cell_names, conns = get_cell_names_and_connection(data_reader)
 
     # To hold all Cell NeuroML objects vs. names
     all_cells = {}
@@ -568,9 +628,13 @@ def generate(net_id,
     if verbose: 
         print_("Finished loading %i cells"%count)
 
-    mneurons, all_muscles, muscle_conns = get_cell_muscle_names_and_connection()
+    #mneurons, all_muscles, muscle_conns = get_cell_muscle_names_and_connection()
+    #muscles = get_muscle_names()
+    
+    mneurons, muscles, muscle_conns = get_cell_muscle_names_and_connection(data_reader)
 
-    muscles = get_muscle_names()
+    if data_reader == "SpreadsheetDataReader":
+        muscles = get_muscle_names()
 
     if include_muscles:
 
@@ -594,13 +658,11 @@ def generate(net_id,
                 p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[muscle])
                 pop0.properties.append(p)
 
-            x = 80 * (-1 if muscle[1] == 'V' else 1)
-            z = 80 * (-1 if muscle[2] == 'L' else 1)
-            y = -300 + 30 * int(muscle[3:5])
+            x, y, z = get_muscle_position(muscle, data_reader)
             print_('Positioning muscle: %s at (%s,%s,%s)'%(muscle,x,y,z))
             inst.location = Location(x,y,z)
 
-            target = "%s/0/%s"%(pop0.id, params.generic_muscle_cell.id)
+            #target = "%s/0/%s"%(pop0.id, params.generic_muscle_cell.id) # unused
 
             plot = {}
 
@@ -661,11 +723,29 @@ def generate(net_id,
             elect_conn = False
             analog_conn = False
             syn0 = params.neuron_to_neuron_exc_syn
+            orig_pol = "exc"
             if 'GABA' in conn.synclass:
                 syn0 = params.neuron_to_neuron_inh_syn
+                orig_pol = "inh"
             if '_GJ' in conn.synclass:
                 syn0 = params.neuron_to_neuron_elec_syn
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction)
+
+            polarity = None
+            if conn_polarity_override and conn_polarity_override.has_key('%s-%s' % (conn.pre_cell, conn.post_cell)):
+                polarity = conn_polarity_override['%s-%s' % (conn.pre_cell, conn.post_cell)]
+
+            if polarity and '_GJ' not in conn.synclass:
+                if polarity == 'inh':
+                    syn0 = params.neuron_to_neuron_inh_syn
+                else:
+                    syn0 = params.neuron_to_neuron_exc_syn
+
+            if polarity and polarity != orig_pol:
+                if verbose: 
+                    print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
+                     (conn.pre_cell, conn.post_cell, orig_pol, polarity))
+                
                 
             if isinstance(syn0, GradedSynapse):
                 analog_conn = True
@@ -676,6 +756,9 @@ def generate(net_id,
             number_syns = conn.number
             conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
 
+            if "_GJ" in conn.synclass:
+                conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
+
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
                 number_syns = conn_number_override[conn_shorthand]
             elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
@@ -685,17 +768,18 @@ def generate(net_id,
                 print conn_shorthand
                 print conn_number_override
                 print conn_number_scaling'''
-
+            
             if number_syns != conn.number:
-                if analog_conn:
+                if analog_conn or "_GJ" in conn.synclass:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.conductance)
                 else:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.gbase)
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
-                cond1 = "%s%s"%(magnitude*number_syns, unit)
+                cond1 = "%s%s" % (get_str_from_expnotation(magnitude * number_syns), unit)
+                gj = "" if not "_GJ" in conn.synclass else " GapJunction"
                 if verbose: 
-                    print_(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
-                     (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
+                    print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                     (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
 
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
@@ -764,9 +848,12 @@ def generate(net_id,
 
 
     if include_muscles:
-      for conn in muscle_conns:
+        for conn in muscle_conns:
+            if not conn.post_cell in muscles:
+                continue
+            if not conn.pre_cell in lems_info["cells"]:
+                continue
 
-        if conn.pre_cell in lems_info["cells"] and conn.post_cell in muscles:
             # take information about each connection and package it into a
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
@@ -774,11 +861,28 @@ def generate(net_id,
             elect_conn = False
             analog_conn = False
             syn0 = params.neuron_to_muscle_exc_syn
+            orig_pol = "exc"
             if 'GABA' in conn.synclass:
                 syn0 = params.neuron_to_muscle_inh_syn
+                orig_pol = "inh"
             if '_GJ' in conn.synclass:
                 syn0 = params.neuron_to_muscle_elec_syn
                 elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
+
+            polarity = None
+            if conn_polarity_override and conn_polarity_override.has_key('%s-%s' % (conn.pre_cell, conn.post_cell)):
+                polarity = conn_polarity_override['%s-%s' % (conn.pre_cell, conn.post_cell)]
+
+            if polarity and '_GJ' not in conn.synclass:
+                if polarity == 'inh':
+                    syn0 = params.neuron_to_neuron_inh_syn
+                else:
+                    syn0 = params.neuron_to_neuron_exc_syn
+
+            if polarity and polarity != orig_pol:
+                if verbose:
+                    print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
+                           (conn.pre_cell, conn.post_cell, orig_pol, polarity))
 
             if isinstance(syn0, GradedSynapse):
                 analog_conn = True
@@ -788,6 +892,9 @@ def generate(net_id,
                     
             number_syns = conn.number
             conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
+            
+            if "_GJ" in conn.synclass:
+                conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
                 number_syns = conn_number_override[conn_shorthand]
@@ -801,16 +908,16 @@ def generate(net_id,
 
             if number_syns != conn.number:
                 
-                if analog_conn:
+                if analog_conn or "_GJ" in conn.synclass:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.conductance)
                 else:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.gbase)
-                    
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
-                cond1 = "%s%s"%(magnitude*number_syns, unit)
+                cond1 = "%s%s" % (get_str_from_expnotation(magnitude * number_syns), unit)
+                gj = "" if not "_GJ" in conn.synclass else " GapJunction"
                 if verbose: 
-                    print_(">> Changing number of effective synapses connection %s -> %s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
-                     (conn.pre_cell, conn.post_cell, conn.number, cond0, number_syns, cond1))
+                    print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
+                     (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
 
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
@@ -907,15 +1014,17 @@ def main():
 
     generate(args.reference,
              params,
-             cells =                 args.cells,
-             cells_to_plot =         args.cellstoplot,
-             cells_to_stimulate =    args.cellstostimulate,
-             conn_number_override =  parse_dict_arg(args.connnumberoverride),
-             conn_number_scaling =   parse_dict_arg(args.connnumberscaling),
-             duration =              args.duration,
-             dt =                    args.dt,
-             vmin =                  args.vmin,
-             vmax =                  args.vmax)
+             data_reader =            args.datareader,
+             cells =                  args.cells,
+             cells_to_plot =          args.cellstoplot,
+             cells_to_stimulate =     args.cellstostimulate,
+             conn_polarity_override = parse_dict_arg(args.connpolarityoverride),
+             conn_number_override =   parse_dict_arg(args.connnumberoverride),
+             conn_number_scaling =    parse_dict_arg(args.connnumberscaling),
+             duration =               args.duration,
+             dt =                     args.dt,
+             vmin =                   args.vmin,
+             vmax =                   args.vmax)
 
 
 
@@ -923,4 +1032,5 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
