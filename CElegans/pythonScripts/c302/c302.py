@@ -81,6 +81,11 @@ def get_muscle_position(muscle, data_reader="SpreadsheetDataReader"):
     y = -300 + 30 * int(muscle[3:5])
     return x, y, z
 
+def is_muscle(cell_name):
+    return cell_name.startswith('MDL') or \
+           cell_name.startswith('MDR') or  \
+           cell_name.startswith('MVL') or  \
+           cell_name.startswith('MVR')
 
 def process_args():
     """
