@@ -78,7 +78,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     times = [t*1000 for t in lems_results['t']]
     for cm in lems_results.keys():
         if not cm=='t' and cm.endswith('/v'):
-            if 'MDL' in cm or 'MDR' in cm or 'MVR' in cm or 'MVL' in cm:
+            if c302.is_muscle(cm):
                 muscles.append(cm.split('/')[0])
             else:
                 cells.append(cm.split('/')[0])
@@ -119,7 +119,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
             volts_n = np.append(volts_n,[[vv*1000 for vv in v]],axis=0)
         yvals.append(volts_n[-1])
         
-    info = 'Membrane potentials of %i cells (%s %s)'%(len(cells),config,parameter_set)
+    info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
     
     plots(volts_n, info, cells, dt)
 
@@ -166,7 +166,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
                 mvolts_n = np.append(mvolts_n,[[vv*1000 for vv in mv]],axis=0)
             yvals.append(mvolts_n[-1])
 
-        info = 'Membrane potentials of %i muscles (%s %s)'%(len(muscles),config,parameter_set)
+        info = 'Membrane potentials of %i muscle(s) (%s %s)'%(len(muscles),config,parameter_set)
 
         plots(mvolts_n, info, muscles, dt)
         
