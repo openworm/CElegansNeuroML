@@ -1,10 +1,15 @@
 '''
 
-    Parameters C0 for c302 still under developemnt!!
-    
-    Subject to change without notice!!
-    
+    Parameters C0:
+        Cells:           Simplified conductance based cell model (Morris Lecar like); No fast K channel. No inactivation on Ca channel. No [Ca2+] dependence
+        Chem Synapses:   Analogue/graded synapses; continuous transmission (voltage dependent) (same as C1)
+        Gap junctions:   Electrical connection; current linerly depends on difference in voltages 
+        
+    ASSESSMENT:
+        A good prospect for a simple neuronal model with analog synapses => can have non spiking neurons
+
 '''
+
 from neuroml import Cell
 from neuroml import Morphology
 from neuroml import Point3DWithDiam
