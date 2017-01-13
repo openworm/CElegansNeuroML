@@ -37,7 +37,7 @@ class C302Simulation(object):
         
         exec('from c302_%s import setup'%config)
         
-        self.cells, self.cells_to_stimulate, self.params, self.include_muscles = setup(parameter_set)
+        self.cells, self.cells_to_stimulate, self.params, self.muscles_to_include = setup(parameter_set)
         
         self.reference = reference
         
@@ -74,7 +74,7 @@ class C302Simulation(object):
                                 self.params, 
                                 cells=self.cells, 
                                 cells_to_stimulate=self.cells_to_stimulate, 
-                                include_muscles = self.include_muscles,
+                                muscles_to_include = self.muscles_to_include,
                                 duration=self.sim_time, 
                                 dt=self.dt, 
                                 validate=(self.params.level!='B'),
