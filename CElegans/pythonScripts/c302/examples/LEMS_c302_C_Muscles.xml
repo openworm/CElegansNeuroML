@@ -11,7 +11,7 @@ Parameters and setting used to generate this network:
     Connection numbers overridden:  None
     Connection numbers scaled:      None
     Connection polarities override: None
-    Include muscles:                True
+    Muscles:                        All muscles
 
     Known BioParameters:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)

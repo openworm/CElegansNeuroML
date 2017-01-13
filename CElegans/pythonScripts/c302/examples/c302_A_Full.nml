@@ -9,7 +9,7 @@ Parameters and setting used to generate this network:
     Connection numbers overridden:  None
     Connection numbers scaled:      None
     Connection polarities override: None
-    Include muscles:                True
+    Muscles:                        All muscles
 
     Known BioParameters:
         BioParameter: neuron_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
