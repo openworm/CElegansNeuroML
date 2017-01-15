@@ -18,10 +18,10 @@ def setup(parameter_set,
     
     my_cells = ["ADAL","PVCL","MDR1"]
     my_cells = ["ADAL","PVCL"]
-    include_muscles = False
+    muscles_to_include = ['MDR01']
     
     cells               = my_cells
-    cells_to_stimulate  = my_cells
+    cells_to_stimulate  = my_cells + muscles_to_include
     
     reference = "c302_%s_IClamp"%parameter_set
     
@@ -30,13 +30,13 @@ def setup(parameter_set,
                     params, 
                     cells=cells, 
                     cells_to_stimulate=cells_to_stimulate, 
-                    include_muscles = include_muscles,
+                    muscles_to_include = muscles_to_include,
                     duration=duration, 
                     dt=dt, 
                     validate=('B' not in parameter_set),
                     target_directory=target_directory)
                     
-    return cells, cells_to_stimulate, params, include_muscles
+    return cells, cells_to_stimulate, params, muscles_to_include
              
 if __name__ == '__main__':
     

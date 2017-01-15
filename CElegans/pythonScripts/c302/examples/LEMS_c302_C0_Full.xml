@@ -11,23 +11,24 @@ Parameters and setting used to generate this network:
     Connection numbers overridden:  None
     Connection numbers scaled:      None
     Connection polarities override: None
-    Include muscles:                True
+    Muscles:                        All muscles
 
     Known BioParameters:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 0.002 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_cond_density = 1.7 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 1.8 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_slow_cond_density = 1.8 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_ca_simple_cond_density = 1.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_ca_simple_cond_density = 1.378 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_simple_cond_density = 1.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_simple_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_decay_time = 200 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.0002 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)

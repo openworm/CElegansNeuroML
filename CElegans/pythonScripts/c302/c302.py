@@ -81,6 +81,11 @@ def get_muscle_position(muscle, data_reader="SpreadsheetDataReader"):
     y = -300 + 30 * int(muscle[3:5])
     return x, y, z
 
+def is_muscle(cell_name):
+    return cell_name.startswith('MDL') or \
+           cell_name.startswith('MDR') or  \
+           cell_name.startswith('MVL') or  \
+           cell_name.startswith('MVR')
 
 def process_args():
     """
@@ -384,7 +389,7 @@ def generate(net_id,
              cells = None,
              cells_to_plot = None,
              cells_to_stimulate = None,
-             include_muscles=False,
+             muscles_to_include=[],
              conn_number_override = None,
              conn_number_scaling = None,
              conn_polarity_override = None,
@@ -432,11 +437,11 @@ def generate(net_id,
     info = "\n\nParameters and setting used to generate this network:\n\n"+\
            "    Data reader:                    %s\n" % data_reader+\
            "    Cells:                          %s\n" % (cells if cells is not None else "All cells")+\
-           "    Cell stimulated:                %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All cells")+\
+           "    Cell stimulated:                %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All neurons")+\
            "    Connection numbers overridden:  %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
            "    Connection numbers scaled:      %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+ \
            "    Connection polarities override: %s\n" % conn_polarity_override + \
-           "    Include muscles:                %s\n" % include_muscles
+           "    Muscles:                        %s\n" % (muscles_to_include if muscles_to_include is not None else "All muscles")
     print_(info)
     info += "\n%s\n"%(params.bioparameter_info("    "))
 
@@ -629,18 +634,24 @@ def generate(net_id,
     if verbose: 
         print_("Finished loading %i cells"%count)
 
-    #mneurons, all_muscles, muscle_conns = get_cell_muscle_names_and_connection()
-    #muscles = get_muscle_names()
     
-    mneurons, muscles, muscle_conns = get_cell_muscle_names_and_connection(data_reader)
+    mneurons, all_muscles, muscle_conns = get_cell_muscle_names_and_connection(data_reader)
 
     #if data_reader == "SpreadsheetDataReader":
-    #    muscles = get_muscle_names()
+    #    all_muscles = get_muscle_names()
+        
+    if muscles_to_include == None or muscles_to_include == True:
+        muscles_to_include = all_muscles
+    elif muscles_to_include == False:
+        muscles_to_include = []
+        
+    for m in muscles_to_include:
+        assert m in all_muscles
 
-    if include_muscles:
+    if len(muscles_to_include)>0:
 
         muscle_count = 0
-        for muscle in muscles:
+        for muscle in muscles_to_include:
 
             inst = Instance(id="0")
 
@@ -707,6 +718,22 @@ def generate(net_id,
             lems_info["muscles"].append(muscle)
 
             muscle_count+=1
+            
+            if muscle in cells_to_stimulate:
+
+                target = "../%s/0/%s"%(pop0.id, params.generic_muscle_cell.id)
+                if params.is_level_D():
+                    target+="/0"
+                
+                input_list = InputList(id="Input_%s_%s"%(muscle,params.offset_current.id),
+                                     component=params.offset_current.id,
+                                     populations='%s'%pop0.id)
+
+                input_list.input.append(Input(id=0, 
+                              target=target, 
+                              destination="synapses"))
+
+                net.input_lists.append(input_list)
 
         if verbose: 
             print_("Finished creating %i muscles"%muscle_count)
@@ -851,9 +878,9 @@ def generate(net_id,
 
 
 
-    if include_muscles:
+    if len(muscles_to_include)>0:
         for conn in muscle_conns:
-            if not conn.post_cell in muscles:
+            if not conn.post_cell in muscles_to_include:
                 continue
             if not conn.pre_cell in lems_info["cells"]:
                 continue

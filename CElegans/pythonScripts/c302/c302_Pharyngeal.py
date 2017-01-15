@@ -27,7 +27,7 @@ def setup(parameter_set,
                       validate=(parameter_set!='B'),
                       target_directory=target_directory)
              
-    return cells, cells_to_stimulate, params, False
+    return cells, cells_to_stimulate, params, []
              
 if __name__ == '__main__':
     
