@@ -170,22 +170,24 @@ quadrant3 = 'MDL'
 
 
 def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
-    
-    stim = PulseGenerator(id="stim_"+cell, delay=delay, duration=duration, amplitude=amplitude)
-    
+    i = 1
+    for stim in nml_doc.pulse_generators:
+        if stim.id.startswith("%s_%s" % ("stim", cell)):
+            i += 1
+    id = "%s_%s_%s" % ("stim", cell, i)
+    stim = PulseGenerator(id=id, delay=delay, duration=duration, amplitude=amplitude)
     nml_doc.pulse_generators.append(stim)
-    
-    
-    target = get_cell_id_string(cell, params)
-        
-    input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
-                         component=stim.id,
-                         populations='%s'%cell)
 
-    input_list.input.append(Input(id=0, 
-                  target=target, 
-                  destination="synapses"))
-                  
+    target = get_cell_id_string(cell, params)
+
+    input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
+                           component=stim.id,
+                           populations='%s'%cell)
+
+    input_list.input.append(Input(id=0,
+                                  target=target,
+                                  destination="synapses"))
+
     nml_doc.networks[0].input_lists.append(input_list)
 
 
