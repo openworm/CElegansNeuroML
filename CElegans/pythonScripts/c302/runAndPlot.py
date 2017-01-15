@@ -145,8 +145,8 @@ if __name__ == '__main__':
         main('Kato','C1','',1080,0.05,'jNeuroML_NEURON')
         
     elif '-twC2' in sys.argv:
-        main('TapWithdrawal','C2','',2000,0.05,'jNeuroML_NEURON')
-
+        main('TapWithdrawal','C2','',500,0.05,'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
+        
     elif '-iA' in sys.argv:
         main('IClamp','A','',1000,0.05,'jNeuroML')
     elif '-iB' in sys.argv:
