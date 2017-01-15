@@ -718,6 +718,7 @@ def generate(net_id,
             # take information about each connection and package it into a
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
+            conn_shorthand = "%s-%s" % (conn.pre_cell, conn.post_cell)
 
             elect_conn = False
             analog_conn = False
@@ -729,21 +730,21 @@ def generate(net_id,
             if '_GJ' in conn.synclass:
                 syn0 = params.neuron_to_neuron_elec_syn
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction)
+                conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
             polarity = None
-            if conn_polarity_override and conn_polarity_override.has_key('%s-%s' % (conn.pre_cell, conn.post_cell)):
-                polarity = conn_polarity_override['%s-%s' % (conn.pre_cell, conn.post_cell)]
+            if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
+                polarity = conn_polarity_override[conn_shorthand]
 
-            if polarity and '_GJ' not in conn.synclass:
+            if polarity and not elect_conn:
                 if polarity == 'inh':
                     syn0 = params.neuron_to_neuron_inh_syn
                 else:
                     syn0 = params.neuron_to_neuron_exc_syn
-
-            if polarity and polarity != orig_pol:
-                if verbose: 
+                if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
-                     (conn.pre_cell, conn.post_cell, orig_pol, polarity))
+                       (conn.pre_cell, conn.post_cell, orig_pol, polarity))
+                
                 
                 
             if isinstance(syn0, GradedSynapse):
@@ -753,10 +754,6 @@ def generate(net_id,
                     nml_doc.silent_synapses.append(silent)
 
             number_syns = conn.number
-            conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
-
-            if "_GJ" in conn.synclass:
-                conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
                 number_syns = conn_number_override[conn_shorthand]
@@ -767,15 +764,21 @@ def generate(net_id,
                 print conn_shorthand
                 print conn_number_override
                 print conn_number_scaling'''
+            """if polarity:
+                print "%s %s num:%s" % (conn_shorthand, polarity, number_syns)
+            elif elect_conn:
+                print "%s num:%s" % (conn_shorthand, number_syns)
+            else:
+                print "%s %s num:%s" % (conn_shorthand, orig_pol, number_syns)"""
             
             if number_syns != conn.number:
-                if analog_conn or "_GJ" in conn.synclass:
+                if analog_conn or elect_conn:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.conductance)
                 else:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.gbase)
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s" % (get_str_from_expnotation(magnitude * number_syns), unit)
-                gj = "" if not "_GJ" in conn.synclass else " GapJunction"
+                gj = "" if not elect_conn else " GapJunction"
                 if verbose: 
                     print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
@@ -856,6 +859,7 @@ def generate(net_id,
             # take information about each connection and package it into a
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
+            conn_shorthand = "%s-%s" % (conn.pre_cell, conn.post_cell)
 
             elect_conn = False
             analog_conn = False
@@ -867,21 +871,20 @@ def generate(net_id,
             if '_GJ' in conn.synclass:
                 syn0 = params.neuron_to_muscle_elec_syn
                 elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
+                conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
             polarity = None
-            if conn_polarity_override and conn_polarity_override.has_key('%s-%s' % (conn.pre_cell, conn.post_cell)):
-                polarity = conn_polarity_override['%s-%s' % (conn.pre_cell, conn.post_cell)]
+            if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
+                polarity = conn_polarity_override[conn_shorthand]
 
-            if polarity and '_GJ' not in conn.synclass:
+            if polarity and not elect_conn:
                 if polarity == 'inh':
                     syn0 = params.neuron_to_neuron_inh_syn
                 else:
                     syn0 = params.neuron_to_neuron_exc_syn
-
-            if polarity and polarity != orig_pol:
-                if verbose:
+                if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
-                           (conn.pre_cell, conn.post_cell, orig_pol, polarity))
+                       (conn.pre_cell, conn.post_cell, orig_pol, polarity))
 
             if isinstance(syn0, GradedSynapse):
                 analog_conn = True
@@ -890,11 +893,7 @@ def generate(net_id,
                     nml_doc.silent_synapses.append(silent)
                     
             number_syns = conn.number
-            conn_shorthand = "%s-%s"%(conn.pre_cell, conn.post_cell)
             
-            if "_GJ" in conn.synclass:
-                conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
-
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
                 number_syns = conn_number_override[conn_shorthand]
             elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
@@ -904,16 +903,22 @@ def generate(net_id,
                 print conn_shorthand
                 print conn_number_override
                 print conn_number_scaling'''
+            """if polarity:
+                print "%s %s num:%s" % (conn_shorthand, polarity, number_syns)
+            elif elect_conn:
+                print "%s num:%s" % (conn_shorthand, number_syns)
+            else:
+                print "%s %s num:%s" % (conn_shorthand, orig_pol, number_syns)"""
 
             if number_syns != conn.number:
                 
-                if analog_conn or "_GJ" in conn.synclass:
+                if analog_conn or elect_conn:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.conductance)
                 else:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.gbase)
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s" % (get_str_from_expnotation(magnitude * number_syns), unit)
-                gj = "" if not "_GJ" in conn.synclass else " GapJunction"
+                gj = "" if not elect_conn else " GapJunction"
                 if verbose: 
                     print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
