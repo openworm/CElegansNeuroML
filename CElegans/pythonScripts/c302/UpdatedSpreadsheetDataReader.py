@@ -18,7 +18,6 @@ import os
 spreadsheet_location = os.path.dirname(os.path.abspath(__file__)) + "/../../../"
 filename = "%sherm_full_edgelist.csv" % spreadsheet_location
 
-
 def get_all_muscle_prefixes():
     return ["pm", "vm", "um", "dBWM", "vBWM"]
 
@@ -55,11 +54,11 @@ def get_old_muscle_name(muscle):
         index = "0%s" % index
     if muscle.startswith("vBWML"):
         return "MVL%s" % index
-    if muscle.startswith("vBWMR"):
+    elif muscle.startswith("vBWMR"):
         return "MVR%s" % index
-    if muscle.startswith("dBWML"):
+    elif muscle.startswith("dBWML"):
         return "MDL%s" % index
-    if muscle.startswith("dBWMR"):
+    elif muscle.startswith("dBWMR"):
         return "MDR%s" % index
 
 def get_syntype(syntype):
@@ -70,13 +69,22 @@ def get_syntype(syntype):
     else:
         raise NotImplementedError("Cannot parse syntype '%s'" % syntype)
     
-def get_synclass(syntype):
+def get_synclass(cell, syntype):
+    #dirty hack
     if syntype == "GapJunction":
         return "Generic_GJ"
     else:
-        #dirty hack
+        if cell.startswith("DD") or cell.startswith("VD"):
+            return "GABA"
         return "Acetylcholine"
-    
+
+def parse_row(row):
+    pre = str.strip(row["Source"])
+    post = str.strip(row["Target"])
+    num = int(row["Weight"])
+    syntype = get_syntype(str.strip(row["Type"]))
+    synclass = get_synclass(pre, syntype)
+    return pre, post, num, syntype, synclass
 
 def readDataFromSpreadsheet(include_nonconnected_cells=False):
     """
@@ -95,40 +103,18 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False):
         print "Opened file: " + filename
 
         known_nonconnected_cells = ['CANL', 'CANR']
-        check = False
-
+        
         for row in reader:
-            pre = str.strip(row["Source"])
-            post = str.strip(row["Target"])
-            num = int(row["Weight"])
-            syntype = get_syntype(str.strip(row["Type"]))
-            #synclass = 'Generic_GJ' if 'electrical' in syntype else 'Chemical_Synapse'
-            synclass = get_synclass(syntype)
+            pre, post, num, syntype, synclass = parse_row(row)
 
             if not is_neuron(pre) or not is_neuron(post):
                 continue  # pre or post is not a neuron
 
             pre = remove_leading_index_zero(pre)
             post = remove_leading_index_zero(post)
-
-            # if pre.startswith("AVA") or pre.startswith("AVB"):
-            # print "%s-%s" % (pre, post)
-            # twc = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR', 'AVM', 'ALML', 'ALMR']
-
-            # motors = ['VA1', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VA10', 'VA11', 'VA12']
-            # motors += ['VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9']
-            # motors += ['DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9']
-            # motors += ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
-
-            # if pre in motors and post in motors:
-            #    if syntype == "electrical" and not check:
-            #        print "\n"
-            #        check = True
-            #    print "######### %s-%s %s %s" % (pre, post, num, syntype)
-
-            #print "%s-%s %s %s %s" % (pre, post, syntype, num, synclass)
             
             conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
+            #print ConnectionInfo(pre, post, num, syntype, synclass)
             if pre not in cells:
                 cells.append(pre)
             if post not in cells:
@@ -159,28 +145,18 @@ def readMuscleDataFromSpreadsheet():
         print "Opened file: " + filename
 
         for row in reader:
-            pre = str.strip(row["Source"])
-            post = str.strip(row["Target"])
-            num = int(row["Weight"])
-            #syntype = str.strip(row["Type"])
-            #synclass = 'Generic_GJ' if 'electrical' in syntype else 'Chemical_Synapse'
-            syntype = get_syntype(str.strip(row["Type"]))
-            synclass = get_synclass(syntype)
+            pre, post, num, syntype, synclass = parse_row(row)
 
             if not is_neuron(pre) or not is_body_wall_muscle(post):
                 # Don't add connections unless pre=neuron and post=body_wall_muscle
                 continue
 
             pre = remove_leading_index_zero(pre)
-
             post = get_old_muscle_name(post)
 
-            #print "%s-%s %s %s %s" % (pre, post, syntype, num, synclass)
-
-
             conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
-            # print "NEWSpreadsheedDataReader >> %s-%s %s" % (pre, post, synclass)
-            if pre not in neurons and is_neuron(pre):
+            #print ConnectionInfo(pre, post, num, syntype, synclass)
+            if pre not in neurons:
                 neurons.append(pre)
             if post not in muscles:
                 muscles.append(post)
