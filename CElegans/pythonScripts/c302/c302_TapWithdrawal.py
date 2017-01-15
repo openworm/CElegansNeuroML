@@ -24,12 +24,8 @@ def setup(parameter_set,
     params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing TapWithdrawal", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "2000 ms", "Testing TapWithdrawal", "0")
 
-    cells = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR',
+    neurons = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR',
              'AVM', 'ALML', 'ALMR']
-
-    cells_to_plot = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR',
-             'AVM', 'ALML', 'ALMR']
-    #cells_to_plot = ['AVAL', 'AVBL', 'PVCL', 'AVDL', 'DVA', 'PVDL', 'PLML', 'AVM', 'ALML', ]
 
     motors = []
     motors += ['VA1', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VA10', 'VA11', 'VA12']
@@ -39,10 +35,14 @@ def setup(parameter_set,
     motors += ['DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6']
     motors += ['VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
 
-    cells += motors
+    muscles_to_include = False
+    muscles_to_include = True # ALL muscles
+    muscles_to_include = ['MVL01', 'MVL10']
 
-    include_muscles = False
-    include_muscles = True
+    cells = neurons
+    cells += motors
+    cells_to_plot = neurons
+    # cells_to_plot = ['AVAL', 'AVBL', 'PVCL', 'AVDL', 'DVA', 'PVDL', 'PLML', 'AVM', 'ALML', ]
 
     cells += [  # 'AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9',
         # 'AVFL', 'AVFR', 'AVKR', 'AVL',
@@ -425,7 +425,7 @@ def setup(parameter_set,
                                 cells_to_stimulate=cells_to_stimulate,
                                 conn_polarity_override=conn_polarity_override,
                                 conn_number_override=conn_number_override,
-                                include_muscles=include_muscles,
+                                muscles_to_include=muscles_to_include,
                                 duration=duration,
                                 dt=dt,
                                 validate=(parameter_set != 'B'),
@@ -448,7 +448,7 @@ def setup(parameter_set,
 
         print("(Re)written network file to: " + nml_file)
 
-    return cells, cells_to_stimulate, params, include_muscles
+    return cells, cells_to_stimulate, params, muscles_to_include
 
 
 if __name__ == '__main__':
