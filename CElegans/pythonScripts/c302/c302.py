@@ -239,12 +239,10 @@ def write_to_file(nml_doc,
         print_("Written network file to: "+nml_file)
 
     lems_file_name = target_directory+'/'+'LEMS_%s.xml'%reference
-    lems = open(lems_file_name, 'w')
-
-    # if running unittest concat template_path
-
-    merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
-    lems.write(merged)
+    with open(lems_file_name, 'w') as lems:
+    	# if running unittest concat template_path
+    	merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
+    	lems.write(merged)
 
     if verbose: 
         print_("Written LEMS file to: "+lems_file_name)
