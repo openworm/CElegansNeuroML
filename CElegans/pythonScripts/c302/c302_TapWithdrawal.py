@@ -37,12 +37,12 @@ def setup(parameter_set,
 
     muscles_to_include = False
     muscles_to_include = True # ALL muscles
-    muscles_to_include = ['MVL01', 'MVL10']
+    #muscles_to_include = ['MVL01', 'MVL10']
 
-    cells = neurons
+    cells = list(neurons)
     cells += motors
-    cells_to_plot = neurons
-    # cells_to_plot = ['AVAL', 'AVBL', 'PVCL', 'AVDL', 'DVA', 'PVDL', 'PLML', 'AVM', 'ALML', ]
+    
+    cells_to_plot = list(neurons)
 
     cells += [  # 'AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9',
         # 'AVFL', 'AVFR', 'AVKR', 'AVL',
