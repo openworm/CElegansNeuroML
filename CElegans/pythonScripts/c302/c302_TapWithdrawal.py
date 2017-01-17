@@ -29,11 +29,11 @@ def setup(parameter_set,
 
     motors = []
     motors += ['VA1', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VA10', 'VA11', 'VA12']
-    motors += ['VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9']
+    motors += ['VB1', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VB10', 'VB11']
     motors += ['DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9']
     motors += ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
     motors += ['DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6']
-    motors += ['VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
+    motors += ['VD1', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'VD10', 'VD11', 'VD12', 'VD13']
 
     muscles_to_include = False
     muscles_to_include = True # ALL muscles
