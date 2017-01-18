@@ -389,6 +389,7 @@ def generate(net_id,
              cells_to_plot = None,
              cells_to_stimulate = None,
              muscles_to_include=[],
+             conns_to_include=[],
              conn_number_override = None,
              conn_number_scaling = None,
              conn_polarity_override = None,
@@ -437,6 +438,7 @@ def generate(net_id,
            "    Data reader:                    %s\n" % data_reader+\
            "    Cells:                          %s\n" % (cells if cells is not None else "All cells")+\
            "    Cell stimulated:                %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All neurons")+\
+           "    Connection:                     %s\n" % (conns_to_include if conns_to_include is not None else "All connections") + \
            "    Connection numbers overridden:  %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
            "    Connection numbers scaled:      %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+ \
            "    Connection polarities override: %s\n" % conn_polarity_override + \
@@ -758,6 +760,9 @@ def generate(net_id,
                 syn0 = params.neuron_to_neuron_elec_syn
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction)
 
+            if conns_to_include and conn_shorthand not in conns_to_include:
+                continue
+
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key('%s-%s' % (conn.pre_cell, conn.post_cell)):
                 polarity = conn_polarity_override['%s-%s' % (conn.pre_cell, conn.post_cell)]
@@ -895,6 +900,9 @@ def generate(net_id,
             if '_GJ' in conn.synclass:
                 syn0 = params.neuron_to_muscle_elec_syn
                 elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
+
+            if conns_to_include and conn_shorthand not in conns_to_include:
+                continue
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key('%s-%s' % (conn.pre_cell, conn.post_cell)):
