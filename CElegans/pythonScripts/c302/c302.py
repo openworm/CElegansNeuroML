@@ -1028,6 +1028,17 @@ def generate(net_id,
     return nml_doc
 
 '''
+    Input:    string of form ["AVAL","AVBL"]
+    returns:  ["AVAL", "AVBL"]
+'''
+def parse_list_arg(list_arg):
+    if not list_arg: return None
+    entries = list_arg[1:-1].split(',')
+    ret = [e for e in entries]
+    print_("Command line argument %s parsed as: %s"%(list_arg,ret))
+    return ret
+
+'''
     Input:    string of form ["ADAL-AIBL":2.5,"I1L-I1R":0.5]
     returns:  {}
 '''
@@ -1050,9 +1061,9 @@ def main():
     generate(args.reference,
              params,
              data_reader =            args.datareader,
-             cells =                  args.cells,
-             cells_to_plot =          args.cellstoplot,
-             cells_to_stimulate =     args.cellstostimulate,
+             cells =                  parse_list_arg(args.cells),
+             cells_to_plot =          parse_list_arg(args.cellstoplot),
+             cells_to_stimulate =     parse_list_arg(args.cellstostimulate),
              conn_polarity_override = parse_dict_arg(args.connpolarityoverride),
              conn_number_override =   parse_dict_arg(args.connnumberoverride),
              conn_number_scaling =    parse_dict_arg(args.connnumberscaling),
