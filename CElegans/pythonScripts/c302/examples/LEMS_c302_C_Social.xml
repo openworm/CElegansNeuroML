@@ -8,6 +8,7 @@ Parameters and setting used to generate this network:
     Data reader:                    SpreadsheetDataReader
     Cells:                          ['RMGR', 'ASHR', 'ASKR', 'AWBR', 'IL2R', 'RMHR', 'URXR']
     Cell stimulated:                []
+    Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
     Connection polarities override: None

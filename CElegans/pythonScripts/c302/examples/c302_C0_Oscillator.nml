@@ -6,6 +6,7 @@ Parameters and setting used to generate this network:
     Data reader:                    SpreadsheetDataReader
     Cells:                          ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3', 'PVCL', 'PVCR', 'AVBL', 'AVBR']
     Cell stimulated:                ['PVCL', 'PVCR']
+    Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
     Connection polarities override: None
