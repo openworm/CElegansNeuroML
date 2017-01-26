@@ -1,12 +1,13 @@
 '''
 
-    Parameters C1 for c302 still under developemnt!!
-    
-    
-    C1 adds analogue synapses... Might be merged into C or bumped up to D
-    
-    Subject to change without notice!!
-    
+    Parameters C1:
+        Cells:           Single compartment, conductance based cell models with HH like ion channels
+        Chem Synapses:   Analogue/graded synapses; continuous transmission (voltage dependent)
+        Gap junctions:   Electrical connection; current linerly depends on difference in voltages 
+        
+    ASSESSMENT:
+        A good prospect, but cell model could be simpler. See C0
+
 '''
 
 from neuroml import GradedSynapse
@@ -14,13 +15,6 @@ from neuroml import GapJunction
 
 from parameters_C import ParameterisedModel as ParameterisedModel_C
 
-
-'''
-
-    The values below are a FIRST APPROXIMATION of conductance based neurons for use in a network to 
-    investigate the synaptic connectivity of C elegans 
-
-'''
 
 class ParameterisedModel(ParameterisedModel_C):
 

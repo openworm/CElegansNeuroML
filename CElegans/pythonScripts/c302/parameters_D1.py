@@ -1,12 +1,18 @@
 '''
 
-    Parameters D1 for c302; still under developemnt!!
-    
-    D1 adds analogue synapses...
-    
-    Subject to change without notice!!
-    
+    Parameters D:
+        Cells:           Multicompartmental, conductance based cell models with HH like ion channels
+        Chem Synapses:   Analogue/graded synapses; continuous transmission (voltage dependent)
+        Gap junctions:   Electrical connection; current linerly depends on difference in voltages 
+        
+    ASSESSMENT:
+        May be the right target for the "full scale" model in the medium term...
+        Similar issues to parameters D
+        Note issue https://github.com/openworm/CElegansNeuroML/issues/71 regarding status of this
+        
+
 '''
+
 from neuroml import Cell
 from neuroml import Morphology
 from neuroml import Point3DWithDiam
@@ -28,12 +34,6 @@ from neuroml import PulseGenerator
 
 from bioparameters import c302ModelPrototype
 
-'''
-
-    The values below are a FIRST APPROXIMATION of conductance based neurons for use in a network to 
-    investigate the synaptic connectivity of C elegans
-        
-'''
 
 class ParameterisedModel(c302ModelPrototype):
 

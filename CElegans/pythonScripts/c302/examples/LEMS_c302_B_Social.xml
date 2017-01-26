@@ -5,11 +5,14 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['RMGR', 'ASHR', 'ASKR', 'AWBR', 'IL2R', 'RMHR', 'URXR']
-    Cell stimulated:               []
-    Connection numbers overridden: None
-    Connection numbers scaled:     None
-    Include muscles:               False
+    Data reader:                    SpreadsheetDataReader
+    Cells:                          ['RMGR', 'ASHR', 'ASKR', 'AWBR', 'IL2R', 'RMHR', 'URXR']
+    Cell stimulated:                []
+    Connection:                     []
+    Connection numbers overridden:  None
+    Connection numbers scaled:      None
+    Connection polarities override: None
+    Muscles:                        []
 
     Known BioParameters:
         BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)

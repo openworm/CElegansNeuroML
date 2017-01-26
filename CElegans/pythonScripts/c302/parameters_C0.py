@@ -1,10 +1,15 @@
 '''
 
-    Parameters C0 for c302 still under developemnt!!
-    
-    Subject to change without notice!!
-    
+    Parameters C0:
+        Cells:           Simplified conductance based cell model (Morris Lecar like); No fast K channel. No inactivation on Ca channel. No [Ca2+] dependence
+        Chem Synapses:   Analogue/graded synapses; continuous transmission (voltage dependent) (same as C1)
+        Gap junctions:   Electrical connection; current linerly depends on difference in voltages 
+        
+    ASSESSMENT:
+        A good prospect for a simple neuronal model with analog synapses => can have non spiking neurons
+
 '''
+
 from neuroml import Cell
 from neuroml import Morphology
 from neuroml import Point3DWithDiam
@@ -48,25 +53,32 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("cell_diameter", "5", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_length", "20", "BlindGuess", "0.1")
 
-        self.add_bioparameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
-        self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_slow_cond_density", "1.7 mS_per_cm2", "BlindGuess", "0.1")
-        #self.add_bioparameter("neuron_k_slow_cond_density", "1.0 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_leak_cond_density", "0.002 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
+        
+        
+
+        self.add_bioparameter("muscle_k_slow_cond_density", "1.8 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_slow_cond_density", "1.8 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
+        
+        
 
         self.add_bioparameter("muscle_ca_simple_cond_density", "1.2 mS_per_cm2", "BlindGuess", "0.1")
-        #self.add_bioparameter("neuron_ca_simple_cond_density", "0.1 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_ca_simple_cond_density", "1.378 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_ca_simple_cond_density", "1.2 mS_per_cm2", "BlindGuess", "0.1")
+        
+        
+        
+        self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
         self.add_bioparameter("ca_simple_erev", "40 mV", "BlindGuess", "0.1")
         
         self.add_bioparameter("ca_conc_decay_time", "200 ms", "BlindGuess", "0.1")
@@ -133,7 +145,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
         mp.init_memb_potentials.append(InitMembPotential(value=self.get_bioparameter("initial_memb_pot").value))
 
-        mp.specific_capacitances.append(SpecificCapacitance(value=self.get_bioparameter("specific_capacitance").value))
+        mp.specific_capacitances.append(SpecificCapacitance(value=self.get_bioparameter("muscle_specific_capacitance").value))
 
         mp.spike_threshes.append(SpikeThresh(value=self.get_bioparameter("muscle_spike_thresh").value))
 
@@ -204,7 +216,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
         mp.init_memb_potentials.append(InitMembPotential(value=self.get_bioparameter("initial_memb_pot").value))
 
-        mp.specific_capacitances.append(SpecificCapacitance(value=self.get_bioparameter("specific_capacitance").value))
+        mp.specific_capacitances.append(SpecificCapacitance(value=self.get_bioparameter("neuron_specific_capacitance").value))
 
         mp.spike_threshes.append(SpikeThresh(value=self.get_bioparameter("neuron_spike_thresh").value))
 

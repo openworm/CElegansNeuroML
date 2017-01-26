@@ -560,7 +560,7 @@ if __name__ == '__main__':
                          
     elif '-oscC0' in sys.argv:
         
-        scalem = 4
+        scalem = .1
         max_c0 = max_constraints_neuron_tight_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
         min_c0 = min_constraints_neuron_tight_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
 

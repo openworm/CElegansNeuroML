@@ -3,11 +3,14 @@
 
 Parameters and setting used to generate this network:
 
-    Cells:                         ['ADAL', 'PVCL']
-    Cell stimulated:               ['ADAL', 'PVCL']
-    Connection numbers overridden: None
-    Connection numbers scaled:     None
-    Include muscles:               False
+    Data reader:                    SpreadsheetDataReader
+    Cells:                          ['ADAL', 'PVCL']
+    Cell stimulated:                ['ADAL', 'PVCL', 'MDR01']
+    Connection:                     []
+    Connection numbers overridden:  None
+    Connection numbers scaled:      None
+    Connection polarities override: None
+    Muscles:                        ['MDR01']
 
     Known BioParameters:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
@@ -88,11 +91,19 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
+        <population id="MDR01" component="GenericMuscleCell" type="populationList">
+            <instance id="0">
+                <location x="80." y="-270." z="80."/>
+            </instance>
+        </population>
         <inputList id="Input_ADAL_offset_current" population="ADAL" component="offset_current">
             <input id="0" target="../ADAL/0/ADAL/0" destination="synapses"/>
         </inputList>
         <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
             <input id="0" target="../PVCL/0/PVCL/0" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MDR01_offset_current" population="MDR01" component="offset_current">
+            <input id="0" target="../MDR01/0/GenericMuscleCell/0" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

@@ -1,11 +1,13 @@
-
-from neuroml import ExpTwoSynapse
-from neuroml import GapJunction
-from neuroml import PulseGenerator
-
-from bioparameters import c302ModelPrototype
-
 '''
+
+    Parameters B:
+        Cells:           Simple integrate and fire cells, custom component type, with an "activity" variable
+        Chem Synapses:   Event based, ohmic; one rise & one decay constant
+        Gap junctions:   Electrical connection; current linerly depends on difference in voltages 
+        
+    ASSESSMENT:
+        Not very useful in longer term; same criticisms as parameters A
+
 
     We are very aware that:
     
@@ -16,11 +18,15 @@ from bioparameters import c302ModelPrototype
     The values below are a FIRST APPROXIMATION of neurons for use in a network to 
     investigate the synaptic connectivity of C elegans
     
-    We plan more detailed parameter sets (parameters_B based on more detailed neurons & including 
-    electrical connections; parameters_C based on conductance based neurons) which use this 
-    framework.
 
 '''
+
+from neuroml import ExpTwoSynapse
+from neuroml import GapJunction
+from neuroml import PulseGenerator
+
+from bioparameters import c302ModelPrototype
+
 
 class ParameterisedModel(c302ModelPrototype):
 
