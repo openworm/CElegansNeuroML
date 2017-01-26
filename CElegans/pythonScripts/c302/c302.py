@@ -388,6 +388,7 @@ def generate(net_id,
              cells_to_plot = None,
              cells_to_stimulate = None,
              muscles_to_include=[],
+             conns_to_include=[],
              conn_number_override = None,
              conn_number_scaling = None,
              conn_polarity_override = None,
@@ -436,6 +437,7 @@ def generate(net_id,
            "    Data reader:                    %s\n" % data_reader+\
            "    Cells:                          %s\n" % (cells if cells is not None else "All cells")+\
            "    Cell stimulated:                %s\n" % (cells_to_stimulate if cells_to_stimulate is not None else "All neurons")+\
+           "    Connection:                     %s\n" % (conns_to_include if conns_to_include is not None else "All connections") + \
            "    Connection numbers overridden:  %s\n" % (conn_number_override if conn_number_override is not None else "None")+\
            "    Connection numbers scaled:      %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+ \
            "    Connection polarities override: %s\n" % conn_polarity_override + \
@@ -759,6 +761,9 @@ def generate(net_id,
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
+            if conns_to_include and conn_shorthand not in conns_to_include:
+                continue
+
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
                 polarity = conn_polarity_override[conn_shorthand]
@@ -900,6 +905,9 @@ def generate(net_id,
                 elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
+            if conns_to_include and conn_shorthand not in conns_to_include:
+                continue
+
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
                 polarity = conn_polarity_override[conn_shorthand]
@@ -1024,6 +1032,17 @@ def generate(net_id,
     return nml_doc
 
 '''
+    Input:    string of form ["AVAL","AVBL"]
+    returns:  ["AVAL", "AVBL"]
+'''
+def parse_list_arg(list_arg):
+    if not list_arg: return None
+    entries = list_arg[1:-1].split(',')
+    ret = [e for e in entries]
+    print_("Command line argument %s parsed as: %s"%(list_arg,ret))
+    return ret
+
+'''
     Input:    string of form ["ADAL-AIBL":2.5,"I1L-I1R":0.5]
     returns:  {}
 '''
@@ -1046,9 +1065,9 @@ def main():
     generate(args.reference,
              params,
              data_reader =            args.datareader,
-             cells =                  args.cells,
-             cells_to_plot =          args.cellstoplot,
-             cells_to_stimulate =     args.cellstostimulate,
+             cells =                  parse_list_arg(args.cells),
+             cells_to_plot =          parse_list_arg(args.cellstoplot),
+             cells_to_stimulate =     parse_list_arg(args.cellstostimulate),
              conn_polarity_override = parse_dict_arg(args.connpolarityoverride),
              conn_number_override =   parse_dict_arg(args.connnumberoverride),
              conn_number_scaling =    parse_dict_arg(args.connnumberscaling),
