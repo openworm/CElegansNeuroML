@@ -48,13 +48,13 @@ Parameters and setting used to generate this network:
     <iafCell id="generic_muscle_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
     <iafCell id="generic_neuron_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="2.5pA"/>
-    <pulseGenerator id="stim_RMGR" delay="100ms" duration="200ms" amplitude="5pA"/>
-    <pulseGenerator id="stim_ASHR" delay="400ms" duration="200ms" amplitude="5pA"/>
-    <pulseGenerator id="stim_ASKR" delay="700ms" duration="200ms" amplitude="5pA"/>
-    <pulseGenerator id="stim_AWBR" delay="1000ms" duration="200ms" amplitude="5pA"/>
-    <pulseGenerator id="stim_IL2R" delay="1300ms" duration="200ms" amplitude="5pA"/>
-    <pulseGenerator id="stim_RMHR" delay="1600ms" duration="200ms" amplitude="5pA"/>
-    <pulseGenerator id="stim_URXR" delay="1900ms" duration="200ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_RMGR_1" delay="100ms" duration="200ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_ASHR_1" delay="400ms" duration="200ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_ASKR_1" delay="700ms" duration="200ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_AWBR_1" delay="1000ms" duration="200ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_IL2R_1" delay="1300ms" duration="200ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_RMHR_1" delay="1600ms" duration="200ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_URXR_1" delay="1900ms" duration="200ms" amplitude="5pA"/>
     <network id="c302_A_Social">
         <population id="ASHR" component="generic_neuron_iaf_cell" type="populationList">
             <instance id="0">
@@ -157,25 +157,25 @@ Parameters and setting used to generate this network:
         <projection id="NC_URXR_RMGR_Glutamate" presynapticPopulation="URXR" postsynapticPopulation="RMGR" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../URXR/0/generic_neuron_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../RMGR/0/generic_neuron_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
-        <inputList id="Input_RMGR_stim_RMGR" population="RMGR" component="stim_RMGR">
+        <inputList id="Input_RMGR_stim_RMGR_1" population="RMGR" component="stim_RMGR_1">
             <input id="0" target="../RMGR/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_ASHR_stim_ASHR" population="ASHR" component="stim_ASHR">
+        <inputList id="Input_ASHR_stim_ASHR_1" population="ASHR" component="stim_ASHR_1">
             <input id="0" target="../ASHR/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_ASKR_stim_ASKR" population="ASKR" component="stim_ASKR">
+        <inputList id="Input_ASKR_stim_ASKR_1" population="ASKR" component="stim_ASKR_1">
             <input id="0" target="../ASKR/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_AWBR_stim_AWBR" population="AWBR" component="stim_AWBR">
+        <inputList id="Input_AWBR_stim_AWBR_1" population="AWBR" component="stim_AWBR_1">
             <input id="0" target="../AWBR/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_IL2R_stim_IL2R" population="IL2R" component="stim_IL2R">
+        <inputList id="Input_IL2R_stim_IL2R_1" population="IL2R" component="stim_IL2R_1">
             <input id="0" target="../IL2R/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_RMHR_stim_RMHR" population="RMHR" component="stim_RMHR">
+        <inputList id="Input_RMHR_stim_RMHR_1" population="RMHR" component="stim_RMHR_1">
             <input id="0" target="../RMHR/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_URXR_stim_URXR" population="URXR" component="stim_URXR">
+        <inputList id="Input_URXR_stim_URXR_1" population="URXR" component="stim_URXR_1">
             <input id="0" target="../URXR/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
     </network>
