@@ -53,12 +53,12 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("muscle_length", "20", "BlindGuess", "0.1")
 
         self.add_bioparameter("initial_memb_pot", "-60 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_initial_memb_pot", "-30 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_initial_memb_pot", "-28 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
-        self.add_bioparameter("neuron_spike_thresh", "-50 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_spike_thresh", "-55 mV", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
@@ -87,7 +87,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "0.49 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "0.16 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "3.46 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("exc_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_vth", "00 mV", "BlindGuess", "0.1")
@@ -100,7 +100,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("neuron_to_muscle_exc_syn_k", "0.025per_ms", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "0.29 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "0.29 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "1.29 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("inh_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_vth", "0 mV", "BlindGuess", "0.1")
@@ -109,11 +109,12 @@ class ParameterisedModel(ParameterisedModel_C):
 
         self.add_bioparameter("neuron_to_muscle_inh_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_vth", "0 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_inh_syn_erev", "-70 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_inh_syn_erev", "-50 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_k", "0.025per_ms", "BlindGuess", "0.1")
         
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.00552 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.00152 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_to_muscle_elec_syn_gbase", "0.00052 nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("unphysiological_offset_current", "5.135697186048022 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
@@ -127,6 +128,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.create_offsetcurrent_concentrationmodel()
         self.create_neuron_to_neuron_syn()
         self.create_neuron_to_muscle_syn()
+        self.create_muscle_to_muscle_syn()
 
 
     def create_generic_muscle_cell(self):
@@ -238,4 +240,9 @@ class ParameterisedModel(ParameterisedModel_C):
 
         self.neuron_to_muscle_elec_syn = GapJunction(id="neuron_to_muscle_elec_syn",
                                conductance =    self.get_bioparameter("neuron_to_muscle_elec_syn_gbase").value)
+
+
+    def create_muscle_to_muscle_syn(self):
+        self.muscle_to_muscle_elec_syn = GapJunction(id="muscle_to_muscle_elec_syn",
+                               conductance =    self.get_bioparameter("muscle_to_muscle_elec_syn_gbase").value)
 
