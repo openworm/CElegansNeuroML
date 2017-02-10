@@ -9,6 +9,7 @@ import sys
 
 import neuroml.writers as writers
 
+range_incl = lambda start, end:range(start, end + 1)
 
 def setup(parameter_set,
           generate=False,
@@ -24,25 +25,28 @@ def setup(parameter_set,
     params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing TapWithdrawal", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "2000 ms", "Testing TapWithdrawal", "0")
 
-    neurons = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR',
-             'AVM', 'ALML', 'ALMR']
+    VA_motors = ["VA%s" % c for c in range_incl(1, 12)]
+    VB_motors = ["VB%s" % c for c in range_incl(1, 11)]
+    DA_motors = ["DA%s" % c for c in range_incl(1, 9)]
+    DB_motors = ["DB%s" % c for c in range_incl(1, 7)]
+    DD_motors = ["DD%s" % c for c in range_incl(1, 6)]
+    VD_motors = ["VD%s" % c for c in range_incl(1, 13)]
+    AS_motors = ["AS%s" % c for c in range_incl(1, 11)]
+    TW_cells = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR',
+                'AVM', 'ALML', 'ALMR']
+    TW_sensory = ["PLML", "PLMR", "AVM", "ALML", "ALMR"]
+    all_motors = list(VA_motors + VB_motors + DA_motors + DB_motors + DD_motors + VD_motors + AS_motors)
+    
+    #neurons = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR', 'AVM', 'ALML', 'ALMR']
 
-    motors = []
-    motors += ['VA1', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VA10', 'VA11', 'VA12']
-    motors += ['VB1', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VB10', 'VB11']
-    motors += ['DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9']
-    motors += ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
-    motors += ['DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6']
-    motors += ['VD1', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'VD10', 'VD11', 'VD12', 'VD13']
-
-    muscles_to_include = False
+    #muscles_to_include = False
     muscles_to_include = True # ALL muscles
     #muscles_to_include = ['MVL01', 'MVL10']
 
-    cells = list(neurons)
-    cells += motors
+    cells = list(TW_cells + all_motors)
     
-    cells_to_plot = list(neurons)
+    cells_to_plot = list(cells)
+    #cells_to_plot = ["VB5", "VA4"]
 
     cells += [  # 'AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9',
         # 'AVFL', 'AVFR', 'AVKR', 'AVL',
@@ -76,15 +80,15 @@ def setup(parameter_set,
         'ALML-ALML':'inh',
         'ALML-PVCL':'inh',
         'ALML-PVCR':'inh',
-        'ALML-AVDR':'exc',
+        'ALML-AVDR':'exc', ##
         'ALMR-PVCR':'inh',
 
         'AVM-PVCL':'inh',
         'AVM-PVCR':'inh',
         'AVM-AVBL':'inh',
         'AVM-AVBR':'inh',
-        'AVM-AVDL':'exc',
-        'AVM-AVDR':'exc',
+        'AVM-AVDL':'exc', ##
+        'AVM-AVDR':'exc', ##
 
         'PVDL-PVDR':'inh',
         'PVDL-PVCL':'exc',
@@ -209,7 +213,6 @@ def setup(parameter_set,
         'AVAR-DB2':'inh',
         'AVAR-DB3':'inh',
         'AVAL-DB7':'inh',
-        'VA12-DB7':'inh',
         'DA1-DB1':'inh',
         'DA2-DA3':'inh',
         'DA2-DB1':'inh',
@@ -264,7 +267,6 @@ def setup(parameter_set,
 
         'VB11-PVCR':'inh',
         'VB4-VB5':'inh',
-        'VB11-VA12':'inh',
 
 
         'VA2-VB1':'inh',
@@ -317,8 +319,8 @@ def setup(parameter_set,
         'PVCR-AVAR_GJ':22 * 0.01,
         'AVAR-PVCR_GJ':22 * 0.01,
 
-        'PVCL-PLML_GJ':4 * 0.01,  
-        'PVCR-PLMR_GJ':8 * 0.01,
+        'PVCL-PLML_GJ':4 * 0.01, ##
+        'PVCR-PLMR_GJ':8 * 0.01, ##
 
         #'AVDL-AVM_GJ':8 * 0.01,
         #'ALML-AVM_GJ':1 * 0.01,
@@ -397,20 +399,12 @@ def setup(parameter_set,
         'VA4-VB3_GJ':1 * 0.01,
         'VB3-VA4_GJ':1 * 0.01,
 
-        'VA10-DB7_GJ':1 * 0.01,
-        'DB7-VA10_GJ':1 * 0.01,
 
         'VA11-VB10_GJ':3 * 0.01,
         'VB10-VA11_GJ':3 * 0.01,
 
         'VA12-VB11_GJ':7 * 0.01,
         'VB11-VA12_GJ':7 * 0.01,
-
-        'VB3-VA4_GJ':1 * 0.01,
-        'VA4-VB3_GJ':1 * 0.01,
-
-        'VB10-VA11_GJ':3 * 0.01,
-        'VA11-VB10_GJ':3 * 0.01,
 
         'VB11-DA9_GJ':7 * 0.01,
         'DA9-VB11_GJ':7 * 0.01,
@@ -435,12 +429,11 @@ def setup(parameter_set,
         # stim_amplitude = "5.135697186048022pA"
 
 
-        c302.add_new_input(nml_doc, "AVM", "10ms", "50ms", "5pA", params)
-        c302.add_new_input(nml_doc, "ALML", "10ms", "50ms", "5pA", params)
-        c302.add_new_input(nml_doc, "ALMR", "10ms", "50ms", "5pA", params)
-
-        c302.add_new_input(nml_doc, "PLML", "200ms", "50ms", "5pA", params)
-        c302.add_new_input(nml_doc, "PLMR", "200ms", "50ms", "5pA", params)
+        c302.add_new_input(nml_doc, "AVM", "10ms", "700ms", stim_amplitude, params)
+        c302.add_new_input(nml_doc, "ALML", "10ms", "700ms", stim_amplitude, params)
+        c302.add_new_input(nml_doc, "ALMR", "10ms", "700ms", stim_amplitude, params)
+        c302.add_new_input(nml_doc, "PLML", "10ms", "700ms", stim_amplitude, params)
+        c302.add_new_input(nml_doc, "PLMR", "10ms", "700ms", stim_amplitude, params)
 
         nml_file = target_directory + '/' + reference + '.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file)  # Write over network file written above...
