@@ -147,18 +147,22 @@ def readMuscleDataFromSpreadsheet():
         for row in reader:
             pre, post, num, syntype, synclass = parse_row(row)
 
-            if not is_neuron(pre) or not is_body_wall_muscle(post):
+            if (not is_neuron(pre) and not is_body_wall_muscle(pre)) or not is_body_wall_muscle(post):
                 # Don't add connections unless pre=neuron and post=body_wall_muscle
                 continue
 
-
-            pre = remove_leading_index_zero(pre)
+            if is_neuron(pre):
+                pre = remove_leading_index_zero(pre)
+            else:
+                pre = get_old_muscle_name(pre)
             post = get_old_muscle_name(post)
 
             conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
             #print ConnectionInfo(pre, post, num, syntype, synclass)
-            if pre not in neurons:
+            if is_neuron(pre) and pre not in neurons:
                 neurons.append(pre)
+            elif is_body_wall_muscle(pre) and pre not in muscles:
+                muscles.append(pre)
             if post not in muscles:
                 muscles.append(post)
 
