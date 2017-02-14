@@ -7,7 +7,7 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     Cells:                          All cells
-    Cell stimulated:                ['PVCL', 'PVCR']
+    Cell stimulated:                ['PLML', 'PLMR']
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None

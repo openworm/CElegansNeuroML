@@ -5,7 +5,7 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     Cells:                          ['ADAL', 'PVCL']
-    Cell stimulated:                ['ADAL', 'PVCL', 'MDR01']
+    Cell stimulated:                []
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -45,9 +45,9 @@ Parameters and setting used to generate this network:
         BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current = 4 pA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
 
 </notes>
     <include href="cell_C.xml"></include>
@@ -77,7 +77,25 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="100 ms" duration="800 ms" amplitude="5pA"/>
+    <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="4 pA"/>
+    <pulseGenerator id="stim_ADAL_1" delay="100ms" duration="800ms" amplitude="1pA"/>
+    <pulseGenerator id="stim_PVCL_1" delay="100ms" duration="800ms" amplitude="1pA"/>
+    <pulseGenerator id="stim_MDR01_1" delay="100ms" duration="800ms" amplitude="1pA"/>
+    <pulseGenerator id="stim_ADAL_2" delay="1100ms" duration="800ms" amplitude="2pA"/>
+    <pulseGenerator id="stim_PVCL_2" delay="1100ms" duration="800ms" amplitude="2pA"/>
+    <pulseGenerator id="stim_MDR01_2" delay="1100ms" duration="800ms" amplitude="2pA"/>
+    <pulseGenerator id="stim_ADAL_3" delay="2100ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_PVCL_3" delay="2100ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_MDR01_3" delay="2100ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_ADAL_4" delay="3100ms" duration="800ms" amplitude="4pA"/>
+    <pulseGenerator id="stim_PVCL_4" delay="3100ms" duration="800ms" amplitude="4pA"/>
+    <pulseGenerator id="stim_MDR01_4" delay="3100ms" duration="800ms" amplitude="4pA"/>
+    <pulseGenerator id="stim_ADAL_5" delay="4100ms" duration="800ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_PVCL_5" delay="4100ms" duration="800ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_MDR01_5" delay="4100ms" duration="800ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_ADAL_6" delay="5100ms" duration="800ms" amplitude="6pA"/>
+    <pulseGenerator id="stim_PVCL_6" delay="5100ms" duration="800ms" amplitude="6pA"/>
+    <pulseGenerator id="stim_MDR01_6" delay="5100ms" duration="800ms" amplitude="6pA"/>
     <network id="c302_D_IClamp">
         <population id="ADAL" component="ADAL" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="Xabe"/>
@@ -96,14 +114,59 @@ Parameters and setting used to generate this network:
                 <location x="80." y="-270." z="80."/>
             </instance>
         </population>
-        <inputList id="Input_ADAL_offset_current" population="ADAL" component="offset_current">
-            <input id="0" target="../ADAL/0/ADAL/0" destination="synapses"/>
+        <inputList id="Input_ADAL_stim_ADAL_1" population="ADAL" component="stim_ADAL_1">
+            <input id="0" target="../ADAL/0/ADAL" destination="synapses"/>
         </inputList>
-        <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
-            <input id="0" target="../PVCL/0/PVCL/0" destination="synapses"/>
+        <inputList id="Input_PVCL_stim_PVCL_1" population="PVCL" component="stim_PVCL_1">
+            <input id="0" target="../PVCL/0/PVCL" destination="synapses"/>
         </inputList>
-        <inputList id="Input_MDR01_offset_current" population="MDR01" component="offset_current">
-            <input id="0" target="../MDR01/0/GenericMuscleCell/0" destination="synapses"/>
+        <inputList id="Input_MDR01_stim_MDR01_1" population="MDR01" component="stim_MDR01_1">
+            <input id="0" target="../MDR01/0/GenericMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ADAL_stim_ADAL_2" population="ADAL" component="stim_ADAL_2">
+            <input id="0" target="../ADAL/0/ADAL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCL_stim_PVCL_2" population="PVCL" component="stim_PVCL_2">
+            <input id="0" target="../PVCL/0/PVCL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MDR01_stim_MDR01_2" population="MDR01" component="stim_MDR01_2">
+            <input id="0" target="../MDR01/0/GenericMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ADAL_stim_ADAL_3" population="ADAL" component="stim_ADAL_3">
+            <input id="0" target="../ADAL/0/ADAL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCL_stim_PVCL_3" population="PVCL" component="stim_PVCL_3">
+            <input id="0" target="../PVCL/0/PVCL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MDR01_stim_MDR01_3" population="MDR01" component="stim_MDR01_3">
+            <input id="0" target="../MDR01/0/GenericMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ADAL_stim_ADAL_4" population="ADAL" component="stim_ADAL_4">
+            <input id="0" target="../ADAL/0/ADAL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCL_stim_PVCL_4" population="PVCL" component="stim_PVCL_4">
+            <input id="0" target="../PVCL/0/PVCL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MDR01_stim_MDR01_4" population="MDR01" component="stim_MDR01_4">
+            <input id="0" target="../MDR01/0/GenericMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ADAL_stim_ADAL_5" population="ADAL" component="stim_ADAL_5">
+            <input id="0" target="../ADAL/0/ADAL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCL_stim_PVCL_5" population="PVCL" component="stim_PVCL_5">
+            <input id="0" target="../PVCL/0/PVCL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MDR01_stim_MDR01_5" population="MDR01" component="stim_MDR01_5">
+            <input id="0" target="../MDR01/0/GenericMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ADAL_stim_ADAL_6" population="ADAL" component="stim_ADAL_6">
+            <input id="0" target="../ADAL/0/ADAL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_PVCL_stim_PVCL_6" population="PVCL" component="stim_PVCL_6">
+            <input id="0" target="../PVCL/0/PVCL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_MDR01_stim_MDR01_6" population="MDR01" component="stim_MDR01_6">
+            <input id="0" target="../MDR01/0/GenericMuscleCell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

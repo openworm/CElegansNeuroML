@@ -7,7 +7,7 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     Cells:                          ['URYDL', 'SMDDR', 'VD12', 'VB11']
-    Cell stimulated:                ['URYDL', 'VD12']
+    Cell stimulated:                []
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -60,9 +60,9 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_A_Syns" length="500ms" step="0.05ms" target="c302_A_Syns">
+    <Simulation id="sim_c302_A_Syns" length="2000ms" step="0.05ms" target="c302_A_Syns">
 
-        <Display id="neurons" title="c302_A_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
+        <Display id="neurons" title="c302_A_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-72" ymax="-48">
             
             <Line id="SMDDR" quantity="SMDDR/0/generic_neuron_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="URYDL" quantity="URYDL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />

@@ -7,7 +7,7 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     Cells:                          ['URYDL', 'SMDDR', 'VD12', 'VB11', 'AIZL', 'ASHL']
-    Cell stimulated:                ['URYDL', 'VD12', 'AIZL']
+    Cell stimulated:                []
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -61,9 +61,9 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_B_Syns" length="500ms" step="0.05ms" target="c302_B_Syns">
+    <Simulation id="sim_c302_B_Syns" length="2000ms" step="0.05ms" target="c302_B_Syns">
 
-        <Display id="neurons" title="c302_B_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-52" ymax="-28">
+        <Display id="neurons" title="c302_B_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-52" ymax="-28">
             
             <Line id="AIZL" quantity="AIZL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="ASHL" quantity="ASHL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
@@ -74,7 +74,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="activity_neurons" title="c302_B_Syns: Activity of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_neurons" title="c302_B_Syns: Activity of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-0.1" ymax="1.1">
             
             <Line id="AIZL" quantity="AIZL/0/generic_neuron_iaf_cell/activity" scale="1" color="#eaf195" timeScale="1ms" />
             <Line id="ASHL" quantity="ASHL/0/generic_neuron_iaf_cell/activity" scale="1" color="#3c00ca" timeScale="1ms" />

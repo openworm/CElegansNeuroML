@@ -133,7 +133,7 @@ if __name__ == '__main__':
         main('Oscillator','B','',600,0.05,'jNeuroML_NEURON')
         
     elif '-oscC0' in sys.argv:
-        main('Oscillator','C0','',1000,0.05,'jNeuroML_NEURON')
+        main('Oscillator','C0','',1000,0.025,'jNeuroML_NEURON')
         
     elif '-oscC' in sys.argv:
         main('Oscillator','C','',1000,0.05,'jNeuroML_NEURON')

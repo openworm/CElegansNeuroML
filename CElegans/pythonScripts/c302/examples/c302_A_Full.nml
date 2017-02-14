@@ -5,7 +5,7 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     Cells:                          All cells
-    Cell stimulated:                ['PVCL', 'PVCR']
+    Cell stimulated:                ['PLML', 'PLMR']
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -13838,11 +13838,11 @@ Parameters and setting used to generate this network:
         <projection id="NC_VD13_MVR23_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR23" synapse="neuron_to_muscle_inh_syn">
             <connection id="0" preCellId="../VD13/0/generic_neuron_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR23/0/generic_muscle_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
-        <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
-            <input id="0" target="../PVCL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        <inputList id="Input_PLML_offset_current" population="PLML" component="offset_current">
+            <input id="0" target="../PLML/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_PVCR_offset_current" population="PVCR" component="offset_current">
-            <input id="0" target="../PVCR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        <inputList id="Input_PLMR_offset_current" population="PLMR" component="offset_current">
+            <input id="0" target="../PLMR/0/generic_neuron_iaf_cell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

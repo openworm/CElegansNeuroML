@@ -189,7 +189,7 @@ def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
     stim = PulseGenerator(id=id, delay=delay, duration=duration, amplitude=amplitude)
     nml_doc.pulse_generators.append(stim)
 
-    target = get_cell_id_string(cell, params)
+    target = get_cell_id_string(cell, params, muscle=is_muscle(cell))
 
     input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
                            component=stim.id,
