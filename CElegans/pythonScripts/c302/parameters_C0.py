@@ -42,7 +42,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
     def __init__(self):
         self.level = "C0"
-        self.custom_component_types_definitions = ['cell_C.xml','synapses.xml']
+        self.custom_component_types_definitions = ['cell_C.xml','custom_synapses.xml']
         
         self.set_default_bioparameters()
         print("Set default parameters for %s"%self.level)

@@ -66,7 +66,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cell_C.xml" />
     
-    <Include file="synapses.xml" />
+    <Include file="custom_synapses.xml" />
     
     <Include file="c302_C0_Social.nml" />
 

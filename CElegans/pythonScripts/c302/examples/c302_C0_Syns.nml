@@ -53,7 +53,7 @@ Parameters and setting used to generate this network:
 
 </notes>
     <include href="cell_C.xml"></include>
-    <include href="synapses.xml"></include>
+    <include href="custom_synapses.xml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="200 ms" rho="0.0002 mol_per_m_per_A_per_s"/>
     <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.0nS"/>
     <silentSynapse id="silent"/>
