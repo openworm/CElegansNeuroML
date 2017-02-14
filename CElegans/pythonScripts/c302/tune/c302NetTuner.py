@@ -127,15 +127,15 @@ parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
                           
 parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
                           'neuron_to_neuron_inh_syn_conductance',
-                          'exc_syn_vth',
-                          'inh_syn_vth'] 
+                          'exc_syn_ad',
+                          'inh_syn_ad'] 
               
 parameters_C0_based = parameters_C0_based_neuron + parameters_C0_based_muscle + parameters_C0_based_net
 
 tight_min = 0.95
 tight_max = 1.05
-loose_min = 0.05
-loose_max = 20
+loose_min = 0.1
+loose_max = 10
 
 min_constraints_neuron_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_min for p in parameters_C0_based_neuron ]
 max_constraints_neuron_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_max for p in parameters_C0_based_neuron ]
@@ -226,7 +226,7 @@ def run_optimisation(prefix,
                                    generate_dir=run_dir,
                                    num_local_procesors_to_use = num_local_procesors_to_use)
 
-    peak_threshold = -31 if level.startswith('A') or level.startswith('B') else (-30)
+    peak_threshold = -31 if level.startswith('A') or level.startswith('B') else (-40)
 
     analysis_var = {'peak_delta':     0,
                     'baseline':       0,
@@ -468,8 +468,30 @@ if __name__ == '__main__':
         elif '-muscC0' in sys.argv:
             
             scalem = .1
-            max_c0 = max_constraints_neuron_tight_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
-            min_c0 = min_constraints_neuron_tight_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
+            max_c0 = max_constraints_neuron_loose_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
+            min_c0 = min_constraints_neuron_loose_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
+            
+            weights = {}
+            target_data = {}
+            
+            simulator  = 'jNeuroML_NEURON'
+            
+            for cell in ['DB2','VB2','DB3','VB3']:
+                var = '%s/0/GenericNeuronCell/v:max_peak_no'%cell
+                target_data[var] = 4
+                var = '%s/0/GenericNeuronCell/v:min_peak_no'%cell
+                target_data[var] = 4
+
+            for c in ['DB2','VB2','DB3','VB3']:
+                var = '%s/0/GenericNeuronCell/v:maximum'%c
+                target_data[var] = -10
+                var = '%s/0/GenericNeuronCell/v:minimum'%c
+                target_data[var] = -70
+
+            for key in target_data.keys():
+                weights[key] = 1
+                if 'imum' in key:
+                    weights[key] = .01
         
             run_optimisation('Test',
                              'Muscles',
@@ -477,8 +499,8 @@ if __name__ == '__main__':
                              parameters_C0_based,
                              max_c0,
                              min_c0,
-                             weights0,
-                             target_data0,
+                             weights,
+                             target_data,
                              sim_time = 1000,
                              dt = 0.1,
                              population_size =  scale(scalem,100),
@@ -596,20 +618,22 @@ if __name__ == '__main__':
         weights = {}
         target_data = {}
         
-        for cell in ['DB2','VB2','DB3','VB3','VA3']:
+        for cell in ['DB2','VB2','DB3','VB3']:
             var = '%s/0/GenericNeuronCell/v:max_peak_no'%cell
-            target_data[var] = 3
-        '''
-        for c in ['VB2','DB3','VA3']:
+            target_data[var] = 4
+            var = '%s/0/GenericNeuronCell/v:min_peak_no'%cell
+            target_data[var] = 4
+        
+        for c in ['DB2','VB2','DB3','VB3']:
             var = '%s/0/GenericNeuronCell/v:maximum'%c
             target_data[var] = -10
             var = '%s/0/GenericNeuronCell/v:minimum'%c
-            target_data[var] = -70'''
+            target_data[var] = -70
         
         for key in target_data.keys():
             weights[key] = 1
             if 'imum' in key:
-                weights[key] = .1
+                weights[key] = .02
             
         #simulator = 'jNeuroML'
         simulator  = 'jNeuroML_NEURON'
@@ -629,9 +653,9 @@ if __name__ == '__main__':
                          num_selected =     scale(scalem,20),
                          num_offspring =    scale(scalem,20),
                          mutation_rate =    0.9,
-                         num_elites =       scale(scalem,3),
+                         num_elites =       scale(scalem,4),
                          nogui =            nogui,
-                         seed =             12344,
+                         seed =             123445,
                          simulator = simulator,
                          num_local_procesors_to_use = 8)
 
