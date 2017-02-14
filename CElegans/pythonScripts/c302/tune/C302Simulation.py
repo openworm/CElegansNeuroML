@@ -77,7 +77,6 @@ class C302Simulation(object):
                                 muscles_to_include = self.muscles_to_include,
                                 duration=self.sim_time, 
                                 dt=self.dt, 
-                                validate=(self.params.level!='B'),
                                 verbose=False,
                                 target_directory = self.generate_dir)
              

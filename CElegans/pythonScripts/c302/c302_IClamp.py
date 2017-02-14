@@ -33,7 +33,6 @@ def setup(parameter_set,
                     muscles_to_include = muscles_to_include,
                     duration=duration, 
                     dt=dt, 
-                    validate=('B' not in parameter_set),
                     target_directory=target_directory)
                     
     for i in range(len(stim_amplitudes)):

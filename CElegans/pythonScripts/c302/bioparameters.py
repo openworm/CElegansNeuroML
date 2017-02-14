@@ -96,5 +96,8 @@ class c302ModelPrototype(ParameterisedModelPrototype):
     def is_level_C(self):
         return self.level.startswith('C')
     
+    def is_level_C0(self):
+        return self.level == 'C0'
+    
     def is_level_D(self):
         return self.level.startswith('D')

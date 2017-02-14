@@ -38,7 +38,6 @@ def setup(parameter_set,
                        cells_to_stimulate=cells_to_stimulate, 
                        duration=duration, 
                        dt=dt, 
-                       validate=(parameter_set!='B'),
                        target_directory=target_directory)
              
     stim_amplitude = "5pA"

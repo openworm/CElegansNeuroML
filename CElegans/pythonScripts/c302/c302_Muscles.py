@@ -81,7 +81,6 @@ def setup(parameter_set,
                     muscles_to_include = muscles_to_include,
                     duration=duration, 
                     dt=dt, 
-                    validate=(parameter_set!='B'),
                     target_directory=target_directory)    
 
     return cells, cells_to_stimulate, params, muscles_to_include

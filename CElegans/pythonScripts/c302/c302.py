@@ -37,6 +37,8 @@ import shutil
 import os
 import importlib
 
+from parameters_C0 import GradedSynapse2
+
 try:
     from urllib2 import URLError  # Python 2
 except:
@@ -324,6 +326,22 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
             existing_synapses[new_id] = new_syn
             nml_doc.graded_synapses.append(new_syn)
 
+        elif isinstance(prototype_syn, GradedSynapse2):
+            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
+            cond = "%s%s" % (magnitude * n, unit)
+            if type(n) is float:
+                cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
+            new_syn = GradedSynapse2(id=new_id,
+                                    conductance =       cond,
+                                    ar =                prototype_syn.ar,
+                                    ad =                prototype_syn.ad,
+                                    beta =              prototype_syn.beta,
+                                    vth =               prototype_syn.vth,
+                                    erev =              prototype_syn.erev)
+
+            existing_synapses[new_id] = new_syn
+            nml_doc.graded_synapses.append(new_syn)
+
     else:
         new_syn = existing_synapses[new_id]
 
@@ -397,10 +415,11 @@ def generate(net_id,
              vmin = None,
              vmax = None,
              seed = 1234,
-             validate=True, 
              test=False,
              verbose=True,
              target_directory='./'):
+                 
+    validate = not (params.is_level_B() or params.is_level_C0())
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -494,11 +513,14 @@ def generate(net_id,
     lems_info["includes"] = []
 
     if params.custom_component_types_definitions:
-        lems_info["includes"].append(params.custom_component_types_definitions)
-        if target_directory != './':
-            def_file = "%s/%s"%(os.path.dirname(os.path.abspath(__file__)), params.custom_component_types_definitions)
-            shutil.copy(def_file, target_directory)
-        nml_doc.includes.append(IncludeType(href=params.custom_component_types_definitions))
+        if isinstance(params.custom_component_types_definitions, str):
+            params.custom_component_types_definitions = [params.custom_component_types_definitions]
+        for ctd in params.custom_component_types_definitions:
+            lems_info["includes"].append(ctd)
+            if target_directory != './':
+                def_file = "%s/%s"%(os.path.dirname(os.path.abspath(__file__)), ctd)
+                shutil.copy(def_file, target_directory)
+            nml_doc.includes.append(IncludeType(href=ctd))
     
     
     backers_dir = root_dir+"/../../../../OpenWormBackers/" if test else root_dir+"/../../../OpenWormBackers/"
@@ -779,7 +801,7 @@ def generate(net_id,
                 
                 
                 
-            if isinstance(syn0, GradedSynapse):
+            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2):
                 analog_conn = True
                 if len(nml_doc.silent_synapses)==0:
                     silent = SilentSynapse(id="silent")
@@ -921,7 +943,7 @@ def generate(net_id,
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                        (conn.pre_cell, conn.post_cell, orig_pol, polarity))
 
-            if isinstance(syn0, GradedSynapse):
+            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2):
                 analog_conn = True
                 if len(nml_doc.silent_synapses)==0:
                     silent = SilentSynapse(id="silent")

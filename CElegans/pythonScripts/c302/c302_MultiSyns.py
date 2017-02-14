@@ -27,7 +27,6 @@ if __name__ == '__main__':
                        cells_to_stimulate=cells_to_stimulate, 
                        duration=1000, 
                        dt=0.1, 
-                       validate=(parameter_set!='B'),
                        target_directory=target_directory)
              
     stim_amplitude = "0.35nA"
