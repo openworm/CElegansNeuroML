@@ -59,7 +59,8 @@ def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save,save_
                         yaxis="Membrane potential (mV)" if voltage else "Activity",
                         show_plot_already=False,
                         save_figure_to=(None if not save else save_fig_path%(file_name)),
-                        cols_in_legend_box=8)
+                        cols_in_legend_box=8,
+                        title_above_plot=True)
     
     
 def plot_c302_results(lems_results, config, parameter_set, directory='./',save=True,show_plot_already=True, data_reader="SpreadsheetDataReader"):
@@ -204,7 +205,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         yvals = []
         labels = []
 
-        info = '%s of %i cells (%s %s)'%(description, len(cells),config,parameter_set)
+        info = '%s of %i neurons (%s %s)'%(description, len(cells),config,parameter_set)
         for cell in cells:
             a = lems_results[template.format(cell,variable)]
             

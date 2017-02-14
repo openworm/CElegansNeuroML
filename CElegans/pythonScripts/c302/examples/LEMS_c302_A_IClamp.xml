@@ -7,7 +7,7 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     Cells:                          ['ADAL', 'PVCL']
-    Cell stimulated:                ['ADAL', 'PVCL', 'MDR01']
+    Cell stimulated:                []
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -40,9 +40,9 @@ Parameters and setting used to generate this network:
         BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 5pA (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 100 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 800 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current = 2.5pA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
    
     -->
@@ -60,16 +60,16 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_A_IClamp" length="1000ms" step="0.05ms" target="c302_A_IClamp">
+    <Simulation id="sim_c302_A_IClamp" length="6000ms" step="0.05ms" target="c302_A_IClamp">
 
-        <Display id="neurons" title="c302_A_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-72" ymax="-48">
+        <Display id="neurons" title="c302_A_IClamp: Membrane potential of a number of neurons" timeScale="1ms" xmin="-600.0" xmax="6600.0" ymin="-72" ymax="-48">
             
             <Line id="ADAL" quantity="ADAL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="PVCL" quantity="PVCL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
             
         </Display>
       
-        <Display id="muscles" title="c302_A_IClamp: Membrane potential of a number of muscles" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-72" ymax="-48">
+        <Display id="muscles" title="c302_A_IClamp: Membrane potential of a number of muscles" timeScale="1ms" xmin="-600.0" xmax="6600.0" ymin="-72" ymax="-48">
             
             <Line id="MDR01" quantity="MDR01/0/generic_muscle_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
 

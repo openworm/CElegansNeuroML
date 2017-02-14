@@ -5,7 +5,7 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     Cells:                          All cells
-    Cell stimulated:                ['PVCL', 'PVCR']
+    Cell stimulated:                ['PLML', 'PLMR']
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -16,35 +16,35 @@ Parameters and setting used to generate this network:
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_specific_capacitance = 5 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -50 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_leak_cond_density = 0.002 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.1 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_k_slow_cond_density = 1.8 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_slow_cond_density = 1.8 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 0.3 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_ca_simple_cond_density = 1.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_ca_simple_cond_density = 1.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_simple_cond_density = 0.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_simple_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_decay_time = 200 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.0002 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.384 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.05 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_delta = 10 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.3 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = -10 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_k = 0.5per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.01 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.05 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_delta = 10 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.3 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.3 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = -10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -80 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_k = 0.5per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0000 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0000 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 4 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
@@ -52,76 +52,76 @@ Parameters and setting used to generate this network:
 </notes>
     <include href="cell_C.xml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="200 ms" rho="0.0002 mol_per_m_per_A_per_s"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.0001nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_2conns" conductance="0.0002nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_3conns" conductance="0.0003nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_7conns" conductance="0.0007nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_9conns" conductance="0.0009nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_6conns" conductance="0.0006nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_5conns" conductance="0.0005nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_4conns" conductance="0.0004nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_10conns" conductance="0.001nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_23conns" conductance="0.0023nS"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_13conns" conductance="0.0013nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_2conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_3conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_7conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_9conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_6conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_5conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_4conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_10conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_23conns" conductance="0.0nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn_13conns" conductance="0.0nS"/>
     <silentSynapse id="silent"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_1conns" conductance="0.384nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_2conns" conductance="0.768nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_4conns" conductance="1.536nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_7conns" conductance="2.688nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_5conns" conductance="1.92nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_3conns" conductance="1.152nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_12conns" conductance="4.608nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_15conns" conductance="5.76nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_8conns" conductance="3.072nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_16conns" conductance="6.144nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_6conns" conductance="2.304nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_10conns" conductance="3.84nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_13conns" conductance="4.992nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_14conns" conductance="5.376nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_9conns" conductance="3.456nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_11conns" conductance="4.224nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_19conns" conductance="7.296nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_1conns" conductance="0.01nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_2conns" conductance="0.02nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_5conns" conductance="0.05nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_4conns" conductance="0.04nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_3conns" conductance="0.03nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_17conns" conductance="6.528nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_25conns" conductance="9.6nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_21conns" conductance="8.064nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_23conns" conductance="8.832nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_26conns" conductance="9.984nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_9conns" conductance="0.09nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_7conns" conductance="0.07nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_6conns" conductance="0.06nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_24conns" conductance="9.216nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_35conns" conductance="13.44nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_12conns" conductance="0.12nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_11conns" conductance="0.11nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_8conns" conductance="0.08nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_10conns" conductance="0.1nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_inh_syn_13conns" conductance="0.13nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_18conns" conductance="6.912nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_20conns" conductance="7.68nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_37conns" conductance="14.208nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_27conns" conductance="10.368nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn_30conns" conductance="11.52nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_exc_syn_1conns" conductance="0.05nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_exc_syn_3conns" conductance="0.15nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_exc_syn_4conns" conductance="0.2nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_exc_syn_2conns" conductance="0.1nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_5conns" conductance="0.25nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_exc_syn_8conns" conductance="0.4nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_exc_syn_5conns" conductance="0.25nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_exc_syn_6conns" conductance="0.3nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="0 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_4conns" conductance="0.2nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_6conns" conductance="0.3nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_1conns" conductance="0.05nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_2conns" conductance="0.1nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_3conns" conductance="0.15nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_13conns" conductance="0.65nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_12conns" conductance="0.6nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
-    <gradedSynapse id="neuron_to_muscle_inh_syn_7conns" conductance="0.35nS" delta="10 mV" Vth="0 mV" k="0.5per_ms" erev="-70 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_1conns" conductance="0.1nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_2conns" conductance="0.2nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_4conns" conductance="0.4nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_7conns" conductance="0.7nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_5conns" conductance="0.5nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_3conns" conductance="0.3nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_12conns" conductance="1.2nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_15conns" conductance="1.5nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_8conns" conductance="0.8nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_16conns" conductance="1.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_6conns" conductance="0.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_10conns" conductance="1.0nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_13conns" conductance="1.3nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_14conns" conductance="1.4nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_9conns" conductance="0.9nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_11conns" conductance="1.1nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_19conns" conductance="1.9nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_1conns" conductance="0.3nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_2conns" conductance="0.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_5conns" conductance="1.5nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_4conns" conductance="1.2nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_3conns" conductance="0.9nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_17conns" conductance="1.7nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_25conns" conductance="2.5nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_21conns" conductance="2.1nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_23conns" conductance="2.3nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_26conns" conductance="2.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_9conns" conductance="2.7nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_7conns" conductance="2.1nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_6conns" conductance="1.8nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_24conns" conductance="2.4nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_35conns" conductance="3.5nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_12conns" conductance="3.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_11conns" conductance="3.3nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_8conns" conductance="2.4nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_10conns" conductance="3.0nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_inh_syn_13conns" conductance="3.9nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_18conns" conductance="1.8nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_20conns" conductance="2.0nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_37conns" conductance="3.7nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_27conns" conductance="2.7nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn_30conns" conductance="3.0nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_exc_syn_1conns" conductance="0.3nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_exc_syn_3conns" conductance="0.9nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_exc_syn_4conns" conductance="1.2nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_exc_syn_2conns" conductance="0.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_5conns" conductance="1.5nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_exc_syn_8conns" conductance="2.4nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_exc_syn_5conns" conductance="1.5nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_exc_syn_6conns" conductance="1.8nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_4conns" conductance="1.2nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_6conns" conductance="1.8nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_1conns" conductance="0.3nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_2conns" conductance="0.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_3conns" conductance="0.9nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_13conns" conductance="3.9nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_12conns" conductance="3.6nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
+    <gradedSynapse id="neuron_to_muscle_inh_syn_7conns" conductance="2.1nS" delta="5 mV" Vth="-10 mV" k="0.5per_ms" erev="-80 mV"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
@@ -136,7 +136,7 @@ Parameters and setting used to generate this network:
                 <channelDensity id="ca_simple_all" ionChannel="ca_simple" condDensity="1.2 mS_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
-                <initMembPotential value="-45 mV"/>
+                <initMembPotential value="-50 mV"/>
             </membraneProperties>
             <intracellularProperties>
                 <species id="ca" concentrationModel="CaPool" ion="ca" initialConcentration="0 mM" initialExtConcentration="2E-6 mol_per_cm3"/>
@@ -153,12 +153,12 @@ Parameters and setting used to generate this network:
         </morphology>
         <biophysicalProperties id="biophys_GenericNeuronCell">
             <membraneProperties>
-                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.005 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="1.8 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="ca_simple_all" ionChannel="ca_simple" condDensity="1.2 mS_per_cm2" erev="40 mV" ion="ca"/>
+                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.1 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.3 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="ca_simple_all" ionChannel="ca_simple" condDensity="0.2 mS_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
-                <specificCapacitance value="1 uF_per_cm2"/>
-                <initMembPotential value="-45 mV"/>
+                <specificCapacitance value="5 uF_per_cm2"/>
+                <initMembPotential value="-50 mV"/>
             </membraneProperties>
             <intracellularProperties>
                 <species id="ca" concentrationModel="CaPool" ion="ca" initialConcentration="0 mM" initialExtConcentration="2E-6 mol_per_cm3"/>
@@ -13954,11 +13954,11 @@ Parameters and setting used to generate this network:
         <continuousProjection id="NC_VD13_MVR23_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR23">
             <continuousConnectionInstance id="0" preCell="../VD13/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../MVR23/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_inh_syn_6conns"/>
         </continuousProjection>
-        <inputList id="Input_PVCL_offset_current" population="PVCL" component="offset_current">
-            <input id="0" target="../PVCL/0/GenericNeuronCell" destination="synapses"/>
+        <inputList id="Input_PLML_offset_current" population="PLML" component="offset_current">
+            <input id="0" target="../PLML/0/GenericNeuronCell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_PVCR_offset_current" population="PVCR" component="offset_current">
-            <input id="0" target="../PVCR/0/GenericNeuronCell" destination="synapses"/>
+        <inputList id="Input_PLMR_offset_current" population="PLMR" component="offset_current">
+            <input id="0" target="../PLMR/0/GenericNeuronCell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>

@@ -32,6 +32,10 @@ class BioParameter():
     def change_magnitude(self, magnitude):
         
         self.value = '%f %s'%(magnitude, split_neuroml_quantity(self.value)[1])
+        
+    def x(self):
+        
+        return split_neuroml_quantity(self.value)[0]
 
 
 class ParameterisedModelPrototype(object):

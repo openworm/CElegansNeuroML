@@ -1,5 +1,6 @@
 import c302
 import sys
+import neuroml.writers as writers
 
     
 def setup(parameter_set, 
@@ -12,6 +13,9 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
+    stim_amplitudes = ["3pA","5pA"]
+    duration = (len(stim_amplitudes))*1000
+    
     params.set_bioparameter("unphysiological_offset_current_del", "50 ms", "Testing IClamp", "0")
     
     exc_pre = "URYDL"
@@ -22,26 +26,38 @@ def setup(parameter_set,
     gap_2 = "ASHL"
     
     cells = [exc_pre, exc_post, inh_pre, inh_post]
-    cells_to_stimulate      = [exc_pre, inh_pre]
+    cells_to_stimulate_extra      = [exc_pre, inh_pre]
     
     if parameter_set!='A':
         cells.append(gap_1)
         cells.append(gap_2)
-        cells_to_stimulate.append(gap_1)
+        cells_to_stimulate_extra.append(gap_1)
     
     reference = "c302_%s_Syns"%parameter_set
     
     if generate:
-        c302.generate(reference, 
+        nml_doc = c302.generate(reference, 
                  params, 
                  cells=cells, 
-                 cells_to_stimulate=cells_to_stimulate, 
+                 cells_to_stimulate=[], 
                  duration=duration, 
                  dt=dt, 
                  validate=(parameter_set!='B'),
                  target_directory=target_directory)
+                 
+                 
+    for i in range(len(stim_amplitudes)):
+        start = "%sms"%(i*1000 + 100)
+        for c in cells_to_stimulate_extra:
+            c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
+    
+    nml_file = target_directory+'/'+reference+'.nml'
+    writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
+    
+    print("(Re)written network file to: "+nml_file)
+    
              
-    return cells, cells_to_stimulate, params, []
+    return cells, cells_to_stimulate_extra, params, []
              
 if __name__ == '__main__':
     

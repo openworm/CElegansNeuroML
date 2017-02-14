@@ -31,9 +31,8 @@ class OpenWormReader:
                 syntype = str(s.syntype())
                 num = int(s.number())
                 synclass = str(s.synclass())
-
-                conns.append(ConnectionInfo(pre, post, num, syntype, synclass))
-
+                ci = ConnectionInfo(pre, post, num, syntype, synclass)
+                conns.append(ci)
                 if pre not in cells:
                     cells.append(pre)
                 if post not in cells:
@@ -48,3 +47,4 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s: %(name)s - %(levelname)s: %(message)s')
     owr = OpenWormReader()
     owr.read()
+    
