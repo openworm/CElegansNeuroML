@@ -1,0 +1,44 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cell_B">
+
+    <!-- Definition of new synapse model type-->
+    
+    
+    <ComponentType name="gradedSynapse2"
+                   extends="baseGradedSynapse"
+                   description="Graded/analog synapse. Based on Kunert et al 2017 http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005303">
+        
+        <!--
+                TODO...
+        -->
+        <Property name="weight" dimension="none" defaultValue="1"/> 
+        
+        <Parameter name="conductance" dimension="conductance"/>
+        
+        <Parameter name="ar" dimension="per_time" description="Growth time"/>
+        <Parameter name="ad" dimension="per_time" description="Decay time"/>
+        <Parameter name="beta" dimension="per_voltage" description="Beta, width of the sigmoid"/>
+        <Parameter name="vth" dimension="voltage" description="Synaptic activation factor"/>
+        <Parameter name="erev" dimension="voltage" description="Synaptic reversal potential"/>
+        
+        <Exposure name="i" dimension="current"/>
+        
+        <Requirement name="v" dimension="voltage"/>
+
+        <InstanceRequirement name="peer" type="baseGradedSynapse"/>
+
+        <Dynamics>
+            <StateVariable name="s" dimension="none"/>
+            
+            <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
+            
+            <DerivedVariable name="phi" dimension="none" value="1/(1 + exp(beta * (vth - vpeer)))"/>
+            
+            <DerivedVariable name="i" exposure="i"  value="weight * conductance * s * (erev-v)"/>
+                        
+            <TimeDerivative variable="s" value="ar*phi*(1-s) - ad*s" />
+            
+            
+        </Dynamics>
+    </ComponentType>
+    
+</neuroml>

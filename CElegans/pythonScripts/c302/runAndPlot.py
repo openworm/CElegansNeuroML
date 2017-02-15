@@ -67,16 +67,16 @@ if __name__ == '__main__':
         main('Muscles','C0','',1000,0.05,'jNeuroML_NEURON')
         
     elif '-musclesC' in sys.argv or  '-muscC' in sys.argv:
-        main('Muscles','C','',1000,0.05,'jNeuroML_NEURON')
+        main('Muscles','C','',2000,0.05,'jNeuroML_NEURON')
         
     elif '-musclesC1' in sys.argv or  '-muscC1' in sys.argv:
-        main('Muscles','C1','',1000,0.05,'jNeuroML_NEURON')
+        main('Muscles','C1','',2000,0.05,'jNeuroML_NEURON')
         
     elif '-musclesD' in sys.argv or  '-muscD' in sys.argv:
-        main('Muscles','D','',1000,0.05,'jNeuroML_NEURON')
+        main('Muscles','D','',2000,0.05,'jNeuroML_NEURON')
         
     elif '-musclesD1' in sys.argv or  '-muscD1' in sys.argv:
-        main('Muscles','D1','',1000,0.05,'jNeuroML_NEURON')
+        main('Muscles','D1','',2000,0.05,'jNeuroML_NEURON')
         
     elif '-pharA' in sys.argv or '-pharyngealA' in sys.argv:
         main('Pharyngeal','A','',500,0.01,'jNeuroML_NEURON')
@@ -133,13 +133,13 @@ if __name__ == '__main__':
         main('Oscillator','B','',600,0.05,'jNeuroML_NEURON')
         
     elif '-oscC0' in sys.argv:
-        main('Oscillator','C0','',1000,0.025,'jNeuroML_NEURON')
+        main('Oscillator','C0','',2000,0.025,'jNeuroML_NEURON')
         
     elif '-oscC' in sys.argv:
-        main('Oscillator','C','',1000,0.05,'jNeuroML_NEURON')
+        main('Oscillator','C','',2000,0.05,'jNeuroML_NEURON')
         
     elif '-oscC1' in sys.argv:
-        main('Oscillator','C1','',1000,0.05,'jNeuroML_NEURON')
+        main('Oscillator','C1','',2000,0.05,'jNeuroML_NEURON')
         
     elif '-KatoC1' in sys.argv:
         main('Kato','C1','',1080,0.05,'jNeuroML_NEURON')

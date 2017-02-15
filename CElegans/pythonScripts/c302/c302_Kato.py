@@ -33,7 +33,6 @@ def setup(parameter_set,
              dt=dt,
              vmin=-72 if parameter_set=='A' else -52,
              vmax=-48 if parameter_set=='A' else -28,
-             validate=(parameter_set!='B'),
              target_directory=target_directory)
 
     return cell_names, cells_to_stimulate, params, muscles_to_include

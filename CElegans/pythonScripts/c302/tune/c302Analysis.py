@@ -2,6 +2,7 @@ from scipy.signal import correlate
 from pyelectro import analysis
 
 import scipy.stats
+import numpy
 
 
 class Data_Analyser(analysis.NetworkAnalysis):

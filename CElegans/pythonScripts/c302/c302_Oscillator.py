@@ -11,7 +11,7 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "4pA", "Testing Osc", "0")
+    params.set_bioparameter("unphysiological_offset_current", "2pA", "Testing Osc", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "10 ms", "Testing Osc", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "2500 ms", "Testing Osc", "0")
     
@@ -66,7 +66,6 @@ def setup(parameter_set,
                     muscles_to_include = muscles_to_include,
                     duration=duration, 
                     dt=dt, 
-                    validate=(parameter_set!='B'),
                     target_directory=target_directory)  
 
     return cells, cells_to_stimulate, params, muscles_to_include
