@@ -32,15 +32,17 @@ def setup(parameter_set,
     DD_motors = ["DD%s" % c for c in range_incl(1, 6)]
     VD_motors = ["VD%s" % c for c in range_incl(1, 13)]
     AS_motors = ["AS%s" % c for c in range_incl(1, 11)]
+    AS_motors = []
     TW_cells = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR',
                 'AVM', 'ALML', 'ALMR']
     TW_sensory = ["PLML", "PLMR", "AVM", "ALML", "ALMR"]
     all_motors = list(VA_motors + VB_motors + DA_motors + DB_motors + DD_motors + VD_motors + AS_motors)
+    all_motors = []
     
     #neurons = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR', 'AVM', 'ALML', 'ALMR']
 
-    #muscles_to_include = False
-    muscles_to_include = True # ALL muscles
+    muscles_to_include = False
+    #muscles_to_include = True # ALL muscles
     #muscles_to_include = ['MVL01', 'MVL10']
 
     cells = list(TW_cells + all_motors)

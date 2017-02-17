@@ -943,7 +943,10 @@ def generate(net_id,
                 if conn.pre_cell in lems_info["cells"]:
                     syn0 = params.neuron_to_muscle_elec_syn
                 elif conn.pre_cell in muscles_to_include:
-                    syn0 = params.muscle_to_muscle_elec_syn
+                    try:
+                        syn0 = params.muscle_to_muscle_elec_syn
+                    except:
+                        syn0 = params.neuron_to_muscle_elec_syn
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
