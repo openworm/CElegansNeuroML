@@ -1,0 +1,24 @@
+Sets up and runs a docker image that has a SciPy enabled Jupyter notebook capable of running c302
+
+To install
+----------
+
+Pre-reqs:
+
+You need a Docker environment.  Get it from http://docker.com
+
+Then run:
+
+* build-docker-image.sh
+* run-notebook.sh
+
+and head over to http://localhost:8888
+
+Inside the environment, go to the CElegansNeuroML/CElegans/pythonScripts/c302/ directory and upload the RunMuscleModel.ipynb.
+
+
+When you are done, run:
+
+* stop.sh
+
+Which will stop the notebook and clean it up.  Be sure to download whatever notebook you were working on because the stop script will destroy the notebook environment and you will lose your work!
