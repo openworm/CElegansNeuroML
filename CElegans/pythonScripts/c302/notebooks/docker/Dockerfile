@@ -32,7 +32,7 @@ USER $NB_USER
 WORKDIR $HOME/packages
 RUN git clone https://github.com/lungd/CElegansNeuroML.git \
     && cd CElegansNeuroML \
-    && git checkout dev \
+    && git checkout docker-notebook \
     && pip2 install -I airspeed==0.5.4dev-20150515 \
     && pip2 install pyneuroml \
     && pip2 install libneuroml \
@@ -42,3 +42,7 @@ RUN git clone https://github.com/lungd/CElegansNeuroML.git \
     && python setup.py install
 
 ENV NEURON_HOME=$VENV/x86_64
+
+RUN git clone https://github.com/openworm/PyOpenWorm.git \
+  && pip2 install setuptools \
+  && cd PyOpenWorm && git checkout dev && python setup.py install
