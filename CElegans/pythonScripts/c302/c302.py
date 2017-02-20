@@ -22,6 +22,7 @@ from neuroml import GapJunction
 from neuroml import GradedSynapse
 from neuroml import Property
 from neuroml import PulseGenerator
+from neuroml import SineGenerator
 from neuroml import SilentSynapse
 
 import neuroml.writers as writers
@@ -182,26 +183,53 @@ quadrant2 = 'MVL'
 quadrant3 = 'MDL'
 
 
-def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
+def get_next_stim_id(nml_doc, cell):
     i = 1
     for stim in nml_doc.pulse_generators:
         if stim.id.startswith("%s_%s" % ("stim", cell)):
             i += 1
     id = "%s_%s_%s" % ("stim", cell, i)
-    stim = PulseGenerator(id=id, delay=delay, duration=duration, amplitude=amplitude)
-    nml_doc.pulse_generators.append(stim)
+    return id
 
+def get_cell_position(cell):
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    #cell_file_path = root_dir + "/../../../" if test else root_dir + "/../../"  # if running test
+    cell_file_path = root_dir + "/../../" 
+    cell_file = cell_file_path + 'generatedNeuroML2/%s.cell.nml' % cell
+    doc = loaders.NeuroMLLoader.load(cell_file)
+    location = doc.cells[0].morphology.segments[0].proximal
+    #print "%s, %s, %s" %(location.x, location.y, location.z)
+    return location
+
+def append_input_to_nml_input_list(stim, nml_doc, cell, params):
     target = get_cell_id_string(cell, params, muscle=is_muscle(cell))
 
-    input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
-                           component=stim.id,
-                           populations='%s'%cell)
+    input_list = InputList(id="Input_%s_%s" % (cell, stim.id), component=stim.id, populations='%s' % cell)
 
-    input_list.input.append(Input(id=0,
-                                  target=target,
-                                  destination="synapses"))
+    input_list.input.append(Input(id=0, target=target, destination="synapses"))
 
     nml_doc.networks[0].input_lists.append(input_list)
+
+
+def add_new_sinusoidal_input(nml_doc, cell, delay, duration, amplitude, period, params):
+    id = get_next_stim_id(nml_doc, cell)
+    
+    phase = get_cell_position(cell).x
+    print "### CELL %s PHASE: %s" % (cell, phase)
+    
+    input = SineGenerator(id=id, delay=delay, phase=phase, duration=duration, amplitude=amplitude, period=period)
+    nml_doc.sine_generators.append(input)
+
+    append_input_to_nml_input_list(input, nml_doc, cell, params)
+    
+    
+
+def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
+    id = get_next_stim_id(nml_doc, cell)
+    input = PulseGenerator(id=id, delay=delay, duration=duration, amplitude=amplitude)
+    nml_doc.pulse_generators.append(input)
+
+    append_input_to_nml_input_list(input, nml_doc, cell, params)
 
 
 def get_muscle_names():

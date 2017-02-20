@@ -146,6 +146,9 @@ if __name__ == '__main__':
         
     elif '-twC2' in sys.argv:
         main('TapWithdrawal','C2','',500,0.05,'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
+
+    elif '-sinusC2' in sys.argv:
+        main('SinusoidalInputTest','C2','',1000,0.05,'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
         
     elif '-iA' in sys.argv:
         main('IClamp','A','',1000,0.05,'jNeuroML')
