@@ -417,11 +417,17 @@ def generate(net_id,
              seed = 1234,
              test=False,
              verbose=True,
+             param_overrides={},
              target_directory='./'):
                  
     validate = not (params.is_level_B() or params.is_level_C0())
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
+    for k in param_overrides.keys():
+        v = param_overrides[k]
+        print_("Setting parameter %s = %s"%(k,v))
+        params.set_bioparameter(k, v, "Set with param_overrides", 0)
+    
 
     params.create_models()
     
@@ -461,7 +467,7 @@ def generate(net_id,
            "    Connection numbers scaled:      %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+ \
            "    Connection polarities override: %s\n" % conn_polarity_override + \
            "    Muscles:                        %s\n" % (muscles_to_include if muscles_to_include is not None else "All muscles")
-    print_(info)
+    if verbose: print_(info)
     info += "\n%s\n"%(params.bioparameter_info("    "))
 
     nml_doc = NeuroMLDocument(id=net_id, notes=info)

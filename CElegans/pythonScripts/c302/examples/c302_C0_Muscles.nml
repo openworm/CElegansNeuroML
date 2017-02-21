@@ -50,8 +50,6 @@ Parameters and setting used to generate this network:
         BioParameter: unphysiological_offset_current = 4pA (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_del = 5 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 10000 ms (SRC: Testing IClamp, certainty 0)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 200 ms (SRC: BlindGuess, certainty 0.1)
 
 </notes>
     <include href="cell_C.xml"></include>

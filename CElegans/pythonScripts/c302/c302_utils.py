@@ -8,13 +8,13 @@ import c302
 
 def plots(a_n, info, cells, dt):
     
-    print('Generating plots for: %s'%info)
+    c302.print_('Generating plots for: %s'%info)
     
     fig, ax = plt.subplots()
     downscale = 10
     #print a_n.shape
     a_n_ = a_n[:,::downscale]
-    #print(a_n_.shape) 
+    #c302.print_(a_n_.shape) 
     
     plot0 = ax.pcolor(a_n_)
     ax.set_yticks(np.arange(a_n_.shape[0]) + 0.5, minor=False)
@@ -63,7 +63,14 @@ def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save,save_
                         title_above_plot=True)
     
     
-def plot_c302_results(lems_results, config, parameter_set, directory='./',save=True,show_plot_already=True, data_reader="SpreadsheetDataReader"):
+def plot_c302_results(lems_results, 
+                      config, 
+                      parameter_set, 
+                      directory='./',
+                      save=True,
+                      show_plot_already=True, 
+                      data_reader="SpreadsheetDataReader",
+                      plot_ca=True):
     
     params = {'legend.fontsize': 8,
               'font.size': 10}
@@ -73,7 +80,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         directory += '/'
     save_fig_path = directory+'%s'
 
-    print("Reloaded data: %s"%lems_results.keys())
+    c302.print_("Reloaded data: %s"%lems_results.keys())
     cells = []
     muscles = []
     times = [t*1000 for t in lems_results['t']]
@@ -87,13 +94,13 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     cells.sort()
     cells.reverse()
             
-    print("All cells: %s"%cells)
+    c302.print_("All cells: %s"%cells)
     dt = lems_results['t'][1]
     
     ################################################
     ## Plot voltages cells
     
-    print("Plotting neuron voltages")
+    c302.print_("Plotting neuron voltages")
     
     template = '{0}/0/GenericNeuronCell/{1}'
     template_m = '{0}/0/GenericMuscleCell/{1}'
@@ -126,7 +133,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
 
     if save:
         f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
-        print("Saving figure to: %s"%os.path.abspath(f))
+        c302.print_("Saving figure to: %s"%os.path.abspath(f))
         plt.savefig(f,bbox_inches='tight')
     
     generate_traces_plot(config,
@@ -154,7 +161,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     
     if len(muscles)>0:
 
-        print("Plotting muscle voltages")
+        c302.print_("Plotting muscle voltages")
 
         for muscle in muscles:
             mv = lems_results[template_m.format(muscle,'v')]
@@ -174,7 +181,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         
         if save:
             f = save_fig_path%('muscles_%s_%s.png'%(parameter_set,config))
-            print("Saving figure to: %s"%os.path.abspath(f))
+            c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
 
         generate_traces_plot(config,
@@ -191,9 +198,9 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     ################################################
     ## Plot activity/[Ca2+] in cells
     
-    if parameter_set!='A':
+    if plot_ca and parameter_set!='A':
         
-        print("Plotting neuron activities")
+        c302.print_("Plotting neuron activities ([Ca2+])")
         variable = 'activity'
         description = 'Activity'
             
@@ -222,7 +229,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
         
         if save:
             f = save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config))
-            print("Saving figure to: %s"%os.path.abspath(f))
+            c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
             
         generate_traces_plot(config,
@@ -239,9 +246,9 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     ################################################
     ## Plot activity/[Ca2+] in muscles
     
-    if parameter_set!='A' and len(muscles)>0:
+    if plot_ca and parameter_set!='A' and len(muscles)>0:
         
-        print("Plotting muscle activities")
+        c302.print_("Plotting muscle activities ([Ca2+])")
         variable = 'activity'
         description = 'Activity'
             
@@ -270,7 +277,7 @@ def plot_c302_results(lems_results, config, parameter_set, directory='./',save=T
     
         if save:
             f = save_fig_path%('muscle_activity_%s_%s.png'%(parameter_set,config))
-            print("Saving figure to: %s"%os.path.abspath(f))
+            c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
     
         generate_traces_plot(config,

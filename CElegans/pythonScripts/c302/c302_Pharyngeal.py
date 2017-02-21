@@ -6,7 +6,9 @@ def setup(parameter_set,
           duration=500, 
           dt=0.01,
           target_directory='examples',
-          data_reader="SpreadsheetDataReader"):
+          data_reader="SpreadsheetDataReader",
+          param_overrides={},
+          verbose=True):
 
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -24,7 +26,9 @@ def setup(parameter_set,
                       cells_to_stimulate=cells_to_stimulate, 
                       duration=duration, 
                       dt=dt, 
-                      target_directory=target_directory)
+                      target_directory=target_directory,
+                      param_overrides=param_overrides,
+                      verbose=verbose)
              
     return cells, cells_to_stimulate, params, []
              
