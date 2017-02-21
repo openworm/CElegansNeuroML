@@ -7,7 +7,9 @@ def setup(parameter_set,
           duration=3000, 
           dt=0.05,
           target_directory='examples',
-          data_reader="SpreadsheetDataReader"):
+          data_reader="SpreadsheetDataReader",
+          param_overrides={},
+          verbose=True):
 
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
@@ -33,7 +35,9 @@ def setup(parameter_set,
                     muscles_to_include = muscles_to_include,
                     duration=duration, 
                     dt=dt, 
-                    target_directory=target_directory)
+                    target_directory=target_directory,
+                    param_overrides=param_overrides,
+                    verbose=verbose)
                     
     for i in range(len(stim_amplitudes)):
         start = "%sms"%(i*1000 + 100)

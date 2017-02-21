@@ -16,7 +16,9 @@ def setup(parameter_set,
           duration=400,
           dt=0.05,
           target_directory='examples',
-          data_reader="UpdatedSpreadsheetDataReader"):
+          data_reader="UpdatedSpreadsheetDataReader",
+          param_overrides={},
+          verbose=True):
     
     exec ('from parameters_%s import ParameterisedModel' % parameter_set)
     params = ParameterisedModel()
@@ -424,7 +426,9 @@ def setup(parameter_set,
                                 duration=duration,
                                 dt=dt,
                                 target_directory=target_directory,
-                                data_reader=data_reader)
+                                data_reader=data_reader,
+                                param_overrides=param_overrides,
+                                verbose=verbose)
 
         stim_amplitude = "6pA"
         # stim_amplitude = "5.135697186048022pA"

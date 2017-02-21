@@ -27,7 +27,8 @@ if __name__ == '__main__':
                        cells_to_stimulate=cells_to_stimulate, 
                        duration=1000, 
                        dt=0.1, 
-                       target_directory=target_directory)
+                       target_directory=target_directory,
+                       verbose=verbose)
              
     stim_amplitude = "0.35nA"
     add_new_input(nml_doc, "URYDL", "100ms", "200ms", stim_amplitude, params)
