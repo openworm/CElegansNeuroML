@@ -100,54 +100,53 @@ def plot_c302_results(lems_results,
     ################################################
     ## Plot voltages cells
     
-    c302.print_("Plotting neuron voltages")
-    
-    template = '{0}/0/GenericNeuronCell/{1}'
-    template_m = '{0}/0/GenericMuscleCell/{1}'
-    if parameter_set.startswith('A') or parameter_set.startswith('B'):
-        template = '{0}/0/generic_neuron_iaf_cell/{1}'
-        template_m = '{0}/0/generic_muscle_iaf_cell/{1}'
-    if parameter_set.startswith('D'):
-        template = '{0}/0/{0}/{1}'
-
-    
-    xvals = []
-    yvals = []
-    labels = []
-    
-    for cell in cells:
-        v = lems_results[template.format(cell,'v')]
+    if len(cells) > 0:
+        c302.print_("Plotting neuron voltages")
         
-        xvals.append(times)
-        labels.append(cell)
-        
-        if cell==cells[0]:
-            volts_n = np.array([[vv*1000 for vv in v]])
-        else:
-            volts_n = np.append(volts_n,[[vv*1000 for vv in v]],axis=0)
-        yvals.append(volts_n[-1])
-        
-    info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
+        template = '{0}/0/GenericNeuronCell/{1}'
+        if parameter_set.startswith('A') or parameter_set.startswith('B'):
+            template = '{0}/0/generic_neuron_iaf_cell/{1}'
+        if parameter_set.startswith('D'):
+            template = '{0}/0/{0}/{1}'
     
-    plots(volts_n, info, cells, dt)
-
-    if save:
-        f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
-        c302.print_("Saving figure to: %s"%os.path.abspath(f))
-        plt.savefig(f,bbox_inches='tight')
-    
-    generate_traces_plot(config,
-                         parameter_set,
-                         xvals,
-                         yvals,
-                         info,
-                         labels,
-                         save=save,
-                         save_fig_path=save_fig_path,
-                         voltage=True,
-                         muscles=False)
         
+        xvals = []
+        yvals = []
+        labels = []
+        
+        for cell in cells:
+            v = lems_results[template.format(cell,'v')]
+            
+            xvals.append(times)
+            labels.append(cell)
+            
+            if cell==cells[0]:
+                volts_n = np.array([[vv*1000 for vv in v]])
+            else:
+                volts_n = np.append(volts_n,[[vv*1000 for vv in v]],axis=0)
+            yvals.append(volts_n[-1])
+            
+        info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
+        
+        plots(volts_n, info, cells, dt)
     
+        if save:
+            f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
+            c302.print_("Saving figure to: %s"%os.path.abspath(f))
+            plt.savefig(f,bbox_inches='tight')
+        
+        generate_traces_plot(config,
+                             parameter_set,
+                             xvals,
+                             yvals,
+                             info,
+                             labels,
+                             save=save,
+                             save_fig_path=save_fig_path,
+                             voltage=True,
+                             muscles=False)
+            
+        
     ################################################
     ## Plot voltages muscles
 
@@ -162,6 +161,10 @@ def plot_c302_results(lems_results,
     if len(muscles)>0:
 
         c302.print_("Plotting muscle voltages")
+
+        template_m = '{0}/0/GenericMuscleCell/{1}'
+        if parameter_set.startswith('A') or parameter_set.startswith('B'):
+            template_m = '{0}/0/generic_muscle_iaf_cell/{1}'
 
         for muscle in muscles:
             mv = lems_results[template_m.format(muscle,'v')]
@@ -198,7 +201,7 @@ def plot_c302_results(lems_results,
     ################################################
     ## Plot activity/[Ca2+] in cells
     
-    if plot_ca and parameter_set!='A':
+    if plot_ca and parameter_set!='A' and len(cells) > 0:
         
         c302.print_("Plotting neuron activities ([Ca2+])")
         variable = 'activity'
@@ -226,7 +229,7 @@ def plot_c302_results(lems_results,
                 activities_n = np.append(activities_n,[a],axis=0)
 
         plots(activities_n, info, cells, dt)
-        
+    
         if save:
             f = save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
