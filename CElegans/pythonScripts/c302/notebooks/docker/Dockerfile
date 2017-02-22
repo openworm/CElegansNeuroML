@@ -30,12 +30,17 @@ RUN apt-get update && apt-get install -y libxml2-dev libxslt-dev zlib1g-dev open
 
 USER $NB_USER
 WORKDIR $HOME/packages
+
+RUN git clone https://github.com/NeuroML/pyNeuroML.git \
+   && cd pyNeuroML \ 
+   && python setup.py install
+
 RUN git clone https://github.com/lungd/CElegansNeuroML.git \
     && cd CElegansNeuroML \
     && git checkout docker-notebook \
     && pip2 install -I airspeed==0.5.4dev-20150515 \
-    && pip2 install pyneuroml \
     && pip2 install libneuroml \
+    && pip2 install pyneuroml \
     && pip2 install xvfbwrapper \
     && pip2 install pyvirtualdisplay \
     && pip2 install pyscreenshot \
@@ -45,4 +50,5 @@ ENV NEURON_HOME=$VENV/x86_64
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git \
   && pip2 install setuptools \
+  && pip2 install rdflib \
   && cd PyOpenWorm && git checkout dev && python setup.py install
