@@ -14,7 +14,7 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    stim_amplitudes = ["1pA","2pA","3pA","4pA","5pA","6pA"]
+    stim_amplitudes = ["1pA","2pA","3pA","4pA","10pA","15pA"]
     duration = (len(stim_amplitudes))*1000
     
     

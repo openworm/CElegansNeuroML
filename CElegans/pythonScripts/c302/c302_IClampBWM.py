@@ -18,7 +18,7 @@ def setup(parameter_set,
     duration = (len(stim_amplitudes))*1000
     
     
-    cells = []
+    cells = ['AVAL']
     muscles_to_include = ['MDR01']
     
     cells_total = list(cells + muscles_to_include)
