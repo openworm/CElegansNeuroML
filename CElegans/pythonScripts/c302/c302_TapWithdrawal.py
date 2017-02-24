@@ -39,7 +39,7 @@ def setup(parameter_set,
                 'AVM', 'ALML', 'ALMR']
     TW_sensory = ["PLML", "PLMR", "AVM", "ALML", "ALMR"]
     all_motors = list(VA_motors + VB_motors + DA_motors + DB_motors + DD_motors + VD_motors + AS_motors)
-    all_motors = []
+    #all_motors = []
     
     #neurons = ['AVAL', 'AVAR', 'AVBL', 'AVBR', 'PVCL', 'PVCR', 'AVDL', 'AVDR', 'DVA', 'PVDL', 'PVDR', 'PLML', 'PLMR', 'AVM', 'ALML', 'ALMR']
 
@@ -84,15 +84,15 @@ def setup(parameter_set,
         'ALML-ALML':'inh',
         'ALML-PVCL':'inh',
         'ALML-PVCR':'inh',
-        'ALML-AVDR':'exc', ##
+        'ALML-AVDR':'inh', ##
         'ALMR-PVCR':'inh',
 
         'AVM-PVCL':'inh',
         'AVM-PVCR':'inh',
         'AVM-AVBL':'inh',
         'AVM-AVBR':'inh',
-        'AVM-AVDL':'exc', ##
-        'AVM-AVDR':'exc', ##
+        'AVM-AVDL':'inh', ##
+        'AVM-AVDR':'inh', ##
 
         'PVDL-PVDR':'inh',
         'PVDL-PVCL':'exc',
@@ -433,12 +433,19 @@ def setup(parameter_set,
         stim_amplitude = "6pA"
         # stim_amplitude = "5.135697186048022pA"
 
+        for vb in VB_motors:
+            c302.add_new_sinusoidal_input(nml_doc, cell=vb, delay="0ms", duration="1000ms", amplitude="3pA",
+                                          period="150ms", params=params)
 
-        c302.add_new_input(nml_doc, "AVM", "10ms", "700ms", stim_amplitude, params)
-        c302.add_new_input(nml_doc, "ALML", "10ms", "700ms", stim_amplitude, params)
-        c302.add_new_input(nml_doc, "ALMR", "10ms", "700ms", stim_amplitude, params)
-        c302.add_new_input(nml_doc, "PLML", "10ms", "700ms", stim_amplitude, params)
-        c302.add_new_input(nml_doc, "PLMR", "10ms", "700ms", stim_amplitude, params)
+        for db in DB_motors:
+            c302.add_new_sinusoidal_input(nml_doc, cell=db, delay="0ms", duration="1000ms", amplitude="3pA",
+                                          period="150ms", params=params)
+
+        #c302.add_new_input(nml_doc, "AVM", "10ms", "700ms", stim_amplitude, params)
+        #c302.add_new_input(nml_doc, "ALML", "10ms", "700ms", stim_amplitude, params)
+        #c302.add_new_input(nml_doc, "ALMR", "10ms", "700ms", stim_amplitude, params)
+        #c302.add_new_input(nml_doc, "PLML", "10ms", "700ms", stim_amplitude, params)
+        #c302.add_new_input(nml_doc, "PLMR", "10ms", "700ms", stim_amplitude, params)
 
         nml_file = target_directory + '/' + reference + '.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file)  # Write over network file written above...
