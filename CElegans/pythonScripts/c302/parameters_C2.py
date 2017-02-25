@@ -59,10 +59,10 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("muscle_specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_spike_thresh", "-55 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_spike_thresh", "-10 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_leak_cond_density", "0.0172 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_leak_cond_density", "0.0172 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_leak_cond_density", "0.002 mS_per_cm2", "BlindGuess", "0.1")
 
         self.add_bioparameter("leak_erev", "-60 mV", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_leak_erev", "-13 mV", "BlindGuess", "0.1")
@@ -72,10 +72,10 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_k_slow_erev", "-70 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_fast_cond_density", "1.015 mS_per_cm2", "BlindGuess", "0.1")
+        #self.add_bioparameter("muscle_k_fast_cond_density", "1.015 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_fast_cond_density", "0.042711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-70 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_k_fast_erev", "-50 mV", "BlindGuess", "0.1")
+        #self.add_bioparameter("muscle_k_fast_erev", "-50 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_ca_boyle_cond_density", "0.284 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_ca_boyle_cond_density", "1.812775772264702 mS_per_cm2", "BlindGuess", "0.1")
