@@ -6,6 +6,7 @@ To install
 Pre-reqs:
 
 You need a Docker environment.  Get it from http://docker.com
+WARNING: You should have at least 20 GB of space and a good CPU to run Docker effectively on your system.
 
 Then run:
 
