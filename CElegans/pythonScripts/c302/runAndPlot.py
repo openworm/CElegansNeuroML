@@ -109,6 +109,9 @@ if __name__ == '__main__':
     elif '-pharB' in sys.argv or '-pharyngealB' in sys.argv:
         run_c302('Pharyngeal','B','',500,0.01,'jNeuroML_NEURON')
         
+    elif '-pharC0' in sys.argv or '-pharyngealC0' in sys.argv:
+        run_c302('Pharyngeal','C0','',500,0.01,'jNeuroML_NEURON')
+        
     elif '-pharC1' in sys.argv or '-pharyngealC1' in sys.argv:
         run_c302('Pharyngeal','C1','',500,0.01,'jNeuroML_NEURON')
         

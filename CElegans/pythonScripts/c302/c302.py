@@ -11,9 +11,7 @@ from neuroml import InputList
 from neuroml import Projection
 from neuroml import Connection
 from neuroml import ConnectionWD
-from neuroml import SynapticConnection
 from neuroml import ElectricalProjection
-from neuroml import ElectricalConnection
 from neuroml import ElectricalConnectionInstance
 from neuroml import ContinuousProjection
 from neuroml import ContinuousConnectionInstance
