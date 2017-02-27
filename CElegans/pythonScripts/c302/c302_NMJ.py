@@ -14,22 +14,23 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    stim_amplitudes = ["1pA","2pA","3pA","4pA","5pA","6pA"]
+    stim_amplitudes = ["1pA","2pA","3pA","4pA","10pA","15pA"]
     duration = (len(stim_amplitudes))*1000
     
     
-    my_cells = ["ADAL","PVCL"]
-    muscles_to_include = ['MDR01']
+    cells = ['VB1']
+    muscles_to_include = ['MVL07']
     
-    cells               = my_cells
-    cells_total  = my_cells + muscles_to_include
+    cells_total = list(cells + muscles_to_include)
     
-    reference = "c302_%s_IClamp"%parameter_set
+    
+    reference = "c302_%s_NMJ"%parameter_set
     
     
     if generate:
         nml_doc = c302.generate(reference, 
                     params, 
+                    data_reader=data_reader,
                     cells=cells, 
                     cells_to_stimulate=[], 
                     muscles_to_include = muscles_to_include,
@@ -41,7 +42,7 @@ def setup(parameter_set,
                     
     for i in range(len(stim_amplitudes)):
         start = "%sms"%(i*1000 + 100)
-        for c in cells_total:
+        for c in cells:
             c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
     
     
@@ -54,6 +55,7 @@ def setup(parameter_set,
              
 if __name__ == '__main__':
     
-    parameter_set = sys.argv[1] if len(sys.argv)==2 else 'A'
+    parameter_set = sys.argv[1] if len(sys.argv)>=2 else 'C0'
+    data_reader = sys.argv[2] if len(sys.argv) >= 3 else 'SpreadsheetDataReader'
     
-    setup(parameter_set, generate=True)
+    setup(parameter_set, generate=True, data_reader=data_reader)

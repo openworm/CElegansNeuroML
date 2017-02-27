@@ -41,7 +41,7 @@ class ParameterisedModel(ParameterisedModel_C):
     def __init__(self):
         super(ParameterisedModel, self).__init__()
         self.level = "C2"
-        self.custom_component_types_definitions = 'cell_C.xml'
+        self.custom_component_types_definitions = ['cell_C.xml', 'custom_muscle_components.xml']
         
         self.set_default_bioparameters()
         print("Set default parameters for %s"%self.level)
@@ -53,41 +53,41 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("muscle_length", "20", "BlindGuess", "0.1")
 
         self.add_bioparameter("initial_memb_pot", "-60 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_initial_memb_pot", "-30 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_initial_memb_pot", "-28 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
-        self.add_bioparameter("neuron_spike_thresh", "-50 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_spike_thresh", "-55 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_spike_thresh", "-10 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_leak_cond_density", "0.0172 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_leak_cond_density", "0.002 mS_per_cm2", "BlindGuess", "0.1")
 
         self.add_bioparameter("leak_erev", "-60 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_leak_erev", "10 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_leak_erev", "-13 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_slow_cond_density", "0.3408257307011203 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_cond_density", "0.564 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_slow_cond_density", "0.45833751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_k_slow_erev", "-50 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_erev", "-70 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_fast_cond_density", "1.015 mS_per_cm2", "BlindGuess", "0.1")
+        #self.add_bioparameter("muscle_k_fast_cond_density", "1.015 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_fast_cond_density", "0.042711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-70 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_k_fast_erev", "-50 mV", "BlindGuess", "0.1")
+        #self.add_bioparameter("muscle_k_fast_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.2139140434941569 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_ca_boyle_cond_density", "0.284 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_ca_boyle_cond_density", "1.812775772264702 mS_per_cm2", "BlindGuess", "0.1")
 
         self.add_bioparameter("ca_boyle_erev", "10 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_ca_boyle_erev", "30 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_ca_boyle_erev", "46 mV", "BlindGuess", "0.1")
         
         self.add_bioparameter("ca_conc_decay_time", "13.811870945509265 ms", "BlindGuess", "0.1")
         self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "0.49 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "0.16 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "3.46 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("exc_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_vth", "00 mV", "BlindGuess", "0.1")
@@ -100,7 +100,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("neuron_to_muscle_exc_syn_k", "0.025per_ms", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "0.29 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "0.09 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "1.29 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("inh_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_vth", "0 mV", "BlindGuess", "0.1")
@@ -109,11 +109,12 @@ class ParameterisedModel(ParameterisedModel_C):
 
         self.add_bioparameter("neuron_to_muscle_inh_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_vth", "0 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_inh_syn_erev", "-70 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_inh_syn_erev", "-50 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_k", "0.025per_ms", "BlindGuess", "0.1")
         
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.00552 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.00152 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_to_muscle_elec_syn_gbase", "0.0052 nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("unphysiological_offset_current", "5.135697186048022 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
@@ -127,6 +128,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.create_offsetcurrent_concentrationmodel()
         self.create_neuron_to_neuron_syn()
         self.create_neuron_to_muscle_syn()
+        self.create_muscle_to_muscle_syn()
 
 
     def create_generic_muscle_cell(self):
@@ -167,19 +169,19 @@ class ParameterisedModel(ParameterisedModel_C):
 
         mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_slow_cond_density").value, 
                                                    id="k_slow_all", 
-                                                   ion_channel="k_slow", 
+                                                   ion_channel="k_muscle", 
                                                    erev=self.get_bioparameter("muscle_k_slow_erev").value,
                                                    ion="k"))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_fast_cond_density").value, 
-                                                   id="k_fast_all", 
-                                                   ion_channel="k_fast", 
-                                                   erev=self.get_bioparameter("muscle_k_fast_erev").value,
-                                                   ion="k"))
+        #mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_fast_cond_density").value, 
+        #                                           id="k_fast_all", 
+        #                                           ion_channel="k_fast", 
+        #                                           erev=self.get_bioparameter("muscle_k_fast_erev").value,
+        #                                           ion="k"))
 
         mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_ca_boyle_cond_density").value, 
                                                    id="ca_boyle_all", 
-                                                   ion_channel="ca_boyle", 
+                                                   ion_channel="ca_muscle", 
                                                    erev=self.get_bioparameter("muscle_ca_boyle_erev").value,
                                                    ion="ca"))
 
@@ -238,4 +240,9 @@ class ParameterisedModel(ParameterisedModel_C):
 
         self.neuron_to_muscle_elec_syn = GapJunction(id="neuron_to_muscle_elec_syn",
                                conductance =    self.get_bioparameter("neuron_to_muscle_elec_syn_gbase").value)
+
+
+    def create_muscle_to_muscle_syn(self):
+        self.muscle_to_muscle_elec_syn = GapJunction(id="muscle_to_muscle_elec_syn",
+                               conductance =    self.get_bioparameter("muscle_to_muscle_elec_syn_gbase").value)
 

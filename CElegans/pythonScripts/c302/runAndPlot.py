@@ -170,7 +170,10 @@ if __name__ == '__main__':
         run_c302('Kato','C1','',1080,0.05,'jNeuroML_NEURON')
         
     elif '-twC2' in sys.argv:
-        run_c302('TapWithdrawal','C2','',500,0.05,'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
+        run_c302('TapWithdrawal', 'C2', '', 500, 0.05, 'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
+        
+    elif '-sinusC2' in sys.argv:
+        run_c302('SinusoidalInputTest', 'C2', '', 1000, 0.05, 'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
         
     elif '-iA' in sys.argv:
         run_c302('IClamp','A','',1000,0.05,'jNeuroML')
