@@ -334,7 +334,7 @@ def generate_conn_matrix(nml_doc):
         if not cp.postsynaptic_population in all_cells:
             all_cells.append(cp.postsynaptic_population)
         
-        for c in cp.continuousConnectionInstanceW:
+        for c in cp.continuous_connection_instance_ws:
             if 'inh' in c.post_component:
                 cc_inh_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
             else:
@@ -343,6 +343,22 @@ def generate_conn_matrix(nml_doc):
             
     print cc_exc_conns
     print cc_inh_conns
+    
+    
+    gj_conns = {}
+    for ep in net.electrical_projections:
+        if not ep.presynaptic_population in gj_conns.keys():
+            gj_conns[ep.presynaptic_population] = {}
+            
+        if not ep.presynaptic_population in all_cells:
+            all_cells.append(ep.presynaptic_population)
+        if not ep.postsynaptic_population in all_cells:
+            all_cells.append(ep.postsynaptic_population)
+        
+        for e in ep.electrical_connection_instance_ws:
+            gj_conns[ep.presynaptic_population][ep.postsynaptic_population] = float(e.weight)
+            
+            
     all_cells = sorted(all_cells)
     print all_cells
     
@@ -366,19 +382,6 @@ def generate_conn_matrix(nml_doc):
     
     
     
-    gj_conns = {}
-    all_cells = []
-    for ep in net.electrical_projections:
-        if not ep.presynaptic_population in gj_conns.keys():
-            gj_conns[ep.presynaptic_population] = {}
-            
-        if not ep.presynaptic_population in all_cells:
-            all_cells.append(ep.presynaptic_population)
-        if not ep.postsynaptic_population in all_cells:
-            all_cells.append(ep.postsynaptic_population)
-        
-        for e in ep.electricalConnectionInstanceW:
-            gj_conns[ep.presynaptic_population][ep.postsynaptic_population] = float(e.weight)
             
     print gj_conns
     all_cells = sorted(all_cells)
@@ -404,9 +407,9 @@ if __name__ == '__main__':
     
     generate_conn_matrix(nml_doc)
     
-    nml_doc = read_neuroml2_file('examples/c302_C0_Muscles.nml')
+    #nml_doc = read_neuroml2_file('examples/c302_C0_Muscles.nml')
     
-    generate_conn_matrix(nml_doc)
+    #generate_conn_matrix(nml_doc)
     
     nml_doc = read_neuroml2_file('examples/c302_C0_Pharyngeal.nml')
     
