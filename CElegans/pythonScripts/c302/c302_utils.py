@@ -297,4 +297,123 @@ def plot_c302_results(lems_results,
         plt.show()
     else:
         plt.close("all")
-      
+        
+        
+def _show_conn_matrix(data, title, all_cells):
+    
+    fig, ax = plt.subplots()
+    plt.title(title)
+    im = plt.imshow(data, cmap='gist_stern', interpolation='nearest')
+    
+    xt = np.arange(data.shape[1]) + 0.5
+    print xt
+    ax.set_xticks(xt, minor=False)
+    ax.set_yticks(np.arange(data.shape[0]) + 0.5, minor=False)
+    ax.set_xticklabels(all_cells, minor=False)
+    ax.set_yticklabels(all_cells, minor=False)
+    
+    #heatmap = ax.pcolor(data, cmap='gist_stern')
+    cbar = plt.colorbar(im)
+
+def generate_conn_matrix(nml_doc):
+    
+    net = nml_doc.networks[0]
+    
+    cc_exc_conns = {}
+    cc_inh_conns = {}
+    all_cells = []
+    
+    for cp in net.continuous_projections:
+        if not cp.presynaptic_population in cc_exc_conns.keys():
+            cc_exc_conns[cp.presynaptic_population] = {}
+        if not cp.presynaptic_population in cc_inh_conns.keys():
+            cc_inh_conns[cp.presynaptic_population] = {}
+            
+        if not cp.presynaptic_population in all_cells:
+            all_cells.append(cp.presynaptic_population)
+        if not cp.postsynaptic_population in all_cells:
+            all_cells.append(cp.postsynaptic_population)
+        
+        for c in cp.continuousConnectionInstanceW:
+            if 'inh' in c.post_component:
+                cc_inh_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
+            else:
+                cc_exc_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
+                
+            
+    print cc_exc_conns
+    print cc_inh_conns
+    all_cells = sorted(all_cells)
+    print all_cells
+    
+    data_exc = np.zeros((len(all_cells),len(all_cells)))
+    data_inh = np.zeros((len(all_cells),len(all_cells)))
+    
+    for pre in cc_exc_conns.keys():
+        for post in cc_exc_conns[pre].keys():
+            print("Exc Conn %s -> %s: %s"%(pre,post,cc_exc_conns[pre][post]))
+            data_exc[all_cells.index(pre),all_cells.index(post)] = cc_exc_conns[pre][post]
+    for pre in cc_inh_conns.keys():
+        for post in cc_inh_conns[pre].keys():
+            print("Inh Conn %s -> %s: %s"%(pre,post,cc_inh_conns[pre][post]))
+            data_inh[all_cells.index(pre),all_cells.index(post)] = cc_inh_conns[pre][post]
+        
+    print data_exc
+    print data_inh
+    
+    _show_conn_matrix(data_exc, 'Excitatory (non GABA) connections',all_cells)
+    _show_conn_matrix(data_inh, 'Inhibitory (GABA) connections',all_cells)
+    
+    
+    
+    gj_conns = {}
+    all_cells = []
+    for ep in net.electrical_projections:
+        if not ep.presynaptic_population in gj_conns.keys():
+            gj_conns[ep.presynaptic_population] = {}
+            
+        if not ep.presynaptic_population in all_cells:
+            all_cells.append(ep.presynaptic_population)
+        if not ep.postsynaptic_population in all_cells:
+            all_cells.append(ep.postsynaptic_population)
+        
+        for e in ep.electricalConnectionInstanceW:
+            gj_conns[ep.presynaptic_population][ep.postsynaptic_population] = float(e.weight)
+            
+    print gj_conns
+    all_cells = sorted(all_cells)
+    print all_cells
+    
+    data = np.zeros((len(all_cells),len(all_cells)))
+    
+    for pre in gj_conns.keys():
+        for post in gj_conns[pre].keys():
+            print("Conn %s -> %s: %s"%(pre,post,gj_conns[pre][post]))
+            data[all_cells.index(pre),all_cells.index(post)] = gj_conns[pre][post]
+        
+    print data
+    
+    _show_conn_matrix(data, 'Electrical (gap junction) connections',all_cells)
+        
+            
+if __name__ == '__main__':
+
+    from neuroml.loaders import read_neuroml2_file
+    
+    nml_doc = read_neuroml2_file('examples/c302_C0_Social.nml')
+    
+    generate_conn_matrix(nml_doc)
+    
+    nml_doc = read_neuroml2_file('examples/c302_C0_Muscles.nml')
+    
+    generate_conn_matrix(nml_doc)
+    
+    nml_doc = read_neuroml2_file('examples/c302_C0_Pharyngeal.nml')
+    
+    generate_conn_matrix(nml_doc)
+    
+    #nml_doc = read_neuroml2_file('examples/c302_C0_Full.nml')
+    
+    #generate_conn_matrix(nml_doc)
+    
+    plt.show()

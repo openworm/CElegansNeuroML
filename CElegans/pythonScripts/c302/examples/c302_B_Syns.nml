@@ -45,7 +45,7 @@ Parameters and setting used to generate this network:
     <include href="cell_B.xml"></include>
     <expTwoSynapse id="neuron_to_neuron_inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <gapJunction id="neuron_to_neuron_elec_syn_1conns" conductance="0.1nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.1nS"/>
     <iafCell type="iafActivityCell" id="generic_muscle_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <iafCell type="iafActivityCell" id="generic_neuron_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <pulseGenerator id="offset_current" delay="50 ms" duration="2000ms" amplitude="3pA"/>
@@ -93,10 +93,10 @@ Parameters and setting used to generate this network:
             <connectionWD id="0" preCellId="../URYDL/0/generic_neuron_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/generic_neuron_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
         <electricalProjection id="NC_AIZL_ASHL_Generic_GJ" presynapticPopulation="AIZL" postsynapticPopulation="ASHL">
-            <electricalConnectionInstance id="0" preCell="../AIZL/0/generic_neuron_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../ASHL/0/generic_neuron_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn_1conns"/>
+            <electricalConnectionInstanceW id="0" preCell="../AIZL/0/generic_neuron_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../ASHL/0/generic_neuron_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
         <electricalProjection id="NC_ASHL_AIZL_Generic_GJ" presynapticPopulation="ASHL" postsynapticPopulation="AIZL">
-            <electricalConnectionInstance id="0" preCell="../ASHL/0/generic_neuron_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../AIZL/0/generic_neuron_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn_1conns"/>
+            <electricalConnectionInstanceW id="0" preCell="../ASHL/0/generic_neuron_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../AIZL/0/generic_neuron_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
         <inputList id="Input_URYDL_stim_URYDL_1" population="URYDL" component="stim_URYDL_1">
             <input id="0" target="../URYDL/0/generic_neuron_iaf_cell" destination="synapses"/>
