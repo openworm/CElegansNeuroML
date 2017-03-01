@@ -299,18 +299,21 @@ def plot_c302_results(lems_results,
         plt.close("all")
         
         
-def _show_conn_matrix(data, title, all_cells):
+def _show_conn_matrix(data, t, all_cells, type):
     
     fig, ax = plt.subplots()
+    title = '%s: %s'%(type,t)
     plt.title(title)
-    im = plt.imshow(data, cmap='gist_stern', interpolation='nearest')
+    fig.canvas.set_window_title(title)
+    im = plt.imshow(data, cmap='gist_stern_r', interpolation='nearest')
     
-    xt = np.arange(data.shape[1]) + 0.5
-    print xt
+    xt = np.arange(data.shape[1]) + 0
     ax.set_xticks(xt, minor=False)
-    ax.set_yticks(np.arange(data.shape[0]) + 0.5, minor=False)
+    ax.set_yticks(np.arange(data.shape[0]) + 0, minor=False)
     ax.set_xticklabels(all_cells, minor=False)
     ax.set_yticklabels(all_cells, minor=False)
+    ax.set_ylabel('presynaptic')
+    ax.set_xlabel('postsynaptic')
     
     #heatmap = ax.pcolor(data, cmap='gist_stern')
     cbar = plt.colorbar(im)
@@ -340,10 +343,8 @@ def generate_conn_matrix(nml_doc):
             else:
                 cc_exc_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
                 
-            
     print cc_exc_conns
     print cc_inh_conns
-    
     
     gj_conns = {}
     for ep in net.electrical_projections:
@@ -377,15 +378,9 @@ def generate_conn_matrix(nml_doc):
     print data_exc
     print data_inh
     
-    _show_conn_matrix(data_exc, 'Excitatory (non GABA) connections',all_cells)
-    _show_conn_matrix(data_inh, 'Inhibitory (GABA) connections',all_cells)
+    _show_conn_matrix(data_exc, 'Excitatory (non GABA) connections',all_cells, net.id)
+    _show_conn_matrix(data_inh, 'Inhibitory (GABA) connections',all_cells, net.id)
     
-    
-    
-            
-    print gj_conns
-    all_cells = sorted(all_cells)
-    print all_cells
     
     data = np.zeros((len(all_cells),len(all_cells)))
     
@@ -396,12 +391,16 @@ def generate_conn_matrix(nml_doc):
         
     print data
     
-    _show_conn_matrix(data, 'Electrical (gap junction) connections',all_cells)
+    _show_conn_matrix(data, 'Electrical (gap junction) connections',all_cells, net.id)
         
             
 if __name__ == '__main__':
 
     from neuroml.loaders import read_neuroml2_file
+    
+    nml_doc = read_neuroml2_file('examples/c302_C0_Syns.nml')
+    
+    generate_conn_matrix(nml_doc)
     
     nml_doc = read_neuroml2_file('examples/c302_C0_Social.nml')
     
@@ -412,6 +411,10 @@ if __name__ == '__main__':
     #generate_conn_matrix(nml_doc)
     
     nml_doc = read_neuroml2_file('examples/c302_C0_Pharyngeal.nml')
+    
+    generate_conn_matrix(nml_doc)
+    
+    nml_doc = read_neuroml2_file('examples/c302_C0_Oscillator.nml')
     
     generate_conn_matrix(nml_doc)
     
