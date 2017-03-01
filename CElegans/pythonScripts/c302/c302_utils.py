@@ -337,7 +337,7 @@ def generate_conn_matrix(nml_doc):
         if not cp.postsynaptic_population in all_cells:
             all_cells.append(cp.postsynaptic_population)
         
-        for c in cp.continuous_connection_instance_ws:
+        for c in cp.continuousConnectionInstanceW:
             if 'inh' in c.post_component:
                 cc_inh_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
             else:
@@ -356,7 +356,7 @@ def generate_conn_matrix(nml_doc):
         if not ep.postsynaptic_population in all_cells:
             all_cells.append(ep.postsynaptic_population)
         
-        for e in ep.electrical_connection_instance_ws:
+        for e in ep.electricalConnectionInstanceW:
             gj_conns[ep.presynaptic_population][ep.postsynaptic_population] = float(e.weight)
             
             
