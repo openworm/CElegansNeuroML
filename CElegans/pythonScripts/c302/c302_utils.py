@@ -4,6 +4,7 @@ from pyneuroml import pynml
 import matplotlib.pyplot as plt
 import numpy as np
 import c302
+import collections
 
 
 def plots(a_n, info, cells, dt):
@@ -302,7 +303,7 @@ def plot_c302_results(lems_results,
         plt.close("all")
         
         
-def _show_conn_matrix(data, t, all_cells, type):
+def _show_conn_matrix(data, t, all_info, type):
     
     fig, ax = plt.subplots()
     title = '%s: %s'%(type,t)
@@ -310,13 +311,25 @@ def _show_conn_matrix(data, t, all_cells, type):
     fig.canvas.set_window_title(title)
     im = plt.imshow(data, cmap='gist_stern_r', interpolation='nearest')
     
+    ax = plt.gca();
+    # Gridlines based on minor ticks
+    ax.grid(which='minor', color='grey', linestyle='-', linewidth=.3)
+    
     xt = np.arange(data.shape[1]) + 0
-    ax.set_xticks(xt, minor=False)
-    ax.set_yticks(np.arange(data.shape[0]) + 0, minor=False)
-    ax.set_xticklabels(all_cells, minor=False)
-    ax.set_yticklabels(all_cells, minor=False)
+    ax.set_xticks(xt)
+    ax.set_xticks(xt[:-1]+0.5,minor=True)
+    ax.set_yticks(np.arange(data.shape[0]) + 0)
+    ax.set_yticks(np.arange(data.shape[0]) + 0.5,minor=True)
+    
+    
+    shorts = [all_info[k][4] for k in all_info.keys()]
+    
+    ax.set_xticklabels(shorts)
+    ax.set_yticklabels(shorts)
     ax.set_ylabel('presynaptic')
     ax.set_xlabel('postsynaptic')
+    fig.autofmt_xdate()
+    
     
     #heatmap = ax.pcolor(data, cmap='gist_stern')
     cbar = plt.colorbar(im)
@@ -365,6 +378,7 @@ def generate_conn_matrix(nml_doc):
             
     all_cells = sorted(all_cells)
     print all_cells
+    all_info = _get_cell_info(all_cells)
     
     data_exc = np.zeros((len(all_cells),len(all_cells)))
     data_inh = np.zeros((len(all_cells),len(all_cells)))
@@ -381,8 +395,8 @@ def generate_conn_matrix(nml_doc):
     print data_exc
     print data_inh
     
-    _show_conn_matrix(data_exc, 'Excitatory (non GABA) connections',all_cells, net.id)
-    _show_conn_matrix(data_inh, 'Inhibitory (GABA) connections',all_cells, net.id)
+    _show_conn_matrix(data_exc, 'Excitatory (non GABA) connections',all_info, net.id)
+    _show_conn_matrix(data_inh, 'Inhibitory (GABA) connections',all_info, net.id)
     
     
     data = np.zeros((len(all_cells),len(all_cells)))
@@ -394,8 +408,49 @@ def generate_conn_matrix(nml_doc):
         
     print data
     
-    _show_conn_matrix(data, 'Electrical (gap junction) connections',all_cells, net.id)
+    _show_conn_matrix(data, 'Electrical (gap junction) connections',all_info, net.id)
         
+def _get_cell_info(cells):
+
+    import PyOpenWorm as P
+    print("Connecting to the PyOpenWorm database...")
+    P.connect()
+
+    #Get the worm object.
+    worm = P.Worm()
+
+    #Extract the network object from the worm object.
+    net = worm.neuron_network()
+
+    #Go through our list and get the neuron object associated with each name.
+    #Store these in another list.
+    some_neurons = [P.Neuron(name) for name in cells]
+    all_info = collections.OrderedDict()
+    
+    for neuron in some_neurons: 
+        print("=====Checking properties of: %s"%neuron)
+        short = ') %s'%neuron.name()
+        if 'motor' in neuron.type():
+            short = 'M%s'%short
+        if 'sensory' in neuron.type():
+            short = 'S%s'%short
+        if 'interneuron' in neuron.type():
+            short = 'I%s'%short
+        short = '(%s'%short
+        if 'GABA' in neuron.neurotransmitter():
+            short = '- %s'%short
+        else:
+            short = '+ %s'%short
+            
+        info = (neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short)
+        #print dir(neuron)
+        
+        print(info)
+        all_info[neuron.name()] = info
+        
+    return all_info
+    
+    
             
 if __name__ == '__main__':
 
@@ -409,9 +464,9 @@ if __name__ == '__main__':
     
     generate_conn_matrix(nml_doc)
     
-    #nml_doc = read_neuroml2_file('examples/c302_C0_Muscles.nml')
+    nml_doc = read_neuroml2_file('examples/c302_C0_Muscles.nml')
     
-    #generate_conn_matrix(nml_doc)
+    generate_conn_matrix(nml_doc)
     
     nml_doc = read_neuroml2_file('examples/c302_C0_Pharyngeal.nml')
     
