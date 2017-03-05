@@ -303,13 +303,23 @@ def plot_c302_results(lems_results,
         plt.close("all")
         
         
-def _show_conn_matrix(data, t, all_info, type):
+def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save=False):
     
     fig, ax = plt.subplots()
     title = '%s: %s'%(type,t)
     plt.title(title)
     fig.canvas.set_window_title(title)
-    im = plt.imshow(data, cmap='gist_stern_r', interpolation='nearest')
+    import matplotlib
+    cm = matplotlib.cm.get_cmap('gist_stern_r')
+    
+    if data.shape[0]>0 and data.shape[1]>0 and np.amax(data)>0:
+        ##norm = matplotlib.colors.LogNorm(vmin=1, vmax=np.amax(data))
+        maxn = int(np.amax(data))
+    else:
+        ##norm = None
+        maxn = 0 
+    print("Plotting data of size %s, max %s: %s"%(str(data.shape),maxn, t))
+    im = plt.imshow(data, cmap=cm, interpolation='nearest',norm=None)
     
     ax = plt.gca();
     # Gridlines based on minor ticks
@@ -322,19 +332,18 @@ def _show_conn_matrix(data, t, all_info, type):
     ax.set_yticks(np.arange(data.shape[0]) + 0.5,minor=True)
     
     
-    shorts = [all_info[k][4] for k in all_info.keys()]
-    
-    ax.set_xticklabels(shorts)
-    ax.set_yticklabels(shorts)
+    ax.set_yticklabels([all_info_pre[k][4] for k in all_info_pre.keys()])
+    ax.set_xticklabels([all_info_post[k][4] for k in all_info_post.keys()])
     ax.set_ylabel('presynaptic')
     ax.set_xlabel('postsynaptic')
     fig.autofmt_xdate()
     
     
     #heatmap = ax.pcolor(data, cmap='gist_stern')
-    cbar = plt.colorbar(im)
+    cbar = plt.colorbar(im, ticks=range(maxn+1))
+    cbar.set_ticklabels(range(maxn+1))
 
-def generate_conn_matrix(nml_doc):
+def generate_conn_matrix(nml_doc, save=False):
     
     net = nml_doc.networks[0]
     
@@ -377,38 +386,73 @@ def generate_conn_matrix(nml_doc):
             
             
     all_cells = sorted(all_cells)
-    print all_cells
-    all_info = _get_cell_info(all_cells)
     
-    data_exc = np.zeros((len(all_cells),len(all_cells)))
-    data_inh = np.zeros((len(all_cells),len(all_cells)))
+    all_neuron_info, all_muscle_info = _get_cell_info(all_cells)
+    all_neurons = [] 
+    all_muscles = []
+    for c in all_cells:
+        if _is_muscle(c):
+            all_muscles.append(c)
+        else:
+            all_neurons.append(c)
+        
+    
+    data_exc_n = np.zeros((len(all_neurons),len(all_neurons)))
+    data_exc_m = np.zeros((len(all_neurons),len(all_muscles)))
+    
+    data_inh_n = np.zeros((len(all_neurons),len(all_neurons)))
+    data_inh_m = np.zeros((len(all_neurons),len(all_muscles)))
     
     for pre in cc_exc_conns.keys():
         for post in cc_exc_conns[pre].keys():
             print("Exc Conn %s -> %s: %s"%(pre,post,cc_exc_conns[pre][post]))
-            data_exc[all_cells.index(pre),all_cells.index(post)] = cc_exc_conns[pre][post]
+            if post in all_neurons:
+                data_exc_n[all_neurons.index(pre),all_neurons.index(post)] = cc_exc_conns[pre][post]
+            else:
+                data_exc_m[all_neurons.index(pre),all_muscles.index(post)] = cc_exc_conns[pre][post]
+            if pre in all_muscles:
+                raise Exception("Unexpected...")
+                
     for pre in cc_inh_conns.keys():
         for post in cc_inh_conns[pre].keys():
             print("Inh Conn %s -> %s: %s"%(pre,post,cc_inh_conns[pre][post]))
-            data_inh[all_cells.index(pre),all_cells.index(post)] = cc_inh_conns[pre][post]
+            if post in all_neurons:
+                data_inh_n[all_neurons.index(pre),all_neurons.index(post)] = cc_inh_conns[pre][post]
+            else:
+                data_inh_m[all_neurons.index(pre),all_muscles.index(post)] = cc_inh_conns[pre][post]
+            if pre in all_muscles:
+                raise Exception("Unexpected...")
+                
         
-    print data_exc
-    print data_inh
+    print data_exc_n
+    print data_exc_m
+    print data_inh_n
+    print data_inh_m
     
-    _show_conn_matrix(data_exc, 'Excitatory (non GABA) connections',all_info, net.id)
-    _show_conn_matrix(data_inh, 'Inhibitory (GABA) connections',all_info, net.id)
+    _show_conn_matrix(data_exc_n, 'Excitatory (non GABA) conns to neurons',all_neuron_info,all_neuron_info, net.id)
+    _show_conn_matrix(data_exc_m, 'Excitatory (non GABA) conns to muscles',all_neuron_info,all_muscle_info, net.id)
+    
+    _show_conn_matrix(data_inh_n, 'Inhibitory (GABA) conns to neurons',all_neuron_info,all_neuron_info, net.id)
+    _show_conn_matrix(data_inh_m, 'Inhibitory (GABA) conns to muscles',all_neuron_info,all_muscle_info, net.id)
     
     
-    data = np.zeros((len(all_cells),len(all_cells)))
+    data_n = np.zeros((len(all_neurons),len(all_neurons)))
+    #data_m = np.zeros((len(all_neurons),len(all_muscles)))
     
     for pre in gj_conns.keys():
         for post in gj_conns[pre].keys():
-            print("Conn %s -> %s: %s"%(pre,post,gj_conns[pre][post]))
-            data[all_cells.index(pre),all_cells.index(post)] = gj_conns[pre][post]
+            print("Elect Conn %s -> %s: %s"%(pre,post,gj_conns[pre][post]))
+            
+            if post in all_neurons:
+                data_n[all_neurons.index(pre),all_neurons.index(post)] = gj_conns[pre][post]
+            if post in all_muscles:
+                raise Exception("Unexpected...")
+            if pre in all_muscles:
+                raise Exception("Unexpected...")
         
-    print data
     
-    _show_conn_matrix(data, 'Electrical (gap junction) connections',all_info, net.id)
+    _show_conn_matrix(data_n, 'Electrical (gap junction) conns to neurons',all_neuron_info,all_neuron_info, net.id)
+    #_show_conn_matrix(data_m, 'Electrical (gap junction) conns to muscles',all_neuron_info,all_muscle_info, net.id)
         
 def _get_cell_info(cells):
 
@@ -425,59 +469,61 @@ def _get_cell_info(cells):
     #Go through our list and get the neuron object associated with each name.
     #Store these in another list.
     some_neurons = [P.Neuron(name) for name in cells]
-    all_info = collections.OrderedDict()
+    all_neuron_info = collections.OrderedDict()
+    all_muscle_info = collections.OrderedDict()
     
     for neuron in some_neurons: 
         print("=====Checking properties of: %s"%neuron)
+        print neuron.triples()
+        print neuron.__class__
         short = ') %s'%neuron.name()
         if 'motor' in neuron.type():
-            short = 'M%s'%short
+            short = 'Mo%s'%short
         if 'sensory' in neuron.type():
-            short = 'S%s'%short
+            short = 'Se%s'%short
         if 'interneuron' in neuron.type():
-            short = 'I%s'%short
+            short = 'In%s'%short
+        if _is_muscle(neuron.name()):
+            short = 'Mu%s'%short
+            
+            
         short = '(%s'%short
+        
+        
         if 'GABA' in neuron.neurotransmitter():
             short = '- %s'%short
+        elif len(neuron.neurotransmitter())==0:
+            short = '? %s'%short
         else:
             short = '+ %s'%short
             
         info = (neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short)
         #print dir(neuron)
         
-        print(info)
-        all_info[neuron.name()] = info
+        if _is_muscle(neuron.name()):
+            all_muscle_info[neuron.name()] = info
+        else:
+            all_neuron_info[neuron.name()] = info
         
-    return all_info
-    
-    
+    return all_neuron_info, all_muscle_info
+  
+def _is_muscle(name):
+    return name.startswith('MD') or name.startswith('MV')
             
 if __name__ == '__main__':
 
     from neuroml.loaders import read_neuroml2_file
     
-    nml_doc = read_neuroml2_file('examples/c302_C0_Syns.nml')
+    configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml','c302_C0_Muscles.nml','c302_C0_Pharyngeal.nml','c302_C0_Oscillator.nml','c302_C0_Full.nml']
+    configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml']
+    configs = ['c302_C0_Muscles.nml']
+    configs = ['c302_C0_Oscillator.nml']
     
-    generate_conn_matrix(nml_doc)
+    for c in configs:
+
+        nml_doc = read_neuroml2_file('examples/%s'%c)
+
+        generate_conn_matrix(nml_doc, save=True)
     
-    nml_doc = read_neuroml2_file('examples/c302_C0_Social.nml')
-    
-    generate_conn_matrix(nml_doc)
-    
-    nml_doc = read_neuroml2_file('examples/c302_C0_Muscles.nml')
-    
-    generate_conn_matrix(nml_doc)
-    
-    nml_doc = read_neuroml2_file('examples/c302_C0_Pharyngeal.nml')
-    
-    generate_conn_matrix(nml_doc)
-    
-    nml_doc = read_neuroml2_file('examples/c302_C0_Oscillator.nml')
-    
-    generate_conn_matrix(nml_doc)
-    
-    #nml_doc = read_neuroml2_file('examples/c302_C0_Full.nml')
-    
-    #generate_conn_matrix(nml_doc)
     
     plt.show()
