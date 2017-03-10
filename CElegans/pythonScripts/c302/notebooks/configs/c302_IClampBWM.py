@@ -1,5 +1,7 @@
-import c302
 import sys
+sys.path.append('../../../')
+
+from CElegans.pythonScripts.c302 import c302
 import neuroml.writers as writers
     
 def setup(parameter_set, 
@@ -14,35 +16,35 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    stim_amplitudes = ["1pA","2pA","3pA","4pA","10pA","15pA"]
+    stim_amplitudes = ["1pA","2pA","3pA","4pA","5pA","6pA"]
     duration = (len(stim_amplitudes))*1000
     
     
-    cells = ['VB1']
-    muscles_to_include = ['MVL07']
+    cells = ['AVAL']
+    muscles_to_include = ['MDR01']
     
     cells_total = list(cells + muscles_to_include)
     
     
-    reference = "c302_%s_NMJ"%parameter_set
+    reference = "c302_%s_IClampBWM"%parameter_set
     
     
     if generate:
-        nml_doc = c302.generate(reference, 
-                    params, 
-                    data_reader=data_reader,
-                    cells=cells, 
-                    cells_to_stimulate=[], 
-                    muscles_to_include = muscles_to_include,
-                    duration=duration, 
-                    dt=dt, 
-                    target_directory=target_directory,
-                    param_overrides=param_overrides,
-                    verbose=verbose)
+        nml_doc = c302.generate(reference,
+                                params,
+                                data_reader=data_reader,
+                                cells=cells,
+                                cells_to_stimulate=[],
+                                muscles_to_include = muscles_to_include,
+                                duration=duration,
+                                dt=dt,
+                                target_directory=target_directory,
+                                param_overrides=param_overrides,
+                                verbose=verbose)
                     
     for i in range(len(stim_amplitudes)):
         start = "%sms"%(i*1000 + 100)
-        for c in cells:
+        for c in muscles_to_include:
             c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
     
     

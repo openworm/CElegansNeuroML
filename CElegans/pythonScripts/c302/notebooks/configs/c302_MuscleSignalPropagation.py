@@ -1,5 +1,7 @@
-import c302
 import sys
+sys.path.append('../../../')
+
+from CElegans.pythonScripts.c302 import c302
 
 import neuroml.writers as writers
 
@@ -54,20 +56,20 @@ def setup(parameter_set,
 
     if generate:
         nml_doc = c302.generate(reference,
-                                params,
-                                cells=cells,
-                                cells_to_plot=cells_to_plot,
-                                cells_to_stimulate=cells_to_stimulate,
-                                conns_to_include=conns_to_include,
-                                conn_polarity_override=conn_polarity_override,
-                                conn_number_override=conn_number_override,
-                                muscles_to_include=muscles_to_include,
-                                duration=duration,
-                                dt=dt,
-                                target_directory=target_directory,
-                                data_reader=data_reader,
-                                param_overrides=param_overrides,
-                                verbose=verbose)
+                                     params,
+                                     cells=cells,
+                                     cells_to_plot=cells_to_plot,
+                                     cells_to_stimulate=cells_to_stimulate,
+                                     conns_to_include=conns_to_include,
+                                     conn_polarity_override=conn_polarity_override,
+                                     conn_number_override=conn_number_override,
+                                     muscles_to_include=muscles_to_include,
+                                     duration=duration,
+                                     dt=dt,
+                                     target_directory=target_directory,
+                                     data_reader=data_reader,
+                                     param_overrides=param_overrides,
+                                     verbose=verbose)
 
     for i in range(len(stim_amplitudes)):
         start = "%sms" % (i * 1000 + 100)

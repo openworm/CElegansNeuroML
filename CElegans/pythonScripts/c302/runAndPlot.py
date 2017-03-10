@@ -20,10 +20,14 @@ def run_c302(config,
              data_reader="SpreadsheetDataReader",
              verbose=False,
              plot_ca=True,
-             param_overrides={}):
+             param_overrides={},
+             config_package=""):
     
     print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
-    exec('from c302_%s import setup'%config)
+    if config_package:
+        exec ('from %s.c302_%s import setup' % (config_package, config))
+    else:
+        exec ('from c302_%s import setup' % config)
     cells, cells_to_stimulate, params, muscles = setup(parameter_set, 
                                                        data_reader=data_reader,
                                                        generate=True,

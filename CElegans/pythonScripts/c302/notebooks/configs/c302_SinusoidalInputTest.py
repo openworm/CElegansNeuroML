@@ -1,5 +1,7 @@
-import c302
 import sys
+sys.path.append('../../../')
+
+from CElegans.pythonScripts.c302 import c302
 
 import neuroml.writers as writers
 
