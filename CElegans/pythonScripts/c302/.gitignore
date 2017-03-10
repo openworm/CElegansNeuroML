@@ -8,3 +8,9 @@ NT_*
 *.hoc
 x86_64
 
+test/*
+c1Test/*
+muscleTest/*
+synapses/*
+twc/*
+twcWithoutMotor/*
