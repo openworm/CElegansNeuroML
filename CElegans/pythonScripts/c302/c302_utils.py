@@ -362,7 +362,7 @@ def generate_conn_matrix(nml_doc, save=False):
         if not cp.postsynaptic_population in all_cells:
             all_cells.append(cp.postsynaptic_population)
         
-        for c in cp.continuousConnectionInstanceW:
+        for c in cp.continuous_connection_instance_ws:
             if 'inh' in c.post_component:
                 cc_inh_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
             else:
@@ -381,7 +381,7 @@ def generate_conn_matrix(nml_doc, save=False):
         if not ep.postsynaptic_population in all_cells:
             all_cells.append(ep.postsynaptic_population)
         
-        for e in ep.electricalConnectionInstanceW:
+        for e in ep.electrical_connection_instance_ws:
             gj_conns[ep.presynaptic_population][ep.postsynaptic_population] = float(e.weight)
             
             
@@ -516,8 +516,8 @@ if __name__ == '__main__':
     
     configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml','c302_C0_Muscles.nml','c302_C0_Pharyngeal.nml','c302_C0_Oscillator.nml','c302_C0_Full.nml']
     configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml']
-    configs = ['c302_C0_Muscles.nml']
-    configs = ['c302_C0_Oscillator.nml']
+    #configs = ['c302_C0_Muscles.nml']
+    #configs = ['c302_C0_Oscillator.nml']
     
     for c in configs:
 
