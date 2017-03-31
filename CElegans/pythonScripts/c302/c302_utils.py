@@ -19,8 +19,8 @@ def plots(a_n, info, cells, dt):
     #pr.enable()
     
    
-    import time
-    start = time.time()
+    #import time
+    #start = time.time()
 
     c302.print_('Generating plots for: %s'%info)
     
@@ -61,7 +61,7 @@ def plots(a_n, info, cells, dt):
     plt.xlim(0,a_n_.shape[1])
     #print plt.xlim()
 
-    print "TIME: %s" % (time.time() - start)
+    #print "TIME: %s" % (time.time() - start)
 
     #pr.disable()
     #s = StringIO.StringIO()
