@@ -1,24 +1,38 @@
 import sys
 import os
-import re
 from pyneuroml import pynml
 import matplotlib.pyplot as plt
 import numpy as np
 import c302
+import re
+import multiprocessing
+import time
+import cProfile
 
 natsort = lambda s: [int(t) if t.isdigit() else t for t in re.split('(\d+)', s)]
 
+
 def plots(a_n, info, cells, dt):
     
+    #import cProfile, pstats, StringIO
+    #pr = cProfile.Profile()
+    #pr.enable()
+    
+   
+    import time
+    start = time.time()
+
     c302.print_('Generating plots for: %s'%info)
     
     fig, ax = plt.subplots()
+    #fig = plt.figure()
+    #ax = fig.gca()
     downscale = 10
     #print a_n.shape
     a_n_ = a_n[:,::downscale]
     #c302.print_(a_n_.shape) 
-    
-    plot0 = ax.pcolor(a_n_)
+
+    plot0 = ax.pcolormesh(a_n_)
     ax.set_yticks(np.arange(a_n_.shape[0]) + 0.5, minor=False)
     ax.set_yticklabels(cells)
     ax.tick_params(axis='y', labelsize=6)
@@ -46,8 +60,18 @@ def plots(a_n, info, cells, dt):
     #print plt.xlim()
     plt.xlim(0,a_n_.shape[1])
     #print plt.xlim()
-    
 
+    print "TIME: %s" % (time.time() - start)
+
+    #pr.disable()
+    #s = StringIO.StringIO()
+    #sortby = 'cumulative'
+    #ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+    #ps.print_stats()
+    #print s.getvalue()
+    
+def plots_prof(a_n, info, cells, dt):
+    cProfile.run('real_plots(a_n, info, cells, dt)')
     
 def generate_traces_plot(config,parameter_set,xvals,yvals,info,labels,save,save_fig_path,voltage,muscles):
                          
@@ -73,6 +97,10 @@ def plot_c302_results(lems_results,
                       show_plot_already=True, 
                       data_reader="SpreadsheetDataReader",
                       plot_ca=True):
+    
+    #pool = multiprocessing.Pool(2)
+    #tasks = []
+    #gen_traces_tasks = []
     
     params = {'legend.fontsize': 8,
               'font.size': 10}
@@ -129,14 +157,16 @@ def plot_c302_results(lems_results,
             yvals.append(volts_n[-1])
             
         info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
-        
+
+        #tasks.append((volts_n, info, cells, dt))
         plots(volts_n, info, cells, dt)
     
         if save:
             f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
-        
+
+        #gen_traces_tasks.append( (config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, True, False) )
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -182,6 +212,7 @@ def plot_c302_results(lems_results,
 
         info = 'Membrane potentials of %i muscle(s) (%s %s)'%(len(muscles),config,parameter_set)
 
+        #tasks.append((mvolts_n, info, muscles, dt))
         plots(mvolts_n, info, muscles, dt)
         
         if save:
@@ -189,6 +220,7 @@ def plot_c302_results(lems_results,
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
 
+        #gen_traces_tasks.append((config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, True, True))
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -230,13 +262,15 @@ def plot_c302_results(lems_results,
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
+        #tasks.append((activities_n, info, cells, dt))
         plots(activities_n, info, cells, dt)
     
         if save:
             f = save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
-            
+
+        #gen_traces_tasks.append((config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, True, False))
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -278,13 +312,15 @@ def plot_c302_results(lems_results,
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
+        #tasks.append((activities_n, info, muscles, dt))
         plots(activities_n, info, muscles, dt)
     
         if save:
             f = save_fig_path%('muscle_activity_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
-    
+
+        #gen_traces_tasks.append((config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, False, False))
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -298,8 +334,17 @@ def plot_c302_results(lems_results,
     
     ##os.chdir('..')
 
+    #results = [pool.apply_async(plots, t) for t in tasks]
+    #gen_traces_plot_results = [pool.apply_async(generate_traces_plot, t) for t in gen_traces_tasks]
+
+    #pool.close()
+    #pool.join()
+
     if show_plot_already:
-        plt.show()
+        try:
+            plt.show()
+        except KeyboardInterrupt:
+            print "Interrupt received, stopping..."
     else:
         plt.close("all")
       
