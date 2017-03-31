@@ -1,11 +1,13 @@
 import sys
 import os
+import re
 from pyneuroml import pynml
 import matplotlib.pyplot as plt
 import numpy as np
 import c302
 import collections
 
+natsort = lambda s: [int(t) if t.isdigit() else t for t in re.split('(\d+)', s)]
 
 def plots(a_n, info, cells, dt):
     
@@ -92,7 +94,7 @@ def plot_c302_results(lems_results,
             else:
                 cells.append(cm.split('/')[0])
     
-    cells.sort()
+    cells.sort(key=natsort)
     cells.reverse()
             
     c302.print_("All cells: %s"%cells)
@@ -152,7 +154,7 @@ def plot_c302_results(lems_results,
     ## Plot voltages muscles
 
  
-    muscles.sort()
+    muscles.sort(key=natsort)
     muscles.reverse()
 
     xvals = []
