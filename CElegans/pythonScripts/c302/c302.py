@@ -907,7 +907,7 @@ def generate(net_id,
                            synapse=syn_new.id,
                            weight=number_syns)
 
-                proj0.electricalConnectionInstanceW.append(conn0)
+                proj0.electrical_connection_instance_ws.append(conn0)
                 
             elif analog_conn:
         
@@ -927,7 +927,7 @@ def generate(net_id,
                            post_component=syn_new.id,
                            weight=number_syns)
 
-                proj0.continuousConnectionInstanceW.append(conn0)
+                proj0.continuous_connection_instance_ws.append(conn0)
                 
                 
             else:
@@ -1061,7 +1061,7 @@ def generate(net_id,
                            synapse=syn_new.id,
                            weight=number_syns)
 
-                proj0.electricalConnectionInstancesW.append(conn0)
+                proj0.electrical_connection_instance_ws.append(conn0)
                 
             elif analog_conn:
         
@@ -1081,7 +1081,7 @@ def generate(net_id,
                            post_component=syn_new.id,
                            weight=number_syns)
 
-                proj0.continuousConnectionInstanceW.append(conn0)
+                proj0.continuous_connection_instance_ws.append(conn0)
 
             else:
 
