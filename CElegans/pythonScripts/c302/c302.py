@@ -22,6 +22,7 @@ from neuroml import GapJunction
 from neuroml import GradedSynapse
 from neuroml import Property
 from neuroml import PulseGenerator
+from neuroml import SineGenerator
 from neuroml import SilentSynapse
 
 import neuroml.writers as writers
@@ -143,6 +144,12 @@ def process_args():
                         default=None,
                         help='Map of scaling factors for connection numbers, e.g. {"I1L-I3":2, "AVAR-AVBL_GJ":2} => use 2 times as many connections from I1L to I3, use 2 times as many connections for GJ AVAR-AVBL')
 
+    parser.add_argument('-musclestoinclude',
+                        type=str,
+                        metavar='<muscles-to-include>',
+                        default=None,
+                        help='List of muscles to include (default: none)')
+
     parser.add_argument('-duration',
                         type=float,
                         metavar='<duration>',
@@ -176,26 +183,53 @@ quadrant2 = 'MVL'
 quadrant3 = 'MDL'
 
 
-def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
+def get_next_stim_id(nml_doc, cell):
     i = 1
     for stim in nml_doc.pulse_generators:
         if stim.id.startswith("%s_%s" % ("stim", cell)):
             i += 1
     id = "%s_%s_%s" % ("stim", cell, i)
-    stim = PulseGenerator(id=id, delay=delay, duration=duration, amplitude=amplitude)
-    nml_doc.pulse_generators.append(stim)
+    return id
 
+def get_cell_position(cell):
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    #cell_file_path = root_dir + "/../../../" if test else root_dir + "/../../"  # if running test
+    cell_file_path = root_dir + "/../../" 
+    cell_file = cell_file_path + 'generatedNeuroML2/%s.cell.nml' % cell
+    doc = loaders.NeuroMLLoader.load(cell_file)
+    location = doc.cells[0].morphology.segments[0].proximal
+    #print "%s, %s, %s" %(location.x, location.y, location.z)
+    return location
+
+def append_input_to_nml_input_list(stim, nml_doc, cell, params):
     target = get_cell_id_string(cell, params, muscle=is_muscle(cell))
 
-    input_list = InputList(id="Input_%s_%s"%(cell,stim.id),
-                           component=stim.id,
-                           populations='%s'%cell)
+    input_list = InputList(id="Input_%s_%s" % (cell, stim.id), component=stim.id, populations='%s' % cell)
 
-    input_list.input.append(Input(id=0,
-                                  target=target,
-                                  destination="synapses"))
+    input_list.input.append(Input(id=0, target=target, destination="synapses"))
 
     nml_doc.networks[0].input_lists.append(input_list)
+
+
+def add_new_sinusoidal_input(nml_doc, cell, delay, duration, amplitude, period, params):
+    id = get_next_stim_id(nml_doc, cell)
+    
+    phase = get_cell_position(cell).x
+    print "### CELL %s PHASE: %s" % (cell, phase)
+    
+    input = SineGenerator(id=id, delay=delay, phase=phase, duration=duration, amplitude=amplitude, period=period)
+    nml_doc.sine_generators.append(input)
+
+    append_input_to_nml_input_list(input, nml_doc, cell, params)
+    
+    
+
+def add_new_input(nml_doc, cell, delay, duration, amplitude, params):
+    id = get_next_stim_id(nml_doc, cell)
+    input = PulseGenerator(id=id, delay=delay, duration=duration, amplitude=amplitude)
+    nml_doc.pulse_generators.append(input)
+
+    append_input_to_nml_input_list(input, nml_doc, cell, params)
 
 
 def get_muscle_names():
@@ -242,9 +276,9 @@ def write_to_file(nml_doc,
 
     lems_file_name = target_directory+'/'+'LEMS_%s.xml'%reference
     with open(lems_file_name, 'w') as lems:
-    	# if running unittest concat template_path
+        # if running unittest concat template_path
     	merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
-    	lems.write(merged)
+        lems.write(merged)
 
     if verbose: 
         print_("Written LEMS file to: "+lems_file_name)
@@ -385,7 +419,8 @@ def is_cond_based_cell(params):
 
 
 def get_cell_id_string(cell, params, muscle=False):
-    
+    if cell in get_muscle_names():
+        muscle = True
     if not params.is_level_D():
         if not muscle:
             return "../%s/0/%s"%(cell, params.generic_neuron_cell.id)
@@ -781,6 +816,7 @@ def generate(net_id,
             analog_conn = False
             syn0 = params.neuron_to_neuron_exc_syn
             orig_pol = "exc"
+            
             if 'GABA' in conn.synclass:
                 syn0 = params.neuron_to_neuron_inh_syn
                 orig_pol = "inh"
@@ -791,6 +827,8 @@ def generate(net_id,
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
+
+            print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
@@ -843,6 +881,10 @@ def generate(net_id,
                     print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
                      (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
 
+            #print "######## %s-%s %s %s" % (conn.pre_cell, conn.post_cell, conn.synclass, number_syns)
+            #known_motor_prefixes = ["VA"]
+            #if conn.pre_cell.startswith(tuple(known_motor_prefixes)) or conn.post_cell.startswith(tuple(known_motor_prefixes)):
+            #    print "######### %s-%s %s %s" % (conn.pre_cell, conn.post_cell, number_syns, conn.synclass)
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
@@ -913,7 +955,7 @@ def generate(net_id,
         for conn in muscle_conns:
             if not conn.post_cell in muscles_to_include:
                 continue
-            if not conn.pre_cell in lems_info["cells"]:
+            if not conn.pre_cell in lems_info["cells"] and not conn.pre_cell in muscles_to_include:
                 continue
 
             # take information about each connection and package it into a
@@ -928,13 +970,22 @@ def generate(net_id,
             if 'GABA' in conn.synclass:
                 syn0 = params.neuron_to_muscle_inh_syn
                 orig_pol = "inh"
-            if '_GJ' in conn.synclass:
-                syn0 = params.neuron_to_muscle_elec_syn
+            
+            if '_GJ' in conn.synclass :
                 elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
+                if conn.pre_cell in lems_info["cells"]:
+                    syn0 = params.neuron_to_muscle_elec_syn
+                elif conn.pre_cell in muscles_to_include:
+                    try:
+                        syn0 = params.muscle_to_muscle_elec_syn
+                    except:
+                        syn0 = params.neuron_to_muscle_elec_syn
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
+                
+            print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
@@ -1075,11 +1126,14 @@ def parse_list_arg(list_arg):
     returns:  {}
 '''
 def parse_dict_arg(dict_arg):
-    if not dict_arg: return None
+    if not dict_arg or dict_arg == "None": return None
     ret = {}
     entries = str(dict_arg[1:-1]).split(',')
     for e in entries:
-        ret[e.split(':')[0]] = float(e.split(':')[1])
+        try:
+            ret[e.split(':')[0]] = float(e.split(':')[1]) # {'AVAL-AVAR':1}
+        except ValueError:
+            ret[e.split(':')[0]] = str(e.split(':')[1]) # {'AVAL-AVAR':'inh'}
     print_("Command line argument %s parsed as: %s"%(dict_arg,ret))
     return ret
 
@@ -1099,6 +1153,7 @@ def main():
              conn_polarity_override = parse_dict_arg(args.connpolarityoverride),
              conn_number_override =   parse_dict_arg(args.connnumberoverride),
              conn_number_scaling =    parse_dict_arg(args.connnumberscaling),
+             muscles_to_include =     parse_list_arg(args.musclestoinclude),
              duration =               args.duration,
              dt =                     args.dt,
              vmin =                   args.vmin,
