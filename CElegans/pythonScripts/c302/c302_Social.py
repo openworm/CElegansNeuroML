@@ -59,7 +59,7 @@ def setup(parameter_set,
     
     print("(Re)written network file to: "+nml_file)
     
-    return cells, cells_to_stimulate, params, []
+    return cells, cells_to_stimulate, params, [], nml_doc
     
     
 if __name__ == '__main__':

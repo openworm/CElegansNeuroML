@@ -20,7 +20,7 @@ def setup(parameter_set,
     reference = "c302_%s_Pharyngeal"%parameter_set
     
     if generate:
-        c302.generate(reference,  
+        nml_doc = c302.generate(reference,  
                       params, 
                       cells=cells, 
                       cells_to_stimulate=cells_to_stimulate, 
@@ -30,7 +30,7 @@ def setup(parameter_set,
                       param_overrides=param_overrides,
                       verbose=verbose)
              
-    return cells, cells_to_stimulate, params, []
+    return cells, cells_to_stimulate, params, [], nml_doc
              
 if __name__ == '__main__':
     

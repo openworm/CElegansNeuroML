@@ -60,7 +60,7 @@ def setup(parameter_set,
     muscles_to_include = []
     
     if generate:
-        c302.generate(reference, 
+        nml_doc = c302.generate(reference, 
                     params, 
                     cells=cells,
                     cells_to_plot=cells_to_plot, 
@@ -72,7 +72,7 @@ def setup(parameter_set,
                     param_overrides=param_overrides,
                     verbose=verbose)  
 
-    return cells, cells_to_stimulate, params, muscles_to_include
+    return cells, cells_to_stimulate, params, muscles_to_include, nml_doc
              
 if __name__ == '__main__':
     

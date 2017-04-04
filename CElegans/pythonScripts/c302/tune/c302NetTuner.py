@@ -742,6 +742,60 @@ if __name__ == '__main__':
             analysis = example_run_analysis.analyse(weights.keys())
 
             pp.pprint(analysis)
+            
+    elif '-imC0' in sys.argv:
+
+        print("Running opt on muscle...")
+        parameters = ['muscle_leak_cond_density',
+                'muscle_k_slow_cond_density',
+                'muscle_ca_simple_cond_density', 
+                'muscle_specific_capacitance',
+                'leak_erev',
+                'k_slow_erev',
+                'ca_simple_erev']
+
+        #above parameters will not be modified outside these bounds:
+        min_constraints = [0.0005,    0.05,   0.05,       0.3,   -70, -90,  30]
+        max_constraints = [0.005,    0.6,      0.4,     1.8,     -40, -60,  60]
+
+        analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0}
+
+        cell_ref = 'MDR01/0/GenericMuscleCell/v'
+             
+        weights = {cell_ref+':average_minimum': 1, 
+                   cell_ref+':mean_spike_frequency': 1, 
+                   cell_ref+':average_maximum': 1,  
+                   cell_ref+':max_peak_no': 1}
+        
+        
+        target_data = {cell_ref+':average_minimum': -70,
+                       cell_ref+':mean_spike_frequency': 4, 
+                       cell_ref+':average_maximum': 40,  
+                       cell_ref+':max_peak_no': 8}
+
+        simulator  = 'jNeuroML_NEURON'
+        
+        scalem = 3
+        run_optimisation('Test',
+                         'IClampMuscle',
+                         'C0',
+                         parameters,
+                         max_constraints,
+                         min_constraints,
+                         weights,
+                         target_data,
+                         sim_time = 2000,
+                         dt = 0.1,
+                         population_size =  scale(scalem,100),
+                         max_evaluations =  scale(scalem,500),
+                         num_selected =     scale(scalem,20),
+                         num_offspring =    scale(scalem,30),
+                         mutation_rate =    0.9,
+                         num_elites =       scale(scalem,5),
+                         seed =             123477,
+                         nogui =            nogui,
+                         simulator = simulator,
+                         num_local_procesors_to_use = 14)
   
     elif '-icC1' in sys.argv or '-icC1one' in sys.argv:
 

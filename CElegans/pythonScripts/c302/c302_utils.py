@@ -316,7 +316,7 @@ def plot_c302_results(lems_results,
         plt.close("all")
         
         
-def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save=False):
+def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save_figure_to=False):
     
     
     if data.shape[0]>0 and data.shape[1]>0 and np.amax(data)>0:
@@ -367,8 +367,11 @@ def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save=False):
     #heatmap = ax.pcolor(data, cmap='gist_stern')
     cbar = plt.colorbar(im, ticks=range(maxn+1))
     cbar.set_ticklabels(range(maxn+1))
+    if save_figure_to:
+        print("Saving connectivity figure to: %s"%save_figure_to)
+        plt.savefig(save_figure_to,bbox_inches='tight')
 
-def generate_conn_matrix(nml_doc, save=False):
+def generate_conn_matrix(nml_doc, save_fig_dir=None):
     
     net = nml_doc.networks[0]
     
@@ -454,11 +457,16 @@ def generate_conn_matrix(nml_doc, save=False):
     print data_inh_n
     print data_inh_m
     
-    _show_conn_matrix(data_exc_n, 'Excitatory (non GABA) conns to neurons',all_neuron_info,all_neuron_info, net.id)
-    _show_conn_matrix(data_exc_m, 'Excitatory (non GABA) conns to muscles',all_neuron_info,all_muscle_info, net.id)
+    _show_conn_matrix(data_exc_n, 'Excitatory (non GABA) conns to neurons',all_neuron_info,all_neuron_info, 
+                      net.id, save_figure_to='%s%s_exc_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      
+    _show_conn_matrix(data_exc_m, 'Excitatory (non GABA) conns to muscles',all_neuron_info,all_muscle_info, 
+                      net.id, save_figure_to='%s%s_exc_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     
-    _show_conn_matrix(data_inh_n, 'Inhibitory (GABA) conns to neurons',all_neuron_info,all_neuron_info, net.id)
-    _show_conn_matrix(data_inh_m, 'Inhibitory (GABA) conns to muscles',all_neuron_info,all_muscle_info, net.id)
+    _show_conn_matrix(data_inh_n, 'Inhibitory (GABA) conns to neurons',all_neuron_info,all_neuron_info, 
+                      net.id, save_figure_to='%s%s_inh_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+    _show_conn_matrix(data_inh_m, 'Inhibitory (GABA) conns to muscles',all_neuron_info,all_muscle_info, 
+                      net.id, save_figure_to='%s%s_inh_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     
     
     data_n = np.zeros((len(all_neurons),len(all_neurons)))
@@ -476,7 +484,8 @@ def generate_conn_matrix(nml_doc, save=False):
                 raise Exception("Unexpected...")
         
     
-    _show_conn_matrix(data_n, 'Electrical (gap junction) conns to neurons',all_neuron_info,all_neuron_info, net.id)
+    _show_conn_matrix(data_n, 'Electrical (gap junction) conns to neurons',all_neuron_info,all_neuron_info, 
+                      net.id, save_figure_to='%s%s_elec_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     #_show_conn_matrix(data_m, 'Electrical (gap junction) conns to muscles',all_neuron_info,all_muscle_info, net.id)
         
 def _get_cell_info(cells):

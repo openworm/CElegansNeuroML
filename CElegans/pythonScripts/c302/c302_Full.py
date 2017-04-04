@@ -28,7 +28,7 @@ def setup(parameter_set,
     cell_names, conns = c302.get_cell_names_and_connection()
     
     if generate:
-        c302.generate(reference, 
+        nml_doc = c302.generate(reference, 
              params, 
              cells_to_plot=cells_to_plot, 
              cells_to_stimulate=cells_to_stimulate, 
@@ -41,7 +41,7 @@ def setup(parameter_set,
              param_overrides=param_overrides,
              verbose=verbose) 
              
-    return cell_names, cells_to_stimulate, params, muscles_to_include
+    return cell_names, cells_to_stimulate, params, muscles_to_include, nml_doc
 
 
 if __name__ == '__main__':
