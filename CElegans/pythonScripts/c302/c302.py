@@ -312,7 +312,7 @@ def get_random_colour_hex():
 
 def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
-    print_("Creating synapse from %s with %i connections"%(prototype_syn.id, n))
+    #print_("Creating synapse from %s with %i connections"%(prototype_syn.id, n))
     new_id = "%s"%(prototype_syn.id)
     #if type(n) is float:
     #    new_id = "%s_%sconns" % (prototype_syn.id, get_str_from_expnotation(n).replace('.', '_'))
@@ -733,7 +733,7 @@ def generate(net_id,
                 pop0.properties.append(p)
 
             x, y, z = get_muscle_position(muscle, data_reader)
-            print_('Positioning muscle: %s at (%s,%s,%s)'%(muscle,x,y,z))
+            #print_('Positioning muscle: %s at (%s,%s,%s)'%(muscle,x,y,z))
             inst.location = Location(x,y,z)
 
             #target = "%s/0/%s"%(pop0.id, params.generic_muscle_cell.id) # unused
@@ -827,7 +827,7 @@ def generate(net_id,
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
 
-            print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
@@ -986,7 +986,7 @@ def generate(net_id,
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
                 
-            print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):

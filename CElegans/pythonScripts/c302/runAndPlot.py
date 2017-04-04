@@ -20,7 +20,7 @@ def run_c302(config,
              data_reader="SpreadsheetDataReader",
              verbose=False,
              plot_ca=True,
-             plot_connectivity=True,
+             plot_connectivity=False,
              param_overrides={},
              config_package=""):
     

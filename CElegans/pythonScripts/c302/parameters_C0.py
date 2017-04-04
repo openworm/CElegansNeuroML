@@ -81,10 +81,10 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("ca_conc_rho", "0.0002 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "6 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "5 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "12 nS", "BlindGuess", "0.1")
         
-        self.add_bioparameter("exc_syn_ar", "1 per_s", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_ar", ".5 per_s", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_ad", "50 per_s", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_beta", "0.125 per_mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_vth", "-30 mV", "BlindGuess", "0.1")
@@ -93,18 +93,18 @@ class ParameterisedModel(ParameterisedModel_C):
         
     
 
-        self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "44 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "50 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "0.3 nS", "BlindGuess", "0.1")
         
         
-        self.add_bioparameter("inh_syn_ar", "1 per_s", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_ar", ".5 per_s", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_ad", "50 per_s", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_beta", "0.125 per_mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_vth", "-30 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_erev", "-80 mV", "BlindGuess", "0.1")
         
 
-        self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.000 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.0001 nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("unphysiological_offset_current", "4 pA", "KnownError", "0")
