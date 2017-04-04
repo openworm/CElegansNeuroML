@@ -6,6 +6,7 @@ import numpy as np
 import c302
 
 import re
+import collections
 
 
 natsort = lambda s: [int(t) if t.isdigit() else t for t in re.split('(\d+)', s)]
@@ -13,23 +14,14 @@ natsort = lambda s: [int(t) if t.isdigit() else t for t in re.split('(\d+)', s)]
 
 def plots(a_n, info, cells, dt):
     
-    #import cProfile, pstats, StringIO
-    #pr = cProfile.Profile()
-    #pr.enable()
-    
-   
-    #import time
-    #start = time.time()
 
     c302.print_('Generating plots for: %s'%info)
     
     fig, ax = plt.subplots()
-    #fig = plt.figure()
-    #ax = fig.gca()
+    
     downscale = 10
-    #print a_n.shape
+    
     a_n_ = a_n[:,::downscale]
-    #c302.print_(a_n_.shape) 
 
     plot0 = ax.pcolormesh(a_n_)
     ax.set_yticks(np.arange(a_n_.shape[0]) + 0.5, minor=False)
@@ -60,14 +52,6 @@ def plots(a_n, info, cells, dt):
     plt.xlim(0,a_n_.shape[1])
     #print plt.xlim()
 
-    #print "TIME: %s" % (time.time() - start)
-
-    #pr.disable()
-    #s = StringIO.StringIO()
-    #sortby = 'cumulative'
-    #ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
-    #ps.print_stats()
-    #print s.getvalue()
     
 def plots_prof(a_n, info, cells, dt):
     cProfile.run('real_plots(a_n, info, cells, dt)')
@@ -97,9 +81,6 @@ def plot_c302_results(lems_results,
                       data_reader="SpreadsheetDataReader",
                       plot_ca=True):
     
-    #pool = multiprocessing.Pool(2)
-    #tasks = []
-    #gen_traces_tasks = []
     
     params = {'legend.fontsize': 8,
               'font.size': 10}
@@ -157,7 +138,6 @@ def plot_c302_results(lems_results,
             
         info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
 
-        #tasks.append((volts_n, info, cells, dt))
         plots(volts_n, info, cells, dt)
     
         if save:
@@ -165,7 +145,6 @@ def plot_c302_results(lems_results,
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
 
-        #gen_traces_tasks.append( (config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, True, False) )
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -219,7 +198,6 @@ def plot_c302_results(lems_results,
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
 
-        #gen_traces_tasks.append((config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, True, True))
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -261,7 +239,6 @@ def plot_c302_results(lems_results,
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
-        #tasks.append((activities_n, info, cells, dt))
         plots(activities_n, info, cells, dt)
     
         if save:
@@ -269,7 +246,6 @@ def plot_c302_results(lems_results,
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
 
-        #gen_traces_tasks.append((config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, True, False))
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -319,7 +295,6 @@ def plot_c302_results(lems_results,
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
             plt.savefig(f,bbox_inches='tight')
 
-        #gen_traces_tasks.append((config, parameter_set, xvals, yvals, info, labels, save, save_fig_path, False, False))
         generate_traces_plot(config,
                              parameter_set,
                              xvals,
@@ -331,13 +306,6 @@ def plot_c302_results(lems_results,
                              voltage=False,
                              muscles=True)
     
-    ##os.chdir('..')
-
-    #results = [pool.apply_async(plots, t) for t in tasks]
-    #gen_traces_plot_results = [pool.apply_async(generate_traces_plot, t) for t in gen_traces_tasks]
-
-    #pool.close()
-    #pool.join()
 
     if show_plot_already:
         try:
@@ -350,6 +318,20 @@ def plot_c302_results(lems_results,
         
 def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save=False):
     
+    
+    if data.shape[0]>0 and data.shape[1]>0 and np.amax(data)>0:
+        ##norm = matplotlib.colors.LogNorm(vmin=1, vmax=np.amax(data))
+        maxn = int(np.amax(data))
+    else:
+        ##norm = None
+        maxn = 0
+        
+    print("Plotting data of size %s, max %s: %s"%(str(data.shape),maxn, t))
+    
+    if maxn==0:
+        print("No connections!!")
+        return
+    
     fig, ax = plt.subplots()
     title = '%s: %s'%(type,t)
     plt.title(title)
@@ -357,18 +339,13 @@ def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save=False):
     import matplotlib
     cm = matplotlib.cm.get_cmap('gist_stern_r')
     
-    if data.shape[0]>0 and data.shape[1]>0 and np.amax(data)>0:
-        ##norm = matplotlib.colors.LogNorm(vmin=1, vmax=np.amax(data))
-        maxn = int(np.amax(data))
-    else:
-        ##norm = None
-        maxn = 0 
-    print("Plotting data of size %s, max %s: %s"%(str(data.shape),maxn, t))
+    
     im = plt.imshow(data, cmap=cm, interpolation='nearest',norm=None)
     
     ax = plt.gca();
     # Gridlines based on minor ticks
-    ax.grid(which='minor', color='grey', linestyle='-', linewidth=.3)
+    if data.shape[0]<40:
+        ax.grid(which='minor', color='grey', linestyle='-', linewidth=.3)
     
     xt = np.arange(data.shape[1]) + 0
     ax.set_xticks(xt)
@@ -380,7 +357,10 @@ def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save=False):
     ax.set_yticklabels([all_info_pre[k][4] for k in all_info_pre.keys()])
     ax.set_xticklabels([all_info_post[k][4] for k in all_info_post.keys()])
     ax.set_ylabel('presynaptic')
+    tick_size = 10 if data.shape[0]<20 else (8 if data.shape[0]<40 else 6)
+    ax.tick_params(axis='y', labelsize=tick_size)
     ax.set_xlabel('postsynaptic')
+    ax.tick_params(axis='x', labelsize=tick_size)
     fig.autofmt_xdate()
     
     
@@ -561,6 +541,7 @@ if __name__ == '__main__':
     
     configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml','c302_C0_Muscles.nml','c302_C0_Pharyngeal.nml','c302_C0_Oscillator.nml','c302_C0_Full.nml']
     configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml']
+    #configs = ['c302_C0_Syns.nml']
     #configs = ['c302_C0_Muscles.nml']
     #configs = ['c302_C0_Oscillator.nml']
     
@@ -570,5 +551,5 @@ if __name__ == '__main__':
 
         generate_conn_matrix(nml_doc, save=True)
     
-    
-    plt.show()
+    if not '-nogui' in sys.argv:
+        plt.show()
