@@ -90,7 +90,7 @@ def plot_c302_results(lems_results,
         directory += '/'
     save_fig_path = directory+'%s'
 
-    c302.print_("Reloaded data: %s"%lems_results.keys())
+    #c302.print_("Reloaded data: %s"%lems_results.keys())
     cells = []
     muscles = []
     times = [t*1000 for t in lems_results['t']]
@@ -558,7 +558,7 @@ if __name__ == '__main__':
 
         nml_doc = read_neuroml2_file('examples/%s'%c)
 
-        generate_conn_matrix(nml_doc, save=True)
+        generate_conn_matrix(nml_doc, save_fig_dir='./examples/summary/')
     
     if not '-nogui' in sys.argv:
         plt.show()

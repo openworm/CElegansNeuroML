@@ -3,10 +3,10 @@ system: Testing a single cell activity
 experiments:
     M1:
         expected:
-            spike times:  [25.77]
+            spike times:  [52.2]
     M2L:
         expected:
-            spike times:  [64.11]
+            spike times:  [216.94]
     I2R:
         expected:
-            spike times:  [30.12]
+            spike times:  [71.33]
