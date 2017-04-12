@@ -21,8 +21,9 @@ def run_c302(config,
              verbose=False,
              plot_ca=True,
              param_overrides={},
+             config_param_overrides={},
              config_package=""):
-    
+
     print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
     if config_package:
         exec ('from %s.c302_%s import setup' % (config_package, config))
@@ -35,7 +36,8 @@ def run_c302(config,
                                                        dt = dt,
                                                        target_directory='examples',
                                                        verbose=verbose,
-                                                       param_overrides=param_overrides)
+                                                       param_overrides=param_overrides,
+                                                       config_param_overrides=config_param_overrides)
     
     os.chdir('examples')
     
