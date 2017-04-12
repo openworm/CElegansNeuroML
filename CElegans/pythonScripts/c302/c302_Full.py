@@ -27,6 +27,8 @@ def setup(parameter_set,
     
     cell_names, conns = c302.get_cell_names_and_connection()
     
+    nml_doc = None
+    
     if generate:
         nml_doc = c302.generate(reference, 
              params, 

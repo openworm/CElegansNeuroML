@@ -37,7 +37,7 @@ class C302Simulation(object):
         
         exec('from c302_%s import setup'%config)
         
-        self.cells, self.cells_to_stimulate, self.params, self.muscles_to_include = setup(parameter_set)
+        self.cells, self.cells_to_stimulate, self.params, self.muscles_to_include, nml_doc = setup(parameter_set)
         
         self.reference = reference
         
@@ -123,8 +123,10 @@ class C302Simulation(object):
             
         for cell in self.cells:
             self.volts[res_template_n%cell] = [v*1000 for v in self.results[res_template_n%cell]]
-        for cell in self.muscles_to_include:
-            self.volts[res_template_m%cell] = [v*1000 for v in self.results[res_template_m%cell]]
+            
+        if self.muscles_to_include:
+            for cell in self.muscles_to_include:
+                self.volts[res_template_m%cell] = [v*1000 for v in self.results[res_template_m%cell]]
         
 
 
@@ -149,6 +151,12 @@ if __name__ == '__main__':
     elif len(sys.argv) == 2 and sys.argv[1] == '-musc':
         
         sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt)
+        sim.go()
+        sim.show()
+        
+    elif len(sys.argv) == 2 and sys.argv[1] == '-muscC0':
+        
+        sim = C302Simulation('TestMuscles', 'C0', 'Muscles', sim_time, dt)
         sim.go()
         sim.show()
         

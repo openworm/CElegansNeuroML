@@ -413,6 +413,8 @@ def setup(parameter_set,
         'VB11-DA9_GJ':7 * 0.01,
         'DA9-VB11_GJ':7 * 0.01,
     }
+    
+    nml_doc = None
 
     if generate:
         nml_doc = c302.generate(reference,

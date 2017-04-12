@@ -23,6 +23,7 @@ def setup(parameter_set,
     cells_total  = my_cells + muscles_to_include
     
     reference = "c302_%s_IClampMuscle"%parameter_set
+    nml_doc = None
     
     
     if generate:
@@ -39,7 +40,7 @@ def setup(parameter_set,
                     
     
                     
-    return cells, cells_total, params, muscles_to_include
+    return cells, cells_total, params, muscles_to_include, nml_doc
              
 if __name__ == '__main__':
     

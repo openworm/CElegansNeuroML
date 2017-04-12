@@ -26,6 +26,7 @@ def setup(parameter_set,
     
     reference = "c302_%s_IClamp"%parameter_set
     
+    nml_doc = None
     
     if generate:
         nml_doc = c302.generate(reference, 

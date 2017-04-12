@@ -59,6 +59,8 @@ def setup(parameter_set,
     
     muscles_to_include = []
     
+    nml_doc = None
+    
     if generate:
         nml_doc = c302.generate(reference, 
                     params, 
