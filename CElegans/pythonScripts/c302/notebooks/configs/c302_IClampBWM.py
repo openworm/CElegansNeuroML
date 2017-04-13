@@ -11,6 +11,7 @@ def setup(parameter_set,
           target_directory='examples',
           data_reader="SpreadsheetDataReader",
           param_overrides={},
+          config_param_overrides={},
           verbose=True):
 
     exec('from parameters_%s import ParameterisedModel'%parameter_set)

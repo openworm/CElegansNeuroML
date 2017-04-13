@@ -9,6 +9,7 @@ def setup(parameter_set,
           muscles_to_include = None, # None => All!
           data_reader="SpreadsheetDataReader",
           param_overrides={},
+          config_param_overrides={},
           verbose=True):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
