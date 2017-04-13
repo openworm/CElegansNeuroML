@@ -1,11 +1,12 @@
 import sys
 sys.path.append('../../../')
 
-from CElegans.pythonScripts.c302 import c302
+import c302
 
 import neuroml.writers as writers
 
 range_incl = lambda start, end:range(start, end + 1)
+
 
 def setup(parameter_set,
           generate=False,
@@ -17,7 +18,7 @@ def setup(parameter_set,
           verbose=True,
           conn_polarity_override={},
           conn_number_override={}):
-    
+
     exec ('from parameters_%s import ParameterisedModel' % parameter_set)
     params = ParameterisedModel()
 
