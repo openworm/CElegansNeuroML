@@ -554,6 +554,10 @@ if __name__ == '__main__':
     #configs = ['c302_C0_Muscles.nml']
     #configs = ['c302_C0_Oscillator.nml']
     
+    if '-phar' in sys.argv:
+        
+        configs = ['c302_C0_Pharyngeal.nml']
+    
     for c in configs:
 
         nml_doc = read_neuroml2_file('examples/%s'%c)

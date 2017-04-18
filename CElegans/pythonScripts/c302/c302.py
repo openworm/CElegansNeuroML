@@ -35,6 +35,7 @@ import argparse
 import shutil
 import os
 import importlib
+import math
 
 from parameters_C0 import GradedSynapse2
 
@@ -851,6 +852,12 @@ def generate(net_id,
                     nml_doc.silent_synapses.append(silent)
 
             number_syns = conn.number
+            
+            
+            if params.get_bioparameter('global_connectivity_power_scaling'):
+                scale = params.get_bioparameter('global_connectivity_power_scaling').x()
+                #print("Scaling by %s"%scale)
+                number_syns = math.pow(number_syns,scale)
 
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
                 number_syns = conn_number_override[conn_shorthand]
@@ -1008,6 +1015,11 @@ def generate(net_id,
                     nml_doc.silent_synapses.append(silent)
                     
             number_syns = conn.number
+            
+            if params.get_bioparameter('global_connectivity_power_scaling'):
+                scale = params.get_bioparameter('global_connectivity_power_scaling').x()
+                #print("Scaling by %s"%scale)
+                number_syns = math.pow(number_syns,scale)
             
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
                 number_syns = conn_number_override[conn_shorthand]
