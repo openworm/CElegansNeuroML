@@ -32,23 +32,23 @@ Parameters and setting used to generate this network:
         BioParameter: ca_conc_decay_time = 20 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.0002 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: global_connectivity_power_scaling = 0 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_conductance = 25 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 25 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_exc_syn_conductance = 25 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_ar = .5 per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_ad = 50 per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_beta = 0.125 per_mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_vth = -25 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_conductance = 30 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 60 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_inh_syn_conductance = 0.25 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_ar = .5 per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_ad = 50 per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_beta = 0.125 per_mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_vth = -30 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.01 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.05 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 4pA (SRC: Set with param_overrides, certainty 0)
+        BioParameter: unphysiological_offset_current = 2pA (SRC: Testing Osc, certainty 0)
         BioParameter: unphysiological_offset_current_del = 10 ms (SRC: Testing Osc, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2500 ms (SRC: Testing Osc, certainty 0)
 
@@ -56,10 +56,10 @@ Parameters and setting used to generate this network:
     <include href="cell_C.xml"></include>
     <include href="custom_synapses.xml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="20 ms" rho="0.0002 mol_per_m_per_A_per_s"/>
-    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.01nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.05nS"/>
     <silentSynapse id="silent"/>
     <gradedSynapse2 id="neuron_to_neuron_exc_syn" conductance="25.0nS" ar=".5 per_s" ad="50 per_s" beta="0.125 per_mV" vth="-25 mV" erev="0 mV"/>
-    <gradedSynapse2 id="neuron_to_neuron_inh_syn" conductance="30.0nS" ar=".5 per_s" ad="50 per_s" beta="0.125 per_mV" vth="-30 mV" erev="-90 mV"/>
+    <gradedSynapse2 id="neuron_to_neuron_inh_syn" conductance="60.0nS" ar=".5 per_s" ad="50 per_s" beta="0.125 per_mV" vth="-30 mV" erev="-90 mV"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
@@ -104,7 +104,7 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="10 ms" duration="2500 ms" amplitude="4pA"/>
+    <pulseGenerator id="offset_current" delay="10 ms" duration="2500 ms" amplitude="2pA"/>
     <network id="c302_C0_Oscillator">
         <population id="AVAL" component="GenericNeuronCell" type="populationList">
             <property tag="OpenWormBackerAssignedName" value="JUD"/>
