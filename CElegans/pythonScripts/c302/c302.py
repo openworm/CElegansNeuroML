@@ -38,6 +38,7 @@ import importlib
 import math
 
 from parameters_C0 import GradedSynapse2
+from parameters_C2 import DelayedGapJunction
 
 try:
     from urllib2 import URLError  # Python 2
@@ -345,6 +346,19 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
             existing_synapses[new_id] = new_syn
             nml_doc.gap_junctions.append(new_syn)
 
+        elif isinstance(prototype_syn, DelayedGapJunction):
+            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
+            cond = "%s%s" % (magnitude * n, unit)
+            if type(n) is float:
+                cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
+            new_syn = DelayedGapJunction(id=new_id,
+                                         conductance=cond,
+                                         sigma=prototype_syn.sigma,
+                                         mu=prototype_syn.mu)
+
+            existing_synapses[new_id] = new_syn
+            nml_doc.gap_junctions.append(new_syn)
+
         elif isinstance(prototype_syn, GradedSynapse):
             magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
             cond = "%s%s" % (magnitude, unit)
@@ -360,7 +374,7 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
             existing_synapses[new_id] = new_syn
             nml_doc.graded_synapses.append(new_syn)
 
-        elif isinstance(prototype_syn, GradedSynapse2):
+        elif isinstance(prototype_syn, ):
             magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
             cond = "%s%s" % (magnitude, unit)
             #if type(n) is float:
@@ -455,7 +469,7 @@ def generate(net_id,
              param_overrides={},
              target_directory='./'):
                  
-    validate = not (params.is_level_B() or params.is_level_C0())
+    validate = not (params.is_level_B() or params.is_level_C0() or params.is_level_C2)
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
     for k in param_overrides.keys():
@@ -814,15 +828,16 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = params.neuron_to_neuron_exc_syn
+            syn0 = params.get_syn(conn.pre_cell, conn.post_cell, "neuron_to_neuron", "exc")
             orig_pol = "exc"
             
             if 'GABA' in conn.synclass:
-                syn0 = params.neuron_to_neuron_inh_syn
+                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, "neuron_to_neuron", "inh")
                 orig_pol = "inh"
             if '_GJ' in conn.synclass:
-                syn0 = params.neuron_to_neuron_elec_syn
-                elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction)
+                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, "neuron_to_neuron", "elec")
+                print syn0
+                elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction) or isinstance(params.neuron_to_neuron_elec_syn, DelayedGapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
@@ -893,6 +908,7 @@ def generate(net_id,
             #    print "######### %s-%s %s %s" % (conn.pre_cell, conn.post_cell, number_syns, conn.synclass)
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
+            print syn_new
 
             if elect_conn:
 
