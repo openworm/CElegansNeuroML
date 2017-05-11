@@ -1,44 +1,119 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cell_B">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cell_C">
 
     <!-- Definition of new synapse model type-->
-    
-    
+
+
     <ComponentType name="gradedSynapse2"
                    extends="baseGradedSynapse"
                    description="Graded/analog synapse. Based on Kunert et al 2017 http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005303">
-        
+
         <!--
                 TODO...
         -->
-        <Property name="weight" dimension="none" defaultValue="1"/> 
-        
+        <Property name="weight" dimension="none" defaultValue="1"/>
+
         <Parameter name="conductance" dimension="conductance"/>
-        
+
         <Parameter name="ar" dimension="per_time" description="Growth time"/>
         <Parameter name="ad" dimension="per_time" description="Decay time"/>
         <Parameter name="beta" dimension="per_voltage" description="Beta, width of the sigmoid"/>
         <Parameter name="vth" dimension="voltage" description="Synaptic activation factor"/>
         <Parameter name="erev" dimension="voltage" description="Synaptic reversal potential"/>
-        
+
         <Exposure name="i" dimension="current"/>
-        
+
         <Requirement name="v" dimension="voltage"/>
 
         <InstanceRequirement name="peer" type="baseGradedSynapse"/>
 
         <Dynamics>
             <StateVariable name="s" dimension="none"/>
-            
+
             <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
-            
+
             <DerivedVariable name="phi" dimension="none" value="1/(1 + exp(beta * (vth - vpeer)))"/>
-            
+
             <DerivedVariable name="i" exposure="i"  value="weight * conductance * s * (erev-v)"/>
-                        
+
             <TimeDerivative variable="s" value="ar*phi*(1-s) - ad*s" />
-            
-            
+
+
         </Dynamics>
     </ComponentType>
-    
+
+
+
+
+
+    <ComponentType name="switchedGapJunction"
+                   extends="baseSynapse"
+                   description="Electrical synapse with a switch">
+
+        <Parameter name="conductance" dimension="conductance"/>
+        <Parameter name="delay" dimension="time"/>
+
+        <Exposure name="i" dimension="current"/>
+        <!--<Exposure name="s" dimension="none" />-->
+
+
+        <Requirement name="v" dimension="voltage"/>
+
+        <InstanceRequirement name="peer" type="gapJunction"/>
+
+
+        <Dynamics>
+            <StateVariable name="s" dimension="none" />
+
+            <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
+            <!--<DerivedVariable name="i" exposure="i" dimension="current" value="s * conductance * (vpeer - v) * (1 / (1 + exp(sigma*(mu - v))))" />-->
+            <DerivedVariable name="i" exposure="i" dimension="current" value="s_rate * conductance * (vpeer - v)" />
+
+            <ConditionalDerivedVariable name="s_rate" dimension="none">
+                <Case condition="t .geq. 0 .and. t .lt. delay" value="0"/>
+                <Case condition="t .geq. 0 .and. t .geq. delay" value="1"/>
+            </ConditionalDerivedVariable>
+
+            <TimeDerivative variable="s" value="s_rate" />
+            <!--<OnCondition test="t .lt. 250">
+                <StateAssignment variable="ii" value="0"/>
+            </OnCondition>
+
+            <OnCondition test="t .geq. 250">
+                <StateAssignment variable="ii" value="1"/>
+            </OnCondition>-->
+
+
+        </Dynamics>
+    </ComponentType>
+
+
+
+
+
+    <ComponentType name="delayedGapJunction"
+                   extends="baseSynapse"
+                   description="Electrical synapse with a delay">
+
+        <Parameter name="conductance" dimension="conductance"/>
+        <Parameter name="sigma" dimension="per_time"/>
+        <Parameter name="mu" dimension="time"/>
+
+
+
+        <Exposure name="i" dimension="current"/>
+
+
+        <Requirement name="v" dimension="voltage"/>
+
+        <InstanceRequirement name="peer" type="gapJunction"/>
+
+
+        <Dynamics>
+            <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
+            <DerivedVariable name="i" exposure="i" dimension="current" value="delay * conductance * (vpeer - v)" />
+
+            <DerivedVariable name="delay" dimension="none" value="1 / (1 + exp(sigma*(mu - t)))" />
+        </Dynamics>
+    </ComponentType>
+
 </neuroml>
