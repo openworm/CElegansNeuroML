@@ -970,7 +970,7 @@ def generate(net_id,
             if 'GABA' in conn.synclass:
                 syn0 = params.neuron_to_muscle_inh_syn
                 orig_pol = "inh"
-            
+
             if '_GJ' in conn.synclass :
                 elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
@@ -984,7 +984,7 @@ def generate(net_id,
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
-                
+
             print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
             polarity = None
@@ -993,21 +993,27 @@ def generate(net_id,
 
             if polarity and not elect_conn:
                 if polarity == 'inh':
-                    syn0 = params.neuron_to_neuron_inh_syn
+                    try:
+                        syn0 = params.muscle_to_muscle_inh_syn
+                    except:
+                        syn0 = params.neuron_to_muscle_inh_syn
                 else:
-                    syn0 = params.neuron_to_neuron_exc_syn
+                    try:
+                        syn0 = params.muscle_to_muscle_exc_syn
+                    except:
+                        syn0 = params.neuron_to_muscle_exc_syn
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
-                       (conn.pre_cell, conn.post_cell, orig_pol, polarity))
+                           (conn.pre_cell, conn.post_cell, orig_pol, polarity))
 
             if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2):
                 analog_conn = True
                 if len(nml_doc.silent_synapses)==0:
                     silent = SilentSynapse(id="silent")
                     nml_doc.silent_synapses.append(silent)
-                    
+
             number_syns = conn.number
-            
+
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
                 number_syns = conn_number_override[conn_shorthand]
             elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
@@ -1025,7 +1031,7 @@ def generate(net_id,
                 print "%s %s num:%s" % (conn_shorthand, orig_pol, number_syns)"""
 
             if number_syns != conn.number:
-                
+
                 if analog_conn or elect_conn:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.conductance)
                 else:
@@ -1033,9 +1039,9 @@ def generate(net_id,
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s" % (get_str_from_expnotation(magnitude * number_syns), unit)
                 gj = "" if not elect_conn else " GapJunction"
-                if verbose: 
+                if verbose:
                     print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
-                     (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
+                           (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
 
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
@@ -1043,8 +1049,8 @@ def generate(net_id,
             if elect_conn:
 
                 proj0 = ElectricalProjection(id=proj_id, \
-                                   presynaptic_population=conn.pre_cell,
-                                   postsynaptic_population=conn.post_cell)
+                                             presynaptic_population=conn.pre_cell,
+                                             postsynaptic_population=conn.post_cell)
 
                 net.electrical_projections.append(proj0)
 
@@ -1055,17 +1061,17 @@ def generate(net_id,
 
                 # Add a Connection with the closest locations
                 conn0 = ElectricalConnectionInstance(id="0", \
-                           pre_cell=pre_cell_id,
-                           post_cell=post_cell_id,
-                           synapse=syn_new.id)
+                                                     pre_cell=pre_cell_id,
+                                                     post_cell=post_cell_id,
+                                                     synapse=syn_new.id)
 
                 proj0.electrical_connection_instances.append(conn0)
-                
+
             elif analog_conn:
-        
+
                 proj0 = ContinuousProjection(id=proj_id, \
-                                   presynaptic_population=conn.pre_cell,
-                                   postsynaptic_population=conn.post_cell)
+                                             presynaptic_population=conn.pre_cell,
+                                             postsynaptic_population=conn.post_cell)
 
                 net.continuous_projections.append(proj0)
 
@@ -1073,10 +1079,10 @@ def generate(net_id,
                 post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
                 conn0 = ContinuousConnectionInstance(id="0", \
-                           pre_cell=pre_cell_id,
-                           post_cell=post_cell_id,
-                           pre_component="silent",
-                           post_component=syn_new.id)
+                                                     pre_cell=pre_cell_id,
+                                                     post_cell=post_cell_id,
+                                                     pre_component="silent",
+                                                     post_component=syn_new.id)
 
                 proj0.continuous_connection_instances.append(conn0)
 
@@ -1095,8 +1101,8 @@ def generate(net_id,
                 post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
                 conn0 = Connection(id="0", \
-                           pre_cell_id=pre_cell_id,
-                           post_cell_id=post_cell_id)
+                                   pre_cell_id=pre_cell_id,
+                                   post_cell_id=post_cell_id)
 
                 proj0.connections.append(conn0)
 
