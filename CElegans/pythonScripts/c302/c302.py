@@ -626,8 +626,12 @@ def generate(net_id,
     root_dir = os.path.dirname(os.path.abspath(__file__))
     for k in param_overrides.keys():
         v = param_overrides[k]
-        print_("Setting parameter %s = %s"%(k,v))
-        params.set_bioparameter(k, v, "Set with param_overrides", 0)
+        if params.get_bioparameter(k):
+            print_("Setting parameter %s = %s"%(k,v))
+            params.set_bioparameter(k, v, "Set with param_overrides", 0)
+        else:
+            print_("Adding parameter %s = %s" % (k, v))
+            params.add_bioparameter(k, v, "Add with param_overrides", 0)
     
 
     params.create_models()
