@@ -179,6 +179,97 @@ def process_args():
     return parser.parse_args()
 
 
+def get_specific_elec_syn_params(params, pre_cell, post_cell, syn_type, polarity):
+    prefix = "%s_to_%s_%s_syn" % (pre_cell, post_cell, polarity)
+    # delayed_gj_prefix = "%s_to_%s_delayed_%s_syn" % (pre_cell, post_cell, polarity)
+    weight = params.get_bioparameter("%s_weight" % prefix)
+    conductance = params.get_bioparameter("%s_gbase" % prefix)
+    # delay = self.get_bioparameter("%s_delay" % prefix)
+    sigma = params.get_bioparameter("%s_sigma" % prefix)
+    mu = params.get_bioparameter("%s_mu" % prefix)
+    overridden = False
+    if weight or conductance or sigma or mu:
+        overridden = True
+    def_prefix = "%s_%s_syn" % (syn_type, polarity)
+    if not weight:
+        weight = params.get_bioparameter("%s_weight" % def_prefix)
+    if not conductance:
+        conductance = params.get_bioparameter("%s_gbase" % def_prefix)
+    if overridden:
+        syn_id = prefix
+    else:
+        syn_id = def_prefix
+    return syn_id, weight, conductance, sigma, mu
+
+
+def get_specific_chem_syn_params(params, pre_cell, post_cell, syn_type, polarity):
+    prefix = "%s_to_%s_%s_syn" % (pre_cell, post_cell, polarity)
+    weight = params.get_bioparameter("%s_weight" % prefix)
+    conductance = params.get_bioparameter("%s_conductance" % prefix)
+    delta = params.get_bioparameter("%s_delta" % prefix)
+    vth = params.get_bioparameter("%s_vth" % prefix)
+    erev = params.get_bioparameter("%s_erev" % prefix)
+    k = params.get_bioparameter("%s_k" % prefix)
+    sigma = params.get_bioparameter("%s_sigma" % prefix)
+    mu = params.get_bioparameter("%s_mu" % prefix)
+
+    # Load default parameters unless there are more specific parameters for the current synapse
+    def_prefix = "%s_%s_syn" % (syn_type, polarity)
+    overridden = False
+    if weight or conductance or delta or vth or erev or k or sigma or mu:
+        overridden = True
+    if not weight:
+        weight = params.get_bioparameter("%s_weight" % def_prefix)
+    if not conductance:
+        conductance = params.get_bioparameter("%s_conductance" % def_prefix)
+    if not delta:
+        delta = params.get_bioparameter("%s_delta" % def_prefix)
+    if not vth:
+        vth = params.get_bioparameter("%s_vth" % def_prefix)
+    if not erev:
+        erev = params.get_bioparameter("%s_erev" % def_prefix)
+    if not k:
+        k = params.get_bioparameter("%s_k" % def_prefix)
+
+    if overridden:
+        syn_id = prefix
+    else:
+        syn_id = def_prefix
+
+    return syn_id, weight, conductance, delta, vth, erev, k, sigma, mu
+
+
+def get_syn(params, pre_cell, post_cell, syn_type, polarity):
+    if polarity == "elec":
+        syn_id, weight, conductance, sigma, mu = get_specific_elec_syn_params(params, pre_cell, post_cell, syn_type, polarity)
+        if sigma or mu:
+            return DelayedGapJunction(id=syn_id,
+                                      weight=weight.value,
+                                      conductance=conductance.value,
+                                      sigma=sigma.value,
+                                      mu=mu.value)
+        return GapJunction(id=syn_id,
+                           conductance=conductance.value)
+
+    syn_id, weight, conductance, delta, vth, erev, k, sigma, mu = get_specific_chem_syn_params(params, pre_cell, post_cell, syn_type, polarity)
+    if sigma or mu:
+        return DelayedGradedSynapse(id=syn_id,
+                                    weight=weight.value,
+                                    conductance=conductance.value,
+                                    delta=delta.value,
+                                    Vth=vth.value,
+                                    erev=erev.value,
+                                    k=k.value,
+                                    sigma=sigma.value,
+                                    mu=mu.value)
+    return GradedSynapse(id=syn_id,
+                         conductance=conductance.value,
+                         delta=delta.value,
+                         Vth=vth.value,
+                         erev=erev.value,
+                         k=k.value)
+
+
 quadrant0 = 'MDR'
 quadrant1 = 'MVR'
 quadrant2 = 'MVL'
@@ -887,14 +978,14 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = params.get_syn(conn.pre_cell, conn.post_cell, "neuron_to_neuron", "exc")
+            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "exc")
             orig_pol = "exc"
             
             if 'GABA' in conn.synclass:
-                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, "neuron_to_neuron", "inh")
+                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "inh")
                 orig_pol = "inh"
             if '_GJ' in conn.synclass:
-                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, "neuron_to_neuron", "elec")
+                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "elec")
                 print syn0
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction) or isinstance(params.neuron_to_neuron_elec_syn, DelayedGapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
@@ -910,9 +1001,9 @@ def generate(net_id,
 
             if polarity and not elect_conn:
                 if polarity == 'inh':
-                    syn0 = params.neuron_to_neuron_inh_syn
+                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "inh")
                 else:
-                    syn0 = params.neuron_to_neuron_exc_syn
+                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "exc")
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                        (conn.pre_cell, conn.post_cell, orig_pol, polarity))
@@ -1040,22 +1131,22 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = params.neuron_to_muscle_exc_syn
+            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "exc")
             orig_pol = "exc"
             if 'GABA' in conn.synclass:
-                syn0 = params.neuron_to_muscle_inh_syn
+                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "inh")
                 orig_pol = "inh"
 
             if '_GJ' in conn.synclass :
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction) or isinstance(params.neuron_to_neuron_elec_syn, DelayedGapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
                 if conn.pre_cell in lems_info["cells"]:
-                    syn0 = params.neuron_to_muscle_elec_syn
+                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "elec")
                 elif conn.pre_cell in muscles_to_include:
                     try:
-                        syn0 = params.muscle_to_muscle_elec_syn
+                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "muscle_to_muscle", "elec")
                     except:
-                        syn0 = params.neuron_to_muscle_elec_syn
+                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "elec")
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
@@ -1069,14 +1160,14 @@ def generate(net_id,
             if polarity and not elect_conn:
                 if polarity == 'inh':
                     try:
-                        syn0 = params.muscle_to_muscle_inh_syn
+                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "muscle_to_muscle", "inh")
                     except:
-                        syn0 = params.neuron_to_muscle_inh_syn
+                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "inh")
                 else:
                     try:
-                        syn0 = params.muscle_to_muscle_exc_syn
+                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "muscle_to_muscle", "exc")
                     except:
-                        syn0 = params.neuron_to_muscle_exc_syn
+                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "exc")
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                            (conn.pre_cell, conn.post_cell, orig_pol, polarity))
