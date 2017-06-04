@@ -246,3 +246,55 @@ class ParameterisedModel(ParameterisedModel_C):
         self.muscle_to_muscle_elec_syn = GapJunction(id="muscle_to_muscle_elec_syn",
                                conductance =    self.get_bioparameter("muscle_to_muscle_elec_syn_gbase").value)
 
+
+
+
+
+class SwitchedGapJunction():
+    def __init__(self, id, conductance, delay):
+        self.id = id
+        self.conductance = conductance
+        self.delay = delay
+
+    def export(self, outfile, level, namespace, name_, pretty_print=True):
+        outfile.write(
+            '    ' * level + '<switchedGapJunction id="%s" conductance="%s" delay="%s" />\n' % (
+            self.id, self.conductance, self.delay))
+
+
+class DelayedGapJunction():
+    def __init__(self, id, weight, conductance, sigma, mu):
+        self.id = id
+        self.weight = weight
+        self.conductance = conductance
+        self.sigma = sigma
+        self.mu = mu
+
+    def export(self, outfile, level, namespace, name_, pretty_print=True):
+        outfile.write(
+            '    ' * level + '<delayedGapJunction id="%s" weight="%s" conductance="%s" sigma="%s" mu="%s" />\n'
+            % (self.id, self.weight, self.conductance, self.sigma, self.mu))
+
+    def __repr__(self):
+        return "DelayedGapJunction(id=%s, weight=%s, conductance=%s, sigma=%s, mu=%s)" % (self.id, self.weight, self.conductance, self.sigma, self.mu)
+
+class DelayedGradedSynapse():
+    def __init__(self, id=None, weight=1, conductance=None, delta=None, vth=None, k=None, erev=None, sigma=None, mu=None):
+        self.id = id
+        self.weight = weight
+        self.conductance = conductance
+        self.delta = delta
+        self.vth = vth
+        self.k = k
+        self.erev = erev
+        self.sigma = sigma
+        self.mu = mu
+
+    def export(self, outfile, level, namespace, name_, pretty_print=True):
+        outfile.write(
+            '    ' * level + '<delayedGradedSynapse id="%s" weight="%s" conductance="%s" delta="%s" Vth="%s" k="%s" erev="%s" sigma="%s" mu="%s" />\n'
+            % (self.id, self.weight, self.conductance, self.delta, self.vth, self.k, self.erev, self.sigma, self.mu))
+
+    def __repr__(self):
+        return "DelayedGradedSynapse(id=%s, weight=%s, conductance=%s, delta=%s, vth=%s, k=%s, erev=%s, sigma=%s, mu=%s)" \
+               % (self.id, self.weight, self.conductance, self.delta, self.vth, self.k, self.erev, self.sigma, self.mu)
