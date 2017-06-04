@@ -1061,7 +1061,6 @@ def generate(net_id,
             #    print "######### %s-%s %s %s" % (conn.pre_cell, conn.post_cell, number_syns, conn.synclass)
 
             syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
-            print syn_new
 
             if elect_conn:
 
