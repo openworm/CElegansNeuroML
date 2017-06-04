@@ -617,6 +617,7 @@ def generate(net_id,
              seed = 1234,
              test=False,
              verbose=True,
+             print_connections=False,
              param_overrides={},
              target_directory='./'):
                  
@@ -996,7 +997,8 @@ def generate(net_id,
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
                 continue
 
-            print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
@@ -1156,7 +1158,8 @@ def generate(net_id,
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
                 continue
 
-            print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
