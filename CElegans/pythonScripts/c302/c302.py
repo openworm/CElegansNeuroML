@@ -606,6 +606,7 @@ def generate(net_id,
              cells_to_stimulate = None,
              muscles_to_include=[],
              conns_to_include=[],
+             conns_to_exclude=[],
              conn_number_override = None,
              conn_number_scaling = None,
              conn_polarity_override = None,
@@ -992,6 +993,8 @@ def generate(net_id,
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
+            if conns_to_exclude and conn_shorthand in conns_to_exclude:
+                continue
 
             print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
 
@@ -1149,6 +1152,8 @@ def generate(net_id,
                         syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "elec")
 
             if conns_to_include and conn_shorthand not in conns_to_include:
+                continue
+            if conns_to_exclude and conn_shorthand in conns_to_exclude:
                 continue
 
             print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
