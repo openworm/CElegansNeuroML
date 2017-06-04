@@ -40,6 +40,7 @@ import importlib
 
 from parameters_C0 import GradedSynapse2
 from parameters_C2 import DelayedGapJunction
+from parameters_C2 import DelayedGradedSynapse
 
 try:
     from urllib2 import URLError  # Python 2
@@ -391,6 +392,7 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
             if type(n) is float:
                 cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
             new_syn = DelayedGapJunction(id=new_id,
+                                         weight=prototype_syn.weight,
                                          conductance=cond,
                                          sigma=prototype_syn.sigma,
                                          mu=prototype_syn.mu)
@@ -409,6 +411,24 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
                                     Vth =               prototype_syn.Vth,
                                     erev =              prototype_syn.erev,
                                     k =                 prototype_syn.k)
+
+            existing_synapses[new_id] = new_syn
+            nml_doc.graded_synapses.append(new_syn)
+
+        elif isinstance(prototype_syn, DelayedGradedSynapse):
+            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
+            cond = "%s%s" % (magnitude * n, unit)
+            if type(n) is float:
+                cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
+            new_syn = DelayedGradedSynapse(id=new_id,
+                                           weight=prototype_syn.weight,
+                                           conductance=cond,
+                                           delta=prototype_syn.delta,
+                                           Vth=prototype_syn.Vth,
+                                           erev=prototype_syn.erev,
+                                           k=prototype_syn.k,
+                                           sigma=prototype_syn.sigma,
+                                           mu=prototype_syn.mu)
 
             existing_synapses[new_id] = new_syn
             nml_doc.graded_synapses.append(new_syn)
@@ -899,7 +919,7 @@ def generate(net_id,
                 
                 
                 
-            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2):
+            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2) or isinstance(syn0, DelayedGradedSynapse):
                 analog_conn = True
                 if len(nml_doc.silent_synapses)==0:
                     silent = SilentSynapse(id="silent")
@@ -1027,7 +1047,7 @@ def generate(net_id,
                 orig_pol = "inh"
 
             if '_GJ' in conn.synclass :
-                elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
+                elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction) or isinstance(params.neuron_to_neuron_elec_syn, DelayedGapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
                 if conn.pre_cell in lems_info["cells"]:
                     syn0 = params.neuron_to_muscle_elec_syn
@@ -1061,7 +1081,7 @@ def generate(net_id,
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                            (conn.pre_cell, conn.post_cell, orig_pol, polarity))
 
-            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2):
+            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2) or isinstance(syn0, DelayedGradedSynapse):
                 analog_conn = True
                 if len(nml_doc.silent_synapses)==0:
                     silent = SilentSynapse(id="silent")
