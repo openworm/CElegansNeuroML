@@ -69,7 +69,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("leak_erev", "-60 mV", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_leak_erev", "-13 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_slow_cond_density", "0.164 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_cond_density", "0.564 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_slow_cond_density", "0.45833751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_k_slow_erev", "-70 mV", "BlindGuess", "0.1")
@@ -89,7 +89,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "0.49 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "0.07 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "0.10 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("neuron_to_neuron_exc_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_neuron_exc_syn_vth", "00 mV", "BlindGuess", "0.1")
@@ -121,7 +121,6 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("neuron_to_neuron_elec_syn_weight", "1", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.00152 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_to_muscle_elec_syn_gbase", "0.0002 nS", "BlindGuess", "0.1")
 
 
         #self.add_bioparameter("muscle_to_muscle_elec_syn_gbase", "0.0002 nS", "BlindGuess", "0.1")
@@ -235,47 +234,138 @@ class ParameterisedModel(ParameterisedModel_C):
 
         #self.add_bioparameter("AVBL_to_AVBR_elec_syn_gbase", "1 nS", "BlindGuess", "0.1")
 
-        #self.add_bioparameter("AVBR_to_DB1_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB1_elec_syn_sigma", "0.7per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB1_elec_syn_mu", "50ms", "BlindGuess", "0.1")
+        syns = [
+                      'DB1_to_MDL06_exc_syn_conductance',
+                      'DB1_to_MDL08_exc_syn_conductance',
+                      'DB1_to_MDL09_exc_syn_conductance',
+                      'DB1_to_MDR08_exc_syn_conductance',
+                      'DB1_to_MDR09_exc_syn_conductance',
+                      'DB2_to_MDL09_exc_syn_conductance',
+                      'DB2_to_MDL10_exc_syn_conductance',
+                      'DB2_to_MDL11_exc_syn_conductance',
+                      'DB2_to_MDL12_exc_syn_conductance',
+                      'DB2_to_MDR09_exc_syn_conductance',
+                      'DB2_to_MDR10_exc_syn_conductance',
+                      'DB2_to_MDR11_exc_syn_conductance',
+                      ]
 
-        #self.add_bioparameter("AVBL_to_DB2_elec_syn_gbase", "0.01052 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB2_elec_syn_sigma", "0.6per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB2_elec_syn_mu", "65ms", "BlindGuess", "0.1")
-        #self.add_bioparameter("AVBR_to_DB2_elec_syn_gbase", "0.01052 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB2_elec_syn_sigma", "0.6per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB2_elec_syn_mu", "65ms", "BlindGuess", "0.1")
+        for syn in syns:
+            self.add_bioparameter(syn, "0.10 nS", "BlindGuess", "0.1")
+        syns = [
+            'DB1_to_MDL06_exc_syn_delta',
+            'DB1_to_MDL08_exc_syn_delta',
+            'DB1_to_MDL09_exc_syn_delta',
+            'DB1_to_MDR08_exc_syn_delta',
+            'DB1_to_MDR09_exc_syn_delta',
+            'DB2_to_MDL09_exc_syn_delta',
+            'DB2_to_MDL10_exc_syn_delta',
+            'DB2_to_MDL11_exc_syn_delta',
+            'DB2_to_MDL12_exc_syn_delta',
+            'DB2_to_MDR09_exc_syn_delta',
+            'DB2_to_MDR10_exc_syn_delta',
+            'DB2_to_MDR11_exc_syn_delta',
+        ]
 
-        #self.add_bioparameter("AVBL_to_DB3_elec_syn_gbase", "0.00852 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB3_elec_syn_sigma", "0.5per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB3_elec_syn_mu", "80ms", "BlindGuess", "0.1")
+        for syn in syns:
+            self.add_bioparameter(syn, self.get_bioparameter('neuron_to_muscle_exc_syn_delta').value, "BlindGuess", "0.1")
+
+        syns = [
+            'DB1_to_MDL06_exc_syn_vth',
+            'DB1_to_MDL08_exc_syn_vth',
+            'DB1_to_MDL09_exc_syn_vth',
+            'DB1_to_MDR08_exc_syn_vth',
+            'DB1_to_MDR09_exc_syn_vth',
+            'DB2_to_MDL09_exc_syn_vth',
+            'DB2_to_MDL10_exc_syn_vth',
+            'DB2_to_MDL11_exc_syn_vth',
+            'DB2_to_MDL12_exc_syn_vth',
+            'DB2_to_MDR09_exc_syn_vth',
+            'DB2_to_MDR10_exc_syn_vth',
+            'DB2_to_MDR11_exc_syn_vth',
+        ]
+
+        for syn in syns:
+            self.add_bioparameter(syn, self.get_bioparameter('neuron_to_muscle_exc_syn_vth').value, "BlindGuess", "0.1")
+
+
+        syns = [
+            'DB1_to_MDL06_exc_syn_k',
+            'DB1_to_MDL08_exc_syn_k',
+            'DB1_to_MDL09_exc_syn_k',
+            'DB1_to_MDR08_exc_syn_k',
+            'DB1_to_MDR09_exc_syn_k',
+            'DB2_to_MDL09_exc_syn_k',
+            'DB2_to_MDL10_exc_syn_k',
+            'DB2_to_MDL11_exc_syn_k',
+            'DB2_to_MDL12_exc_syn_k',
+            'DB2_to_MDR09_exc_syn_k',
+            'DB2_to_MDR10_exc_syn_k',
+            'DB2_to_MDR11_exc_syn_k',
+        ]
+
+        for syn in syns:
+            self.add_bioparameter(syn, self.get_bioparameter('neuron_to_muscle_exc_syn_k').value, "BlindGuess", "0.1")
+
+
+
+        #self.add_bioparameter("DB1_to_MDL06_exc_syn_delta", "5 mV", "BlindGuess", "0.1")
+        #self.add_bioparameter("DB1_to_MDL06_exc_syn_vth", "0 mV", "BlindGuess", "0.1")
+        #self.add_bioparameter("DB1_to_MDL06_exc_syn_erev", "-50 mV", "BlindGuess", "0.1")
+        #self.add_bioparameter("DB1_to_MDL06_exc_syn_k", "0.50per_ms", "BlindGuess", "0.1")
+
+        self.add_bioparameter("AVBR_to_DB1_elec_syn_weight", "1", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB1_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB1_elec_syn_sigma", "0.7", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB1_elec_syn_mu", "-50", "BlindGuess", "0.1")
+
+        self.add_bioparameter("AVBL_to_DB2_elec_syn_weight", "1", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB2_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB2_elec_syn_sigma", "0.6", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB2_elec_syn_mu", "-45", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB2_elec_syn_weight", "1", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB2_elec_syn_gbase", "0.01052 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB2_elec_syn_sigma", "0.6", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB2_elec_syn_mu", "-45", "BlindGuess", "0.1")
+
+        self.add_bioparameter("AVBL_to_DB3_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB3_elec_syn_sigma", "0.5", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB3_elec_syn_mu", "-40", "BlindGuess", "0.1")
         #self.add_bioparameter("AVBR_to_DB3_elec_syn_gbase", "0.00852 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB3_elec_syn_sigma", "0.5per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB3_elec_syn_mu", "80ms", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB3_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB3_elec_syn_sigma", "0.5", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB3_elec_syn_mu", "-40", "BlindGuess", "0.1")
 
-        self.add_bioparameter("AVBL_to_DB4_elec_syn_sigma", "0.4per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB4_elec_syn_mu", "95ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB4_elec_syn_sigma", "0.4per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB4_elec_syn_mu", "95ms", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB4_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB4_elec_syn_sigma", "0.4", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB4_elec_syn_mu", "-35", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB4_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB4_elec_syn_sigma", "0.4", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB4_elec_syn_mu", "-35", "BlindGuess", "0.1")
 
-        self.add_bioparameter("AVBL_to_DB5_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB5_elec_syn_mu", "110ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB5_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB5_elec_syn_mu", "110ms", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB5_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB5_elec_syn_sigma", "0.3", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB5_elec_syn_mu", "-30", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB5_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB5_elec_syn_sigma", "0.3", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB5_elec_syn_mu", "-30", "BlindGuess", "0.1")
 
-        self.add_bioparameter("AVBL_to_DB6_elec_syn_sigma", "0.2per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB6_elec_syn_mu", "125ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB6_elec_syn_sigma", "0.2per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB6_elec_syn_mu", "125ms", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB6_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB6_elec_syn_sigma", "0.2", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB6_elec_syn_mu", "-25", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB6_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB6_elec_syn_sigma", "0.2", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB6_elec_syn_mu", "-25", "BlindGuess", "0.1")
 
-        self.add_bioparameter("AVBL_to_DB7_elec_syn_sigma", "0.1per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBL_to_DB7_elec_syn_mu", "140ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB7_elec_syn_sigma", "0.1per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB7_elec_syn_mu", "140ms", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB7_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB7_elec_syn_sigma", "0.1", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBL_to_DB7_elec_syn_mu", "-20", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB7_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB7_elec_syn_sigma", "0.1", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB7_elec_syn_mu", "-20", "BlindGuess", "0.1")
 
 
 
-        self.add_bioparameter("AVBL_to_VB1_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
+        """self.add_bioparameter("AVBL_to_VB1_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBL_to_VB1_elec_syn_mu", "50ms", "BlindGuess", "0.1")
 
         self.add_bioparameter("AVBL_to_VB2_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
@@ -324,7 +414,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("AVBL_to_VB11_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBL_to_VB11_elec_syn_mu", "100ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_VB11_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_VB11_elec_syn_mu", "100ms", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_VB11_elec_syn_mu", "100ms", "BlindGuess", "0.1")"""
 
         #self.add_bioparameter("AVBL_to_DB4_elec_syn_gbase", "0.00652 nS", "BlindGuess", "0.1")
         #self.add_bioparameter("AVBR_to_DB4_elec_syn_gbase", "0.00652 nS", "BlindGuess", "0.1")
