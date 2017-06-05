@@ -380,13 +380,16 @@ def run_optimisation(prefix,
 
     if not nogui:
         added =[]
+        save_to = "%s/best.png" % run_dir
         for wref in weights.keys():
             ref = wref.split(':')[0]
             if not ref in added and not "phase_offset" in ref:
                 added.append(ref)
                 best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[ref], label="%s - %i evaluations"%(ref,max_evaluations))
 
-        plt.legend()
+
+
+        plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.05), fancybox=True, shadow=True)
 
         plt.ylim(-80.0,80.0)
         plt.xlim(0.0,sim_time)
@@ -394,10 +397,10 @@ def run_optimisation(prefix,
         plt.xlabel("Time (ms)")
         plt.ylabel("Membrane potential(mV)")
 
+        plt.savefig(save_to, bbox_inches='tight')
 
-        utils.plot_generation_evolution(sim_var.keys(), individuals_file_name = '%s/ga_individuals.csv'%run_dir)
+        utils.plot_generation_evolution(sim_var.keys(), individuals_file_name = '%s/ga_individuals.csv'%run_dir, save_to_file="%s/evo.png"%run_dir)
 
-        
         c302_utils.plot_c302_results(best_candidate_results, config, level, directory=run_dir,save=True)
 
 
