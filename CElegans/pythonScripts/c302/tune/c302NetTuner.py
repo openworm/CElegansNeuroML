@@ -249,8 +249,9 @@ def run_optimisation(prefix,
     data = ref+'.dat'
 
     sim_var = OrderedDict()
-    for i in range(len(parameters)):
-        sim_var[parameters[i]] = max_constraints[i]/2 + min_constraints[i]/2
+    for k, v in parameters.iteritems():
+        sim_var[k] = {'value': max_constraints[i]/2 + min_constraints[i]/2,
+                      'unit': v['default_unit']}
 
 
 
@@ -307,9 +308,12 @@ def run_optimisation(prefix,
     reportj['comment'] = info
     reportj['time'] = secs
 
-    for key,value in zip(parameters,best_candidate):
-        sim_var[key]=value
-
+    sim_var = OrderedDict()
+    idx = 0
+    for k, v in parameters.iteritems():
+        sim_var[k] = {'value': best_candidate[idx],
+                      'unit': v['default_unit']}
+        idx = idx + 1
 
     best_candidate_t, best_candidate_v = my_controller.run_individual(sim_var,show=False)
     
