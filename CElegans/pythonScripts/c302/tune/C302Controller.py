@@ -29,27 +29,37 @@ class C302Controller():
     def __init__(self, 
                  ref, 
                  params, 
-                 config, 
+                 config,
                  sim_time=1000, 
-                 dt=0.05, 
+                 dt=0.05,
+                 data_reader="SpreadsheetDataReader",
+                 config_package=None,
                  generate_dir = './', 
                  simulator='jNeuroML',
-                 num_local_procesors_to_use=1):
+                 input_list=None,
+                 num_local_procesors_to_use=1,
+                 conns_to_include=[],
+                 conns_to_exclude=[]):
         
         self.ref = ref
         self.params = params
         self.config = config
+        self.data_reader = data_reader
+        self.config_package = config_package
         self.sim_time = sim_time
         self.dt = dt
         self.simulator = simulator
         self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
+        self.input_list = input_list
         
         self.num_local_procesors_to_use = num_local_procesors_to_use
         
         if int(num_local_procesors_to_use) != num_local_procesors_to_use or \
             num_local_procesors_to_use < 1:
                 raise Exception('Error with num_local_procesors_to_use = %s\nPlease use an integer value greater then 1.'%num_local_procesors_to_use)
-        
+
+        self.conns_to_include = conns_to_include
+        self.conns_to_exclude = conns_to_exclude
         
         self.count = 0
 
@@ -64,7 +74,7 @@ class C302Controller():
 
         traces = []
         start_time = time.time()
-        
+
         
         if self.num_local_procesors_to_use == 1:
             
@@ -94,18 +104,25 @@ class C302Controller():
                 if not os.path.exists(cand_dir):
                     os.mkdir(cand_dir)
                 pyneuroml.pynml.print_comment_v('Running in %s'%cand_dir)
+
                 vars = (sim_var,
                    self.ref,
                    self.params,
                    self.config,
+                   self.config_package,
+                   self.data_reader,
                    self.sim_time,
                    self.dt,
                    self.simulator,
-                   cand_dir)
-                        
+                   cand_dir,
+                   False,
+                   self.input_list,
+                   self.conns_to_include,
+                   self.conns_to_exclude)
+
                 job = job_server.submit(run_individual, vars, (), ("pyneuroml.pynml",'C302Simulation'))
                 jobs.append(job)
-            
+
             for job_i in range(len(jobs)):
                 job = jobs[job_i]
                 pyneuroml.pynml.print_comment_v("Checking job %i of %i current jobs"%(job_i,len(candidates)))
@@ -130,11 +147,16 @@ class C302Controller():
                    self.ref,
                    self.params,
                    self.config,
+                   self.config_package,
+                   self.data_reader,
                    self.sim_time,
                    self.dt,
                    self.simulator,
                    self.generate_dir,
-                   show)
+                   show=show,
+                   input_list=self.input_list,
+                   conns_to_include=self.conns_to_include,
+                   conns_to_exclude=self.conns_to_exclude)
 
         global last_results
         
@@ -147,11 +169,16 @@ def run_individual(sim_var,
                    ref,
                    params,
                    config,
+                   config_package,
+                   data_reader,
                    sim_time,
                    dt,
                    simulator,
                    generate_dir,
-                   show=False):
+                   show=False,
+                   input_list=None,
+                   conns_to_include=[],
+                   conns_to_exclude=[]):
     """
     Run an individual simulation.
 
@@ -167,11 +194,16 @@ def run_individual(sim_var,
 
     sim = C302Simulation.C302Simulation(ref, 
                          params, 
-                         config, 
+                         config,
+                         config_package=config_package,
+                         data_reader=data_reader,
                          sim_time = sim_time, 
-                         dt = dt, 
+                         dt = dt,
+                         input_list=input_list,
                          simulator = simulator, 
-                         generate_dir = generate_dir)
+                         generate_dir = generate_dir,
+                         conns_to_include=conns_to_include,
+                         conns_to_exclude=conns_to_exclude)
                          
 
     for var_name in sim_var.keys():

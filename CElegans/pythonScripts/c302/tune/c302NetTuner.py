@@ -17,6 +17,7 @@ import os.path
 import time
 import c302Evaluators
 import c302Analysis
+import c302Optimizers
 
 import pprint
 
@@ -194,6 +195,8 @@ def run_optimisation(prefix,
                      min_constraints,
                      weights,
                      target_data,
+                     data_reader="SpreadsheetDataReader",
+                     config_package=None,
                      sim_time =            500,
                      dt =                  0.05,
                      analysis_start_time = 0,
@@ -204,9 +207,13 @@ def run_optimisation(prefix,
                      mutation_rate =       0.9,
                      num_elites =          1,
                      seed =                12345,
+                     input_list=None,
                      simulator =           'jNeuroML',
                      nogui =               False,
-                     num_local_procesors_to_use = 4):  
+                     num_local_procesors_to_use = 4,
+                     conns_to_include=[],
+                     conns_to_exclude=[],
+                     max_generation_without_improvement=False):
                          
     print("Running optimisation...")
     print("parameters: %s"%parameters)
@@ -214,20 +221,25 @@ def run_optimisation(prefix,
     print("min_constraints: %s"%min_constraints)
     print("simulator: %s"%simulator)
     ref = prefix+config
-    
+
     run_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
     os.mkdir(run_dir)
 
     my_controller = C302Controller(ref, 
                                    level, 
                                    config, 
-                                   sim_time, 
-                                   dt, 
+                                   sim_time,
+                                   dt,
+                                   data_reader=data_reader,
+                                   config_package=config_package,
+                                   input_list=input_list,
                                    simulator = simulator, 
                                    generate_dir=run_dir,
-                                   num_local_procesors_to_use = num_local_procesors_to_use)
+                                   num_local_procesors_to_use = num_local_procesors_to_use,
+                                   conns_to_include=conns_to_include,
+                                   conns_to_exclude=conns_to_exclude)
 
-    peak_threshold = -31 if level.startswith('A') or level.startswith('B') else (-40)
+    peak_threshold = -31 if level.startswith('A') or level.startswith('B') else -20
 
     analysis_var = {'peak_delta':     0,
                     'baseline':       0,
@@ -263,11 +275,25 @@ def run_optimisation(prefix,
                                              num_elites=num_elites,
                                              mutation_rate=mutation_rate,
                                              seeds=None,
-                                             verbose=False)
+                                             verbose=True)
+
+    if max_generation_without_improvement:
+        my_optimizer = c302Optimizers.CustomOptimizerA(max_constraints,
+                                                 min_constraints,
+                                                 my_evaluator,
+                                                 population_size=population_size,
+                                                 max_evaluations=max_evaluations,
+                                                 num_selected=num_selected,
+                                                 num_offspring=num_offspring,
+                                                 num_elites=num_elites,
+                                                 mutation_rate=mutation_rate,
+                                                 seeds=None,
+                                                 verbose=True,
+                                                 max_generation_without_improvement=max_generation_without_improvement)
 
     start = time.time()
     #run the optimizer
-    best_candidate, fitness = my_optimizer.optimize(do_plot=False, 
+    best_candidate, fitness = my_optimizer.optimize(do_plot=False,
                                                     seed=seed,
                                                     summary_dir = run_dir)
 
