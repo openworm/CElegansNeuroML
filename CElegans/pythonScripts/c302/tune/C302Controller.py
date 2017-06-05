@@ -132,7 +132,11 @@ class C302Controller():
                 jobs.append(job)
 
             for job_i in range(len(jobs)):
+
                 job = jobs[job_i]
+                if job == None or job() == None:
+                    print "             !!!!!!!!!!!!! JOB = NONE !!!!!!!!!!!!!!"
+                    continue
                 pyneuroml.pynml.print_comment_v("Checking job %i of %i current jobs"%(job_i,len(candidates)))
                 t,v = job()
                 traces.append([t,v])
@@ -196,8 +200,8 @@ def run_individual(sim_var,
 
     The simulation itself is carried out via the instantiation of a
     Simulation object (see Simulation class above).
-
     """
+
     global last_results
 
     sim = C302Simulation.C302Simulation(ref, 
