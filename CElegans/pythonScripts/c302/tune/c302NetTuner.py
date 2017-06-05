@@ -32,6 +32,7 @@ if not os.path.isfile('c302.py'):
 sys.path.append(".")
 
 import c302_utils
+import c302
 
 from C302Controller import C302Controller
 
@@ -775,6 +776,488 @@ if __name__ == '__main__':
             analysis = example_run_analysis.analyse(weights.keys())
 
             pp.pprint(analysis)
+
+
+
+    elif '-avb-db' in sys.argv:
+
+        simulator = 'jNeuroML_NEURON'
+
+        parameters = ['AVBR_to_DB1_elec_syn_gbase',
+                      'AVBR_to_DB1_elec_syn_weight',
+                      'AVBR_to_DB1_elec_syn_sigma',
+                      'AVBR_to_DB1_elec_syn_mu',
+                      'AVBL_to_DB2_elec_syn_gbase',
+                      'AVBL_to_DB2_elec_syn_weight',
+                      'AVBL_to_DB2_elec_syn_sigma',
+                      'AVBL_to_DB2_elec_syn_mu',
+                      'AVBR_to_DB2_elec_syn_gbase',
+                      'AVBR_to_DB2_elec_syn_weight',
+                      'AVBR_to_DB2_elec_syn_sigma',
+                      'AVBR_to_DB2_elec_syn_mu',
+                      ]
+
+        min_constraints = [.0, 1, .0, 50, .0, 1, .0, 50, .0, 1, .0, 50]
+        max_constraints = [.3, 3, .8, 150, .3, 3, .8, 150, .3, 3, .8, 150]
+
+        parameters = [
+                      #'AVBR_to_DB1_elec_syn_gbase',
+                      #'AVBL_to_DB2_elec_syn_gbase',
+                      #'AVBR_to_DB2_elec_syn_gbase',
+
+                      #'DB1_to_DB2_elec_syn_gbase',
+                      #'DB2_to_DB1_elec_syn_gbase',
+
+            'DB1_to_MDL06_exc_syn_conductance',
+            'DB1_to_MDL06_exc_syn_delta',
+            'DB1_to_MDL06_exc_syn_vth',
+            #'DB1_to_MDL06_exc_syn_erev',
+            'DB1_to_MDL06_exc_syn_k',
+
+            'DB1_to_MDL08_exc_syn_conductance',
+            'DB1_to_MDL08_exc_syn_delta',
+            'DB1_to_MDL08_exc_syn_vth',
+            #'DB1_to_MDL08_exc_syn_erev',
+            'DB1_to_MDL08_exc_syn_k',
+
+            'DB1_to_MDL09_exc_syn_conductance',
+            'DB1_to_MDL09_exc_syn_delta',
+            'DB1_to_MDL09_exc_syn_vth',
+            #'DB1_to_MDL09_exc_syn_erev',
+            'DB1_to_MDL09_exc_syn_k',
+
+            'DB1_to_MDR08_exc_syn_conductance',
+            'DB1_to_MDR08_exc_syn_delta',
+            'DB1_to_MDR08_exc_syn_vth',
+            #'DB1_to_MDR08_exc_syn_erev',
+            'DB1_to_MDR08_exc_syn_k',
+
+            'DB1_to_MDR09_exc_syn_conductance',
+            'DB1_to_MDR09_exc_syn_delta',
+            'DB1_to_MDR09_exc_syn_vth',
+            #'DB1_to_MDR09_exc_syn_erev',
+            'DB1_to_MDR09_exc_syn_k',
+
+            'DB2_to_MDL09_exc_syn_conductance',
+            'DB2_to_MDL09_exc_syn_delta',
+            'DB2_to_MDL09_exc_syn_vth',
+            #'DB2_to_MDL09_exc_syn_erev',
+            'DB2_to_MDL09_exc_syn_k',
+
+            'DB2_to_MDL10_exc_syn_conductance',
+            'DB2_to_MDL10_exc_syn_delta',
+            'DB2_to_MDL10_exc_syn_vth',
+            #'DB2_to_MDL10_exc_syn_erev',
+            'DB2_to_MDL10_exc_syn_k',
+
+            'DB2_to_MDL11_exc_syn_conductance',
+            'DB2_to_MDL11_exc_syn_delta',
+            'DB2_to_MDL11_exc_syn_vth',
+            #'DB2_to_MDL11_exc_syn_erev',
+            'DB2_to_MDL11_exc_syn_k',
+
+            'DB2_to_MDL12_exc_syn_conductance',
+            'DB2_to_MDL12_exc_syn_delta',
+            'DB2_to_MDL12_exc_syn_vth',
+            #'DB2_to_MDL12_exc_syn_erev',
+            'DB2_to_MDL12_exc_syn_k',
+
+            'DB2_to_MDR09_exc_syn_conductance',
+            'DB2_to_MDR09_exc_syn_delta',
+            'DB2_to_MDR09_exc_syn_vth',
+            #'DB2_to_MDR09_exc_syn_erev',
+            'DB2_to_MDR09_exc_syn_k',
+
+            'DB2_to_MDR10_exc_syn_conductance',
+            'DB2_to_MDR10_exc_syn_delta',
+            'DB2_to_MDR10_exc_syn_vth',
+            #'DB2_to_MDR10_exc_syn_erev',
+            'DB2_to_MDR10_exc_syn_k',
+
+            'DB2_to_MDR11_exc_syn_conductance',
+            'DB2_to_MDR11_exc_syn_delta',
+            'DB2_to_MDR11_exc_syn_vth',
+            #'DB2_to_MDR11_exc_syn_erev',
+            'DB2_to_MDR11_exc_syn_k',
+
+                      ]
+
+        min_constraints = [#0.00252, 0.00252, 0.00252,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5,
+                           .02, 3, -5, 0.5]
+        max_constraints = [#0.03252, 0.03252, 0.03252,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3,
+                           1.8, 7, 20, 2.3]
+
+        # above parameters will not be modified outside these bounds:
+
+
+        #min_constraints = [.0, .0, .0]
+        #max_constraints = [1, 1, 1]
+
+        weights = {}
+        target_data = {}
+
+        """for cell in ['DB1', 'DB2']:
+            var = '%s/0/GenericNeuronCell/v:max_peak_no' % cell
+            weights[var] = 1
+            target_data[var] = 0"""
+
+        """#target_data["MDL06/0/GenericMuscleCell/v;MDL08/0/GenericMuscleCell/v;phase_offset"] = 8
+        target_data["MDL08/0/GenericMuscleCell/v;MDL09/0/GenericMuscleCell/v;phase_offset"] = 4
+        target_data["MDL09/0/GenericMuscleCell/v;MDL10/0/GenericMuscleCell/v;phase_offset"] = 4
+        target_data["MDL10/0/GenericMuscleCell/v;MDL11/0/GenericMuscleCell/v;phase_offset"] = 4
+        target_data["MDL11/0/GenericMuscleCell/v;MDL12/0/GenericMuscleCell/v;phase_offset"] = 4
+
+        target_data["MDR08/0/GenericMuscleCell/v;MDR09/0/GenericMuscleCell/v;phase_offset"] = 4
+        target_data["MDR09/0/GenericMuscleCell/v;MDR10/0/GenericMuscleCell/v;phase_offset"] = 4
+        target_data["MDR10/0/GenericMuscleCell/v;MDR11/0/GenericMuscleCell/v;phase_offset"] = 4
+
+        for key in target_data.keys():
+            weights[key] = 1"""
+
+
+        """for i, cell in enumerate(['MDL06', 'MDL08', 'MDL09', 'MDL10', 'MDL11', 'MDL12', 'MDR08', 'MDR09', 'MDR10', 'MDR11']):
+            #var = '%s/0/GenericMuscleCell/v:max_peak_no' % cell
+            #weights[var] = 1
+            #target_data[var] = 5
+            #var = '%s/0/GenericMuscleCell/v:min_peak_no' % cell
+            #weights[var] = 1
+            #target_data[var] = 4
+
+            var = '%s/0/GenericMuscleCell/v:first_spike_time' % cell
+            weights[var] = 1
+            target_data[var] = 152 + (i * 8)
+
+            var = '%s/0/GenericMuscleCell/v:mean_spike_frequency' % cell
+            weights[var] = 5
+            target_data[var] = 3"""
+
+        var = 'MDL06/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 152
+        weights[var] = 5
+        var = 'MDL06/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDL08/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 168
+        weights[var] = 5
+        var = 'MDL08/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDL09/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 176
+        weights[var] = 5
+        var = 'MDL09/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDL10/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 184
+        weights[var] = 5
+        var = 'MDL10/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDL11/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 192
+        weights[var] = 5
+        var = 'MDL11/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDL12/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 200
+        weights[var] = 5
+        var = 'MDL12/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+
+        var = 'MDR08/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 168
+        weights[var] = 5
+        var = 'MDR08/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDR09/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 176
+        weights[var] = 5
+        var = 'MDR09/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDR10/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 184
+        weights[var] = 5
+        var = 'MDR10/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+        var = 'MDR11/0/GenericMuscleCell/v:first_spike_time'
+        target_data[var] = 192
+        weights[var] = 5
+        var = 'MDR11/0/GenericMuscleCell/v:mean_spike_frequency'
+        weights[var] = 5
+        target_data[var] = 3
+
+
+
+        input_list = [
+            ("AVBL", "50ms", "1500ms", "15pA"),
+            ("AVBR", "50ms", "1500ms", "15pA"),
+        ]
+
+        """conns_to_include = [
+            'AVBR-DB1_GJ',
+            'AVBL-DB2_GJ',
+            'AVBR-DB2_GJ',
+        ]"""
+
+        conns_to_exclude = [
+            #'AVBL-AVBR',
+            #'AVBR-AVBL',
+            #'AVBL-AVBR_GJ',
+            #'AVBR-AVBL_GJ',
+
+            ##'DB1-AVBR_GJ',
+            ##'DB2-AVBL_GJ',
+            ##'DB2-AVBR_GJ',
+        ]
+
+        run_optimisation('Test',
+                         'AVB_DB_TUNE1',
+                         'C2',
+                         parameters,
+                         max_constraints,
+                         min_constraints,
+                         weights,
+                         target_data,
+                         config_package="notebooks.configs.AVB",
+                         data_reader="UpdatedSpreadsheetDataReader",
+                         sim_time=2000,
+                         dt=0.05,
+                         population_size=10,
+                         max_evaluations=60,
+                         num_selected=5,
+                         num_offspring=5,
+                         mutation_rate=0.1,
+                         num_elites=1,
+                         seed=123477,
+                         nogui=nogui,
+                         input_list=input_list,
+                         simulator=simulator,
+                         num_local_procesors_to_use=15,
+                         conns_to_include=[],
+                         conns_to_exclude=conns_to_exclude,
+                         max_generation_without_improvement=1)
+
+
+    elif '-avb-db-full' in sys.argv:
+
+        simulator = 'jNeuroML_NEURON'
+
+        parameters = OrderedDict()
+        min_constraints = []
+        max_constraints = []
+        weights = {}
+        target_data = {}
+
+        motors = ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
+
+        for command in ['AVBL', 'AVBR']:
+            for motor in motors:
+                if command == 'AVBL' and motor == 'DB1':
+                    continue
+                parameters['%s_to_%s_elec_syn_gbase' % (command, motor)] = {'default_unit': 'nS'}
+                #parameters.append('%s_to_%s_elec_syn_gbase' % (command, motor))
+                min_constraints.append(0.00052)
+                max_constraints.append(0.06252)
+                #parameters.append('%s_to_%s_elec_syn_gbase' % (motor, command))
+                parameters['%s_to_%s_elec_syn_gbase' % (motor, command)] = {'default_unit': 'nS'}
+                min_constraints.append(0.00052)
+                max_constraints.append(0.06252)
+                #parameters.append('%s_to_%s_elec_syn_sigma' % (command, motor))
+                parameters['%s_to_%s_elec_syn_sigma' % (command, motor)] = {'default_unit': None}
+                min_constraints.append(0.1)
+                max_constraints.append(0.9)
+                #parameters.append('%s_to_%s_elec_syn_sigma' % (motor, command))
+                parameters['%s_to_%s_elec_syn_sigma' % (motor, command)] = {'default_unit': None}
+                min_constraints.append(0.1)
+                max_constraints.append(0.9)
+                #parameters.append('%s_to_%s_elec_syn_mu' % (command, motor))
+                parameters['%s_to_%s_elec_syn_mu' % (command, motor)] = {'default_unit': None}
+                min_constraints.append(-70)
+                max_constraints.append(20)
+                #parameters.append('%s_to_%s_elec_syn_mu' % (motor, command))
+                parameters['%s_to_%s_elec_syn_mu' % (motor, command)] = {'default_unit': None}
+                min_constraints.append(-70)
+                max_constraints.append(20)
+
+        muscle_names = c302.get_muscle_names()
+
+
+        for i in range(len(motors))[:-1]:
+            m1, m2 = motors[i], motors[i+1]
+            parameters['%s_to_%s_elec_syn_gbase' % (m1, m2)] = {'default_unit': 'nS'}
+            min_constraints.append(0.00002)
+            max_constraints.append(0.04252)
+            parameters['%s_to_%s_elec_syn_gbase' % (m2, m1)] = {'default_unit': 'nS'}
+            min_constraints.append(0.00002)
+            max_constraints.append(0.04252)
+
+        """
+        for motor in ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']:
+            for muscle in muscle_names:
+                parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))"""
+
+        muscle_names = []
+        for muscle in ['MDL06', 'MDL08', 'MDL09', 'MDR08', 'MDR09']:
+            muscle_names.append(muscle)
+            motor = 'DB1'
+            parameters['%s_to_%s_exc_syn_conductance' % (motor, muscle)] = {'default_unit': 'nS'}
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (muscle, motor))
+            parameters['%s_to_%s_exc_syn_conductance' % (muscle, motor)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+        for muscle in ['MDL09', 'MDL10', 'MDL11', 'MDL12', 'MDR09', 'MDR10', 'MDR11']:
+            muscle_names.append(muscle)
+            motor = 'DB2'
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))
+            parameters['%s_to_%s_exc_syn_conductance' % (motor, muscle)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+            parameters['%s_to_%s_exc_syn_conductance' % (muscle, motor)] = {'default_unit': 'nS'}
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (muscle, motor))
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+        for muscle in ['MDL11', 'MDL12', 'MDL13', 'MDL14', 'MDR11', 'MDR12', 'MDR13']:
+            muscle_names.append(muscle)
+            motor = 'DB3'
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))
+            parameters['%s_to_%s_exc_syn_conductance' % (motor, muscle)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (muscle, motor))
+            parameters['%s_to_%s_exc_syn_conductance' % (muscle, motor)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+        for muscle in ['MDL13', 'MDL14', 'MDL15', 'MDL16', 'MDR13', 'MDR14', 'MDR15', 'MDR16']:
+            muscle_names.append(muscle)
+            motor = 'DB4'
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))
+            parameters['%s_to_%s_exc_syn_conductance' % (motor, muscle)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (muscle, motor))
+            parameters['%s_to_%s_exc_syn_conductance' % (muscle, motor)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+        for muscle in ['MDL14', 'MDL15', 'MDL16', 'MDL17', 'MDL18', 'MDL19', 'MDR14', 'MDR15', 'MDR16', 'MDR17', 'MDR18', 'MDR19']:
+            muscle_names.append(muscle)
+            motor = 'DB5'
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))
+            parameters['%s_to_%s_exc_syn_conductance' % (motor, muscle)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (muscle, motor))
+            parameters['%s_to_%s_exc_syn_conductance' % (muscle, motor)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+        for muscle in ['MDL16', 'MDL17', 'MDL18', 'MDL19', 'MDL20', 'MDL21', 'MDR16', 'MDR17', 'MDR18', 'MDR19', 'MDR20', 'MDR21']:
+            muscle_names.append(muscle)
+            motor = 'DB6'
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))
+            parameters['%s_to_%s_exc_syn_conductance' % (motor, muscle)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (muscle, motor))
+            parameters['%s_to_%s_exc_syn_conductance' % (muscle, motor)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+        for muscle in ['MDL19', 'MDL20', 'MDL21', 'MDL22', 'MDL23', 'MDL24', 'MDR19', 'MDR20', 'MDR21', 'MDR22', 'MDR23', 'MDR24']:
+            muscle_names.append(muscle)
+            motor = 'DB7'
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (motor, muscle))
+            parameters['%s_to_%s_exc_syn_conductance' % (motor, muscle)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+            #parameters.append('%s_to_%s_exc_syn_conductance' % (muscle, motor))
+            parameters['%s_to_%s_exc_syn_conductance' % (muscle, motor)] = {'default_unit': 'nS'}
+            min_constraints.append(0.02)
+            max_constraints.append(2)
+
+        muscle_names.append("MDL07")
+        muscle_names = list(set(muscle_names))
+
+        for i in range(len(muscle_names))[:-1]:
+            m1, m2 = muscle_names[i], muscle_names[i+1]
+            #parameters.append('%s_to_%s_elec_syn_gbase' % (m1, m2))
+            parameters['%s_to_%s_elec_syn_gbase' % (m1, m2)] = {'default_unit': 'nS'}
+            min_constraints.append(0.00002)
+            max_constraints.append(0.00050)
+            #parameters.append('%s_to_%s_elec_syn_gbase' % (m2, m1))
+            parameters['%s_to_%s_elec_syn_gbase' % (m2, m1)] = {'default_unit': 'nS'}
+            min_constraints.append(0.00002)
+            max_constraints.append(0.00050)
+
+
+        i = 0
+        for cell in motors:
+            var = '%s/0/GenericNeuronCell/v:maximum' % cell
+            weights[var] = 1
+            target_data[var] = 5
+            var = '%s/0/GenericNeuronCell/v:first_spike_time' % cell
+            weights[var] = 1
+            target_data[var] = 115 + i * 10
+            i = i + 1
+
+
+        input_list = [
+            ("AVBL", "50ms", "1000ms", "15pA"),
+            ("AVBR", "50ms", "1000ms", "15pA"),
+        ]
+
+        run_optimisation('AVB_DB',
+                         'AVB_DB',
+                         'C2',
+                         parameters,
+                         max_constraints,
+                         min_constraints,
+                         weights,
+                         target_data,
+                         config_package="notebooks.configs.AVB",
+                         data_reader="UpdatedSpreadsheetDataReader",
+                         sim_time=1000,
+                         dt=0.05,
+                         population_size=10,
+                         max_evaluations=15,
+                         num_selected=5,
+                         num_offspring=5,
+                         mutation_rate=0.1,
+                         num_elites=2,
+                         seed=123477,
+                         nogui=nogui,
+                         input_list=input_list,
+                         simulator=simulator,
+                         num_local_procesors_to_use=15)
   
     elif '-icC1' in sys.argv or '-icC1one' in sys.argv:
 
