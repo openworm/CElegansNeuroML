@@ -98,6 +98,14 @@ class C302Controller():
                 
                 candidate = candidates[candidate_i]
                 sim_var = dict(zip(parameters,candidate))
+
+                i = 0
+                for k, v in parameters.iteritems():
+                    sim_var[k] = {'value': candidate[i], 'unit': v["default_unit"]}
+                    i = i + 1
+
+
+
                 pyneuroml.pynml.print_comment_v('\n\n  - PARALLEL RUN %i (%i/%i curr candidates); variables: %s\n'%(self.count,candidate_i+1,len(candidates),sim_var))
                 self.count+=1
                 cand_dir = self.generate_dir+"/CANDIDATE_%s"%candidate_i
@@ -206,10 +214,15 @@ def run_individual(sim_var,
                          conns_to_exclude=conns_to_exclude)
                          
 
-    for var_name in sim_var.keys():
+    for var_name, v in sim_var.iteritems():
         bp = sim.params.get_bioparameter(var_name)
-        print("Changing param %s: %s -> %s"%(var_name, bp.value, sim_var[var_name]))
-        bp.change_magnitude(sim_var[var_name])
+        if bp == None:
+            unit = "" if v['unit'] == None else " %s" % v['unit']
+            print "Adding param %s = %s%s" % (var_name, v['value'], v['unit'])
+            sim.params.add_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
+        else:
+            print("Changing param %s: %s -> %s" % (var_name, bp.value, v['value']))
+            bp.change_magnitude(v['value'])
 
     sim.go()
     
