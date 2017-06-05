@@ -1,5 +1,7 @@
 import sys
-sys.path.append('../../../')
+import os
+
+sys.path.insert(0, os.path.abspath('.'))
 
 import c302
 
@@ -16,8 +18,7 @@ def setup(parameter_set,
           data_reader="SpreadsheetDataReader",
           param_overrides={},
           verbose=True,
-          conn_polarity_override={},
-          conn_number_override={}):
+          config_param_overrides={}):
 
     exec ('from parameters_%s import ParameterisedModel' % parameter_set)
     params = ParameterisedModel()
@@ -35,6 +36,7 @@ def setup(parameter_set,
     AS_motors = ["AS%s" % c for c in range_incl(1, 11)]
 
     cells = list(['AVBL', 'AVBR'] + DB_motors)
+    #cells = list(['AVBL', 'AVBR'] + ['DB2', 'DB5', 'DB6'])
 
     muscles_to_include = True
 
@@ -44,15 +46,18 @@ def setup(parameter_set,
     reference = "c302_%s_AVB_DB" % parameter_set
 
     conns_to_include = [
+
     ]
 
-    conn_polarity_override.update({
-        
-    })
-    
+    conn_polarity_override = {}
+    if config_param_overrides.has_key('conn_polarity_override'):
+        conn_polarity_override.update(config_param_overrides['conn_polarity_override'])
 
-    conn_number_override.update({
-    })
+    conn_number_override = {
+
+    }
+    if config_param_overrides.has_key('conn_number_override'):
+        conn_number_override.update(config_param_overrides['conn_number_override'])
 
     if generate:
         nml_doc = c302.generate(reference,
@@ -72,18 +77,15 @@ def setup(parameter_set,
                                 verbose=verbose)
 
         end = int(duration) - 500
-        
-        #for vb in VB_motors:
-        #    c302.add_new_sinusoidal_input(nml_doc, cell=vb, delay="0ms", duration="1000ms", amplitude="3pA",
-        #                                  period="700ms", params=params)
 
         #for db in DB_motors:
         #    c302.add_new_sinusoidal_input(nml_doc, cell=db, delay="0ms", duration="1000ms", amplitude="3pA",
         #                                  period="700ms", params=params)
 
-
         c302.add_new_input(nml_doc, "AVBL", "50ms", "%sms"%end, "15pA", params)
         c302.add_new_input(nml_doc, "AVBR", "50ms", "%sms"%end, "15pA", params)
+        #c302.add_new_input(nml_doc, "AVBL", "50ms", "850ms", "15pA", params)
+        #c302.add_new_input(nml_doc, "AVBR", "50ms", "850ms", "15pA", params)
 
         nml_file = target_directory + '/' + reference + '.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file)  # Write over network file written above...
