@@ -249,9 +249,17 @@ def run_optimisation(prefix,
     data = ref+'.dat'
 
     sim_var = OrderedDict()
-    for k, v in parameters.iteritems():
-        sim_var[k] = {'value': max_constraints[i]/2 + min_constraints[i]/2,
-                      'unit': v['default_unit']}
+    if isinstance(parameters, list):
+        # old version: parameter list with only param values
+        for i in range(len(parameters)):
+            sim_var[parameters[i]] = max_constraints[i] / 2 + min_constraints[i] / 2
+    elif isinstance(parameters, dict):
+        # new version: parameter dict with key=[name_of_param] and value={'value':'...', 'default_unit':'...'}
+        idx = 0
+        for k, v in parameters.iteritems():
+            sim_var[k] = {'value': max_constraints[idx]/2 + min_constraints[idx]/2,
+                          'unit': v['default_unit']}
+            idx = idx + 1
 
 
 
@@ -308,12 +316,18 @@ def run_optimisation(prefix,
     reportj['comment'] = info
     reportj['time'] = secs
 
-    sim_var = OrderedDict()
-    idx = 0
-    for k, v in parameters.iteritems():
-        sim_var[k] = {'value': best_candidate[idx],
-                      'unit': v['default_unit']}
-        idx = idx + 1
+
+    #sim_var = OrderedDict()
+    if isinstance(parameters, list):
+        # old version: parameter list with only param values
+        for key, value in zip(parameters, best_candidate):
+            sim_var[key] = value
+    elif isinstance(parameters, dict):
+        idx = 0
+        for k, v in parameters.iteritems():
+            sim_var[k] = {'value': best_candidate[idx],
+                          'unit': v['default_unit']}
+            idx = idx + 1
 
     best_candidate_t, best_candidate_v = my_controller.run_individual(sim_var,show=False)
     

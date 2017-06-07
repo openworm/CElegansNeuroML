@@ -99,10 +99,12 @@ class C302Controller():
                 candidate = candidates[candidate_i]
                 sim_var = dict(zip(parameters,candidate))
 
-                i = 0
-                for k, v in parameters.iteritems():
-                    sim_var[k] = {'value': candidate[i], 'unit': v["default_unit"]}
-                    i = i + 1
+                if isinstance(parameters, dict):
+                    # new version
+                    i = 0
+                    for k, v in parameters.iteritems():
+                        sim_var[k] = {'value': candidate[i], 'unit': v["default_unit"]}
+                        i = i + 1
 
 
 
@@ -217,16 +219,26 @@ def run_individual(sim_var,
                          conns_to_include=conns_to_include,
                          conns_to_exclude=conns_to_exclude)
                          
-
     for var_name, v in sim_var.iteritems():
         bp = sim.params.get_bioparameter(var_name)
-        if bp == None:
-            unit = "" if v['unit'] == None else " %s" % v['unit']
-            print "Adding param %s = %s%s" % (var_name, v['value'], v['unit'])
-            sim.params.add_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
+
+        if bp is None:
+            if isinstance(v, dict):
+                unit = "" if not v['unit'] else " %s" % v['unit']
+                print "Adding param %s = %s%s" % (var_name, v['value'], v['unit'])
+                sim.params.add_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
+            else:
+                raise Exception(
+                    "Cannot add %s=%s.\nIt is only possible to add new parameters with a dict containing the value and the unit" % (var_name, v))
         else:
-            print("Changing param %s: %s -> %s" % (var_name, bp.value, v['value']))
-            bp.change_magnitude(v['value'])
+            if isinstance(v, dict):
+                print("Changing param %s: %s -> %s" % (var_name, bp.value, v['value']))
+                #bp.change_magnitude(v['value'])
+                unit = "" if not v['unit'] else " %s" % v['unit']
+                sim.params.set_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
+            else:
+                print("Changing param %s: %s -> %s" % (var_name, bp.value, v))
+                bp.change_magnitude(v)
 
     sim.go()
     
