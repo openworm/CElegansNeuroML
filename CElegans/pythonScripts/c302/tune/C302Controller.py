@@ -136,11 +136,18 @@ class C302Controller():
             for job_i in range(len(jobs)):
 
                 job = jobs[job_i]
-                if job == None or job() == None:
-                    print "             !!!!!!!!!!!!! JOB = NONE !!!!!!!!!!!!!!"
-                    continue
+
+                #if job is None or job() is None:
+                #    print "             !!!!!!!!!!!!! JOB = NONE !!!!!!!!!!!!!!"
+                #    #return None
                 pyneuroml.pynml.print_comment_v("Checking job %i of %i current jobs"%(job_i,len(candidates)))
+
                 t,v = job()
+
+                if not t or not v:
+                    print "             !!!!!!!!!!!!! JOB = NONE (t or v is None) !!!!!!!!!!!!!!"
+
+
                 traces.append([t,v])
                 
                 #pyneuroml.pynml.print_comment_v("Obtained: %s"%result) 
