@@ -146,19 +146,15 @@ class C302Simulation(object):
         for cell in self.cells:
             self.volts[res_template_n%cell] = [v*1000 for v in self.results[res_template_n%cell]]
 
-
         res_template = '%s/0/GenericMuscleCell/v'
         muscles = []
-        if isinstance(self.muscles_to_include, bool) and self.muscles_to_include:
-            # muscles_to_include = TRUE -> ALL muscles
+        if self.muscles_to_include is None or self.muscles_to_include is True:
+            # muscles_to_include = True or None -> ALL muscles
             muscles = c302.get_muscle_names()
-        elif isinstance(self.muscles_to_include, list):
-            if not self.muscles_to_include:
-                # muscles_to_include = [] -> ALL muscles
-                muscles = c302.get_muscle_names()
-            else:
-                # len(muscles_to_include) > 0
-                muscles = self.muscles_to_include
+        elif isinstance(self.muscles_to_include, list) and self.muscles_to_include:
+            # len(muscles_to_include) > 0
+            muscles = self.muscles_to_include
+
         for muscle in muscles:
             self.volts[res_template % muscle] = [v * 1000 for v in self.results[res_template % muscle]]
 
