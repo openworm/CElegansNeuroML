@@ -1077,8 +1077,7 @@ if __name__ == '__main__':
                          simulator=simulator,
                          num_local_procesors_to_use=15,
                          conns_to_include=[],
-                         conns_to_exclude=conns_to_exclude,
-                         max_generation_without_improvement=1)
+                         conns_to_exclude=conns_to_exclude)
 
 
     elif '-avb-db-full' in sys.argv:
