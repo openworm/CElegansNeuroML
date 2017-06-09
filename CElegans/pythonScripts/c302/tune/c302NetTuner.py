@@ -1092,6 +1092,10 @@ if __name__ == '__main__':
 
         motors = ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
 
+        neuron_to_neuron_sigma_unit = 'per_mV'
+        neuron_to_neuron_mu_unit = 'mV'
+
+
         for command in ['AVBL', 'AVBR']:
             for motor in motors:
                 if command == 'AVBL' and motor == 'DB1':
@@ -1105,19 +1109,19 @@ if __name__ == '__main__':
                 min_constraints.append(0.00052)
                 max_constraints.append(0.06252)
                 #parameters.append('%s_to_%s_elec_syn_sigma' % (command, motor))
-                parameters['%s_to_%s_elec_syn_sigma' % (command, motor)] = {'default_unit': None}
+                parameters['%s_to_%s_elec_syn_sigma' % (command, motor)] = {'default_unit': neuron_to_neuron_sigma_unit}
                 min_constraints.append(0.1)
                 max_constraints.append(0.9)
                 #parameters.append('%s_to_%s_elec_syn_sigma' % (motor, command))
-                parameters['%s_to_%s_elec_syn_sigma' % (motor, command)] = {'default_unit': None}
+                parameters['%s_to_%s_elec_syn_sigma' % (motor, command)] = {'default_unit': neuron_to_neuron_sigma_unit}
                 min_constraints.append(0.1)
                 max_constraints.append(0.9)
                 #parameters.append('%s_to_%s_elec_syn_mu' % (command, motor))
-                parameters['%s_to_%s_elec_syn_mu' % (command, motor)] = {'default_unit': None}
+                parameters['%s_to_%s_elec_syn_mu' % (command, motor)] = {'default_unit': neuron_to_neuron_mu_unit}
                 min_constraints.append(-70)
                 max_constraints.append(20)
                 #parameters.append('%s_to_%s_elec_syn_mu' % (motor, command))
-                parameters['%s_to_%s_elec_syn_mu' % (motor, command)] = {'default_unit': None}
+                parameters['%s_to_%s_elec_syn_mu' % (motor, command)] = {'default_unit': neuron_to_neuron_mu_unit}
                 min_constraints.append(-70)
                 max_constraints.append(20)
 
