@@ -685,7 +685,7 @@ class DelayedGradedSynapse():
 
     def export(self, outfile, level, namespace, name_, pretty_print=True):
         outfile.write(
-            '    ' * level + '<delayedGradedSynapse id="%s" weight="%s" conductance="%s" delta="%s" Vth="%s" k="%s" erev="%s" sigma="%s" mu="%s" />\n'
+            '    ' * level + '<delayedGradedSynapse id="%s" weight="%s" conductance="%s" delta="%s" vth="%s" k="%s" erev="%s" sigma="%s" mu="%s" />\n'
             % (self.id, self.weight, self.conductance, self.delta, self.vth, self.k, self.erev, self.sigma, self.mu))
 
     def __repr__(self):
