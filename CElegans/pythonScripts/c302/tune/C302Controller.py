@@ -239,9 +239,9 @@ def run_individual(sim_var,
                     "Cannot add %s=%s.\nIt is only possible to add new parameters with a dict containing the value and the unit" % (var_name, v))
         else:
             if isinstance(v, dict):
-                print("Changing param %s: %s -> %s" % (var_name, bp.value, v['value']))
-                #bp.change_magnitude(v['value'])
                 unit = "" if not v['unit'] else " %s" % v['unit']
+                print("Changing param %s: %s -> %s%s" % (var_name, bp.value, v['value'], unit))
+                #bp.change_magnitude(v['value'])
                 sim.params.set_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
             else:
                 print("Changing param %s: %s -> %s" % (var_name, bp.value, v))

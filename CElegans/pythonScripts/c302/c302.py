@@ -215,6 +215,7 @@ def get_specific_chem_syn_params(params, pre_cell, post_cell, syn_type, polarity
 
     # Load default parameters unless there are more specific parameters for the current synapse
     def_prefix = "%s_%s_syn" % (syn_type, polarity)
+    #print def_prefix
     overridden = False
     if weight or conductance or delta or vth or erev or k or sigma or mu:
         overridden = True
@@ -992,7 +993,7 @@ def generate(net_id,
                 orig_pol = "inh"
             if '_GJ' in conn.synclass:
                 syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "elec")
-                print syn0
+                #print syn0
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction) or isinstance(params.neuron_to_neuron_elec_syn, DelayedGapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
