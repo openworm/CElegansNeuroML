@@ -82,6 +82,12 @@ class C302Controller():
                 
                 candidate = candidates[candidate_i]
                 sim_var = dict(zip(parameters,candidate))
+                if isinstance(parameters, dict):
+                    # new version
+                    i = 0
+                    for k, v in parameters.iteritems():
+                        sim_var[k] = {'value': candidate[i], 'unit': v["default_unit"]}
+                        i = i + 1
                 pyneuroml.pynml.print_comment_v('\n\n  - RUN %i (%i/%i); variables: %s\n'%(self.count,candidate_i+1,len(candidates),sim_var))
                 self.count+=1
                 t,v = self.run_individual(sim_var)
