@@ -35,6 +35,7 @@ from bioparameters import c302ModelPrototype
 class ParameterisedModel(c302ModelPrototype):
 
     def __init__(self):
+        super(ParameterisedModel, self).__init__()
         self.level = "C"
         self.custom_component_types_definitions = 'cell_C.xml'
         

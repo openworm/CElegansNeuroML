@@ -41,6 +41,7 @@ from parameters_C import ParameterisedModel as ParameterisedModel_C
 class ParameterisedModel(ParameterisedModel_C):
 
     def __init__(self):
+        super(ParameterisedModel, self).__init__()
         self.level = "C0"
         self.custom_component_types_definitions = ['cell_C.xml','custom_synapses.xml']
         
