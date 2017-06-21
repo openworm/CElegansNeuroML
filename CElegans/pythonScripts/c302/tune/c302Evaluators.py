@@ -1,6 +1,7 @@
 from neurotune import evaluators
 import c302Analysis
 
+
 class EnhancedNetworkEvaluator(evaluators.NetworkEvaluator):
 
     def __init__(self,
@@ -20,32 +21,32 @@ class EnhancedNetworkEvaluator(evaluators.NetworkEvaluator):
                                                        weights,
                                                        targets)
 
-        self.analysis_start_time=analysis_start_time
-        self.analysis_end_time=analysis_end_time
-        self.analysis_var=analysis_var
-        self.targets=targets
+        self.analysis_start_time = analysis_start_time
+        self.analysis_end_time = analysis_end_time
+        self.analysis_var = analysis_var
+        self.targets = targets
 
-
-
-    def evaluate(self,candidates,args):
+    def evaluate(self, candidates, args):
 
         print("\n>>>>>  Evaluating: ")
-        for cand in candidates: print(">>>>>       %s"%cand)
+        for cand in candidates:
+            print(">>>>>       %s" % cand)
 
-        simulations_data = self.controller.run(candidates,self.parameters)
+        simulations_data = self.controller.run(candidates, self.parameters)
 
         fitness = []
 
+        # TODO: do in parallel?
         for data in simulations_data:
 
             times = data[0]
             volts = data[1]
 
-            data_analysis=c302Analysis.Data_Analyser(volts,
-                                                     times,
-                                                     self.analysis_var,
-                                                     start_analysis=self.analysis_start_time,
-                                                     end_analysis=self.analysis_end_time)
+            data_analysis = c302Analysis.Data_Analyser(volts,
+                                                       times,
+                                                       self.analysis_var,
+                                                       start_analysis=self.analysis_start_time,
+                                                       end_analysis=self.analysis_end_time)
 
             data_analysis.analyse(self.targets)
 
@@ -55,6 +56,6 @@ class EnhancedNetworkEvaluator(evaluators.NetworkEvaluator):
                                                   cost_function=evaluators.normalised_cost_function)
             fitness.append(fitness_value)
 
-            print('Fitness: %s\n'%fitness_value)
+            print('Fitness: %s\n' % fitness_value)
 
         return fitness
