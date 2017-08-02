@@ -97,10 +97,10 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("neuron_to_neuron_exc_syn_k", "0.5per_ms", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_to_muscle_exc_syn_weight", "1", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_delta", "5 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_vth", "10 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_erev", "20 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_k", "1.305per_ms", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_exc_syn_delta", "19 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_exc_syn_vth", "27 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_exc_syn_erev", "37 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_exc_syn_k", "1.205per_ms", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_exc_syn_sigma", "0.5 per_mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_exc_syn_mu", "5 mV", "BlindGuess", "0.1")
 
@@ -313,7 +313,7 @@ class ParameterisedModel(ParameterisedModel_C):
         #self.add_bioparameter("DB1_to_MDL06_exc_syn_erev", "-50 mV", "BlindGuess", "0.1")
         #self.add_bioparameter("DB1_to_MDL06_exc_syn_k", "0.50per_ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("AVBR_to_DB1_elec_syn_weight", "1", "BlindGuess", "0.1")
+        """self.add_bioparameter("AVBR_to_DB1_elec_syn_weight", "1", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_DB1_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_DB1_elec_syn_sigma", "0.7 per_mV", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_DB1_elec_syn_mu", "-50 mV", "BlindGuess", "0.1")
@@ -361,7 +361,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("AVBL_to_DB7_elec_syn_mu", "-20 mV", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_DB7_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_DB7_elec_syn_sigma", "0.1 per_mV", "BlindGuess", "0.1")
-        self.add_bioparameter("AVBR_to_DB7_elec_syn_mu", "-20 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("AVBR_to_DB7_elec_syn_mu", "-20 mV", "BlindGuess", "0.1")"""
 
 
 
@@ -416,6 +416,8 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("AVBR_to_VB11_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_VB11_elec_syn_mu", "100ms", "BlindGuess", "0.1")"""
 
+
+
         #self.add_bioparameter("AVBL_to_DB4_elec_syn_gbase", "0.00652 nS", "BlindGuess", "0.1")
         #self.add_bioparameter("AVBR_to_DB4_elec_syn_gbase", "0.00652 nS", "BlindGuess", "0.1")
         #self.add_bioparameter("AVBR_to_DB4_exc_syn_conductance", "0.49 nS", "BlindGuess", "0.1")
@@ -426,6 +428,43 @@ class ParameterisedModel(ParameterisedModel_C):
         #self.add_bioparameter("AVBL_to_DB7_elec_syn_gbase", "0.000002 nS", "BlindGuess", "0.1")
         #self.add_bioparameter("AVBR_to_DB7_elec_syn_gbase", "0.000002 nS", "BlindGuess", "0.1")
 
+
+        motors = ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7']
+
+        neuron_to_neuron_sigma_unit = 'per_mV'
+        neuron_to_neuron_mu_unit = 'mV'
+
+        """values = [0.02662421961090314, 0.03534736844496468, 0.24117986141424783, 0.728445888242295, -31.097782892768087, -70.4530293802399, 0.0027901748325678665, 0.04819419381285881, 0.23145430508321702, 0.43259522880823403, -36.33291776403307, -59.353240638482205, 0.05582343246072261, 0.02190008612606287, 0.01, 0.31362780659357425, -66.21115226650004, -52.771417774165776, 0.022627891796868617, 0.019850673688929135, 0.5369334557283133, 0.6157151722578514, -56.58839267667179, -31.98566849893263, 0.0005311880646276632, 0.0007106752078277979, 0.5403093047212282, 0.851692451899331, -26.21928028856079, -36.07220973721469, 0.02239184298106873, 0.00557754534270731, 0.7336559136122108, 0.5396665394749418, -64.251546993354, -58.86832496681512, 0.05911723837418301, 0.05906803856778177, 0.3889133592395809, 0.9, -63.690021804793005, -65.0201808538768, 0.06252, 0.042808104791508095, 0.3870392542369817, 0.359369090000899, -62.00034119097063, -52.385364801981375, 0.01982498040815311, 0.0006263956386551118, 0.01, 0.07344429039663045, 3.2623740935761845, -24.383527105537627, 0.003234785879364064, 0.0013257779195953625, 0.6187551784924861, 0.02010414785586577, 3.037646907306896, -15.804515459300069, 0.008737088303665016, 0.005164680784308186, 0.6646075833887313, 0.6585834274110807, 3.8543086695981366, -60.13096941077282, 0.012477100014060296, 0.022424408328393895, 0.128433033088237, 0.31642838666989964, -5.188754434920856, 5.659506146829591, 0.002580608318239302, 0.011268010981673115, 0.38691673081318745, 0.4051876112158369, 0.08969391093452314, -38.19673533204123, 0.003652415316987105, 0.01447855276084489, 2e-05, 0.032406033165681754, 0.012313305082229144, 0.010630678619124256, 2e-05, 0.040750179035623724, 0.004113193789608253, 0.001621502777546093, 0.01857066607998348, 0.020426074336082088]
+        v = 0
+        for command in ['AVBL', 'AVBR']:
+            for motor in motors:
+                if command == 'AVBL' and motor == 'DB1':
+                    continue
+                self.add_bioparameter('%s_to_%s_elec_syn_gbase' % (command, motor), "%s nS" % values[v], "BlindGuess", "0.1")
+                v += 1
+                self.add_bioparameter('%s_to_%s_elec_syn_gbase' % (motor, command), "%s nS" % values[v], "BlindGuess", "0.1")
+                v += 1
+                self.add_bioparameter('%s_to_%s_elec_syn_sigma' % (command, motor), "%s per_mV" % values[v], "BlindGuess",
+                                      "0.1")
+                v += 1
+                self.add_bioparameter('%s_to_%s_elec_syn_sigma' % (motor, command), "%s per_mV" % values[v], "BlindGuess",
+                                      "0.1")
+                v += 1
+                self.add_bioparameter('%s_to_%s_elec_syn_mu' % (command, motor), "%s mV" % values[v], "BlindGuess",
+                                      "0.1")
+                v += 1
+                self.add_bioparameter('%s_to_%s_elec_syn_mu' % (motor, command), "%s mV" % values[v], "BlindGuess",
+                                      "0.1")
+                v += 1
+
+        for i in range(len(motors))[:-1]:
+            m1, m2 = motors[i], motors[i + 1]
+            self.add_bioparameter('%s_to_%s_elec_syn_gbase' % (m1, m2), "%s nS" % values[v], "BlindGuess",
+                                  "0.1")
+            v += 1
+            self.add_bioparameter('%s_to_%s_elec_syn_gbase' % (m2, m1), "%s nS" % values[v], "BlindGuess",
+                                  "0.1")
+            v += 1"""
 
 
 
@@ -453,7 +492,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
         segment = Segment(id="0",
                           name="soma",
-                          proximal = prox_point, 
+                          proximal = prox_point,
                           distal = dist_point)
 
         morphology.segments.append(segment)
@@ -469,27 +508,27 @@ class ParameterisedModel(ParameterisedModel_C):
 
         mp.spike_threshes.append(SpikeThresh(value=self.get_bioparameter("muscle_spike_thresh").value))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_leak_cond_density").value, 
-                                                   id="Leak_all", 
-                                                   ion_channel="Leak", 
+        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_leak_cond_density").value,
+                                                   id="Leak_all",
+                                                   ion_channel="Leak",
                                                    erev=self.get_bioparameter("muscle_leak_erev").value,
                                                    ion="non_specific"))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_slow_cond_density").value, 
-                                                   id="k_slow_all", 
-                                                   ion_channel="k_muscle", 
+        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_slow_cond_density").value,
+                                                   id="k_slow_all",
+                                                   ion_channel="k_muscle",
                                                    erev=self.get_bioparameter("muscle_k_slow_erev").value,
                                                    ion="k"))
 
-        #mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_fast_cond_density").value, 
-        #                                           id="k_fast_all", 
-        #                                           ion_channel="k_fast", 
+        #mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_k_fast_cond_density").value,
+        #                                           id="k_fast_all",
+        #                                           ion_channel="k_fast",
         #                                           erev=self.get_bioparameter("muscle_k_fast_erev").value,
         #                                           ion="k"))
 
-        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_ca_boyle_cond_density").value, 
-                                                   id="ca_boyle_all", 
-                                                   ion_channel="ca_muscle", 
+        mp.channel_densities.append(ChannelDensity(cond_density=self.get_bioparameter("muscle_ca_boyle_cond_density").value,
+                                                   id="ca_boyle_all",
+                                                   ion_channel="ca_muscle",
                                                    erev=self.get_bioparameter("muscle_ca_boyle_erev").value,
                                                    ion="ca"))
 
@@ -501,7 +540,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
 
         # NOTE: Ca reversal potential not calculated by Nernst, so initial_ext_concentration value irrelevant!
-        species = Species(id="ca", 
+        species = Species(id="ca",
                           ion="ca",
                           concentration_model="CaPool",
                           initial_concentration="0 mM",
