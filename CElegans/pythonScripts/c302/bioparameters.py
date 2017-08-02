@@ -1,3 +1,4 @@
+from decimal import Decimal
 
 '''
     Subject to much change & refactoring once PyOpenWorm is stable...
@@ -31,7 +32,7 @@ class BioParameter():
     
     def change_magnitude(self, magnitude):
         
-        self.value = '%f %s'%(magnitude, split_neuroml_quantity(self.value)[1])
+        self.value = '%s %s'%(Decimal(magnitude), split_neuroml_quantity(self.value)[1])
         
     def x(self):
         
