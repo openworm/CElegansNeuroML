@@ -22,7 +22,9 @@ import c302Optimizers
 import pprint
 
 from collections import OrderedDict
-pp = pprint.PrettyPrinter(indent=4)
+#from memory_profiler import profile
+
+prpr = pprint.PrettyPrinter(indent=4)
 
 
 if not os.path.isfile('c302.py'):
@@ -36,157 +38,10 @@ import c302_utils
 from C302Controller import C302Controller
 
 
-parameters_B = ['neuron_to_neuron_chem_exc_syn_gbase',
-                'neuron_to_neuron_chem_inh_syn_gbase',
-                'neuron_to_neuron_elec_syn_gbase',
-                'chem_exc_syn_decay',
-                'chem_inh_syn_decay',
-                'unphysiological_offset_current']
-
-#above parameters will not be modified outside these bounds:
-min_constraints_B = [0.005, 0.005, 0.001,   3,    3,     2]
-max_constraints_B = [0.03,  0.03,  0.02,  20,   50,    6]
-
-weights_B = {}
-target_data_B = {}
-
-for cell in ['DB1','VB1', 'DB3','VB3' , 'DB5','VB5', 'DB7','VB7']:
-    var = '%s/0/generic_neuron_iaf_cell/v:mean_spike_frequency'%cell
-    weights_B[var] = 1
-    target_data_B[var] = 50
-    var = '%s/0/generic_neuron_iaf_cell/v:average_minimum'%cell
-    weights_B[var] = 1
-    target_data_B[var] = -50
-    
-
-parameters_C_based_neuron = ['neuron_leak_cond_density',
-              'neuron_k_slow_cond_density',
-              'neuron_k_fast_cond_density',
-              'neuron_ca_boyle_cond_density']
-              
-parameters_C_based_muscle = ['muscle_leak_cond_density',
-              'muscle_k_slow_cond_density',
-              'muscle_k_fast_cond_density',
-              'muscle_ca_boyle_cond_density',
-              'ca_conc_decay_time',
-              'unphysiological_offset_current']
-
-parameters_C_based_net = ['neuron_to_neuron_exc_syn_conductance',
-                          'neuron_to_neuron_inh_syn_conductance',
-                          'neuron_to_neuron_elec_syn_gbase',
-                          'neuron_to_muscle_exc_syn_conductance',
-                          'neuron_to_muscle_inh_syn_conductance'] # No neuron -> muscle elect syns
-              
-parameters_C_based = parameters_C_based_neuron + parameters_C_based_muscle + parameters_C_based_net
-
-min_constraints_neuron_loose = [.005, .1, 0.005, .1]
-max_constraints_neuron_loose = [.2,   2,  0.1,   2]
-min_constraints_muscle_loose = [.005, .1, 0.005, .1, 10,  2]
-max_constraints_muscle_loose = [.2,   2,  0.1,   2,  100, 8]
-
-min_constraints_neuron_tight = [0.0045, 1.8, 0.07, 1.6]
-max_constraints_neuron_tight = [0.0055, 1.9,  0.08, 1.7]
-min_constraints_muscle_tight = [0.0045, 1.8, 0.07, 1.6,  10, 6]
-max_constraints_muscle_tight = [0.0055, 1.9,  0.08, 1.7, 12, 7]
-
-min_constraints_net_loose = [.01, .01, 0.0005, .01, .01]
-max_constraints_net_loose = [.1,  .1,  0.01,   .1,  .1]
-
-min_constraints_net_tight = [0.09, 0.09, 0.00048, 0.09, 0.09]
-max_constraints_net_tight = [0.11, 0.11, 0.00052, 0.11, 0.11]
-
-from parameters_C0 import ParameterisedModel as ParameterisedModelC0
-
-pmC0 = ParameterisedModelC0()
-
-parameters_C0_based_neuron = ['neuron_leak_cond_density',
-              'neuron_k_slow_cond_density',
-              'neuron_ca_simple_cond_density']
-              
-parameters_C0_based_muscle = ['muscle_leak_cond_density',
-              'muscle_k_slow_cond_density',
-              'muscle_ca_simple_cond_density']
-
-
-parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
-                          'neuron_to_neuron_inh_syn_conductance',
-                          'exc_syn_k',
-                          'inh_syn_k'] 
-                          
-parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
-                          'neuron_to_neuron_inh_syn_conductance',
-                          'exc_syn_vth',
-                          'inh_syn_vth',
-                          'exc_syn_ad',
-                          'inh_syn_ad',
-                          'unphysiological_offset_current'] 
-                          
-parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
-                          'neuron_to_neuron_inh_syn_conductance',
-                          'exc_syn_ad',
-                          'inh_syn_ad'] 
-                          
-parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
-                          'neuron_to_neuron_inh_syn_conductance',
-                          'neuron_to_neuron_elec_syn_gbase',
-                          'neuron_to_muscle_exc_syn_conductance',
-                          'neuron_to_muscle_inh_syn_conductance'] # No neuron -> muscle elect syns
-              
-parameters_C0_based = parameters_C0_based_neuron + parameters_C0_based_muscle + parameters_C0_based_net
-
-tight_min = 0.95
-tight_max = 1.05
-loose_min = 0.2
-loose_max = 5
-
-min_constraints_neuron_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_min for p in parameters_C0_based_neuron ]
-max_constraints_neuron_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_max for p in parameters_C0_based_neuron ]
-
-min_constraints_neuron_loose_C0 = [ pmC0.get_bioparameter(p).x()*loose_min for p in parameters_C0_based_neuron ]
-max_constraints_neuron_loose_C0 = [ pmC0.get_bioparameter(p).x()*loose_max for p in parameters_C0_based_neuron ]
-
-min_constraints_muscle_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_min for p in parameters_C0_based_muscle ]
-max_constraints_muscle_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_max for p in parameters_C0_based_muscle ]
-
-min_constraints_net_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_min for p in parameters_C0_based_net ]
-max_constraints_net_tight_C0 = [ pmC0.get_bioparameter(p).x()*tight_max for p in parameters_C0_based_net ]
-
-min_constraints_net_loose_C0 = [ pmC0.get_bioparameter(p).x()*loose_min for p in parameters_C0_based_net ]
-max_constraints_net_loose_C0 = [ pmC0.get_bioparameter(p).x()*loose_max for p in parameters_C0_based_net ]
-
-
-
-
-weights0 = {}
-target_data0 = {}
-
-cells = ['DB1','VB1', 'DB2','VB2','DB3','VB3','DB4','VB4', 'DB5','VB5','DB6','VB6','DB7','VB7']
-
-for cell in cells:
-    
-    var = '%s/0/GenericNeuronCell/v:mean_spike_frequency'%cell
-    weights0[var] = 1
-    target_data0[var] = 4 # Hz
-
-
-#phase offset
-
-i = 0
-while i < len(cells):
-
-    if len(cells)%2 != 0:
-        raise Exception( "Error in phase target and weight formation, cells array does not contain a valid number of pairs")
-    
-    var = '%s/0/GenericNeuronCell/v'%cells[i] + ';%s/0/GenericNeuronCell/v'%cells[i+1] + ';phase_offset'
-    i+=2
-
-    weights0[var] = 1
-    
-    target_data0[var] = 180
-
 def scale(scale, number, min=1):
     return max(min, int(scale*number))
 
+#@profile
 def run_optimisation(prefix,
                      config,
                      level,
@@ -225,6 +80,17 @@ def run_optimisation(prefix,
     run_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
     os.mkdir(run_dir)
 
+    pool = None
+    if num_local_procesors_to_use > 1:
+        import multiprocessing
+        import signal
+
+        original_sigint_handler = signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+        pool = multiprocessing.Pool(num_local_procesors_to_use)
+
+        signal.signal(signal.SIGINT, original_sigint_handler)
+
     my_controller = C302Controller(ref, 
                                    level, 
                                    config, 
@@ -235,11 +101,11 @@ def run_optimisation(prefix,
                                    input_list=input_list,
                                    simulator = simulator, 
                                    generate_dir=run_dir,
-                                   num_local_procesors_to_use = num_local_procesors_to_use,
+                                   pool=pool,
                                    conns_to_include=conns_to_include,
                                    conns_to_exclude=conns_to_exclude)
 
-    peak_threshold = -31 if level.startswith('A') or level.startswith('B') else -20
+    peak_threshold = -31 if level.startswith('A') or level.startswith('B') else -10
 
     analysis_var = {'peak_delta':     0,
                     'baseline':       0,
@@ -302,9 +168,15 @@ def run_optimisation(prefix,
 
     start = time.time()
     #run the optimizer
+
     best_candidate, fitness = my_optimizer.optimize(do_plot=False,
                                                     seed=seed,
                                                     summary_dir = run_dir)
+
+    if pool:
+        pool.close()
+        pool.join()
+
 
     secs = time.time()-start
     
@@ -344,9 +216,9 @@ def run_optimisation(prefix,
 
     report+="---------- Best candidate ------------------------------------------\n"
     
-    report+=pp.pformat(best_candidate)+"\n\n"
-    report+=pp.pformat(best_cand_analysis_full)+"\n"
-    report+=pp.pformat(best_cand_analysis)+"\n\n"
+    report+=prpr.pformat(best_candidate)+"\n\n"
+    report+=prpr.pformat(best_cand_analysis_full)+"\n"
+    report+=prpr.pformat(best_cand_analysis)+"\n\n"
     report+="FITNESS: %f\n\n"%fitness
     
     print(report)
@@ -379,7 +251,7 @@ def run_optimisation(prefix,
     reportj['reference'] = ref
     
     report_file = open("%s/report.json"%run_dir,'w')
-    report_file.write(pp.pformat(reportj))
+    report_file.write(prpr.pformat(reportj))
     report_file.close()
     
     plot_file = open("%s/plotgens.py"%run_dir,'w')
@@ -414,13 +286,156 @@ def run_optimisation(prefix,
 
         plt.savefig(save_to, bbox_inches='tight')
 
-        utils.plot_generation_evolution(sim_var.keys(), individuals_file_name = '%s/ga_individuals.csv'%run_dir, save_to_file="%s/evo.png"%run_dir)
+        utils.plot_generation_evolution(sim_var.keys(), individuals_file_name='%s/ga_individuals.csv'%run_dir, save_to_file="%s/evo.png"%run_dir)
 
         c302_utils.plot_c302_results(best_candidate_results, config, level, directory=run_dir,save=True)
 
 
 
 if __name__ == '__main__':
+
+    parameters_B = ['neuron_to_neuron_chem_exc_syn_gbase',
+                    'neuron_to_neuron_chem_inh_syn_gbase',
+                    'neuron_to_neuron_elec_syn_gbase',
+                    'chem_exc_syn_decay',
+                    'chem_inh_syn_decay',
+                    'unphysiological_offset_current']
+
+    # above parameters will not be modified outside these bounds:
+    min_constraints_B = [0.005, 0.005, 0.001, 3, 3, 2]
+    max_constraints_B = [0.03, 0.03, 0.02, 20, 50, 6]
+
+    weights_B = {}
+    target_data_B = {}
+
+    for cell in ['DB1', 'VB1', 'DB3', 'VB3', 'DB5', 'VB5', 'DB7', 'VB7']:
+        var = '%s/0/generic_neuron_iaf_cell/v:mean_spike_frequency' % cell
+        weights_B[var] = 1
+        target_data_B[var] = 50
+        var = '%s/0/generic_neuron_iaf_cell/v:average_minimum' % cell
+        weights_B[var] = 1
+        target_data_B[var] = -50
+
+    parameters_C_based_neuron = ['neuron_leak_cond_density',
+                                 'neuron_k_slow_cond_density',
+                                 'neuron_k_fast_cond_density',
+                                 'neuron_ca_boyle_cond_density']
+
+    parameters_C_based_muscle = ['muscle_leak_cond_density',
+                                 'muscle_k_slow_cond_density',
+                                 'muscle_k_fast_cond_density',
+                                 'muscle_ca_boyle_cond_density',
+                                 'ca_conc_decay_time',
+                                 'unphysiological_offset_current']
+
+    parameters_C_based_net = ['neuron_to_neuron_exc_syn_conductance',
+                              'neuron_to_neuron_inh_syn_conductance',
+                              'neuron_to_neuron_elec_syn_gbase',
+                              'neuron_to_muscle_exc_syn_conductance',
+                              'neuron_to_muscle_inh_syn_conductance']  # No neuron -> muscle elect syns
+
+    parameters_C_based = parameters_C_based_neuron + parameters_C_based_muscle + parameters_C_based_net
+
+    min_constraints_neuron_loose = [.005, .1, 0.005, .1]
+    max_constraints_neuron_loose = [.2, 2, 0.1, 2]
+    min_constraints_muscle_loose = [.005, .1, 0.005, .1, 10, 2]
+    max_constraints_muscle_loose = [.2, 2, 0.1, 2, 100, 8]
+
+    min_constraints_neuron_tight = [0.0045, 1.8, 0.07, 1.6]
+    max_constraints_neuron_tight = [0.0055, 1.9, 0.08, 1.7]
+    min_constraints_muscle_tight = [0.0045, 1.8, 0.07, 1.6, 10, 6]
+    max_constraints_muscle_tight = [0.0055, 1.9, 0.08, 1.7, 12, 7]
+
+    min_constraints_net_loose = [.01, .01, 0.0005, .01, .01]
+    max_constraints_net_loose = [.1, .1, 0.01, .1, .1]
+
+    min_constraints_net_tight = [0.09, 0.09, 0.00048, 0.09, 0.09]
+    max_constraints_net_tight = [0.11, 0.11, 0.00052, 0.11, 0.11]
+
+    from parameters_C0 import ParameterisedModel as ParameterisedModelC0
+
+    pmC0 = ParameterisedModelC0()
+
+    parameters_C0_based_neuron = ['neuron_leak_cond_density',
+                                  'neuron_k_slow_cond_density',
+                                  'neuron_ca_simple_cond_density']
+
+    parameters_C0_based_muscle = ['muscle_leak_cond_density',
+                                  'muscle_k_slow_cond_density',
+                                  'muscle_ca_simple_cond_density']
+
+    parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
+                               'neuron_to_neuron_inh_syn_conductance',
+                               'neuron_to_neuron_elec_syn_gbase',
+                               'neuron_to_muscle_exc_syn_conductance',
+                               'neuron_to_muscle_inh_syn_conductance']  # No neuron -> muscle elect syns
+
+    parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
+                               'neuron_to_neuron_inh_syn_conductance',
+                               'exc_syn_k',
+                               'inh_syn_k']
+
+    parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
+                               'neuron_to_neuron_inh_syn_conductance',
+                               'exc_syn_vth',
+                               'inh_syn_vth',
+                               'exc_syn_ad',
+                               'inh_syn_ad',
+                               'unphysiological_offset_current']
+
+    parameters_C0_based_net = ['neuron_to_neuron_exc_syn_conductance',
+                               'neuron_to_neuron_inh_syn_conductance',
+                               'exc_syn_ad',
+                               'inh_syn_ad']
+
+    parameters_C0_based = parameters_C0_based_neuron + parameters_C0_based_muscle + parameters_C0_based_net
+
+    tight_min = 0.95
+    tight_max = 1.05
+    loose_min = 0.1
+    loose_max = 10
+
+    min_constraints_neuron_tight_C0 = [pmC0.get_bioparameter(p).x() * tight_min for p in parameters_C0_based_neuron]
+    max_constraints_neuron_tight_C0 = [pmC0.get_bioparameter(p).x() * tight_max for p in parameters_C0_based_neuron]
+
+    min_constraints_neuron_loose_C0 = [pmC0.get_bioparameter(p).x() * loose_min for p in parameters_C0_based_neuron]
+    max_constraints_neuron_loose_C0 = [pmC0.get_bioparameter(p).x() * loose_max for p in parameters_C0_based_neuron]
+
+    min_constraints_muscle_tight_C0 = [pmC0.get_bioparameter(p).x() * tight_min for p in parameters_C0_based_muscle]
+    max_constraints_muscle_tight_C0 = [pmC0.get_bioparameter(p).x() * tight_max for p in parameters_C0_based_muscle]
+
+    min_constraints_net_tight_C0 = [pmC0.get_bioparameter(p).x() * tight_min for p in parameters_C0_based_net]
+    max_constraints_net_tight_C0 = [pmC0.get_bioparameter(p).x() * tight_max for p in parameters_C0_based_net]
+
+    min_constraints_net_loose_C0 = [pmC0.get_bioparameter(p).x() * loose_min for p in parameters_C0_based_net]
+    max_constraints_net_loose_C0 = [pmC0.get_bioparameter(p).x() * loose_max for p in parameters_C0_based_net]
+
+    weights0 = {}
+    target_data0 = {}
+
+    cells = ['DB1', 'VB1', 'DB2', 'VB2', 'DB3', 'VB3', 'DB4', 'VB4', 'DB5', 'VB5', 'DB6', 'VB6', 'DB7', 'VB7']
+
+    for cell in cells:
+        var = '%s/0/GenericNeuronCell/v:mean_spike_frequency' % cell
+        weights0[var] = 1
+        target_data0[var] = 4  # Hz
+
+    # phase offset
+
+    i = 0
+    while i < len(cells):
+
+        if len(cells) % 2 != 0:
+            raise Exception(
+                "Error in phase target and weight formation, cells array does not contain a valid number of pairs")
+
+        var = '%s/0/GenericNeuronCell/v' % cells[i] + ';%s/0/GenericNeuronCell/v' % cells[i + 1] + ';phase_offset'
+        i += 2
+
+        weights0[var] = 1
+
+        target_data0[var] = 180
+
     
     nogui = '-nogui' in sys.argv
         
@@ -599,11 +614,11 @@ if __name__ == '__main__':
 
             analysis = example_run_analysis.analyse()
 
-            pp.pprint(analysis)
+            prpr.pprint(analysis)
 
             analysis = example_run_analysis.analyse(weights0.keys())
 
-            pp.pprint(analysis)
+            prpr.pprint(analysis)
             
                          
     elif '-osc' in sys.argv:
@@ -785,13 +800,11 @@ if __name__ == '__main__':
 
             analysis = example_run_analysis.analyse()
 
-            pp.pprint(analysis)
+            prpr.pprint(analysis)
 
             analysis = example_run_analysis.analyse(weights.keys())
 
-            pp.pprint(analysis)
-            
-    elif '-imC0' in sys.argv:
+            prpr.pprint(analysis)
 
         print("Running opt on muscle...")
         parameters = ['muscle_leak_cond_density',
@@ -844,6 +857,7 @@ if __name__ == '__main__':
                          nogui =            nogui,
                          simulator = simulator,
                          num_local_procesors_to_use = 12)
+
   
     elif '-icC1' in sys.argv or '-icC1one' in sys.argv:
 
@@ -913,11 +927,11 @@ if __name__ == '__main__':
 
             analysis = example_run_analysis.analyse()
 
-            pp.pprint(analysis)
+            prpr.pprint(analysis)
 
             analysis = example_run_analysis.analyse(weights.keys())
 
-            pp.pprint(analysis)
+            prpr.pprint(analysis)
 
     elif '-phar' in sys.argv:
 
@@ -1035,11 +1049,11 @@ if __name__ == '__main__':
 
         analysis = example_run_analysis.analyse()
 
-        pp.pprint(analysis)
+        prpr.pprint(analysis)
 
         analysis = example_run_analysis.analyse(weights.keys())
 
-        pp.pprint(analysis)
+        prpr.pprint(analysis)
 
 
 
