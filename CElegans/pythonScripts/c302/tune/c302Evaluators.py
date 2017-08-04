@@ -58,4 +58,6 @@ class EnhancedNetworkEvaluator(evaluators.NetworkEvaluator):
 
             print('Fitness: %s\n' % fitness_value)
 
+        del simulations_data[:]
+
         return fitness

@@ -10,8 +10,17 @@ import os.path
 import os
 import sys
 import time
+import multiprocessing
+import functools
+import logging
+import traceback
 
 from collections import OrderedDict
+
+
+# https://stackoverflow.com/questions/6126007/python-getting-a-traceback-from-a-multiprocessing-process
+import tblib.pickling_support
+tblib.pickling_support.install()
 
 if not os.path.isfile('c302.py'):
     print('This script should be run from dir: CElegansNeuroML/CElegans/pythonScripts/c302')
@@ -23,6 +32,21 @@ import C302Simulation
 import pyneuroml.pynml
 
 last_results = None
+
+
+
+# https://stackoverflow.com/questions/6126007/python-getting-a-traceback-from-a-multiprocessing-process
+class ExceptionWrapper(object):
+    def __init__(self, ee):
+        self.ee = ee
+        __, __, self.tb = sys.exc_info()
+
+    def re_raise(self):
+        #python3:
+        #raise self.ee.with_traceback(self.tb)
+        #python2:
+        raise self.ee, None, self.tb
+
 
 class C302Controller():
 
@@ -37,7 +61,7 @@ class C302Controller():
                  generate_dir = './', 
                  simulator='jNeuroML',
                  input_list=None,
-                 num_local_procesors_to_use=1,
+                 pool=None,
                  conns_to_include=[],
                  conns_to_exclude=[]):
         
@@ -52,16 +76,27 @@ class C302Controller():
         self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
         self.input_list = input_list
         
-        self.num_local_procesors_to_use = num_local_procesors_to_use
+        #self.num_local_procesors_to_use = num_local_procesors_to_use
         
-        if int(num_local_procesors_to_use) != num_local_procesors_to_use or \
-            num_local_procesors_to_use < 1:
-                raise Exception('Error with num_local_procesors_to_use = %s\nPlease use an integer value greater then 1.'%num_local_procesors_to_use)
+        #if int(num_local_procesors_to_use) != num_local_procesors_to_use or \
+        #    num_local_procesors_to_use < 1:
+        #        raise Exception('Error with num_local_procesors_to_use = %s\nPlease use an integer value greater then 1.'%num_local_procesors_to_use)
+
+        self.pool = pool
 
         self.conns_to_include = conns_to_include
         self.conns_to_exclude = conns_to_exclude
-        
+
+        self.traces = []
+
         self.count = 0
+
+        self.total_runs = 0
+
+    """def get_traces_from_job(self, vars):
+        job_id, t, v = vars
+        print "++++++++++++++++++++++++++++++++ %s" % job_id
+        self.traces.append([t, v])"""
 
     def run(self,candidates,parameters):
         """
@@ -76,8 +111,8 @@ class C302Controller():
         start_time = time.time()
 
         
-        if self.num_local_procesors_to_use == 1:
-            
+        #if self.num_local_procesors_to_use == 1:
+        if not self.pool:
             for candidate_i in range(len(candidates)):
                 
                 candidate = candidates[candidate_i]
@@ -94,11 +129,24 @@ class C302Controller():
                 traces.append([t,v])
 
         else:
-            import pp
-            ppservers = ()
-            job_server = pp.Server(self.num_local_procesors_to_use, ppservers=ppservers, secret="password")
-            pyneuroml.pynml.print_comment_v('Running %i candidates across %i local processors'%(len(candidates),job_server.get_ncpus()))
-            jobs = []
+            #import pp
+            #ppservers = ()
+            #job_server = pp.Server(self.num_local_procesors_to_use, ppservers=ppservers, secret="password")
+            #pyneuroml.pynml.print_comment_v('Running %i candidates across %i local processors'%(len(candidates),job_server.get_ncpus()))
+            #jobs = []
+
+            #import multiprocessing
+            #import signal
+
+            #original_sigint_handler = signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+            #pool = multiprocessing.Pool(self.num_local_procesors_to_use)
+
+            #signal.signal(signal.SIGINT, original_sigint_handler)
+
+            tasks = []
+            #import pp
+
             
             for candidate_i in range(len(candidates)):
                 
@@ -121,6 +169,10 @@ class C302Controller():
                     os.mkdir(cand_dir)
                 pyneuroml.pynml.print_comment_v('Running in %s'%cand_dir)
 
+                self.total_runs += 1
+
+                job_id = "%s/%s_%s" % (candidate_i, len(candidates), self.total_runs)
+
                 vars = (sim_var,
                    self.ref,
                    self.params,
@@ -134,12 +186,15 @@ class C302Controller():
                    False,
                    self.input_list,
                    self.conns_to_include,
-                   self.conns_to_exclude)
+                   self.conns_to_exclude,
+                   job_id)
 
-                job = job_server.submit(run_individual, vars, (), ("pyneuroml.pynml",'C302Simulation'))
-                jobs.append(job)
+                #job = job_server.submit(run_individual, vars, (), ("pyneuroml.pynml",'C302Simulation'))
+                #jobs.append(job)
 
-            for job_i in range(len(jobs)):
+                tasks.append(vars)
+
+            """for job_i in range(len(jobs)):
 
                 job = jobs[job_i]
 
@@ -158,8 +213,32 @@ class C302Controller():
                 
                 #pyneuroml.pynml.print_comment_v("Obtained: %s"%result) 
                 
-            job_server.destroy()
-                
+            job_server.destroy()"""
+
+            try:
+                results = [self.pool.apply_async(run_individual_wrapper, args=task) for task in tasks]
+                for idx, result in enumerate(results):
+                    if isinstance(result, ExceptionWrapper):
+                        result.re_raise()
+                    pyneuroml.pynml.print_comment_v("Checking job %i of %i current jobs" % (idx, len(candidates)))
+                    job_id, t, v = result.get(9999)  # Without the timeout this blocking call ignores all signals.
+                    #print "##################### Execution of job %s has finished" % job_id
+                    traces.append([t, v])
+            except KeyboardInterrupt:
+                print("Caught KeyboardInterrupt, terminating workers")
+                self.pool.terminate()
+
+            #else:
+            #    #print("Normal termination")
+            #    pool.close()
+            #self.pool.join()
+
+
+            #for task in tasks:
+            #    pool.apply_async(run_individual, args=task, callback=self.get_traces_from_job)
+
+            #pool.close()
+            #pool.join()
                 
             
         end_time = time.time()
@@ -190,7 +269,75 @@ class C302Controller():
         self.last_results = last_results
         
         return t, volts
-        
+
+    '''def _poolFunctionWrapper(self, function, arg):
+        """Run function under the pool
+
+        Wrapper around function to catch exceptions that don't inherit from
+        Exception (which aren't caught by multiprocessing, so that you end
+        up hitting the timeout).
+        """
+        try:
+            return function(arg)
+        except:
+            cls, exc, tb = sys.exc_info()
+            if issubclass(cls, Exception):
+                raise  # No worries
+            # Need to wrap the exception with something multiprocessing will recognise
+            import traceback
+            print "Unhandled exception %s (%s):\n%s" % (cls.__name__, exc, traceback.format_exc())
+            raise Exception("Unhandled exception: %s (%s)" % (cls.__name__, exc))
+
+    def _runPool(self, timeout, function, iterable):
+        """Run the pool
+
+        Wrapper around pool.map_async, to handle timeout.  This is required so as to
+        trigger an immediate interrupt on the KeyboardInterrupt (Ctrl-C); see
+        http://stackoverflow.com/questions/1408356/keyboard-interrupts-with-pythons-multiprocessing-pool
+
+        Further wraps the function in _poolFunctionWrapper to catch exceptions
+        that don't inherit from Exception.
+        """
+        return self.pool.map_async(functools.partial(self._poolFunctionWrapper, function), iterable).get(timeout)
+
+    def myMap(self, function, iterable, timeout=9999):
+        """Run the function on the iterable, optionally with multiprocessing"""
+        if self.pool:
+            mapFunc = functools.partial(self._runPool, timeout)
+        else:
+            mapFunc = map
+        results = mapFunc(function, iterable)
+        #if pool is not None:
+        #    pool.close()
+        #    pool.join()
+        return results'''
+
+
+def run_individual_wrapper(sim_var,
+                           ref,
+                           params,
+                           config,
+                           config_package,
+                           data_reader,
+                           sim_time,
+                           dt,
+                           simulator,
+                           generate_dir,
+                           show=False,
+                           input_list=None,
+                           conns_to_include=[],
+                           conns_to_exclude=[],
+                           job_id=None):
+    try:
+        return run_individual(sim_var, ref, params, config, config_package, data_reader, sim_time, dt, simulator, generate_dir,
+                           show,
+                           input_list,
+                           conns_to_include,
+                           conns_to_exclude,
+                           job_id)
+    except Exception as e:
+        return ExceptionWrapper(e)
+
 
 def run_individual(sim_var, 
                    ref,
@@ -205,7 +352,8 @@ def run_individual(sim_var,
                    show=False,
                    input_list=None,
                    conns_to_include=[],
-                   conns_to_exclude=[]):
+                   conns_to_exclude=[],
+                   job_id=None):
     """
     Run an individual simulation.
 
@@ -261,6 +409,8 @@ def run_individual(sim_var,
     if show:
         sim.show()
 
+    if job_id:
+        return job_id, sim.t, sim.volts
     return sim.t, sim.volts
 
 

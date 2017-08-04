@@ -123,6 +123,18 @@ class C302Simulation(object):
         else:
             print('Unsupported simulator: %s'%self.simulator)
             exit()
+
+
+        # pynml.run_lems_with...() can return False!
+        """if self.results is False:
+            print
+            print
+            print
+            print "SIMULATION RETURNED NO RESULT"
+            print
+            print
+            print
+            exit()"""
             
         secs = time.time()-start
     
