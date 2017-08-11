@@ -176,6 +176,8 @@ def run_individual(sim_var,
 
     for var_name in sim_var.keys():
         bp = sim.params.get_bioparameter(var_name)
+        if bp==None:
+            raise Exception('Problem: parameter named <%s> not found!\nAll params:\n%s'%(var_name,sim.params.bioparameter_info()))
         print("Changing param %s: %s -> %s"%(var_name, bp.value, sim_var[var_name]))
         bp.change_magnitude(sim_var[var_name])
 
@@ -212,6 +214,15 @@ if __name__ == '__main__':
                   ('chem_exc_syn_decay',10),
                   ('chem_inh_syn_gbase',0.01),
                   ('chem_inh_syn_decay',40)])
+
+        t, volts = cont.run_individual(sim_vars, show=True)
+        print(volts.keys())
+        
+    elif len(sys.argv) == 2 and sys.argv[1] == '-imC0':
+                
+        cont = C302Controller('TestIClampMuscle', 'C0', 'IClampMuscle', generate_dir = 'temp')
+
+        sim_vars = OrderedDict([])
 
         t, volts = cont.run_individual(sim_vars, show=True)
         print(volts.keys())

@@ -37,7 +37,7 @@ class C302Simulation(object):
         
         exec('from c302_%s import setup'%config)
         
-        self.cells, self.cells_to_stimulate, self.params, self.muscles_to_include = setup(parameter_set)
+        self.cells, self.cells_to_stimulate, self.params, self.muscles_to_include, nml_doc = setup(parameter_set)
         
         self.reference = reference
         
@@ -110,9 +110,10 @@ class C302Simulation(object):
         print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
         
         self.t = [t*1000 for t in self.results['t']]
-        res_template = '%s/0/generic_neuron_iaf_cell/v'
+        res_template_n = '%s/0/generic_neuron_iaf_cell/v'
         if self.params.level.startswith('C') or self.params.level.startswith('D'):
-            res_template = '%s/0/GenericNeuronCell/v'
+            res_template_n = '%s/0/GenericNeuronCell/v'
+            res_template_m = '%s/0/GenericMuscleCell/v'
         self.volts = {}
         
         if self.cells is None:
@@ -121,7 +122,11 @@ class C302Simulation(object):
                 self.cells.append(pop.id)
             
         for cell in self.cells:
-            self.volts[res_template%cell] = [v*1000 for v in self.results[res_template%cell]]
+            self.volts[res_template_n%cell] = [v*1000 for v in self.results[res_template_n%cell]]
+            
+        if self.muscles_to_include:
+            for cell in self.muscles_to_include:
+                self.volts[res_template_m%cell] = [v*1000 for v in self.results[res_template_m%cell]]
         
 
 
@@ -149,6 +154,12 @@ if __name__ == '__main__':
         sim.go()
         sim.show()
         
+    elif len(sys.argv) == 2 and sys.argv[1] == '-muscC0':
+        
+        sim = C302Simulation('TestMuscles', 'C0', 'Muscles', sim_time, dt)
+        sim.go()
+        sim.show()
+        
     elif len(sys.argv) == 2 and sys.argv[1] == '-muscN':
         
         sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt, 'jNeuroML_NEURON')
@@ -170,6 +181,13 @@ if __name__ == '__main__':
     elif len(sys.argv) == 2 and sys.argv[1] == '-oscN':
         
         sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt, 'jNeuroML_NEURON', 'temp')
+        sim.go()
+        sim.show()
+        
+        
+    elif len(sys.argv) == 2 and sys.argv[1] == '-imC0':
+
+        sim = C302Simulation('TestIClampMuscle', 'C0', 'IClampMuscle', sim_time, dt)
         sim.go()
         sim.show()
         

@@ -67,31 +67,29 @@ if __name__ == '__main__':
     analysis_start_time = 0
     dt = 0.05
     
-    my_controller = C302Controller('SimpleTest', 'C', 'IClamp')
+    my_controller = C302Controller('SimpleTest', 'C0', 'IClampMuscle')
 
-    parameters = ['leak_cond_density',
-                  'k_slow_cond_density',
-	              'k_fast_cond_density',
-                  'ca_boyle_cond_density', 
-                  'specific_capacitance',
+                  
+    parameters = ['muscle_leak_cond_density',
+                  'muscle_k_slow_cond_density',
+                  'muscle_ca_simple_cond_density', 
+                  'muscle_specific_capacitance',
                   'leak_erev',
                   'k_slow_erev',
-                  'k_fast_erev',
-                  'ca_boyle_erev']
+                  'ca_simple_erev']
 
     #above parameters will not be modified outside these bounds:
-    min_constraints = [0.0001, 0.01,   0.01,   0.01, 0.1, -60, -70, -70, 30]
-    max_constraints = [0.01,    1,      1,      1,    3,   -40, -50, -50, 50]
+    min_constraints = [0.0001, 0.01,   0.01, 0.1,   -60, -90,  30]
+    max_constraints = [0.01,    1,      1,     3,   -40, -50,  60]
 
     analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':0, 'peak_threshold':0}
 
-    cell_ref = 'ADAL[0]/v'
+    cell_ref = 'MDR01/0/GenericMuscleCell/v'
              
-    weights = {cell_ref+':average_minimum': 0.5, 
-               cell_ref+':mean_spike_frequency': 10.0, 
-               cell_ref+':average_maximum': 5.0,  
-               cell_ref+':max_peak_no': 50.0, 
-               cell_ref+':first_spike_time': 10.0}
+    weights = {cell_ref+':average_minimum': 1, 
+               cell_ref+':mean_spike_frequency': 1, 
+               cell_ref+':average_maximum': 1,  
+               cell_ref+':max_peak_no': 1}
 
     data = 'SimpleTest.dat'
 
@@ -103,7 +101,11 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 2 and sys.argv[1] == '-opt':
         
-        target_data, v, t = get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cell_ref, weights.keys())
+        #target_data, v, t = get_target_muscle_cell_data(analysis_var, analysis_start_time, sim_time, cell_ref, weights.keys())
+        target_data = {cell_ref+':average_minimum': -70,
+                       cell_ref+':mean_spike_frequency': 4, 
+                       cell_ref+':average_maximum': 40,  
+                       cell_ref+':max_peak_no': 8}
      
         print("Analysis of experimental data:")
         pp.pprint(target_data)
@@ -160,7 +162,7 @@ if __name__ == '__main__':
         best_candidate_analysis.analyse()                                       
         
         
-        data_plot = plt.plot(t,v[cell_ref], label="Original data")
+        #data_plot = plt.plot(t,v[cell_ref], label="Original data")
         best_candidate_plot = plt.plot(best_candidate_t,best_candidate_v[cell_ref], label="Best model - %i evaluations"%max_evaluations)
 
         plt.legend()
@@ -178,15 +180,12 @@ if __name__ == '__main__':
     else:
 
 
-        sim_var = OrderedDict([('leak_cond_density', 0.05), 
-                                ('k_slow_cond_density', 0.5), 
-                                ('k_fast_cond_density', 0.05), 
-                                ('ca_boyle_cond_density', 0.5), 
-                                ('specific_capacitance', 1.05), 
-                                ('leak_erev', -50), 
-                                ('k_slow_erev', -60), 
-                                ('k_fast_erev', -60), 
-                                ('ca_boyle_erev', 40)])
+        sim_var = OrderedDict({"muscle_k_slow_cond_density": .22,
+                   "muscle_ca_simple_cond_density": .15,
+                   "muscle_leak_cond_density": 0.002,
+                  "k_slow_erev": -93.,
+                  "ca_simple_erev": 60.,
+                  "unphysiological_offset_current":5})
         
         
         example_run_t, example_run_v = my_controller.run_individual(sim_var, show=True)

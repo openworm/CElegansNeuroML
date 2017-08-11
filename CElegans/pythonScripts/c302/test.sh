@@ -118,3 +118,13 @@ jnml LEMS_c302_A_Full.xml -neuron
 jnml LEMS_c302_B_Pharyngeal.xml -neuron
 jnml LEMS_c302_C_Syns.xml -neuron
 nrnivmodl
+
+cd -
+
+## Try helper scripts
+
+python runAndPlot.py -test
+
+python c302_utils.py -nogui
+  
+
