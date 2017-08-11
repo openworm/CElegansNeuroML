@@ -74,9 +74,9 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_C0_Oscillator" length="1000ms" step="0.05ms" target="c302_C0_Oscillator">
+    <Simulation id="sim_c302_C0_Oscillator" length="2000ms" step="0.025ms" target="c302_C0_Oscillator">
 
-        <Display id="neurons" title="c302_C0_Oscillator: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-60" ymax="25">
+        <Display id="neurons" title="c302_C0_Oscillator: Membrane potential of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-60" ymax="25">
             
             <Line id="AVAL" quantity="AVAL/0/GenericNeuronCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="AVAR" quantity="AVAR/0/GenericNeuronCell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
@@ -97,7 +97,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="activity_neurons" title="c302_C0_Oscillator: Activity of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_neurons" title="c302_C0_Oscillator: Activity of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-0.1" ymax="1.1">
             
             <Line id="AVAL" quantity="AVAL/0/GenericNeuronCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
             <Line id="AVAR" quantity="AVAR/0/GenericNeuronCell/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
