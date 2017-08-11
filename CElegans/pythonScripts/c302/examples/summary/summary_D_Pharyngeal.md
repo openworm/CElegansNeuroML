@@ -20,14 +20,16 @@
   <td><a href="muscle_activity_D_Pharyngeal.png"/><img alt=" " src="muscle_activity_D_Pharyngeal.png" height="320"/></a></td>
   <td><a href="traces_muscles_activity_Pharyngeal_D.png"/><img alt=" " src="traces_muscles_activity_Pharyngeal_D.png" height="320"/></a></td>
 </tr>
+</table>
+<table>
 
 <tr><td><a href="c302_D_Pharyngeal_exc_to_neurons.png"/><img alt=" " src="c302_D_Pharyngeal_exc_to_neurons.png" height="320"/></a></td>
 
-    <td><a href="c302_D_Pharyngeal_inh_to_neurons.png"/><img alt=" " src="c302_D_Pharyngeal_inh_to_neurons.png" height="320"/></a></td>
+  <td><a href="c302_D_Pharyngeal_inh_to_neurons.png"/><img alt=" " src="c302_D_Pharyngeal_inh_to_neurons.png" height="320"/></a></td>
 
-    <td><a href="c302_D_Pharyngeal_elec_to_neurons.png"/><img alt=" " src="c302_D_Pharyngeal_elec_to_neurons.png" height="320"/></a></td></tr>
+  <td><a href="c302_D_Pharyngeal_elec_to_neurons.png"/><img alt=" " src="c302_D_Pharyngeal_elec_to_neurons.png" height="320"/></a></td></tr>
 
 <tr><td><a href="c302_D_Pharyngeal_exc_to_muscles.png"/><img alt=" " src="c302_D_Pharyngeal_exc_to_muscles.png" height="320"/></a></td>
 
-    <td><a href="c302_D_Pharyngeal_inh_to_muscles.png"/><img alt=" " src="c302_D_Pharyngeal_inh_to_muscles.png" height="320"/></a></td></tr>
+  <td><a href="c302_D_Pharyngeal_inh_to_muscles.png"/><img alt=" " src="c302_D_Pharyngeal_inh_to_muscles.png" height="320"/></a></td></tr>
 </table>

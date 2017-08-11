@@ -20,14 +20,16 @@
   <td><a href="muscle_activity_C1_Syns.png"/><img alt=" " src="muscle_activity_C1_Syns.png" height="320"/></a></td>
   <td><a href="traces_muscles_activity_Syns_C1.png"/><img alt=" " src="traces_muscles_activity_Syns_C1.png" height="320"/></a></td>
 </tr>
+</table>
+<table>
 
 <tr><td><a href="c302_C1_Syns_exc_to_neurons.png"/><img alt=" " src="c302_C1_Syns_exc_to_neurons.png" height="320"/></a></td>
 
-    <td><a href="c302_C1_Syns_inh_to_neurons.png"/><img alt=" " src="c302_C1_Syns_inh_to_neurons.png" height="320"/></a></td>
+  <td><a href="c302_C1_Syns_inh_to_neurons.png"/><img alt=" " src="c302_C1_Syns_inh_to_neurons.png" height="320"/></a></td>
 
-    <td><a href="c302_C1_Syns_elec_to_neurons.png"/><img alt=" " src="c302_C1_Syns_elec_to_neurons.png" height="320"/></a></td></tr>
+  <td><a href="c302_C1_Syns_elec_to_neurons.png"/><img alt=" " src="c302_C1_Syns_elec_to_neurons.png" height="320"/></a></td></tr>
 
 <tr><td><a href="c302_C1_Syns_exc_to_muscles.png"/><img alt=" " src="c302_C1_Syns_exc_to_muscles.png" height="320"/></a></td>
 
-    <td><a href="c302_C1_Syns_inh_to_muscles.png"/><img alt=" " src="c302_C1_Syns_inh_to_muscles.png" height="320"/></a></td></tr>
+  <td><a href="c302_C1_Syns_inh_to_muscles.png"/><img alt=" " src="c302_C1_Syns_inh_to_muscles.png" height="320"/></a></td></tr>
 </table>

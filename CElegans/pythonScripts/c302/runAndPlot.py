@@ -263,12 +263,15 @@ if __name__ == '__main__':
                         pre = 'muscles_activity_'
                     html2+='  <td><a href="traces_%s%s_%s.png"/><img alt=" " src="traces_%s%s_%s.png" height="320"/></a></td>\n</tr>\n'%(pre,p,c,pre,p,c)
                     
+                html2+='</table>\n'
+                html2+='<table>\n'
+                
                 html2+='\n<tr><td><a href="c302_%s_%s_exc_to_neurons.png"/><img alt=" " src="c302_%s_%s_exc_to_neurons.png" height="320"/></a></td>\n'%(c,p,c,p)
-                html2+='\n    <td><a href="c302_%s_%s_inh_to_neurons.png"/><img alt=" " src="c302_%s_%s_inh_to_neurons.png" height="320"/></a></td>\n'%(c,p,c,p)
-                html2+='\n    <td><a href="c302_%s_%s_elec_to_neurons.png"/><img alt=" " src="c302_%s_%s_elec_to_neurons.png" height="320"/></a></td></tr>\n'%(c,p,c,p)
+                html2+='\n  <td><a href="c302_%s_%s_inh_to_neurons.png"/><img alt=" " src="c302_%s_%s_inh_to_neurons.png" height="320"/></a></td>\n'%(c,p,c,p)
+                html2+='\n  <td><a href="c302_%s_%s_elec_to_neurons.png"/><img alt=" " src="c302_%s_%s_elec_to_neurons.png" height="320"/></a></td></tr>\n'%(c,p,c,p)
                 
                 html2+='\n<tr><td><a href="c302_%s_%s_exc_to_muscles.png"/><img alt=" " src="c302_%s_%s_exc_to_muscles.png" height="320"/></a></td>\n'%(c,p,c,p)
-                html2+='\n    <td><a href="c302_%s_%s_inh_to_muscles.png"/><img alt=" " src="c302_%s_%s_inh_to_muscles.png" height="320"/></a></td></tr>\n'%(c,p,c,p)
+                html2+='\n  <td><a href="c302_%s_%s_inh_to_muscles.png"/><img alt=" " src="c302_%s_%s_inh_to_muscles.png" height="320"/></a></td></tr>\n'%(c,p,c,p)
                     
                 html2+='</table>\n'
                 
@@ -276,7 +279,7 @@ if __name__ == '__main__':
                     f2.write('<html><body>%s</body></html>'%html2)
                 with open('examples/'+save_fig_dir+'summary_%s_%s.md'%(c,p),'w') as f3:
                     f3.write('### Parameter config summary \n%s'%html2)
-                
+                '''
                 run_c302(p,
                          c,
                          '',
@@ -285,7 +288,7 @@ if __name__ == '__main__':
                          'jNeuroML_NEURON',
                          save=True,
                          show_plot_already=False,
-                         plot_connectivity=True)
+                         plot_connectivity=True)'''
                 
                 html+='</td>'
                 
