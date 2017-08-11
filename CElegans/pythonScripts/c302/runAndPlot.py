@@ -214,9 +214,9 @@ if __name__ == '__main__':
         param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles','Full']
         param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles']'''
         #param_sets = ['IClamp','Muscles','Full']
-        levels = ['A','B','C0','C','C1','D','D1']
+        levels = ['A','B','C0','C','C1','C2','D','D1']
         #levels = ['D','D1']
-        levels = ['C0']
+        #levels = ['C2']
 
         
         durations = OrderedDict([('IClamp',1000),

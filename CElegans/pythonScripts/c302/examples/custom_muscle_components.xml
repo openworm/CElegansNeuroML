@@ -1,0 +1,62 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cell_C">
+
+    <ionChannel id="k_muscle" conductance="10pS" type="ionChannelHH" species="k">
+    
+        <notes></notes>
+    
+        <gateHHtauInf id="n" instances="4">
+    
+            <timeCourse type="fixedTimeCourse" tau="190 ms"/>
+            <steadyState type="MuscleSigmoidVariable" rate="1" scale="6.859 mV" midpoint="1.237 mV"/>
+            
+        </gateHHtauInf>
+        
+    </ionChannel>
+    
+    
+    <ionChannel id="ca_muscle" conductance="10pS" type="ionChannelHH" species="ca">
+    
+        <notes></notes>
+    
+        <gateHHtauInf id="m" instances="2">
+    
+            <timeCourse type="fixedTimeCourse" tau="1 ms"/>
+            <steadyState type="MuscleSigmoidVariable" scale="4.5 mV" midpoint="6.7 mV"/>
+    
+        </gateHHtauInf>
+    
+        <gateHHtauInf id="h" instances="1">
+            <timeCourse type="fixedTimeCourse" tau="7 ms"/>
+            <steadyState type="MuscleSigmoidVariableCaInact" a="0.516" b="13.508 mV" c="19.48 mV"/>
+        </gateHHtauInf>
+    
+    </ionChannel>
+    
+    
+    <ComponentType name="MuscleSigmoidVariable" 
+                   extends="baseVoltageDepVariable"
+                   description="Sigmoidal form for variable equation">
+    
+        <Parameter name="midpoint" dimension="voltage" />
+        <Parameter name="scale" dimension="voltage" />
+    
+        <Dynamics>
+            <DerivedVariable name="x" dimension="none" exposure="x" value="1 / (1 + exp((-(v-midpoint)) / scale))"/>
+        </Dynamics>
+    </ComponentType>
+    
+    
+    <ComponentType name="MuscleSigmoidVariableCaInact" 
+                   extends="baseVoltageDepVariable"
+                   description="Sigmoidal form for variable equation">
+    
+        <Parameter name="a" dimension="none" />
+        <Parameter name="b" dimension="voltage" />
+        <Parameter name="c" dimension="voltage" />
+    
+        <Dynamics>
+            <DerivedVariable name="x" dimension="none" exposure="x" value="1 - a * exp((-(v - b)*(v - b)) / (2 * c))"/>
+        </Dynamics>
+    </ComponentType>
+
+</neuroml>
