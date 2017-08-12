@@ -386,7 +386,7 @@ def run_individual(sim_var,
         if bp is None:
             if isinstance(v, dict):
                 unit = "" if not v['unit'] else " %s" % v['unit']
-                print "Adding param %s = %s%s" % (var_name, v['value'], v['unit'])
+                print(("Adding param %s = %s%s" % (var_name, v['value'], v['unit'])))
                 sim.params.add_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
             else:
                 raise Exception(
@@ -394,11 +394,11 @@ def run_individual(sim_var,
         else:
             if isinstance(v, dict):
                 unit = "" if not v['unit'] else " %s" % v['unit']
-                print("Changing param %s: %s -> %s%s" % (var_name, bp.value, v['value'], unit))
+                print(("Changing param %s: %s -> %s%s" % (var_name, bp.value, v['value'], unit)))
                 #bp.change_magnitude(v['value'])
                 sim.params.set_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
             else:
-                print("Changing param %s: %s -> %s" % (var_name, bp.value, v))
+                print(("Changing param %s: %s -> %s" % (var_name, bp.value, v)))
                 bp.change_magnitude(v)
 
     sim.go()
@@ -438,7 +438,7 @@ if __name__ == '__main__':
                   ('chem_inh_syn_decay',40)])
 
         t, volts = cont.run_individual(sim_vars, show=True)
-        print(volts.keys())
+        print((volts.keys()))
         
     else:
     

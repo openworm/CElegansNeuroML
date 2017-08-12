@@ -13,8 +13,8 @@ try:
     from java.lang import *
     from java.util import *
 except ImportError:
-    print "Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'"
-    print "See http://www.neuroconstruct.org/docs/python.html for more details"
+    print("Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'")
+    print("See http://www.neuroconstruct.org/docs/python.html for more details")
     quit()
 
 from ucl.physiol.neuroconstruct.project import ProjectManager
@@ -30,11 +30,11 @@ from random import *
 
 # Load an existing neuroConstruct project
 projFile = File("../../CElegans.ncx")
-print "Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())
+print(("Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())))
 
 pm = ProjectManager()
 project = pm.loadProject(projFile)
-print "Loaded project: " + project.getProjectName()
+print(("Loaded project: " + project.getProjectName()))
 
 
 ##########################
@@ -50,14 +50,14 @@ conns = [ 3,     2,     8,     1,     1,     4,     1,       1]
 
 simConfig = project.simConfigInfo.getSimConfig(newSimConfig)
 
-print simConfig.toLongString()
+print((simConfig.toLongString()))
 ##for cell in cells:
 #    simConfig.addCellGroup(cell)
 
 
 netConnInfo = project.morphNetworkConnectionsInfo  # Simple/morph based net conns only
 
-print "Currently there are %i morph based net conns"%netConnInfo.getNumSimpleNetConns()
+print(("Currently there are %i morph based net conns"%netConnInfo.getNumSimpleNetConns()))
 
 
 '''
@@ -91,7 +91,7 @@ for cell in cells:
         num = conns[cells.index(cell)]
         connectivityConditions.setNumConnsInitiatingCellGroup(NumberGenerator(num))
 
-        print "Set NumConnsInitiatingCellGroup to %i"%num
+        print(("Set NumConnsInitiatingCellGroup to %i"%num))
 
         '''
         if "axon" in postGroup:
@@ -99,7 +99,7 @@ for cell in cells:
             connectivityConditions.getPrePostAllowedLoc().setDendritesAllowedPost(0)
             connectivityConditions.getPrePostAllowedLoc().setSomaAllowedPost(0)
         '''
-        print "Set connectivityConditions: " + str(connectivityConditions)
+        print(("Set connectivityConditions: " + str(connectivityConditions)))
 
         connectivityConditions.setAllowAutapses(0)
 
@@ -128,17 +128,17 @@ for cell in cells:
                                connectivityConditions,
                                Float.MAX_VALUE)
 
-        print netConnInfo.getSummary(netConnName)
+        print((netConnInfo.getSummary(netConnName)))
 
         simConfig.addNetConn(netConnName)
 
 
-print simConfig.toLongString()
+print((simConfig.toLongString()))
 
 
 
 # Save project & exit
-print "Saving project!!"
+print("Saving project!!")
 project.markProjectAsEdited()
 project.saveProject()
 

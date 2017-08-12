@@ -30,7 +30,7 @@ class EnhancedNetworkEvaluator(evaluators.NetworkEvaluator):
 
         print("\n>>>>>  Evaluating: ")
         for cand in candidates:
-            print(">>>>>       %s" % cand)
+            print((">>>>>       %s" % cand))
 
         simulations_data = self.controller.run(candidates, self.parameters)
 
@@ -56,7 +56,7 @@ class EnhancedNetworkEvaluator(evaluators.NetworkEvaluator):
                                                   cost_function=evaluators.normalised_cost_function)
             fitness.append(fitness_value)
 
-            print('Fitness: %s\n' % fitness_value)
+            print(('Fitness: %s\n' % fitness_value))
 
         del simulations_data[:]
 

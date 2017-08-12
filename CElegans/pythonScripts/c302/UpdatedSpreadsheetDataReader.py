@@ -98,9 +98,9 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False):
     conns = []
     cells = []
 
-    with open(filename, 'rb') as f:
+    with open(filename, 'rt') as f:
         reader = csv.DictReader(f)
-        print "Opened file: " + filename
+        print(("Opened file: " + filename))
 
         known_nonconnected_cells = ['CANL', 'CANR']
 
@@ -140,9 +140,9 @@ def readMuscleDataFromSpreadsheet():
     muscles = []
     conns = []
 
-    with open(filename, 'rb') as f:
+    with open(filename, 'rt') as f:
         reader = csv.DictReader(f)
-        print "Opened file: " + filename
+        print(("Opened file: " + filename))
 
         for row in reader:
             pre, post, num, syntype, synclass = parse_row(row)
@@ -172,7 +172,7 @@ def readMuscleDataFromSpreadsheet():
 def main():
     cells, conns = readDataFromSpreadsheet()
 
-    print("%i cells in spreadsheet: %s\n" % (len(cells), sorted(cells)))
+    print(("%i cells in spreadsheet: %s\n" % (len(cells), sorted(cells))))
 
     from os import listdir
     cell_names = [f[:-9] for f in listdir('%s/CElegans/morphologies/' % spreadsheet_location) if
@@ -180,12 +180,12 @@ def main():
 
     cell_names.remove('MDL08')  # muscle
 
-    print("%i cell morphologies found: %s\n" % (len(cell_names), sorted(cell_names)))
+    print(("%i cell morphologies found: %s\n" % (len(cell_names), sorted(cell_names))))
 
     for c in cells:
         cell_names.remove(c)
 
-    print("Difference: %s" % cell_names)
+    print(("Difference: %s" % cell_names))
 
     cells2, conns2 = readDataFromSpreadsheet(include_nonconnected_cells=True)
 
@@ -195,9 +195,9 @@ def main():
 
     neurons, muscles, conns = readMuscleDataFromSpreadsheet()
 
-    print("Found %i neurons connected to muscles: %s\n" % (len(neurons), sorted(neurons)))
-    print("Found %i muscles connected to neurons: %s\n" % (len(muscles), sorted(muscles)))
-    print("Found %i connections between neurons and muscles, e.g. %s" % (len(conns), conns[0]))
+    print(("Found %i neurons connected to muscles: %s\n" % (len(neurons), sorted(neurons))))
+    print(("Found %i muscles connected to neurons: %s\n" % (len(muscles), sorted(muscles))))
+    print(("Found %i connections between neurons and muscles, e.g. %s" % (len(conns), conns[0])))
 
 
 if __name__ == '__main__':

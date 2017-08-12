@@ -142,8 +142,8 @@ if __name__ == '__main__':
         best_candidate, fitness = my_optimizer.optimize(do_plot=False, seed=12345)
         
         secs = time.time()-start
-        print("----------------------------------------------------\n\n"
-              +"Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n"%(max_evaluations, population_size, secs, secs/60.0))
+        print(("----------------------------------------------------\n\n"
+              +"Ran %s evaluations (pop: %s) in %f seconds (%f mins)\n"%(max_evaluations, population_size, secs, secs/60.0)))
         
         for key,value in zip(parameters,best_candidate):
             sim_var[key]=value

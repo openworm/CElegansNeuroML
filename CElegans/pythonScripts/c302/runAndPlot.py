@@ -3,6 +3,7 @@ import os
 from pyneuroml import pynml
 import c302_utils
 import c302
+from importlib import import_module
 
 from collections import OrderedDict
 
@@ -24,20 +25,22 @@ def run_c302(config,
              config_param_overrides={},
              config_package=""):
 
-    print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
+    print(("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator)))
     if config_package:
-        exec ('from %s.c302_%s import setup' % (config_package, config))
+        c302_config = import_module('%s.c302_%s' % (config_package, config))
     else:
-        exec ('from c302_%s import setup' % config)
-    cells, cells_to_stimulate, params, muscles = setup(parameter_set, 
-                                                       data_reader=data_reader,
-                                                       generate=True,
-                                                       duration = duration, 
-                                                       dt = dt,
-                                                       target_directory='examples',
-                                                       verbose=verbose,
-                                                       param_overrides=param_overrides,
-                                                       config_param_overrides=config_param_overrides)
+        c302_config = import_module('c302_%s' % config)
+    #print(config,c302_config.__file__)
+    cells, cells_to_stimulate, params, muscles = c302_config.setup(
+                                parameter_set, 
+                                data_reader=data_reader,
+                                generate=True,
+                                duration=duration, 
+                                dt=dt,
+                                target_directory='examples',
+                                verbose=verbose,
+                                param_overrides=param_overrides,
+                                config_param_overrides=config_param_overrides)
     
     os.chdir('examples')
     
@@ -227,11 +230,11 @@ if __name__ == '__main__':
 
         html+='</tr>\n'
         for c in levels:
-            print('Generating for: %s'%c)
+            print(('Generating for: %s'%c))
             html+='<tr>'
             html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)
             for p in durations.keys():
-                print('Params: %s'%p)
+                print(('Params: %s'%p))
                 html+='<td>'
                 html+='<a href="summary_%s_%s.html"/>'%(c,p)
                 html+='<img alt="?" src="neurons_%s_%s.png" height="80"/></a>'%(c,p)

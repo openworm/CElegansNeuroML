@@ -12,8 +12,8 @@ try:
 	from java.io import File
 	from java.lang import System
 except ImportError:
-	print "Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'"
-	print "See http://www.neuroconstruct.org/docs/python.html for more details"
+	print("Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'")
+	print("See http://www.neuroconstruct.org/docs/python.html for more details")
 	quit()
 
 from ucl.physiol.neuroconstruct.project import ProjectManager
@@ -23,11 +23,11 @@ from random import *
 
 # Load an existing neuroConstruct project
 projFile = File("../CElegans.ncx")
-print "Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())
+print(("Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())))
 
 pm = ProjectManager()
 project = pm.loadProject(projFile)
-print "Loaded project: " + project.getProjectName()
+print(("Loaded project: " + project.getProjectName()))
 
 scale = 100
 
@@ -35,7 +35,7 @@ cells = project.cellManager.getAllCells()
 
 for cell in cells:
 
-    print "--- Looking at cell: "+cell.getInstanceName()+", "+cell.getMorphSummary()
+    print(("--- Looking at cell: "+cell.getInstanceName()+", "+cell.getMorphSummary()))
 
     for seg in cell.getAllSegments():
         if seg.isFirstSectionSegment():
@@ -45,7 +45,7 @@ for cell in cells:
             sec.setStartPointPositionY(p.y * scale)
             sec.setStartPointPositionZ(p.z * scale)
             sec.setStartRadius(sec.getStartRadius() * scale)
-            print sec
+            print(sec)
 
         p = seg.getEndPointPosition()
         seg.setEndPointPositionX(p.x * scale)

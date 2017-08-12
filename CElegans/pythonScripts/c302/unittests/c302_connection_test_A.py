@@ -41,7 +41,7 @@ class DataIntegrityTest(unittest.TestCase):
 
         # generate files from pairs in CElegensNeuronTables
         cls.cell_names, cls.conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../../")
-        print (str(len(cls.cell_names))+' unique cell names in CElegensNeuronTables')
+        print((str(len(cls.cell_names))+' unique cell names in CElegensNeuronTables'))
 
         for index in cls.conns:
             origin = index.pre_cell
@@ -65,7 +65,7 @@ class DataIntegrityTest(unittest.TestCase):
 
         cls.neuron_cell_names, cls.neuron_conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../../", neuron_connect=True)
 
-        print (str(len(cls.neuron_cell_names))+' unique cell names in NeuronConnectFormatted')
+        print((str(len(cls.neuron_cell_names))+' unique cell names in NeuronConnectFormatted'))
         for index in cls.neuron_conns:
             origin = index.pre_cell
             target = index.post_cell
@@ -82,7 +82,7 @@ class DataIntegrityTest(unittest.TestCase):
 
                     cls.checked_files.append(fn)
                     cls.counter += 1
-        print ("Total files generated %i"%cls.counter)
+        print(("Total files generated %i"%cls.counter))
 
     def test_c302_connections(self):
 
@@ -131,7 +131,7 @@ class DataIntegrityTest(unittest.TestCase):
             self.assertIn(test_pair, test_list, "connection not found")
             counter += 1
 
-        print ("Total connections verified %i"%counter)
+        print(("Total connections verified %i"%counter))
 
     def test_neuronconnect_connections(self):
 
@@ -239,11 +239,11 @@ class DataIntegrityTest(unittest.TestCase):
 
             counter += 1
 
-        print ("Total connections tested %i"%counter)
+        print(("Total connections tested %i"%counter))
 
         # write errors to a log file
         if rowcounter > 1:
-            print ("Total Errors Found %i"%(rowcounter-1))
+            print(("Total Errors Found %i"%(rowcounter-1)))
             book.save('error_log.xls')
             print ("Errors written to error_log.xls")
 

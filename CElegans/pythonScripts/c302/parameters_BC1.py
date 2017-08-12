@@ -124,7 +124,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.neuron_to_neuron_elec_syn = GapJunction(id="neuron_to_neuron_elec_syn",
                                conductance =    self.get_bioparameter("neuron_to_neuron_elec_syn_gbase").value)
 
-   def create_neuron_to_muscle_syn(self):
+    def create_neuron_to_muscle_syn(self):
         self.neuron_to_muscle_exc_syn = GradedSynapse(id="neuron_to_muscle_exc_syn",
                                 conductance =        self.get_bioparameter("neuron_to_muscle_exc_syn_conductance").value,
                                 delta =              self.get_bioparameter("exc_syn_delta").value,

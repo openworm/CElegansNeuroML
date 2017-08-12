@@ -72,10 +72,10 @@ def run_optimisation(prefix,
                      max_generation_without_improvement=False):
                          
     print("Running optimisation...")
-    print("parameters: %s"%parameters)
-    print("max_constraints: %s"%max_constraints)
-    print("min_constraints: %s"%min_constraints)
-    print("simulator: %s"%simulator)
+    print(("parameters: %s"%parameters))
+    print(("max_constraints: %s"%max_constraints))
+    print(("min_constraints: %s"%min_constraints))
+    print(("simulator: %s"%simulator))
     ref = prefix+config
 
     run_dir = "NT_%s_%s"%(ref, time.ctime().replace(' ','_' ).replace(':','.' ))
@@ -676,8 +676,8 @@ if __name__ == '__main__':
         max_c0 = max_constraints_neuron_loose_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
         min_c0 = min_constraints_neuron_loose_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
         
-        print("Max: %s"%max_c0)
-        print("Min: %s"%min_c0)
+        print(("Max: %s"%max_c0))
+        print(("Min: %s"%min_c0))
 
         weights = {}
         target_data = {}

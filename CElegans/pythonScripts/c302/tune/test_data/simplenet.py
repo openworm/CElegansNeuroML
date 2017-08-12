@@ -91,7 +91,7 @@ nml_file = 'simplenet.nml'
 writers.NeuroMLWriter.write(nml_doc, nml_file)
 
 
-print("Written network file to: "+nml_file)
+print(("Written network file to: "+nml_file))
 
 
 ###### Validate the NeuroML ######    

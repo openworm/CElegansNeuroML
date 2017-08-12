@@ -49,7 +49,7 @@ def setup(parameter_set,
     nml_file = target_directory+'/'+reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
     
-    print("(Re)written network file to: "+nml_file)
+    print(("(Re)written network file to: "+nml_file))
                     
     return cells, cells_total, params, muscles_to_include
              

@@ -17,11 +17,11 @@ class C302NRNSimualtion():
         
     def step(self):
         
-        print("> Current NEURON time: %s"%h.t)
+        print(("> Current NEURON time: %s"%h.t))
         
         h.fadvance()
         
-        print("< Current NEURON time: %s"%h.t)
+        print(("< Current NEURON time: %s"%h.t))
                   
         values = [self._scale(h.a_MDR01[0].soma.cai,print_it=True), \
                  self._scale(h.a_MVR01[0].soma.cai), \
@@ -120,7 +120,7 @@ class C302NRNSimualtion():
                  self._scale(h.a_MVL24[0].soma.cai), \
                  self._scale(h.a_MDL24[0].soma.cai)]
                  
-        print("Returning %s"%values)
+        print(("Returning %s"%values))
         return values
         
     
@@ -129,7 +129,7 @@ class C302NRNSimualtion():
         self.max_ca_found = max(ca,self.max_ca_found)
         scaled = min(1,(ca/self.max_ca))
         if print_it: 
-            print("- Scaling %s to %s (max found: %s)"%(ca,scaled,self.max_ca_found))
+            print(("- Scaling %s to %s (max found: %s)"%(ca,scaled,self.max_ca_found)))
         return scaled
     
 
@@ -143,5 +143,5 @@ if __name__ == '__main__':
     steps = int(maxt/dt)
     
     for step in range(steps):
-        print("======= Step %i ==============="%step)
+        print(("======= Step %i ==============="%step))
         ns.step()

@@ -62,4 +62,4 @@ analysis_i=analysis.IClampAnalysis(v,t,analysis_var,
 				      smoothing_window_len=33)
 
 analysis_i.analyse()
-print(analysis_i.analysis_results)
+print((analysis_i.analysis_results))

@@ -64,7 +64,7 @@ class CustomOptimizerA(__Optimizer):
 
         stat_file = open(stat_file_name, 'w')
         ind_file = open(ind_file_name, 'w')
-        print("Created files: %s and %s" % (stat_file_name, ind_file_name))
+        print(("Created files: %s and %s" % (stat_file_name, ind_file_name)))
 
         if self.verbose:
             logger = logging.getLogger('inspyred.ec')

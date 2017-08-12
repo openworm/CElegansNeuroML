@@ -39,4 +39,4 @@ if __name__ == '__main__':
     nml_file = target_directory+'/'+reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
     
-    print("(Re)written network file to: "+nml_file)
+    print(("(Re)written network file to: "+nml_file))

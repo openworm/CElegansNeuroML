@@ -12,8 +12,8 @@ try:
 	from java.io import File
 	from java.lang import System
 except ImportError:
-	print "Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'"
-	print "See http://www.neuroconstruct.org/docs/python.html for more details"
+	print("Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'")
+	print("See http://www.neuroconstruct.org/docs/python.html for more details")
 	quit()
 
 from ucl.physiol.neuroconstruct.project import ProjectManager
@@ -25,11 +25,11 @@ from random import *
 
 # Load an existing neuroConstruct project
 projFile = File("../../CElegans.ncx")
-print "Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())
+print(("Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())))
 
 pm = ProjectManager()
 project = pm.loadProject(projFile)
-print "Loaded project: " + project.getProjectName()
+print(("Loaded project: " + project.getProjectName()))
 
 '''
 prefix = "NCXLS_"
@@ -61,8 +61,8 @@ allCells = project.cellManager.getAllCells()
 for cell in allCells:
 
     svg = cell.getSynapsesVsGroups()
-    print cell
-    print svg
+    print(cell)
+    print(svg)
     syns = ["Generic_GJ"]
     #syns.extend(svg.keySet())
     for syn in syns:
@@ -70,7 +70,7 @@ for cell in allCells:
         cell.disassociateGroupFromSynapse("axon_group", syn)
         cell.disassociateGroupFromSynapse("soma_group", syn)
         cell.associateGroupWithSynapse("all", syn)
-    print cell.getSynapsesVsGroups()
+    print((cell.getSynapsesVsGroups()))
 
 # Save project & exit
 project.markProjectAsEdited()

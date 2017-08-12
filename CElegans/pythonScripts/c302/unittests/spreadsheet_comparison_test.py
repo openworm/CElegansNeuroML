@@ -23,12 +23,12 @@ class DataIntegrityTest(unittest.TestCase):
         # reading the NeuronConnect.xls file
         comparison_filename = dir + "NeuronConnectFormatted.xlsx"
         self.rb1 = open_workbook(comparison_filename)
-        print("Opened Excel file: " + comparison_filename)
+        print(("Opened Excel file: " + comparison_filename))
 
         # reading the CElegansNeuronTables.xls file
         data_filename = dir + "CElegansNeuronTables.xls"
         self.rb2 = open_workbook(data_filename)
-        print("Opened Excel file: " + data_filename)
+        print(("Opened Excel file: " + data_filename))
 
         # initiate error log file
         self.book = xlwt.Workbook()
@@ -100,16 +100,16 @@ class DataIntegrityTest(unittest.TestCase):
                 if c_post not in cells_not_found:
                     cells_not_found.append(c_post)
 
-        print "Total Connections tested: " + str(row)
+        print(("Total Connections tested: " + str(row)))
 
         # write errors to a log file
         if self.logcounter > 1:
             cells = ', '.join(cells_not_found)
-            print "Total Errors Found %i"%(self.logcounter-1)
+            print(("Total Errors Found %i"%(self.logcounter-1)))
             self.sh.write(1, 6, str(len(cells_not_found)) + ' cells not found')
             self.sh.write(2, 6, cells)
             self.book.save('comparison_error_log.xls')
-            print "Errors written to comparison_error_log.xls"
+            print("Errors written to comparison_error_log.xls")
 
 if __name__ == '__main__':
     unittest.main()

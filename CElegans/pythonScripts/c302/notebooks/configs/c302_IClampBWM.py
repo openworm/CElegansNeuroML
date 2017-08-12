@@ -1,4 +1,5 @@
 import sys
+from importlib import import_module
 sys.path.append('../../../')
 
 from CElegans.pythonScripts.c302 import c302
@@ -14,8 +15,8 @@ def setup(parameter_set,
           config_param_overrides={},
           verbose=True):
 
-    exec('from parameters_%s import ParameterisedModel'%parameter_set)
-    params = ParameterisedModel()
+    parameters = import_module('parameters_%s'%parameter_set)
+    params = parameters.ParameterisedModel()
     
     stim_amplitudes = ["1pA","2pA","3pA","4pA","5pA","6pA"]
     duration = (len(stim_amplitudes))*1000
@@ -52,7 +53,7 @@ def setup(parameter_set,
     nml_file = target_directory+'/'+reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
     
-    print("(Re)written network file to: "+nml_file)
+    print(("(Re)written network file to: "+nml_file))
                     
     return cells, cells_total, params, muscles_to_include
              

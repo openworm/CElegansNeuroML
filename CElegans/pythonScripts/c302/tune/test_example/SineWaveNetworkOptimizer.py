@@ -25,7 +25,7 @@ if __name__ == '__main__':
                             ('offset',           -10),
                             ('offset_increment', 5)])
                
-    print sim_vars.keys()
+    print((sim_vars.keys()))
     
     swc = SineWaveNetworkController('wave', 2)
     

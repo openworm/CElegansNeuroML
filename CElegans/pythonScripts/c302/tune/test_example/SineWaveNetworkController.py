@@ -22,7 +22,7 @@ class SineWaveNetworkController():
         applied to the model before it is simulated.
 
         """
-        print(">> Running individual: %s"%(sim_var))
+        print((">> Running individual: %s"%(sim_var)))
         sim_time = 1000
         dt = 0.1
         t = 0
@@ -78,7 +78,7 @@ class SineWaveNetworkController():
             sim_var = dict(zip(parameters,candidate))
             t,v = self.run_individual(sim_var)
             self.count+=1
-            print("------ Have run individual: %i"%self.count)
+            print(("------ Have run individual: %i"%self.count))
             traces.append([t,v])
 
         return traces

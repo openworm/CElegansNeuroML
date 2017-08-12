@@ -13,8 +13,8 @@ try:
 	from java.lang import *
 	from java.util import *
 except ImportError:
-	print "Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'"
-	print "See http://www.neuroconstruct.org/docs/python.html for more details"
+	print("Note: this file should be run using ..\\nC.bat -python XXX.py' or './nC.sh -python XXX.py'")
+	print("See http://www.neuroconstruct.org/docs/python.html for more details")
 	quit()
 
 from ucl.physiol.neuroconstruct.project import ProjectManager
@@ -25,11 +25,11 @@ from random import *
 
 # Load an existing neuroConstruct project
 projFile = File("../../CElegans.ncx")
-print "Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())
+print(("Loading project from file: " + projFile.getAbsolutePath()+", exists: "+ str(projFile.exists())))
 
 pm = ProjectManager()
 project = pm.loadProject(projFile)
-print "Loaded project: " + project.getProjectName()
+print(("Loaded project: " + project.getProjectName()))
 
 
 ##########################
@@ -66,12 +66,12 @@ for sp in simPlots:
         if cell in sp.getPlotReference():
             simConfig.addPlot(sp.getPlotReference())
 
-print simConfig.toLongString()
+print((simConfig.toLongString()))
 
 project.simConfigInfo.add(simConfig)
 
 # Save project & exit
-print "Saving project!!"
+print("Saving project!!")
 project.markProjectAsEdited()
 project.saveProject()
 

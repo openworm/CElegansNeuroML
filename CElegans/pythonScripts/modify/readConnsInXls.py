@@ -12,7 +12,7 @@ from xlrd import open_workbook
 filename = "../../../CElegansNeuronTables.xls"
 rb = open_workbook(filename)
 
-print "Opened Excel file: "+ filename
+print(("Opened Excel file: "+ filename))
 
 
 for row in range(2,rb.sheet_by_index(0).nrows):
@@ -24,9 +24,9 @@ for row in range(2,rb.sheet_by_index(0).nrows):
 
  
   
-  print "------------------------------------------\nConnection %i has %i from %s to %s (type: %s, synapse: %s)" %(row, num, pre, post, syntype, synclass)
+  print(("------------------------------------------\nConnection %i has %i from %s to %s (type: %s, synapse: %s)" %(row, num, pre, post, syntype, synclass)))
   
 
-print "----------------------------------------------------------------------"
+print("----------------------------------------------------------------------")
 
 

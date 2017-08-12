@@ -30,10 +30,10 @@ def setup(parameter_set,
     reference = "c302_%s_NMJ"%parameter_set
 
     conn_polarity_override = None
-    if config_param_overrides.has_key('conn_polarity_override'):
+    if 'conn_polarity_override' in config_param_overrides:
         conn_polarity_override = config_param_overrides['conn_polarity_override']
 
-    print "############### conn pol override %s" % conn_polarity_override
+    print(("############### conn pol override %s" % conn_polarity_override))
     
     if generate:
         nml_doc = c302.generate(reference,
@@ -58,7 +58,7 @@ def setup(parameter_set,
     nml_file = target_directory+'/'+reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
     
-    print("(Re)written network file to: "+nml_file)
+    print(("(Re)written network file to: "+nml_file))
                     
     return cells, cells_total, params, muscles_to_include
              

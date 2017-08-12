@@ -18,7 +18,7 @@ for line in traces:
     if not line.strip().startswith('#'):
         points = line.split()
         for i in range(len(points)):
-            if not volts.has_key(i):
+            if i not in volts:
                 volts[i] = []
             volts[i].append(float(points[i])+0.0020*i)
 

@@ -22,5 +22,5 @@ def test_python_scripts(file_list = get_file_list()):
 
     for i in range(len(file_list)):
         assert(returncode_list[i] == 0),"Test Failed for " + file_list[i]
-        print("Test passed for " + file_list[i])
+        print(("Test passed for " + file_list[i]))
 

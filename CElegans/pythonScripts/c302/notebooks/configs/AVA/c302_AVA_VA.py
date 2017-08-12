@@ -49,7 +49,7 @@ def setup(parameter_set,
     #})
 
     conn_number_override={}
-    if config_param_overrides.has_key('conn_number_override'):
+    if 'conn_number_override' in config_param_overrides:
         conn_number_override.update(config_param_overrides['conn_number_override'])
 
     if generate:
@@ -88,7 +88,7 @@ def setup(parameter_set,
         nml_file = target_directory + '/' + reference + '.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file)  # Write over network file written above...
 
-        print("(Re)written network file to: " + nml_file)
+        print(("(Re)written network file to: " + nml_file))
 
 
     return cells, cells_to_stimulate, params, muscles_to_include

@@ -43,7 +43,7 @@ from parameters_C2 import DelayedGapJunction
 from parameters_C2 import DelayedGradedSynapse
 
 try:
-    from urllib2 import URLError  # Python 2
+    from urllib.error import URLError  # Python 2
 except:
     from urllib import URLError  # Python 3
 
@@ -340,7 +340,7 @@ def add_new_sinusoidal_input(nml_doc, cell, delay, duration, amplitude, period, 
         phase = DB_soma_pos[cell]
     #phase = get_cell_position(cell).x
     phase = phase * -0.886
-    print "### CELL %s PHASE: %s" % (cell, phase)
+    print(("### CELL %s PHASE: %s" % (cell, phase)))
     
     if cell.startswith("VB"):
         if amplitude.startswith("-"):
@@ -387,7 +387,7 @@ def merge_with_template(model, templfile):
 
 def print_(msg):
     pre = "c302      >>> "
-    print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
+    print(('%s %s'%(pre,msg.replace('\n','\n'+pre))))
 
 
 def write_to_file(nml_doc, 
@@ -410,7 +410,7 @@ def write_to_file(nml_doc,
     lems_file_name = target_directory+'/'+'LEMS_%s.xml'%reference
     with open(lems_file_name, 'w') as lems:
         # if running unittest concat template_path
-    	merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
+        merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
         lems.write(merged)
 
     if verbose: 
@@ -454,7 +454,7 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
     if isinstance(prototype_syn, ExpTwoSynapse):
         new_id = "%s"%(prototype_syn.id)
 
-    if not existing_synapses.has_key(new_id):
+    if new_id not in existing_synapses:
 
         if isinstance(prototype_syn, ExpTwoSynapse):
             
@@ -549,7 +549,7 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
 
 def get_file_name_relative_to_c302(file_name):
     
-    if os.environ.has_key('C302_HOME'):
+    if 'C302_HOME' in os.environ:
         return os.path.relpath(os.environ['C302_HOME'],file_name)
     
     
@@ -768,7 +768,7 @@ def generate(net_id,
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
             
-            if cells_vs_name.has_key(cell):
+            if cell in cells_vs_name:
                 p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
                 pop0.properties.append(p)
 
@@ -899,7 +899,7 @@ def generate(net_id,
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
 
-            if cells_vs_name.has_key(muscle):
+            if muscle in cells_vs_name:
                 # No muscles adopted yet, but just in case they are in future...
                 p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[muscle])
                 pop0.properties.append(p)
@@ -1003,10 +1003,10 @@ def generate(net_id,
                 continue
 
             if print_connections:
-                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
+                print((conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id))
 
             polarity = None
-            if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
+            if conn_polarity_override and conn_shorthand in conn_polarity_override:
                 polarity = conn_polarity_override[conn_shorthand]
 
             if polarity and not elect_conn:
@@ -1028,9 +1028,9 @@ def generate(net_id,
 
             number_syns = conn.number
 
-            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
+            if conn_number_override is not None and (conn_shorthand in conn_number_override):
                 number_syns = conn_number_override[conn_shorthand]
-            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
+            elif conn_number_scaling is not None and (conn_shorthand in conn_number_scaling):
                 number_syns = conn.number*conn_number_scaling[conn_shorthand]
             '''
             else:
@@ -1163,10 +1163,10 @@ def generate(net_id,
                 continue
 
             if print_connections:
-                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+                print((conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass))
 
             polarity = None
-            if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
+            if conn_polarity_override and conn_shorthand in conn_polarity_override:
                 polarity = conn_polarity_override[conn_shorthand]
 
             if polarity and not elect_conn:
@@ -1192,9 +1192,9 @@ def generate(net_id,
 
             number_syns = conn.number
 
-            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
+            if conn_number_override is not None and (conn_shorthand in conn_number_override):
                 number_syns = conn_number_override[conn_shorthand]
-            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
+            elif conn_number_scaling is not None and (conn_shorthand in conn_number_scaling):
                 number_syns = conn.number*conn_number_scaling[conn_shorthand]
             '''
             else:

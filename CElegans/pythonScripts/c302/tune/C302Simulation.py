@@ -101,7 +101,7 @@ class C302Simulation(object):
 
         self.lems_file ="LEMS_%s.xml"%(self.reference)
         
-        print("Running a simulation of %s ms with timestep %s ms: %s"%(self.sim_time, self.dt, self.lems_file))
+        print(("Running a simulation of %s ms with timestep %s ms: %s"%(self.sim_time, self.dt, self.lems_file)))
         
         self.already_run = True
         
@@ -121,7 +121,7 @@ class C302Simulation(object):
                                                           exec_in_dir = self.generate_dir,
                                                           verbose=False)
         else:
-            print('Unsupported simulator: %s'%self.simulator)
+            print(('Unsupported simulator: %s'%self.simulator))
             exit()
 
 
@@ -138,7 +138,7 @@ class C302Simulation(object):
             
         secs = time.time()-start
     
-        print("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0))
+        print(("Ran simulation in %s in %f seconds (%f mins)\n\n"%(self.simulator, secs, secs/60.0)))
         
         self.t = [t*1000 for t in self.results['t']]
         res_template = '%s/0/generic_neuron_iaf_cell/v'

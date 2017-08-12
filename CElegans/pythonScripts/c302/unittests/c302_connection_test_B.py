@@ -33,7 +33,7 @@ class DataIntegrityTest(unittest.TestCase):
 
         # read data from spread sheet
         cls.cell_names, cls.conns = SpreadsheetDataReader.readDataFromSpreadsheet("../../../../")
-        print (str(len(cls.cell_names))+' unique cell names in CElegensNeuronTables')
+        print((str(len(cls.cell_names))+' unique cell names in CElegensNeuronTables'))
 
         # generate all nml files once
         for index in cls.conns:
@@ -55,7 +55,7 @@ class DataIntegrityTest(unittest.TestCase):
                     cls.checked_files.append(fn)
                     cls.counter += 1
 
-        print "Total files generated %i"%cls.counter
+        print(("Total files generated %i"%cls.counter))
 
     def test_c302_connections(self):
 
@@ -96,7 +96,7 @@ class DataIntegrityTest(unittest.TestCase):
             elif fnswap in self.checked_files:
                 nml_file = fnswap+'.nml'
             else:
-                print "File not found"
+                print("File not found")
 
             doc = loaders.NeuroMLLoader.load(nml_file)
 
@@ -132,11 +132,11 @@ class DataIntegrityTest(unittest.TestCase):
             counter += 1
 
             # early_stop -= 1         # early stopping
-        print "Total connections verified %i"%counter
+        print(("Total connections verified %i"%counter))
 
     @classmethod
     def tearDownClass(cls):
-        print "Cleaning up .. "
+        print("Cleaning up .. ")
         for name in cls.checked_files:
             bashCommand = "rm "+name+".nml "+"LEMS_"+name+".xml"
             os.system(bashCommand)
