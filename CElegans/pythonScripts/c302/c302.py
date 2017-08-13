@@ -1085,10 +1085,14 @@ def generate(net_id,
                 if conn.pre_cell in lems_info["cells"]:
                     syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "elec")
                 elif conn.pre_cell in muscles_to_include:
-                    try:
-                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "muscle_to_muscle", "elec")
-                    except:
-                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "elec")
+                    conn_type = "neuron_to_muscle"
+                    if is_muscle(conn.pre_cell):
+                        conn_type = "muscle_to_muscle"
+                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, "elec")
+
+            #if conns_to_include and conn_shorthand not in conns_to_include:
+            #    continue
+
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
@@ -1102,16 +1106,13 @@ def generate(net_id,
                 polarity = conn_polarity_override[conn_shorthand]
 
             if polarity and not elect_conn:
+                conn_type = "neuron_to_muscle"
+                if is_muscle(conn.pre_cell):
+                    conn_type = "muscle_to_muscle"
                 if polarity == 'inh':
-                    try:
-                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "muscle_to_muscle", "inh")
-                    except:
-                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "inh")
+                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, "inh")
                 else:
-                    try:
-                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "muscle_to_muscle", "exc")
-                    except:
-                        syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "exc")
+                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, "exc")
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                            (conn.pre_cell, conn.post_cell, orig_pol, polarity))
