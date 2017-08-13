@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../../../')
 
-from CElegans.pythonScripts.c302 import c302
+import c302
 
 import neuroml.writers as writers
 
@@ -93,7 +93,7 @@ def setup(parameter_set,
         print("(Re)written network file to: " + nml_file)
 
 
-    return cells, cells_to_stimulate, params, muscles_to_include
+    return cells, cells_to_stimulate, params, muscles_to_include, nml_doc
 
 
 if __name__ == '__main__':
