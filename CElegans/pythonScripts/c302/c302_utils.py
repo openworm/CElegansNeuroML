@@ -17,15 +17,22 @@ def plots(a_n, info, cells, dt):
 
     c302.print_('Generating plots for: %s'%info)
 
+    heightened = False
+    matrix_height_in = None
 
     if len(cells) > 24:
+        matrix_height_in = 10
+        heightened = True
+    if len(cells) > 100:
+        matrix_height_in = 20
+    if heightened:
         #fontsize_pt = plt.rcParams['ytick.labelsize']
         #dpi = 72.27
 
         # comput the matrix height in points and inches
         ##matrix_height_pt = fontsize_pt * a_n.shape[0]
         ##matrix_height_in = float(matrix_height_pt) / dpi
-        matrix_height_in = 10
+        #matrix_height_in = 10
 
         # compute the required figure height
         top_margin = 0.04  # in percentage of the figure height
