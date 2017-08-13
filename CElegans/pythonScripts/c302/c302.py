@@ -36,6 +36,7 @@ import shutil
 import os
 import importlib
 import math
+import re
 
 from parameters_C0 import GradedSynapse2
 
@@ -924,7 +925,14 @@ def generate(net_id,
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
-                continue
+                include = False
+                for conn_include in conns_to_include:
+                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_include, conn_shorthand):
+                            include = True
+                            break
+                if not include:
+                    continue
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
                 continue
 
@@ -1095,11 +1103,20 @@ def generate(net_id,
 
 
             if conns_to_include and conn_shorthand not in conns_to_include:
-                continue
+                include = False
+                for conn_include in conns_to_include:
+                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_include, conn_shorthand):
+                            include = True
+                            break
+                if not include:
+                    continue
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
                 continue
 
-            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
