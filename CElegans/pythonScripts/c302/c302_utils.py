@@ -12,12 +12,13 @@ import collections
 natsort = lambda s: [int(t) if t.isdigit() else t for t in re.split('(\d+)', s)]
 
 
-def plots(a_n, info, cells, dt, heightened=False):
+def plots(a_n, info, cells, dt):
     
 
     c302.print_('Generating plots for: %s'%info)
 
-    if heightened:
+
+    if len(cells) > 24:
         #fontsize_pt = plt.rcParams['ytick.labelsize']
         #dpi = 72.27
 
@@ -159,10 +160,7 @@ def plot_c302_results(lems_results,
         info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
 
         #tasks.append((volts_n, info, cells, dt))
-        if len(cells) > 24:
-            plots(volts_n, info, cells, dt, heightened=True)
-        else:
-            plots(volts_n, info, cells, dt, heightened=False)
+        plots(volts_n, info, cells, dt)
 
         if save:
             f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
@@ -214,11 +212,7 @@ def plot_c302_results(lems_results,
 
         info = 'Membrane potentials of %i muscle(s) (%s %s)'%(len(muscles),config,parameter_set)
 
-        #tasks.append((mvolts_n, info, muscles, dt))
-        if len(muscles) > 24:
-            plots(mvolts_n, info, muscles, dt, heightened=True)
-        else:
-            plots(mvolts_n, info, muscles, dt, heightened=False)
+        plots(mvolts_n, info, muscles, dt)
         
         if save:
             f = save_fig_path%('muscles_%s_%s.png'%(parameter_set,config))
@@ -266,11 +260,7 @@ def plot_c302_results(lems_results,
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
-        #tasks.append((activities_n, info, cells, dt))
-        if len(cells) > 24:
-            plots(activities_n, info, cells, dt, heightened=True)
-        else:
-            plots(activities_n, info, cells, dt, heightened=False)
+        plots(activities_n, info, cells, dt)
 
         if save:
             f = save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config))
@@ -318,12 +308,7 @@ def plot_c302_results(lems_results,
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
-        #tasks.append((activities_n, info, muscles, dt))
-
-        if len(muscles) > 24:
-            plots(activities_n, info, muscles, dt, heightened=True)
-        else:
-            plots(activities_n, info, muscles, dt, heightened=False)
+        plots(activities_n, info, muscles, dt)
     
         if save:
             f = save_fig_path%('muscle_activity_%s_%s.png'%(parameter_set,config))
