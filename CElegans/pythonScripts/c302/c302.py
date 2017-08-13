@@ -912,15 +912,16 @@ def generate(net_id,
             elect_conn = False
             analog_conn = False
 
-            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "exc")
+            conn_type = "neuron_to_neuron"
+            conn_pol = "exc"
+
             orig_pol = "exc"
             
             if 'GABA' in conn.synclass:
-                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "inh")
+                conn_pol = "inh"
                 orig_pol = "inh"
             if '_GJ' in conn.synclass:
-                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "elec")
-                print syn0
+                conn_pol = "elec"
                 elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction) or isinstance(params.neuron_to_neuron_elec_syn, DelayedGapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
@@ -936,17 +937,18 @@ def generate(net_id,
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
                 continue
 
-            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, conn_pol)
+
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
+
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
                 polarity = conn_polarity_override[conn_shorthand]
 
             if polarity and not elect_conn:
-                if polarity == 'inh':
-                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "inh")
-                else:
-                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_neuron", "exc")
+                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                        (conn.pre_cell, conn.post_cell, orig_pol, polarity))
@@ -1081,26 +1083,23 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "exc")
+
+            conn_type = "neuron_to_muscle"
+            if conn.pre_cell in muscles_to_include:
+                conn_type = "muscle_to_muscle"
+            conn_pol = "exc"
             orig_pol = "exc"
+
+
             if 'GABA' in conn.synclass:
-                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "inh")
+                conn_pol = "inh"
                 orig_pol = "inh"
 
             if '_GJ' in conn.synclass :
-                elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
+                conn_pol = "elec"
+                orig_pol = "elec"
+                elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction) or isinstance(params.neuron_to_neuron_elec_syn, DelayedGapJunction)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
-                if conn.pre_cell in lems_info["cells"]:
-                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, "neuron_to_muscle", "elec")
-                elif conn.pre_cell in muscles_to_include:
-                    conn_type = "neuron_to_muscle"
-                    if is_muscle(conn.pre_cell):
-                        conn_type = "muscle_to_muscle"
-                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, "elec")
-
-            #if conns_to_include and conn_shorthand not in conns_to_include:
-            #    continue
-
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 include = False
@@ -1114,6 +1113,8 @@ def generate(net_id,
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
                 continue
 
+            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, conn_pol)
+
             if print_connections:
                 print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
@@ -1123,13 +1124,7 @@ def generate(net_id,
                 polarity = conn_polarity_override[conn_shorthand]
 
             if polarity and not elect_conn:
-                conn_type = "neuron_to_muscle"
-                if is_muscle(conn.pre_cell):
-                    conn_type = "muscle_to_muscle"
-                if polarity == 'inh':
-                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, "inh")
-                else:
-                    syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, "exc")
+                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                            (conn.pre_cell, conn.post_cell, orig_pol, polarity))
