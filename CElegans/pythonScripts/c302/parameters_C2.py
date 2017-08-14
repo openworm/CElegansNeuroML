@@ -306,12 +306,8 @@ class ParameterisedModel(ParameterisedModel_C):
             conn_id = 'neuron_to_neuron_exc_syn'
 
         elif type == 'neuron_to_muscle':
-            print "#########"
-            print "%s-%s" %(pre_cell, post_cell)
             conductance, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
                                                                     'neuron_to_muscle_exc_syn_%s', 'conductance')
-            if specific_param_found:
-                print "conductance %s" % conductance
             specific_found |= specific_param_found
             erev, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
                                                              'neuron_to_muscle_exc_syn_%s', 'erev')
