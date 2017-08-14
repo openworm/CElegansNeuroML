@@ -306,8 +306,12 @@ class ParameterisedModel(ParameterisedModel_C):
             conn_id = 'neuron_to_neuron_exc_syn'
 
         elif type == 'neuron_to_muscle':
+            print "#########"
+            print "%s-%s" %(pre_cell, post_cell)
             conductance, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
                                                                     'neuron_to_muscle_exc_syn_%s', 'conductance')
+            if specific_param_found:
+                print "conductance %s" % conductance
             specific_found |= specific_param_found
             erev, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
                                                              'neuron_to_muscle_exc_syn_%s', 'erev')
@@ -324,7 +328,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
             conn_id = 'neuron_to_muscle_exc_syn'
 
-        if specific_param_found:
+        if specific_found:
             conn_id = '%s_to_%s_exc_syn' % (pre_cell, post_cell)
 
         return GradedSynapse(id=conn_id,
@@ -384,7 +388,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
             conn_id = 'neuron_to_muscle_inh_syn'
 
-        if specific_param_found:
+        if specific_found:
             conn_id = '%s_to_%s_inh_syn' % (pre_cell, post_cell)
 
         return GradedSynapse(id=conn_id,

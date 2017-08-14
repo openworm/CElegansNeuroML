@@ -375,7 +375,7 @@ class ParameterisedModel(ParameterisedModel_C):
             specific_found |= specific_param_found
             conn_id = 'neuron_to_muscle_exc_syn'
 
-        if specific_param_found:
+        if specific_found:
             conn_id = '%s_to_%s_exc_syn' % (pre_cell, post_cell)
 
         return GradedSynapse2(id=conn_id,
@@ -434,7 +434,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
             conn_id = 'neuron_to_muscle_inh_syn'
 
-        if specific_param_found:
+        if specific_found:
             conn_id = '%s_to_%s_inh_syn' % (pre_cell, post_cell)
 
         return GradedSynapse2(id=conn_id,

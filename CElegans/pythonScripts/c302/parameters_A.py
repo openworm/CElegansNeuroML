@@ -154,21 +154,29 @@ class ParameterisedModel(c302ModelPrototype):
 
 
     def get_elec_syn(self, pre_cell, post_cell, type):
-        specific_param_found = False
+        specific_found = False
         if type == 'neuron_to_neuron':
             gbase,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'neuron_to_neuron_elec_syn_%s', 'gbase')
+            specific_found |= specific_param_found
             erev,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'erev')
+            specific_found |= specific_param_found
             decay,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'decay')
+            specific_found |= specific_param_found
             rise,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'rise')
+            specific_found |= specific_param_found
             conn_id = 'neuron_to_neuron_elec_syn'
         elif type == 'neuron_to_muscle':
             gbase,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'neuron_to_muscle_elec_syn_%s', 'gbase')
+            specific_found |= specific_param_found
             erev,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'erev')
+            specific_found |= specific_param_found
             decay,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'decay')
+            specific_found |= specific_param_found
             rise,specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'rise')
+            specific_found |= specific_param_found
             conn_id = 'neuron_to_muscle_elec_syn'
 
-        if specific_param_found:
+        if specific_found:
             conn_id = '%s_to_%s_elec_syn' % (pre_cell, post_cell)
 
         return ExpTwoSynapse(id=conn_id,
@@ -214,7 +222,7 @@ class ParameterisedModel(c302ModelPrototype):
             specific_found |= specific_param_found
             conn_id = 'neuron_to_muscle_exc_syn'
 
-        if specific_param_found:
+        if specific_found:
             conn_id = '%s_to_%s_exc_syn' % (pre_cell, post_cell)
 
         return ExpTwoSynapse(id=conn_id,
@@ -258,7 +266,7 @@ class ParameterisedModel(c302ModelPrototype):
             specific_found |= specific_param_found
             conn_id = 'neuron_to_muscle_inh_syn'
 
-        if specific_param_found:
+        if specific_found:
             conn_id = '%s_to_%s_inh_syn' % (pre_cell, post_cell)
 
         return ExpTwoSynapse(id=conn_id,
