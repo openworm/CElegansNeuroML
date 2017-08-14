@@ -101,3 +101,23 @@ class c302ModelPrototype(ParameterisedModelPrototype):
     
     def is_level_D(self):
         return self.level.startswith('D')
+
+
+    def get_conn_param(self, pre_cell, post_cell, specific_conn_template, default_conn_template, param_name):
+        param = self.get_bioparameter(specific_conn_template % (pre_cell, post_cell, param_name))
+        if param:
+            return param.value, True
+        def_param = self.get_bioparameter(default_conn_template % param_name)
+        if not def_param:
+            return None, False
+        return def_param.value, False
+
+
+    def get_syn(self, pre_cell, post_cell, type, pol):
+        if pol == 'elec':
+            return self.get_elec_syn(pre_cell, post_cell, type)
+        elif pol == 'exc':
+            return self.get_exc_syn(pre_cell, post_cell, type)
+        elif pol == 'inh':
+            return self.get_inh_syn(pre_cell, post_cell, type)
+
