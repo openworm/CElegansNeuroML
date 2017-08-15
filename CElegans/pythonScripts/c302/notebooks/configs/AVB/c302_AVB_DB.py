@@ -64,6 +64,7 @@ def setup(parameter_set,
     if config_param_overrides.has_key('conn_number_override'):
         conn_number_override.update(config_param_overrides['conn_number_override'])
 
+    nml_doc = None
     if generate:
         nml_doc = c302.generate(reference,
                                 params,

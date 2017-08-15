@@ -27,8 +27,12 @@ def setup(parameter_set,
     
     
     reference = "c302_%s_NMJ"%parameter_set
-    
-    
+
+    conn_polarity_override = None
+    if config_param_overrides.has_key('conn_polarity_override'):
+        conn_polarity_override = config_param_overrides['conn_polarity_override']
+
+    nml_doc = None
     if generate:
         nml_doc = c302.generate(reference,
                                 params,

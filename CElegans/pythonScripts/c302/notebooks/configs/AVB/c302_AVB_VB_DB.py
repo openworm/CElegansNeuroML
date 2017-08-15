@@ -63,8 +63,8 @@ def setup(parameter_set,
 
     conn_number_override.update({
     })
-    
 
+    nml_doc = None
     if generate:
         nml_doc = c302.generate(reference,
                                 params,
@@ -102,7 +102,7 @@ def setup(parameter_set,
         print("(Re)written network file to: " + nml_file)
 
 
-    return cells, cells_to_stimulate, params, muscles_to_include
+    return cells, cells_to_stimulate, params, muscles_to_include, nml_doc
 
 
 if __name__ == '__main__':
