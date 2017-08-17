@@ -60,7 +60,7 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_A_Pharyngeal" length="500ms" step="0.01ms" target="c302_A_Pharyngeal">
+    <Simulation id="sim_c302_A_Pharyngeal" length="500ms" step="0.05ms" target="c302_A_Pharyngeal">
 
         <Display id="neurons" title="c302_A_Pharyngeal: Membrane potential of a number of neurons" timeScale="1ms" xmin="-50.0" xmax="550.0" ymin="-72" ymax="-48">
             
