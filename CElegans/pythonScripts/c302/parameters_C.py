@@ -402,3 +402,4 @@ class ParameterisedModel(c302ModelPrototype):
                              erev=erev,
                              tau_decay=decay,
                              tau_rise=rise)
+
