@@ -568,8 +568,14 @@ def generate(net_id,
     validate = not (params.is_level_B() or params.is_level_C0())
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
+
+    regex_param_overrides = {}
     for k in param_overrides.keys():
         v = param_overrides[k]
+        if any(regex_part in k for regex_part in ['*', '\d', '.', '+']):
+            regex_param_overrides[k] = v
+            continue # Add specific param later (e.g. add 'AVB.-DB\d+_elec_syn_gbase' during connection parsing)
+
         if params.get_bioparameter(k):
             print_("Setting parameter %s = %s"%(k,v))
             params.set_bioparameter(k, v, "Set with param_overrides", 0)
@@ -927,6 +933,23 @@ def generate(net_id,
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
             conn_shorthand = "%s-%s" % (conn.pre_cell, conn.post_cell)
 
+            for key in regex_param_overrides.keys():
+                pattern = key.split('$')[0] + '$'
+                pattern = pattern.replace('_to_', '-')
+                if re.match(pattern, conn_shorthand):
+                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
+                    new_param_v = regex_param_overrides[key]
+                    print new_param
+                    print new_param_v
+
+                    if params.get_bioparameter(new_param):
+                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
+                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
+                    else:
+                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
+                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
+
+
             elect_conn = False
             analog_conn = False
 
@@ -1126,6 +1149,22 @@ def generate(net_id,
             # NeuroML Projection data structure
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
             conn_shorthand = "%s-%s" % (conn.pre_cell, conn.post_cell)
+
+            for key in regex_param_overrides.keys():
+                pattern = key.split('$')[0] + '$'
+                pattern = pattern.replace('_to_', '-')
+                if re.match(pattern, conn_shorthand):
+                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
+                    new_param_v = regex_param_overrides[key]
+                    print new_param
+                    print new_param_v
+
+                    if params.get_bioparameter(new_param):
+                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
+                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
+                    else:
+                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
+                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
 
             elect_conn = False
             analog_conn = False
