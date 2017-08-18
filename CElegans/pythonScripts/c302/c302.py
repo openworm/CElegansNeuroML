@@ -953,7 +953,14 @@ def generate(net_id,
                 if not include:
                     continue
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
-                continue
+                include = True
+                for conn_exclude in conns_to_exclude:
+                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_exclude, conn_shorthand):
+                            include = False
+                            break
+                if not include:
+                    continue
 
             syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
@@ -991,9 +998,27 @@ def generate(net_id,
                 number_syns = math.pow(number_syns,scale)
 
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
-                number_syns = conn_number_override[conn_shorthand]
+                #number_syns = conn_number_override[conn_shorthand]
+
+                for conn_num_override in conn_number_override.keys():
+                    if any(regex_part in conn_num_override for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_num_override, conn_shorthand):
+                            number_syns = conn_number_override[conn_num_override]
+                            break
+                    elif conn_num_override == conn_shorthand:
+                        number_syns = conn_number_override[conn_shorthand]
+                        break
             elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
-                number_syns = conn.number*conn_number_scaling[conn_shorthand]
+                #number_syns = conn.number*conn_number_scaling[conn_shorthand]
+
+                for conn_num_scale in conn_number_scaling.keys():
+                    if any(regex_part in conn_num_scale for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_num_scale, conn_shorthand):
+                            number_syns = conn.number * conn_number_scaling[conn_num_scale]
+                            break
+                    elif conn_num_scale == conn_shorthand:
+                        number_syns = conn.number * conn_number_scaling[conn_shorthand]
+                        break
             '''
             else:
                 print conn_shorthand
@@ -1132,7 +1157,14 @@ def generate(net_id,
                 if not include:
                     continue
             if conns_to_exclude and conn_shorthand in conns_to_exclude:
-                continue
+                include = True
+                for conn_exclude in conns_to_exclude:
+                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_exclude, conn_shorthand):
+                            include = False
+                            break
+                if not include:
+                    continue
 
             syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
@@ -1141,8 +1173,15 @@ def generate(net_id,
 
 
             polarity = None
-            if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
-                polarity = conn_polarity_override[conn_shorthand]
+            if conn_polarity_override:
+                for conn_pol in conn_polarity_override.keys():
+                    if any(regex_part in conn_pol for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_pol, conn_shorthand):
+                            polarity = conn_polarity_override[conn_pol]
+                            break
+                    elif conn_pol == conn_shorthand:
+                        polarity = conn_polarity_override[conn_pol]
+                        break
 
             if polarity and not elect_conn:
                 syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, polarity)
@@ -1163,9 +1202,27 @@ def generate(net_id,
                 number_syns = math.pow(number_syns,scale)
             
             if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
-                number_syns = conn_number_override[conn_shorthand]
+                #number_syns = conn_number_override[conn_shorthand]
+
+                for conn_num_override in conn_number_override.keys():
+                    if any(regex_part in conn_num_override for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_num_override, conn_shorthand):
+                            number_syns = conn_number_override[conn_num_override]
+                            break
+                    elif conn_num_override == conn_shorthand:
+                        number_syns = conn_number_override[conn_shorthand]
+                        break
             elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
-                number_syns = conn.number*conn_number_scaling[conn_shorthand]
+                #number_syns = conn.number*conn_number_scaling[conn_shorthand]
+
+                for conn_num_scale in conn_number_scaling.keys():
+                    if any(regex_part in conn_num_scale for regex_part in ['*', '\d', '.', '+']):
+                        if re.match(conn_num_scale, conn_shorthand):
+                            number_syns = conn.number * conn_number_scaling[conn_num_scale]
+                            break
+                    elif conn_num_scale == conn_shorthand:
+                        number_syns = conn.number * conn_number_scaling[conn_shorthand]
+                        break
             '''
             else:
                 print conn_shorthand
