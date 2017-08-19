@@ -247,37 +247,37 @@ if __name__ == '__main__':
                 print('Params: %s'%p)
                 html2 = '<table>\n'
                 html+='<td>'
-                html+='<a href="summary_%s_%s.html"/>'%(c,p)
+                html+='<a href="summary_%s_%s.html">'%(c,p)
                 html+='<img alt="?" src="neurons_%s_%s.png" height="80"/></a>'%(c,p)
                 
-                html+='<br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml"/>NML</a>'%(c,p)
-                html+='&nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml"/>OSB</a>'%(c,p)
+                html+='<br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml">NML</a>'%(c,p)
+                html+='&nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml">OSB</a>'%(c,p)
                 
                 pres = ['neurons_','neuron_activity_','muscles_','muscle_activity_']
                 for pre in pres:
                     
-                    html2+='\n<tr>\n  <td><a href="%s%s_%s.png"/><img alt=" " src="%s%s_%s.png" height="320"/></a></td>\n'%(pre,c,p,pre,c,p)
+                    html2+='\n<tr>\n  <td><a href="%s%s_%s.png"><img alt=" " src="%s%s_%s.png" height="320"/></a></td>\n'%(pre,c,p,pre,c,p)
                     if pre == 'neurons_':
                         pre = 'neuron_'
                     if pre == 'muscle_activity_':
                         pre = 'muscles_activity_'
-                    html2+='  <td><a href="traces_%s%s_%s.png"/><img alt=" " src="traces_%s%s_%s.png" height="320"/></a></td>\n</tr>\n'%(pre,p,c,pre,p,c)
+                    html2+='  <td><a href="traces_%s%s_%s.png"><img alt=" " src="traces_%s%s_%s.png" height="320"/></a></td>\n</tr>\n'%(pre,p,c,pre,p,c)
                     
                 html2+='</table>\n'
                 html2+='<table>\n'
                 
-                html2 += '\n<tr><td><a href="c302_%s_%s_exc_to_neurons.png"/><img alt=" " src="c302_%s_%s_exc_to_neurons.png" height="320"/></a></td>\n' % (c,p,c,p)
-                html2 += '\n  <td><a href="c302_%s_%s_inh_to_neurons.png"/><img alt=" " src="c302_%s_%s_inh_to_neurons.png" height="320"/></a></td>\n' % (c,p,c,p)
-                html2 += '\n  <td><a href="c302_%s_%s_elec_neurons_neurons.png"/><img alt=" " src="c302_%s_%s_elec_neurons_neurons.png" height="320"/></a></td></tr>\n' % (c,p,c,p)
+                html2 += '\n<tr><td><a href="c302_%s_%s_exc_to_neurons.png"><img alt=" " src="c302_%s_%s_exc_to_neurons.png" height="320"/></a></td>\n' % (c,p,c,p)
+                html2 += '\n  <td><a href="c302_%s_%s_inh_to_neurons.png"><img alt=" " src="c302_%s_%s_inh_to_neurons.png" height="320"/></a></td>\n' % (c,p,c,p)
+                html2 += '\n  <td><a href="c302_%s_%s_elec_neurons_neurons.png"><img alt=" " src="c302_%s_%s_elec_neurons_neurons.png" height="320"/></a></td></tr>\n' % (c,p,c,p)
                 
-                html2 += '\n<tr><td><a href="c302_%s_%s_exc_to_muscles.png"/><img alt=" " src="c302_%s_%s_exc_to_muscles.png" height="320"/></a></td>\n' % (c,p,c,p)
-                html2 += '\n  <td><a href="c302_%s_%s_inh_to_muscles.png"/><img alt=" " src="c302_%s_%s_inh_to_muscles.png" height="320"/></a></td>' % (c,p,c,p)
+                html2 += '\n<tr><td><a href="c302_%s_%s_exc_to_muscles.png"><img alt=" " src="c302_%s_%s_exc_to_muscles.png" height="320"/></a></td>\n' % (c,p,c,p)
+                html2 += '\n  <td><a href="c302_%s_%s_inh_to_muscles.png"><img alt=" " src="c302_%s_%s_inh_to_muscles.png" height="320"/></a></td>' % (c,p,c,p)
                 if os.path.isfile('%s/%s/c302_%s_%s_elec_neurons_muscles.png' % ('examples', save_fig_dir, c, p)):
-                    html2 += '\n\n  <td><a href="c302_%s_%s_elec_neurons_muscles.png"/><img alt=" " src="c302_%s_%s_elec_neurons_muscles.png" height="320"/></a></td>' % (c, p, c, p)
+                    html2 += '\n\n  <td><a href="c302_%s_%s_elec_neurons_muscles.png"><img alt=" " src="c302_%s_%s_elec_neurons_muscles.png" height="320"/></a></td>' % (c, p, c, p)
                 html2 += '</tr>\n'
 
                 if os.path.isfile('%s/%s/c302_%s_%s_elec_muscles_muscles.png' % ('examples', save_fig_dir, c, p)):
-                    html2 += '\n<tr><td><a href="c302_%s_%s_elec_muscles_muscles.png"/><img alt=" " src="c302_%s_%s_elec_muscles_muscles.png" height="320"/></a></td></tr>\n' % (c, p, c, p)
+                    html2 += '\n<tr><td><a href="c302_%s_%s_elec_muscles_muscles.png"><img alt=" " src="c302_%s_%s_elec_muscles_muscles.png" height="320"/></a></td></tr>\n' % (c, p, c, p)
 
                     
                 html2+='</table>\n'
