@@ -128,16 +128,15 @@ class c302ModelPrototype(ParameterisedModelPrototype):
         if existing_synapses.has_key(prototype_syn.id):
             return existing_synapses[prototype_syn.id]
 
+        existing_synapses[prototype_syn.id] = prototype_syn
         if isinstance(prototype_syn, ExpTwoSynapse):
-            existing_synapses[prototype_syn.id] = prototype_syn
             nml_doc.exp_two_synapses.append(prototype_syn)
         elif isinstance(prototype_syn, GapJunction):
-            existing_synapses[prototype_syn.id] = prototype_syn
             nml_doc.gap_junctions.append(prototype_syn)
         elif isinstance(prototype_syn, GradedSynapse):
-            existing_synapses[prototype_syn.id] = prototype_syn
             nml_doc.graded_synapses.append(prototype_syn)
         else:
+            del existing_synapses[prototype_syn.id]
             raise Exception('Unknown synapse type')
 
         return prototype_syn

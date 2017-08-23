@@ -237,9 +237,9 @@ def get_specific_chem_syn_params(params, pre_cell, post_cell, syn_type, polarity
     return syn_id, weight, conductance, delta, vth, erev, k, sigma, mu
 """
 
-def get_syn(params, pre_cell, post_cell, syn_type, polarity):
+"""def get_syn(params, pre_cell, post_cell, syn_type, polarity):
     return params.get_syn(pre_cell, post_cell, syn_type, polarity)
-    """if polarity == "elec":
+    if polarity == "elec":
         syn_id, weight, conductance, sigma, mu = get_specific_elec_syn_params(params, pre_cell, post_cell, syn_type, polarity)
         if sigma or mu:
             return DelayedGapJunction(id=syn_id,
@@ -933,21 +933,7 @@ def generate(net_id,
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
             conn_shorthand = "%s-%s" % (conn.pre_cell, conn.post_cell)
 
-            for key in regex_param_overrides.keys():
-                pattern = key.split('$')[0] + '$'
-                pattern = pattern.replace('_to_', '-')
-                if re.match(pattern, conn_shorthand):
-                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
-                    new_param_v = regex_param_overrides[key]
-                    print new_param
-                    print new_param_v
 
-                    if params.get_bioparameter(new_param):
-                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
-                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
-                    else:
-                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
-                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
 
 
             elect_conn = False
@@ -963,8 +949,25 @@ def generate(net_id,
                 orig_pol = "inh"
             if '_GJ' in conn.synclass:
                 conn_pol = "elec"
-                elect_conn = elect_conn = params.is_elec_conn(params.neuron_to_neuron_elec_syn)
+                elect_conn = params.is_elec_conn(params.neuron_to_neuron_elec_syn)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
+
+
+            for key in regex_param_overrides.keys():
+                pattern = key.split('$')[0] + '$'
+                pattern = pattern.replace('_to_', '-')
+
+                if re.match(pattern, conn_shorthand):
+                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
+                    new_param = new_param.replace('_GJ', '')
+                    new_param_v = regex_param_overrides[key]
+
+                    if params.get_bioparameter(new_param):
+                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
+                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
+                    else:
+                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
+                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 include = False
@@ -985,7 +988,7 @@ def generate(net_id,
                 if not include:
                     continue
 
-            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, conn_pol)
+            syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
             if print_connections:
                 print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
@@ -1003,7 +1006,7 @@ def generate(net_id,
                         break
 
             if polarity and not elect_conn:
-                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, polarity)
+                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                        (conn.pre_cell, conn.post_cell, orig_pol, polarity))
@@ -1150,22 +1153,6 @@ def generate(net_id,
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
             conn_shorthand = "%s-%s" % (conn.pre_cell, conn.post_cell)
 
-            for key in regex_param_overrides.keys():
-                pattern = key.split('$')[0] + '$'
-                pattern = pattern.replace('_to_', '-')
-                if re.match(pattern, conn_shorthand):
-                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
-                    new_param_v = regex_param_overrides[key]
-                    print new_param
-                    print new_param_v
-
-                    if params.get_bioparameter(new_param):
-                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
-                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
-                    else:
-                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
-                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
-
             elect_conn = False
             analog_conn = False
 
@@ -1186,6 +1173,22 @@ def generate(net_id,
                 elect_conn = params.is_elec_conn(params.neuron_to_neuron_elec_syn)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
+            for key in regex_param_overrides.keys():
+                pattern = key.split('$')[0] + '$'
+                pattern = pattern.replace('_to_', '-')
+
+                if re.match(pattern, conn_shorthand):
+                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
+                    new_param = new_param.replace('_GJ', '')
+                    new_param_v = regex_param_overrides[key]
+
+                    if params.get_bioparameter(new_param):
+                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
+                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
+                    else:
+                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
+                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
+
             if conns_to_include and conn_shorthand not in conns_to_include:
                 include = False
                 for conn_include in conns_to_include:
@@ -1205,7 +1208,7 @@ def generate(net_id,
                 if not include:
                     continue
 
-            syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, conn_pol)
+            syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
             if print_connections:
                 print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
@@ -1223,7 +1226,7 @@ def generate(net_id,
                         break
 
             if polarity and not elect_conn:
-                syn0 = get_syn(params, conn.pre_cell, conn.post_cell, conn_type, polarity)
+                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                            (conn.pre_cell, conn.post_cell, orig_pol, polarity))
