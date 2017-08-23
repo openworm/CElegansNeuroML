@@ -15,36 +15,6 @@ Parameters and setting used to generate this network:
     Muscles:                        []
 
     Known BioParameters:
-        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 30 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.05 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 2pA (SRC: Testing Osc, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 10 ms (SRC: Testing Osc, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 2500 ms (SRC: Testing Osc, certainty 0)
-        BioParameter: neuron_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_specific_capacitance = .6860 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
@@ -78,6 +48,11 @@ Parameters and setting used to generate this network:
         BioParameter: inh_syn_beta = 0.125 per_mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_vth = -30 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.05 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 2pA (SRC: Testing Osc, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 10 ms (SRC: Testing Osc, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 2500 ms (SRC: Testing Osc, certainty 0)
 
    
     -->
@@ -99,9 +74,9 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_C0_Oscillator" length="1000ms" step="0.05ms" target="c302_C0_Oscillator">
+    <Simulation id="sim_c302_C0_Oscillator" length="2000ms" step="0.025ms" target="c302_C0_Oscillator">
 
-        <Display id="neurons" title="c302_C0_Oscillator: Membrane potential of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-60" ymax="25">
+        <Display id="neurons" title="c302_C0_Oscillator: Membrane potential of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-60" ymax="25">
             
             <Line id="AVAL" quantity="AVAL/0/GenericNeuronCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
             <Line id="AVAR" quantity="AVAR/0/GenericNeuronCell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
@@ -122,7 +97,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="activity_neurons" title="c302_C0_Oscillator: Activity of a number of neurons" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_neurons" title="c302_C0_Oscillator: Activity of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-0.1" ymax="1.1">
             
             <Line id="AVAL" quantity="AVAL/0/GenericNeuronCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
             <Line id="AVAR" quantity="AVAR/0/GenericNeuronCell/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
