@@ -544,7 +544,7 @@ def get_cell_id_string(cell, params, muscle=False):
 
 
 def regex_match(pattern, str):
-    return is_regex_string(str) and re.match(pattern, str)
+    return is_regex_string(pattern) and re.match(pattern, str)
 
 
 def is_regex_string(str):
