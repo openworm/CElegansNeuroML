@@ -1,0 +1,170 @@
+<Lems>
+    
+    <!--
+
+
+Parameters and setting used to generate this network:
+
+    Data reader:                    SpreadsheetDataReader
+    Cells:                          ['URYDL', 'SMDDR', 'VD12', 'VB11', 'AIZL', 'ASHL']
+    Cell stimulated:                []
+    Connection:                     []
+    Connection numbers overridden:  None
+    Connection numbers scaled:      None
+    Connection polarities override: None
+    Muscles:                        []
+
+    Known BioParameters:
+        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = .1 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 200 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.01252 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.00152 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 5.135697186048022 pA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 50 ms (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
+        BioParameter: neuron_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_specific_capacitance = 5 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_spike_thresh = -10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_spike_thresh = -55 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 0.0172 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.002 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 0.564 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 0.45833751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_simple_cond_density = 0.1953 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_simple_cond_density = .2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_simple_erev = 60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 13.811870945509265 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: global_connectivity_power_scaling = 0 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.49 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_conductance = 3.46 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_ar = .5 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_ad = 50 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_beta = 0.125 per_mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 00 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_erev = -10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.29 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_conductance = 1.29 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_ar = .5 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_ad = 50 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_beta = 0.125 per_mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_fast_cond_density = 0.042711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_cond_density = 0.284 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_boyle_cond_density = 1.812775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_boyle_erev = 10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_k = 0.5per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_k = 0.015per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_initial_memb_pot = -28 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_erev = -13 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_erev = 46 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_vth = 00 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_erev = 00 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_to_muscle_elec_syn_gbase = 0.0052 nS (SRC: BlindGuess, certainty 0.1)
+
+   
+    -->
+
+    <Target component="sim_c302_C2_Syns" />
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+
+    <Include file="Cells.xml" />
+    <Include file="Networks.xml" />
+    <Include file="Simulation.xml" />
+    
+    <Include file="cell_C.xml" />
+    
+    <Include file="custom_muscle_components.xml" />
+    
+    <Include file="c302_C2_Syns.nml" />
+
+    <!-- End of NeuroML2 content -->
+    
+
+    <Simulation id="sim_c302_C2_Syns" length="3600ms" step="0.05ms" target="c302_C2_Syns">
+
+        <Display id="neurons" title="c302_C2_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-360.0" xmax="3960.0" ymin="-60" ymax="25">
+            
+            <Line id="AIZL" quantity="AIZL/0/GenericNeuronCell/v" scale="1mV" color="#f87100" timeScale="1ms" />
+            <Line id="ASHL" quantity="ASHL/0/GenericNeuronCell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/GenericNeuronCell/v" scale="1mV" color="#58a09e" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/GenericNeuronCell/v" scale="1mV" color="#007df7" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/GenericNeuronCell/v" scale="1mV" color="#9a1694" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/GenericNeuronCell/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
+            
+        </Display>
+      
+        <Display id="activity_neurons" title="c302_C2_Syns: Activity of a number of neurons" timeScale="1ms" xmin="-360.0" xmax="3960.0" ymin="-0.1" ymax="1.1">
+            
+            <Line id="AIZL" quantity="AIZL/0/GenericNeuronCell/caConc" scale="1" color="#eaf195" timeScale="1ms" />
+            <Line id="ASHL" quantity="ASHL/0/GenericNeuronCell/caConc" scale="1" color="#3c00ca" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/GenericNeuronCell/caConc" scale="1" color="#262f1d" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/GenericNeuronCell/caConc" scale="1" color="#108b77" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/GenericNeuronCell/caConc" scale="1" color="#458fa5" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/GenericNeuronCell/caConc" scale="1" color="#ef7488" timeScale="1ms" />
+
+        </Display>
+
+        <OutputFile id="neurons_v" fileName="c302_C2_Syns.dat">
+            <OutputColumn id="AIZL_v" quantity="AIZL/0/GenericNeuronCell/v"/>
+            <OutputColumn id="ASHL_v" quantity="ASHL/0/GenericNeuronCell/v"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR/0/GenericNeuronCell/v"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL/0/GenericNeuronCell/v"/>
+            <OutputColumn id="VB11_v" quantity="VB11/0/GenericNeuronCell/v"/>
+            <OutputColumn id="VD12_v" quantity="VD12/0/GenericNeuronCell/v"/>
+        </OutputFile>
+        
+        <OutputFile id="neurons_activity" fileName="c302_C2_Syns.activity.dat">
+            <OutputColumn id="AIZL_v" quantity="AIZL/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="ASHL_v" quantity="ASHL/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="SMDDR_v" quantity="SMDDR/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="URYDL_v" quantity="URYDL/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="VB11_v" quantity="VB11/0/GenericNeuronCell/caConc"/>
+            <OutputColumn id="VD12_v" quantity="VD12/0/GenericNeuronCell/caConc"/>
+        </OutputFile>
+    </Simulation>
+
+
+</Lems>

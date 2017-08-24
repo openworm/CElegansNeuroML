@@ -20,11 +20,16 @@ def run_c302(config,
              data_reader="SpreadsheetDataReader",
              verbose=False,
              plot_ca=True,
-             param_overrides={}):
+             plot_connectivity=False,
+             param_overrides={},
+             config_package=""):
     
     print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
-    exec('from c302_%s import setup'%config)
-    cells, cells_to_stimulate, params, muscles = setup(parameter_set, 
+    if config_package:
+        exec ('from %s.c302_%s import setup' % (config_package, config))
+    else:
+        exec ('from c302_%s import setup' % config)
+    cells, cells_to_stimulate, params, muscles, nml_doc = setup(parameter_set, 
                                                        data_reader=data_reader,
                                                        generate=True,
                                                        duration = duration, 
@@ -52,6 +57,9 @@ def run_c302(config,
                                  show_plot_already=show_plot_already, 
                                  data_reader=data_reader,
                                  plot_ca=plot_ca)
+                                 
+    if plot_connectivity:
+        c302_utils.generate_conn_matrix(nml_doc, save_fig_dir=save_fig_dir)
     
     os.chdir('..')
     
@@ -109,6 +117,9 @@ if __name__ == '__main__':
     elif '-pharB' in sys.argv or '-pharyngealB' in sys.argv:
         run_c302('Pharyngeal','B','',500,0.01,'jNeuroML_NEURON')
         
+    elif '-pharC0' in sys.argv or '-pharyngealC0' in sys.argv:
+        run_c302('Pharyngeal','C0','',500,0.01,'jNeuroML_NEURON')
+        
     elif '-pharC1' in sys.argv or '-pharyngealC1' in sys.argv:
         run_c302('Pharyngeal','C1','',500,0.01,'jNeuroML_NEURON')
         
@@ -160,6 +171,9 @@ if __name__ == '__main__':
     elif '-oscC0' in sys.argv:
         run_c302('Oscillator','C0','',2000,0.025,'jNeuroML_NEURON')
         
+    elif '-test' in sys.argv:
+        run_c302('Oscillator','C0','',2000,0.025,'jNeuroML_NEURON',show_plot_already=False)
+        
     elif '-oscC' in sys.argv:
         run_c302('Oscillator','C','',2000,0.05,'jNeuroML_NEURON')
         
@@ -193,7 +207,6 @@ if __name__ == '__main__':
     elif '-all' in sys.argv:
         print('Generating all plots')
         html = '<table>\n'
-        html2 = '<table>\n'
         '''
         param_sets = ['IClamp','Syns']
         #param_sets = ['IClamp']
@@ -201,9 +214,9 @@ if __name__ == '__main__':
         param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles','Full']
         param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles']'''
         #param_sets = ['IClamp','Muscles','Full']
-        levels = ['A','B','C0','C','C1','D','D1']
+        levels = ['A','B','C0','C','C1','C2','D','D1']
         #levels = ['D','D1']
-        levels = ['C0']
+        #levels = ['C2']
 
         
         durations = OrderedDict([('IClamp',1000),
@@ -213,6 +226,10 @@ if __name__ == '__main__':
                                 ('Oscillator',1000),
                                 ('Muscles',1000),
                                 ('Full',1000)])
+        
+        #durations = OrderedDict([('IClamp',1000),
+        #                        ('Syns',500),
+        #                        ('Oscillator',1000)])
             
         html+='<tr>'
         html+='<td>&nbsp;</td>'
@@ -222,10 +239,13 @@ if __name__ == '__main__':
         html+='</tr>\n'
         for c in levels:
             print('Generating for: %s'%c)
+            
+            
             html+='<tr>'
             html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)
             for p in durations.keys():
                 print('Params: %s'%p)
+                html2 = '<table>\n'
                 html+='<td>'
                 html+='<a href="summary_%s_%s.html"/>'%(c,p)
                 html+='<img alt="?" src="neurons_%s_%s.png" height="80"/></a>'%(c,p)
@@ -233,24 +253,48 @@ if __name__ == '__main__':
                 html+='<br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml"/>NML</a>'%(c,p)
                 html+='&nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml"/>OSB</a>'%(c,p)
                 
-                html2=''
-                html2+='<tr><td><img alt="?" src="neurons_%s_%s.png"/></td><td><img alt="?" src="traces_neuron_%s_%s.png"/></td></tr>\n'%(c,p,p,c)
-                html2+='<tr><td><img alt=" " src="neuron_activity_%s_%s.png"/></td><td><img alt=" " src="traces_neuron_activity_%s_%s.png"/></td></tr>\n'%(c,p,p,c)
-                html2+='<tr><td><img alt=" " src="muscles_%s_%s.png"/></td><td><img alt=" " src="traces_muscles_%s_%s.png"/></td></tr>\n'%(c,p,p,c)
-                html2+='<tr><td><img alt=" " src="muscle_activity_%s_%s.png"/></td><td><img alt=" " src="traces_muscles_activity_%s_%s.png"/></td></tr>\n'%(c,p,p,c)
+                pres = ['neurons_','neuron_activity_','muscles_','muscle_activity_']
+                for pre in pres:
+                    
+                    html2+='\n<tr>\n  <td><a href="%s%s_%s.png"/><img alt=" " src="%s%s_%s.png" height="320"/></a></td>\n'%(pre,c,p,pre,c,p)
+                    if pre == 'neurons_':
+                        pre = 'neuron_'
+                    if pre == 'muscle_activity_':
+                        pre = 'muscles_activity_'
+                    html2+='  <td><a href="traces_%s%s_%s.png"/><img alt=" " src="traces_%s%s_%s.png" height="320"/></a></td>\n</tr>\n'%(pre,p,c,pre,p,c)
+                    
+                html2+='</table>\n'
+                html2+='<table>\n'
+                
+                html2+='\n<tr><td><a href="c302_%s_%s_exc_to_neurons.png"/><img alt=" " src="c302_%s_%s_exc_to_neurons.png" height="320"/></a></td>\n'%(c,p,c,p)
+                html2+='\n  <td><a href="c302_%s_%s_inh_to_neurons.png"/><img alt=" " src="c302_%s_%s_inh_to_neurons.png" height="320"/></a></td>\n'%(c,p,c,p)
+                html2+='\n  <td><a href="c302_%s_%s_elec_to_neurons.png"/><img alt=" " src="c302_%s_%s_elec_to_neurons.png" height="320"/></a></td></tr>\n'%(c,p,c,p)
+                
+                html2+='\n<tr><td><a href="c302_%s_%s_exc_to_muscles.png"/><img alt=" " src="c302_%s_%s_exc_to_muscles.png" height="320"/></a></td>\n'%(c,p,c,p)
+                html2+='\n  <td><a href="c302_%s_%s_inh_to_muscles.png"/><img alt=" " src="c302_%s_%s_inh_to_muscles.png" height="320"/></a></td></tr>\n'%(c,p,c,p)
+                    
+                html2+='</table>\n'
                 
                 with open('examples/'+save_fig_dir+'summary_%s_%s.html'%(c,p),'w') as f2:
                     f2.write('<html><body>%s</body></html>'%html2)
                 with open('examples/'+save_fig_dir+'summary_%s_%s.md'%(c,p),'w') as f3:
                     f3.write('### Parameter config summary \n%s'%html2)
+                '''
+                run_c302(p,
+                         c,
+                         '',
+                         durations[p],
+                         0.05,
+                         'jNeuroML_NEURON',
+                         save=True,
+                         show_plot_already=False,
+                         plot_connectivity=True)'''
                 
-                run_c302(p,c,'',durations[p],0.05,'jNeuroML_NEURON',save=True,show_plot_already=False)
                 html+='</td>'
                 
             html+='</tr>\n'
         
         html+='</table>\n'
-        html2+='</table>\n'
                 
         with open('examples/'+save_fig_dir+'info.html','w') as f:
             f.write('<html><body>\n%s\n</body></html>'%html)

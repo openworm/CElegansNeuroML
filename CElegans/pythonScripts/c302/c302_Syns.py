@@ -16,7 +16,7 @@ def setup(parameter_set,
     params = ParameterisedModel()
     
     stim_amplitudes = ["3pA","5pA"]
-    duration = (len(stim_amplitudes))*1000
+    duration = (len(stim_amplitudes))*1800
     
     params.set_bioparameter("unphysiological_offset_current_del", "50 ms", "Testing IClamp", "0")
     
@@ -37,6 +37,8 @@ def setup(parameter_set,
     
     reference = "c302_%s_Syns"%parameter_set
     
+    nml_doc = None
+    
     if generate:
         nml_doc = c302.generate(reference, 
                  params, 
@@ -50,7 +52,7 @@ def setup(parameter_set,
                  
                  
     for i in range(len(stim_amplitudes)):
-        start = "%sms"%(i*1000 + 100)
+        start = "%sms"%(i*1400 + 500)
         for c in cells_to_stimulate_extra:
             c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
     
@@ -60,7 +62,7 @@ def setup(parameter_set,
     print("(Re)written network file to: "+nml_file)
     
              
-    return cells, cells_to_stimulate_extra, params, []
+    return cells, cells_to_stimulate_extra, params, [], nml_doc
              
 if __name__ == '__main__':
     
