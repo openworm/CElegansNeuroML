@@ -541,7 +541,22 @@ def get_cell_id_string(cell, params, muscle=False):
             return "../%s/0/%s"%(cell, cell)
         else:
             return "../%s/0/%s"%(cell, params.generic_muscle_cell.id)
-    
+
+
+def regex_match(pattern, str):
+    return is_regex_string(str) and re.match(pattern, str)
+
+
+def is_regex_string(str):
+    return '^' in str and '$' in str
+
+
+def elem_in_coll_matches_conn(coll, conn):
+    for elem in coll:
+        if regex_match(elem, conn):
+            return True
+    return False
+
     
 def generate(net_id,
              params,
@@ -570,18 +585,18 @@ def generate(net_id,
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
     regex_param_overrides = {}
-    for k in param_overrides.keys():
-        v = param_overrides[k]
-        if any(regex_part in k for regex_part in ['*', '\d', '.', '+']):
-            regex_param_overrides[k] = v
-            continue # Add specific param later (e.g. add 'AVB.-DB\d+_elec_syn_gbase' during connection parsing)
+    if param_overrides:
+        for k, v in param_overrides.iteritems():
+            if is_regex_string(k):
+                regex_param_overrides[k] = v
+                continue # Add specific param later (e.g. add 'AVB.-DB\d+_elec_syn_gbase' during connection parsing)
 
-        if params.get_bioparameter(k):
-            print_("Setting parameter %s = %s"%(k,v))
-            params.set_bioparameter(k, v, "Set with param_overrides", 0)
-        else:
-            print_("Adding parameter %s = %s" % (k, v))
-            params.add_bioparameter(k, v, "Add with param_overrides", 0)
+            if params.get_bioparameter(k):
+                print_("Setting parameter %s = %s"%(k,v))
+                params.set_bioparameter(k, v, "Set with param_overrides", 0)
+            else:
+                print_("Adding parameter %s = %s" % (k, v))
+                params.add_bioparameter(k, v, "Add with param_overrides", 0)
     
 
     params.create_models()
@@ -933,9 +948,6 @@ def generate(net_id,
             proj_id = get_projection_id(conn.pre_cell, conn.post_cell, conn.synclass, conn.syntype)
             conn_shorthand = "%s-%s" % (conn.pre_cell, conn.post_cell)
 
-
-
-
             elect_conn = False
             analog_conn = False
 
@@ -970,22 +982,12 @@ def generate(net_id,
                         params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
-                include = False
-                for conn_include in conns_to_include:
-                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_include, conn_shorthand):
-                            include = True
-                            break
-                if not include:
+                # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
+                if not elem_in_coll_matches_conn(conns_to_include, conn_shorthand):
                     continue
-            if conns_to_exclude and conn_shorthand in conns_to_exclude:
-                include = True
-                for conn_exclude in conns_to_exclude:
-                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_exclude, conn_shorthand):
-                            include = False
-                            break
-                if not include:
+            if conns_to_exclude and conn_shorthand not in conns_to_exclude:
+                # conn_shorthand not in conns_to_exclude. if there is a regex in conns_to_exclude which matches the current conn_shorthand -> exclude
+                if elem_in_coll_matches_conn(conns_to_exclude, conn_shorthand):
                     continue
 
             syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
@@ -996,54 +998,52 @@ def generate(net_id,
 
             polarity = None
             if conn_polarity_override:
+                #if elem_in_coll_matches_conn(conn_polarity_override.keys(), conn_shorthand):
                 for conn_pol in conn_polarity_override.keys():
-                    if any(regex_part in conn_pol for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_pol, conn_shorthand):
-                            polarity = conn_polarity_override[conn_pol]
-                            break
-                    elif conn_pol == conn_shorthand:
+                    if conn_pol == conn_shorthand:
+                        polarity = conn_polarity_override[conn_shorthand]
+                        break
+                    elif regex_match(conn_pol, conn_shorthand):
                         polarity = conn_polarity_override[conn_pol]
                         break
-
             if polarity and not elect_conn:
                 syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                        (conn.pre_cell, conn.post_cell, orig_pol, polarity))
+
             if params.is_analog_conn(syn0):
                 analog_conn = True
                 if len(nml_doc.silent_synapses) == 0:
                     nml_doc.silent_synapses.append(SilentSynapse(id="silent"))
 
             number_syns = conn.number
-            
-            
+
+
             if params.get_bioparameter('global_connectivity_power_scaling'):
                 scale = params.get_bioparameter('global_connectivity_power_scaling').x()
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
 
-            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
+            if conn_number_override:
                 #number_syns = conn_number_override[conn_shorthand]
 
                 for conn_num_override in conn_number_override.keys():
-                    if any(regex_part in conn_num_override for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_num_override, conn_shorthand):
-                            number_syns = conn_number_override[conn_num_override]
-                            break
-                    elif conn_num_override == conn_shorthand:
+                    if conn_num_override == conn_shorthand:
                         number_syns = conn_number_override[conn_shorthand]
                         break
-            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
+                    elif regex_match(conn_num_override, conn_shorthand):
+                        number_syns = conn_number_override[conn_num_override]
+                        break
+            if conn_number_scaling:
                 #number_syns = conn.number*conn_number_scaling[conn_shorthand]
 
                 for conn_num_scale in conn_number_scaling.keys():
-                    if any(regex_part in conn_num_scale for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_num_scale, conn_shorthand):
-                            number_syns = conn.number * conn_number_scaling[conn_num_scale]
-                            break
-                    elif conn_num_scale == conn_shorthand:
+                    if conn_num_scale == conn_shorthand:
                         number_syns = conn.number * conn_number_scaling[conn_shorthand]
+                        break
+                    elif regex_match(conn_num_scale, conn_shorthand):
+                        number_syns = conn.number * conn_number_scaling[conn_num_scale]
                         break
             '''
             else:
@@ -1190,22 +1190,12 @@ def generate(net_id,
                         params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
-                include = False
-                for conn_include in conns_to_include:
-                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_include, conn_shorthand):
-                            include = True
-                            break
-                if not include:
+                # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
+                if not elem_in_coll_matches_conn(conns_to_include, conn_shorthand):
                     continue
-            if conns_to_exclude and conn_shorthand in conns_to_exclude:
-                include = True
-                for conn_exclude in conns_to_exclude:
-                    if any(regex_part in conn_include for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_exclude, conn_shorthand):
-                            include = False
-                            break
-                if not include:
+            if conns_to_exclude and conn_shorthand not in conns_to_exclude:
+                # conn_shorthand not in conns_to_exclude. if there is a regex in conns_to_exclude which matches the current conn_shorthand -> exclude
+                if elem_in_coll_matches_conn(conns_to_exclude, conn_shorthand):
                     continue
 
             syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
@@ -1217,14 +1207,12 @@ def generate(net_id,
             polarity = None
             if conn_polarity_override:
                 for conn_pol in conn_polarity_override.keys():
-                    if any(regex_part in conn_pol for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_pol, conn_shorthand):
-                            polarity = conn_polarity_override[conn_pol]
-                            break
-                    elif conn_pol == conn_shorthand:
+                    if conn_pol == conn_shorthand:
                         polarity = conn_polarity_override[conn_pol]
                         break
-
+                    elif regex_match(conn_pol, conn_shorthand):
+                        polarity = conn_polarity_override[conn_pol]
+                        break
             if polarity and not elect_conn:
                 syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
@@ -1243,27 +1231,21 @@ def generate(net_id,
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
             
-            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
-                #number_syns = conn_number_override[conn_shorthand]
-
+            if conn_number_override:
                 for conn_num_override in conn_number_override.keys():
-                    if any(regex_part in conn_num_override for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_num_override, conn_shorthand):
-                            number_syns = conn_number_override[conn_num_override]
-                            break
-                    elif conn_num_override == conn_shorthand:
+                    if conn_num_override == conn_shorthand:
                         number_syns = conn_number_override[conn_shorthand]
                         break
-            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
-                #number_syns = conn.number*conn_number_scaling[conn_shorthand]
-
+                    elif regex_match(conn_num_override, conn_shorthand):
+                        number_syns = conn_number_override[conn_num_override]
+                        break
+            if conn_number_scaling:
                 for conn_num_scale in conn_number_scaling.keys():
-                    if any(regex_part in conn_num_scale for regex_part in ['*', '\d', '.', '+']):
-                        if re.match(conn_num_scale, conn_shorthand):
-                            number_syns = conn.number * conn_number_scaling[conn_num_scale]
-                            break
-                    elif conn_num_scale == conn_shorthand:
+                    if conn_num_scale == conn_shorthand:
                         number_syns = conn.number * conn_number_scaling[conn_shorthand]
+                        break
+                    elif regex_match(conn_num_scale, conn_shorthand):
+                        number_syns = conn.number * conn_number_scaling[conn_num_scale]
                         break
             '''
             else:
