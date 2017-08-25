@@ -10,6 +10,7 @@ addons:
     - python-numpy 
     - python-scipy 
     - python-matplotlib 
+    - python-tk
 
 language: python
 python:
