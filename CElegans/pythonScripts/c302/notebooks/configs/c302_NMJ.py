@@ -27,8 +27,12 @@ def setup(parameter_set,
     
     
     reference = "c302_%s_NMJ"%parameter_set
-    
-    
+
+    conn_polarity_override = None
+    if config_param_overrides.has_key('conn_polarity_override'):
+        conn_polarity_override = config_param_overrides['conn_polarity_override']
+
+    nml_doc = None
     if generate:
         nml_doc = c302.generate(reference,
                                 params,
@@ -53,7 +57,7 @@ def setup(parameter_set,
     
     print("(Re)written network file to: "+nml_file)
                     
-    return cells, cells_total, params, muscles_to_include
+    return cells, cells_total, params, muscles_to_include, nml_doc
              
 if __name__ == '__main__':
     
