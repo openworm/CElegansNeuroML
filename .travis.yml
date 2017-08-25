@@ -46,9 +46,17 @@ script:
     - cd ..
 
     # Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
-    - py.test -vs python_script_tester.py
+    # 
+    # 
+    #        NOTE: disabling this test until issue with install of PyOpenWorm is resolved: 
+    #        https://travis-ci.org/openworm/CElegansNeuroML/jobs/268419603
+    # - py.test -vs python_script_tester.py
+    # 
+    ###############################################
     
     # Testing c302
     - cd c302 
-    - omv install pyNeuroML
     - python c302_IClamp.py A
+    - python runAndPlot.py -test
+    - python c302_utils.py -nogui
+
