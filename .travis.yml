@@ -1,9 +1,23 @@
 # Framework for running automated tests on Open Source Brain using Travis-CI.
 # See https://github.com/OpenSourceBrain/osb-model-validation for more details
 
+sudo: false
+
+addons:
+  apt:
+    packages:
+       # Requirements for Neuron/OMV/etc
+    - python-numpy 
+    - python-scipy 
+    - python-matplotlib 
+    - python-tk
+
 language: python
 python:
      - "2.7"
+
+virtualenv:
+    system_site_packages: true 
 
 env:
      - OMV_ENGINE=jNeuroML
@@ -11,6 +25,12 @@ env:
      - OMV_ENGINE=jNeuroML_validatev1
      - OMV_ENGINE=jNeuroML_validate
      - OMV_ENGINE=NON_OMV_TESTS
+     
+
+before_install:
+    # To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer) to imitate a display.
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
 
 install:
     # Required to run OMV tests
@@ -23,14 +43,29 @@ script:
     - echo "Running non OMV tests..."
     - python setup.py install
 
-     #    Test readers
+    # Test readers
     - cd CElegans/pythonScripts
 
-     #    Install PyOpenWorm
+    # Install PyOpenWorm
     - git clone https://github.com/openworm/PyOpenWorm.git
     - cd PyOpenWorm
     - python setup.py install
     - cd ..
 
-       #Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
-    - py.test -vs python_script_tester.py
+    # Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
+    # 
+    # 
+    #        NOTE: disabling this test until issue with install of PyOpenWorm is resolved: 
+    #        https://travis-ci.org/openworm/CElegansNeuroML/jobs/268419603
+    # - py.test -vs python_script_tester.py
+    # 
+    ###############################################
+    
+    # Testing c302
+    - cd c302 
+    - python c302_IClamp.py A    
+    - omv install NEURON # Need to install NEURON
+    - export NEURON_HOME=/home/travis/neuron/nrn/x86_64/
+    - python runAndPlot.py -test
+    - python c302_utils.py -nogui
+

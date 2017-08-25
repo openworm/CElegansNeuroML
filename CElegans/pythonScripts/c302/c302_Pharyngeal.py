@@ -30,7 +30,8 @@ def setup(parameter_set,
                       dt=dt, 
                       target_directory=target_directory,
                       param_overrides=param_overrides,
-                      verbose=verbose)
+                      verbose=verbose,
+                      data_reader=data_reader)
              
     return cells, cells_to_stimulate, params, [], nml_doc
              

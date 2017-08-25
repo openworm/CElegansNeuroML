@@ -36,7 +36,8 @@ def setup(parameter_set,
                     dt=dt, 
                     target_directory=target_directory,
                     param_overrides=param_overrides,
-                    verbose=verbose)
+                    verbose=verbose,
+                    data_reader=data_reader)
                     
     
                     
