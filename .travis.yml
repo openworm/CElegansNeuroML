@@ -25,6 +25,12 @@ env:
      - OMV_ENGINE=jNeuroML_validatev1
      - OMV_ENGINE=jNeuroML_validate
      - OMV_ENGINE=NON_OMV_TESTS
+     
+
+before_install:
+    # To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer) to imitate a display.
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
 
 install:
     # Required to run OMV tests
@@ -57,7 +63,9 @@ script:
     
     # Testing c302
     - cd c302 
-    - python c302_IClamp.py A
+    - python c302_IClamp.py A    
+    - omv install NEURON # Need to install NEURON
+    - export NEURON_HOME=/home/travis/neuron/nrn/x86_64/
     - python runAndPlot.py -test
     - python c302_utils.py -nogui
 
