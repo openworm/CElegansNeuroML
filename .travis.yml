@@ -1,9 +1,22 @@
 # Framework for running automated tests on Open Source Brain using Travis-CI.
 # See https://github.com/OpenSourceBrain/osb-model-validation for more details
 
+sudo: false
+
+addons:
+  apt:
+    packages:
+       # Requirements for Neuron/OMV/etc
+    - python-numpy 
+    - python-scipy 
+    - python-matplotlib 
+
 language: python
 python:
      - "2.7"
+
+virtualenv:
+    system_site_packages: true 
 
 env:
      - OMV_ENGINE=jNeuroML
@@ -23,14 +36,19 @@ script:
     - echo "Running non OMV tests..."
     - python setup.py install
 
-     #    Test readers
+    # Test readers
     - cd CElegans/pythonScripts
 
-     #    Install PyOpenWorm
+    # Install PyOpenWorm
     - git clone https://github.com/openworm/PyOpenWorm.git
     - cd PyOpenWorm
     - python setup.py install
     - cd ..
 
-       #Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
+    # Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
     - py.test -vs python_script_tester.py
+    
+    # Testing c302
+    - cd c302 
+    - omv install pyNeuroML
+    - python c302_IClamp.py A
