@@ -985,7 +985,9 @@ def generate(net_id,
                 # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
                 if not elem_in_coll_matches_conn(conns_to_include, conn_shorthand):
                     continue
-            if conns_to_exclude and conn_shorthand not in conns_to_exclude:
+            if conns_to_exclude:
+                if conn_shorthand in conns_to_exclude:
+                    continue
                 # conn_shorthand not in conns_to_exclude. if there is a regex in conns_to_exclude which matches the current conn_shorthand -> exclude
                 if elem_in_coll_matches_conn(conns_to_exclude, conn_shorthand):
                     continue
@@ -1193,7 +1195,9 @@ def generate(net_id,
                 # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
                 if not elem_in_coll_matches_conn(conns_to_include, conn_shorthand):
                     continue
-            if conns_to_exclude and conn_shorthand not in conns_to_exclude:
+            if conns_to_exclude:
+                if conn_shorthand in conns_to_exclude:
+                    continue
                 # conn_shorthand not in conns_to_exclude. if there is a regex in conns_to_exclude which matches the current conn_shorthand -> exclude
                 if elem_in_coll_matches_conn(conns_to_exclude, conn_shorthand):
                     continue
