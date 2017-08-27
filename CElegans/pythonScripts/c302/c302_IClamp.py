@@ -38,7 +38,8 @@ def setup(parameter_set,
                     dt=dt, 
                     target_directory=target_directory,
                     param_overrides=param_overrides,
-                    verbose=verbose)
+                    verbose=verbose,
+                    data_reader=data_reader)
                     
     for i in range(len(stim_amplitudes)):
         start = "%sms"%(i*1000 + 100)
