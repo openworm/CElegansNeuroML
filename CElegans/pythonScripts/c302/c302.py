@@ -502,6 +502,8 @@ def generate(net_id,
            "    Connection numbers scaled:      %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+ \
            "    Connection polarities override: %s\n" % conn_polarity_override + \
            "    Muscles:                        %s\n" % (muscles_to_include if muscles_to_include is not None else "All muscles")
+
+    info_settings = info
     if verbose: print_(info)
     info += "\n%s\n"%(params.bioparameter_info("    "))
 
@@ -1115,7 +1117,10 @@ def generate(net_id,
 
                 proj0.connections.append(conn0)
 
-
+    if param_overrides and param_overrides.keys():
+        info_new = info_settings + "\n%s\n" % (params.bioparameter_info("    "))
+        nml_doc.notes = info_new
+        lems_info['comment'] = info_new
 
     # import pprint
     # pprint.pprint(lems_info)
