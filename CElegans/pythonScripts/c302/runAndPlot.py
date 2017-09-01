@@ -1,3 +1,4 @@
+import errno
 import sys
 import os
 from pyneuroml import pynml
@@ -23,25 +24,46 @@ def run_c302(config,
              plot_connectivity=False,
              param_overrides={},
              config_param_overrides={},
-             config_package=""):
+             config_package="",
+             target_directory='examples',
+             save_fig_to=None):
+
+    if save_fig_to:
+        global save_fig_dir
+        save_fig_dir = save_fig_to
 
     print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
     if config_package:
         exec ('from %s.c302_%s import setup' % (config_package, config))
     else:
         exec ('from c302_%s import setup' % config)
-    cells, cells_to_stimulate, params, muscles, nml_doc = setup(parameter_set, 
+
+    try:
+        os.makedirs(target_directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
+    cells, cells_to_stimulate, params, muscles, nml_doc = setup(parameter_set,
                                                        data_reader=data_reader,
                                                        generate=True,
                                                        duration = duration, 
                                                        dt = dt,
-                                                       target_directory='examples',
+                                                       target_directory=target_directory,
                                                        verbose=verbose,
                                                        param_overrides=param_overrides,
                                                        config_param_overrides=config_param_overrides)
-    
-    os.chdir('examples')
-    
+
+    orig_dir = os.getcwd()
+
+    os.chdir(target_directory)
+
+    try:
+        os.makedirs(save_fig_dir)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
     lems_file = 'LEMS_c302_%s_%s.xml'%(parameter_set,config)
     
     if simulator == 'jNeuroML':
@@ -59,12 +81,12 @@ def run_c302(config,
                                  show_plot_already=show_plot_already, 
                                  data_reader=data_reader,
                                  plot_ca=plot_ca)
-                                 
+
     if plot_connectivity:
         c302_utils.generate_conn_matrix(nml_doc, save_fig_dir=save_fig_dir)
-    
-    os.chdir('..')
-    
+
+    os.chdir(orig_dir)
+
     return cells, cells_to_stimulate, params, muscles
     
     
