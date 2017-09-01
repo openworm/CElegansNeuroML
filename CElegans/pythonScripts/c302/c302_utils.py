@@ -458,34 +458,57 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
     print data_inh_m
     
     _show_conn_matrix(data_exc_n, 'Excitatory (non GABA) conns to neurons',all_neuron_info,all_neuron_info, 
-                      net.id, save_figure_to='%s%s_exc_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_exc_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
                       
     _show_conn_matrix(data_exc_m, 'Excitatory (non GABA) conns to muscles',all_neuron_info,all_muscle_info, 
-                      net.id, save_figure_to='%s%s_exc_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_exc_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     
     _show_conn_matrix(data_inh_n, 'Inhibitory (GABA) conns to neurons',all_neuron_info,all_neuron_info, 
-                      net.id, save_figure_to='%s%s_inh_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_inh_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     _show_conn_matrix(data_inh_m, 'Inhibitory (GABA) conns to muscles',all_neuron_info,all_muscle_info, 
-                      net.id, save_figure_to='%s%s_inh_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_inh_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     
     
     data_n = np.zeros((len(all_neurons),len(all_neurons)))
-    #data_m = np.zeros((len(all_neurons),len(all_muscles)))
-    
+    data_n_m = np.zeros((len(all_neurons),len(all_muscles)))
+    data_m_m = np.zeros((len(all_muscles), len(all_muscles)))
+
+    neuron_muscle = False
+    muscle_muscle = False
+
     for pre in gj_conns.keys():
         for post in gj_conns[pre].keys():
             print("Elect Conn %s -> %s: %s"%(pre,post,gj_conns[pre][post]))
             
-            if post in all_neurons:
+            if pre in all_neurons and post in all_neurons:
                 data_n[all_neurons.index(pre),all_neurons.index(post)] = gj_conns[pre][post]
-            if post in all_muscles:
-                raise Exception("Unexpected...")
-            if pre in all_muscles:
+            elif pre in all_neurons and post in all_muscles or pre in all_muscles and post in all_neurons:
+                if pre in all_neurons:
+                    data_n_m[all_neurons.index(pre), all_muscles.index(post)] = gj_conns[pre][post]
+                else:
+                    data_n_m[all_muscles.index(pre), all_neurons.index(post)] = gj_conns[pre][post]
+                neuron_muscle = True
+            elif pre in all_muscles and post in all_muscles:
+                muscle_muscle = True
+                data_m_m[all_muscles.index(pre), all_muscles.index(post)] = gj_conns[pre][post]
+            else:
                 raise Exception("Unexpected...")
         
     
     _show_conn_matrix(data_n, 'Electrical (gap junction) conns to neurons',all_neuron_info,all_neuron_info, 
-                      net.id, save_figure_to='%s%s_elec_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_elec_neurons_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+
+    if neuron_muscle:
+        _show_conn_matrix(data_n_m, 'Electrical (gap junction) conns between neurons and muscles', all_neuron_info, all_muscle_info,
+                          net.id,
+                          save_figure_to='%s/%s_elec_neurons_muscles.png' % (save_fig_dir, net.id) if save_fig_dir else None)
+
+    if muscle_muscle:
+        _show_conn_matrix(data_m_m, 'Electrical (gap junction) conns between muscles', all_muscle_info,
+                          all_muscle_info,
+                          net.id,
+                          save_figure_to='%s/%s_elec_muscles_muscles.png' % (
+                          save_fig_dir, net.id) if save_fig_dir else None)
     #_show_conn_matrix(data_m, 'Electrical (gap junction) conns to muscles',all_neuron_info,all_muscle_info, net.id)
         
 def _get_cell_info(cells):
