@@ -40,6 +40,8 @@ from lxml import etree
 import re
 
 from parameters_C0 import GradedSynapse2
+from parameters_C2 import DelayedGapJunction
+from parameters_C2 import DelayedGradedSynapse
 
 try:
     from urllib2 import URLError  # Python 2
@@ -270,6 +272,97 @@ def get_specific_chem_syn_params(params, pre_cell, post_cell, syn_type, polarity
                          k=k.value)"""
 
 
+def get_specific_elec_syn_params(params, pre_cell, post_cell, syn_type, polarity):
+    prefix = "%s_to_%s_%s_syn" % (pre_cell, post_cell, polarity)
+    # delayed_gj_prefix = "%s_to_%s_delayed_%s_syn" % (pre_cell, post_cell, polarity)
+    weight = params.get_bioparameter("%s_weight" % prefix)
+    conductance = params.get_bioparameter("%s_gbase" % prefix)
+    # delay = self.get_bioparameter("%s_delay" % prefix)
+    sigma = params.get_bioparameter("%s_sigma" % prefix)
+    mu = params.get_bioparameter("%s_mu" % prefix)
+    overridden = False
+    if weight or conductance or sigma or mu:
+        overridden = True
+    def_prefix = "%s_%s_syn" % (syn_type, polarity)
+    if not weight:
+        weight = params.get_bioparameter("%s_weight" % def_prefix)
+    if not conductance:
+        conductance = params.get_bioparameter("%s_gbase" % def_prefix)
+    if overridden:
+        syn_id = prefix
+    else:
+        syn_id = def_prefix
+    return syn_id, weight, conductance, sigma, mu
+
+
+def get_specific_chem_syn_params(params, pre_cell, post_cell, syn_type, polarity):
+    prefix = "%s_to_%s_%s_syn" % (pre_cell, post_cell, polarity)
+    weight = params.get_bioparameter("%s_weight" % prefix)
+    conductance = params.get_bioparameter("%s_conductance" % prefix)
+    delta = params.get_bioparameter("%s_delta" % prefix)
+    vth = params.get_bioparameter("%s_vth" % prefix)
+    erev = params.get_bioparameter("%s_erev" % prefix)
+    k = params.get_bioparameter("%s_k" % prefix)
+    sigma = params.get_bioparameter("%s_sigma" % prefix)
+    mu = params.get_bioparameter("%s_mu" % prefix)
+
+    # Load default parameters unless there are more specific parameters for the current synapse
+    def_prefix = "%s_%s_syn" % (syn_type, polarity)
+    overridden = False
+    if weight or conductance or delta or vth or erev or k or sigma or mu:
+        overridden = True
+    if not weight:
+        weight = params.get_bioparameter("%s_weight" % def_prefix)
+    if not conductance:
+        conductance = params.get_bioparameter("%s_conductance" % def_prefix)
+    if not delta:
+        delta = params.get_bioparameter("%s_delta" % def_prefix)
+    if not vth:
+        vth = params.get_bioparameter("%s_vth" % def_prefix)
+    if not erev:
+        erev = params.get_bioparameter("%s_erev" % def_prefix)
+    if not k:
+        k = params.get_bioparameter("%s_k" % def_prefix)
+
+    if overridden:
+        syn_id = prefix
+    else:
+        syn_id = def_prefix
+
+    return syn_id, weight, conductance, delta, vth, erev, k, sigma, mu
+
+
+def get_syn(params, pre_cell, post_cell, syn_type, polarity):
+    if polarity == "elec":
+        syn_id, weight, conductance, sigma, mu = get_specific_elec_syn_params(params, pre_cell, post_cell, syn_type, polarity)
+        if sigma or mu:
+            return DelayedGapJunction(id=syn_id,
+                                      weight=weight.value,
+                                      conductance=conductance.value,
+                                      sigma=sigma.value,
+                                      mu=mu.value)
+        return GapJunction(id=syn_id,
+                           conductance=conductance.value)
+
+    syn_id, weight, conductance, delta, vth, erev, k, sigma, mu = get_specific_chem_syn_params(params, pre_cell, post_cell, syn_type, polarity)
+    if sigma or mu:
+        return DelayedGradedSynapse(id=syn_id,
+                                    weight=weight.value,
+                                    conductance=conductance.value,
+                                    delta=delta.value,
+                                    vth=vth.value,
+                                    erev=erev.value,
+                                    k=k.value,
+                                    sigma=sigma.value,
+                                    mu=mu.value)
+    return GradedSynapse(id=syn_id,
+                         conductance=conductance.value,
+                         delta=delta.value,
+                         Vth=vth.value,
+                         erev=erev.value,
+                         k=k.value)
+
+
 quadrant0 = 'MDR'
 quadrant1 = 'MVR'
 quadrant2 = 'MVL'
@@ -409,7 +502,7 @@ def write_to_file(nml_doc,
     lems_file_name = target_directory+'/'+'LEMS_%s.xml'%reference
     with open(lems_file_name, 'w') as lems:
         # if running unittest concat template_path
-    	merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
+        merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
         lems.write(merged)
 
     if verbose: 
@@ -508,8 +601,25 @@ def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
             existing_synapses[new_id] = new_syn
             nml_doc.graded_synapses.append(new_syn)
 
+        elif isinstance(prototype_syn, DelayedGradedSynapse):
+            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
+            cond = "%s%s" % (magnitude * n, unit)
+            if type(n) is float:
+                cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
+            new_syn = DelayedGradedSynapse(id=new_id,
+                                           weight=prototype_syn.weight,
+                                           conductance=cond,
+                                           delta=prototype_syn.delta,
+                                           vth=prototype_syn.vth,
+                                           erev=prototype_syn.erev,
+                                           k=prototype_syn.k,
+                                           sigma=prototype_syn.sigma,
+                                           mu=prototype_syn.mu)
 
-        elif isinstance(prototype_syn, GradedSynapse2):
+            existing_synapses[new_id] = new_syn
+            nml_doc.graded_synapses.append(new_syn)
+
+        elif isinstance(prototype_syn, ):
             magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
             cond = "%s%s" % (magnitude, unit)
             #if type(n) is float:
@@ -621,7 +731,7 @@ def generate(net_id,
              param_overrides={},
              target_directory='./'):
                  
-    validate = not (params.is_level_B() or params.is_level_C0())
+    validate = not (params.is_level_B() or params.is_level_C0() or params.is_level_C2)
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
