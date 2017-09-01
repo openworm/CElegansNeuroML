@@ -1,5 +1,7 @@
 from decimal import Decimal
 
+from neuroml import ExpTwoSynapse, GapJunction, GradedSynapse, SilentSynapse
+
 '''
     Subject to much change & refactoring once PyOpenWorm is stable...
 '''
@@ -110,3 +112,47 @@ class c302ModelPrototype(ParameterisedModelPrototype):
     
     def is_level_D(self):
         return self.level.startswith('D')
+
+
+    def get_conn_param(self, pre_cell, post_cell, specific_conn_template, default_conn_template, param_name):
+        param = self.get_bioparameter(specific_conn_template % (pre_cell, post_cell, param_name))
+        if param:
+            return param.value, True
+        def_param = self.get_bioparameter(default_conn_template % param_name)
+        if not def_param:
+            return None, False
+        return def_param.value, False
+
+
+    def get_syn(self, pre_cell, post_cell, type, pol):
+        if pol == 'elec':
+            return self.get_elec_syn(pre_cell, post_cell, type)
+        elif pol == 'exc':
+            return self.get_exc_syn(pre_cell, post_cell, type)
+        elif pol == 'inh':
+            return self.get_inh_syn(pre_cell, post_cell, type)
+
+
+    def create_n_connection_synapse(self, prototype_syn, n, nml_doc, existing_synapses):
+        if existing_synapses.has_key(prototype_syn.id):
+            return existing_synapses[prototype_syn.id]
+
+        existing_synapses[prototype_syn.id] = prototype_syn
+        if isinstance(prototype_syn, ExpTwoSynapse):
+            nml_doc.exp_two_synapses.append(prototype_syn)
+        elif isinstance(prototype_syn, GapJunction):
+            nml_doc.gap_junctions.append(prototype_syn)
+        elif isinstance(prototype_syn, GradedSynapse):
+            nml_doc.graded_synapses.append(prototype_syn)
+        else:
+            del existing_synapses[prototype_syn.id]
+            raise Exception('Unknown synapse type')
+
+        return prototype_syn
+
+
+    def is_analog_conn(self, syn):
+        return isinstance(syn, GradedSynapse)
+
+    def is_elec_conn(self, syn):
+        return isinstance(syn, GapJunction)

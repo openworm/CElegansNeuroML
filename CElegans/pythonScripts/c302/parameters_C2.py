@@ -585,3 +585,214 @@ class ParameterisedModel(ParameterisedModel_C):
         self.muscle_to_muscle_elec_syn = GapJunction(id="muscle_to_muscle_elec_syn",
                                conductance =    self.get_bioparameter("muscle_to_muscle_elec_syn_gbase").value)
 
+    def get_elec_syn(self, pre_cell, post_cell, type):
+        specific_found = False
+        sigma = mu = None
+        if type == 'neuron_to_neuron':
+            gbase, specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
+                                                              'neuron_to_neuron_elec_syn_%s', 'gbase')
+            specific_found |= specific_param_found
+            sigma, specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
+                                                              'neuron_to_neuron_elec_syn_%s', 'sigma')
+            specific_found |= specific_param_found
+            mu, specific_param_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
+                                                              'neuron_to_neuron_elec_syn_%s', 'mu')
+            specific_found |= specific_param_found
+            if sigma or mu:
+                specific_found = True
+            conn_id = 'neuron_to_neuron_elec_syn'
+        elif type == 'neuron_to_muscle':
+            gbase, specific_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
+                                                              'neuron_to_muscle_elec_syn_%s', 'gbase')
+            conn_id = 'neuron_to_muscle_elec_syn'
+        elif type == 'muscle_to_muscle':
+            gbase, specific_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
+                                                              'muscle_to_muscle_elec_syn_%s', 'gbase')
+            conn_id = 'muscle_to_muscle_elec_syn'
+
+        if specific_found:
+            conn_id = '%s_to_%s_elec_syn' % (pre_cell, post_cell)
+
+        if sigma and mu:
+            conn_id = '%s_to_%s_delayed_elec_syn' % (pre_cell, post_cell)
+            return DelayedGapJunction(id=conn_id,
+                                      conductance=gbase,
+                                      sigma=sigma,
+                                      mu=mu)
+        return GapJunction(id=conn_id, conductance=gbase)
+
+    def get_exc_syn(self, pre_cell, post_cell, type):
+        specific_found = False
+
+        specific_param_template = '%s_to_%s_exc_syn_%s'
+        if type == 'neuron_to_neuron':
+            conductance, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_neuron_exc_syn_%s', 'conductance')
+            specific_found |= specific_param_found
+            erev, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'neuron_to_neuron_exc_syn_%s', 'erev')
+            specific_found |= specific_param_found
+            delta, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'neuron_to_neuron_exc_syn_%s', 'delta')
+            specific_found |= specific_param_found
+            vth, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'neuron_to_neuron_exc_syn_%s', 'vth')
+            specific_found |= specific_param_found
+            k, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'neuron_to_neuron_exc_syn_%s', 'k')
+            specific_found |= specific_param_found
+
+            conn_id = 'neuron_to_neuron_exc_syn'
+
+        elif type == 'neuron_to_muscle':
+            conductance, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_muscle_exc_syn_%s', 'conductance')
+            specific_found |= specific_param_found
+            erev, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'neuron_to_muscle_exc_syn_%s', 'erev')
+            specific_found |= specific_param_found
+            delta, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'neuron_to_muscle_exc_syn_%s', 'delta')
+            specific_found |= specific_param_found
+            vth, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'neuron_to_muscle_exc_syn_%s', 'vth')
+            specific_found |= specific_param_found
+            k, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'neuron_to_muscle_exc_syn_%s', 'k')
+            specific_found |= specific_param_found
+
+            conn_id = 'neuron_to_muscle_exc_syn'
+
+        if specific_found:
+            conn_id = '%s_to_%s_exc_syn' % (pre_cell, post_cell)
+
+        return GradedSynapse(id=conn_id,
+                             conductance=conductance,
+                             delta=delta,
+                             Vth=vth,
+                             erev=erev,
+                             k=k)
+
+    def get_inh_syn(self, pre_cell, post_cell, type):
+        specific_found = False
+
+        specific_param_template = '%s_to_%s_inh_syn_%s'
+        if type == 'neuron_to_neuron':
+            conductance, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_neuron_inh_syn_%s', 'conductance')
+            specific_found |= specific_param_found
+            erev, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'neuron_to_neuron_inh_syn_%s',
+                                                             'erev')
+            specific_found |= specific_param_found
+            delta, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'neuron_to_neuron_inh_syn_%s',
+                                                              'delta')
+            specific_found |= specific_param_found
+            vth, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'neuron_to_neuron_inh_syn_%s',
+                                                            'vth')
+            specific_found |= specific_param_found
+            k, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'neuron_to_neuron_inh_syn_%s',
+                                                          'k')
+            specific_found |= specific_param_found
+
+            conn_id = 'neuron_to_neuron_inh_syn'
+
+        elif type == 'neuron_to_muscle':
+            conductance, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_muscle_inh_syn_%s', 'conductance')
+            specific_found |= specific_param_found
+            erev, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'neuron_to_muscle_inh_syn_%s',
+                                                             'erev')
+            specific_found |= specific_param_found
+            delta, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'neuron_to_muscle_inh_syn_%s',
+                                                              'delta')
+            specific_found |= specific_param_found
+            vth, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'neuron_to_muscle_inh_syn_%s',
+                                                            'vth')
+            specific_found |= specific_param_found
+            k, specific_param_found = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'neuron_to_muscle_inh_syn_%s',
+                                                          'k')
+            specific_found |= specific_param_found
+
+            conn_id = 'neuron_to_muscle_inh_syn'
+
+        if specific_found:
+            conn_id = '%s_to_%s_inh_syn' % (pre_cell, post_cell)
+
+        return GradedSynapse(id=conn_id,
+                             conductance=conductance,
+                             delta=delta,
+                             Vth=vth,
+                             erev=erev,
+                             k=k)
+
+    def create_n_connection_synapse(self, prototype_syn, n, nml_doc, existing_synapses):
+        if existing_synapses.has_key(prototype_syn.id):
+            return existing_synapses[prototype_syn.id]
+
+        if isinstance(prototype_syn, DelayedGapJunction):
+            existing_synapses[prototype_syn.id] = prototype_syn
+            nml_doc.gap_junctions.append(prototype_syn)
+            return prototype_syn
+        else:
+            return super(ParameterisedModel, self).create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses)
+
+    def is_elec_conn(self, syn):
+        return super(ParameterisedModel, self).is_elec_conn(syn) or isinstance(syn, DelayedGapJunction)
+
+
+class SwitchedGapJunction():
+    def __init__(self, id, conductance, delay):
+        self.id = id
+        self.conductance = conductance
+        self.delay = delay
+
+    def export(self, outfile, level, namespace, name_, pretty_print=True):
+        outfile.write(
+            '    ' * level + '<switchedGapJunction id="%s" conductance="%s" delay="%s" />\n' % (
+            self.id, self.conductance, self.delay))
+
+
+class DelayedGapJunction():
+    def __init__(self, id, conductance, sigma, mu, weight=1):
+        self.id = id
+        self.weight = weight
+        self.conductance = conductance
+        self.sigma = sigma
+        self.mu = mu
+
+    def export(self, outfile, level, namespace, name_, pretty_print=True):
+        outfile.write(
+            '    ' * level + '<delayedGapJunction id="%s" weight="%s" conductance="%s" sigma="%s" mu="%s" />\n'
+            % (self.id, self.weight, self.conductance, self.sigma, self.mu))
+
+    def __repr__(self):
+        return "DelayedGapJunction(id=%s, weight=%s, conductance=%s, sigma=%s, mu=%s)" % (self.id, self.weight, self.conductance, self.sigma, self.mu)
+
+class DelayedGradedSynapse():
+    def __init__(self, id=None, weight=1, conductance=None, delta=None, vth=None, k=None, erev=None, sigma=None, mu=None):
+        self.id = id
+        self.weight = weight
+        self.conductance = conductance
+        self.delta = delta
+        self.vth = vth
+        self.k = k
+        self.erev = erev
+        self.sigma = sigma
+        self.mu = mu
+
+    def export(self, outfile, level, namespace, name_, pretty_print=True):
+        outfile.write(
+            '    ' * level + '<delayedGradedSynapse id="%s" weight="%s" conductance="%s" delta="%s" Vth="%s" k="%s" erev="%s" sigma="%s" mu="%s" />\n'
+            % (self.id, self.weight, self.conductance, self.delta, self.vth, self.k, self.erev, self.sigma, self.mu))
+
+    def __repr__(self):
+        return "DelayedGradedSynapse(id=%s, weight=%s, conductance=%s, delta=%s, vth=%s, k=%s, erev=%s, sigma=%s, mu=%s)" \
+               % (self.id, self.weight, self.conductance, self.delta, self.vth, self.k, self.erev, self.sigma, self.mu)

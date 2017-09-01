@@ -36,6 +36,7 @@ from parameters_B import IafActivityCell
 class ParameterisedModel(c302ModelPrototype):
 
     def __init__(self):
+        super(ParameterisedModel, self).__init__()
         self.level = "BC1"
         self.custom_component_types_definitions = 'cell_B.xml'
         
