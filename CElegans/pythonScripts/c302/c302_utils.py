@@ -16,9 +16,37 @@ def plots(a_n, info, cells, dt):
     
 
     c302.print_('Generating plots for: %s'%info)
-    
-    fig, ax = plt.subplots()
-    
+
+    heightened = False
+    matrix_height_in = None
+
+    if len(cells) > 24:
+        matrix_height_in = 10
+        heightened = True
+    if len(cells) > 100:
+        matrix_height_in = 20
+    if heightened:
+        #fontsize_pt = plt.rcParams['ytick.labelsize']
+        #dpi = 72.27
+
+        # comput the matrix height in points and inches
+        ##matrix_height_pt = fontsize_pt * a_n.shape[0]
+        ##matrix_height_in = float(matrix_height_pt) / dpi
+        #matrix_height_in = 10
+
+        # compute the required figure height
+        top_margin = 0.04  # in percentage of the figure height
+        bottom_margin = 0.04  # in percentage of the figure height
+        figure_height = matrix_height_in / (1 - top_margin - bottom_margin)
+
+        fig, ax = plt.subplots(
+            figsize=(6, figure_height),
+            gridspec_kw=dict(top=1 - top_margin, bottom=bottom_margin))
+    else:
+        fig, ax = plt.subplots()
+
+    #fig = plt.figure()
+    #ax = fig.gca()
     downscale = 10
     
     a_n_ = a_n[:,::downscale]
@@ -138,8 +166,9 @@ def plot_c302_results(lems_results,
             
         info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
 
+        #tasks.append((volts_n, info, cells, dt))
         plots(volts_n, info, cells, dt)
-    
+
         if save:
             f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
@@ -190,7 +219,6 @@ def plot_c302_results(lems_results,
 
         info = 'Membrane potentials of %i muscle(s) (%s %s)'%(len(muscles),config,parameter_set)
 
-        #tasks.append((mvolts_n, info, muscles, dt))
         plots(mvolts_n, info, muscles, dt)
         
         if save:
@@ -240,7 +268,7 @@ def plot_c302_results(lems_results,
                 activities_n = np.append(activities_n,[a],axis=0)
 
         plots(activities_n, info, cells, dt)
-    
+
         if save:
             f = save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
@@ -287,7 +315,6 @@ def plot_c302_results(lems_results,
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
-        #tasks.append((activities_n, info, muscles, dt))
         plots(activities_n, info, muscles, dt)
     
         if save:
