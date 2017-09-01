@@ -1,3 +1,4 @@
+from decimal import Decimal
 
 '''
     Subject to much change & refactoring once PyOpenWorm is stable...
@@ -31,7 +32,7 @@ class BioParameter():
     
     def change_magnitude(self, magnitude):
         
-        self.value = '%f %s'%(magnitude, split_neuroml_quantity(self.value)[1])
+        self.value = '%s %s'%(Decimal(magnitude), split_neuroml_quantity(self.value)[1])
         
     def x(self):
         
@@ -39,8 +40,10 @@ class BioParameter():
 
 
 class ParameterisedModelPrototype(object):
-    
-    bioparameters = []
+
+    #bioparameters = []
+    def __init__(self):
+        self.bioparameters = []
 
     def add_bioparameter(self, name, value, source, certainty):
         found = False
@@ -77,15 +80,18 @@ class ParameterisedModelPrototype(object):
     
 class c302ModelPrototype(ParameterisedModelPrototype):
 
-    level = "Level not yet set"
-    custom_component_types_definitions = None
-    generic_neuron_cell = None
-    generic_muscle_cell = None
-    exc_syn = None
-    inh_syn = None
-    elec_syn = None
-    offset_current = None
-    concentration_model = None
+    def __init__(self):
+        super(c302ModelPrototype, self).__init__()
+
+        self.level = "Level not yet set"
+        self.custom_component_types_definitions = None
+        self.generic_neuron_cell = None
+        self.generic_muscle_cell = None
+        self.exc_syn = None
+        self.inh_syn = None
+        self.elec_syn = None
+        self.offset_current = None
+        self.concentration_model = None
     
     def is_level_A(self):
         return self.level.startswith('A')
@@ -98,6 +104,9 @@ class c302ModelPrototype(ParameterisedModelPrototype):
     
     def is_level_C0(self):
         return self.level == 'C0'
+
+    def is_level_C2(self):
+        return self.level == 'C2'
     
     def is_level_D(self):
         return self.level.startswith('D')

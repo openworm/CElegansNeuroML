@@ -87,8 +87,9 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
         self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "0.49 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "3.46 nS", "BlindGuess", "0.1")
-        
+
+        self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "0.10 nS", "BlindGuess", "0.1")
+
         self.add_bioparameter("exc_syn_delta", "5 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_vth", "00 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_erev", "-10 mV", "BlindGuess", "0.1")
@@ -117,7 +118,16 @@ class ParameterisedModel(ParameterisedModel_C):
         
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.00152 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("muscle_to_muscle_elec_syn_gbase", "0.0052 nS", "BlindGuess", "0.1")
+
+
+        #self.add_bioparameter("muscle_to_muscle_elec_syn_gbase", "0.0002 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_to_muscle_elec_syn_gbase", "0 nS", "BlindGuess", "0.1")
+
+        self.add_bioparameter("neuron_to_motor_delayed_elec_syn_weight", "1", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_motor_delayed_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_motor_delayed_elec_syn_sigma", "0.4", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_motor_delayed_elec_syn_mu", "-30", "BlindGuess", "0.1")
+
 
         self.add_bioparameter("unphysiological_offset_current", "5.135697186048022 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
@@ -159,7 +169,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("AVBR_to_DB6_elec_syn_delay", "1250ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_DB7_elec_syn_delay", "1500ms", "BlindGuess", "0.1")"""
 
-        self.add_bioparameter("DB1_to_DB2_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")
+        """self.add_bioparameter("DB1_to_DB2_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")
         self.add_bioparameter("DB2_to_DB1_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("DB2_to_DB3_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")
@@ -175,7 +185,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("DB6_to_DB5_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("DB6_to_DB7_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("DB7_to_DB6_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("DB7_to_DB6_elec_syn_gbase", "0.02252 nS", "BlindGuess", "0.1")"""
 
         """self.add_bioparameter("DB1_to_DB2_elec_syn_sigma", "0.2per_ms", "BlindGuess", "0.1")
         self.add_bioparameter("DB1_to_DB2_elec_syn_mu", "-30 mV", "BlindGuess", "0.1")
@@ -214,7 +224,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
         #self.add_bioparameter("AVBR_to_DB4_exc_syn_conductance", "0 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
+        """self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.01252 nS", "BlindGuess", "0.1")
 
         #self.add_bioparameter("AVBL_to_AVBR_elec_syn_gbase", "1 nS", "BlindGuess", "0.1")
 
@@ -289,7 +299,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
         for syn in syns:
             self.add_bioparameter(syn, self.get_bioparameter('neuron_to_muscle_exc_syn_k').value, "BlindGuess", "0.1")
-
+        """
 
 
         #self.add_bioparameter("DB1_to_MDL06_exc_syn_delta", "5 mV", "BlindGuess", "0.1")
@@ -349,6 +359,7 @@ class ParameterisedModel(ParameterisedModel_C):
 
 
 
+
         """self.add_bioparameter("AVBL_to_VB1_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBL_to_VB1_elec_syn_mu", "50ms", "BlindGuess", "0.1")
 
@@ -399,8 +410,6 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("AVBL_to_VB11_elec_syn_mu", "100ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_VB11_elec_syn_sigma", "0.3per_ms", "BlindGuess", "0.1")
         self.add_bioparameter("AVBR_to_VB11_elec_syn_mu", "100ms", "BlindGuess", "0.1")"""
-
-
 
         #self.add_bioparameter("AVBL_to_DB4_elec_syn_gbase", "0.00652 nS", "BlindGuess", "0.1")
         #self.add_bioparameter("AVBR_to_DB4_elec_syn_gbase", "0.00652 nS", "BlindGuess", "0.1")

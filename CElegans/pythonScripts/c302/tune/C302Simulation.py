@@ -22,12 +22,9 @@ import c302
 
 class C302Simulation(object):
 
-    target_cell = 'ADAL'
-    params = None
-    
-    results = None
+    def __init__(self, reference, parameter_set, config, config_package=None, data_reader="SpreadsheetDataReader", sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './', input_list=None, conns_to_include=[], conns_to_exclude=[]):
 
-    def __init__(self, reference, parameter_set, config, sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './'):
+        self.target_cell = 'ADAL' # TODO: obsolete?
 
         self.sim_time = sim_time
         self.dt = dt

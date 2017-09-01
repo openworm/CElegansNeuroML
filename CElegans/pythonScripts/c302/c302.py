@@ -182,6 +182,32 @@ quadrant1 = 'MVR'
 quadrant2 = 'MVL'
 quadrant3 = 'MDL'
 
+# soma positions from http://www.wormatlas.org/neuronalwiring.html - 2.2 Neuron Description (Neuron Types)
+VB_soma_pos = {
+    'VB1':0.21,
+    'VB2':0.19,       
+    'VB3':0.28,
+    'VB4':0.32,
+    'VB5':0.38,
+    'VB6':0.45,
+    'VB7':0.5,
+    'VB8':0.57,
+    'VB9':0.61,
+    'VB10':0.67,
+    'VB11':0.72
+}
+
+DB_soma_pos = {
+    'DB1':0.24,
+    'DB2':0.21,       
+    'DB3':0.3,
+    'DB4':0.39,
+    'DB5':0.51,
+    'DB6':0.62,
+    'DB7':0.72
+}
+
+
 
 def get_next_stim_id(nml_doc, cell):
     i = 1
@@ -214,8 +240,21 @@ def append_input_to_nml_input_list(stim, nml_doc, cell, params):
 def add_new_sinusoidal_input(nml_doc, cell, delay, duration, amplitude, period, params):
     id = get_next_stim_id(nml_doc, cell)
     
-    phase = get_cell_position(cell).x
+    if cell.startswith("VB"):
+        phase = VB_soma_pos[cell]
+    else:
+        phase = DB_soma_pos[cell]
+    #phase = get_cell_position(cell).x
+    phase = phase * -0.886
     print "### CELL %s PHASE: %s" % (cell, phase)
+    
+    if cell.startswith("VB"):
+        if amplitude.startswith("-"):
+            amplitude = amplitude[1:]
+        else:
+            amplitude = "-" + amplitude
+            
+    
     
     input = SineGenerator(id=id, delay=delay, phase=phase, duration=duration, amplitude=amplitude, period=period)
     nml_doc.sine_generators.append(input)
@@ -453,6 +492,7 @@ def generate(net_id,
              seed = 1234,
              test=False,
              verbose=True,
+             print_connections=False,
              param_overrides={},
              target_directory='./'):
                  
@@ -855,7 +895,8 @@ def generate(net_id,
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
 
-            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
@@ -1019,8 +1060,11 @@ def generate(net_id,
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 continue
-                
-            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            if conns_to_exclude and conn_shorthand in conns_to_exclude:
+                continue
+
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
 
             polarity = None
             if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
