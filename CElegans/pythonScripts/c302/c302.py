@@ -36,6 +36,7 @@ import shutil
 import os
 import importlib
 import math
+from lxml import etree
 
 from parameters_C0 import GradedSynapse2
 
@@ -458,8 +459,10 @@ def generate(net_id,
     validate = not (params.is_level_B() or params.is_level_C0())
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    for k in param_overrides.keys():
-        v = param_overrides[k]
+    for k, v in param_overrides.iteritems():
+        if isinstance(v, dict):
+            continue  # channel params
+
         print_("Setting parameter %s = %s"%(k,v))
         params.set_bioparameter(k, v, "Set with param_overrides", 0)
     
@@ -561,8 +564,30 @@ def generate(net_id,
         for ctd in params.custom_component_types_definitions:
             lems_info["includes"].append(ctd)
             if target_directory != './':
-                def_file = "%s/%s"%(os.path.dirname(os.path.abspath(__file__)), ctd)
-                shutil.copy(def_file, target_directory)
+                # def_file = './%s' % ctd
+                def_file = "%s/%s" % (os.path.dirname(os.path.abspath(__file__)), ctd)
+
+                if param_overrides.has_key('custom_component_type_gate_overrides') and param_overrides[
+                    'custom_component_type_gate_overrides']:
+                    root = etree.parse(def_file).getroot()
+
+                    for k, v in param_overrides['custom_component_type_gate_overrides'].iteritems():
+                        channel_id = k.split('__')[0]
+                        gate_id = k.split('__')[1]
+                        gate_attr = k.split('__')[2]
+
+                        for c1 in root:
+                            if c1.tag != 'ionChannel' and c1.attrib.get('id') != channel_id:
+                                continue
+                            for c2 in c1:
+                                if c2.tag != 'gateHHtauInf' and c2.attrib.get('id') != gate_id:
+                                    continue
+                                for child in c2:
+                                    if child.attrib.get(gate_attr):
+                                        child.set(gate_attr, v)
+                    etree.ElementTree(root).write(os.path.join(target_directory, ctd), pretty_print=True)
+                else:
+                    shutil.copy(def_file, target_directory)
             nml_doc.includes.append(IncludeType(href=ctd))
     
     
