@@ -710,11 +710,29 @@ def elem_in_coll_matches_conn(coll, conn):
 
 def set_param(params, param, value):
     if params.get_bioparameter(param):
+        if params.get_bioparameter(param).value == value:
+            return
         print_("Setting parameter %s = %s" % (param, value))
         params.set_bioparameter(param, value, "Set with param_overrides", 0)
     else:
         print_("Adding parameter %s = %s" % (param, value))
         params.add_bioparameter(param, value, "Add with param_overrides", 0)
+
+def mirror_param(params, k, v):
+    pattern = k.split('_')
+    pre = pattern[0]
+    pattern[0] = '%s'
+    post = pattern[2]
+    pattern[2] = '%s'
+    tmp_param = pattern[5]
+    pattern[5] = '%s'
+    pattern = '_'.join(pattern)
+
+    override_key1 = pattern % (pre, post, tmp_param)
+    override_key2 = pattern % (post, pre, tmp_param)
+
+    set_param(params, override_key1, v)
+    set_param(params, override_key2, v)
 
     
 def generate(net_id,
@@ -744,35 +762,25 @@ def generate(net_id,
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
-    regex_param_overrides = {}
+    regex_param_overrides = {'mirrored_elec_conn_params':{}}
     if param_overrides:
         for k, v in param_overrides.iteritems():
             if k == 'mirrored_elec_conn_params':
                 for mk, mv in v.iteritems():
-                    pattern = mk.split('_')
-                    pre = pattern[0]
-                    pattern[0] = '%s'
-                    post = pattern[2]
-                    pattern[2] = '%s'
-                    tmp_param = pattern[5]
-                    pattern[5] = '%s'
-                    pattern = '_'.join(pattern)
-
-                    override_key1 = pattern % (pre, post, tmp_param)
-                    override_key2 = pattern % (post, pre, tmp_param)
-
-                    set_param(params, override_key1, mv)
-                    set_param(params, override_key2, mv)
+                    if is_regex_string(mk):
+                        regex_param_overrides['mirrored_elec_conn_params'][mk] = mv
+                        continue
+                    mirror_param(params, mk, mv)
 
 
-            if isinstance(v, dict):
+            elif k == 'custom_component_type_gate_overrides':
                 continue  # channel params
 
-            if is_regex_string(k):
+            elif is_regex_string(k):
                 regex_param_overrides[k] = v
                 continue # Add specific param later (e.g. add 'AVB.-DB\d+_elec_syn_gbase' during connection parsing)
-
-            set_param(params, k, v)
+            else:
+                set_param(params, k, v)
 
 
     params.create_models()
@@ -1165,6 +1173,9 @@ def generate(net_id,
 
 
             for key in regex_param_overrides.keys():
+                if key == 'mirrored_elec_conn_params':
+                    continue
+
                 pattern = key.split('$')[0] + '$'
                 pattern = pattern.replace('_to_', '-')
 
@@ -1173,12 +1184,20 @@ def generate(net_id,
                     new_param = new_param.replace('_GJ', '')
                     new_param_v = regex_param_overrides[key]
 
-                    if params.get_bioparameter(new_param):
-                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
-                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
-                    else:
-                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
-                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
+                    set_param(params, new_param, new_param_v)
+
+            if regex_param_overrides.has_key('mirrored_elec_conn_params'):
+                for k, v in regex_param_overrides['mirrored_elec_conn_params'].iteritems():
+
+                    pattern = k.split('$')[0] + '$'
+                    pattern = pattern.replace('_to_', '-')
+
+                    if re.match(pattern, conn_shorthand):
+                        new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
+                        new_param = new_param.replace('_GJ', '')
+                        new_param_v = v
+
+                        mirror_param(params, new_param, new_param_v)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
@@ -1375,6 +1394,9 @@ def generate(net_id,
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
             for key in regex_param_overrides.keys():
+                if key == 'mirrored_elec_conn_params':
+                    continue
+
                 pattern = key.split('$')[0] + '$'
                 pattern = pattern.replace('_to_', '-')
 
@@ -1383,12 +1405,20 @@ def generate(net_id,
                     new_param = new_param.replace('_GJ', '')
                     new_param_v = regex_param_overrides[key]
 
-                    if params.get_bioparameter(new_param):
-                        print_("Setting parameter %s = %s" % (new_param, new_param_v))
-                        params.set_bioparameter(new_param, new_param_v, "Set with param_overrides", 0)
-                    else:
-                        print_("Adding parameter %s = %s" % (new_param, new_param_v))
-                        params.add_bioparameter(new_param, new_param_v, "Add with param_overrides", 0)
+                    set_param(params, new_param, new_param_v)
+
+            if regex_param_overrides.has_key('mirrored_elec_conn_params'):
+                for k, v in regex_param_overrides['mirrored_elec_conn_params'].iteritems():
+
+                    pattern = k.split('$')[0] + '$'
+                    pattern = pattern.replace('_to_', '-')
+
+                    if re.match(pattern, conn_shorthand):
+                        new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
+                        new_param = new_param.replace('_GJ', '')
+                        new_param_v = v
+
+                        mirror_param(params, new_param, new_param_v)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
                 # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
