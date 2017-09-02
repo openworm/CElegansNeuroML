@@ -596,14 +596,14 @@ class ParameterisedModel(ParameterisedModel_C):
             mu = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
                                                               'neuron_to_neuron_elec_syn_%s', 'mu')
             if sigma or mu:
-                specific_found = True
+                self.found_specific_param = True
             conn_id = 'neuron_to_neuron_elec_syn'
         elif type == 'neuron_to_muscle':
-            gbase, specific_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
+            gbase = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
                                                               'neuron_to_muscle_elec_syn_%s', 'gbase')
             conn_id = 'neuron_to_muscle_elec_syn'
         elif type == 'muscle_to_muscle':
-            gbase, specific_found = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
+            gbase = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s',
                                                               'muscle_to_muscle_elec_syn_%s', 'gbase')
             conn_id = 'muscle_to_muscle_elec_syn'
 
