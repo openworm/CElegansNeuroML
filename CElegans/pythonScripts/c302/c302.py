@@ -707,6 +707,15 @@ def elem_in_coll_matches_conn(coll, conn):
             return True
     return False
 
+
+def set_param(params, param, value):
+    if params.get_bioparameter(param):
+        print_("Setting parameter %s = %s" % (param, value))
+        params.set_bioparameter(param, value, "Set with param_overrides", 0)
+    else:
+        print_("Adding parameter %s = %s" % (param, value))
+        params.add_bioparameter(param, value, "Add with param_overrides", 0)
+
     
 def generate(net_id,
              params,
@@ -738,6 +747,24 @@ def generate(net_id,
     regex_param_overrides = {}
     if param_overrides:
         for k, v in param_overrides.iteritems():
+            if k == 'mirrored_elec_conn_params':
+                for mk, mv in v.iteritems():
+                    pattern = mk.split('_')
+                    pre = pattern[0]
+                    pattern[0] = '%s'
+                    post = pattern[2]
+                    pattern[2] = '%s'
+                    tmp_param = pattern[5]
+                    pattern[5] = '%s'
+                    pattern = '_'.join(pattern)
+
+                    override_key1 = pattern % (pre, post, tmp_param)
+                    override_key2 = pattern % (post, pre, tmp_param)
+
+                    set_param(params, override_key1, mv)
+                    set_param(params, override_key2, mv)
+
+
             if isinstance(v, dict):
                 continue  # channel params
 
@@ -745,12 +772,7 @@ def generate(net_id,
                 regex_param_overrides[k] = v
                 continue # Add specific param later (e.g. add 'AVB.-DB\d+_elec_syn_gbase' during connection parsing)
 
-            if params.get_bioparameter(k):
-                print_("Setting parameter %s = %s"%(k,v))
-                params.set_bioparameter(k, v, "Set with param_overrides", 0)
-            else:
-                print_("Adding parameter %s = %s" % (k, v))
-                params.add_bioparameter(k, v, "Add with param_overrides", 0)
+            set_param(params, k, v)
 
 
     params.create_models()
