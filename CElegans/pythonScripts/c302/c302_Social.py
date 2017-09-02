@@ -23,6 +23,7 @@ def setup(parameter_set,
           target_directory='examples',
           data_reader="SpreadsheetDataReader",
           param_overrides={},
+          config_param_overrides={},
           verbose=True):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
@@ -44,7 +45,8 @@ def setup(parameter_set,
                        dt=dt, 
                        target_directory=target_directory,
                        param_overrides=param_overrides,
-                       verbose=verbose)
+                       verbose=verbose,
+                       data_reader=data_reader)
              
     stim_amplitude = "5pA"
     c302.add_new_input(nml_doc, "RMGR", "100ms", "200ms", stim_amplitude, params)

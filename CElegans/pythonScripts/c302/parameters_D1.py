@@ -38,6 +38,7 @@ from bioparameters import c302ModelPrototype
 class ParameterisedModel(c302ModelPrototype):
 
     def __init__(self):
+        super(ParameterisedModel, self).__init__()
         self.level = "D1"
         self.custom_component_types_definitions = 'cell_C.xml'
         
@@ -298,3 +299,111 @@ class ParameterisedModel(c302ModelPrototype):
         self.neuron_to_muscle_elec_syn = GapJunction(id="neuron_to_muscle_elec_syn",
                                conductance =    self.get_bioparameter("neuron_to_muscle_elec_syn_gbase").value)
 
+
+    def get_elec_syn(self, pre_cell, post_cell, type):
+        self.found_specific_param = False
+        if type == 'neuron_to_neuron':
+            gbase = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'neuron_to_neuron_elec_syn_%s', 'gbase')
+            conn_id = 'neuron_to_neuron_elec_syn'
+        elif type == 'neuron_to_muscle':
+            gbase = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'neuron_to_muscle_elec_syn_%s', 'gbase')
+            conn_id = 'neuron_to_muscle_elec_syn'
+
+        if self.found_specific_param:
+            conn_id = '%s_to_%s_elec_syn' % (pre_cell, post_cell)
+
+        return GapJunction(id=conn_id, conductance=gbase)
+
+
+
+    def get_exc_syn(self, pre_cell, post_cell, type):
+        self.found_specific_param = False
+
+        specific_param_template = '%s_to_%s_exc_syn_%s'
+        if type == 'neuron_to_neuron':
+            conductance = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_neuron_exc_syn_%s', 'conductance')
+            erev = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'exc_syn_%s', 'erev')
+            delta = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'exc_syn_%s', 'delta')
+            vth = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'exc_syn_%s', 'vth')
+            k = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'exc_syn_%s', 'k')
+            
+            conn_id = 'neuron_to_neuron_exc_syn'
+
+        elif type == 'neuron_to_muscle':
+            conductance = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_muscle_exc_syn_%s', 'conductance')
+            erev = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'exc_syn_%s', 'erev')
+            delta = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'exc_syn_%s', 'delta')
+            vth = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'exc_syn_%s', 'vth')
+            k = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'exc_syn_%s', 'k')
+            
+            conn_id = 'neuron_to_muscle_exc_syn'
+
+        if self.found_specific_param:
+            conn_id = '%s_to_%s_exc_syn' % (pre_cell, post_cell)
+
+        return GradedSynapse(id=conn_id,
+                             conductance=conductance,
+                             delta=delta,
+                             Vth=vth,
+                             erev=erev,
+                             k=k)
+
+    def get_inh_syn(self, pre_cell, post_cell, type):
+        self.found_specific_param = False
+
+        specific_param_template = '%s_to_%s_inh_syn_%s'
+        if type == 'neuron_to_neuron':
+            conductance = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_neuron_inh_syn_%s', 'conductance')
+            erev = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'inh_syn_%s',
+                                                             'erev')
+            delta = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'inh_syn_%s',
+                                                              'delta')
+            vth = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'inh_syn_%s',
+                                                            'vth')
+            k = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'inh_syn_%s',
+                                                          'k')
+            
+            conn_id = 'neuron_to_neuron_inh_syn'
+
+        elif type == 'neuron_to_muscle':
+            conductance = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                                    'neuron_to_muscle_inh_syn_%s', 'conductance')
+            erev = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                             'inh_syn_%s',
+                                                             'erev')
+            delta = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                              'inh_syn_%s',
+                                                              'delta')
+            vth = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                            'inh_syn_%s',
+                                                            'vth')
+            k = self.get_conn_param(pre_cell, post_cell, specific_param_template,
+                                                          'inh_syn_%s',
+                                                          'k')
+            
+            conn_id = 'neuron_to_muscle_inh_syn'
+
+        if self.found_specific_param:
+            conn_id = '%s_to_%s_inh_syn' % (pre_cell, post_cell)
+
+        return GradedSynapse(id=conn_id,
+                             conductance=conductance,
+                             delta=delta,
+                             Vth=vth,
+                             erev=erev,
+                             k=k)

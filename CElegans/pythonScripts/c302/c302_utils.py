@@ -16,9 +16,37 @@ def plots(a_n, info, cells, dt):
     
 
     c302.print_('Generating plots for: %s'%info)
-    
-    fig, ax = plt.subplots()
-    
+
+    heightened = False
+    matrix_height_in = None
+
+    if len(cells) > 24:
+        matrix_height_in = 10
+        heightened = True
+    if len(cells) > 100:
+        matrix_height_in = 20
+    if heightened:
+        #fontsize_pt = plt.rcParams['ytick.labelsize']
+        #dpi = 72.27
+
+        # comput the matrix height in points and inches
+        ##matrix_height_pt = fontsize_pt * a_n.shape[0]
+        ##matrix_height_in = float(matrix_height_pt) / dpi
+        #matrix_height_in = 10
+
+        # compute the required figure height
+        top_margin = 0.04  # in percentage of the figure height
+        bottom_margin = 0.04  # in percentage of the figure height
+        figure_height = matrix_height_in / (1 - top_margin - bottom_margin)
+
+        fig, ax = plt.subplots(
+            figsize=(6, figure_height),
+            gridspec_kw=dict(top=1 - top_margin, bottom=bottom_margin))
+    else:
+        fig, ax = plt.subplots()
+
+    #fig = plt.figure()
+    #ax = fig.gca()
     downscale = 10
     
     a_n_ = a_n[:,::downscale]
@@ -138,8 +166,9 @@ def plot_c302_results(lems_results,
             
         info = 'Membrane potentials of %i neuron(s) (%s %s)'%(len(cells),config,parameter_set)
 
+        #tasks.append((volts_n, info, cells, dt))
         plots(volts_n, info, cells, dt)
-    
+
         if save:
             f = save_fig_path%('neurons_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
@@ -190,7 +219,6 @@ def plot_c302_results(lems_results,
 
         info = 'Membrane potentials of %i muscle(s) (%s %s)'%(len(muscles),config,parameter_set)
 
-        #tasks.append((mvolts_n, info, muscles, dt))
         plots(mvolts_n, info, muscles, dt)
         
         if save:
@@ -240,7 +268,7 @@ def plot_c302_results(lems_results,
                 activities_n = np.append(activities_n,[a],axis=0)
 
         plots(activities_n, info, cells, dt)
-    
+
         if save:
             f = save_fig_path%('neuron_activity_%s_%s.png'%(parameter_set,config))
             c302.print_("Saving figure to: %s"%os.path.abspath(f))
@@ -287,7 +315,6 @@ def plot_c302_results(lems_results,
             else:
                 activities_n = np.append(activities_n,[a],axis=0)
 
-        #tasks.append((activities_n, info, muscles, dt))
         plots(activities_n, info, muscles, dt)
     
         if save:
@@ -458,34 +485,57 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
     print data_inh_m
     
     _show_conn_matrix(data_exc_n, 'Excitatory (non GABA) conns to neurons',all_neuron_info,all_neuron_info, 
-                      net.id, save_figure_to='%s%s_exc_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_exc_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
                       
     _show_conn_matrix(data_exc_m, 'Excitatory (non GABA) conns to muscles',all_neuron_info,all_muscle_info, 
-                      net.id, save_figure_to='%s%s_exc_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_exc_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     
     _show_conn_matrix(data_inh_n, 'Inhibitory (GABA) conns to neurons',all_neuron_info,all_neuron_info, 
-                      net.id, save_figure_to='%s%s_inh_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_inh_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     _show_conn_matrix(data_inh_m, 'Inhibitory (GABA) conns to muscles',all_neuron_info,all_muscle_info, 
-                      net.id, save_figure_to='%s%s_inh_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_inh_to_muscles.png'%(save_fig_dir,net.id) if save_fig_dir else None)
     
     
     data_n = np.zeros((len(all_neurons),len(all_neurons)))
-    #data_m = np.zeros((len(all_neurons),len(all_muscles)))
-    
+    data_n_m = np.zeros((len(all_neurons),len(all_muscles)))
+    data_m_m = np.zeros((len(all_muscles), len(all_muscles)))
+
+    neuron_muscle = False
+    muscle_muscle = False
+
     for pre in gj_conns.keys():
         for post in gj_conns[pre].keys():
             print("Elect Conn %s -> %s: %s"%(pre,post,gj_conns[pre][post]))
             
-            if post in all_neurons:
+            if pre in all_neurons and post in all_neurons:
                 data_n[all_neurons.index(pre),all_neurons.index(post)] = gj_conns[pre][post]
-            if post in all_muscles:
-                raise Exception("Unexpected...")
-            if pre in all_muscles:
+            elif pre in all_neurons and post in all_muscles or pre in all_muscles and post in all_neurons:
+                if pre in all_neurons:
+                    data_n_m[all_neurons.index(pre), all_muscles.index(post)] = gj_conns[pre][post]
+                else:
+                    data_n_m[all_muscles.index(pre), all_neurons.index(post)] = gj_conns[pre][post]
+                neuron_muscle = True
+            elif pre in all_muscles and post in all_muscles:
+                muscle_muscle = True
+                data_m_m[all_muscles.index(pre), all_muscles.index(post)] = gj_conns[pre][post]
+            else:
                 raise Exception("Unexpected...")
         
     
     _show_conn_matrix(data_n, 'Electrical (gap junction) conns to neurons',all_neuron_info,all_neuron_info, 
-                      net.id, save_figure_to='%s%s_elec_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+                      net.id, save_figure_to='%s/%s_elec_neurons_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
+
+    if neuron_muscle:
+        _show_conn_matrix(data_n_m, 'Electrical (gap junction) conns between neurons and muscles', all_neuron_info, all_muscle_info,
+                          net.id,
+                          save_figure_to='%s/%s_elec_neurons_muscles.png' % (save_fig_dir, net.id) if save_fig_dir else None)
+
+    if muscle_muscle:
+        _show_conn_matrix(data_m_m, 'Electrical (gap junction) conns between muscles', all_muscle_info,
+                          all_muscle_info,
+                          net.id,
+                          save_figure_to='%s/%s_elec_muscles_muscles.png' % (
+                          save_fig_dir, net.id) if save_fig_dir else None)
     #_show_conn_matrix(data_m, 'Electrical (gap junction) conns to muscles',all_neuron_info,all_muscle_info, net.id)
         
 def _get_cell_info(cells):

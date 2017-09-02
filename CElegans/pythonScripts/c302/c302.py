@@ -36,8 +36,12 @@ import shutil
 import os
 import importlib
 import math
+from lxml import etree
+import re
 
 from parameters_C0 import GradedSynapse2
+from parameters_C2 import DelayedGapJunction
+from parameters_C2 import DelayedGradedSynapse
 
 try:
     from urllib2 import URLError  # Python 2
@@ -181,6 +185,32 @@ quadrant1 = 'MVR'
 quadrant2 = 'MVL'
 quadrant3 = 'MDL'
 
+# soma positions from http://www.wormatlas.org/neuronalwiring.html - 2.2 Neuron Description (Neuron Types)
+VB_soma_pos = {
+    'VB1':0.21,
+    'VB2':0.19,       
+    'VB3':0.28,
+    'VB4':0.32,
+    'VB5':0.38,
+    'VB6':0.45,
+    'VB7':0.5,
+    'VB8':0.57,
+    'VB9':0.61,
+    'VB10':0.67,
+    'VB11':0.72
+}
+
+DB_soma_pos = {
+    'DB1':0.24,
+    'DB2':0.21,       
+    'DB3':0.3,
+    'DB4':0.39,
+    'DB5':0.51,
+    'DB6':0.62,
+    'DB7':0.72
+}
+
+
 
 def get_next_stim_id(nml_doc, cell):
     i = 1
@@ -213,8 +243,21 @@ def append_input_to_nml_input_list(stim, nml_doc, cell, params):
 def add_new_sinusoidal_input(nml_doc, cell, delay, duration, amplitude, period, params):
     id = get_next_stim_id(nml_doc, cell)
     
-    phase = get_cell_position(cell).x
+    if cell.startswith("VB"):
+        phase = VB_soma_pos[cell]
+    else:
+        phase = DB_soma_pos[cell]
+    #phase = get_cell_position(cell).x
+    phase = phase * -0.886
     print "### CELL %s PHASE: %s" % (cell, phase)
+    
+    if cell.startswith("VB"):
+        if amplitude.startswith("-"):
+            amplitude = amplitude[1:]
+        else:
+            amplitude = "-" + amplitude
+            
+    
     
     input = SineGenerator(id=id, delay=delay, phase=phase, duration=duration, amplitude=amplitude, period=period)
     nml_doc.sine_generators.append(input)
@@ -276,7 +319,7 @@ def write_to_file(nml_doc,
     lems_file_name = target_directory+'/'+'LEMS_%s.xml'%reference
     with open(lems_file_name, 'w') as lems:
         # if running unittest concat template_path
-    	merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
+        merged = merge_with_template(lems_info, template_path+LEMS_TEMPLATE_FILE)
         lems.write(merged)
 
     if verbose: 
@@ -309,77 +352,6 @@ def get_random_colour_hex():
     col = "#"
     for c in rgb: col+= ( c[2:4] if len(c)==4 else "00")
     return col
-
-
-def create_n_connection_synapse(prototype_syn, n, nml_doc, existing_synapses):
-
-    #print_("Creating synapse from %s with %i connections"%(prototype_syn.id, n))
-    new_id = "%s"%(prototype_syn.id)
-    #if type(n) is float:
-    #    new_id = "%s_%sconns" % (prototype_syn.id, get_str_from_expnotation(n).replace('.', '_'))
-    
-    if isinstance(prototype_syn, ExpTwoSynapse):
-        new_id = "%s"%(prototype_syn.id)
-
-    if not existing_synapses.has_key(new_id):
-
-        if isinstance(prototype_syn, ExpTwoSynapse):
-            
-            new_syn = ExpTwoSynapse(id=new_id,
-                                gbase =       prototype_syn.gbase,
-                                erev =        prototype_syn.erev,
-                                tau_decay =   prototype_syn.tau_decay,
-                                tau_rise =    prototype_syn.tau_rise)
-
-            existing_synapses[new_id] = new_syn
-            nml_doc.exp_two_synapses.append(new_syn)
-
-        elif isinstance(prototype_syn, GapJunction):
-            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
-            cond = "%s%s" % (magnitude, unit)
-            #if type(n) is float:
-            #    cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
-            new_syn = GapJunction(id=new_id,
-                                  conductance =       cond)
-
-            existing_synapses[new_id] = new_syn
-            nml_doc.gap_junctions.append(new_syn)
-
-        elif isinstance(prototype_syn, GradedSynapse):
-            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
-            cond = "%s%s" % (magnitude, unit)
-            #if type(n) is float:
-            #    cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
-            new_syn = GradedSynapse(id=new_id,
-                                    conductance =       cond,
-                                    delta =             prototype_syn.delta,
-                                    Vth =               prototype_syn.Vth,
-                                    erev =              prototype_syn.erev,
-                                    k =                 prototype_syn.k)
-
-            existing_synapses[new_id] = new_syn
-            nml_doc.graded_synapses.append(new_syn)
-
-        elif isinstance(prototype_syn, GradedSynapse2):
-            magnitude, unit = bioparameters.split_neuroml_quantity(prototype_syn.conductance)
-            cond = "%s%s" % (magnitude, unit)
-            #if type(n) is float:
-            #    cond = "%s%s" % (get_str_from_expnotation(magnitude * n), unit)
-            new_syn = GradedSynapse2(id=new_id,
-                                    conductance =       cond,
-                                    ar =                prototype_syn.ar,
-                                    ad =                prototype_syn.ad,
-                                    beta =              prototype_syn.beta,
-                                    vth =               prototype_syn.vth,
-                                    erev =              prototype_syn.erev)
-
-            existing_synapses[new_id] = new_syn
-            nml_doc.graded_synapses.append(new_syn)
-
-    else:
-        new_syn = existing_synapses[new_id]
-
-    return new_syn
 
 
 def get_file_name_relative_to_c302(file_name):
@@ -432,7 +404,49 @@ def get_cell_id_string(cell, params, muscle=False):
             return "../%s/0/%s"%(cell, cell)
         else:
             return "../%s/0/%s"%(cell, params.generic_muscle_cell.id)
-    
+
+
+def regex_match(pattern, str):
+    return is_regex_string(pattern) and re.match(pattern, str)
+
+
+def is_regex_string(str):
+    return '^' in str and '$' in str
+
+
+def elem_in_coll_matches_conn(coll, conn):
+    for elem in coll:
+        if regex_match(elem, conn):
+            return True
+    return False
+
+
+def set_param(params, param, value):
+    if params.get_bioparameter(param):
+        if params.get_bioparameter(param).value == value:
+            return
+        print_("Setting parameter %s = %s" % (param, value))
+        params.set_bioparameter(param, value, "Set with param_overrides", 0)
+    else:
+        print_("Adding parameter %s = %s" % (param, value))
+        params.add_bioparameter(param, value, "Add with param_overrides", 0)
+
+def mirror_param(params, k, v):
+    pattern = k.split('_')
+    pre = pattern[0]
+    pattern[0] = '%s'
+    post = pattern[2]
+    pattern[2] = '%s'
+    tmp_param = pattern[5]
+    pattern[5] = '%s'
+    pattern = '_'.join(pattern)
+
+    override_key1 = pattern % (pre, post, tmp_param)
+    override_key2 = pattern % (post, pre, tmp_param)
+
+    set_param(params, override_key1, v)
+    set_param(params, override_key2, v)
+
     
 def generate(net_id,
              params,
@@ -442,6 +456,7 @@ def generate(net_id,
              cells_to_stimulate = None,
              muscles_to_include=[],
              conns_to_include=[],
+             conns_to_exclude=[],
              conn_number_override = None,
              conn_number_scaling = None,
              conn_polarity_override = None,
@@ -452,17 +467,34 @@ def generate(net_id,
              seed = 1234,
              test=False,
              verbose=True,
+             print_connections=False,
              param_overrides={},
              target_directory='./'):
                  
-    validate = not (params.is_level_B() or params.is_level_C0())
+    validate = not (params.is_level_B() or params.is_level_C0() or params.is_level_C2)
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    for k in param_overrides.keys():
-        v = param_overrides[k]
-        print_("Setting parameter %s = %s"%(k,v))
-        params.set_bioparameter(k, v, "Set with param_overrides", 0)
-    
+
+    regex_param_overrides = {'mirrored_elec_conn_params':{}}
+    if param_overrides:
+        for k, v in param_overrides.iteritems():
+            if k == 'mirrored_elec_conn_params':
+                for mk, mv in v.iteritems():
+                    if is_regex_string(mk):
+                        regex_param_overrides['mirrored_elec_conn_params'][mk] = mv
+                        continue
+                    mirror_param(params, mk, mv)
+
+
+            elif k == 'custom_component_type_gate_overrides':
+                continue  # channel params
+
+            elif is_regex_string(k):
+                regex_param_overrides[k] = v
+                continue # Add specific param later (e.g. add 'AVB.-DB\d+_elec_syn_gbase' during connection parsing)
+            else:
+                set_param(params, k, v)
+
 
     params.create_models()
     
@@ -502,6 +534,8 @@ def generate(net_id,
            "    Connection numbers scaled:      %s\n" % (conn_number_scaling if conn_number_scaling is not None else "None")+ \
            "    Connection polarities override: %s\n" % conn_polarity_override + \
            "    Muscles:                        %s\n" % (muscles_to_include if muscles_to_include is not None else "All muscles")
+
+    info_settings = info
     if verbose: print_(info)
     info += "\n%s\n"%(params.bioparameter_info("    "))
 
@@ -559,8 +593,30 @@ def generate(net_id,
         for ctd in params.custom_component_types_definitions:
             lems_info["includes"].append(ctd)
             if target_directory != './':
-                def_file = "%s/%s"%(os.path.dirname(os.path.abspath(__file__)), ctd)
-                shutil.copy(def_file, target_directory)
+                # def_file = './%s' % ctd
+                def_file = "%s/%s" % (os.path.dirname(os.path.abspath(__file__)), ctd)
+
+                if param_overrides.has_key('custom_component_type_gate_overrides') and param_overrides[
+                    'custom_component_type_gate_overrides']:
+                    root = etree.parse(def_file).getroot()
+
+                    for k, v in param_overrides['custom_component_type_gate_overrides'].iteritems():
+                        channel_id = k.split('__')[0]
+                        gate_id = k.split('__')[1]
+                        gate_attr = k.split('__')[2]
+
+                        for c1 in root:
+                            if c1.tag != 'ionChannel' and c1.attrib.get('id') != channel_id:
+                                continue
+                            for c2 in c1:
+                                if c2.tag != 'gateHHtauInf' and c2.attrib.get('id') != gate_id:
+                                    continue
+                                for child in c2:
+                                    if child.attrib.get(gate_attr):
+                                        child.set(gate_attr, v)
+                    etree.ElementTree(root).write(os.path.join(target_directory, ctd), pretty_print=True)
+                else:
+                    shutil.copy(def_file, target_directory)
             nml_doc.includes.append(IncludeType(href=ctd))
     
     
@@ -814,55 +870,114 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = params.neuron_to_neuron_exc_syn
+
+            conn_type = "neuron_to_neuron"
+            conn_pol = "exc"
+
             orig_pol = "exc"
             
             if 'GABA' in conn.synclass:
-                syn0 = params.neuron_to_neuron_inh_syn
+                conn_pol = "inh"
                 orig_pol = "inh"
             if '_GJ' in conn.synclass:
-                syn0 = params.neuron_to_neuron_elec_syn
-                elect_conn = isinstance(params.neuron_to_neuron_elec_syn, GapJunction)
+                conn_pol = "elec"
+                elect_conn = params.is_elec_conn(params.neuron_to_neuron_elec_syn)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
 
-            if conns_to_include and conn_shorthand not in conns_to_include:
-                continue
 
-            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+            for key in regex_param_overrides.keys():
+                if key == 'mirrored_elec_conn_params':
+                    continue
+
+                pattern = key.split('$')[0] + '$'
+                pattern = pattern.replace('_to_', '-')
+
+                if re.match(pattern, conn_shorthand):
+                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
+                    new_param = new_param.replace('_GJ', '')
+                    new_param_v = regex_param_overrides[key]
+
+                    set_param(params, new_param, new_param_v)
+
+            if regex_param_overrides.has_key('mirrored_elec_conn_params'):
+                for k, v in regex_param_overrides['mirrored_elec_conn_params'].iteritems():
+
+                    pattern = k.split('$')[0] + '$'
+                    pattern = pattern.replace('_to_', '-')
+
+                    if re.match(pattern, conn_shorthand):
+                        new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
+                        new_param = new_param.replace('_GJ', '')
+                        new_param_v = v
+
+                        mirror_param(params, new_param, new_param_v)
+
+            if conns_to_include and conn_shorthand not in conns_to_include:
+                # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
+                if not elem_in_coll_matches_conn(conns_to_include, conn_shorthand):
+                    continue
+            if conns_to_exclude:
+                if conn_shorthand in conns_to_exclude:
+                    continue
+                # conn_shorthand not in conns_to_exclude. if there is a regex in conns_to_exclude which matches the current conn_shorthand -> exclude
+                if elem_in_coll_matches_conn(conns_to_exclude, conn_shorthand):
+                    continue
+
+            syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
+
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
+
 
             polarity = None
-            if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
-                polarity = conn_polarity_override[conn_shorthand]
-
+            if conn_polarity_override:
+                #if elem_in_coll_matches_conn(conn_polarity_override.keys(), conn_shorthand):
+                for conn_pol in conn_polarity_override.keys():
+                    if conn_pol == conn_shorthand:
+                        polarity = conn_polarity_override[conn_shorthand]
+                        break
+                    elif regex_match(conn_pol, conn_shorthand):
+                        polarity = conn_polarity_override[conn_pol]
+                        break
             if polarity and not elect_conn:
-                if polarity == 'inh':
-                    syn0 = params.neuron_to_neuron_inh_syn
-                else:
-                    syn0 = params.neuron_to_neuron_exc_syn
+                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
                        (conn.pre_cell, conn.post_cell, orig_pol, polarity))
-                
-                
-                
-            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2):
+
+            if params.is_analog_conn(syn0):
                 analog_conn = True
-                if len(nml_doc.silent_synapses)==0:
-                    silent = SilentSynapse(id="silent")
-                    nml_doc.silent_synapses.append(silent)
+                if len(nml_doc.silent_synapses) == 0:
+                    nml_doc.silent_synapses.append(SilentSynapse(id="silent"))
 
             number_syns = conn.number
-            
-            
+
+
             if params.get_bioparameter('global_connectivity_power_scaling'):
                 scale = params.get_bioparameter('global_connectivity_power_scaling').x()
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
 
-            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
-                number_syns = conn_number_override[conn_shorthand]
-            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
-                number_syns = conn.number*conn_number_scaling[conn_shorthand]
+            if conn_number_override:
+                #number_syns = conn_number_override[conn_shorthand]
+
+                for conn_num_override in conn_number_override.keys():
+                    if conn_num_override == conn_shorthand:
+                        number_syns = conn_number_override[conn_shorthand]
+                        break
+                    elif regex_match(conn_num_override, conn_shorthand):
+                        number_syns = conn_number_override[conn_num_override]
+                        break
+            if conn_number_scaling:
+                #number_syns = conn.number*conn_number_scaling[conn_shorthand]
+
+                for conn_num_scale in conn_number_scaling.keys():
+                    if conn_num_scale == conn_shorthand:
+                        number_syns = conn.number * conn_number_scaling[conn_shorthand]
+                        break
+                    elif regex_match(conn_num_scale, conn_shorthand):
+                        number_syns = conn.number * conn_number_scaling[conn_num_scale]
+                        break
             '''
             else:
                 print conn_shorthand
@@ -892,7 +1007,7 @@ def generate(net_id,
             #if conn.pre_cell.startswith(tuple(known_motor_prefixes)) or conn.post_cell.startswith(tuple(known_motor_prefixes)):
             #    print "######### %s-%s %s %s" % (conn.pre_cell, conn.post_cell, number_syns, conn.synclass)
 
-            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
+            syn_new = params.create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
             if elect_conn:
 
@@ -973,58 +1088,111 @@ def generate(net_id,
 
             elect_conn = False
             analog_conn = False
-            syn0 = params.neuron_to_muscle_exc_syn
+
+            conn_type = "neuron_to_muscle"
+            if conn.pre_cell in muscles_to_include:
+                conn_type = "muscle_to_muscle"
+            conn_pol = "exc"
             orig_pol = "exc"
+
+
             if 'GABA' in conn.synclass:
-                syn0 = params.neuron_to_muscle_inh_syn
+                conn_pol = "inh"
                 orig_pol = "inh"
-            
+
             if '_GJ' in conn.synclass :
-                elect_conn = isinstance(params.neuron_to_muscle_elec_syn, GapJunction)
+                conn_pol = "elec"
+                orig_pol = "elec"
+                elect_conn = params.is_elec_conn(params.neuron_to_neuron_elec_syn)
                 conn_shorthand = "%s-%s_GJ" % (conn.pre_cell, conn.post_cell)
-                if conn.pre_cell in lems_info["cells"]:
-                    syn0 = params.neuron_to_muscle_elec_syn
-                elif conn.pre_cell in muscles_to_include:
-                    try:
-                        syn0 = params.muscle_to_muscle_elec_syn
-                    except:
-                        syn0 = params.neuron_to_muscle_elec_syn
+
+            for key in regex_param_overrides.keys():
+                if key == 'mirrored_elec_conn_params':
+                    continue
+
+                pattern = key.split('$')[0] + '$'
+                pattern = pattern.replace('_to_', '-')
+
+                if re.match(pattern, conn_shorthand):
+                    new_param = conn_shorthand.replace('-', '_to_') + key.split('$')[1]
+                    new_param = new_param.replace('_GJ', '')
+                    new_param_v = regex_param_overrides[key]
+
+                    set_param(params, new_param, new_param_v)
+
+            if regex_param_overrides.has_key('mirrored_elec_conn_params'):
+                for k, v in regex_param_overrides['mirrored_elec_conn_params'].iteritems():
+
+                    pattern = k.split('$')[0] + '$'
+                    pattern = pattern.replace('_to_', '-')
+
+                    if re.match(pattern, conn_shorthand):
+                        new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
+                        new_param = new_param.replace('_GJ', '')
+                        new_param_v = v
+
+                        mirror_param(params, new_param, new_param_v)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
-                continue
-                
-            #print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+                # conn_shorthand not in conns_to_include. if there is a regex in conns_to_include which matches the current conn_shorthand -> include
+                if not elem_in_coll_matches_conn(conns_to_include, conn_shorthand):
+                    continue
+            if conns_to_exclude:
+                if conn_shorthand in conns_to_exclude:
+                    continue
+                # conn_shorthand not in conns_to_exclude. if there is a regex in conns_to_exclude which matches the current conn_shorthand -> exclude
+                if elem_in_coll_matches_conn(conns_to_exclude, conn_shorthand):
+                    continue
+
+            syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
+
+            if print_connections:
+                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+
 
             polarity = None
-            if conn_polarity_override and conn_polarity_override.has_key(conn_shorthand):
-                polarity = conn_polarity_override[conn_shorthand]
-
+            if conn_polarity_override:
+                for conn_pol in conn_polarity_override.keys():
+                    if conn_pol == conn_shorthand:
+                        polarity = conn_polarity_override[conn_pol]
+                        break
+                    elif regex_match(conn_pol, conn_shorthand):
+                        polarity = conn_polarity_override[conn_pol]
+                        break
             if polarity and not elect_conn:
-                if polarity == 'inh':
-                    syn0 = params.neuron_to_neuron_inh_syn
-                else:
-                    syn0 = params.neuron_to_neuron_exc_syn
+                syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, polarity)
                 if verbose and polarity != orig_pol:
                     print_(">> Changing polarity of connection %s -> %s: was: %s, becomes %s " % \
-                       (conn.pre_cell, conn.post_cell, orig_pol, polarity))
+                           (conn.pre_cell, conn.post_cell, orig_pol, polarity))
 
-            if isinstance(syn0, GradedSynapse) or isinstance(syn0, GradedSynapse2):
+            if params.is_analog_conn(syn0):
                 analog_conn = True
-                if len(nml_doc.silent_synapses)==0:
-                    silent = SilentSynapse(id="silent")
-                    nml_doc.silent_synapses.append(silent)
-                    
+                if len(nml_doc.silent_synapses) == 0:
+                    nml_doc.silent_synapses.append(SilentSynapse(id="silent"))
+
             number_syns = conn.number
-            
+
             if params.get_bioparameter('global_connectivity_power_scaling'):
                 scale = params.get_bioparameter('global_connectivity_power_scaling').x()
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
             
-            if conn_number_override is not None and (conn_number_override.has_key(conn_shorthand)):
-                number_syns = conn_number_override[conn_shorthand]
-            elif conn_number_scaling is not None and (conn_number_scaling.has_key(conn_shorthand)):
-                number_syns = conn.number*conn_number_scaling[conn_shorthand]
+            if conn_number_override:
+                for conn_num_override in conn_number_override.keys():
+                    if conn_num_override == conn_shorthand:
+                        number_syns = conn_number_override[conn_shorthand]
+                        break
+                    elif regex_match(conn_num_override, conn_shorthand):
+                        number_syns = conn_number_override[conn_num_override]
+                        break
+            if conn_number_scaling:
+                for conn_num_scale in conn_number_scaling.keys():
+                    if conn_num_scale == conn_shorthand:
+                        number_syns = conn.number * conn_number_scaling[conn_shorthand]
+                        break
+                    elif regex_match(conn_num_scale, conn_shorthand):
+                        number_syns = conn.number * conn_number_scaling[conn_num_scale]
+                        break
             '''
             else:
                 print conn_shorthand
@@ -1038,7 +1206,7 @@ def generate(net_id,
                 print "%s %s num:%s" % (conn_shorthand, orig_pol, number_syns)"""
 
             if number_syns != conn.number:
-                
+
                 if analog_conn or elect_conn:
                     magnitude, unit = bioparameters.split_neuroml_quantity(syn0.conductance)
                 else:
@@ -1046,18 +1214,18 @@ def generate(net_id,
                 cond0 = "%s%s"%(magnitude*conn.number, unit)
                 cond1 = "%s%s" % (get_str_from_expnotation(magnitude * number_syns), unit)
                 gj = "" if not elect_conn else " GapJunction"
-                if verbose: 
+                if verbose:
                     print_(">> Changing number of effective synapses connection %s -> %s%s: was: %s (total cond: %s), becomes %s (total cond: %s)" % \
-                     (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
+                           (conn.pre_cell, conn.post_cell, gj, conn.number, cond0, number_syns, cond1))
 
 
-            syn_new = create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
+            syn_new = params.create_n_connection_synapse(syn0, number_syns, nml_doc, existing_synapses)
 
             if elect_conn:
 
                 proj0 = ElectricalProjection(id=proj_id, \
-                                   presynaptic_population=conn.pre_cell,
-                                   postsynaptic_population=conn.post_cell)
+                                             presynaptic_population=conn.pre_cell,
+                                             postsynaptic_population=conn.post_cell)
 
                 net.electrical_projections.append(proj0)
 
@@ -1076,10 +1244,10 @@ def generate(net_id,
                 proj0.electrical_connection_instance_ws.append(conn0)
                 
             elif analog_conn:
-        
+
                 proj0 = ContinuousProjection(id=proj_id, \
-                                   presynaptic_population=conn.pre_cell,
-                                   postsynaptic_population=conn.post_cell)
+                                             presynaptic_population=conn.pre_cell,
+                                             postsynaptic_population=conn.post_cell)
 
                 net.continuous_projections.append(proj0)
 
@@ -1110,12 +1278,15 @@ def generate(net_id,
                 post_cell_id= get_cell_id_string(conn.post_cell, params, muscle=True)
 
                 conn0 = Connection(id="0", \
-                           pre_cell_id=pre_cell_id,
-                           post_cell_id=post_cell_id)
+                                   pre_cell_id=pre_cell_id,
+                                   post_cell_id=post_cell_id)
 
                 proj0.connections.append(conn0)
 
-
+    if param_overrides and param_overrides.keys():
+        info_new = info_settings + "\n%s\n" % (params.bioparameter_info("    "))
+        nml_doc.notes = info_new
+        lems_info['comment'] = info_new
 
     # import pprint
     # pprint.pprint(lems_info)

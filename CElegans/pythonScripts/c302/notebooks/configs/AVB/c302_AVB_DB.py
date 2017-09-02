@@ -1,11 +1,14 @@
 import sys
-sys.path.append('../../../')
+import os
 
-from CElegans.pythonScripts.c302 import c302
+sys.path.insert(0, os.path.abspath('.'))
+
+import c302
 
 import neuroml.writers as writers
 
 range_incl = lambda start, end:range(start, end + 1)
+
 
 def setup(parameter_set,
           generate=False,
@@ -15,9 +18,8 @@ def setup(parameter_set,
           data_reader="SpreadsheetDataReader",
           param_overrides={},
           verbose=True,
-          conn_polarity_override={},
-          conn_number_override={}):
-    
+          config_param_overrides={}):
+
     exec ('from parameters_%s import ParameterisedModel' % parameter_set)
     params = ParameterisedModel()
 
@@ -33,6 +35,9 @@ def setup(parameter_set,
     VD_motors = ["VD%s" % c for c in range_incl(1, 13)]
     AS_motors = ["AS%s" % c for c in range_incl(1, 11)]
 
+    #cells = list(['AVBL', 'AVBR'] + DB_motors + VD_motors + VB_motors + DD_motors + VA_motors + DA_motors + AS_motors)
+    #cells = list(['AVBL', 'AVBR', 'AVAL', 'AVAR'] + DB_motors + VD_motors + VB_motors + DD_motors + AS_motors + VA_motors + DA_motors)
+    #cells = list(['AVBL', 'AVBR'] + ['DB2', 'DB5', 'DB6'])
     cells = list(['AVBL', 'AVBR'] + DB_motors)
 
     muscles_to_include = True
@@ -42,17 +47,24 @@ def setup(parameter_set,
     cells_to_plot = list(cells)
     reference = "c302_%s_AVB_DB" % parameter_set
 
-    conns_to_include = [
-    ]
 
-    conn_polarity_override.update({
-        
-    })
-    
+    conns_to_include = []
+    if config_param_overrides.has_key('conns_to_include'):
+        conns_to_include = config_param_overrides['conns_to_include']
 
-    conn_number_override.update({
-    })
 
+
+    conn_polarity_override = {}
+    if config_param_overrides.has_key('conn_polarity_override'):
+        conn_polarity_override.update(config_param_overrides['conn_polarity_override'])
+
+    conn_number_override = {
+
+    }
+    if config_param_overrides.has_key('conn_number_override'):
+        conn_number_override.update(config_param_overrides['conn_number_override'])
+
+    nml_doc = None
     if generate:
         nml_doc = c302.generate(reference,
                                 params,
@@ -70,18 +82,16 @@ def setup(parameter_set,
                                 param_overrides=param_overrides,
                                 verbose=verbose)
 
-        
-        #for vb in VB_motors:
-        #    c302.add_new_sinusoidal_input(nml_doc, cell=vb, delay="0ms", duration="1000ms", amplitude="3pA",
-        #                                  period="700ms", params=params)
+        end = int(duration) - 100
 
         #for db in DB_motors:
         #    c302.add_new_sinusoidal_input(nml_doc, cell=db, delay="0ms", duration="1000ms", amplitude="3pA",
         #                                  period="700ms", params=params)
 
-
-        c302.add_new_input(nml_doc, "AVBL", "50ms", "3500ms", "15pA", params)
-        c302.add_new_input(nml_doc, "AVBR", "50ms", "3500ms", "15pA", params)
+        c302.add_new_input(nml_doc, "AVBL", "50ms", "%sms"%end, "15pA", params)
+        c302.add_new_input(nml_doc, "AVBR", "50ms", "%sms"%end, "15pA", params)
+        #c302.add_new_input(nml_doc, "AVBL", "50ms", "850ms", "15pA", params)
+        #c302.add_new_input(nml_doc, "AVBR", "50ms", "850ms", "15pA", params)
 
         nml_file = target_directory + '/' + reference + '.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file)  # Write over network file written above...
@@ -89,7 +99,7 @@ def setup(parameter_set,
         print("(Re)written network file to: " + nml_file)
 
 
-    return cells, cells_to_stimulate, params, muscles_to_include
+    return cells, cells_to_stimulate, params, muscles_to_include, nml_doc
 
 
 if __name__ == '__main__':

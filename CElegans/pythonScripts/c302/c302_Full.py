@@ -9,6 +9,7 @@ def setup(parameter_set,
           muscles_to_include = None, # None => All!
           data_reader="SpreadsheetDataReader",
           param_overrides={},
+          config_param_overrides={},
           verbose=True):
     
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
@@ -41,7 +42,8 @@ def setup(parameter_set,
              vmax=-48 if parameter_set=='A' else -28,
              target_directory=target_directory,
              param_overrides=param_overrides,
-             verbose=verbose) 
+             verbose=verbose,
+             data_reader=data_reader)
              
     return cell_names, cells_to_stimulate, params, muscles_to_include, nml_doc
 
