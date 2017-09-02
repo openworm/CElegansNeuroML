@@ -94,6 +94,7 @@ class c302ModelPrototype(ParameterisedModelPrototype):
         self.elec_syn = None
         self.offset_current = None
         self.concentration_model = None
+        self.found_specific_param = False
     
     def is_level_A(self):
         return self.level.startswith('A')
@@ -117,11 +118,12 @@ class c302ModelPrototype(ParameterisedModelPrototype):
     def get_conn_param(self, pre_cell, post_cell, specific_conn_template, default_conn_template, param_name):
         param = self.get_bioparameter(specific_conn_template % (pre_cell, post_cell, param_name))
         if param:
-            return param.value, True
+            self.found_specific_param = True
+            return param.value
         def_param = self.get_bioparameter(default_conn_template % param_name)
         if not def_param:
-            return None, False
-        return def_param.value, False
+            return None
+        return def_param.value
 
 
     def get_syn(self, pre_cell, post_cell, type, pol):
