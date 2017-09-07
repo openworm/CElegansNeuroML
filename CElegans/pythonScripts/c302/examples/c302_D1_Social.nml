@@ -61,9 +61,9 @@ Parameters and setting used to generate this network:
     <include href="cells/RMHR_D.cell.nml"></include>
     <include href="cells/URXR_D.cell.nml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
-    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.00052nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.00052 nS"/>
     <silentSynapse id="silent"/>
-    <gradedSynapse id="neuron_to_neuron_exc_syn" conductance="0.09nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
+    <gradedSynapse id="neuron_to_neuron_exc_syn" conductance="0.09 nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">

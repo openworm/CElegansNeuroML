@@ -44,7 +44,7 @@ Parameters and setting used to generate this network:
 </notes>
     <include href="cell_B.xml"></include>
     <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
-    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.1nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.1 nS"/>
     <iafCell type="iafActivityCell" id="generic_muscle_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <iafCell type="iafActivityCell" id="generic_neuron_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="3pA"/>

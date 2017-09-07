@@ -56,10 +56,10 @@ Parameters and setting used to generate this network:
     <include href="cell_C.xml"></include>
     <include href="custom_synapses.xml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="20 ms" rho="0.0002 mol_per_m_per_A_per_s"/>
-    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.05nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.05 nS"/>
     <silentSynapse id="silent"/>
-    <gradedSynapse2 id="neuron_to_neuron_exc_syn" conductance="25.0nS" ar=".5 per_s" ad="50 per_s" beta="0.125 per_mV" vth="-25 mV" erev="0 mV"/>
-    <gradedSynapse2 id="neuron_to_neuron_inh_syn" conductance="60.0nS" ar=".5 per_s" ad="50 per_s" beta="0.125 per_mV" vth="-30 mV" erev="-90 mV"/>
+    <gradedSynapse2 id="neuron_to_neuron_exc_syn" conductance="25 nS" ar=".5 per_s" ad="50 per_s" beta="0.125 per_mV" vth="-25 mV" erev="0 mV"/>
+    <gradedSynapse2 id="neuron_to_neuron_inh_syn" conductance="60 nS" ar=".5 per_s" ad="50 per_s" beta="0.125 per_mV" vth="-30 mV" erev="-90 mV"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
