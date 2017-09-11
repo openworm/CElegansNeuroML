@@ -42,6 +42,9 @@ def setup(parameter_set,
 
     muscles_to_include = True
 
+    if config_param_overrides.has_key('muscles_to_include'):
+        muscles_to_include = config_param_overrides['muscles_to_include']
+
     cells_to_stimulate = []
 
     cells_to_plot = list(cells)
@@ -64,6 +67,13 @@ def setup(parameter_set,
     if config_param_overrides.has_key('conn_number_override'):
         conn_number_override.update(config_param_overrides['conn_number_override'])
 
+    end = '%sms' % (int(duration) - 100)
+
+    input_list = [
+        ('AVBL', '0ms', end, '15pA'),
+        ('AVBR', '0ms', end, '15pA'),
+    ]
+
     nml_doc = None
     if generate:
         nml_doc = c302.generate(reference,
@@ -82,16 +92,12 @@ def setup(parameter_set,
                                 param_overrides=param_overrides,
                                 verbose=verbose)
 
-        end = int(duration) - 100
+        if config_param_overrides.has_key('input'):
+            input_list = config_param_overrides['input']
 
-        #for db in DB_motors:
-        #    c302.add_new_sinusoidal_input(nml_doc, cell=db, delay="0ms", duration="1000ms", amplitude="3pA",
-        #                                  period="700ms", params=params)
-
-        c302.add_new_input(nml_doc, "AVBL", "50ms", "%sms"%end, "15pA", params)
-        c302.add_new_input(nml_doc, "AVBR", "50ms", "%sms"%end, "15pA", params)
-        #c302.add_new_input(nml_doc, "AVBL", "50ms", "850ms", "15pA", params)
-        #c302.add_new_input(nml_doc, "AVBR", "50ms", "850ms", "15pA", params)
+        for stim_input in input_list:
+            cell, start, dur, current = stim_input
+            c302.add_new_input(nml_doc, cell, start, dur, current, params)
 
         nml_file = target_directory + '/' + reference + '.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file)  # Write over network file written above...
