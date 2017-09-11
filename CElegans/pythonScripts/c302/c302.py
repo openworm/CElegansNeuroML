@@ -483,7 +483,8 @@ def generate(net_id,
                     if is_regex_string(mk):
                         regex_param_overrides['mirrored_elec_conn_params'][mk] = mv
                         continue
-                    mirror_param(params, mk, mv)
+                    else:
+                        mirror_param(params, mk, mv)
 
 
             elif k == 'custom_component_type_gate_overrides':
@@ -897,6 +898,10 @@ def generate(net_id,
                     new_param = new_param.replace('_GJ', '')
                     new_param_v = regex_param_overrides[key]
 
+
+                    if param_overrides.has_key(new_param):
+                        continue
+                    # add regex param unless there is a specific param
                     set_param(params, new_param, new_param_v)
 
             if regex_param_overrides.has_key('mirrored_elec_conn_params'):
@@ -908,8 +913,12 @@ def generate(net_id,
                     if re.match(pattern, conn_shorthand):
                         new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
                         new_param = new_param.replace('_GJ', '')
+                        new_param_mirrored = conn.post_cell + '_' + new_param.split('_')[1] + '_' + conn.pre_cell + '_' + '_'.join(new_param.split('_')[3:])
                         new_param_v = v
 
+                        if param_overrides['mirrored_elec_conn_params'].has_key(new_param) or param_overrides['mirrored_elec_conn_params'].has_key(new_param_mirrored):
+                            continue
+                        # add regex param unless there is a specific param
                         mirror_param(params, new_param, new_param_v)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
@@ -1118,6 +1127,10 @@ def generate(net_id,
                     new_param = new_param.replace('_GJ', '')
                     new_param_v = regex_param_overrides[key]
 
+
+                    if param_overrides.has_key(new_param):
+                        continue
+                    # add regex param unless there is a specific param
                     set_param(params, new_param, new_param_v)
 
             if regex_param_overrides.has_key('mirrored_elec_conn_params'):
@@ -1129,8 +1142,12 @@ def generate(net_id,
                     if re.match(pattern, conn_shorthand):
                         new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
                         new_param = new_param.replace('_GJ', '')
+                        new_param_mirrored = conn.post_cell + '_' + new_param.split('_')[1] + '_' + conn.pre_cell + '_' + '_'.join(new_param.split('_')[3:])
                         new_param_v = v
 
+                        if param_overrides['mirrored_elec_conn_params'].has_key(new_param) or param_overrides['mirrored_elec_conn_params'].has_key(new_param_mirrored):
+                            continue
+                        # add regex param unless there is a specific param
                         mirror_param(params, new_param, new_param_v)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
