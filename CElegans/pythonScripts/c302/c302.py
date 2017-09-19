@@ -560,7 +560,10 @@ def generate(net_id,
     nml_doc.pulse_generators.append(params.offset_current)
 
     if is_cond_based_cell(params):
-        nml_doc.fixed_factor_concentration_models.append(params.concentration_model)
+        if isinstance(params.concentration_model, list):
+            nml_doc.fixed_factor_concentration_models.extend(params.concentration_model)
+        else:
+            nml_doc.fixed_factor_concentration_models.append(params.concentration_model)
 
     cell_names, conns = get_cell_names_and_connection(data_reader)
 
@@ -1085,10 +1088,12 @@ def generate(net_id,
 
     if len(muscles_to_include)>0:
         for conn in muscle_conns:
-            if not conn.post_cell in muscles_to_include:
-                continue
+            if not conn.post_cell in muscles_to_include:#
+                continue#
             if not conn.pre_cell in lems_info["cells"] and not conn.pre_cell in muscles_to_include:
                 continue
+
+
 
             # take information about each connection and package it into a
             # NeuroML Projection data structure
@@ -1101,6 +1106,8 @@ def generate(net_id,
             conn_type = "neuron_to_muscle"
             if conn.pre_cell in muscles_to_include:
                 conn_type = "muscle_to_muscle"
+            #if conn.post_cell in lems_info['cells']:
+            #    conn_type = "muscle_to_neuron"
             conn_pol = "exc"
             orig_pol = "exc"
 
