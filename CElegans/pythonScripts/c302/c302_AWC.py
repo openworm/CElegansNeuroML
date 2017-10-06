@@ -1,4 +1,4 @@
-import c302
+from c302 import c302
 import sys
 
 import neuroml.writers as writers

@@ -1,6 +1,4 @@
-
-
-from c302 import generate, add_new_input
+from c302.c302 import generate, add_new_input
 
 import neuroml.writers as writers
 

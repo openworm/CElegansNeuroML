@@ -28,7 +28,7 @@ from neuroml import SilentSynapse
 import neuroml.writers as writers
 import neuroml.loaders as loaders
 
-import bioparameters
+from c302 import bioparameters
 
 import airspeed
 
@@ -38,9 +38,9 @@ import shutil
 import os
 import importlib
 
-from parameters_C0 import GradedSynapse2
-from parameters_C2 import DelayedGapJunction
-from parameters_C2 import DelayedGradedSynapse
+from c302.parameters_C0 import GradedSynapse2
+from c302.parameters_C2 import DelayedGapJunction
+from c302.parameters_C2 import DelayedGradedSynapse
 
 try:
     from urllib.error import URLError  # Python 2

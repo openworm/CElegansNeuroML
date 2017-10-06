@@ -1,4 +1,4 @@
-from NeuroMLUtilities import ConnectionInfo
+from c302.NeuroMLUtilities import ConnectionInfo
 import PyOpenWorm as P
 
 import logging

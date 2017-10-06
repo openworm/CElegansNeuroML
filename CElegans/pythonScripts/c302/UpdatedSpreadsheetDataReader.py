@@ -12,7 +12,7 @@
 
 import csv
 
-from NeuroMLUtilities import ConnectionInfo
+from c302.NeuroMLUtilities import ConnectionInfo
 import os
 
 spreadsheet_location = os.path.dirname(os.path.abspath(__file__)) + "/../../../"

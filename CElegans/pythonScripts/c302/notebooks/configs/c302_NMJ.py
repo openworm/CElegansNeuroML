@@ -1,7 +1,6 @@
 import sys
-sys.path.append('../../../')
 
-import c302
+from c302 import c302
 import neuroml.writers as writers
     
 def setup(parameter_set, 

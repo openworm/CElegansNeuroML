@@ -1,4 +1,4 @@
-from c302 import generate
+from c302.c302 import generate
 
 import parameters_A as params
 

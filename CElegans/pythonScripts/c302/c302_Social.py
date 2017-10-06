@@ -10,7 +10,7 @@
 #                                     experimental branches to run: 'python getNeuroML experimental'
 #                                     see https://github.com/NeuroML/jNeuroML)
 
-import c302
+from c302 import c302
 
 import neuroml.writers as writers
 

@@ -1,8 +1,7 @@
 import sys
 from importlib import import_module
-sys.path.append('../../../')
 
-from CElegans.pythonScripts.c302 import c302
+from c302 import c302
 import neuroml.writers as writers
     
 def setup(parameter_set, 

@@ -1,8 +1,7 @@
 import sys
 import os
 from pyneuroml import pynml
-import c302_utils
-import c302
+from c302 import c302,c302_utils
 from importlib import import_module
 
 from collections import OrderedDict

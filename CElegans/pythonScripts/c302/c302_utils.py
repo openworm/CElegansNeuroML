@@ -3,7 +3,7 @@ import os
 from pyneuroml import pynml
 import matplotlib.pyplot as plt
 import numpy as np
-import c302
+from c302 import c302
 import re
 import multiprocessing
 import time
