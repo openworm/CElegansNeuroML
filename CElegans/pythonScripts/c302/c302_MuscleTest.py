@@ -35,10 +35,8 @@ def setup(parameter_set,
     VD_motors = ["VD%s" % c for c in range_incl(1, 13)]
     AS_motors = ["AS%s" % c for c in range_incl(1, 11)]
 
-    #cells = list(['AVBL', 'AVBR'] + DB_motors + VD_motors + VB_motors + DD_motors + VA_motors + DA_motors + AS_motors)
-    #cells = list(['AVBL', 'AVBR', 'AVAL', 'AVAR'] + DB_motors + VD_motors + VB_motors + DD_motors + AS_motors + VA_motors + DA_motors)
-    #cells = list(['AVBL', 'AVBR'] + ['DB2', 'DB5', 'DB6'])
-    cells = list(['AVBL', 'AVBR'] + DB_motors)
+
+    cells = []
 
     muscles_to_include = True
 
@@ -48,18 +46,16 @@ def setup(parameter_set,
     cells_to_stimulate = []
 
     cells_to_plot = list(cells)
-    reference = "c302_%s_AVB_DB" % parameter_set
+    reference = "c302_%s_MuscleTest" % parameter_set
 
 
     conns_to_include = []
     if config_param_overrides.has_key('conns_to_include'):
         conns_to_include = config_param_overrides['conns_to_include']
 
-    conns_to_exclude = []
+    conns_to_exclude = ['^.+-.+$']
     if config_param_overrides.has_key('conns_to_exclude'):
         conns_to_exclude = config_param_overrides['conns_to_exclude']
-
-
 
     conn_polarity_override = {}
     if config_param_overrides.has_key('conn_polarity_override'):
@@ -73,9 +69,52 @@ def setup(parameter_set,
 
     end = '%sms' % (int(duration) - 100)
 
+    duration = 1000
+
     input_list = [
-        ('AVBL', '0ms', end, '15pA'),
-        ('AVBR', '0ms', end, '15pA'),
+        ('MDL01', '100ms', '250ms', '1pA'),
+        ('MDL02', '130ms', '250ms', '1pA'),
+        ('MDL03', '160ms', '250ms', '1pA'),
+        ('MDL04', '190ms', '250ms', '1pA'),
+        ('MDL05', '210ms', '250ms', '1pA'),
+        ('MDL06', '240ms', '250ms', '1pA'),
+        ('MDL07', '270ms', '250ms', '1pA'),
+        ('MDL08', '300ms', '250ms', '1pA'),
+        ('MDL09', '330ms', '250ms', '1pA'),
+        ('MDL10', '360ms', '250ms', '1pA'),
+
+        ('MDR01', '100ms', '250ms', '1pA'),
+        ('MDR02', '130ms', '250ms', '1pA'),
+        ('MDR03', '160ms', '250ms', '1pA'),
+        ('MDR04', '190ms', '250ms', '1pA'),
+        ('MDR05', '210ms', '250ms', '1pA'),
+        ('MDR06', '240ms', '250ms', '1pA'),
+        ('MDR07', '270ms', '250ms', '1pA'),
+        ('MDR08', '300ms', '250ms', '1pA'),
+        ('MDR09', '330ms', '250ms', '1pA'),
+        ('MDR10', '360ms', '250ms', '1pA'),
+
+        ('MDL01', '600ms', '250ms', '1pA'),
+        ('MDL02', '630ms', '250ms', '1pA'),
+        ('MDL03', '660ms', '250ms', '1pA'),
+        ('MDL04', '690ms', '250ms', '1pA'),
+        ('MDL05', '710ms', '250ms', '1pA'),
+        ('MDL06', '740ms', '250ms', '1pA'),
+        ('MDL07', '770ms', '250ms', '1pA'),
+        ('MDL08', '800ms', '250ms', '1pA'),
+        ('MDL09', '830ms', '250ms', '1pA'),
+        ('MDL10', '860ms', '250ms', '1pA'),
+
+        ('MDR01', '600ms', '250ms', '1pA'),
+        ('MDR02', '630ms', '250ms', '1pA'),
+        ('MDR03', '660ms', '250ms', '1pA'),
+        ('MDR04', '690ms', '250ms', '1pA'),
+        ('MDR05', '710ms', '250ms', '1pA'),
+        ('MDR06', '740ms', '250ms', '1pA'),
+        ('MDR07', '770ms', '250ms', '1pA'),
+        ('MDR08', '800ms', '250ms', '1pA'),
+        ('MDR09', '830ms', '250ms', '1pA'),
+        ('MDR10', '860ms', '250ms', '1pA'),
     ]
 
     nml_doc = None

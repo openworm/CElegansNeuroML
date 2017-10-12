@@ -24,7 +24,7 @@ import c302
 
 class C302Simulation(object):
 
-    def __init__(self, reference, parameter_set, config, config_package=None, data_reader="SpreadsheetDataReader", sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './', input_list=None, conns_to_include=[], conns_to_exclude=[]):
+    def __init__(self, reference, parameter_set, config, config_package=None, data_reader="SpreadsheetDataReader", sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './', input_list=None, conns_to_include=[], conns_to_exclude=[], param_overrides=None, config_param_overrides=None):
 
         self.target_cell = 'ADAL' # TODO: obsolete?
 
@@ -49,6 +49,8 @@ class C302Simulation(object):
 
         self.conns_to_include = conns_to_include
         self.conns_to_exclude = conns_to_exclude
+        self.param_overrides = param_overrides
+        self.config_param_overrides = config_param_overrides
         
 
 
@@ -90,7 +92,8 @@ class C302Simulation(object):
                                 target_directory = self.generate_dir,
                                 data_reader=self.data_reader,
                                 conns_to_include=self.conns_to_include,
-                                conns_to_exclude=self.conns_to_exclude)
+                                conns_to_exclude=self.conns_to_exclude,
+                                param_overrides=self.param_overrides)
 
         if self.input_list:
             for input_tuple in self.input_list:
@@ -151,7 +154,9 @@ class C302Simulation(object):
             self.cells = []
             for pop in nml_doc.networks[0].populations:
                 self.cells.append(pop.id)
-            
+
+        if self.cells == None:
+            raise Exception("\n\n\n\n!!!!!!!!! SELF.CELLS == NONE !!!!!!!!!!!!!\n\n\n\n")
         for cell in self.cells:
             self.volts[res_template_n%cell] = [v*1000 for v in self.results[res_template_n%cell]]
 
@@ -175,62 +180,62 @@ if __name__ == '__main__':
     
     if len(sys.argv) == 2 and sys.argv[1] == '-phar':
         
-        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt, 'jNeuroML', 'temp')
+        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt=dt, simulator='jNeuroML', generate_dir='temp')
         sim.go()
         sim.show()
 
     elif len(sys.argv) == 2 and sys.argv[1] == '-pharN':
         
-        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt, 'jNeuroML_NEURON', 'temp')
+        sim = C302Simulation('TestPhar', 'C', 'Pharyngeal', sim_time, dt=dt, simulator='jNeuroML_NEURON', generate_dir='temp')
         sim.go()
         sim.show()
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-musc':
         
-        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt)
+        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt=dt)
         sim.go()
         sim.show()
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-muscC0':
         
-        sim = C302Simulation('TestMuscles', 'C0', 'Muscles', sim_time, dt)
+        sim = C302Simulation('TestMuscles', 'C0', 'Muscles', sim_time, dt=dt)
         sim.go()
         sim.show()
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-muscN':
         
-        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt, 'jNeuroML_NEURON')
+        sim = C302Simulation('TestMuscles', 'B', 'Muscles', sim_time, dt=dt, simulator='jNeuroML_NEURON')
         sim.go()
         sim.show()
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-osc':
         
-        sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt, 'jNeuroML', 'temp')
+        sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt=dt, simulator='jNeuroML', generate_dir='temp')
         sim.go()
         sim.show()
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-oscC1':
         
-        sim = C302Simulation('TestOsc', 'C1', 'Oscillator', sim_time, dt, 'jNeuroML', 'temp')
+        sim = C302Simulation('TestOsc', 'C1', 'Oscillator', sim_time, dt=dt, simulator='jNeuroML', generate_dir='temp')
         sim.go()
         sim.show()
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-oscN':
         
-        sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt, 'jNeuroML_NEURON', 'temp')
+        sim = C302Simulation('TestOsc', 'C', 'Oscillator', sim_time, dt=dt, simulator='jNeuroML_NEURON', generate_dir='temp')
         sim.go()
         sim.show()
         
         
     elif len(sys.argv) == 2 and sys.argv[1] == '-imC0':
 
-        sim = C302Simulation('TestIClampMuscle', 'C0', 'IClampMuscle', sim_time, dt)
+        sim = C302Simulation('TestIClampMuscle', 'C0', 'IClampMuscle', sim_time, dt=dt)
         sim.go()
         sim.show()
         
     else:
 
-        sim = C302Simulation('TestIClamp', 'C', 'IClamp', sim_time, dt)
+        sim = C302Simulation('TestIClamp', 'C', 'IClamp', sim_time, dt=dt)
         sim.go()
         sim.show()
 

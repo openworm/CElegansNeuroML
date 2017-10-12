@@ -10,17 +10,17 @@ import os.path
 import os
 import sys
 import time
-import multiprocessing
-import functools
-import logging
-import traceback
+#import multiprocessing
+#import functools
+#import logging
+#import traceback
 
 from collections import OrderedDict
 
 
 # https://stackoverflow.com/questions/6126007/python-getting-a-traceback-from-a-multiprocessing-process
-import tblib.pickling_support
-tblib.pickling_support.install()
+#import tblib.pickling_support
+#tblib.pickling_support.install()
 
 if not os.path.isfile('c302.py'):
     print('This script should be run from dir: CElegansNeuroML/CElegans/pythonScripts/c302')
@@ -36,7 +36,7 @@ last_results = None
 
 
 # https://stackoverflow.com/questions/6126007/python-getting-a-traceback-from-a-multiprocessing-process
-class ExceptionWrapper(object):
+"""class ExceptionWrapper(object):
     def __init__(self, ee):
         self.ee = ee
         __, __, self.tb = sys.exc_info()
@@ -45,7 +45,7 @@ class ExceptionWrapper(object):
         #python3:
         #raise self.ee.with_traceback(self.tb)
         #python2:
-        raise self.ee, None, self.tb
+        raise self.ee, None, self.tb"""
 
 
 class C302Controller():
@@ -62,8 +62,11 @@ class C302Controller():
                  simulator='jNeuroML',
                  input_list=None,
                  pool=None,
+                 job_server=None,
+                 num_local_procesors_to_use=1,
                  conns_to_include=[],
-                 conns_to_exclude=[]):
+                 conns_to_exclude=[],
+                 param_overrides=None):
         
         self.ref = ref
         self.params = params
@@ -76,16 +79,18 @@ class C302Controller():
         self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
         self.input_list = input_list
         
-        #self.num_local_procesors_to_use = num_local_procesors_to_use
+        self.num_local_procesors_to_use = num_local_procesors_to_use
         
-        #if int(num_local_procesors_to_use) != num_local_procesors_to_use or \
-        #    num_local_procesors_to_use < 1:
-        #        raise Exception('Error with num_local_procesors_to_use = %s\nPlease use an integer value greater then 1.'%num_local_procesors_to_use)
+        if int(num_local_procesors_to_use) != num_local_procesors_to_use or \
+            num_local_procesors_to_use < 1:
+                raise Exception('Error with num_local_procesors_to_use = %s\nPlease use an integer value greater then 1.'%num_local_procesors_to_use)
 
         self.pool = pool
+        self.job_server = job_server
 
         self.conns_to_include = conns_to_include
         self.conns_to_exclude = conns_to_exclude
+        self.param_overrides = param_overrides
 
         self.traces = []
 
@@ -99,6 +104,8 @@ class C302Controller():
         self.traces.append([t, v])"""
 
     def run(self,candidates,parameters):
+
+
         """
         Run simulation for each candidate
         
@@ -112,7 +119,7 @@ class C302Controller():
 
         
         #if self.num_local_procesors_to_use == 1:
-        if not self.pool:
+        if not self.job_server:
             for candidate_i in range(len(candidates)):
                 
                 candidate = candidates[candidate_i]
@@ -132,8 +139,8 @@ class C302Controller():
             #import pp
             #ppservers = ()
             #job_server = pp.Server(self.num_local_procesors_to_use, ppservers=ppservers, secret="password")
-            #pyneuroml.pynml.print_comment_v('Running %i candidates across %i local processors'%(len(candidates),job_server.get_ncpus()))
-            #jobs = []
+            pyneuroml.pynml.print_comment_v('Running %i candidates across %i local processors'%(len(candidates),self.job_server.get_ncpus()))
+            jobs = []
 
             #import multiprocessing
             #import signal
@@ -171,7 +178,8 @@ class C302Controller():
 
                 self.total_runs += 1
 
-                job_id = "%s/%s_%s" % (candidate_i, len(candidates), self.total_runs)
+                #job_id = "%s/%s_%s" % (candidate_i, len(candidates), self.total_runs)
+                job_id = None
 
                 vars = (sim_var,
                    self.ref,
@@ -187,14 +195,15 @@ class C302Controller():
                    self.input_list,
                    self.conns_to_include,
                    self.conns_to_exclude,
-                   job_id)
+                   job_id,
+                        self.param_overrides)
 
-                #job = job_server.submit(run_individual, vars, (), ("pyneuroml.pynml",'C302Simulation'))
-                #jobs.append(job)
+                job = self.job_server.submit(run_individual, vars, (), ("pyneuroml.pynml",'C302Simulation'))
+                jobs.append(job)
 
-                tasks.append(vars)
+                #tasks.append(vars)
 
-            """for job_i in range(len(jobs)):
+            for job_i in range(len(jobs)):
 
                 job = jobs[job_i]
 
@@ -214,9 +223,9 @@ class C302Controller():
                 
                 #pyneuroml.pynml.print_comment_v("Obtained: %s"%result) 
                 
-            job_server.destroy()"""
+            #job_server.destroy()
 
-            try:
+            """try:
                 results = [self.pool.apply_async(run_individual_wrapper, args=task) for task in tasks]
                 for idx, result in enumerate(results):
                     if isinstance(result, ExceptionWrapper):
@@ -227,7 +236,7 @@ class C302Controller():
                     traces.append([t, v])
             except KeyboardInterrupt:
                 print("Caught KeyboardInterrupt, terminating workers")
-                self.pool.terminate()
+                self.pool.terminate()"""
 
             #else:
             #    #print("Normal termination")
@@ -263,7 +272,8 @@ class C302Controller():
                    show=show,
                    input_list=self.input_list,
                    conns_to_include=self.conns_to_include,
-                   conns_to_exclude=self.conns_to_exclude)
+                   conns_to_exclude=self.conns_to_exclude,
+                                  param_overrides=self.param_overrides)
 
         global last_results
         
@@ -314,7 +324,7 @@ class C302Controller():
         return results'''
 
 
-def run_individual_wrapper(sim_var,
+"""def run_individual_wrapper(sim_var,
                            ref,
                            params,
                            config,
@@ -328,16 +338,18 @@ def run_individual_wrapper(sim_var,
                            input_list=None,
                            conns_to_include=[],
                            conns_to_exclude=[],
-                           job_id=None):
+                           job_id=None,
+                           param_overrides=None):
     try:
         return run_individual(sim_var, ref, params, config, config_package, data_reader, sim_time, dt, simulator, generate_dir,
                            show,
                            input_list,
                            conns_to_include,
                            conns_to_exclude,
-                           job_id)
+                           job_id,
+                              param_overrides=param_overrides)
     except Exception as e:
-        return ExceptionWrapper(e)
+        return ExceptionWrapper(e)"""
 
 
 def run_individual(sim_var, 
@@ -354,7 +366,8 @@ def run_individual(sim_var,
                    input_list=None,
                    conns_to_include=[],
                    conns_to_exclude=[],
-                   job_id=None):
+                   job_id=None,
+                   param_overrides=None):
     """
     Run an individual simulation.
 
@@ -379,7 +392,8 @@ def run_individual(sim_var,
                          simulator = simulator, 
                          generate_dir = generate_dir,
                          conns_to_include=conns_to_include,
-                         conns_to_exclude=conns_to_exclude)
+                         conns_to_exclude=conns_to_exclude,
+                                        param_overrides=param_overrides)
                          
     for var_name, v in sim_var.iteritems():
         bp = sim.params.get_bioparameter(var_name)
@@ -388,7 +402,28 @@ def run_individual(sim_var,
             if isinstance(v, dict):
                 unit = "" if not v['unit'] else " %s" % v['unit']
                 print "Adding param %s = %s%s" % (var_name, v['value'], v['unit'])
-                sim.params.add_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
+
+                if '_mirrored' in var_name:
+                    print "found mirrored var_name %s: %s" % (var_name, v['value'])
+                    var_name = '_'.join(var_name.split('_')[:-1])
+
+                    pattern = var_name.split('_')
+                    pre = pattern[0]
+                    pattern[0] = '%s'
+                    post = pattern[2]
+                    pattern[2] = '%s'
+                    tmp_param = pattern[5]
+                    pattern[5] = '%s'
+                    pattern = '_'.join(pattern)
+
+                    override_key1 = pattern % (pre, post, tmp_param)
+                    override_key2 = pattern % (post, pre, tmp_param)
+
+                    sim.params.add_bioparameter(override_key1, "%s%s" % (v['value'], unit), "C302Controller", "0")
+                    sim.params.add_bioparameter(override_key2, "%s%s" % (v['value'], unit), "C302Controller", "0")
+
+                else:
+                    sim.params.add_bioparameter(var_name, "%s%s" % (v['value'], unit), "C302Controller", "0")
             else:
                 raise Exception(
                     "Cannot add %s=%s.\nIt is only possible to add new parameters with a dict containing the value and the unit" % (var_name, v))
@@ -397,7 +432,7 @@ def run_individual(sim_var,
                 print("Changing param %s: %s -> %s" % (var_name, bp.value, v['value']))
                 #bp.change_magnitude(v['value'])
                 unit = "" if not v['unit'] else " %s" % v['unit']
-                sim.params.set_bioparameter(var_name, "%s%s" % (v['value'], unit), "0", "C302Controller")
+                sim.params.set_bioparameter(var_name, "%s%s" % (v['value'], unit), "C302Controller", "0")
             else:
                 print("Changing param %s: %s -> %s" % (var_name, bp.value, v))
                 bp.change_magnitude(v)

@@ -600,7 +600,7 @@ def generate(net_id,
                 # def_file = './%s' % ctd
                 def_file = "%s/%s" % (os.path.dirname(os.path.abspath(__file__)), ctd)
 
-                if param_overrides.has_key('custom_component_type_gate_overrides') and param_overrides[
+                if param_overrides and param_overrides.has_key('custom_component_type_gate_overrides') and param_overrides[
                     'custom_component_type_gate_overrides']:
                     root = etree.parse(def_file).getroot()
 

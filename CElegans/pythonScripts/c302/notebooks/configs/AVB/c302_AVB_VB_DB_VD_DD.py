@@ -92,6 +92,9 @@ def setup(parameter_set,
                                 param_overrides=param_overrides,
                                 verbose=verbose)
 
+        if config_param_overrides.has_key('input'):
+            input_list = config_param_overrides['input']
+
         for stim_input in input_list:
             cell, start, dur, current = stim_input
             c302.add_new_input(nml_doc, cell, start, dur, current, params)
