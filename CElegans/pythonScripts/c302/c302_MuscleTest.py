@@ -67,55 +67,72 @@ def setup(parameter_set,
     if config_param_overrides.has_key('conn_number_override'):
         conn_number_override.update(config_param_overrides['conn_number_override'])
 
+
+
+    param_overrides = {
+        'ca_conc_decay_time_muscle': '60 ms',
+        'ca_conc_rho_muscle': '0.002138919 mol_per_m_per_A_per_s',
+    }
+
+
     end = '%sms' % (int(duration) - 100)
 
-    duration = 1000
 
-    input_list = [
-        ('MDL01', '100ms', '250ms', '1pA'),
-        ('MDL02', '130ms', '250ms', '1pA'),
-        ('MDL03', '160ms', '250ms', '1pA'),
-        ('MDL04', '190ms', '250ms', '1pA'),
-        ('MDL05', '210ms', '250ms', '1pA'),
-        ('MDL06', '240ms', '250ms', '1pA'),
-        ('MDL07', '270ms', '250ms', '1pA'),
-        ('MDL08', '300ms', '250ms', '1pA'),
-        ('MDL09', '330ms', '250ms', '1pA'),
-        ('MDL10', '360ms', '250ms', '1pA'),
+    input_list = []
 
-        ('MDR01', '100ms', '250ms', '1pA'),
-        ('MDR02', '130ms', '250ms', '1pA'),
-        ('MDR03', '160ms', '250ms', '1pA'),
-        ('MDR04', '190ms', '250ms', '1pA'),
-        ('MDR05', '210ms', '250ms', '1pA'),
-        ('MDR06', '240ms', '250ms', '1pA'),
-        ('MDR07', '270ms', '250ms', '1pA'),
-        ('MDR08', '300ms', '250ms', '1pA'),
-        ('MDR09', '330ms', '250ms', '1pA'),
-        ('MDR10', '360ms', '250ms', '1pA'),
+    
+    #input_list.append(('MDL02', '0ms', '250ms', '3pA'))
+    #input_list.append(('MDL03', '0ms', '250ms', '3pA'))
+    #input_list.append(('MDR02', '0ms', '250ms', '3pA'))
+    #input_list.append(('MDR03', '0ms', '250ms', '3pA'))
 
-        ('MDL01', '600ms', '250ms', '1pA'),
-        ('MDL02', '630ms', '250ms', '1pA'),
-        ('MDL03', '660ms', '250ms', '1pA'),
-        ('MDL04', '690ms', '250ms', '1pA'),
-        ('MDL05', '710ms', '250ms', '1pA'),
-        ('MDL06', '740ms', '250ms', '1pA'),
-        ('MDL07', '770ms', '250ms', '1pA'),
-        ('MDL08', '800ms', '250ms', '1pA'),
-        ('MDL09', '830ms', '250ms', '1pA'),
-        ('MDL10', '860ms', '250ms', '1pA'),
+    input_list.append(('MVR10', '0ms', '250ms', '1pA'))
+    input_list.append(('MVR11', '0ms', '250ms', '2pA'))
+    input_list.append(('MVR12', '0ms', '250ms', '3pA'))
+    input_list.append(('MVR13', '0ms', '250ms', '3pA'))
+    input_list.append(('MVR14', '0ms', '250ms', '2pA'))
+    input_list.append(('MVR15', '0ms', '250ms', '1pA'))
+    
+    input_list.append(('MVL10', '0ms', '250ms', '1pA'))
+    input_list.append(('MVL11', '0ms', '250ms', '2pA'))
+    input_list.append(('MVL12', '0ms', '250ms', '3pA'))
+    input_list.append(('MVL13', '0ms', '250ms', '3pA'))
+    input_list.append(('MVL14', '0ms', '250ms', '2pA'))
+    input_list.append(('MVL15', '0ms', '250ms', '1pA'))
 
-        ('MDR01', '600ms', '250ms', '1pA'),
-        ('MDR02', '630ms', '250ms', '1pA'),
-        ('MDR03', '660ms', '250ms', '1pA'),
-        ('MDR04', '690ms', '250ms', '1pA'),
-        ('MDR05', '710ms', '250ms', '1pA'),
-        ('MDR06', '740ms', '250ms', '1pA'),
-        ('MDR07', '770ms', '250ms', '1pA'),
-        ('MDR08', '800ms', '250ms', '1pA'),
-        ('MDR09', '830ms', '250ms', '1pA'),
-        ('MDR10', '860ms', '250ms', '1pA'),
-    ]
+    input_list.append(('MDL21', '0ms', '250ms', '3pA'))
+    input_list.append(('MDL22', '0ms', '250ms', '3pA'))
+    input_list.append(('MDR21', '0ms', '250ms', '3pA'))
+    input_list.append(('MDR22', '0ms', '250ms', '3pA'))
+
+
+
+    for stim_num in range(5):
+        for muscle_num in range(24):
+            mdlx = 'MDL0%s' % (muscle_num + 1)
+            mdrx = 'MDR0%s' % (muscle_num + 1)
+
+            mvlx = 'MVL0%s' % (muscle_num + 1)
+            mvrx = 'MVR0%s' % (muscle_num + 1)
+
+            if muscle_num >= 9:
+                mdlx = 'MDL%s' % (muscle_num + 1)
+                mdrx = 'MDR%s' % (muscle_num + 1)
+
+                mvlx = 'MVL%s' % (muscle_num + 1)
+                if muscle_num != 23:
+                    mvrx = 'MVR%s' % (muscle_num + 1)
+
+            startd = '%sms' % (stim_num * 1000 + muscle_num * 50)
+            startv = '%sms' % ((stim_num  * 1000 + 500) + muscle_num * 50)
+            dur = '250ms'
+            amp = '3pA'
+
+            input_list.append((mdlx, startd, dur, amp))
+            input_list.append((mdrx, startd, dur, amp))
+
+            input_list.append((mvlx, startv, dur, amp))
+            input_list.append((mvrx, startv, dur, amp))
 
     nml_doc = None
     if generate:
