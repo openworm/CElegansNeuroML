@@ -109,7 +109,7 @@ def main():
 
     cells, conns = readDataFromSpreadsheet()
 
-    print("%i cells in spreadsheet: %s"%(len(cells),sorted(cells)))
+    print("%i cells in spreadsheet: %s..."%(len(cells),sorted(cells)[0:3]))
 
     from os import listdir
     from os.path import isfile
@@ -117,7 +117,8 @@ def main():
 
     cell_names.remove('MDL08') # muscle
 
-    print("%i cell morphologies found: %s"%(len(cell_names),sorted(cell_names)))
+    s_c = sorted(cell_names)
+    print("%i cell morphologies found: %s..."%(len(cell_names),s_c[0:3]))
 
     for c in cells: cell_names.remove(c)
 
@@ -128,6 +129,9 @@ def main():
     assert(len(cells2) == 302)
 
     print("Lengths are equal if include_nonconnected_cells=True")
+    
+    
+    print("Found %s connections: %s..."%(len(conns2),conns2[0]))
 
     neurons, muscles, conns = readMuscleDataFromSpreadsheet()
 

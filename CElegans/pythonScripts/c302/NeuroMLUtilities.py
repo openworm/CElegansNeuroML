@@ -25,6 +25,9 @@ class ConnectionInfo:
 
     def __str__(self):
         return "Connection from %s to %s (%i times, type: %s, neurotransmitter: %s)"%(self.pre_cell, self.post_cell, self.number, self.syntype, self.synclass)
+
+    def short(self):
+        return "Connection from %s to %s (%s)"%(self.pre_cell, self.post_cell, self.syntype)
     
     def __repr__(self):
         return self.__str__()

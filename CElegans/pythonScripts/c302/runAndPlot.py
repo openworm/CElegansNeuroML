@@ -111,6 +111,9 @@ if __name__ == '__main__':
     elif '-fullC1' in sys.argv:
         run_c302('Full','C1','',1000,0.05,'jNeuroML_NEURON')
         
+    elif '-fullC2' in sys.argv:
+        run_c302('Full','C2','',1000,0.05,'jNeuroML_NEURON')
+        
     elif '-muscle' in sys.argv or '-muscles' in sys.argv:
         run_c302('Muscles','C','',500,0.05,'jNeuroML_NEURON')
         

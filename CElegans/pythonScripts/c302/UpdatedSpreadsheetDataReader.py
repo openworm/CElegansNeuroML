@@ -170,9 +170,10 @@ def readMuscleDataFromSpreadsheet():
 
 
 def main():
+    
     cells, conns = readDataFromSpreadsheet()
 
-    print("%i cells in spreadsheet: %s\n" % (len(cells), sorted(cells)))
+    print("%i cells in spreadsheet: %s..."%(len(cells),sorted(cells)[0:3]))
 
     from os import listdir
     cell_names = [f[:-9] for f in listdir('%s/CElegans/morphologies/' % spreadsheet_location) if
@@ -180,18 +181,21 @@ def main():
 
     cell_names.remove('MDL08')  # muscle
 
-    print("%i cell morphologies found: %s\n" % (len(cell_names), sorted(cell_names)))
+    s_c = sorted(cell_names)
+    print("%i cell morphologies found: %s..."%(len(cell_names),s_c[0:3]))
 
-    for c in cells:
-        cell_names.remove(c)
+    for c in cells: cell_names.remove(c)
 
-    print("Difference: %s" % cell_names)
+    print("Difference: %s"%cell_names)
 
     cells2, conns2 = readDataFromSpreadsheet(include_nonconnected_cells=True)
 
-    assert (len(cells2) == 302)
+    assert(len(cells2) == 302)
 
-    print("Lengths are equal if include_nonconnected_cells=True\n")
+    print("Lengths are equal if include_nonconnected_cells=True")
+    
+    
+    print("Found %s connections: %s..."%(len(conns2),conns2[0]))
 
     neurons, muscles, conns = readMuscleDataFromSpreadsheet()
 
