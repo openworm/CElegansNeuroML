@@ -115,7 +115,7 @@ if __name__ == '__main__':
         run_c302('AVB_FW','C2','',4000,0.05,'jNeuroML_NEURON', config_package="notebooks.configs.AVB", data_reader='UpdatedSpreadsheetDataReader')
 
     elif '-fw1' in sys.argv:
-        run_c302('FW','C2','',2000,0.05,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True)
+        run_c302('FW','C2','',5000,0.005,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True, show_plot_already=False)
         
     elif '-muscle1' in sys.argv:
         run_c302('MuscleTest','C2','',2000,0.05,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True)
