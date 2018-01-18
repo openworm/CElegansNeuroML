@@ -210,6 +210,9 @@ if __name__ == '__main__':
     elif '-KatoC1' in sys.argv:
         run_c302('Kato','C1','',1080,0.05,'jNeuroML_NEURON')
         
+    elif '-targetC0' in sys.argv:
+        run_c302('TargetMuscle','C0','',300,0.05,'jNeuroML')
+        
     elif '-twC2' in sys.argv:
         run_c302('TapWithdrawal', 'C2', '', 500, 0.05, 'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
         
