@@ -15,14 +15,15 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "10pA", "Testing IClamp", "0")
-    params.set_bioparameter("unphysiological_offset_current_del", "5 ms", "Testing IClamp", "0")
-    params.set_bioparameter("unphysiological_offset_current_dur", "200 ms", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current", "15pA", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_del", "1 ms", "Testing IClamp", "0")
+    params.set_bioparameter("unphysiological_offset_current_dur", "20 ms", "Testing IClamp", "0")
     
     duration = 300
     
     
     my_cells = ["AVKR"]
+    my_cells = ["RMHR"]
     muscles_to_include = None 
     
     cells               = my_cells

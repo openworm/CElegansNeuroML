@@ -601,7 +601,7 @@ if __name__ == '__main__':
     configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml','c302_C0_Muscles.nml','c302_C0_Pharyngeal.nml','c302_C0_Oscillator.nml','c302_C0_Full.nml']
     configs = ['c302_C0_Syns.nml', 'c302_C0_Social.nml']
     #configs = ['c302_C0_Syns.nml']
-    #configs = ['c302_C0_Muscles.nml']
+    configs = ['c302_C0_Muscles.nml']
     #configs = ['c302_C0_Oscillator.nml']
     
     if '-phar' in sys.argv:

@@ -29,14 +29,6 @@ from neuroml import GapJunction
 
 from parameters_C import ParameterisedModel as ParameterisedModel_C
 
-'''
-
-    Simplified conductance based cell model (Morris Lecar like)
-    
-    No fast K channel. No inactivation on Ca channel. No [Ca2+] dependence 
-        
-
-'''
 
 class ParameterisedModel(ParameterisedModel_C):
 

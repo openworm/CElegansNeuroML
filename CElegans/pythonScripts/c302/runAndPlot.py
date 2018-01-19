@@ -32,7 +32,7 @@ def run_c302(config,
         global save_fig_dir
         save_fig_dir = save_fig_to
 
-    print("********************\n\n   Going to generate c302_%s_%s and run for %s on %s\n\n********************"%(parameter_set,config,duration, simulator))
+    print("********************\n\n   Going to generate c302_%s_%s and run for %sms on %s\n\n********************"%(parameter_set,config,duration, simulator))
     if config_package:
         exec ('from %s.c302_%s import setup' % (config_package, config))
     else:
