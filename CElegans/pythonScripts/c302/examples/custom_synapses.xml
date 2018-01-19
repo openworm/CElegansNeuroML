@@ -42,9 +42,143 @@
     </ComponentType>
 
 
+    <ComponentType name="proprio"
+                   extends="baseGradedSynapse"
+                   description="Graded/analog synapse. Based on Kunert et al 2017 http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005303">
+
+        <!--
+                TODO...
+        -->
+        <Property name="weight" dimension="none" defaultValue="1"/>
+
+        <Parameter name="conductance" dimension="conductance"/>
+
+        <Parameter name="ar" dimension="per_time" description="Growth time"/>
+        <Parameter name="ad" dimension="per_time" description="Decay time"/>
+        <Parameter name="beta" dimension="concentration" description="Beta, width of the sigmoid"/>
+        <Parameter name="cath" dimension="concentration" description="Synaptic activation factor"/>
+        <Parameter name="erev" dimension="concentration" description="Synaptic reversal potential"/>
+
+        <Exposure name="i" dimension="current"/>
+
+        <Requirement name="caConc" dimension="concentration"/>
+
+        <InstanceRequirement name="peer" type="baseGradedSynapse"/>
+
+        <Dynamics>
+            <StateVariable name="s" dimension="none"/>
+
+            <DerivedVariable name="caConcPeer" dimension="concentration" select="peer/caConc"/>
+
+            <DerivedVariable name="phi" dimension="none" value="1/(1 + exp(1/beta * (cath - caConcPeer)))"/>
+
+            <DerivedVariable name="i" exposure="i" value="weight * conductance * s * (caConcPeer-erev)"/>
+
+            <TimeDerivative variable="s" value="ar*phi*(1-s) - ad*s" />
+
+
+        </Dynamics>
+    </ComponentType>
 
 
 
+
+    <ComponentType name="proprioGapJunction"
+                   extends="baseSynapse"
+                   description="Electrical synapse with a delay">
+
+        <Parameter name="weight" dimension="none" default="1"/>
+        <Parameter name="conductance" dimension="conductance"/>
+        <Parameter name="p_conductance" dimension="conductance"/>
+        <Parameter name="sigma" dimension="per_voltage"/>
+        <Parameter name="mu" dimension="voltage"/>
+
+
+
+        <Exposure name="i" dimension="current"/>
+
+
+        <Requirement name="v" dimension="voltage"/>
+
+        <InstanceRequirement name="peer" type="gapJunction"/>
+
+
+        <Dynamics>
+            <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
+
+            <!--<ConditionalDerivedVariable name="sigma" dimension="per_voltage">
+                <Case condition="(v - vpeer) .gt. 0" value="(vpeer - v)"/>
+                <Case value="0"/>
+            </ConditionalDerivedVariable>-->
+
+            <DerivedVariable name="p_sigmoid" dimension="none" value="1 / (1 + exp(sigma * (mu - vpeer)))" />
+
+            <DerivedVariable name="p_current" dimension="current" value="p_sigmoid * p_conductance * (vpeer - v)" />
+
+            <ConditionalDerivedVariable name="proprio_current" dimension="current">
+                <Case condition="vpeer .gt. v" value="p_current"/>
+                <Case value="0"/>
+            </ConditionalDerivedVariable>
+
+            <DerivedVariable name="i" exposure="i" dimension="current" value="proprio_current + weight * conductance * (vpeer - v)" />
+
+        </Dynamics>
+    </ComponentType>
+
+
+    <ComponentType name="proprioGapJunction2"
+                   extends="baseSynapse"
+                   description="Electrical synapse with a delay">
+
+        <Parameter name="weight" dimension="none" default="1"/>
+        <Parameter name="ar" dimension="per_time" description="Growth time"/>
+        <Parameter name="ad" dimension="per_time" description="Decay time"/>
+        <Parameter name="beta" dimension="per_voltage" description="Beta, width of the sigmoid"/>
+        <Parameter name="vth" dimension="voltage" description="Synaptic activation factor"/>
+        <Parameter name="erev" dimension="voltage" description="Synaptic reversal potential"/>
+        <Parameter name="conductance" dimension="conductance"/>
+        <Parameter name="p_conductance" dimension="conductance"/>
+        <Parameter name="sigma" dimension="per_voltage"/>
+        <Parameter name="mu" dimension="voltage"/>
+
+
+
+        <Exposure name="i" dimension="current"/>
+
+
+        <Requirement name="v" dimension="voltage"/>
+
+        <InstanceRequirement name="peer" type="gapJunction"/>
+
+
+        <Dynamics>
+            <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
+
+            <!--<ConditionalDerivedVariable name="sigma" dimension="per_voltage">
+                <Case condition="(v - vpeer) .gt. 0" value="(vpeer - v)"/>
+                <Case value="0"/>
+            </ConditionalDerivedVariable>-->
+
+            <StateVariable name="s" dimension="none"/>
+
+            <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
+
+            <DerivedVariable name="phi" dimension="none" value="1/(1 + exp(beta * (vth - vpeer)))"/>
+
+            <DerivedVariable name="p_current" exposure="i"  value="weight * p_conductance * s * (erev-v)"/>
+
+            <TimeDerivative variable="s" value="ar*phi*(1-s) - ad*s" />
+
+            <ConditionalDerivedVariable name="proprio_current" dimension="current">
+                <Case condition="vpeer .gt. v" value="p_current"/>
+                <Case value="0"/>
+            </ConditionalDerivedVariable>
+
+            <DerivedVariable name="i" exposure="i" dimension="current" value="proprio_current + weight * conductance * (vpeer - v)" />
+
+
+        </Dynamics>
+    </ComponentType>
 
 
 
@@ -73,7 +207,7 @@
         <Dynamics>
             <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
 
-            <DerivedVariable name="delay" dimension="none" value="1 / (1 + exp(sigma*(mu - v)))" />
+            <DerivedVariable name="delay" dimension="none" value="1 / (1 + exp(sigma*(mu - vpeer)))" />
 
             <DerivedVariable name="i" exposure="i" dimension="current" value="delay * weight * conductance * (vpeer - v)" />
         </Dynamics>

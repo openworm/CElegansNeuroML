@@ -4284,7 +4284,6 @@ VB04 , DD02          ,7,chemical
 VB04 , DD03          ,13,chemical
 VB04 , VA04          ,1,chemical
 VB04 , VA05          ,1,chemical
-VB04 , VB05          ,1,chemical
 VB04 , VD04          ,1,chemical
 VB04 , VD05          ,3,chemical
 VB04 , vBWML12       ,3,chemical
@@ -7378,3 +7377,19 @@ vm2pR , VC03        ,2,electrical
 vm2pR , um1pR       ,4,electrical
 vm2pR , vm1pR       ,4,electrical
 vm2pR , vm2pL       ,4,electrical
+DB01 , DB02        ,5,chemical
+DB02 , DB03        ,5,chemical
+DB03 , DB04        ,5,chemical
+DB04 , DB05        ,5,chemical
+DB05 , DB06        ,5,chemical
+DB06 , DB07        ,5,chemical
+VB01 , VB02        ,5,chemical
+VB02 , VB03        ,5,chemical
+VB03 , VB04        ,5,chemical
+VB04 , VB05        ,5,chemical
+VB05 , VB06        ,5,chemical
+VB06 , VB07        ,5,chemical
+VB07 , VB08        ,5,chemical
+VB08 , VB09        ,5,chemical
+VB09 , VB10        ,5,chemical
+VB10 , VB11        ,5,chemical
