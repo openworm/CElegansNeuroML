@@ -27,8 +27,8 @@ def get_cells(root):
     for cell in root.getiterator():
         if 'population' not in cell.tag:
             continue
-        if is_muscle(cell.attrib['id']):
-            continue
+        #if is_muscle(cell.attrib['id']):
+        #    continue
         cells.append(cell.attrib['id'])
     return cells
 
@@ -47,8 +47,8 @@ def get_elec_conns(root):
                 append = False
         
 
-        if is_muscle(pre) or is_muscle(post):
-            continue
+        #if is_muscle(pre) or is_muscle(post):
+        #    continue
 
         if append:
             elec_conns.append('%s -> %s [style="dashed" minlen=2 arrowhead="none"]' % (pre, post))
@@ -63,8 +63,8 @@ def get_chem_conns(root):
         pre = chem_conn.attrib['presynapticPopulation']
         post = chem_conn.attrib['postsynapticPopulation']
 
-        if is_muscle(pre) or is_muscle(post):
-            continue
+        #if is_muscle(pre) or is_muscle(post):
+        #    continue
 
         for child in chem_conn:
             if 'inh' in child.attrib['postComponent']:
@@ -85,9 +85,19 @@ def write_graph_file(filename, cells, elec_conns, chem_conns, layout="neato"):
         graph.write('overlap=false; ')
         graph.write('fontsize=12;\n')
 
-        graph.write('node [fontsize=11]; ')
+        graph.write('node [fontsize=11;style=filled]; ')
         for cell in cells:
-            graph.write('%s; ' % cell)
+            graph.write('%s ' % cell)
+            if is_muscle(cell):
+                graph.write('[color="darkolivegreen3"]')
+            elif cell.startswith('DA') or cell.startswith('DB') or cell.startswith('DD') \
+              or cell.startswith('VA')  or cell.startswith('VB')  or cell.startswith('VD'):
+                graph.write('[color="slategray1"]')
+            else:
+                graph.write('[color="thistle2"]')
+                
+            graph.write(';\n')
+            
         graph.write('\n')
 
         for elec in elec_conns:
@@ -98,6 +108,8 @@ def write_graph_file(filename, cells, elec_conns, chem_conns, layout="neato"):
 
         
         graph.write('}')
+        
+    print("Written file: %s"%filename)
 
 
 def find_nml_files(directory='.', recursive=False):
@@ -115,7 +127,10 @@ def find_nml_files(directory='.', recursive=False):
 def execute_graph_generator(graphviz_file, fig_file):
     with open(fig_file, 'w') as fig:
         call(['neato', '-Tpng', graphviz_file], stdout=fig)
-    #os.system('dot -Gsplines=none %s | neato -Gsplines=true -Tpng -o%s' % (graphviz_file, fig_file))
+    print("Converted file: %s using neato to %s"%(graphviz_file,graphviz_file.replace('gv','png')))
+    os.system('dot -Gsplines=none %s | neato -Gsplines=true -Tpng -o%s' % (graphviz_file, fig_file))
+    print("Converted file: %s using dot to %s"%(graphviz_file,graphviz_file.replace('gv','png')))
+    
         
 
 
@@ -124,32 +139,37 @@ def main():
     if len(sys.argv) >= 3:
         filenames = find_nml_files(sys.argv[1], recursive=True)
     else:
-        filenames = find_nml_files(sys.argv[1])
+        if os.path.isfile(sys.argv[1]):
+            
+            filenames = [sys.argv[1]]
+        else:
+            filenames = find_nml_files(sys.argv[1])
 
-    for filename in sorted(filenames):
-        print "Create graph for %s" % filename
-        dirname = os.path.dirname(filename)
-        tree = ET.parse(filename)
-        root = tree.getroot()
-        
-        cells = get_cells(root)
-        elec_conns = get_elec_conns(root)
-        chem_conns = get_chem_conns(root)
+    for filename in sorted(filenames)[:5]:
+        if filename.endswith('nml') and not filename.endswith('cell.nml'):
+            print "=============================\nCreating graph for %s" % filename
+            dirname = os.path.dirname(filename)
+            tree = ET.parse(filename)
+            root = tree.getroot()
 
-        base = os.path.basename(filename)
-        graphviz_file = os.path.splitext(base)[0]
-        graphviz_file1 = graphviz_file + '_dot.gv'
-        graphviz_file2 = graphviz_file + '_neato.gv'
+            cells = get_cells(root)
+            elec_conns = get_elec_conns(root)
+            chem_conns = get_chem_conns(root)
 
-        fig_file = os.path.splitext(base)[0]
-        fig_file1 = fig_file + '_dot.png'
-        fig_file2 = fig_file + '_neato.png'
+            base = os.path.basename(filename)
+            graphviz_file = os.path.splitext(base)[0]
+            graphviz_file1 = graphviz_file + '_dot.gv'
+            graphviz_file2 = graphviz_file + '_neato.gv'
 
-        write_graph_file(os.path.join(dirname, graphviz_file1), cells, elec_conns, chem_conns, layout='dot')
-        execute_graph_generator(os.path.join(dirname, graphviz_file1), os.path.join(dirname, fig_file1))
+            fig_file = os.path.splitext(base)[0]
+            fig_file1 = fig_file + '_dot.png'
+            fig_file2 = fig_file + '_neato.png'
 
-        write_graph_file(os.path.join(dirname, graphviz_file2), cells, elec_conns, chem_conns, layout='neato')
-        execute_graph_generator(os.path.join(dirname, graphviz_file2), os.path.join(dirname, fig_file2))
+            write_graph_file(os.path.join(dirname, graphviz_file1), cells, elec_conns, chem_conns, layout='dot')
+            execute_graph_generator(os.path.join(dirname, graphviz_file1), os.path.join(dirname, fig_file1))
+
+            write_graph_file(os.path.join(dirname, graphviz_file2), cells, elec_conns, chem_conns, layout='neato')
+            execute_graph_generator(os.path.join(dirname, graphviz_file2), os.path.join(dirname, fig_file2))
     
 
 if __name__ == '__main__':
