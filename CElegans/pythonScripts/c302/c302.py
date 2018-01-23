@@ -42,6 +42,7 @@ import re
 from parameters_C0 import GradedSynapse2
 from parameters_C2 import DelayedGapJunction
 from parameters_C2 import DelayedGradedSynapse
+import collections
 
 try:
     from urllib2 import URLError  # Python 2
@@ -424,6 +425,69 @@ def elem_in_coll_matches_conn(coll, conn):
     return False
 
 
+def _get_cell_info(cells):
+
+    import PyOpenWorm as P
+    print("Connecting to the PyOpenWorm database...")
+    P.connect()
+
+    #Get the worm object.
+    worm = P.Worm()
+
+    #Extract the network object from the worm object.
+    net = worm.neuron_network()
+
+    #Go through our list and get the neuron object associated with each name.
+    #Store these in another list.
+    some_neurons = [P.Neuron(name) for name in cells]
+    all_neuron_info = collections.OrderedDict()
+    all_muscle_info = collections.OrderedDict()
+    
+    
+    for neuron in some_neurons: 
+        print("=====Checking properties of: %s"%neuron)
+        print neuron.triples()
+        print neuron.__class__
+        short = ') %s'%neuron.name()
+        color = '.6 0 0'
+        if 'sensory' in neuron.type():
+            short = 'Se%s'%short
+            color = '1 .2 1'
+        if 'interneuron' in neuron.type():
+            short = 'In%s'%short
+            color = '.8 0 .4'
+        if 'motor' in neuron.type():
+            short = 'Mo%s'%short
+            color = '.6 .2 1'
+        if _is_muscle(neuron.name()):
+            short = 'Mu%s'%short
+            color = '0 0.6 0'
+            
+            
+        short = '(%s'%short
+        
+        
+        if 'GABA' in neuron.neurotransmitter():
+            short = '- %s'%short
+        elif len(neuron.neurotransmitter())==0:
+            short = '? %s'%short
+        else:
+            short = '+ %s'%short
+            
+        info = (neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color)
+        #print dir(neuron)
+        
+        if _is_muscle(neuron.name()):
+            all_muscle_info[neuron.name()] = info
+        else:
+            all_neuron_info[neuron.name()] = info
+        
+    return all_neuron_info, all_muscle_info
+  
+def _is_muscle(name):
+    return name.startswith('MD') or name.startswith('MV')
+
+
 def set_param(params, param, value):
     if params.get_bioparameter(param):
         if params.get_bioparameter(param).value == value:
@@ -649,7 +713,9 @@ def generate(net_id,
                                   component=cell,
                                   type="populationList")
                 cell_id = cell
-                                  
+                     
+            all_neuron_info, all_muscle_info = _get_cell_info([cell])
+            pop0.properties.append(Property("color", all_neuron_info[cell][5]))    
             pop0.instances.append(inst)
 
 
@@ -782,6 +848,7 @@ def generate(net_id,
             pop0 = Population(id=muscle,
                               component=params.generic_muscle_cell.id,
                               type="populationList")
+            pop0.properties.append(Property("color", '0 .6 0'))
             pop0.instances.append(inst)
 
 
