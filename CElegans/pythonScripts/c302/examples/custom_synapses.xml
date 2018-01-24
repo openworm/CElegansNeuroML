@@ -42,43 +42,41 @@
     </ComponentType>
 
 
-    <ComponentType name="proprio"
+   <!-- <ComponentType name="proprio"
                    extends="baseGradedSynapse"
                    description="Graded/analog synapse. Based on Kunert et al 2017 http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005303">
 
-        <!--
-                TODO...
-        -->
+
         <Property name="weight" dimension="none" defaultValue="1"/>
 
         <Parameter name="conductance" dimension="conductance"/>
 
         <Parameter name="ar" dimension="per_time" description="Growth time"/>
         <Parameter name="ad" dimension="per_time" description="Decay time"/>
-        <Parameter name="beta" dimension="concentration" description="Beta, width of the sigmoid"/>
-        <Parameter name="cath" dimension="concentration" description="Synaptic activation factor"/>
-        <Parameter name="erev" dimension="concentration" description="Synaptic reversal potential"/>
+        <Parameter name="beta" dimension="per_voltage" description="Beta, width of the sigmoid"/>
+        <Parameter name="vth" dimension="voltage" description="Synaptic activation factor"/>
+        <Parameter name="erev" dimension="voltage" description="Synaptic reversal potential"/>
 
         <Exposure name="i" dimension="current"/>
 
-        <Requirement name="caConc" dimension="concentration"/>
+        <Requirement name="v" dimension="voltage"/>
 
         <InstanceRequirement name="peer" type="baseGradedSynapse"/>
 
         <Dynamics>
             <StateVariable name="s" dimension="none"/>
 
-            <DerivedVariable name="caConcPeer" dimension="concentration" select="peer/caConc"/>
+            <DerivedVariable name="vpeer" dimension="concentration" select="peer/v"/>
 
-            <DerivedVariable name="phi" dimension="none" value="1/(1 + exp(1/beta * (cath - caConcPeer)))"/>
+            <DerivedVariable name="phi" dimension="none" value="1/(1 + exp(1/beta * (vth - vpeer)))"/>
 
-            <DerivedVariable name="i" exposure="i" value="weight * conductance * s * (caConcPeer-erev)"/>
+            <DerivedVariable name="i" exposure="i" value="weight * conductance * s * (vpeer-erev)"/>
 
             <TimeDerivative variable="s" value="ar*phi*(1-s) - ad*s" />
 
 
         </Dynamics>
-    </ComponentType>
+    </ComponentType>-->
 
 
 
@@ -106,6 +104,8 @@
         <Dynamics>
             <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
 
+            <StateVariable name="proprio_current" dimension="current"/>
+
             <!--<ConditionalDerivedVariable name="sigma" dimension="per_voltage">
                 <Case condition="(v - vpeer) .gt. 0" value="(vpeer - v)"/>
                 <Case value="0"/>
@@ -115,12 +115,20 @@
 
             <DerivedVariable name="p_current" dimension="current" value="p_sigmoid * p_conductance * (vpeer - v)" />
 
-            <ConditionalDerivedVariable name="proprio_current" dimension="current">
+            <!--<ConditionalDerivedVariable name="proprio_current" dimension="current">
                 <Case condition="vpeer .gt. v" value="p_current"/>
                 <Case value="0"/>
-            </ConditionalDerivedVariable>
+            </ConditionalDerivedVariable>-->
 
             <DerivedVariable name="i" exposure="i" dimension="current" value="proprio_current + weight * conductance * (vpeer - v)" />
+
+            <OnCondition test="vpeer .gt. v">
+                <StateAssignment variable="proprio_current" value="p_current" />
+            </OnCondition>
+
+            <OnCondition test="vpeer .leq. v">
+                <StateAssignment variable="proprio_current" value="0 * p_conductance * (vpeer-v)" />
+            </OnCondition>
 
         </Dynamics>
     </ComponentType>
@@ -160,6 +168,7 @@
             </ConditionalDerivedVariable>-->
 
             <StateVariable name="s" dimension="none"/>
+            <StateVariable name="proprio_current" dimension="current"/>
 
             <DerivedVariable name="vpeer" dimension="voltage" select="peer/v"/>
 
@@ -169,12 +178,22 @@
 
             <TimeDerivative variable="s" value="ar*phi*(1-s) - ad*s" />
 
-            <ConditionalDerivedVariable name="proprio_current" dimension="current">
+            <!--<ConditionalDerivedVariable name="proprio_current" dimension="current">
                 <Case condition="vpeer .gt. v" value="p_current"/>
                 <Case value="0"/>
-            </ConditionalDerivedVariable>
+            </ConditionalDerivedVariable>-->
 
             <DerivedVariable name="i" exposure="i" dimension="current" value="proprio_current + weight * conductance * (vpeer - v)" />
+
+            <OnCondition test="vpeer .gt. v">
+                <StateAssignment variable="proprio_current" value="p_current" />
+            </OnCondition>
+
+            <OnCondition test="vpeer .leq. v">
+                <StateAssignment variable="proprio_current" value="0 * p_conductance * (erev-v)" />
+            </OnCondition>
+
+
 
 
         </Dynamics>
