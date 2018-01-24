@@ -89,6 +89,12 @@ Parameters and setting used to generate this network:
         </biophysicalProperties>
     </cell>
     <pulseGenerator id="offset_current" delay="50 ms" duration="2000 ms" amplitude="9 pA"/>
+    <pulseGenerator id="stim_URYDL_1" delay="500ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_VD12_1" delay="500ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_AIZL_1" delay="500ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_URYDL_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_VD12_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_AIZL_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
     <network id="c302_D1_Syns">
         <population id="AIZL" component="AIZL" type="populationList">
             <instance id="0">
@@ -132,5 +138,23 @@ Parameters and setting used to generate this network:
         <continuousProjection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR">
             <continuousConnectionInstanceW id="0" preCell="../URYDL/0/URYDL" preSegment="0" preFractionAlong="0.5" postCell="../SMDDR/0/SMDDR" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
+        <inputList id="Input_URYDL_stim_URYDL_1" population="URYDL" component="stim_URYDL_1">
+            <input id="0" target="../URYDL/0/URYDL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_VD12_stim_VD12_1" population="VD12" component="stim_VD12_1">
+            <input id="0" target="../VD12/0/VD12" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AIZL_stim_AIZL_1" population="AIZL" component="stim_AIZL_1">
+            <input id="0" target="../AIZL/0/AIZL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_URYDL_stim_URYDL_2" population="URYDL" component="stim_URYDL_2">
+            <input id="0" target="../URYDL/0/URYDL" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_VD12_stim_VD12_2" population="VD12" component="stim_VD12_2">
+            <input id="0" target="../VD12/0/VD12" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AIZL_stim_AIZL_2" population="AIZL" component="stim_AIZL_2">
+            <input id="0" target="../AIZL/0/AIZL" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

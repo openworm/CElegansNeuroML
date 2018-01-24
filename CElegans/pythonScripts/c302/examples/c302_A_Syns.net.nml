@@ -49,6 +49,10 @@ Parameters and setting used to generate this network:
     <iafCell id="generic_muscle_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
     <iafCell id="generic_neuron_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
     <pulseGenerator id="offset_current" delay="50 ms" duration="200ms" amplitude="2.5pA"/>
+    <pulseGenerator id="stim_URYDL_1" delay="500ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_VD12_1" delay="500ms" duration="800ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_URYDL_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_VD12_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
     <network id="c302_A_Syns">
         <population id="SMDDR" component="generic_neuron_iaf_cell" type="populationList">
             <instance id="0">
@@ -76,5 +80,17 @@ Parameters and setting used to generate this network:
         <projection id="NC_URYDL_SMDDR_Glutamate" presynapticPopulation="URYDL" postsynapticPopulation="SMDDR" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../URYDL/0/generic_neuron_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../SMDDR/0/generic_neuron_iaf_cell" postSegmentId="0" postFractionAlong="0.5" weight="1." delay="0ms"/>
         </projection>
+        <inputList id="Input_URYDL_stim_URYDL_1" population="URYDL" component="stim_URYDL_1">
+            <input id="0" target="../URYDL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_VD12_stim_VD12_1" population="VD12" component="stim_VD12_1">
+            <input id="0" target="../VD12/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_URYDL_stim_URYDL_2" population="URYDL" component="stim_URYDL_2">
+            <input id="0" target="../URYDL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_VD12_stim_VD12_2" population="VD12" component="stim_VD12_2">
+            <input id="0" target="../VD12/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

@@ -54,7 +54,7 @@ def setup(parameter_set,
             c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
     
     
-    nml_file = target_directory+'/'+reference+'.nml'
+    nml_file = target_directory+'/'+reference+'.net.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
     
     print("(Re)written network file to: "+nml_file)
