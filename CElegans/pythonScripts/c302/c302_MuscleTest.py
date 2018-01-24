@@ -35,10 +35,8 @@ def setup(parameter_set,
     VD_motors = ["VD%s" % c for c in range_incl(1, 13)]
     AS_motors = ["AS%s" % c for c in range_incl(1, 11)]
 
-    #cells = list(['AVBL', 'AVBR'] + DB_motors + VD_motors + VB_motors + DD_motors + VA_motors + DA_motors + AS_motors)
-    #cells = list(['AVBL', 'AVBR', 'AVAL', 'AVAR'] + DB_motors + VD_motors + VB_motors + DD_motors + AS_motors + VA_motors + DA_motors)
-    #cells = list(['AVBL', 'AVBR'] + ['DB2', 'DB5', 'DB6'])
-    cells = list(['AVBL', 'AVBR'] + DB_motors)
+
+    cells = []
 
     muscles_to_include = True
 
@@ -48,18 +46,16 @@ def setup(parameter_set,
     cells_to_stimulate = []
 
     cells_to_plot = list(cells)
-    reference = "c302_%s_AVB_DB" % parameter_set
+    reference = "c302_%s_MuscleTest" % parameter_set
 
 
     conns_to_include = []
     if config_param_overrides.has_key('conns_to_include'):
         conns_to_include = config_param_overrides['conns_to_include']
 
-    conns_to_exclude = []
+    conns_to_exclude = ['^.+-.+$']
     if config_param_overrides.has_key('conns_to_exclude'):
         conns_to_exclude = config_param_overrides['conns_to_exclude']
-
-
 
     conn_polarity_override = {}
     if config_param_overrides.has_key('conn_polarity_override'):
@@ -71,12 +67,72 @@ def setup(parameter_set,
     if config_param_overrides.has_key('conn_number_override'):
         conn_number_override.update(config_param_overrides['conn_number_override'])
 
+
+
+    param_overrides = {
+        'ca_conc_decay_time_muscle': '60 ms',
+        'ca_conc_rho_muscle': '0.002138919 mol_per_m_per_A_per_s',
+    }
+
+
     end = '%sms' % (int(duration) - 100)
 
-    input_list = [
-        ('AVBL', '0ms', end, '15pA'),
-        ('AVBR', '0ms', end, '15pA'),
-    ]
+
+    input_list = []
+
+    
+    #input_list.append(('MDL02', '0ms', '250ms', '3pA'))
+    #input_list.append(('MDL03', '0ms', '250ms', '3pA'))
+    #input_list.append(('MDR02', '0ms', '250ms', '3pA'))
+    #input_list.append(('MDR03', '0ms', '250ms', '3pA'))
+
+    input_list.append(('MVR10', '0ms', '250ms', '1pA'))
+    input_list.append(('MVR11', '0ms', '250ms', '2pA'))
+    input_list.append(('MVR12', '0ms', '250ms', '3pA'))
+    input_list.append(('MVR13', '0ms', '250ms', '3pA'))
+    input_list.append(('MVR14', '0ms', '250ms', '2pA'))
+    input_list.append(('MVR15', '0ms', '250ms', '1pA'))
+    
+    input_list.append(('MVL10', '0ms', '250ms', '1pA'))
+    input_list.append(('MVL11', '0ms', '250ms', '2pA'))
+    input_list.append(('MVL12', '0ms', '250ms', '3pA'))
+    input_list.append(('MVL13', '0ms', '250ms', '3pA'))
+    input_list.append(('MVL14', '0ms', '250ms', '2pA'))
+    input_list.append(('MVL15', '0ms', '250ms', '1pA'))
+
+    input_list.append(('MDL21', '0ms', '250ms', '3pA'))
+    input_list.append(('MDL22', '0ms', '250ms', '3pA'))
+    input_list.append(('MDR21', '0ms', '250ms', '3pA'))
+    input_list.append(('MDR22', '0ms', '250ms', '3pA'))
+
+
+
+    for stim_num in range(5):
+        for muscle_num in range(24):
+            mdlx = 'MDL0%s' % (muscle_num + 1)
+            mdrx = 'MDR0%s' % (muscle_num + 1)
+
+            mvlx = 'MVL0%s' % (muscle_num + 1)
+            mvrx = 'MVR0%s' % (muscle_num + 1)
+
+            if muscle_num >= 9:
+                mdlx = 'MDL%s' % (muscle_num + 1)
+                mdrx = 'MDR%s' % (muscle_num + 1)
+
+                mvlx = 'MVL%s' % (muscle_num + 1)
+                if muscle_num != 23:
+                    mvrx = 'MVR%s' % (muscle_num + 1)
+
+            startd = '%sms' % (stim_num * 1000 + muscle_num * 50)
+            startv = '%sms' % ((stim_num  * 1000 + 500) + muscle_num * 50)
+            dur = '250ms'
+            amp = '3pA'
+
+            input_list.append((mdlx, startd, dur, amp))
+            input_list.append((mdrx, startd, dur, amp))
+
+            input_list.append((mvlx, startv, dur, amp))
+            input_list.append((mvrx, startv, dur, amp))
 
     nml_doc = None
     if generate:
