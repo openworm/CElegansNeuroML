@@ -33,29 +33,32 @@ def setup(parameter_set,
     
     cells = ['DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 
              'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6',
-             'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9',
-             'VD1', 'VD10', 'VD11', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
+             'VB1', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VB10', 'VB11',
+             'VD1', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'VD10', 'VD11', 'VD12', 'VD13']
+             
+    cells += ['DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9'] 
+    cells += ['VA1', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VA10', 'VA11', 'VA12'] 
     
-    cells = ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3', 'DB4', 'VB4', 'DD4', 'VD4']
+    #cells = ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3', 'DB4', 'VB4', 'DD4', 'VD4']
     #cells = ['DB3', 'VB3', 'DD3', 'VD3']
-    cells += ['DA2', 'VA2','DA3','VA3']
+    #cells += ['DA2', 'VA2','DA3','VA3']
     #cells = ['DB3', 'VB3', 'DB4', 'VB4']
              
     #cells+=['AVBL','PVCL','AVBR','PVCR']
     #cells+=[]
-    #cells+=['PVCL', 'PVCR','AVBL','AVBR']
+    cells+=['PVCL', 'PVCR','AVBL','AVBR']
     #cells+=['AVAL','AVAR']
-    cells+=['AVBL','AVBR']
+    #cells+=['AVBL','AVBR']
     #cells=None  # implies all cells...  
     
-    cells = ['AVBR', 'VB2', 'VD3', 'DB3', 'DD2']
-    cells = ['VB2', 'VD3']
+    #cells = ['AVBR', 'VB2', 'VD3', 'DB3', 'DD2']
+    #cells = ['VB2', 'VD3']
     
     
     #cells_to_stimulate = ['PVCL','PVCR']
     #cells_to_stimulate = ['PLML','PLMR']
     cells_to_stimulate = ['AVBR']
-    cells_to_stimulate = ['VB2']
+    #cells_to_stimulate = ['VB2']
     #cells_to_stimulate = ['AVAL']
     
     # Plot some directly stimulated & some not stimulated
