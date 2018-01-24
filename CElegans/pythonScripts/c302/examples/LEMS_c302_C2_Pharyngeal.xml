@@ -96,7 +96,7 @@ Parameters and setting used to generate this network:
     
     <Include file="custom_synapses.xml" />
     
-    <Include file="c302_C2_Pharyngeal.nml" />
+    <Include file="c302_C2_Pharyngeal.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

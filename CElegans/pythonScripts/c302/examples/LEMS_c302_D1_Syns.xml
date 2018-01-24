@@ -79,7 +79,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cells/VD12_D.cell.nml" />
     
-    <Include file="c302_D1_Syns.nml" />
+    <Include file="c302_D1_Syns.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

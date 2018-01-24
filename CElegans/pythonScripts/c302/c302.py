@@ -312,7 +312,7 @@ def write_to_file(nml_doc,
 
     #######   Write to file  ######
 
-    nml_file = target_directory+'/'+reference+'.nml'
+    nml_file = target_directory+'/'+reference+'.net.nml'
     print_("Writing generated network to: %s"%os.path.realpath(nml_file))
     writers.NeuroMLWriter.write(nml_doc, nml_file)
 

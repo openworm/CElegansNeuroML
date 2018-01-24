@@ -56,7 +56,7 @@ Parameters and setting used to generate this network:
     <Include file="Networks.xml" />
     <Include file="Simulation.xml" />
     
-    <Include file="c302_A_Social.nml" />
+    <Include file="c302_A_Social.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

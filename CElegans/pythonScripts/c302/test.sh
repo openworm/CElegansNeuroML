@@ -72,25 +72,25 @@ cd examples
 
 ## Validate generated NeuroML 2
 
-jnml -validate c302_A_Full.nml
-jnml -validate c302_A_Pharyngeal.nml
-jnml -validate c302_A_Syns.nml
-jnml -validate c302_A_Social.nml
-jnml -validate c302_A_Muscles.nml
+jnml -validate c302_A_Full.net.nml
+jnml -validate c302_A_Pharyngeal.net.nml
+jnml -validate c302_A_Syns.net.nml
+jnml -validate c302_A_Social.net.nml
+jnml -validate c302_A_Muscles.net.nml
 
 # Not validating B files as they use non NeuroML 2 compliant IaFCell model with activity...
 
-jnml -validate c302_C_Full.nml
-jnml -validate c302_C_Pharyngeal.nml
+jnml -validate c302_C_Full.net.nml
+jnml -validate c302_C_Pharyngeal.net.nml
 
-jnml -validate c302_C1_Full.nml
-jnml -validate c302_C1_Pharyngeal.nml
+jnml -validate c302_C1_Full.net.nml
+jnml -validate c302_C1_Pharyngeal.net.nml
 
-jnml -validate c302_D_Full.nml
-jnml -validate c302_D_Pharyngeal.nml
+jnml -validate c302_D_Full.net.nml
+jnml -validate c302_D_Pharyngeal.net.nml
 
-jnml -validate c302_D1_Full.nml
-jnml -validate c302_D1_Pharyngeal.nml
+jnml -validate c302_D1_Full.net.nml
+jnml -validate c302_D1_Pharyngeal.net.nml
 
 
 ## Try running these in jNeuroML with no GUI

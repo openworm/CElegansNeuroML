@@ -105,7 +105,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cells/NSMR_D.cell.nml" />
     
-    <Include file="c302_D_Pharyngeal.nml" />
+    <Include file="c302_D_Pharyngeal.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

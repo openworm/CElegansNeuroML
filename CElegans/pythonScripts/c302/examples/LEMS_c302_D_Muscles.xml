@@ -333,7 +333,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cells/VD9_D.cell.nml" />
     
-    <Include file="c302_D_Muscles.nml" />
+    <Include file="c302_D_Muscles.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

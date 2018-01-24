@@ -57,7 +57,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cell_B.xml" />
     
-    <Include file="c302_B_IClamp.nml" />
+    <Include file="c302_B_IClamp.net.nml" />
 
     <!-- End of NeuroML2 content -->
     
