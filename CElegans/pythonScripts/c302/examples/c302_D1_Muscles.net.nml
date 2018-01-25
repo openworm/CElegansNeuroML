@@ -220,7 +220,7 @@ Parameters and setting used to generate this network:
     </cell>
     <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="4pA"/>
     <network id="c302_D1_Muscles">
-        <population id="AS1" component="AS1" type="populationList">
+        <population id="AS1" component="AS1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
@@ -230,7 +230,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS10" component="AS10" type="populationList">
+        <population id="AS10" component="AS10" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
@@ -239,7 +239,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS11" component="AS11" type="populationList">
+        <population id="AS11" component="AS11" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
@@ -248,7 +248,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS2" component="AS2" type="populationList">
+        <population id="AS2" component="AS2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
@@ -258,7 +258,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS3" component="AS3" type="populationList">
+        <population id="AS3" component="AS3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
@@ -267,7 +267,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS4" component="AS4" type="populationList">
+        <population id="AS4" component="AS4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
@@ -276,7 +276,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS5" component="AS5" type="populationList">
+        <population id="AS5" component="AS5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
@@ -285,7 +285,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS6" component="AS6" type="populationList">
+        <population id="AS6" component="AS6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
@@ -294,7 +294,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS7" component="AS7" type="populationList">
+        <population id="AS7" component="AS7" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
@@ -303,7 +303,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS8" component="AS8" type="populationList">
+        <population id="AS8" component="AS8" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
@@ -312,7 +312,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AS9" component="AS9" type="populationList">
+        <population id="AS9" component="AS9" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
@@ -321,7 +321,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVAL" component="AVAL" type="populationList">
+        <population id="AVAL" component="AVAL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="GLR-5; GLR-4; GLR-2; GLR-1; UNC-8; GGR-3; NPR-4; NMR-1; NMR-2"/>
@@ -331,7 +331,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVAR" component="AVAR" type="populationList">
+        <population id="AVAR" component="AVAR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="GLR-5; GLR-4; GLR-2; GLR-1; UNC-8; GGR-3; NPR-4; NMR-1; NMR-2"/>
@@ -340,7 +340,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVBL" component="AVBL" type="populationList">
+        <population id="AVBL" component="AVBL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="GLR-5; GLR-1; UNC-8; GGR-3; LGC-55; SRA-11"/>
@@ -349,7 +349,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVBR" component="AVBR" type="populationList">
+        <population id="AVBR" component="AVBR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="GLR-5; GLR-1; UNC-8; SRA-11; LGC-55; GGR-3"/>
@@ -359,7 +359,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVDL" component="AVDL" type="populationList">
+        <population id="AVDL" component="AVDL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="GLR-5; GLR-2; GLR-1; PDFR-1; UNC-8; NMR-1; NMR-2"/>
@@ -368,7 +368,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVDR" component="AVDR" type="populationList">
+        <population id="AVDR" component="AVDR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="GLR-5; GLR-2; GLR-1; PDFR-1; UNC-8; NMR-1; NMR-2"/>
@@ -377,7 +377,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVFL" component="AVFL" type="populationList">
+        <population id="AVFL" component="AVFL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="LGC-53; PDFR-1"/>
@@ -386,7 +386,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVFR" component="AVFR" type="populationList">
+        <population id="AVFR" component="AVFR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="LGC-53; PDFR-1"/>
@@ -395,7 +395,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVKR" component="AVKR" type="populationList">
+        <population id="AVKR" component="AVKR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="GLR-5"/>
@@ -404,7 +404,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AVL" component="AVL" type="populationList">
+        <population id="AVL" component="AVL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value="DOP-4"/>
@@ -413,7 +413,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="CEPVL" component="CEPVL" type="populationList">
+        <population id="CEPVL" component="CEPVL" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="OCTR-1; TYRA-3; DOP-2"/>
@@ -423,7 +423,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="CEPVR" component="CEPVR" type="populationList">
+        <population id="CEPVR" component="CEPVR" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="OCTR-1; TYRA-3; DOP-2"/>
@@ -433,7 +433,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA1" component="DA1" type="populationList">
+        <population id="DA1" component="DA1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; SER-2; NPR-3; DOP-3; UNC-8"/>
@@ -443,7 +443,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA2" component="DA2" type="populationList">
+        <population id="DA2" component="DA2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; UNC-8; NPR-3; DOP-3; SER-2"/>
@@ -453,7 +453,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA3" component="DA3" type="populationList">
+        <population id="DA3" component="DA3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; UNC-8; NPR-3; CKR-2; SER-2"/>
@@ -463,7 +463,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA4" component="DA4" type="populationList">
+        <population id="DA4" component="DA4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; UNC-8; NPR-3; DOP-3; SER-2"/>
@@ -472,7 +472,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA5" component="DA5" type="populationList">
+        <population id="DA5" component="DA5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; UNC-8; NPR-3; DOP-3; SER-2"/>
@@ -481,7 +481,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA6" component="DA6" type="populationList">
+        <population id="DA6" component="DA6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; UNC-8; NPR-3; CKR-2; SER-2"/>
@@ -490,7 +490,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA7" component="DA7" type="populationList">
+        <population id="DA7" component="DA7" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; SER-2; NPR-3; CKR-2; UNC-8"/>
@@ -499,7 +499,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA8" component="DA8" type="populationList">
+        <population id="DA8" component="DA8" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-1; SER-2; NPR-3; DOP-3; UNC-8"/>
@@ -508,7 +508,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DA9" component="DA9" type="populationList">
+        <population id="DA9" component="DA9" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; DOP-1; UNC-8; NPR-3; CKR-2; SER-2"/>
@@ -517,7 +517,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DB1" component="DB1" type="populationList">
+        <population id="DB1" component="DB1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -526,7 +526,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DB2" component="DB2" type="populationList">
+        <population id="DB2" component="DB2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; PDFR-1; DOP-3; NPR-3; DOP-1"/>
@@ -535,7 +535,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DB3" component="DB3" type="populationList">
+        <population id="DB3" component="DB3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -544,7 +544,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DB4" component="DB4" type="populationList">
+        <population id="DB4" component="DB4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -553,7 +553,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DB5" component="DB5" type="populationList">
+        <population id="DB5" component="DB5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -562,7 +562,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DB6" component="DB6" type="populationList">
+        <population id="DB6" component="DB6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -571,7 +571,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DB7" component="DB7" type="populationList">
+        <population id="DB7" component="DB7" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -580,7 +580,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DD1" component="DD1" type="populationList">
+        <population id="DD1" component="DD1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
@@ -590,7 +590,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DD2" component="DD2" type="populationList">
+        <population id="DD2" component="DD2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
@@ -600,7 +600,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DD3" component="DD3" type="populationList">
+        <population id="DD3" component="DD3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
@@ -609,7 +609,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DD4" component="DD4" type="populationList">
+        <population id="DD4" component="DD4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
@@ -618,7 +618,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DD5" component="DD5" type="populationList">
+        <population id="DD5" component="DD5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
@@ -627,7 +627,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DD6" component="DD6" type="populationList">
+        <population id="DD6" component="DD6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
@@ -636,7 +636,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="DVB" component="DVB" type="populationList">
+        <population id="DVB" component="DVB" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value=""/>
@@ -645,7 +645,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="HSNL" component="HSNL" type="populationList">
+        <population id="HSNL" component="HSNL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="EGL-6; GLR-5; GAR-2; LGC-53; GGR-2; MEC-6; LGC-55"/>
@@ -655,7 +655,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="HSNR" component="HSNR" type="populationList">
+        <population id="HSNR" component="HSNR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="EGL-6; GLR-5; GAR-2; LGC-53; GGR-2; MEC-6; LGC-55"/>
@@ -665,7 +665,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="IL1DL" component="IL1DL" type="populationList">
+        <population id="IL1DL" component="IL1DL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; interneuron; motor"/>
             <property tag="receptor" value="TRPA-1; DEG-3; MEC-6; LGC-55"/>
@@ -674,7 +674,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="IL1DR" component="IL1DR" type="populationList">
+        <population id="IL1DR" component="IL1DR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; interneuron; motor"/>
             <property tag="receptor" value="MEC-6; TRPA-1; DEG-3; LGC-55"/>
@@ -683,7 +683,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="IL1L" component="IL1L" type="populationList">
+        <population id="IL1L" component="IL1L" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; interneuron; motor"/>
             <property tag="receptor" value="LGC-55; DEG-3; MEC-6; TRPA-1"/>
@@ -692,7 +692,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="IL1R" component="IL1R" type="populationList">
+        <population id="IL1R" component="IL1R" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; interneuron; motor"/>
             <property tag="receptor" value="TRPA-1; DEG-3; MEC-6; LGC-55"/>
@@ -701,7 +701,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="IL1VL" component="IL1VL" type="populationList">
+        <population id="IL1VL" component="IL1VL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; interneuron; motor"/>
             <property tag="receptor" value="MEC-6; TRPA-1; DEG-3; LGC-55"/>
@@ -710,7 +710,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="IL1VR" component="IL1VR" type="populationList">
+        <population id="IL1VR" component="IL1VR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; interneuron; motor"/>
             <property tag="receptor" value="TRPA-1; DEG-3; MEC-6; LGC-55"/>
@@ -719,7 +719,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="PDA" component="PDA" type="populationList">
+        <population id="PDA" component="PDA" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="UNC-8; SER-2; EXP-1; DOP-2"/>
@@ -728,7 +728,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="PDB" component="PDB" type="populationList">
+        <population id="PDB" component="PDB" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value="UNC-8"/>
@@ -737,7 +737,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="PVCL" component="PVCL" type="populationList">
+        <population id="PVCL" component="PVCL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="SER-2; PDFR-1"/>
@@ -747,7 +747,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="PVCR" component="PVCR" type="populationList">
+        <population id="PVCR" component="PVCR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="SER-2; PDFR-1"/>
@@ -757,7 +757,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="PVNL" component="PVNL" type="populationList">
+        <population id="PVNL" component="PVNL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value=""/>
@@ -766,7 +766,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="PVNR" component="PVNR" type="populationList">
+        <population id="PVNR" component="PVNR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value=""/>
@@ -775,7 +775,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RID" component="RID" type="populationList">
+        <population id="RID" component="RID" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value="SER-2; DOP-2; MOD-1"/>
@@ -784,7 +784,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RIML" component="RIML" type="populationList">
+        <population id="RIML" component="RIML" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value="SER-4; DOP-1; MOD-1"/>
@@ -793,7 +793,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RIMR" component="RIMR" type="populationList">
+        <population id="RIMR" component="RIMR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value="SER-4; DOP-1; MOD-1"/>
@@ -802,7 +802,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RIVL" component="RIVL" type="populationList">
+        <population id="RIVL" component="RIVL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value="NPR-4; NPR-1"/>
@@ -811,7 +811,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RIVR" component="RIVR" type="populationList">
+        <population id="RIVR" component="RIVR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value="NPR-4; NPR-1"/>
@@ -821,7 +821,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMDDL" component="RMDDL" type="populationList">
+        <population id="RMDDL" component="RMDDL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
@@ -830,7 +830,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMDDR" component="RMDDR" type="populationList">
+        <population id="RMDDR" component="RMDDR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
@@ -839,7 +839,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMDL" component="RMDL" type="populationList">
+        <population id="RMDL" component="RMDL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
@@ -848,7 +848,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMDR" component="RMDR" type="populationList">
+        <population id="RMDR" component="RMDR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
@@ -857,7 +857,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMDVL" component="RMDVL" type="populationList">
+        <population id="RMDVL" component="RMDVL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
@@ -866,7 +866,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMDVR" component="RMDVR" type="populationList">
+        <population id="RMDVR" component="RMDVR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
@@ -875,7 +875,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMED" component="RMED" type="populationList">
+        <population id="RMED" component="RMED" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
@@ -884,7 +884,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMEL" component="RMEL" type="populationList">
+        <population id="RMEL" component="RMEL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
@@ -893,7 +893,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMER" component="RMER" type="populationList">
+        <population id="RMER" component="RMER" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
@@ -902,7 +902,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMEV" component="RMEV" type="populationList">
+        <population id="RMEV" component="RMEV" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
@@ -911,7 +911,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMFL" component="RMFL" type="populationList">
+        <population id="RMFL" component="RMFL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1"/>
@@ -920,7 +920,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMGL" component="RMGL" type="populationList">
+        <population id="RMGL" component="RMGL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="NPR-1"/>
@@ -929,7 +929,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMGR" component="RMGR" type="populationList">
+        <population id="RMGR" component="RMGR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="NPR-1"/>
@@ -939,7 +939,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMHL" component="RMHL" type="populationList">
+        <population id="RMHL" component="RMHL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1"/>
@@ -948,7 +948,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMHR" component="RMHR" type="populationList">
+        <population id="RMHR" component="RMHR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1"/>
@@ -958,7 +958,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMBDL" component="SMBDL" type="populationList">
+        <population id="SMBDL" component="SMBDL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NPR-1"/>
@@ -967,7 +967,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMBDR" component="SMBDR" type="populationList">
+        <population id="SMBDR" component="SMBDR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NPR-1"/>
@@ -976,7 +976,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMBVL" component="SMBVL" type="populationList">
+        <population id="SMBVL" component="SMBVL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value=""/>
@@ -985,7 +985,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMBVR" component="SMBVR" type="populationList">
+        <population id="SMBVR" component="SMBVR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value=""/>
@@ -994,7 +994,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMDDL" component="SMDDL" type="populationList">
+        <population id="SMDDL" component="SMDDL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NTR-2; LGC-55"/>
@@ -1003,7 +1003,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMDDR" component="SMDDR" type="populationList">
+        <population id="SMDDR" component="SMDDR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NTR-2; LGC-55"/>
@@ -1012,7 +1012,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMDVL" component="SMDVL" type="populationList">
+        <population id="SMDVL" component="SMDVL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NTR-2; LGC-55"/>
@@ -1021,7 +1021,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="SMDVR" component="SMDVR" type="populationList">
+        <population id="SMDVR" component="SMDVR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NTR-2; LGC-55"/>
@@ -1030,7 +1030,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="URADL" component="URADL" type="populationList">
+        <population id="URADL" component="URADL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value=""/>
@@ -1040,7 +1040,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="URADR" component="URADR" type="populationList">
+        <population id="URADR" component="URADR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value=""/>
@@ -1049,7 +1049,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="URAVL" component="URAVL" type="populationList">
+        <population id="URAVL" component="URAVL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value=""/>
@@ -1058,7 +1058,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="URAVR" component="URAVR" type="populationList">
+        <population id="URAVR" component="URAVR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value=""/>
@@ -1067,7 +1067,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA1" component="VA1" type="populationList">
+        <population id="VA1" component="VA1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1076,7 +1076,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA10" component="VA10" type="populationList">
+        <population id="VA10" component="VA10" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1085,7 +1085,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA11" component="VA11" type="populationList">
+        <population id="VA11" component="VA11" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1094,7 +1094,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA12" component="VA12" type="populationList">
+        <population id="VA12" component="VA12" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
@@ -1103,7 +1103,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA2" component="VA2" type="populationList">
+        <population id="VA2" component="VA2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1113,7 +1113,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA3" component="VA3" type="populationList">
+        <population id="VA3" component="VA3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
@@ -1122,7 +1122,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA4" component="VA4" type="populationList">
+        <population id="VA4" component="VA4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
@@ -1131,7 +1131,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA5" component="VA5" type="populationList">
+        <population id="VA5" component="VA5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1140,7 +1140,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA6" component="VA6" type="populationList">
+        <population id="VA6" component="VA6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1149,7 +1149,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA7" component="VA7" type="populationList">
+        <population id="VA7" component="VA7" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
@@ -1158,7 +1158,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA8" component="VA8" type="populationList">
+        <population id="VA8" component="VA8" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1167,7 +1167,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VA9" component="VA9" type="populationList">
+        <population id="VA9" component="VA9" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
@@ -1176,7 +1176,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB1" component="VB1" type="populationList">
+        <population id="VB1" component="VB1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -1186,7 +1186,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB10" component="VB10" type="populationList">
+        <population id="VB10" component="VB10" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -1195,7 +1195,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB11" component="VB11" type="populationList">
+        <population id="VB11" component="VB11" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -1204,7 +1204,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB2" component="VB2" type="populationList">
+        <population id="VB2" component="VB2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -1214,7 +1214,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB3" component="VB3" type="populationList">
+        <population id="VB3" component="VB3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -1224,7 +1224,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB4" component="VB4" type="populationList">
+        <population id="VB4" component="VB4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -1234,7 +1234,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB5" component="VB5" type="populationList">
+        <population id="VB5" component="VB5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -1243,7 +1243,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB6" component="VB6" type="populationList">
+        <population id="VB6" component="VB6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -1252,7 +1252,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB7" component="VB7" type="populationList">
+        <population id="VB7" component="VB7" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -1261,7 +1261,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB8" component="VB8" type="populationList">
+        <population id="VB8" component="VB8" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -1270,7 +1270,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VB9" component="VB9" type="populationList">
+        <population id="VB9" component="VB9" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
@@ -1279,7 +1279,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VC1" component="VC1" type="populationList">
+        <population id="VC1" component="VC1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-5"/>
@@ -1289,7 +1289,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VC2" component="VC2" type="populationList">
+        <population id="VC2" component="VC2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-5"/>
@@ -1299,7 +1299,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VC3" component="VC3" type="populationList">
+        <population id="VC3" component="VC3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-5"/>
@@ -1308,7 +1308,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VC4" component="VC4" type="populationList">
+        <population id="VC4" component="VC4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-5"/>
@@ -1318,7 +1318,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VC5" component="VC5" type="populationList">
+        <population id="VC5" component="VC5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-5"/>
@@ -1327,7 +1327,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VC6" component="VC6" type="populationList">
+        <population id="VC6" component="VC6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-5"/>
@@ -1336,7 +1336,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD1" component="VD1" type="populationList">
+        <population id="VD1" component="VD1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
@@ -1346,7 +1346,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD10" component="VD10" type="populationList">
+        <population id="VD10" component="VD10" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
@@ -1355,7 +1355,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD11" component="VD11" type="populationList">
+        <population id="VD11" component="VD11" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
@@ -1364,7 +1364,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD12" component="VD12" type="populationList">
+        <population id="VD12" component="VD12" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
@@ -1373,7 +1373,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD13" component="VD13" type="populationList">
+        <population id="VD13" component="VD13" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
@@ -1382,7 +1382,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD2" component="VD2" type="populationList">
+        <population id="VD2" component="VD2" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
@@ -1391,7 +1391,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD3" component="VD3" type="populationList">
+        <population id="VD3" component="VD3" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
@@ -1400,7 +1400,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD4" component="VD4" type="populationList">
+        <population id="VD4" component="VD4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
@@ -1409,7 +1409,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD5" component="VD5" type="populationList">
+        <population id="VD5" component="VD5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
@@ -1418,7 +1418,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD6" component="VD6" type="populationList">
+        <population id="VD6" component="VD6" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
@@ -1427,7 +1427,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD7" component="VD7" type="populationList">
+        <population id="VD7" component="VD7" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
@@ -1436,7 +1436,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD8" component="VD8" type="populationList">
+        <population id="VD8" component="VD8" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
@@ -1445,7 +1445,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="VD9" component="VD9" type="populationList">
+        <population id="VD9" component="VD9" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
@@ -1454,571 +1454,571 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="MDR01" component="GenericMuscleCell" type="populationList">
+        <population id="MDR01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-270." z="80."/>
             </instance>
         </population>
-        <population id="MDR02" component="GenericMuscleCell" type="populationList">
+        <population id="MDR02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-240." z="80."/>
             </instance>
         </population>
-        <population id="MDR03" component="GenericMuscleCell" type="populationList">
+        <population id="MDR03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-210." z="80."/>
             </instance>
         </population>
-        <population id="MDR04" component="GenericMuscleCell" type="populationList">
+        <population id="MDR04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-180." z="80."/>
             </instance>
         </population>
-        <population id="MDR05" component="GenericMuscleCell" type="populationList">
+        <population id="MDR05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-150." z="80."/>
             </instance>
         </population>
-        <population id="MDR06" component="GenericMuscleCell" type="populationList">
+        <population id="MDR06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-120." z="80."/>
             </instance>
         </population>
-        <population id="MDR07" component="GenericMuscleCell" type="populationList">
+        <population id="MDR07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-90." z="80."/>
             </instance>
         </population>
-        <population id="MDR08" component="GenericMuscleCell" type="populationList">
+        <population id="MDR08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-60." z="80."/>
             </instance>
         </population>
-        <population id="MDR09" component="GenericMuscleCell" type="populationList">
+        <population id="MDR09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-30." z="80."/>
             </instance>
         </population>
-        <population id="MDR10" component="GenericMuscleCell" type="populationList">
+        <population id="MDR10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="0." z="80."/>
             </instance>
         </population>
-        <population id="MDR11" component="GenericMuscleCell" type="populationList">
+        <population id="MDR11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="30." z="80."/>
             </instance>
         </population>
-        <population id="MDR12" component="GenericMuscleCell" type="populationList">
+        <population id="MDR12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="60." z="80."/>
             </instance>
         </population>
-        <population id="MDR13" component="GenericMuscleCell" type="populationList">
+        <population id="MDR13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="90." z="80."/>
             </instance>
         </population>
-        <population id="MDR14" component="GenericMuscleCell" type="populationList">
+        <population id="MDR14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="120." z="80."/>
             </instance>
         </population>
-        <population id="MDR15" component="GenericMuscleCell" type="populationList">
+        <population id="MDR15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="150." z="80."/>
             </instance>
         </population>
-        <population id="MDR16" component="GenericMuscleCell" type="populationList">
+        <population id="MDR16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="180." z="80."/>
             </instance>
         </population>
-        <population id="MDR17" component="GenericMuscleCell" type="populationList">
+        <population id="MDR17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="210." z="80."/>
             </instance>
         </population>
-        <population id="MDR18" component="GenericMuscleCell" type="populationList">
+        <population id="MDR18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="240." z="80."/>
             </instance>
         </population>
-        <population id="MDR19" component="GenericMuscleCell" type="populationList">
+        <population id="MDR19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="270." z="80."/>
             </instance>
         </population>
-        <population id="MDR20" component="GenericMuscleCell" type="populationList">
+        <population id="MDR20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="300." z="80."/>
             </instance>
         </population>
-        <population id="MDR21" component="GenericMuscleCell" type="populationList">
+        <population id="MDR21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="330." z="80."/>
             </instance>
         </population>
-        <population id="MDR22" component="GenericMuscleCell" type="populationList">
+        <population id="MDR22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="360." z="80."/>
             </instance>
         </population>
-        <population id="MDR23" component="GenericMuscleCell" type="populationList">
+        <population id="MDR23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="390." z="80."/>
             </instance>
         </population>
-        <population id="MDR24" component="GenericMuscleCell" type="populationList">
+        <population id="MDR24" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="420." z="80."/>
             </instance>
         </population>
-        <population id="MVR01" component="GenericMuscleCell" type="populationList">
+        <population id="MVR01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-270." z="80."/>
             </instance>
         </population>
-        <population id="MVR02" component="GenericMuscleCell" type="populationList">
+        <population id="MVR02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-240." z="80."/>
             </instance>
         </population>
-        <population id="MVR03" component="GenericMuscleCell" type="populationList">
+        <population id="MVR03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-210." z="80."/>
             </instance>
         </population>
-        <population id="MVR04" component="GenericMuscleCell" type="populationList">
+        <population id="MVR04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-180." z="80."/>
             </instance>
         </population>
-        <population id="MVR05" component="GenericMuscleCell" type="populationList">
+        <population id="MVR05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-150." z="80."/>
             </instance>
         </population>
-        <population id="MVR06" component="GenericMuscleCell" type="populationList">
+        <population id="MVR06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-120." z="80."/>
             </instance>
         </population>
-        <population id="MVR07" component="GenericMuscleCell" type="populationList">
+        <population id="MVR07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-90." z="80."/>
             </instance>
         </population>
-        <population id="MVR08" component="GenericMuscleCell" type="populationList">
+        <population id="MVR08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-60." z="80."/>
             </instance>
         </population>
-        <population id="MVR09" component="GenericMuscleCell" type="populationList">
+        <population id="MVR09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-30." z="80."/>
             </instance>
         </population>
-        <population id="MVR10" component="GenericMuscleCell" type="populationList">
+        <population id="MVR10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="0." z="80."/>
             </instance>
         </population>
-        <population id="MVR11" component="GenericMuscleCell" type="populationList">
+        <population id="MVR11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="30." z="80."/>
             </instance>
         </population>
-        <population id="MVR12" component="GenericMuscleCell" type="populationList">
+        <population id="MVR12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="60." z="80."/>
             </instance>
         </population>
-        <population id="MVR13" component="GenericMuscleCell" type="populationList">
+        <population id="MVR13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="90." z="80."/>
             </instance>
         </population>
-        <population id="MVR14" component="GenericMuscleCell" type="populationList">
+        <population id="MVR14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="120." z="80."/>
             </instance>
         </population>
-        <population id="MVR15" component="GenericMuscleCell" type="populationList">
+        <population id="MVR15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="150." z="80."/>
             </instance>
         </population>
-        <population id="MVR16" component="GenericMuscleCell" type="populationList">
+        <population id="MVR16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="180." z="80."/>
             </instance>
         </population>
-        <population id="MVR17" component="GenericMuscleCell" type="populationList">
+        <population id="MVR17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="210." z="80."/>
             </instance>
         </population>
-        <population id="MVR18" component="GenericMuscleCell" type="populationList">
+        <population id="MVR18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="240." z="80."/>
             </instance>
         </population>
-        <population id="MVR19" component="GenericMuscleCell" type="populationList">
+        <population id="MVR19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="270." z="80."/>
             </instance>
         </population>
-        <population id="MVR20" component="GenericMuscleCell" type="populationList">
+        <population id="MVR20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="300." z="80."/>
             </instance>
         </population>
-        <population id="MVR21" component="GenericMuscleCell" type="populationList">
+        <population id="MVR21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="330." z="80."/>
             </instance>
         </population>
-        <population id="MVR22" component="GenericMuscleCell" type="populationList">
+        <population id="MVR22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="360." z="80."/>
             </instance>
         </population>
-        <population id="MVR23" component="GenericMuscleCell" type="populationList">
+        <population id="MVR23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="390." z="80."/>
             </instance>
         </population>
-        <population id="MVL01" component="GenericMuscleCell" type="populationList">
+        <population id="MVL01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-270." z="-80."/>
             </instance>
         </population>
-        <population id="MVL02" component="GenericMuscleCell" type="populationList">
+        <population id="MVL02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-240." z="-80."/>
             </instance>
         </population>
-        <population id="MVL03" component="GenericMuscleCell" type="populationList">
+        <population id="MVL03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-210." z="-80."/>
             </instance>
         </population>
-        <population id="MVL04" component="GenericMuscleCell" type="populationList">
+        <population id="MVL04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-180." z="-80."/>
             </instance>
         </population>
-        <population id="MVL05" component="GenericMuscleCell" type="populationList">
+        <population id="MVL05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-150." z="-80."/>
             </instance>
         </population>
-        <population id="MVL06" component="GenericMuscleCell" type="populationList">
+        <population id="MVL06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-120." z="-80."/>
             </instance>
         </population>
-        <population id="MVL07" component="GenericMuscleCell" type="populationList">
+        <population id="MVL07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-90." z="-80."/>
             </instance>
         </population>
-        <population id="MVL08" component="GenericMuscleCell" type="populationList">
+        <population id="MVL08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-60." z="-80."/>
             </instance>
         </population>
-        <population id="MVL09" component="GenericMuscleCell" type="populationList">
+        <population id="MVL09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="-30." z="-80."/>
             </instance>
         </population>
-        <population id="MVL10" component="GenericMuscleCell" type="populationList">
+        <population id="MVL10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="0." z="-80."/>
             </instance>
         </population>
-        <population id="MVL11" component="GenericMuscleCell" type="populationList">
+        <population id="MVL11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="30." z="-80."/>
             </instance>
         </population>
-        <population id="MVL12" component="GenericMuscleCell" type="populationList">
+        <population id="MVL12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="60." z="-80."/>
             </instance>
         </population>
-        <population id="MVL13" component="GenericMuscleCell" type="populationList">
+        <population id="MVL13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="90." z="-80."/>
             </instance>
         </population>
-        <population id="MVL14" component="GenericMuscleCell" type="populationList">
+        <population id="MVL14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="120." z="-80."/>
             </instance>
         </population>
-        <population id="MVL15" component="GenericMuscleCell" type="populationList">
+        <population id="MVL15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="150." z="-80."/>
             </instance>
         </population>
-        <population id="MVL16" component="GenericMuscleCell" type="populationList">
+        <population id="MVL16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="180." z="-80."/>
             </instance>
         </population>
-        <population id="MVL17" component="GenericMuscleCell" type="populationList">
+        <population id="MVL17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="210." z="-80."/>
             </instance>
         </population>
-        <population id="MVL18" component="GenericMuscleCell" type="populationList">
+        <population id="MVL18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="240." z="-80."/>
             </instance>
         </population>
-        <population id="MVL19" component="GenericMuscleCell" type="populationList">
+        <population id="MVL19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="270." z="-80."/>
             </instance>
         </population>
-        <population id="MVL20" component="GenericMuscleCell" type="populationList">
+        <population id="MVL20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="300." z="-80."/>
             </instance>
         </population>
-        <population id="MVL21" component="GenericMuscleCell" type="populationList">
+        <population id="MVL21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="330." z="-80."/>
             </instance>
         </population>
-        <population id="MVL22" component="GenericMuscleCell" type="populationList">
+        <population id="MVL22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="360." z="-80."/>
             </instance>
         </population>
-        <population id="MVL23" component="GenericMuscleCell" type="populationList">
+        <population id="MVL23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="390." z="-80."/>
             </instance>
         </population>
-        <population id="MVL24" component="GenericMuscleCell" type="populationList">
+        <population id="MVL24" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="-80." y="420." z="-80."/>
             </instance>
         </population>
-        <population id="MDL01" component="GenericMuscleCell" type="populationList">
+        <population id="MDL01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-270." z="-80."/>
             </instance>
         </population>
-        <population id="MDL02" component="GenericMuscleCell" type="populationList">
+        <population id="MDL02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-240." z="-80."/>
             </instance>
         </population>
-        <population id="MDL03" component="GenericMuscleCell" type="populationList">
+        <population id="MDL03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-210." z="-80."/>
             </instance>
         </population>
-        <population id="MDL04" component="GenericMuscleCell" type="populationList">
+        <population id="MDL04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-180." z="-80."/>
             </instance>
         </population>
-        <population id="MDL05" component="GenericMuscleCell" type="populationList">
+        <population id="MDL05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-150." z="-80."/>
             </instance>
         </population>
-        <population id="MDL06" component="GenericMuscleCell" type="populationList">
+        <population id="MDL06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-120." z="-80."/>
             </instance>
         </population>
-        <population id="MDL07" component="GenericMuscleCell" type="populationList">
+        <population id="MDL07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-90." z="-80."/>
             </instance>
         </population>
-        <population id="MDL08" component="GenericMuscleCell" type="populationList">
+        <population id="MDL08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-60." z="-80."/>
             </instance>
         </population>
-        <population id="MDL09" component="GenericMuscleCell" type="populationList">
+        <population id="MDL09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-30." z="-80."/>
             </instance>
         </population>
-        <population id="MDL10" component="GenericMuscleCell" type="populationList">
+        <population id="MDL10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="0." z="-80."/>
             </instance>
         </population>
-        <population id="MDL11" component="GenericMuscleCell" type="populationList">
+        <population id="MDL11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="30." z="-80."/>
             </instance>
         </population>
-        <population id="MDL12" component="GenericMuscleCell" type="populationList">
+        <population id="MDL12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="60." z="-80."/>
             </instance>
         </population>
-        <population id="MDL13" component="GenericMuscleCell" type="populationList">
+        <population id="MDL13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="90." z="-80."/>
             </instance>
         </population>
-        <population id="MDL14" component="GenericMuscleCell" type="populationList">
+        <population id="MDL14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="120." z="-80."/>
             </instance>
         </population>
-        <population id="MDL15" component="GenericMuscleCell" type="populationList">
+        <population id="MDL15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="150." z="-80."/>
             </instance>
         </population>
-        <population id="MDL16" component="GenericMuscleCell" type="populationList">
+        <population id="MDL16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="180." z="-80."/>
             </instance>
         </population>
-        <population id="MDL17" component="GenericMuscleCell" type="populationList">
+        <population id="MDL17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="210." z="-80."/>
             </instance>
         </population>
-        <population id="MDL18" component="GenericMuscleCell" type="populationList">
+        <population id="MDL18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="240." z="-80."/>
             </instance>
         </population>
-        <population id="MDL19" component="GenericMuscleCell" type="populationList">
+        <population id="MDL19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="270." z="-80."/>
             </instance>
         </population>
-        <population id="MDL20" component="GenericMuscleCell" type="populationList">
+        <population id="MDL20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="300." z="-80."/>
             </instance>
         </population>
-        <population id="MDL21" component="GenericMuscleCell" type="populationList">
+        <population id="MDL21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="330." z="-80."/>
             </instance>
         </population>
-        <population id="MDL22" component="GenericMuscleCell" type="populationList">
+        <population id="MDL22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="360." z="-80."/>
             </instance>
         </population>
-        <population id="MDL23" component="GenericMuscleCell" type="populationList">
+        <population id="MDL23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="390." z="-80."/>
             </instance>
         </population>
-        <population id="MDL24" component="GenericMuscleCell" type="populationList">
+        <population id="MDL24" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="420." z="-80."/>

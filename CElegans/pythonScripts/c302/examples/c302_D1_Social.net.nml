@@ -97,7 +97,7 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_RMHR_1" delay="1600ms" duration="200ms" amplitude="5pA"/>
     <pulseGenerator id="stim_URXR_1" delay="1900ms" duration="200ms" amplitude="5pA"/>
     <network id="c302_D1_Social">
-        <population id="ASHR" component="ASHR" type="populationList">
+        <population id="ASHR" component="ASHR" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="TMC-1; OSM-9; NTR-2; UNC-8; NTR-1; SER-5; OCTR-1; DOP-4; SRA-6; TRPA-1; OCR-2; TYRA-2; DCAR-1; SRB-6; NPR-2; SER-3; NPR-1"/>
@@ -106,7 +106,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="ASKR" component="ASKR" type="populationList">
+        <population id="ASKR" component="ASKR" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="SRG-8; NPR-5; DOP-3; DAF-11; SRG-2; SRA-7; TYRA-3; OSM-9; SRA-9"/>
@@ -116,7 +116,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="AWBR" component="AWBR" type="populationList">
+        <population id="AWBR" component="AWBR" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="STR-1; DAF-11; SER-5; SER-6; AEX-2; NPR-5"/>
@@ -125,7 +125,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="IL2R" component="IL2R" type="populationList">
+        <population id="IL2R" component="IL2R" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="DES-2; LGC-53; NPR-5; NPR-1"/>
@@ -134,7 +134,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMGR" component="RMGR" type="populationList">
+        <population id="RMGR" component="RMGR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="NPR-1"/>
@@ -144,7 +144,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="RMHR" component="RMHR" type="populationList">
+        <population id="RMHR" component="RMHR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-1"/>
@@ -154,7 +154,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="URXR" component="URXR" type="populationList">
+        <population id="URXR" component="URXR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value="GCY-1; GCY-25; GCY-37; GCY-36; GCY-35; GCY-32; GCY-34; SRA-10; PDFR-1; NPR-1"/>

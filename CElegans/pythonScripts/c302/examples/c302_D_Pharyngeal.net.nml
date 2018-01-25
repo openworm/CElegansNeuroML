@@ -100,7 +100,7 @@ Parameters and setting used to generate this network:
     </cell>
     <pulseGenerator id="offset_current" delay="0 ms" duration="2000 ms" amplitude="4 pA"/>
     <network id="c302_D_Pharyngeal">
-        <population id="I1L" component="I1L" type="populationList">
+        <population id="I1L" component="I1L" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value="GLR-7; DOP-4; FRPR-4; PDFR-1; GLR-8"/>
@@ -110,7 +110,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="I1R" component="I1R" type="populationList">
+        <population id="I1R" component="I1R" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value="GLR-7; DOP-4; FRPR-4; PDFR-1; GLR-8"/>
@@ -120,7 +120,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="I2L" component="I2L" type="populationList">
+        <population id="I2L" component="I2L" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value="GLR-7; DOP-4; SER-7; NTR-1; GLR-8"/>
@@ -130,7 +130,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="I2R" component="I2R" type="populationList">
+        <population id="I2R" component="I2R" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value="GLR-7; DOP-4; SER-7; NTR-1; GLR-8"/>
@@ -140,7 +140,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="I3" component="I3" type="populationList">
+        <population id="I3" component="I3" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value="GLR-7; SER-7; GLR-8"/>
@@ -149,7 +149,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="I4" component="I4" type="populationList">
+        <population id="I4" component="I4" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="SER-7"/>
@@ -158,7 +158,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="I5" component="I5" type="populationList">
+        <population id="I5" component="I5" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value=""/>
@@ -168,7 +168,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="I6" component="I6" type="populationList">
+        <population id="I6" component="I6" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="sensory; interneuron"/>
             <property tag="receptor" value="GLR-7; GLR-8; SER-7"/>
@@ -177,7 +177,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="M1" component="M1" type="populationList">
+        <population id="M1" component="M1" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-4; GLR-2; AVR-14"/>
@@ -187,7 +187,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="M2L" component="M2L" type="populationList">
+        <population id="M2L" component="M2L" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-7"/>
@@ -196,7 +196,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="M2R" component="M2R" type="populationList">
+        <population id="M2R" component="M2R" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-7"/>
@@ -205,7 +205,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="M3L" component="M3L" type="populationList">
+        <population id="M3L" component="M3L" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="GLR-8; NPR-1; SER-7"/>
@@ -214,7 +214,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="M3R" component="M3R" type="populationList">
+        <population id="M3R" component="M3R" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="NPR-1; GLR-8; SER-7"/>
@@ -223,7 +223,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="M4" component="M4" type="populationList">
+        <population id="M4" component="M4" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER7b; GLR-8; SER-7"/>
@@ -232,7 +232,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="M5" component="M5" type="populationList">
+        <population id="M5" component="M5" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="GLR-8; SER-7"/>
@@ -242,7 +242,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="MCL" component="MCL" type="populationList">
+        <population id="MCL" component="MCL" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="TYRA-2; SER-7; GLR-8"/>
@@ -251,7 +251,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="MCR" component="MCR" type="populationList">
+        <population id="MCR" component="MCR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="TYRA-2; GLR-8; SER-7"/>
@@ -260,7 +260,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="MI" component="MI" type="populationList">
+        <population id="MI" component="MI" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
             <property tag="receptor" value=""/>
@@ -270,7 +270,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="NSML" component="NSML" type="populationList">
+        <population id="NSML" component="NSML" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="GLR-7; DOP-3; SER-2; SER-4; AEX-2; GLR-8; TYRA-2"/>
@@ -279,7 +279,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="NSMR" component="NSMR" type="populationList">
+        <population id="NSMR" component="NSMR" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="GLR-7; DOP-3; SER-2; SER-4; AEX-2; GLR-8; TYRA-2"/>

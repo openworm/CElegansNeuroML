@@ -707,13 +707,15 @@ def generate(net_id,
                 # build a Population data structure out of the cell name
                 pop0 = Population(id=cell,
                                   component=params.generic_neuron_cell.id,
-                                  type="populationList")
+                                  type="populationList",
+                                  size="1")
                 cell_id = params.generic_neuron_cell.id
             else:
                 # build a Population data structure out of the cell name
                 pop0 = Population(id=cell,
                                   component=cell,
-                                  type="populationList")
+                                  type="populationList",
+                                  size="1")
                 cell_id = cell
                      
             all_neuron_info, all_muscle_info = _get_cell_info([cell])
@@ -853,7 +855,8 @@ def generate(net_id,
             # build a Population data structure out of the cell name
             pop0 = Population(id=muscle,
                               component=params.generic_muscle_cell.id,
-                              type="populationList")
+                              type="populationList",
+                              size="1")
             pop0.properties.append(Property("color", '0 .6 0'))
             pop0.instances.append(inst)
 

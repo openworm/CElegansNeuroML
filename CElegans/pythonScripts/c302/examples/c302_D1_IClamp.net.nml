@@ -100,7 +100,7 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_PVCL_6" delay="5100ms" duration="800ms" amplitude="6pA"/>
     <pulseGenerator id="stim_MDR01_6" delay="5100ms" duration="800ms" amplitude="6pA"/>
     <network id="c302_D1_IClamp">
-        <population id="ADAL" component="ADAL" type="populationList">
+        <population id="ADAL" component="ADAL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value=""/>
@@ -110,7 +110,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="PVCL" component="PVCL" type="populationList">
+        <population id="PVCL" component="PVCL" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="SER-2; PDFR-1"/>
@@ -120,7 +120,7 @@ Parameters and setting used to generate this network:
                 <location x="0." y="0." z="0."/>
             </instance>
         </population>
-        <population id="MDR01" component="GenericMuscleCell" type="populationList">
+        <population id="MDR01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location x="80." y="-270." z="80."/>

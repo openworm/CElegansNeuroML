@@ -141,7 +141,7 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_VD12_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
     <pulseGenerator id="stim_AIZL_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
     <network id="c302_C2_Syns">
-        <population id="AIZL" component="GenericNeuronCell" type="populationList">
+        <population id="AIZL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
             <property tag="receptor" value="SER-2; NPR-2; MOD-1"/>
@@ -150,7 +150,7 @@ Parameters and setting used to generate this network:
                 <location x="5.6000004" y="-258.75" z="37.450000000000003"/>
             </instance>
         </population>
-        <population id="ASHL" component="GenericNeuronCell" type="populationList">
+        <population id="ASHL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="TMC-1; OSM-9; NTR-2; UNC-8; NTR-1; SER-5; OCTR-1; DOP-4; SRA-6; TRPA-1; OCR-2; TYRA-2; DCAR-1; NPR-1; NPR-2; SER-3; SRB-6"/>
@@ -159,7 +159,7 @@ Parameters and setting used to generate this network:
                 <location x="5.55" y="-265.625" z="41."/>
             </instance>
         </population>
-        <population id="SMDDR" component="GenericNeuronCell" type="populationList">
+        <population id="SMDDR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="NTR-2; LGC-55"/>
@@ -168,7 +168,7 @@ Parameters and setting used to generate this network:
                 <location x="-7.4500003" y="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
-        <population id="URYDL" component="GenericNeuronCell" type="populationList">
+        <population id="URYDL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
             <property tag="receptor" value="SER-1; PDFR-1; LGC-53"/>
@@ -177,7 +177,7 @@ Parameters and setting used to generate this network:
                 <location x="4.125" y="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
-        <population id="VB11" component="GenericNeuronCell" type="populationList">
+        <population id="VB11" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="sensory; motor"/>
             <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
@@ -186,7 +186,7 @@ Parameters and setting used to generate this network:
                 <location x="-1.8249999" y="262.324999999999989" z="-21.949999999999999"/>
             </instance>
         </population>
-        <population id="VD12" component="GenericNeuronCell" type="populationList">
+        <population id="VD12" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
             <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
