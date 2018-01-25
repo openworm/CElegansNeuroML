@@ -313,7 +313,7 @@ def write_to_file(nml_doc,
 
     #######   Write to file  ######
 
-    nml_file = target_directory+'/'+reference+'.nml'
+    nml_file = target_directory+'/'+reference+'.net.nml'
     print_("Writing generated network to: %s"%os.path.realpath(nml_file))
     writers.NeuroMLWriter.write(nml_doc, nml_file)
 
@@ -550,7 +550,8 @@ def generate(net_id,
                     if is_regex_string(mk):
                         regex_param_overrides['mirrored_elec_conn_params'][mk] = mv
                         continue
-                    mirror_param(params, mk, mv)
+                    else:
+                        mirror_param(params, mk, mv)
 
 
             elif k == 'custom_component_type_gate_overrides':
@@ -627,7 +628,10 @@ def generate(net_id,
     nml_doc.pulse_generators.append(params.offset_current)
 
     if is_cond_based_cell(params):
-        nml_doc.fixed_factor_concentration_models.append(params.concentration_model)
+        if isinstance(params.concentration_model, list):
+            nml_doc.fixed_factor_concentration_models.extend(params.concentration_model)
+        else:
+            nml_doc.fixed_factor_concentration_models.append(params.concentration_model)
 
     cell_names, conns = get_cell_names_and_connection(data_reader)
 
@@ -664,7 +668,7 @@ def generate(net_id,
                 # def_file = './%s' % ctd
                 def_file = "%s/%s" % (os.path.dirname(os.path.abspath(__file__)), ctd)
 
-                if param_overrides.has_key('custom_component_type_gate_overrides') and param_overrides[
+                if param_overrides and param_overrides.has_key('custom_component_type_gate_overrides') and param_overrides[
                     'custom_component_type_gate_overrides']:
                     root = etree.parse(def_file).getroot()
 
@@ -968,6 +972,10 @@ def generate(net_id,
                     new_param = new_param.replace('_GJ', '')
                     new_param_v = regex_param_overrides[key]
 
+
+                    if param_overrides.has_key(new_param):
+                        continue
+                    # add regex param unless there is a specific param
                     set_param(params, new_param, new_param_v)
 
             if regex_param_overrides.has_key('mirrored_elec_conn_params'):
@@ -979,8 +987,12 @@ def generate(net_id,
                     if re.match(pattern, conn_shorthand):
                         new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
                         new_param = new_param.replace('_GJ', '')
+                        new_param_mirrored = conn.post_cell + '_' + new_param.split('_')[1] + '_' + conn.pre_cell + '_' + '_'.join(new_param.split('_')[3:])
                         new_param_v = v
 
+                        if param_overrides['mirrored_elec_conn_params'].has_key(new_param) or param_overrides['mirrored_elec_conn_params'].has_key(new_param_mirrored):
+                            continue
+                        # add regex param unless there is a specific param
                         mirror_param(params, new_param, new_param_v)
 
             if conns_to_include and conn_shorthand not in conns_to_include:
@@ -1147,10 +1159,12 @@ def generate(net_id,
 
     if len(muscles_to_include)>0:
         for conn in muscle_conns:
-            if not conn.post_cell in muscles_to_include:
-                continue
+            if not conn.post_cell in muscles_to_include:#
+                continue#
             if not conn.pre_cell in lems_info["cells"] and not conn.pre_cell in muscles_to_include:
                 continue
+
+
 
             # take information about each connection and package it into a
             # NeuroML Projection data structure
@@ -1163,6 +1177,8 @@ def generate(net_id,
             conn_type = "neuron_to_muscle"
             if conn.pre_cell in muscles_to_include:
                 conn_type = "muscle_to_muscle"
+            #if conn.post_cell in lems_info['cells']:
+            #    conn_type = "muscle_to_neuron"
             conn_pol = "exc"
             orig_pol = "exc"
 
@@ -1189,6 +1205,10 @@ def generate(net_id,
                     new_param = new_param.replace('_GJ', '')
                     new_param_v = regex_param_overrides[key]
 
+
+                    if param_overrides.has_key(new_param):
+                        continue
+                    # add regex param unless there is a specific param
                     set_param(params, new_param, new_param_v)
 
             if regex_param_overrides.has_key('mirrored_elec_conn_params'):
@@ -1200,8 +1220,12 @@ def generate(net_id,
                     if re.match(pattern, conn_shorthand):
                         new_param = conn_shorthand.replace('-', '_to_') + k.split('$')[1]
                         new_param = new_param.replace('_GJ', '')
+                        new_param_mirrored = conn.post_cell + '_' + new_param.split('_')[1] + '_' + conn.pre_cell + '_' + '_'.join(new_param.split('_')[3:])
                         new_param_v = v
 
+                        if param_overrides['mirrored_elec_conn_params'].has_key(new_param) or param_overrides['mirrored_elec_conn_params'].has_key(new_param_mirrored):
+                            continue
+                        # add regex param unless there is a specific param
                         mirror_param(params, new_param, new_param_v)
 
             if conns_to_include and conn_shorthand not in conns_to_include:

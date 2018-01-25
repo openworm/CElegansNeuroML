@@ -89,7 +89,7 @@ def setup(parameter_set,
         #    c302.add_new_sinusoidal_input(nml_doc, cell=db, delay="0ms", duration="1000ms", amplitude="3pA",
         #                                  period="150ms", params=params)
 
-        nml_file = target_directory + '/' + reference + '.nml'
+        nml_file = target_directory + '/' + reference + '.net.nml'
         writers.NeuroMLWriter.write(nml_doc, nml_file)  # Write over network file written above...
 
         print("(Re)written network file to: " + nml_file)

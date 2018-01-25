@@ -79,7 +79,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cells/URXR_D.cell.nml" />
     
-    <Include file="c302_D_Social.nml" />
+    <Include file="c302_D_Social.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

@@ -71,7 +71,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cells/PVCL_D.cell.nml" />
     
-    <Include file="c302_D1_IClamp.nml" />
+    <Include file="c302_D1_IClamp.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

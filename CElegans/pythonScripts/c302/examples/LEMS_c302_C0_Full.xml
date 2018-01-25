@@ -70,7 +70,7 @@ Parameters and setting used to generate this network:
     
     <Include file="custom_synapses.xml" />
     
-    <Include file="c302_C0_Full.nml" />
+    <Include file="c302_C0_Full.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

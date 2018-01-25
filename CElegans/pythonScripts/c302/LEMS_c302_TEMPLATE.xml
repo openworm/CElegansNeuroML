@@ -16,7 +16,7 @@ ${comment}
     <Include file="${include}" />
 #end##
     
-    <Include file="${reference}.nml" />
+    <Include file="${reference}.net.nml" />
 
     <!-- End of NeuroML2 content -->
     

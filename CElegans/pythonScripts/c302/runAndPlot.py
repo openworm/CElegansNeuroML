@@ -110,10 +110,22 @@ if __name__ == '__main__':
         
     elif '-fullC1' in sys.argv:
         run_c302('Full','C1','',1000,0.05,'jNeuroML_NEURON')
+
+    elif '-fw' in sys.argv:
+        run_c302('AVB_FW','C2','',4000,0.05,'jNeuroML_NEURON', config_package="notebooks.configs.AVB", data_reader='UpdatedSpreadsheetDataReader')
+
+    elif '-fw1' in sys.argv:
+        run_c302('FW','C2','',5000,0.005,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True, show_plot_already=False)
         
     elif '-fullC2' in sys.argv:
         run_c302('Full','C2','',1000,0.05,'jNeuroML_NEURON')
         
+    elif '-muscle1' in sys.argv:
+        run_c302('MuscleTest','C2','',2000,0.05,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True)
+
+    elif '-head1' in sys.argv:
+        run_c302('HeadMuscleTest','C2','',4000,0.05,'jNeuroML_NEURON', config_package="notebooks.configs.Head", data_reader='UpdatedSpreadsheetDataReader')
+
     elif '-muscle' in sys.argv or '-muscles' in sys.argv:
         run_c302('Muscles','C','',500,0.05,'jNeuroML_NEURON')
         
@@ -197,6 +209,9 @@ if __name__ == '__main__':
         
     elif '-oscC0' in sys.argv:
         run_c302('Oscillator','C0','',2000,0.025,'jNeuroML_NEURON')
+        
+    elif '-oscmC0' in sys.argv:
+        run_c302('OscillatorM','C0','',2000,0.025,'jNeuroML_NEURON')
         
     elif '-test' in sys.argv:
         run_c302('Oscillator','C0','',2000,0.025,'jNeuroML_NEURON',show_plot_already=False)

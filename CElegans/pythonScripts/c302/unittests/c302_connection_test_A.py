@@ -109,9 +109,9 @@ class DataIntegrityTest(unittest.TestCase):
                 test_synapse = 'exc_syn_'+str(num)+'conns'
 
             if fn in self.checked_files:
-                nml_file = fn+'.nml'
+                nml_file = fn+'.net.nml'
             elif fnswap in self.checked_files:
-                nml_file = fnswap+'.nml'
+                nml_file = fnswap+'.net.nml'
             else:
                 print ("File not found")
 
@@ -169,9 +169,9 @@ class DataIntegrityTest(unittest.TestCase):
                 gap_junction = False
 
             if fn in self.checked_files:
-                nml_file = fn+'.nml'
+                nml_file = fn+'.net.nml'
             elif fnswap in self.checked_files:
-                nml_file = fnswap+'.nml'
+                nml_file = fnswap+'.net.nml'
             else:
                 print ("File not found")
 

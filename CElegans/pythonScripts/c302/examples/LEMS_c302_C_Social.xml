@@ -65,7 +65,7 @@ Parameters and setting used to generate this network:
     
     <Include file="cell_C.xml" />
     
-    <Include file="c302_C_Social.nml" />
+    <Include file="c302_C_Social.net.nml" />
 
     <!-- End of NeuroML2 content -->
     
