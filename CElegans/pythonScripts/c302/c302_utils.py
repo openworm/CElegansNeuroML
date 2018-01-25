@@ -442,11 +442,11 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
             
     all_cells = sorted(all_cells)
     
-    all_neuron_info, all_muscle_info = _get_cell_info(all_cells)
+    all_neuron_info, all_muscle_info = c302._get_cell_info(all_cells)
     all_neurons = [] 
     all_muscles = []
     for c in all_cells:
-        if _is_muscle(c):
+        if c302.is_muscle(c):
             all_muscles.append(c)
         else:
             all_neurons.append(c)
@@ -538,61 +538,7 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
                           save_fig_dir, net.id) if save_fig_dir else None)
     #_show_conn_matrix(data_m, 'Electrical (gap junction) conns to muscles',all_neuron_info,all_muscle_info, net.id)
         
-def _get_cell_info(cells):
 
-    import PyOpenWorm as P
-    print("Connecting to the PyOpenWorm database...")
-    P.connect()
-
-    #Get the worm object.
-    worm = P.Worm()
-
-    #Extract the network object from the worm object.
-    net = worm.neuron_network()
-
-    #Go through our list and get the neuron object associated with each name.
-    #Store these in another list.
-    some_neurons = [P.Neuron(name) for name in cells]
-    all_neuron_info = collections.OrderedDict()
-    all_muscle_info = collections.OrderedDict()
-    
-    for neuron in some_neurons: 
-        print("=====Checking properties of: %s"%neuron)
-        print neuron.triples()
-        print neuron.__class__
-        short = ') %s'%neuron.name()
-        if 'motor' in neuron.type():
-            short = 'Mo%s'%short
-        if 'sensory' in neuron.type():
-            short = 'Se%s'%short
-        if 'interneuron' in neuron.type():
-            short = 'In%s'%short
-        if _is_muscle(neuron.name()):
-            short = 'Mu%s'%short
-            
-            
-        short = '(%s'%short
-        
-        
-        if 'GABA' in neuron.neurotransmitter():
-            short = '- %s'%short
-        elif len(neuron.neurotransmitter())==0:
-            short = '? %s'%short
-        else:
-            short = '+ %s'%short
-            
-        info = (neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short)
-        #print dir(neuron)
-        
-        if _is_muscle(neuron.name()):
-            all_muscle_info[neuron.name()] = info
-        else:
-            all_neuron_info[neuron.name()] = info
-        
-    return all_neuron_info, all_muscle_info
-  
-def _is_muscle(name):
-    return name.startswith('MD') or name.startswith('MV')
             
 if __name__ == '__main__':
 

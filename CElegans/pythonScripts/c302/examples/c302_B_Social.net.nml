@@ -58,39 +58,67 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_URXR_1" delay="1900ms" duration="200ms" amplitude="5pA"/>
     <network id="c302_B_Social">
         <population id="ASHR" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="TMC-1; OSM-9; NTR-2; UNC-8; NTR-1; SER-5; OCTR-1; DOP-4; SRA-6; TRPA-1; OCR-2; TYRA-2; DCAR-1; SRB-6; NPR-2; SER-3; NPR-1"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="-9.800000000000001" y="-265.625" z="41."/>
             </instance>
         </population>
         <population id="ASKR" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="SRG-8; NPR-5; DOP-3; DAF-11; SRG-2; SRA-7; TYRA-3; OSM-9; SRA-9"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
             <property tag="OpenWormBackerAssignedName" value="Z.B."/>
             <instance id="0">
                 <location x="-8." y="-268.024999999999977" z="46.399997999999997"/>
             </instance>
         </population>
         <population id="AWBR" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="STR-1; DAF-11; SER-5; SER-6; AEX-2; NPR-5"/>
+            <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="-9.75" y="-266.225000000000023" z="43.100000000000001"/>
             </instance>
         </population>
         <population id="IL2R" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DES-2; LGC-53; NPR-5; NPR-1"/>
+            <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-11." y="-285." z="49.350000000000001"/>
             </instance>
         </population>
         <population id="RMGR" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value="1 0 .4"/>
+            <property tag="type" value="interneuron"/>
+            <property tag="receptor" value="NPR-1"/>
+            <property tag="neurotransmitter" value=""/>
             <property tag="OpenWormBackerAssignedName" value="Bryan Nagle"/>
             <instance id="0">
                 <location x="-12.5" y="-238.299990000000008" z="32.700000000000003"/>
             </instance>
         </population>
         <population id="RMHR" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="motor"/>
+            <property tag="receptor" value="SER-1"/>
+            <property tag="neurotransmitter" value=""/>
             <property tag="OpenWormBackerAssignedName" value="Martino"/>
             <instance id="0">
                 <location x="-5.2999997" y="-265.899999999999977" z="35.700000000000003"/>
             </instance>
         </population>
         <population id="URXR" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value="1 0 .4"/>
+            <property tag="type" value="sensory; interneuron"/>
+            <property tag="receptor" value="GCY-1; GCY-25; GCY-37; GCY-36; GCY-35; GCY-32; GCY-34; SRA-10; PDFR-1; NPR-1"/>
+            <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="-7.35" y="-269.875" z="48.274999999999999"/>
             </instance>

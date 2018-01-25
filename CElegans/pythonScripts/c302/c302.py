@@ -253,7 +253,7 @@ def add_new_sinusoidal_input(nml_doc, cell, delay, duration, amplitude, period, 
         phase = DB_soma_pos[cell]
     #phase = get_cell_position(cell).x
     phase = phase * -0.886
-    print "### CELL %s PHASE: %s" % (cell, phase)
+    print_("### CELL %s PHASE: %s" % (cell, phase))
     
     if cell.startswith("VB"):
         if amplitude.startswith("-"):
@@ -428,7 +428,7 @@ def elem_in_coll_matches_conn(coll, conn):
 def _get_cell_info(cells):
 
     import PyOpenWorm as P
-    print("Connecting to the PyOpenWorm database...")
+    print_("Connecting to the PyOpenWorm database...")
     P.connect()
 
     #Get the worm object.
@@ -445,21 +445,22 @@ def _get_cell_info(cells):
     
     
     for neuron in some_neurons: 
-        print("=====Checking properties of: %s"%neuron)
-        print neuron.triples()
-        print neuron.__class__
+        #print("=====Checking properties of: %s"%neuron)
+        #print neuron.triples()
+        #print neuron.__class__
         short = ') %s'%neuron.name()
-        color = '.6 0 0'
+        
+        color = '.5 0 0'
         if 'sensory' in neuron.type():
             short = 'Se%s'%short
             color = '1 .2 1'
         if 'interneuron' in neuron.type():
             short = 'In%s'%short
-            color = '.8 0 .4'
+            color = '1 0 .4'
         if 'motor' in neuron.type():
             short = 'Mo%s'%short
-            color = '.6 .2 1'
-        if _is_muscle(neuron.name()):
+            color = '.5 .4 1'
+        if is_muscle(neuron.name()):
             short = 'Mu%s'%short
             color = '0 0.6 0'
             
@@ -477,16 +478,13 @@ def _get_cell_info(cells):
         info = (neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color)
         #print dir(neuron)
         
-        if _is_muscle(neuron.name()):
+        if is_muscle(neuron.name()):
             all_muscle_info[neuron.name()] = info
         else:
             all_neuron_info[neuron.name()] = info
         
     return all_neuron_info, all_muscle_info
   
-def _is_muscle(name):
-    return name.startswith('MD') or name.startswith('MV')
-
 
 def set_param(params, param, value):
     if params.get_bioparameter(param):
@@ -719,7 +717,11 @@ def generate(net_id,
                 cell_id = cell
                      
             all_neuron_info, all_muscle_info = _get_cell_info([cell])
-            pop0.properties.append(Property("color", all_neuron_info[cell][5]))    
+            #neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color
+            pop0.properties.append(Property("color", all_neuron_info[cell][5]))  
+            pop0.properties.append(Property("type", str('; '.join(all_neuron_info[cell][1]))))    
+            pop0.properties.append(Property("receptor", str('; '.join(all_neuron_info[cell][2]))))
+            pop0.properties.append(Property("neurotransmitter", str('; '.join(all_neuron_info[cell][3]))))  
             pop0.instances.append(inst)
 
 
@@ -1009,7 +1011,7 @@ def generate(net_id,
             syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
             if print_connections:
-                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
+                print_(conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id)
 
 
             polarity = None
@@ -1242,7 +1244,7 @@ def generate(net_id,
             syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
             if print_connections:
-                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+                print_(conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass)
 
 
             polarity = None

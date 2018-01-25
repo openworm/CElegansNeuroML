@@ -55,21 +55,37 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_VD12_2" delay="1900ms" duration="800ms" amplitude="5pA"/>
     <network id="c302_A_Syns">
         <population id="SMDDR" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="motor"/>
+            <property tag="receptor" value="NTR-2; LGC-55"/>
+            <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-7.4500003" y="-266.25" z="34.100000000000001"/>
             </instance>
         </population>
         <population id="URYDL" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="SER-1; PDFR-1; LGC-53"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="4.125" y="-281.425000000000011" z="51.899997999999997"/>
             </instance>
         </population>
         <population id="VB11" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="sensory; motor"/>
+            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8249999" y="262.324999999999989" z="-21.949999999999999"/>
             </instance>
         </population>
         <population id="VD12" component="generic_neuron_iaf_cell" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="motor"/>
+            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="345.5" z="-23.149999999999999"/>
             </instance>

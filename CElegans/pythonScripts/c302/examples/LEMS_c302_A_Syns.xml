@@ -65,10 +65,10 @@ Parameters and setting used to generate this network:
 
         <Display id="neurons" title="c302_A_Syns: Membrane potential of a number of neurons" timeScale="1ms" xmin="-360.0" xmax="3960.0" ymin="-72" ymax="-48">
             
-            <Line id="SMDDR" quantity="SMDDR/0/generic_neuron_iaf_cell/v" scale="1mV" color="#f87100" timeScale="1ms" />
-            <Line id="URYDL" quantity="URYDL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#eaf195" timeScale="1ms" />
-            <Line id="VB11" quantity="VB11/0/generic_neuron_iaf_cell/v" scale="1mV" color="#ac15c4" timeScale="1ms" />
-            <Line id="VD12" quantity="VD12/0/generic_neuron_iaf_cell/v" scale="1mV" color="#3c00ca" timeScale="1ms" />
+            <Line id="SMDDR" quantity="SMDDR/0/generic_neuron_iaf_cell/v" scale="1mV" color="#8b779a" timeScale="1ms" />
+            <Line id="URYDL" quantity="URYDL/0/generic_neuron_iaf_cell/v" scale="1mV" color="#7b5b40" timeScale="1ms" />
+            <Line id="VB11" quantity="VB11/0/generic_neuron_iaf_cell/v" scale="1mV" color="#002479" timeScale="1ms" />
+            <Line id="VD12" quantity="VD12/0/generic_neuron_iaf_cell/v" scale="1mV" color="#25f0c6" timeScale="1ms" />
             
         </Display>
 
