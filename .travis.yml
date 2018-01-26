@@ -10,9 +10,9 @@ addons:
        # Requirements for Neuron/OMV/etc
     - python-numpy 
     - python-scipy 
+    - python-tornado
     - python-matplotlib 
     - python-tk
-    - python-tornado
 
 language: python
 python:
@@ -37,6 +37,7 @@ before_install:
 install:
     # Required to run OMV tests
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+    - pip install tornado
 
 script:
     - omv all -V; export OMV_SUCCESS=$?; echo $OMV_SUCCESS
