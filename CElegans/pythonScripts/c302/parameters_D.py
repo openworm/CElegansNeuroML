@@ -20,6 +20,9 @@ from neuroml import Cell
 from neuroml import Morphology
 from neuroml import Point3DWithDiam
 from neuroml import Segment
+from neuroml import SegmentParent
+from neuroml import Member
+from neuroml import SegmentGroup
 from neuroml import BiophysicalProperties
 from neuroml import IntracellularProperties
 from neuroml import Resistivity
@@ -51,6 +54,7 @@ class ParameterisedModel(c302ModelPrototype):
     def set_default_bioparameters(self):
 
         self.add_bioparameter("cell_diameter", "5", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_length", "10", "BlindGuess", "0.1")
 
         self.add_bioparameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
 
@@ -121,14 +125,29 @@ class ParameterisedModel(c302ModelPrototype):
         self.generic_muscle_cell.morphology = morphology
 
         prox_point = Point3DWithDiam(x="0", y="0", z="0", diameter=self.get_bioparameter("cell_diameter").value)
-        dist_point = Point3DWithDiam(x="0", y="0", z="0", diameter=self.get_bioparameter("cell_diameter").value)
+        dist_point1 = Point3DWithDiam(x="0", y=self.get_bioparameter("muscle_length").value, z="0", diameter=self.get_bioparameter("cell_diameter").value)
 
-        segment = Segment(id="0",
-                          name="soma",
+        segment0 = Segment(id="0",
+                          name="soma0",
                           proximal = prox_point, 
-                          distal = dist_point)
+                          distal = dist_point1)
 
-        morphology.segments.append(segment)
+        morphology.segments.append(segment0)
+        
+        dist_point2 = Point3DWithDiam(x="0", y=float(self.get_bioparameter("muscle_length").value)*2, z="0", diameter=self.get_bioparameter("cell_diameter").value)
+
+        segment1 = Segment(id="1",
+                          name="soma1",
+                          parent=SegmentParent(segments='0'),
+                          proximal = dist_point1, 
+                          distal = dist_point2)
+
+        morphology.segments.append(segment1)
+
+        sg = SegmentGroup(id='all')
+        morphology.segment_groups.append(sg)
+        morphology.segment_groups[0].members.append(Member(segments=segment0.id))
+        morphology.segment_groups[0].members.append(Member(segments=segment1.id))
 
         self.generic_muscle_cell.biophysical_properties = BiophysicalProperties(id="biophys_"+self.generic_muscle_cell.id)
 
