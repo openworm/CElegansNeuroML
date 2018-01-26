@@ -46,7 +46,7 @@ from parameters_C2 import DelayedGradedSynapse
 try:
     from urllib2 import URLError  # Python 2
 except:
-    from urllib import URLError  # Python 3
+    from urllib.error import URLError  # Python 3
 
 import sys
 sys.path.append("..")
@@ -249,7 +249,7 @@ def add_new_sinusoidal_input(nml_doc, cell, delay, duration, amplitude, period, 
         phase = DB_soma_pos[cell]
     #phase = get_cell_position(cell).x
     phase = phase * -0.886
-    print "### CELL %s PHASE: %s" % (cell, phase)
+    print("### CELL %s PHASE: %s" % (cell, phase))
     
     if cell.startswith("VB"):
         if amplitude.startswith("-"):
@@ -356,7 +356,7 @@ def get_random_colour_hex():
 
 def get_file_name_relative_to_c302(file_name):
     
-    if os.environ.has_key('C302_HOME'):
+    if 'C302_HOME' in os.environ:
         return os.path.relpath(os.environ['C302_HOME'],file_name)
     
     
@@ -477,9 +477,9 @@ def generate(net_id,
 
     regex_param_overrides = {'mirrored_elec_conn_params':{}}
     if param_overrides:
-        for k, v in param_overrides.iteritems():
+        for k, v in param_overrides.items():
             if k == 'mirrored_elec_conn_params':
-                for mk, mv in v.iteritems():
+                for mk, mv in v.items():
                     if is_regex_string(mk):
                         regex_param_overrides['mirrored_elec_conn_params'][mk] = mv
                         continue
@@ -600,11 +600,11 @@ def generate(net_id,
                 # def_file = './%s' % ctd
                 def_file = "%s/%s" % (os.path.dirname(os.path.abspath(__file__)), ctd)
 
-                if param_overrides and param_overrides.has_key('custom_component_type_gate_overrides') and param_overrides[
+                if param_overrides and 'custom_component_type_gate_overrides' in param_overrides and param_overrides[
                     'custom_component_type_gate_overrides']:
                     root = etree.parse(def_file).getroot()
 
-                    for k, v in param_overrides['custom_component_type_gate_overrides'].iteritems():
+                    for k, v in param_overrides['custom_component_type_gate_overrides'].items():
                         channel_id = k.split('__')[0]
                         gate_id = k.split('__')[1]
                         gate_attr = k.split('__')[2]
@@ -657,7 +657,7 @@ def generate(net_id,
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
             
-            if cells_vs_name.has_key(cell):
+            if cell in cells_vs_name:
                 p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[cell])
                 pop0.properties.append(p)
 
@@ -788,7 +788,7 @@ def generate(net_id,
             # put that Population into the Network data structure from above
             net.populations.append(pop0)
 
-            if cells_vs_name.has_key(muscle):
+            if muscle in cells_vs_name:
                 # No muscles adopted yet, but just in case they are in future...
                 p = Property(tag="OpenWormBackerAssignedName", value=cells_vs_name[muscle])
                 pop0.properties.append(p)
@@ -902,13 +902,13 @@ def generate(net_id,
                     new_param_v = regex_param_overrides[key]
 
 
-                    if param_overrides.has_key(new_param):
+                    if new_param in param_overrides:
                         continue
                     # add regex param unless there is a specific param
                     set_param(params, new_param, new_param_v)
 
-            if regex_param_overrides.has_key('mirrored_elec_conn_params'):
-                for k, v in regex_param_overrides['mirrored_elec_conn_params'].iteritems():
+            if 'mirrored_elec_conn_params' in regex_param_overrides:
+                for k, v in regex_param_overrides['mirrored_elec_conn_params'].items():
 
                     pattern = k.split('$')[0] + '$'
                     pattern = pattern.replace('_to_', '-')
@@ -919,7 +919,7 @@ def generate(net_id,
                         new_param_mirrored = conn.post_cell + '_' + new_param.split('_')[1] + '_' + conn.pre_cell + '_' + '_'.join(new_param.split('_')[3:])
                         new_param_v = v
 
-                        if param_overrides['mirrored_elec_conn_params'].has_key(new_param) or param_overrides['mirrored_elec_conn_params'].has_key(new_param_mirrored):
+                        if new_param in param_overrides['mirrored_elec_conn_params'] or new_param_mirrored in param_overrides['mirrored_elec_conn_params']:
                             continue
                         # add regex param unless there is a specific param
                         mirror_param(params, new_param, new_param_v)
@@ -938,7 +938,7 @@ def generate(net_id,
             syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
             if print_connections:
-                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id
+                print(conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass + " " + syn0.id)
 
 
             polarity = None
@@ -992,9 +992,9 @@ def generate(net_id,
                         break
             '''
             else:
-                print conn_shorthand
-                print conn_number_override
-                print conn_number_scaling'''
+                print(conn_shorthand)
+                print(conn_number_override)
+                print(conn_number_scaling)'''
             """if polarity:
                 print "%s %s num:%s" % (conn_shorthand, polarity, number_syns)
             elif elect_conn:
@@ -1135,13 +1135,13 @@ def generate(net_id,
                     new_param_v = regex_param_overrides[key]
 
 
-                    if param_overrides.has_key(new_param):
+                    if new_param in param_overrides:
                         continue
                     # add regex param unless there is a specific param
                     set_param(params, new_param, new_param_v)
 
-            if regex_param_overrides.has_key('mirrored_elec_conn_params'):
-                for k, v in regex_param_overrides['mirrored_elec_conn_params'].iteritems():
+            if 'mirrored_elec_conn_params' in regex_param_overrides:
+                for k, v in regex_param_overrides['mirrored_elec_conn_params'].items():
 
                     pattern = k.split('$')[0] + '$'
                     pattern = pattern.replace('_to_', '-')
@@ -1152,7 +1152,7 @@ def generate(net_id,
                         new_param_mirrored = conn.post_cell + '_' + new_param.split('_')[1] + '_' + conn.pre_cell + '_' + '_'.join(new_param.split('_')[3:])
                         new_param_v = v
 
-                        if param_overrides['mirrored_elec_conn_params'].has_key(new_param) or param_overrides['mirrored_elec_conn_params'].has_key(new_param_mirrored):
+                        if new_param in param_overrides['mirrored_elec_conn_params'] or new_param_mirrored in param_overrides['mirrored_elec_conn_params']:
                             continue
                         # add regex param unless there is a specific param
                         mirror_param(params, new_param, new_param_v)
@@ -1171,7 +1171,7 @@ def generate(net_id,
             syn0 = params.get_syn(conn.pre_cell, conn.post_cell, conn_type, conn_pol)
 
             if print_connections:
-                print conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass
+                print(conn_shorthand + " " + str(conn.number) + " " + orig_pol + " " + conn.synclass)
 
 
             polarity = None
@@ -1219,9 +1219,9 @@ def generate(net_id,
                         break
             '''
             else:
-                print conn_shorthand
-                print conn_number_override
-                print conn_number_scaling'''
+                print(conn_shorthand)
+                print(conn_number_override)
+                print(conn_number_scaling)'''
             """if polarity:
                 print "%s %s num:%s" % (conn_shorthand, polarity, number_syns)
             elif elect_conn:

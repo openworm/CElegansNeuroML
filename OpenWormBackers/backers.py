@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 
         info+="This cell can be viewed in 3D [here](%s) (requires WebGL).\n\n"%(osb_3d_url+cell+".cell.nml")
         
-    print info
+    print(info)
     file.write(info)
     file.close()
  
