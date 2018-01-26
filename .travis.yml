@@ -12,6 +12,7 @@ addons:
     - python-scipy 
     - python-matplotlib 
     - python-tk
+    - python-tornado
 
 language: python
 python:
