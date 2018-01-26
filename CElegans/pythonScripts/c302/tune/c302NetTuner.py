@@ -603,18 +603,16 @@ if __name__ == '__main__':
                          
     elif '-oscC0' in sys.argv:
         
-        scalem = 1
+        scalem = 3
         max_c0 = max_constraints_neuron_tight_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
         min_c0 = min_constraints_neuron_tight_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
         
-        max_c0 = max_constraints_neuron_loose_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_tight_C0
-        min_c0 = min_constraints_neuron_loose_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_tight_C0
+        #max_c0 = max_constraints_neuron_loose_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_tight_C0
+        #min_c0 = min_constraints_neuron_loose_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_tight_C0
         
-        max_c0 = max_constraints_neuron_loose_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
-        min_c0 = min_constraints_neuron_loose_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
+        #max_c0 = max_constraints_neuron_loose_C0 + max_constraints_muscle_tight_C0 + max_constraints_net_loose_C0
+        #min_c0 = min_constraints_neuron_loose_C0 + min_constraints_muscle_tight_C0 + min_constraints_net_loose_C0
         
-        print("Max: %s"%max_c0)
-        print("Min: %s"%min_c0)
 
         weights = {}
         target_data = {}
@@ -624,12 +622,12 @@ if __name__ == '__main__':
             target_data[var] = 4
             var = '%s/0/GenericNeuronCell/v:min_peak_no'%cell
             target_data[var] = 4
-        
+        '''
         for c in ['DB2','VB2','DB3','VB3']:
             var = '%s/0/GenericNeuronCell/v:maximum'%c
             target_data[var] = -10
             var = '%s/0/GenericNeuronCell/v:minimum'%c
-            target_data[var] = -70
+            target_data[var] = -70'''
         
         for key in target_data.keys():
             weights[key] = 1
@@ -639,10 +637,19 @@ if __name__ == '__main__':
         #simulator = 'jNeuroML'
         simulator  = 'jNeuroML_NEURON'
         
+        parameters = parameters_C0_based
+        parameters.append('unphysiological_offset_current')
+        min_c0.append(0.5)
+        max_c0.append(2.5)
+        
+        print("Max: %s"%max_c0)
+        print("Min: %s"%min_c0)
+        print("parameters: %s"%parameters)
+        
         run_optimisation('Test',
                          'Oscillator',
                          'C0',
-                         parameters_C0_based,
+                         parameters,
                          max_c0,
                          min_c0,
                          weights,
