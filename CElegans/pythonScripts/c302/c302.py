@@ -53,10 +53,24 @@ import sys
 sys.path.append("..")
 #import SpreadsheetDataReader
 
-
 __version__ = '0.5.0'
 
 LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
+
+
+
+def print_(msg):
+    pre = "c302      >>> "
+    print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
+
+try:
+    import PyOpenWorm as P
+    print_("Connecting to the PyOpenWorm database...")
+    P.connect()
+except:
+    P = None
+    print_("Can't connect to PyOpenWorm...")
+    
 
 def load_data_reader(data_reader="SpreadsheetDataReader"):
     """
@@ -298,10 +312,6 @@ def merge_with_template(model, templfile):
     return templ.merge(model)
 
 
-def print_(msg):
-    pre = "c302      >>> "
-    print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
-
 
 def write_to_file(nml_doc, 
                   lems_info, 
@@ -427,10 +437,9 @@ def elem_in_coll_matches_conn(coll, conn):
 
 def _get_cell_info(cells):
 
-    import PyOpenWorm as P
-    print_("Connecting to the PyOpenWorm database...")
-    P.connect()
-
+    if P==None:
+        #print_("Couldn't connect to PyOpenWorm...")
+        return None, None
     #Get the worm object.
     worm = P.Worm()
 
@@ -718,12 +727,17 @@ def generate(net_id,
                                   size="1")
                 cell_id = cell
                      
-            all_neuron_info, all_muscle_info = _get_cell_info([cell])
-            #neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color
-            pop0.properties.append(Property("color", all_neuron_info[cell][5]))  
-            pop0.properties.append(Property("type", str('; '.join(all_neuron_info[cell][1]))))    
-            pop0.properties.append(Property("receptor", str('; '.join(all_neuron_info[cell][2]))))
-            pop0.properties.append(Property("neurotransmitter", str('; '.join(all_neuron_info[cell][3]))))  
+            try:
+                all_neuron_info, all_muscle_info = _get_cell_info([cell])
+                #neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color
+                pop0.properties.append(Property("color", all_neuron_info[cell][5]))  
+                pop0.properties.append(Property("type", str('; '.join(all_neuron_info[cell][1]))))    
+                pop0.properties.append(Property("receptor", str('; '.join(all_neuron_info[cell][2]))))
+                pop0.properties.append(Property("neurotransmitter", str('; '.join(all_neuron_info[cell][3]))))  
+            except:
+                # It's only metadata...
+                pass
+            
             pop0.instances.append(inst)
 
 
@@ -918,7 +932,7 @@ def generate(net_id,
 
             muscle_count+=1
             
-            if muscle in cells_to_stimulate:
+            if cells_to_stimulate!=None and muscle in cells_to_stimulate:
 
                 target = "../%s/0/%s"%(pop0.id, params.generic_muscle_cell.id)
                 if params.is_level_D():

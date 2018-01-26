@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from neuroml import ExpTwoSynapse, GapJunction, GradedSynapse, SilentSynapse
+from neuroml import ExpTwoSynapse, GapJunction, GradedSynapse
 
 '''
     Subject to much change & refactoring once PyOpenWorm is stable...
@@ -46,6 +46,10 @@ class ParameterisedModelPrototype(object):
     #bioparameters = []
     def __init__(self):
         self.bioparameters = []
+
+    def print_(self, msg):
+        pre = "c302      >>> "
+        print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
 
     def add_bioparameter(self, name, value, source, certainty):
         found = False

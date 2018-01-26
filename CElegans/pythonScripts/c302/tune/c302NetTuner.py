@@ -922,11 +922,11 @@ if __name__ == '__main__':
         parameters = ['unphysiological_offset_current']
 
         #above parameters will not be modified outside these bounds:
-        min_constraints = [0.20]
-        max_constraints = [0.35]
+        min_constraints = [0.0]
+        max_constraints = [5]
 
 
-        ADAL_max_peak = 'ADAL[0]/v:max_peak_no'
+        ADAL_max_peak = 'MDR01/0/GenericMuscleCell/v:max_peak_no'
 
         weights = {ADAL_max_peak: 1}
 
@@ -934,23 +934,25 @@ if __name__ == '__main__':
 
         simulator  = 'jNeuroML_NEURON' if '-simpleN' in sys.argv else 'jNeuroML'
 
+        scale = 3
         run_optimisation('Test',
                          'IClamp',
-                         'C',
+                         'C0',
                          parameters,
                          max_constraints,
                          min_constraints,
                          weights,
                          target_data,
                          sim_time = 1000,
-                         population_size =  10,
-                         max_evaluations =  20,
-                         num_selected =     5,
-                         num_offspring =    5,
+                         population_size =  10*scale,
+                         max_evaluations =  20*scale,
+                         num_selected =     5*scale,
+                         num_offspring =    5*scale,
                          mutation_rate =    0.9,
                          num_elites =       1,
                          simulator =        simulator,
-                         nogui =            nogui)
+                         nogui =            nogui,
+                         num_local_procesors_to_use = 10)
 
     else:
 

@@ -4,19 +4,23 @@ import neuroml.writers as writers
     
 def setup(parameter_set, 
           generate=False,
-          duration=3000, 
+          duration=None, 
           dt=0.05,
           target_directory='examples',
           data_reader="SpreadsheetDataReader",
           param_overrides={},
           config_param_overrides={},
           verbose=True):
-
+              
+    reference = "c302_%s_IClamp"%parameter_set
+    c302.print_("Setting up %s"%reference)
+    
     exec('from parameters_%s import ParameterisedModel'%parameter_set)
     params = ParameterisedModel()
     
     stim_amplitudes = ["1pA","2pA","3pA","4pA","5pA","6pA"]
-    duration = (len(stim_amplitudes))*1000
+    if duration==None:
+        duration = (len(stim_amplitudes))*1000
     
     
     my_cells = ["ADAL","PVCL"]
@@ -25,11 +29,12 @@ def setup(parameter_set,
     cells               = my_cells
     cells_total  = my_cells + muscles_to_include
     
-    reference = "c302_%s_IClamp"%parameter_set
     
     nml_doc = None
     
     if generate:
+        c302.print_("Generating %s"%reference)
+        
         nml_doc = c302.generate(reference, 
                     params, 
                     cells=cells, 
@@ -41,17 +46,17 @@ def setup(parameter_set,
                     param_overrides=param_overrides,
                     verbose=verbose,
                     data_reader=data_reader)
-                    
-    for i in range(len(stim_amplitudes)):
-        start = "%sms"%(i*1000 + 100)
-        for c in cells_total:
-            c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
-    
-    
-    nml_file = target_directory+'/'+reference+'.net.nml'
-    writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
-    
-    print("(Re)written network file to: "+nml_file)
+
+        for i in range(len(stim_amplitudes)):
+            start = "%sms"%(i*1000 + 100)
+            for c in cells_total:
+                c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
+
+
+        nml_file = target_directory+'/'+reference+'.net.nml'
+        writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
+
+        print("(Re)written network file to: "+nml_file)
                     
     return cells, cells_total, params, muscles_to_include, nml_doc
              

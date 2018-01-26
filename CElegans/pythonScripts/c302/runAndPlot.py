@@ -4,6 +4,7 @@ import os
 from pyneuroml import pynml
 import c302_utils
 import c302
+import time
 
 from collections import OrderedDict
 
@@ -115,6 +116,7 @@ if __name__ == '__main__':
         run_c302('AVB_FW','C2','',4000,0.05,'jNeuroML_NEURON', config_package="notebooks.configs.AVB", data_reader='UpdatedSpreadsheetDataReader')
 
     elif '-fw1' in sys.argv:
+        #run_c302('FW','C2','',1000,0.05,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True)
         run_c302('FW','C2','',5000,0.005,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True, show_plot_already=False)
         
     elif '-fullC2' in sys.argv:
@@ -235,46 +237,43 @@ if __name__ == '__main__':
         run_c302('SinusoidalInputTest', 'C2', '', 1000, 0.05, 'jNeuroML_NEURON', data_reader="UpdatedSpreadsheetDataReader")
         
     elif '-iA' in sys.argv:
-        run_c302('IClamp','A','',1000,0.05,'jNeuroML')
+        run_c302('IClamp','A','',6000,0.05,'jNeuroML')
     elif '-iB' in sys.argv:
-        run_c302('IClamp','B','',1000,0.05,'jNeuroML')
+        run_c302('IClamp','B','',6000,0.05,'jNeuroML')
     elif '-iC0' in sys.argv:
-        run_c302('IClamp','C0','',1000,0.05,'jNeuroML')
+        run_c302('IClamp','C0','',6000,0.05,'jNeuroML')
     elif '-iC' in sys.argv:
-        run_c302('IClamp','C','',1000,0.05,'jNeuroML')
+        run_c302('IClamp','C','',6000,0.05,'jNeuroML')
     elif '-iC1' in sys.argv:
-        run_c302('IClamp','C1','',1000,0.05,'jNeuroML',save=True)
+        run_c302('IClamp','C1','',6000,0.05,'jNeuroML',save=True)
     elif '-iD' in sys.argv:
-        run_c302('IClamp','D','',1000,0.05,'jNeuroML_NEURON',save=True)
+        run_c302('IClamp','D','',6000,0.05,'jNeuroML_NEURON',save=True)
     elif '-iD1' in sys.argv:
-        run_c302('IClamp','D1','',1000,0.05,'jNeuroML_NEURON',save=True)
+        run_c302('IClamp','D1','',6000,0.05,'jNeuroML_NEURON',save=True)
         
     elif '-all' in sys.argv:
         print('Generating all plots')
         html = '<table>\n'
-        '''
-        param_sets = ['IClamp','Syns']
-        #param_sets = ['IClamp']
-        param_sets = ['IClamp','Syns','Pharyngeal','Social']
-        param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles','Full']
-        param_sets = ['IClamp','Syns','Pharyngeal','Social','Oscillator','Muscles']'''
-        #param_sets = ['IClamp','Muscles','Full']
+
         levels = ['A','B','C0','C','C1','C2','D','D1']
         #levels = ['D','D1']
         #levels = ['C2']
+        levels = ['C0']
 
         
-        durations = OrderedDict([('IClamp',1000),
+        durations = OrderedDict([('IClamp',6000),
                                 ('Syns',500),
                                 ('Pharyngeal',500),
                                 ('Social',2500),
                                 ('Oscillator',1000),
+                                ('OscillatorM',1000),
                                 ('Muscles',1000),
                                 ('Full',1000)])
         
-        #durations = OrderedDict([('IClamp',1000),
-        #                        ('Syns',500),
-        #                        ('Oscillator',1000)])
+        '''durations = OrderedDict([('IClamp',1000),
+                                ('Syns',500),
+                                ('Oscillator',1000),
+                                ('OscillatorM',1000)])'''
             
         html+='<tr>'
         html+='<td>&nbsp;</td>'
@@ -290,7 +289,10 @@ if __name__ == '__main__':
             html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)
             for p in durations.keys():
                 print('Params: %s'%p)
-                html2 = '<table>\n'
+                html2 = '<h2>c302 simulation</h2>\n'
+                html2 += '<p>Parameter set: <b>%s</b>; configuration: <b>%s</b></p>\n'%(c,p)
+                html2 += '<p>Generated on: %s</p><br/>\n'%(time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime()))
+                html2 += '<table>\n'
                 html+='<td>'
                 html+='<a href="summary_%s_%s.html">'%(c,p)
                 html+='<img alt="?" src="neurons_%s_%s.png" height="80"/></a>'%(c,p)

@@ -38,7 +38,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.custom_component_types_definitions = ['cell_C.xml','custom_synapses.xml']
         
         self.set_default_bioparameters()
-        print("Set default parameters for %s"%self.level)
+        self.print_("Set default parameters for %s"%self.level)
 
     def set_default_bioparameters(self):
 
@@ -48,7 +48,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("muscle_specific_capacitance", ".6860 uF_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_specific_capacitance", "5 uF_per_cm2", "BlindGuess", "0.1")
 
-        self.add_bioparameter("initial_memb_pot", "-50 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("initial_memb_pot", "-64 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_spike_thresh", "-20 mV", "BlindGuess", "0.1")
@@ -80,22 +80,22 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "25 nS", "BlindGuess", "0.1")
         
         self.add_bioparameter("exc_syn_ar", ".5 per_s", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_ad", "50 per_s", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_beta", "0.125 per_mV", "BlindGuess", "0.1")
-        self.add_bioparameter("exc_syn_vth", "-25 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_ad", "20 per_s", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_beta", "0.25 per_mV", "BlindGuess", "0.1")
+        self.add_bioparameter("exc_syn_vth", "-35 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_erev", "0 mV", "BlindGuess", "0.1")
         
         
     
 
-        self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "60 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "260 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "0.25 nS", "BlindGuess", "0.1")
         
         
-        self.add_bioparameter("inh_syn_ar", ".5 per_s", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_ad", "50 per_s", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_beta", "0.125 per_mV", "BlindGuess", "0.1")
-        self.add_bioparameter("inh_syn_vth", "-30 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_ar", ".005 per_s", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_ad", "10 per_s", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_beta", "0.5 per_mV", "BlindGuess", "0.1")
+        self.add_bioparameter("inh_syn_vth", "-55 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_erev", "-80 mV", "BlindGuess", "0.1")
         
 

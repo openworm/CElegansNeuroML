@@ -218,9 +218,9 @@ if __name__ == '__main__':
         t, volts = cont.run_individual(sim_vars, show=True)
         print(volts.keys())
         
-    elif len(sys.argv) == 2 and sys.argv[1] == '-imC0':
+    elif len(sys.argv) == 2 and sys.argv[1] == '-iC0':
                 
-        cont = C302Controller('TestIClampMuscle', 'C0', 'IClampMuscle', generate_dir = 'temp')
+        cont = C302Controller('TestIClamp', 'C0', 'IClamp', generate_dir = 'temp',sim_time=6000)
 
         sim_vars = OrderedDict([])
 

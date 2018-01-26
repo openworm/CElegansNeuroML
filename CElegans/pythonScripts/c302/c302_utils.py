@@ -423,8 +423,8 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
             else:
                 cc_exc_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
                 
-    print cc_exc_conns
-    print cc_inh_conns
+    #print cc_exc_conns
+    #print cc_inh_conns
     
     gj_conns = {}
     for ep in net.electrical_projections:
@@ -479,10 +479,10 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
                 raise Exception("Unexpected...")
                 
         
-    print data_exc_n
-    print data_exc_m
-    print data_inh_n
-    print data_inh_m
+    #print data_exc_n
+    #print data_exc_m
+    #print data_inh_n
+    #print data_inh_m
     
     _show_conn_matrix(data_exc_n, 'Excitatory (non GABA) conns to neurons',all_neuron_info,all_neuron_info, 
                       net.id, save_figure_to='%s/%s_exc_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
