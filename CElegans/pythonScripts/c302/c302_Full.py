@@ -19,6 +19,7 @@ def setup(parameter_set,
     cells_to_stimulate = ["ADAL", "ADAR", "M1","M2L","M3L","M3R","M4","I1R","I2L","I5","I6","MI","NSMR","MCL","ASEL", "AVEL", "AWAR", "DB1", "DVC", "RIAR", "RMDDL"]
     cells_to_stimulate = ['PVCL','PVCR']
     cells_to_stimulate = ['PLML','PLMR']
+    #cells_to_stimulate = ['AVBL','AVBR']
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ["ADAL", "ADAR", "PVDR", "BDUR","I1R","I2L"]

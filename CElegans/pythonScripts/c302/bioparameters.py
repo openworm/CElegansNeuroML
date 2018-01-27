@@ -114,6 +114,9 @@ class c302ModelPrototype(ParameterisedModelPrototype):
 
     def is_level_C2(self):
         return self.level == 'C2'
+
+    def is_level_D1(self):
+        return self.level == 'D1'
     
     def is_level_D(self):
         return self.level.startswith('D')
@@ -151,8 +154,9 @@ class c302ModelPrototype(ParameterisedModelPrototype):
         elif isinstance(prototype_syn, GradedSynapse):
             nml_doc.graded_synapses.append(prototype_syn)
         else:
+            info = '%s conns; %s'%(n, existing_synapses)
             del existing_synapses[prototype_syn.id]
-            raise Exception('Unknown synapse type')
+            raise Exception('Unknown synapse type: %s (%s)'%(prototype_syn.id, info))
 
         return prototype_syn
 

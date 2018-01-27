@@ -545,7 +545,7 @@ def generate(net_id,
              param_overrides={},
              target_directory='./'):
                  
-    validate = not (params.is_level_B() or params.is_level_C0() or params.is_level_C2)
+    validate = not (params.is_level_B() or params.is_level_C0() or params.is_level_C2 or params.is_level_D1())
                 
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
