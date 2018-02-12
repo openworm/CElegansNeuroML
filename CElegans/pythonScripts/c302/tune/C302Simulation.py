@@ -12,6 +12,8 @@ import time
 
 from pyneuroml import pynml
 
+import neuroml.writers as writers
+
 
 if not os.path.isfile('c302.py'):
     c302.print_('This script should be run from dir: CElegansNeuroML/CElegans/pythonScripts/c302')
@@ -22,7 +24,7 @@ import c302
 
 class C302Simulation(object):
 
-    def __init__(self, reference, parameter_set, config, config_package=None, data_reader="SpreadsheetDataReader", sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './', input_list=None, conns_to_include=[], conns_to_exclude=[]):
+    def __init__(self, reference, parameter_set, config, config_package=None, data_reader="SpreadsheetDataReader", sim_time=1000, dt=0.05, simulator='jNeuroML', generate_dir = './', input_list=None, conns_to_include=[], conns_to_exclude=[], param_overrides=None, config_param_overrides=None):
 
         self.target_cell = 'ADAL' # TODO: obsolete?
 
@@ -31,12 +33,24 @@ class C302Simulation(object):
         self.simulator = simulator
         self.already_run = False
         self.generate_dir = generate_dir if generate_dir.endswith('/') else generate_dir+'/'
-        
-        exec('from c302_%s import setup'%config)
+
+        if config_package:
+            exec ('from %s.c302_%s import setup' % (config_package, config))
+        else:
+            exec('from c302_%s import setup'%config)
+
+        self.data_reader = data_reader
+
+        self.input_list = input_list
         
         self.cells, self.cells_to_stimulate, self.params, self.muscles_to_include, nml_doc = setup(parameter_set)
         
         self.reference = reference
+
+        self.conns_to_include = conns_to_include
+        self.conns_to_exclude = conns_to_exclude
+        self.param_overrides = param_overrides
+        self.config_param_overrides = config_param_overrides
         
 
 
@@ -66,7 +80,7 @@ class C302Simulation(object):
         """
         Start the simulation once it's been intialized
         """
-        
+
         nml_doc = c302.generate(self.reference, 
                                 self.params, 
                                 cells=self.cells, 
@@ -75,8 +89,19 @@ class C302Simulation(object):
                                 duration=self.sim_time, 
                                 dt=self.dt, 
                                 verbose=False,
-                                target_directory = self.generate_dir)
-             
+                                target_directory = self.generate_dir,
+                                data_reader=self.data_reader,
+                                conns_to_include=self.conns_to_include,
+                                conns_to_exclude=self.conns_to_exclude,
+                                param_overrides=self.param_overrides)
+
+        if self.input_list:
+            for input_tuple in self.input_list:
+                cell, start, duration, amplitude = input_tuple
+                c302.add_new_input(nml_doc, cell, start, duration, amplitude, self.params)
+            nml_file = self.generate_dir + '/' + self.reference + '.nml'
+            writers.NeuroMLWriter.write(nml_doc, nml_file)
+
         self.lems_file ="LEMS_%s.xml"%(self.reference)
         
         c302.print_("Running a simulation of %s ms with timestep %s ms: %s"%(self.sim_time, self.dt, self.lems_file))
@@ -101,6 +126,18 @@ class C302Simulation(object):
         else:
             c302.print_('Unsupported simulator: %s'%self.simulator)
             exit()
+
+
+        # pynml.run_lems_with...() can return False!
+        """if self.results is False:
+            print
+            print
+            print
+            print "SIMULATION RETURNED NO RESULT"
+            print
+            print
+            print
+            exit()"""
             
         secs = time.time()-start
     
@@ -117,15 +154,23 @@ class C302Simulation(object):
             self.cells = []
             for pop in nml_doc.networks[0].populations:
                 self.cells.append(pop.id)
-            
+
+        if self.cells == None:
+            raise Exception("\n\n\n\n!!!!!!!!! SELF.CELLS == NONE !!!!!!!!!!!!!\n\n\n\n")
         for cell in self.cells:
             self.volts[res_template_n%cell] = [v*1000 for v in self.results[res_template_n%cell]]
-            
-        if self.muscles_to_include:
-            for cell in self.muscles_to_include:
-                self.volts[res_template_m%cell] = [v*1000 for v in self.results[res_template_m%cell]]
-        
 
+        res_template = '%s/0/GenericMuscleCell/v'
+        muscles = []
+        if self.muscles_to_include is None or self.muscles_to_include is True:
+            # muscles_to_include = True or None -> ALL muscles
+            muscles = c302.get_muscle_names()
+        elif isinstance(self.muscles_to_include, list) and self.muscles_to_include:
+            # len(muscles_to_include) > 0
+            muscles = self.muscles_to_include
+
+        for muscle in muscles:
+            self.volts[res_template % muscle] = [v * 1000 for v in self.results[res_template % muscle]]
 
 
 if __name__ == '__main__':

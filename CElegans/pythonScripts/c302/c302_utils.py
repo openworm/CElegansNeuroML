@@ -338,7 +338,7 @@ def plot_c302_results(lems_results,
         try:
             plt.show()
         except KeyboardInterrupt:
-            print "Interrupt received, stopping..."
+            print("Interrupt received, stopping...")
     else:
         plt.close("all")
         

@@ -28,7 +28,7 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False, neuron_connect=Fal
         cells = []
         filename = "%sNeuronConnectFormatted.xlsx"%spreadsheet_location
         rb = open_workbook(filename)
-        print "Opened Excel file: " + filename
+        print("Opened Excel file: " + filename)
 
         for row in range(1,rb.sheet_by_index(0).nrows):
             pre = str(rb.sheet_by_index(0).cell(row,0).value)
@@ -51,7 +51,7 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False, neuron_connect=Fal
         filename = "%sCElegansNeuronTables.xls"%spreadsheet_location
         rb = open_workbook(filename)
 
-        print "Opened Excel file: " + filename
+        print("Opened Excel file: " + filename)
 
         known_nonconnected_cells = ['CANL', 'CANR', 'VC6']
 
@@ -83,7 +83,7 @@ def readMuscleDataFromSpreadsheet():
     filename = "%sCElegansNeuronTables.xls"%spreadsheet_location
     rb = open_workbook(filename)
 
-    print "Opened Excel file: "+ filename
+    print("Opened Excel file: "+ filename)
 
     sheet = rb.sheet_by_index(1)
 
