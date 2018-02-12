@@ -98,9 +98,9 @@ def readDataFromSpreadsheet(include_nonconnected_cells=False):
     conns = []
     cells = []
 
-    with open(filename, 'rb') as f:
+    with open(filename, 'r') as f:
         reader = csv.DictReader(f)
-        print "Opened file: " + filename
+        print("Opened file: " + filename)
 
         known_nonconnected_cells = ['CANL', 'CANR']
 
@@ -140,9 +140,9 @@ def readMuscleDataFromSpreadsheet():
     muscles = []
     conns = []
 
-    with open(filename, 'rb') as f:
+    with open(filename, 'r') as f:
         reader = csv.DictReader(f)
-        print "Opened file: " + filename
+        print("Opened file: " + filename)
 
         for row in reader:
             pre, post, num, syntype, synclass = parse_row(row)

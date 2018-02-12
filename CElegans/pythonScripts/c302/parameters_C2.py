@@ -854,7 +854,7 @@ class ParameterisedModel(ParameterisedModel_C):
                              k=k)
 
     def create_n_connection_synapse(self, prototype_syn, n, nml_doc, existing_synapses):
-        if existing_synapses.has_key(prototype_syn.id):
+        if prototype_syn.id in existing_synapses: 
             return existing_synapses[prototype_syn.id]
 
         if isinstance(prototype_syn, (DelayedGapJunction, ProprioGapJunction, ProprioGapJunction2)):

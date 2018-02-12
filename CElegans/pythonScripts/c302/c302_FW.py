@@ -51,8 +51,8 @@ def setup(parameter_set,
         'VB4-VB2_GJ',
     ]    
     conn_polarity_override = {
-        '^DB\d+-DD\d+$': 'inh',
-        '^VB\d+-VD\d+$': 'inh',
+        r'^DB\d+-DD\d+$': 'inh',
+        r'^VB\d+-VD\d+$': 'inh',
     }
     conn_number_override = {
         '^.+-.+$': 1,
@@ -161,43 +161,43 @@ def setup(parameter_set,
     param_overrides = {
         'mirrored_elec_conn_params': {
             
-            '^AVB._to_DB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
-            '^AVB._to_VB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
+            r'^AVB._to_DB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
+            r'^AVB._to_VB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
             
-            '^DB\d+_to_DB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
+            r'^DB\d+_to_DB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
             #'^DB\d+_to_DB\d+\_GJ$_elec_syn_p_gbase': '0.08 nS',
             #'^DB\d+_to_DB\d+\_GJ$_elec_syn_sigma': '0.2 per_mV',
             #'^DB\d+_to_DB\d+\_GJ$_elec_syn_mu': '-20 mV',
             
-            '^VB\d+_to_VB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
+            r'^VB\d+_to_VB\d+\_GJ$_elec_syn_gbase': '0.001 nS',
             #'^VB\d+_to_VB\d+\_GJ$_elec_syn_p_gbase': '0.1 nS',
             #'^VB\d+_to_VB\d+\_GJ$_elec_syn_sigma': '0.3 per_mV',
             #'^VB\d+_to_VB\d+\_GJ$_elec_syn_mu': '-30 mV',
             
             #'VB2_to_VB4_elec_syn_gbase': '0 nS',
             
-            '^DB\d+_to_VB\d+\_GJ$_elec_syn_gbase': '0 nS',
-            '^DB\d+_to_DD\d+\_GJ$_elec_syn_gbase': '0 nS',
-            '^VB\d+_to_VD\d+\_GJ$_elec_syn_gbase': '0 nS',
+            r'^DB\d+_to_VB\d+\_GJ$_elec_syn_gbase': '0 nS',
+            r'^DB\d+_to_DD\d+\_GJ$_elec_syn_gbase': '0 nS',
+            r'^VB\d+_to_VD\d+\_GJ$_elec_syn_gbase': '0 nS',
             #'^VD\d+_to_DD\d+\_GJ$_elec_syn_gbase': '0 nS',
             
             'DD1_to_MVL08_elec_syn_gbase': '0 nS',
             'VD2_to_MDL09_elec_syn_gbase': '0 nS',
         },
         
-        '^VB\d+_to_VB\d+$_exc_syn_conductance': '18 nS',
-        '^VB\d+_to_VB\d+$_exc_syn_ar': '0.19 per_s',
-        '^VB\d+_to_VB\d+$_exc_syn_ad': '73 per_s',
-        '^VB\d+_to_VB\d+$_exc_syn_beta': '2.81 per_mV',
-        '^VB\d+_to_VB\d+$_exc_syn_vth': '-22 mV',
-        '^VB\d+_to_VB\d+$_exc_syn_erev': '10 mV',
+        r'^VB\d+_to_VB\d+$_exc_syn_conductance': '18 nS',
+        r'^VB\d+_to_VB\d+$_exc_syn_ar': '0.19 per_s',
+        r'^VB\d+_to_VB\d+$_exc_syn_ad': '73 per_s',
+        r'^VB\d+_to_VB\d+$_exc_syn_beta': '2.81 per_mV',
+        r'^VB\d+_to_VB\d+$_exc_syn_vth': '-22 mV',
+        r'^VB\d+_to_VB\d+$_exc_syn_erev': '10 mV',
         
-        '^DB\d+_to_DB\d+$_exc_syn_conductance': '20 nS',
-        '^DB\d+_to_DB\d+$_exc_syn_ar': '0.08 per_s',
-        '^DB\d+_to_DB\d+$_exc_syn_ad': '18 per_s',
-        '^DB\d+_to_DB\d+$_exc_syn_beta': '0.21 per_mV',
-        '^DB\d+_to_DB\d+$_exc_syn_vth': '-10 mV',
-        '^DB\d+_to_DB\d+$_exc_syn_erev': '10 mV',
+        r'^DB\d+_to_DB\d+$_exc_syn_conductance': '20 nS',
+        r'^DB\d+_to_DB\d+$_exc_syn_ar': '0.08 per_s',
+        r'^DB\d+_to_DB\d+$_exc_syn_ad': '18 per_s',
+        r'^DB\d+_to_DB\d+$_exc_syn_beta': '0.21 per_mV',
+        r'^DB\d+_to_DB\d+$_exc_syn_vth': '-10 mV',
+        r'^DB\d+_to_DB\d+$_exc_syn_erev': '10 mV',
         
         'initial_memb_pot': '-50 mV',
         
@@ -217,10 +217,10 @@ def setup(parameter_set,
         'DD1_to_VB2_inh_syn_conductance': '0 nS',
         
         'neuron_to_muscle_exc_syn_conductance': '0.5 nS',
-        '^DB\d+_to_MDL\d+$_exc_syn_conductance': '0.4 nS',
-        '^DB\d+_to_MDR\d+$_exc_syn_conductance': '0.4 nS',
-        '^VB\d+_to_MVL\d+$_exc_syn_conductance': '0.6 nS',
-        '^VB\d+_to_MVR\d+$_exc_syn_conductance': '0.6 nS',
+        r'^DB\d+_to_MDL\d+$_exc_syn_conductance': '0.4 nS',
+        r'^DB\d+_to_MDR\d+$_exc_syn_conductance': '0.4 nS',
+        r'^VB\d+_to_MVL\d+$_exc_syn_conductance': '0.6 nS',
+        r'^VB\d+_to_MVR\d+$_exc_syn_conductance': '0.6 nS',
         'neuron_to_muscle_exc_syn_vth': '37 mV',
         'neuron_to_muscle_inh_syn_conductance': '0.6 nS',
         'neuron_to_neuron_inh_syn_conductance': '0.2 nS',

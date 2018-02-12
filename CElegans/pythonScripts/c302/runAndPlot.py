@@ -35,9 +35,9 @@ def run_c302(config,
 
     print("********************\n\n   Going to generate c302_%s_%s and run for %sms on %s\n\n********************"%(parameter_set,config,duration, simulator))
     if config_package:
-        exec ('from %s.c302_%s import setup' % (config_package, config))
+        exec ('from %s.c302_%s import setup' % (config_package, config), globals())
     else:
-        exec ('from c302_%s import setup' % config)
+        exec ('from c302_%s import setup' % config, globals())
 
     try:
         os.makedirs(target_directory)
@@ -57,7 +57,7 @@ def run_c302(config,
 
     orig_dir = os.getcwd()
 
-    os.chdir(target_directory)
+    os.chdir(target_directory) 
 
     try:
         os.makedirs(save_fig_dir)
