@@ -33,7 +33,7 @@ def run_c302(config,
         global save_fig_dir
         save_fig_dir = save_fig_to
 
-    print("********************\n\n   Going to generate c302_%s_%s and run for %sms on %s\n\n********************"%(parameter_set,config,duration, simulator))
+    print("********************\n\n   Going to generate c302_%s_%s and run for %sms (dt: %sms) on %s\n\n********************"%(parameter_set,config,duration, dt, simulator))
     if config_package:
         exec ('from %s.c302_%s import setup' % (config_package, config), globals())
     else:
@@ -111,6 +111,12 @@ if __name__ == '__main__':
         
     elif '-fullC1' in sys.argv:
         run_c302('Full','C1','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-fullD' in sys.argv:
+        run_c302('Full','D','',1000,0.05,'jNeuroML_NEURON')
+        
+    elif '-fullD1' in sys.argv:
+        run_c302('Full','D1','',1000,0.05,'jNeuroML_NEURON')
 
     elif '-fw' in sys.argv:
         run_c302('AVB_FW','C2','',4000,0.05,'jNeuroML_NEURON', config_package="notebooks.configs.AVB", data_reader='UpdatedSpreadsheetDataReader')
@@ -166,6 +172,12 @@ if __name__ == '__main__':
         
     elif '-pharC1' in sys.argv or '-pharyngealC1' in sys.argv:
         run_c302('Pharyngeal','C1','',500,0.01,'jNeuroML_NEURON')
+        
+    elif '-pharD' in sys.argv or '-pharyngealD' in sys.argv:
+        run_c302('Pharyngeal','D','',500,0.05,'jNeuroML_NEURON')
+        
+    elif '-pharD1' in sys.argv or '-pharyngealD1' in sys.argv:
+        run_c302('Pharyngeal','D1','',500,0.05,'jNeuroML_NEURON')
         
     elif '-phar' in sys.argv or '-pharyngeal' in sys.argv:
         run_c302('Pharyngeal','C','',500,0.01,'jNeuroML_NEURON')
@@ -269,14 +281,19 @@ if __name__ == '__main__':
                                 ('Pharyngeal',500),
                                 ('Social',2500),
                                 ('Oscillator',1000),
-                                ('OscillatorM',1000),
                                 ('Muscles',1000),
                                 ('Full',1000)])
         
         '''durations = OrderedDict([('IClamp',1000),
                                 ('Syns',500),
                                 ('Oscillator',1000),
-                                ('OscillatorM',1000)])'''
+                                ('OscillatorM',1000)])
+                                
+        durations = OrderedDict([('IClamp',1000),
+                                ('Syns',500),
+                                ('Pharyngeal',500),
+                                ('Oscillator',1000),
+                                ('Social',2500)])'''
             
         html+='<tr>'
         html+='<td>&nbsp;</td>'
@@ -294,7 +311,7 @@ if __name__ == '__main__':
                 print('Params: %s'%p)
                 html2 = '<h2>c302 simulation</h2>\n'
                 html2 += '<p>Parameter set: <b>%s</b>; configuration: <b>%s</b></p>\n'%(c,p)
-                html2 += '<p>Generated on: %s</p><br/>\n'%(time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime()))
+                html2 += '<p>Generated on: %s</p><br/>\n'%(time.strftime("%a, %d %b %Y", time.gmtime()))
                 html2 += '<table>\n'
                 html+='<td>'
                 html+='<a href="summary_%s_%s.html">'%(c,p)
