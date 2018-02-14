@@ -12,7 +12,7 @@ def setup(parameter_set,
           config_param_overrides={},
           verbose=True):
 
-    exec('from parameters_%s import ParameterisedModel'%parameter_set)
+    exec('from parameters_%s import ParameterisedModel'%parameter_set, globals())
     params = ParameterisedModel()
 
     # Match the labelled cells in Figure 1C of Kato et. al, Cell 2015 http://dx.doi.org/10.1016/j.cell.2015.09.034

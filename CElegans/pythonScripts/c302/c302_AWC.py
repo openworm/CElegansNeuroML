@@ -9,7 +9,7 @@ def setup(parameter_set,
           target_directory='examples',
           data_reader="SpreadsheetDataReader"):
     
-    exec('from parameters_%s import ParameterisedModel'%parameter_set)
+    exec('from parameters_%s import ParameterisedModel'%parameter_set, globals())
     params = ParameterisedModel()
     
     
