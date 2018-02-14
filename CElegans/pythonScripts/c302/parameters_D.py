@@ -20,6 +20,9 @@ from neuroml import Cell
 from neuroml import Morphology
 from neuroml import Point3DWithDiam
 from neuroml import Segment
+from neuroml import SegmentParent
+from neuroml import Member
+from neuroml import SegmentGroup
 from neuroml import BiophysicalProperties
 from neuroml import IntracellularProperties
 from neuroml import Resistivity
@@ -51,29 +54,30 @@ class ParameterisedModel(c302ModelPrototype):
     def set_default_bioparameters(self):
 
         self.add_bioparameter("cell_diameter", "5", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_length", "10", "BlindGuess", "0.1")
 
         self.add_bioparameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
         
-        self.add_bioparameter("resistivity", "0.4 kohm_cm", "BlindGuess", "0.1")
+        self.add_bioparameter("resistivity", "3 kohm_cm", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_spike_thresh", "-20 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_spike_thresh", "-26 mV", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_spike_thresh", "-26 mV", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_cond_density", "4 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_fast_cond_density", "0.2 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_ca_boyle_cond_density", "4 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
         
@@ -81,15 +85,15 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("ca_conc_rho", "0.000238919 mol_per_m_per_A_per_s", "BlindGuess", "0.1")
 
 
-        self.add_bioparameter("neuron_to_neuron_chem_exc_syn_gbase", ".1 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_chem_exc_syn_gbase", ".1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_chem_exc_syn_gbase", "1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_chem_exc_syn_gbase", "1 nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("chem_exc_syn_erev", "0 mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_rise", "1 ms", "Bli ndGuess", "0.1")
         self.add_bioparameter("chem_exc_syn_decay", "5 ms", "BlindGuess", "0.1")
 
-        self.add_bioparameter("neuron_to_neuron_chem_inh_syn_gbase", ".1 nS", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_to_muscle_chem_inh_syn_gbase", ".1 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_neuron_chem_inh_syn_gbase", "3 nS", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_to_muscle_chem_inh_syn_gbase", "3 nS", "BlindGuess", "0.1")
 
         self.add_bioparameter("chem_inh_syn_erev", "-60 mV", "BlindGuess", "0.1")
         self.add_bioparameter("chem_inh_syn_rise", "2 ms", "BlindGuess", "0.1")
@@ -98,7 +102,7 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.0005 nS", "BlindGuess", "0.1")
 
-        self.add_bioparameter("unphysiological_offset_current", "4 pA", "KnownError", "0")
+        self.add_bioparameter("unphysiological_offset_current", "5 pA", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_del", "0 ms", "KnownError", "0")
         self.add_bioparameter("unphysiological_offset_current_dur", "2000 ms", "KnownError", "0")
 
@@ -121,14 +125,29 @@ class ParameterisedModel(c302ModelPrototype):
         self.generic_muscle_cell.morphology = morphology
 
         prox_point = Point3DWithDiam(x="0", y="0", z="0", diameter=self.get_bioparameter("cell_diameter").value)
-        dist_point = Point3DWithDiam(x="0", y="0", z="0", diameter=self.get_bioparameter("cell_diameter").value)
+        dist_point1 = Point3DWithDiam(x="0", y=self.get_bioparameter("muscle_length").value, z="0", diameter=self.get_bioparameter("cell_diameter").value)
 
-        segment = Segment(id="0",
-                          name="soma",
+        segment0 = Segment(id="0",
+                          name="soma0",
                           proximal = prox_point, 
-                          distal = dist_point)
+                          distal = dist_point1)
 
-        morphology.segments.append(segment)
+        morphology.segments.append(segment0)
+        
+        dist_point2 = Point3DWithDiam(x="0", y=float(self.get_bioparameter("muscle_length").value)*2, z="0", diameter=self.get_bioparameter("cell_diameter").value)
+
+        segment1 = Segment(id="1",
+                          name="soma1",
+                          parent=SegmentParent(segments='0'),
+                          proximal = dist_point1, 
+                          distal = dist_point2)
+
+        morphology.segments.append(segment1)
+
+        sg = SegmentGroup(id='all')
+        morphology.segment_groups.append(sg)
+        morphology.segment_groups[0].members.append(Member(segments=segment0.id))
+        morphology.segment_groups[0].members.append(Member(segments=segment1.id))
 
         self.generic_muscle_cell.biophysical_properties = BiophysicalProperties(id="biophys_"+self.generic_muscle_cell.id)
 

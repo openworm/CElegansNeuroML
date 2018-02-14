@@ -119,6 +119,9 @@ if __name__ == '__main__':
         #run_c302('FW','C2','',1000,0.05,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True)
         run_c302('FW','C2','',5000,0.005,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True, show_plot_already=False)
         
+    elif '-fwTest' in sys.argv:
+        run_c302('FW','C2','',2000,0.05,'jNeuroML_NEURON', data_reader='UpdatedSpreadsheetDataReader', save=True, show_plot_already=True)
+        
     elif '-fullC2' in sys.argv:
         run_c302('Full','C2','',1000,0.05,'jNeuroML_NEURON')
         

@@ -89,8 +89,8 @@ jnml -validate c302_C1_Pharyngeal.net.nml
 jnml -validate c302_D_Full.net.nml
 jnml -validate c302_D_Pharyngeal.net.nml
 
-jnml -validate c302_D1_Full.net.nml
-jnml -validate c302_D1_Pharyngeal.net.nml
+#jnml -validate c302_D1_Full.net.nml
+#jnml -validate c302_D1_Pharyngeal.net.nml
 
 
 ## Try running these in jNeuroML with no GUI
