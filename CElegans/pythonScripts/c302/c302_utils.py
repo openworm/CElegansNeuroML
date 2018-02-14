@@ -381,8 +381,8 @@ def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save_figure_to=
     ax.set_yticks(np.arange(data.shape[0]) + 0.5,minor=True)
     
     
-    ax.set_yticklabels([all_info_pre[k][4] for k in all_info_pre.keys()])
-    ax.set_xticklabels([all_info_post[k][4] for k in all_info_post.keys()])
+    ax.set_yticklabels([all_info_pre[k][4] for k in all_info_pre])
+    ax.set_xticklabels([all_info_post[k][4] for k in all_info_post])
     ax.set_ylabel('presynaptic')
     tick_size = 10 if data.shape[0]<20 else (8 if data.shape[0]<40 else 6)
     ax.tick_params(axis='y', labelsize=tick_size)

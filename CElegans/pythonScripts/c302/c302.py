@@ -15,9 +15,6 @@ from neuroml import ElectricalProjection
 from neuroml import ElectricalConnectionInstanceW
 from neuroml import ContinuousProjection
 from neuroml import ContinuousConnectionInstanceW
-from neuroml import ExpTwoSynapse
-from neuroml import GapJunction
-from neuroml import GradedSynapse
 from neuroml import Property
 from neuroml import PulseGenerator
 from neuroml import SineGenerator
@@ -39,9 +36,6 @@ import math
 from lxml import etree
 import re
 
-from parameters_C0 import GradedSynapse2
-from parameters_C2 import DelayedGapJunction
-from parameters_C2 import DelayedGradedSynapse
 import collections
 
 try:
@@ -732,8 +726,9 @@ def generate(net_id,
                 all_neuron_info, all_muscle_info = _get_cell_info([cell])
                 #neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color
                 pop0.properties.append(Property("color", all_neuron_info[cell][5]))  
-                pop0.properties.append(Property("type", str('; '.join(all_neuron_info[cell][1]))))    
-                pop0.properties.append(Property("receptor", str('; '.join(all_neuron_info[cell][2]))))
+                pop0.properties.append(Property("type", str('; '.join(all_neuron_info[cell][1]))))  
+                recps = sorted(all_neuron_info[cell][2])
+                pop0.properties.append(Property("receptor", str('; '.join(recps))))
                 pop0.properties.append(Property("neurotransmitter", str('; '.join(all_neuron_info[cell][3]))))  
             except:
                 # It's only metadata...

@@ -162,7 +162,7 @@ Parameters and setting used to generate this network:
         <population id="PVCL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="SER-2; PDFR-1"/>
+            <property tag="receptor" value="PDFR-1; SER-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
             <instance id="0">
