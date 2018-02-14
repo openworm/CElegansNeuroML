@@ -95,8 +95,8 @@ def get_muscle_position(muscle, data_reader="SpreadsheetDataReader"):
         y = -300 + 30 * int(muscle[5:7])
         return x, y, z"""
     
-    x = 80 * (-1 if muscle[1] == 'V' else 1)
-    z = 80 * (-1 if muscle[2] == 'L' else 1)
+    x = 80 * (1 if muscle[2] == 'L' else -1)
+    z = 80 * (-1 if muscle[1] == 'V' else 1)
     y = -300 + 30 * int(muscle[3:5])
     return x, y, z
 

@@ -89,7 +89,7 @@ Parameters and setting used to generate this network:
         <population id="MDR01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-270." z="80."/>
+                <location x="-80." y="-270." z="80."/>
             </instance>
         </population>
         <inputList id="Input_ADAL_stim_ADAL_1" population="ADAL" component="stim_ADAL_1">

@@ -1290,571 +1290,571 @@ Parameters and setting used to generate this network:
         <population id="MDR01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-270." z="80."/>
+                <location x="-80." y="-270." z="80."/>
             </instance>
         </population>
         <population id="MDR02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-240." z="80."/>
+                <location x="-80." y="-240." z="80."/>
             </instance>
         </population>
         <population id="MDR03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-210." z="80."/>
+                <location x="-80." y="-210." z="80."/>
             </instance>
         </population>
         <population id="MDR04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-180." z="80."/>
+                <location x="-80." y="-180." z="80."/>
             </instance>
         </population>
         <population id="MDR05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-150." z="80."/>
+                <location x="-80." y="-150." z="80."/>
             </instance>
         </population>
         <population id="MDR06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-120." z="80."/>
+                <location x="-80." y="-120." z="80."/>
             </instance>
         </population>
         <population id="MDR07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-90." z="80."/>
+                <location x="-80." y="-90." z="80."/>
             </instance>
         </population>
         <population id="MDR08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-60." z="80."/>
+                <location x="-80." y="-60." z="80."/>
             </instance>
         </population>
         <population id="MDR09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-30." z="80."/>
+                <location x="-80." y="-30." z="80."/>
             </instance>
         </population>
         <population id="MDR10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="0." z="80."/>
+                <location x="-80." y="0." z="80."/>
             </instance>
         </population>
         <population id="MDR11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="30." z="80."/>
+                <location x="-80." y="30." z="80."/>
             </instance>
         </population>
         <population id="MDR12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="60." z="80."/>
+                <location x="-80." y="60." z="80."/>
             </instance>
         </population>
         <population id="MDR13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="90." z="80."/>
+                <location x="-80." y="90." z="80."/>
             </instance>
         </population>
         <population id="MDR14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="120." z="80."/>
+                <location x="-80." y="120." z="80."/>
             </instance>
         </population>
         <population id="MDR15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="150." z="80."/>
+                <location x="-80." y="150." z="80."/>
             </instance>
         </population>
         <population id="MDR16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="180." z="80."/>
+                <location x="-80." y="180." z="80."/>
             </instance>
         </population>
         <population id="MDR17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="210." z="80."/>
+                <location x="-80." y="210." z="80."/>
             </instance>
         </population>
         <population id="MDR18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="240." z="80."/>
+                <location x="-80." y="240." z="80."/>
             </instance>
         </population>
         <population id="MDR19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="270." z="80."/>
+                <location x="-80." y="270." z="80."/>
             </instance>
         </population>
         <population id="MDR20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="300." z="80."/>
+                <location x="-80." y="300." z="80."/>
             </instance>
         </population>
         <population id="MDR21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="330." z="80."/>
+                <location x="-80." y="330." z="80."/>
             </instance>
         </population>
         <population id="MDR22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="360." z="80."/>
+                <location x="-80." y="360." z="80."/>
             </instance>
         </population>
         <population id="MDR23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="390." z="80."/>
+                <location x="-80." y="390." z="80."/>
             </instance>
         </population>
         <population id="MDR24" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="420." z="80."/>
+                <location x="-80." y="420." z="80."/>
             </instance>
         </population>
         <population id="MVR01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-270." z="80."/>
+                <location x="-80." y="-270." z="-80."/>
             </instance>
         </population>
         <population id="MVR02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-240." z="80."/>
+                <location x="-80." y="-240." z="-80."/>
             </instance>
         </population>
         <population id="MVR03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-210." z="80."/>
+                <location x="-80." y="-210." z="-80."/>
             </instance>
         </population>
         <population id="MVR04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-180." z="80."/>
+                <location x="-80." y="-180." z="-80."/>
             </instance>
         </population>
         <population id="MVR05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-150." z="80."/>
+                <location x="-80." y="-150." z="-80."/>
             </instance>
         </population>
         <population id="MVR06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-120." z="80."/>
+                <location x="-80." y="-120." z="-80."/>
             </instance>
         </population>
         <population id="MVR07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-90." z="80."/>
+                <location x="-80." y="-90." z="-80."/>
             </instance>
         </population>
         <population id="MVR08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-60." z="80."/>
+                <location x="-80." y="-60." z="-80."/>
             </instance>
         </population>
         <population id="MVR09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-30." z="80."/>
+                <location x="-80." y="-30." z="-80."/>
             </instance>
         </population>
         <population id="MVR10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="0." z="80."/>
+                <location x="-80." y="0." z="-80."/>
             </instance>
         </population>
         <population id="MVR11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="30." z="80."/>
+                <location x="-80." y="30." z="-80."/>
             </instance>
         </population>
         <population id="MVR12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="60." z="80."/>
+                <location x="-80." y="60." z="-80."/>
             </instance>
         </population>
         <population id="MVR13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="90." z="80."/>
+                <location x="-80." y="90." z="-80."/>
             </instance>
         </population>
         <population id="MVR14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="120." z="80."/>
+                <location x="-80." y="120." z="-80."/>
             </instance>
         </population>
         <population id="MVR15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="150." z="80."/>
+                <location x="-80." y="150." z="-80."/>
             </instance>
         </population>
         <population id="MVR16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="180." z="80."/>
+                <location x="-80." y="180." z="-80."/>
             </instance>
         </population>
         <population id="MVR17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="210." z="80."/>
+                <location x="-80." y="210." z="-80."/>
             </instance>
         </population>
         <population id="MVR18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="240." z="80."/>
+                <location x="-80." y="240." z="-80."/>
             </instance>
         </population>
         <population id="MVR19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="270." z="80."/>
+                <location x="-80." y="270." z="-80."/>
             </instance>
         </population>
         <population id="MVR20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="300." z="80."/>
+                <location x="-80." y="300." z="-80."/>
             </instance>
         </population>
         <population id="MVR21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="330." z="80."/>
+                <location x="-80." y="330." z="-80."/>
             </instance>
         </population>
         <population id="MVR22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="360." z="80."/>
+                <location x="-80." y="360." z="-80."/>
             </instance>
         </population>
         <population id="MVR23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="390." z="80."/>
+                <location x="-80." y="390." z="-80."/>
             </instance>
         </population>
         <population id="MVL01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-270." z="-80."/>
+                <location x="80." y="-270." z="-80."/>
             </instance>
         </population>
         <population id="MVL02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-240." z="-80."/>
+                <location x="80." y="-240." z="-80."/>
             </instance>
         </population>
         <population id="MVL03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-210." z="-80."/>
+                <location x="80." y="-210." z="-80."/>
             </instance>
         </population>
         <population id="MVL04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-180." z="-80."/>
+                <location x="80." y="-180." z="-80."/>
             </instance>
         </population>
         <population id="MVL05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-150." z="-80."/>
+                <location x="80." y="-150." z="-80."/>
             </instance>
         </population>
         <population id="MVL06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-120." z="-80."/>
+                <location x="80." y="-120." z="-80."/>
             </instance>
         </population>
         <population id="MVL07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-90." z="-80."/>
+                <location x="80." y="-90." z="-80."/>
             </instance>
         </population>
         <population id="MVL08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-60." z="-80."/>
+                <location x="80." y="-60." z="-80."/>
             </instance>
         </population>
         <population id="MVL09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-30." z="-80."/>
+                <location x="80." y="-30." z="-80."/>
             </instance>
         </population>
         <population id="MVL10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="0." z="-80."/>
+                <location x="80." y="0." z="-80."/>
             </instance>
         </population>
         <population id="MVL11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="30." z="-80."/>
+                <location x="80." y="30." z="-80."/>
             </instance>
         </population>
         <population id="MVL12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="60." z="-80."/>
+                <location x="80." y="60." z="-80."/>
             </instance>
         </population>
         <population id="MVL13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="90." z="-80."/>
+                <location x="80." y="90." z="-80."/>
             </instance>
         </population>
         <population id="MVL14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="120." z="-80."/>
+                <location x="80." y="120." z="-80."/>
             </instance>
         </population>
         <population id="MVL15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="150." z="-80."/>
+                <location x="80." y="150." z="-80."/>
             </instance>
         </population>
         <population id="MVL16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="180." z="-80."/>
+                <location x="80." y="180." z="-80."/>
             </instance>
         </population>
         <population id="MVL17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="210." z="-80."/>
+                <location x="80." y="210." z="-80."/>
             </instance>
         </population>
         <population id="MVL18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="240." z="-80."/>
+                <location x="80." y="240." z="-80."/>
             </instance>
         </population>
         <population id="MVL19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="270." z="-80."/>
+                <location x="80." y="270." z="-80."/>
             </instance>
         </population>
         <population id="MVL20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="300." z="-80."/>
+                <location x="80." y="300." z="-80."/>
             </instance>
         </population>
         <population id="MVL21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="330." z="-80."/>
+                <location x="80." y="330." z="-80."/>
             </instance>
         </population>
         <population id="MVL22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="360." z="-80."/>
+                <location x="80." y="360." z="-80."/>
             </instance>
         </population>
         <population id="MVL23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="390." z="-80."/>
+                <location x="80." y="390." z="-80."/>
             </instance>
         </population>
         <population id="MVL24" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="420." z="-80."/>
+                <location x="80." y="420." z="-80."/>
             </instance>
         </population>
         <population id="MDL01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-270." z="-80."/>
+                <location x="80." y="-270." z="80."/>
             </instance>
         </population>
         <population id="MDL02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-240." z="-80."/>
+                <location x="80." y="-240." z="80."/>
             </instance>
         </population>
         <population id="MDL03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-210." z="-80."/>
+                <location x="80." y="-210." z="80."/>
             </instance>
         </population>
         <population id="MDL04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-180." z="-80."/>
+                <location x="80." y="-180." z="80."/>
             </instance>
         </population>
         <population id="MDL05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-150." z="-80."/>
+                <location x="80." y="-150." z="80."/>
             </instance>
         </population>
         <population id="MDL06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-120." z="-80."/>
+                <location x="80." y="-120." z="80."/>
             </instance>
         </population>
         <population id="MDL07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-90." z="-80."/>
+                <location x="80." y="-90." z="80."/>
             </instance>
         </population>
         <population id="MDL08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-60." z="-80."/>
+                <location x="80." y="-60." z="80."/>
             </instance>
         </population>
         <population id="MDL09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-30." z="-80."/>
+                <location x="80." y="-30." z="80."/>
             </instance>
         </population>
         <population id="MDL10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="0." z="-80."/>
+                <location x="80." y="0." z="80."/>
             </instance>
         </population>
         <population id="MDL11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="30." z="-80."/>
+                <location x="80." y="30." z="80."/>
             </instance>
         </population>
         <population id="MDL12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="60." z="-80."/>
+                <location x="80." y="60." z="80."/>
             </instance>
         </population>
         <population id="MDL13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="90." z="-80."/>
+                <location x="80." y="90." z="80."/>
             </instance>
         </population>
         <population id="MDL14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="120." z="-80."/>
+                <location x="80." y="120." z="80."/>
             </instance>
         </population>
         <population id="MDL15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="150." z="-80."/>
+                <location x="80." y="150." z="80."/>
             </instance>
         </population>
         <population id="MDL16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="180." z="-80."/>
+                <location x="80." y="180." z="80."/>
             </instance>
         </population>
         <population id="MDL17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="210." z="-80."/>
+                <location x="80." y="210." z="80."/>
             </instance>
         </population>
         <population id="MDL18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="240." z="-80."/>
+                <location x="80." y="240." z="80."/>
             </instance>
         </population>
         <population id="MDL19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="270." z="-80."/>
+                <location x="80." y="270." z="80."/>
             </instance>
         </population>
         <population id="MDL20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="300." z="-80."/>
+                <location x="80." y="300." z="80."/>
             </instance>
         </population>
         <population id="MDL21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="330." z="-80."/>
+                <location x="80." y="330." z="80."/>
             </instance>
         </population>
         <population id="MDL22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="360." z="-80."/>
+                <location x="80." y="360." z="80."/>
             </instance>
         </population>
         <population id="MDL23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="390." z="-80."/>
+                <location x="80." y="390." z="80."/>
             </instance>
         </population>
         <population id="MDL24" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="420." z="-80."/>
+                <location x="80." y="420." z="80."/>
             </instance>
         </population>
         <projection id="NC_AS1_AVAL_Generic_GJ" presynapticPopulation="AS1" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_elec_syn">

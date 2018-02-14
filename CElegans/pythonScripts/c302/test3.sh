@@ -115,7 +115,7 @@ python3 c302.py c302_A_Weights parameters_A -cells ["ADAL","AIBL","I1L","I3","DB
 
 python3 c302.py c302_C1_Test parameters_C1 -cellstostimulate AFDL -connnumberscaling {"I1L-I3":2}
 
-mkdir cells -p
+mkdir -p cells
 python3 c302.py c302_D1_Weights parameters_D1 -cells ["ADAL","AIBL","I1L","I3","DB5","PVCR"] -cellstostimulate ["ADAL","I1L","PVCR"] -connnumberoverride=["I1L-I3":2.5] -connnumberscaling=["PVCR-DB5":5] -duration 500 -dt 0.1
 
 cd examples
@@ -134,5 +134,6 @@ cd -
 python3 runAndPlot.py -test
 
 python3 c302_utils.py -nogui
-  
 
+echo "Successfully completed all c302 tests on Python 3!"
+  
