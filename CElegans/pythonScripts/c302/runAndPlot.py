@@ -57,7 +57,7 @@ def run_c302(config,
 
     orig_dir = os.getcwd()
 
-    os.chdir(target_directory)
+    os.chdir(target_directory) 
 
     try:
         os.makedirs(save_fig_dir)
