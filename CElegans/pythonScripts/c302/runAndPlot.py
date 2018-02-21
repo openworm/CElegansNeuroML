@@ -289,11 +289,11 @@ if __name__ == '__main__':
         '''durations = OrderedDict([('IClamp',1000),
                                 ('Syns',500),
                                 ('Oscillator',1000),
-                                ('OscillatorM',1000)])'''
+                                ('OscillatorM',1000)])
                                 
         durations = OrderedDict([('IClamp',1000),
                                 ('Syns',500),
-                                ('Social',2500)])
+                                ('Social',2500)])'''
             
         html+='<tr>\n'
         html+='  <td>&nbsp;</td>\n'
@@ -317,8 +317,8 @@ if __name__ == '__main__':
                 html+='  <td><a href="summary_%s_%s.html">\n'%(c,p)
                 html+='    <img alt="?" src="%s/neurons_%s_%s.png" height="80"/></a>\n'%(img_loc,c,p)
                 
-                html+='<br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml">NML</a>\n'%(c,p)
-                html+='&nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml">OSB</a>\n'%(c,p)
+                html+='    <br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.net.nml">NML</a>\n'%(c,p)
+                html+='    &nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.net.nml">OSB</a>\n'%(c,p)
                 
                 pres = ['neurons_','neuron_activity_','muscles_','muscle_activity_']
                 for pre in pres:
@@ -365,7 +365,7 @@ if __name__ == '__main__':
                          plot_connectivity=True,
                          data_reader='SpreadsheetDataReader')
                 
-                html+='</td>\n'
+                html+='  </td>\n'
                 
             html+='</tr>\n'
         
