@@ -275,7 +275,7 @@ if __name__ == '__main__':
         levels = ['A','B','C0','C','C1','C2','D','D1']
         #levels = ['D','D1']
         #levels = ['C2']
-        levels = ['C0']
+        #levels = ['C0']
 
         
         durations = OrderedDict([('IClamp',6000),
