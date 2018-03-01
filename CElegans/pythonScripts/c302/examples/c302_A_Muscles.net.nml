@@ -6,7 +6,7 @@ Parameters and setting used to generate this network:
     Data reader:                    SpreadsheetDataReader
     c302 version:                   0.5.0
     Cells:                          ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'AVAL', 'AVAR', 'AVBL', 'AVBR', 'AVDL', 'AVDR', 'PVCL', 'PVCR']
-    Cell stimulated:                ['PLML', 'PLMR']
+    Cell stimulated:                ['AVBL', 'AVBR']
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -25,33 +25,33 @@ Parameters and setting used to generate this network:
         BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_leak_reversal = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_reset = -70mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_thresh = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.012nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_elec_syn_gbase = 0nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.012nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_neuron_elec_syn_gbase = 0nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 4pA (SRC: Testing IClamp, certainty 0)
+        BioParameter: unphysiological_offset_current = 2.5pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 5 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 10000 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
     <expTwoSynapse id="neuron_to_neuron_elec_syn" gbase="0nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="neuron_to_neuron_inh_syn" gbase="0.012nS" erev="-80mV" tauDecay="200 ms" tauRise="3ms"/>
+    <expTwoSynapse id="neuron_to_neuron_inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="200 ms" tauRise="3ms"/>
     <expTwoSynapse id="neuron_to_muscle_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
-    <expTwoSynapse id="neuron_to_muscle_inh_syn" gbase="0.012nS" erev="-80mV" tauDecay="200 ms" tauRise="3ms"/>
-    <iafCell id="generic_muscle_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
-    <iafCell id="generic_neuron_iaf_cell" leakReversal="-70mV" thresh="-50mV" reset="-70mV" C="3pF" leakConductance="0.1nS"/>
-    <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="4pA"/>
+    <expTwoSynapse id="neuron_to_muscle_inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="200 ms" tauRise="3ms"/>
+    <iafCell id="generic_muscle_iaf_cell" leakReversal="-50mV" thresh="-30mV" reset="-50mV" C="3pF" leakConductance="0.1nS"/>
+    <iafCell id="generic_neuron_iaf_cell" leakReversal="-50mV" thresh="-30mV" reset="-50mV" C="3pF" leakConductance="0.1nS"/>
+    <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="2.5pA"/>
     <network id="c302_A_Muscles">
         <population id="AS1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
@@ -6690,5 +6690,11 @@ Parameters and setting used to generate this network:
         <projection id="NC_VD13_MVR23_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR23" synapse="neuron_to_muscle_inh_syn">
             <connection id="0" preCellId="../VD13/0/generic_neuron_iaf_cell" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR23/0/generic_muscle_iaf_cell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
+        <inputList id="Input_AVBL_offset_current" population="AVBL" component="offset_current">
+            <input id="0" target="../AVBL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AVBR_offset_current" population="AVBR" component="offset_current">
+            <input id="0" target="../AVBR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>
