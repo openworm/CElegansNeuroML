@@ -53,9 +53,10 @@ LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
 
 
 
-def print_(msg):
-    pre = "c302      >>> "
-    print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
+def print_(msg, print_it=True): # print_it=False when not verbose
+    if print_it:
+        pre = "c302      >>> "
+        print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
 
 try:
     import PyOpenWorm as P
