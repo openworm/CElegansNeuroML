@@ -14,7 +14,7 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set, globals())
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "4pA", "Testing IClamp", "0")
+    #params.set_bioparameter("unphysiological_offset_current", "4pA", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "5 ms", "Testing IClamp", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "10000 ms", "Testing IClamp", "0")
     
@@ -66,7 +66,7 @@ def setup(parameter_set,
     cells_to_stimulate.extend(['DB1', 'VB1'])
     cells_to_stimulate = ['PVCL','PVCR']
     cells_to_stimulate = ['PLML','PLMR']
-    #cells_to_stimulate = ['AVBL','AVBR']
+    cells_to_stimulate = ['AVBL','AVBR']
     
     # Plot some directly stimulated & some not stimulated
     cells_to_plot      = ['AS1', 'AS10', 'AVFL', 'DA1','DB1','DB4','DB7','IL1DL','RID', 'RIML','SMBDL', 'SMBDR', 'VB1', 'VB5', 'VB10','VC1', 'VC2']

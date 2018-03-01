@@ -35,7 +35,6 @@ class ParameterisedModel(ParameterisedModel_C):
             if not 'syn' in b.name:
                 self.add_bioparameter_obj(b)
 
-
         self.add_bioparameter("neuron_to_neuron_exc_syn_conductance", "0.09 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_exc_syn_conductance", "0.09 nS", "BlindGuess", "0.1")
         
@@ -52,13 +51,8 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("inh_syn_erev", "-70 mV", "BlindGuess", "0.1")
         self.add_bioparameter("inh_syn_k", "0.025per_ms", "BlindGuess", "0.1")
         
-
         self.add_bioparameter("neuron_to_neuron_elec_syn_gbase", "0.00052 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_elec_syn_gbase", "0.00052 nS", "BlindGuess", "0.1")
-
-
-
-
 
 
 
