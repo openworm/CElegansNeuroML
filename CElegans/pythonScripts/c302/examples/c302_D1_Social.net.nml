@@ -161,7 +161,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URXR" component="URXR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="GCY-1; GCY-25; GCY-32; GCY-34; GCY-35; GCY-36; GCY-37; NPR-1; PDFR-1; SRA-10"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">

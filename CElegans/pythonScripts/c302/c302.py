@@ -164,8 +164,8 @@ def process_args():
     parser.add_argument('-musclestoinclude',
                         type=str,
                         metavar='<muscles-to-include>',
-                        default=None,
-                        help='List of muscles to include (default: none)')
+                        default=[],
+                        help='List of muscles to include (default: empty list, i.e. none)')
 
     parser.add_argument('-duration',
                         type=float,
@@ -727,7 +727,8 @@ def generate(net_id,
                 all_neuron_info, all_muscle_info = _get_cell_info([cell])
                 #neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color
                 pop0.properties.append(Property("color", all_neuron_info[cell][5]))  
-                pop0.properties.append(Property("type", str('; '.join(all_neuron_info[cell][1]))))  
+                types = sorted(all_neuron_info[cell][1])
+                pop0.properties.append(Property("type", str('; '.join(types)))) 
                 recps = sorted(all_neuron_info[cell][2])
                 pop0.properties.append(Property("receptor", str('; '.join(recps))))
                 pop0.properties.append(Property("neurotransmitter", str('; '.join(all_neuron_info[cell][3]))))  
@@ -1412,7 +1413,11 @@ def generate(net_id,
     returns:  ["AVAL", "AVBL"]
 '''
 def parse_list_arg(list_arg):
-    if not list_arg: return None
+    print 555522
+    print list_arg
+    if list_arg==None: return None
+    if list_arg==[]: return []
+    print 4444 
     entries = list_arg[1:-1].split(',')
     ret = [e for e in entries]
     print_("Command line argument %s parsed as: %s"%(list_arg,ret))

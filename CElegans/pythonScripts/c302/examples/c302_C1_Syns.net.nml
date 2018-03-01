@@ -151,7 +151,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB11" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">

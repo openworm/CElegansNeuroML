@@ -556,7 +556,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -565,7 +565,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -574,7 +574,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1L" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -583,7 +583,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1R" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -592,7 +592,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -601,7 +601,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -921,7 +921,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="akizzles"/>
@@ -931,7 +931,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -940,7 +940,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -949,7 +949,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1067,7 +1067,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB1" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
@@ -1077,7 +1077,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB10" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1086,7 +1086,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB11" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1095,7 +1095,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
@@ -1105,7 +1105,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
@@ -1115,7 +1115,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB4" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Worm"/>
@@ -1125,7 +1125,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB5" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1134,7 +1134,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB6" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1143,7 +1143,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB7" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1152,7 +1152,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB8" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1161,7 +1161,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB9" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
