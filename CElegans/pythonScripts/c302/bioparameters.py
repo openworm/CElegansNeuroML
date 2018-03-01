@@ -79,7 +79,7 @@ class ParameterisedModelPrototype(object):
 
     def bioparameter_info(self, indent=""):
         info = indent+"Known BioParameters:\n"
-        for bp in self.bioparameters:
+        for bp in sorted(self.bioparameters, key=lambda x: x.name):
             info += indent+indent+"%s\n"%bp
         return info
     
