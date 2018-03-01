@@ -32,6 +32,9 @@ class BioParameter():
     def __str__(self):
         return "BioParameter: %s = %s (SRC: %s, certainty %s)"%(self.name, self.value, self.source, self.certainty)
     
+    def __repr__(self):
+        return self.__str__()
+    
     def change_magnitude(self, magnitude):
         
         self.value = '%s %s'%(Decimal(magnitude), split_neuroml_quantity(self.value)[1])
@@ -51,6 +54,7 @@ class ParameterisedModelPrototype(object):
         pre = "c302      >>> "
         print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
 
+
     def add_bioparameter(self, name, value, source, certainty):
         found = False
         for bp in self.bioparameters:
@@ -63,11 +67,23 @@ class ParameterisedModelPrototype(object):
             bp = BioParameter(name, value, source, certainty)
             self.bioparameters.append(bp)
 
-    def get_bioparameter(self, name):
+
+    def add_bioparameter_obj(self, bioparameter):
+        for bp in self.bioparameters:
+            if bp.name == bioparameter.name:
+                self.bioparameters.remove(bp)
+                
+        self.bioparameters.append(bioparameter)
+
+
+    def get_bioparameter(self, name, warn_if_missing=True):
         for bp in self.bioparameters:
             if bp.name == name:
                 return bp
+        if warn_if_missing:
+            self.print_('Cannot find bioparameter: %s; %i known: %s'%(name, len(self.bioparameters), [bp.name for bp in self.bioparameters]))
         return None
+
 
     def set_bioparameter(self, name, value, source, certainty):
 
@@ -123,7 +139,7 @@ class c302ModelPrototype(ParameterisedModelPrototype):
 
 
     def get_conn_param(self, pre_cell, post_cell, specific_conn_template, default_conn_template, param_name):
-        param = self.get_bioparameter(specific_conn_template % (pre_cell, post_cell, param_name))
+        param = self.get_bioparameter(specific_conn_template % (pre_cell, post_cell, param_name), warn_if_missing=False)
         if param:
             self.found_specific_param = True
             return param.value

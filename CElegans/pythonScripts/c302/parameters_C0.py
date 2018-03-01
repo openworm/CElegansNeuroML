@@ -42,6 +42,13 @@ class ParameterisedModel(ParameterisedModel_C):
 
     def set_default_bioparameters(self):
 
+        '''
+        param_C = ParameterisedModel_C()
+        param_C.set_default_bioparameters()
+        for b in param_C.bioparameters:
+            if not 'syn' in b.name:
+                self.add_bioparameter_obj(b)'''
+                        
         self.add_bioparameter("cell_diameter", "5", "BlindGuess", "0.1")
         self.add_bioparameter("muscle_length", "20", "BlindGuess", "0.1")
 
@@ -85,9 +92,7 @@ class ParameterisedModel(ParameterisedModel_C):
         self.add_bioparameter("exc_syn_vth", "-35 mV", "BlindGuess", "0.1")
         self.add_bioparameter("exc_syn_erev", "0 mV", "BlindGuess", "0.1")
         
-        
     
-
         self.add_bioparameter("neuron_to_neuron_inh_syn_conductance", "260 nS", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_to_muscle_inh_syn_conductance", "0.25 nS", "BlindGuess", "0.1")
         

@@ -492,7 +492,7 @@ def _get_cell_info(cells):
   
 
 def set_param(params, param, value):
-    if params.get_bioparameter(param):
+    if params.get_bioparameter(param,warn_if_missing=False):
         if params.get_bioparameter(param).value == value:
             return
         print_("Setting parameter %s = %s" % (param, value))
@@ -1053,7 +1053,7 @@ def generate(net_id,
             number_syns = conn.number
 
 
-            if params.get_bioparameter('global_connectivity_power_scaling'):
+            if params.get_bioparameter('global_connectivity_power_scaling',warn_if_missing=False):
                 scale = params.get_bioparameter('global_connectivity_power_scaling').x()
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
@@ -1284,7 +1284,7 @@ def generate(net_id,
 
             number_syns = conn.number
 
-            if params.get_bioparameter('global_connectivity_power_scaling'):
+            if params.get_bioparameter('global_connectivity_power_scaling',warn_if_missing=False):
                 scale = params.get_bioparameter('global_connectivity_power_scaling').x()
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
