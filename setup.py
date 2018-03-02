@@ -24,8 +24,8 @@ setup(
         'pyNeuroML'
     ],
     dependency_links = [
-        'git://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation-0',
-        'git://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML',
+        'git+https://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation-0',
+        'git+https://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML-0',
     ],
     version = '0.4',
     author = 'OpenWorm.org authors and contributors',
