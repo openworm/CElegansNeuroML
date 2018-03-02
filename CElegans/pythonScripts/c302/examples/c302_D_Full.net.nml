@@ -32,7 +32,7 @@ Parameters and setting used to generate this network:
         BioParameter: muscle_k_fast_cond_density = 0.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_k_slow_cond_density = 4 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_length = 10 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
         BioParameter: muscle_spike_thresh = -26 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_ca_boyle_cond_density = 2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_k_fast_cond_density = 0.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
@@ -365,7 +365,7 @@ Parameters and setting used to generate this network:
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
                 <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5"/>
-                <distal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5"/>
+                <distal x="0.000000e+00" y="2.000000e+01" z="0.000000e+00" diameter="5"/>
             </segment>
         </morphology>
         <biophysicalProperties id="biophys_GenericMuscleCell">

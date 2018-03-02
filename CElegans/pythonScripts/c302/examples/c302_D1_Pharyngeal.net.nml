@@ -87,7 +87,7 @@ Parameters and setting used to generate this network:
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
                 <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5"/>
-                <distal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5"/>
+                <distal x="0.000000e+00" y="2.000000e+01" z="0.000000e+00" diameter="5"/>
             </segment>
         </morphology>
         <biophysicalProperties id="biophys_GenericMuscleCell">
