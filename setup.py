@@ -24,7 +24,7 @@ setup(
         'pyNeuroML'
     ],
     dependency_links = [
-        'git://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation',
+        'git://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation-0',
         'git://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML',
     ],
     version = '0.4',
