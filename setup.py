@@ -19,13 +19,18 @@ This is being developed as part of the [OpenWorm project](http://www.openworm.or
 
 setup(
     name = 'CElegansNeuroML',
+    package_dir = {'': 'CElegans/pythonScripts'},
+    packages = ['c302'],
     install_requires=[
-        'numpy', 'xlrd', 'xlwt', 'OSBModelValidation',
+        'numpy',
+        'xlrd',
+        'xlwt',
+        'OSBModelValidation>=0.1.3',
         'pyNeuroML'
     ],
     dependency_links = [
-        'git://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation',
-        'git://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML',
+        'git+https://github.com/OpenSourceBrain/osb-model-validation#egg=OSBModelValidation-0.1.3',
+        'git+https://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML',
     ],
     version = '0.4',
     author = 'OpenWorm.org authors and contributors',

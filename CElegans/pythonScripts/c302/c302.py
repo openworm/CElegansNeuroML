@@ -61,7 +61,7 @@ def load_data_reader(data_reader="SpreadsheetDataReader"):
     Returns:
         reader (obj): The data reader object
     """
-    reader = importlib.import_module(data_reader)
+    reader = importlib.import_module("c302."+data_reader)
     return reader
 
 def get_str_from_expnotation(num):

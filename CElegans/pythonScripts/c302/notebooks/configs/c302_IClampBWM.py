@@ -14,7 +14,7 @@ def setup(parameter_set,
           config_param_overrides={},
           verbose=True):
 
-    parameters = import_module('parameters_%s'%parameter_set)
+    parameters = import_module('c302.parameters_%s'%parameter_set)
     params = parameters.ParameterisedModel()
     
     stim_amplitudes = ["1pA","2pA","3pA","4pA","5pA","6pA"]
