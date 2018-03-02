@@ -1,7 +1,7 @@
 ### Parameter config summary 
 <h2>c302 simulation</h2>
 <p>Parameter set: <b>C2</b>; configuration: <b>Oscillator</b></p>
-<p>Generated on: Wed, 21 Feb 2018</p><br/>
+<p>Generated on: Thu, 01 Mar 2018</p><br/>
 <table>
 
 <tr>
