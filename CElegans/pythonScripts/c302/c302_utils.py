@@ -338,7 +338,7 @@ def plot_c302_results(lems_results,
         try:
             plt.show()
         except KeyboardInterrupt:
-            print("Interrupt received, stopping...")
+            c302.print_("Interrupt received, stopping...")
     else:
         plt.close("all")
         
@@ -353,10 +353,10 @@ def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save_figure_to=
         ##norm = None
         maxn = 0
         
-    print("Plotting data of size %s, max %s: %s"%(str(data.shape),maxn, t))
+    c302.print_("Plotting data of size %s, max %s: %s"%(str(data.shape),maxn, t))
     
     if maxn==0:
-        print("No connections!!")
+        c302.print_("No connections!!")
         return
     
     fig, ax = plt.subplots()
@@ -395,10 +395,10 @@ def _show_conn_matrix(data, t, all_info_pre,all_info_post, type, save_figure_to=
     cbar = plt.colorbar(im, ticks=range(maxn+1))
     cbar.set_ticklabels(range(maxn+1))
     if save_figure_to:
-        print("Saving connectivity figure to: %s"%save_figure_to)
+        c302.print_("Saving connectivity figure to: %s"%save_figure_to)
         plt.savefig(save_figure_to,bbox_inches='tight')
 
-def generate_conn_matrix(nml_doc, save_fig_dir=None):
+def generate_conn_matrix(nml_doc, save_fig_dir=None, verbose=False):
     
     net = nml_doc.networks[0]
     
@@ -423,8 +423,6 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
             else:
                 cc_exc_conns[cp.presynaptic_population][cp.postsynaptic_population] = float(c.weight)
                 
-    #print cc_exc_conns
-    #print cc_inh_conns
     
     gj_conns = {}
     for ep in net.electrical_projections:
@@ -460,7 +458,7 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
     
     for pre in cc_exc_conns.keys():
         for post in cc_exc_conns[pre].keys():
-            print("Exc Conn %s -> %s: %s"%(pre,post,cc_exc_conns[pre][post]))
+            c302.print_("Exc Conn %s -> %s: %s"%(pre,post,cc_exc_conns[pre][post]), verbose)
             if post in all_neurons:
                 data_exc_n[all_neurons.index(pre),all_neurons.index(post)] = cc_exc_conns[pre][post]
             else:
@@ -470,7 +468,7 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
                 
     for pre in cc_inh_conns.keys():
         for post in cc_inh_conns[pre].keys():
-            print("Inh Conn %s -> %s: %s"%(pre,post,cc_inh_conns[pre][post]))
+            c302.print_("Inh Conn %s -> %s: %s"%(pre,post,cc_inh_conns[pre][post]), verbose)
             if post in all_neurons:
                 data_inh_n[all_neurons.index(pre),all_neurons.index(post)] = cc_inh_conns[pre][post]
             else:
@@ -478,11 +476,6 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
             if pre in all_muscles:
                 raise Exception("Unexpected...")
                 
-        
-    #print data_exc_n
-    #print data_exc_m
-    #print data_inh_n
-    #print data_inh_m
     
     _show_conn_matrix(data_exc_n, 'Excitatory (non GABA) conns to neurons',all_neuron_info,all_neuron_info, 
                       net.id, save_figure_to='%s/%s_exc_to_neurons.png'%(save_fig_dir,net.id) if save_fig_dir else None)
@@ -505,7 +498,7 @@ def generate_conn_matrix(nml_doc, save_fig_dir=None):
 
     for pre in gj_conns.keys():
         for post in gj_conns[pre].keys():
-            print("Elect Conn %s -> %s: %s"%(pre,post,gj_conns[pre][post]))
+            c302.print_("Elect Conn %s -> %s: %s"%(pre,post,gj_conns[pre][post]), verbose)
             
             if pre in all_neurons and post in all_neurons:
                 data_n[all_neurons.index(pre),all_neurons.index(post)] = gj_conns[pre][post]
@@ -552,7 +545,7 @@ if __name__ == '__main__':
     
     if '-phar' in sys.argv:
         
-        configs = ['c302_C0_Pharyngeal.net.net.nml']
+        configs = ['c302_C0_Pharyngeal.net.nml']
     
     for c in configs:
 

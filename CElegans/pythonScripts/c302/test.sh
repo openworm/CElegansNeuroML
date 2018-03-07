@@ -135,6 +135,8 @@ python runAndPlot.py -test
 
 python c302_utils.py -nogui
 
-echo "Successfully completed all c302 tests!"
+echo
+echo "  Successfully completed all c302 tests!"
+echo
   
 

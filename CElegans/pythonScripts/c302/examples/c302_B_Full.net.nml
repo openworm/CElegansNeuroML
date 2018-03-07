@@ -14,33 +14,33 @@ Parameters and setting used to generate this network:
     Muscles:                        All muscles
 
     Known BioParameters:
-        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 3pA (SRC: KnownError, certainty 0)
+        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 2.5pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 2000ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
 
 </notes>
     <include href="cell_B.xml"></include>
@@ -48,10 +48,10 @@ Parameters and setting used to generate this network:
     <expTwoSynapse id="neuron_to_neuron_inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="neuron_to_muscle_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
     <expTwoSynapse id="neuron_to_muscle_inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="10ms" tauRise="3ms"/>
-    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.1 nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.01 nS"/>
     <iafCell type="iafActivityCell" id="generic_muscle_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <iafCell type="iafActivityCell" id="generic_neuron_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
-    <pulseGenerator id="offset_current" delay="0ms" duration="2000ms" amplitude="3pA"/>
+    <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="2.5pA"/>
     <network id="c302_B_Full">
         <population id="ADAL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
@@ -1072,7 +1072,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="DVA" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="EGL-6; FRPR-4; GGR-3; GLR-4; GLR-5; NMR-1; SER-2; SER-4; TRP-4"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Jeff Alstott"/>
@@ -1139,7 +1139,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="I1L" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="DOP-4; FRPR-4; GLR-7; GLR-8; PDFR-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="sitructa"/>
@@ -1149,7 +1149,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="I1R" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="DOP-4; FRPR-4; GLR-7; GLR-8; PDFR-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Jesus Martinez"/>
@@ -1159,7 +1159,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="I2L" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="DOP-4; GLR-7; GLR-8; NTR-1; SER-7"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <property tag="OpenWormBackerAssignedName" value="MetaMal"/>
@@ -1169,7 +1169,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="I2R" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="DOP-4; GLR-7; GLR-8; NTR-1; SER-7"/>
             <property tag="neurotransmitter" value=""/>
             <property tag="OpenWormBackerAssignedName" value="Flying Armbar"/>
@@ -1179,7 +1179,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="I3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="GLR-7; GLR-8; SER-7"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
@@ -1197,7 +1197,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="I5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Serotonin; Glutamate"/>
             <property tag="OpenWormBackerAssignedName" value="yates"/>
@@ -1207,7 +1207,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="I6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="GLR-7; GLR-8; SER-7"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1216,7 +1216,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1225,7 +1225,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1234,7 +1234,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1L" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1243,7 +1243,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1R" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1252,7 +1252,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1261,7 +1261,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1372,7 +1372,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="M3L" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="GLR-8; NPR-1; SER-7"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1381,7 +1381,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="M3R" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="GLR-8; NPR-1; SER-7"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1409,7 +1409,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="MCL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="GLR-8; SER-7; TYRA-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1418,7 +1418,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="MCR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="GLR-8; SER-7; TYRA-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1437,7 +1437,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="NSML" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="AEX-2; DOP-3; GLR-7; GLR-8; SER-2; SER-4; TYRA-2"/>
             <property tag="neurotransmitter" value="Serotonin"/>
             <instance id="0">
@@ -1446,7 +1446,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="NSMR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="AEX-2; DOP-3; GLR-7; GLR-8; SER-2; SER-4; TYRA-2"/>
             <property tag="neurotransmitter" value="Serotonin"/>
             <instance id="0">
@@ -1473,7 +1473,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="OLQDL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="NPR-1; NPR-2; OCR-4; OSM-9; PDFR-1; TRPA-1; TYRA-3"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1482,7 +1482,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="OLQDR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="NPR-1; NPR-2; OCR-4; OSM-9; PDFR-1; TRPA-1; TYRA-3"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1491,7 +1491,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="OLQVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="NPR-1; NPR-2; OCR-4; OSM-9; PDFR-1; TRPA-1; TYRA-3"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1500,7 +1500,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="OLQVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="NPR-1; NPR-2; OCR-4; OSM-9; PDFR-1; TRPA-1; TYRA-3"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -1621,7 +1621,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="PLNL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="DOP-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1630,7 +1630,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="PLNR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="DOP-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2179,7 +2179,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="SDQL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="EGL-6; LGC-55; NPR-1; SER-2; TYRA-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2188,7 +2188,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="SDQR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="EGL-6; LGC-55; NPR-1; SER-2; TYRA-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="ogachyuallincheck"/>
@@ -2342,7 +2342,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="akizzles"/>
@@ -2352,7 +2352,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2361,7 +2361,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2370,7 +2370,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2397,7 +2397,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URXL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="GCY-1; GCY-25; GCY-32; GCY-34; GCY-35; GCY-36; GCY-37; NPR-1; PDFR-1; SRA-10"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
@@ -2406,7 +2406,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URXR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
+            <property tag="type" value="interneuron; sensory"/>
             <property tag="receptor" value="GCY-1; GCY-25; GCY-32; GCY-34; GCY-35; GCY-36; GCY-37; NPR-1; PDFR-1; SRA-10"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
@@ -2560,7 +2560,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
@@ -2570,7 +2570,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB10" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2579,7 +2579,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB11" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2588,7 +2588,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
@@ -2598,7 +2598,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
@@ -2608,7 +2608,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Worm"/>
@@ -2618,7 +2618,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2627,7 +2627,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2636,7 +2636,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB7" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2645,7 +2645,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB8" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -2654,7 +2654,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB9" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">

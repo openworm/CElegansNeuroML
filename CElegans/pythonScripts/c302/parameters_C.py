@@ -48,26 +48,26 @@ class ParameterisedModel(c302ModelPrototype):
         self.add_bioparameter("muscle_length", "20", "BlindGuess", "0.1")
 
         self.add_bioparameter("initial_memb_pot", "-45 mV", "BlindGuess", "0.1")
-
+        
         self.add_bioparameter("specific_capacitance", "1 uF_per_cm2", "BlindGuess", "0.1")
 
         self.add_bioparameter("muscle_spike_thresh", "-20 mV", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_spike_thresh", "-20 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_leak_cond_density", "5e-7 S_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_leak_cond_density", "0.005 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("leak_erev", "-50 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_k_slow_cond_density", "1.8333751019872582 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_slow_cond_density", "0.0006 S_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_k_slow_cond_density", "3 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_slow_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_k_fast_cond_density", "0.0001 S_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("neuron_k_fast_cond_density", "0.0711643917483308 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("k_fast_erev", "-60 mV", "BlindGuess", "0.1")
 
-        self.add_bioparameter("muscle_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
-        self.add_bioparameter("neuron_ca_boyle_cond_density", "1.6862775772264702 mS_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("muscle_ca_boyle_cond_density", "0.0007 S_per_cm2", "BlindGuess", "0.1")
+        self.add_bioparameter("neuron_ca_boyle_cond_density", "3 mS_per_cm2", "BlindGuess", "0.1")
         self.add_bioparameter("ca_boyle_erev", "40 mV", "BlindGuess", "0.1")
         
         self.add_bioparameter("ca_conc_decay_time", "11.5943 ms", "BlindGuess", "0.1")

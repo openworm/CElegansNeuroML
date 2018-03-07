@@ -1,35 +1,38 @@
 ### Parameter config summary 
+<h2>c302 simulation</h2>
+<p>Parameter set: <b>D1</b>; configuration: <b>Oscillator</b></p>
+<p>Generated on: Thu, 01 Mar 2018</p><br/>
 <table>
 
 <tr>
-  <td><a href="neurons_D1_Oscillator.png"><img alt=" " src="neurons_D1_Oscillator.png" height="320"/></a></td>
-  <td><a href="traces_neuron_Oscillator_D1.png"><img alt=" " src="traces_neuron_Oscillator_D1.png" height="320"/></a></td>
+  <td><a href="images/neurons_D1_Oscillator.png"><img alt=" " src="images/neurons_D1_Oscillator.png" height="320"/></a></td>
+  <td><a href="images/traces_neuron_Oscillator_D1.png"><img alt=" " src="images/traces_neuron_Oscillator_D1.png" height="320"/></a></td>
 </tr>
 
 <tr>
-  <td><a href="neuron_activity_D1_Oscillator.png"><img alt=" " src="neuron_activity_D1_Oscillator.png" height="320"/></a></td>
-  <td><a href="traces_neuron_activity_Oscillator_D1.png"><img alt=" " src="traces_neuron_activity_Oscillator_D1.png" height="320"/></a></td>
+  <td><a href="images/neuron_activity_D1_Oscillator.png"><img alt=" " src="images/neuron_activity_D1_Oscillator.png" height="320"/></a></td>
+  <td><a href="images/traces_neuron_activity_Oscillator_D1.png"><img alt=" " src="images/traces_neuron_activity_Oscillator_D1.png" height="320"/></a></td>
 </tr>
 
 <tr>
-  <td><a href="muscles_D1_Oscillator.png"><img alt=" " src="muscles_D1_Oscillator.png" height="320"/></a></td>
-  <td><a href="traces_muscles_Oscillator_D1.png"><img alt=" " src="traces_muscles_Oscillator_D1.png" height="320"/></a></td>
+  <td><a href="images/muscles_D1_Oscillator.png"><img alt=" " src="images/muscles_D1_Oscillator.png" height="320"/></a></td>
+  <td><a href="images/traces_muscles_Oscillator_D1.png"><img alt=" " src="images/traces_muscles_Oscillator_D1.png" height="320"/></a></td>
 </tr>
 
 <tr>
-  <td><a href="muscle_activity_D1_Oscillator.png"><img alt=" " src="muscle_activity_D1_Oscillator.png" height="320"/></a></td>
-  <td><a href="traces_muscles_activity_Oscillator_D1.png"><img alt=" " src="traces_muscles_activity_Oscillator_D1.png" height="320"/></a></td>
+  <td><a href="images/muscle_activity_D1_Oscillator.png"><img alt=" " src="images/muscle_activity_D1_Oscillator.png" height="320"/></a></td>
+  <td><a href="images/traces_muscles_activity_Oscillator_D1.png"><img alt=" " src="images/traces_muscles_activity_Oscillator_D1.png" height="320"/></a></td>
 </tr>
 </table>
 <table>
 
-<tr><td><a href="c302_D1_Oscillator_exc_to_neurons.png"><img alt=" " src="c302_D1_Oscillator_exc_to_neurons.png" height="320"/></a></td>
+<tr><td><a href="images/c302_D1_Oscillator_exc_to_neurons.png"><img alt=" " src="images/c302_D1_Oscillator_exc_to_neurons.png" height="320"/></a></td>
 
-  <td><a href="c302_D1_Oscillator_inh_to_neurons.png"><img alt=" " src="c302_D1_Oscillator_inh_to_neurons.png" height="320"/></a></td>
+  <td><a href="images/c302_D1_Oscillator_inh_to_neurons.png"><img alt=" " src="images/c302_D1_Oscillator_inh_to_neurons.png" height="320"/></a></td>
 
-  <td><a href="c302_D1_Oscillator_elec_neurons_neurons.png"><img alt=" " src="c302_D1_Oscillator_elec_neurons_neurons.png" height="320"/></a></td></tr>
+  <td><a href="images/c302_D1_Oscillator_elec_neurons_neurons.png"><img alt=" " src="images/c302_D1_Oscillator_elec_neurons_neurons.png" height="320"/></a></td></tr>
 
-<tr><td><a href="c302_D1_Oscillator_exc_to_muscles.png"><img alt=" " src="c302_D1_Oscillator_exc_to_muscles.png" height="320"/></a></td>
+<tr><td><a href="images/c302_D1_Oscillator_exc_to_muscles.png"><img alt=" " src="images/c302_D1_Oscillator_exc_to_muscles.png" height="320"/></a></td>
 
-  <td><a href="c302_D1_Oscillator_inh_to_muscles.png"><img alt=" " src="c302_D1_Oscillator_inh_to_muscles.png" height="320"/></a></td></tr>
+  <td><a href="images/c302_D1_Oscillator_inh_to_muscles.png"><img alt=" " src="images/c302_D1_Oscillator_inh_to_muscles.png" height="320"/></a></td></tr>
 </table>

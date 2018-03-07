@@ -9,6 +9,8 @@ import time
 from collections import OrderedDict
 
 save_fig_dir = 'summary/'
+save_image_dir = 'images'
+save_image_full_dir = '%s/%s'%(save_fig_dir,save_image_dir)
 
 
 def run_c302(config, 
@@ -77,14 +79,14 @@ def run_c302(config,
     c302_utils.plot_c302_results(results, 
                                  config, 
                                  parameter_set, 
-                                 directory=save_fig_dir,
+                                 directory=save_image_full_dir,
                                  save=save,
                                  show_plot_already=show_plot_already, 
                                  data_reader=data_reader,
                                  plot_ca=plot_ca)
 
     if plot_connectivity:
-        c302_utils.generate_conn_matrix(nml_doc, save_fig_dir=save_fig_dir)
+        c302_utils.generate_conn_matrix(nml_doc, save_fig_dir=save_image_full_dir)
 
     os.chdir(orig_dir)
 
@@ -273,7 +275,7 @@ if __name__ == '__main__':
         levels = ['A','B','C0','C','C1','C2','D','D1']
         #levels = ['D','D1']
         #levels = ['C2']
-        levels = ['C0']
+        #levels = ['C0']
 
         
         durations = OrderedDict([('IClamp',6000),
@@ -291,67 +293,65 @@ if __name__ == '__main__':
                                 
         durations = OrderedDict([('IClamp',1000),
                                 ('Syns',500),
-                                ('Pharyngeal',500),
-                                ('Oscillator',1000),
                                 ('Social',2500)])'''
             
-        html+='<tr>'
-        html+='<td>&nbsp;</td>'
+        html+='<tr>\n'
+        html+='  <td>&nbsp;</td>\n'
         for p in durations.keys():
-            html+='<td align="center"><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_%s.py">%s</a></b></td>'%(p,p)
+            html+='  <td align="center"><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/c302_%s.py">%s</a></b></td>\n'%(p,p)
 
         html+='</tr>\n'
         for c in levels:
             print('Generating for: %s'%c)
             
+            img_loc = save_image_dir
             
-            html+='<tr>'
-            html+='<td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>'%(c,c)
+            html+='\n<tr>\n'
+            html+='  <td><b><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/parameters_%s.py">Params %s</a></b></td>\n'%(c,c)
             for p in durations.keys():
                 print('Params: %s'%p)
                 html2 = '<h2>c302 simulation</h2>\n'
                 html2 += '<p>Parameter set: <b>%s</b>; configuration: <b>%s</b></p>\n'%(c,p)
                 html2 += '<p>Generated on: %s</p><br/>\n'%(time.strftime("%a, %d %b %Y", time.gmtime()))
                 html2 += '<table>\n'
-                html+='<td>'
-                html+='<a href="summary_%s_%s.html">'%(c,p)
-                html+='<img alt="?" src="neurons_%s_%s.png" height="80"/></a>'%(c,p)
+                html+='  <td><a href="summary_%s_%s.html">\n'%(c,p)
+                html+='    <img alt="?" src="%s/neurons_%s_%s.png" height="80"/></a>\n'%(img_loc,c,p)
                 
-                html+='<br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml">NML</a>'%(c,p)
-                html+='&nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.nml">OSB</a>'%(c,p)
+                html+='    <br/><a href="https://github.com/openworm/CElegansNeuroML/blob/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.net.nml">NML</a>\n'%(c,p)
+                html+='    &nbsp;<a href="http://opensourcebrain.org/projects/celegans?explorer=https://raw.githubusercontent.com/openworm/CElegansNeuroML/master/CElegans/pythonScripts/c302/examples/c302_%s_%s.net.nml">OSB</a>\n'%(c,p)
                 
                 pres = ['neurons_','neuron_activity_','muscles_','muscle_activity_']
                 for pre in pres:
                     
-                    html2+='\n<tr>\n  <td><a href="%s%s_%s.png"><img alt=" " src="%s%s_%s.png" height="320"/></a></td>\n'%(pre,c,p,pre,c,p)
+                    html2+='\n<tr>\n  <td><a href="%s/%s%s_%s.png"><img alt=" " src="%s/%s%s_%s.png" height="320"/></a></td>\n'%(img_loc,pre,c,p,img_loc,pre,c,p)
                     if pre == 'neurons_':
                         pre = 'neuron_'
                     if pre == 'muscle_activity_':
                         pre = 'muscles_activity_'
-                    html2+='  <td><a href="traces_%s%s_%s.png"><img alt=" " src="traces_%s%s_%s.png" height="320"/></a></td>\n</tr>\n'%(pre,p,c,pre,p,c)
+                    html2+='  <td><a href="%s/traces_%s%s_%s.png"><img alt=" " src="%s/traces_%s%s_%s.png" height="320"/></a></td>\n</tr>\n'%(img_loc,pre,p,c,img_loc,pre,p,c)
                     
                 html2+='</table>\n'
                 html2+='<table>\n'
                 
-                html2 += '\n<tr><td><a href="c302_%s_%s_exc_to_neurons.png"><img alt=" " src="c302_%s_%s_exc_to_neurons.png" height="320"/></a></td>\n' % (c,p,c,p)
-                html2 += '\n  <td><a href="c302_%s_%s_inh_to_neurons.png"><img alt=" " src="c302_%s_%s_inh_to_neurons.png" height="320"/></a></td>\n' % (c,p,c,p)
-                html2 += '\n  <td><a href="c302_%s_%s_elec_neurons_neurons.png"><img alt=" " src="c302_%s_%s_elec_neurons_neurons.png" height="320"/></a></td></tr>\n' % (c,p,c,p)
+                html2 += '\n<tr><td><a href="%s/c302_%s_%s_exc_to_neurons.png"><img alt=" " src="%s/c302_%s_%s_exc_to_neurons.png" height="320"/></a></td>\n' % (img_loc,c,p,img_loc,c,p)
+                html2 += '\n  <td><a href="%s/c302_%s_%s_inh_to_neurons.png"><img alt=" " src="%s/c302_%s_%s_inh_to_neurons.png" height="320"/></a></td>\n' % (img_loc,c,p,img_loc,c,p)
+                html2 += '\n  <td><a href="%s/c302_%s_%s_elec_neurons_neurons.png"><img alt=" " src="%s/c302_%s_%s_elec_neurons_neurons.png" height="320"/></a></td></tr>\n' % (img_loc,c,p,img_loc,c,p)
                 
-                html2 += '\n<tr><td><a href="c302_%s_%s_exc_to_muscles.png"><img alt=" " src="c302_%s_%s_exc_to_muscles.png" height="320"/></a></td>\n' % (c,p,c,p)
-                html2 += '\n  <td><a href="c302_%s_%s_inh_to_muscles.png"><img alt=" " src="c302_%s_%s_inh_to_muscles.png" height="320"/></a></td>' % (c,p,c,p)
-                if os.path.isfile('%s/%s/c302_%s_%s_elec_neurons_muscles.png' % ('examples', save_fig_dir, c, p)):
-                    html2 += '\n\n  <td><a href="c302_%s_%s_elec_neurons_muscles.png"><img alt=" " src="c302_%s_%s_elec_neurons_muscles.png" height="320"/></a></td>' % (c, p, c, p)
+                html2 += '\n<tr><td><a href="%s/c302_%s_%s_exc_to_muscles.png"><img alt=" " src="%s/c302_%s_%s_exc_to_muscles.png" height="320"/></a></td>\n' % (img_loc,c,p,img_loc,c,p)
+                html2 += '\n  <td><a href="%s/c302_%s_%s_inh_to_muscles.png"><img alt=" " src="%s/c302_%s_%s_inh_to_muscles.png" height="320"/></a></td>' % (img_loc,c,p,img_loc,c,p)
+                if os.path.isfile('%s/%s/%s/c302_%s_%s_elec_neurons_muscles.png' % ('examples', save_fig_dir, img_loc, c, p)):
+                    html2 += '\n\n  <td><a href="%s/c302_%s_%s_elec_neurons_muscles.png"><img alt=" " src="%s/c302_%s_%s_elec_neurons_muscles.png" height="320"/></a></td>' % (img_loc,c,p,img_loc,c,p)
                 html2 += '</tr>\n'
 
-                if os.path.isfile('%s/%s/c302_%s_%s_elec_muscles_muscles.png' % ('examples', save_fig_dir, c, p)):
-                    html2 += '\n<tr><td><a href="c302_%s_%s_elec_muscles_muscles.png"><img alt=" " src="c302_%s_%s_elec_muscles_muscles.png" height="320"/></a></td></tr>\n' % (c, p, c, p)
+                if os.path.isfile('%s/%s/%s/c302_%s_%s_elec_muscles_muscles.png' % ('examples', save_fig_dir, img_loc, c, p)):
+                    html2 += '\n<tr><td><a href="%s/c302_%s_%s_elec_muscles_muscles.png"><img alt=" " src="%s/c302_%s_%s_elec_muscles_muscles.png" height="320"/></a></td></tr>\n' % (img_loc,c,p,img_loc,c,p)
 
                     
                 html2+='</table>\n'
                 
-                with open('examples/'+save_fig_dir+'summary_%s_%s.html'%(c,p),'w') as f2:
+                with open('examples/%s/summary_%s_%s.html'%(save_fig_dir, c,p),'w') as f2:
                     f2.write('<html><body>%s</body></html>'%html2)
-                with open('examples/'+save_fig_dir+'summary_%s_%s.md'%(c,p),'w') as f3:
+                with open('examples/%s/summary_%s_%s.md'%(save_fig_dir,c,p),'w') as f3:
                     f3.write('### Parameter config summary \n%s'%html2)
 
                 run_c302(p,
@@ -365,7 +365,7 @@ if __name__ == '__main__':
                          plot_connectivity=True,
                          data_reader='SpreadsheetDataReader')
                 
-                html+='</td>'
+                html+='  </td>\n'
                 
             html+='</tr>\n'
         

@@ -1,35 +1,38 @@
 ### Parameter config summary 
+<h2>c302 simulation</h2>
+<p>Parameter set: <b>C0</b>; configuration: <b>Syns</b></p>
+<p>Generated on: Thu, 01 Mar 2018</p><br/>
 <table>
 
 <tr>
-  <td><a href="neurons_C0_Syns.png"><img alt=" " src="neurons_C0_Syns.png" height="320"/></a></td>
-  <td><a href="traces_neuron_Syns_C0.png"><img alt=" " src="traces_neuron_Syns_C0.png" height="320"/></a></td>
+  <td><a href="images/neurons_C0_Syns.png"><img alt=" " src="images/neurons_C0_Syns.png" height="320"/></a></td>
+  <td><a href="images/traces_neuron_Syns_C0.png"><img alt=" " src="images/traces_neuron_Syns_C0.png" height="320"/></a></td>
 </tr>
 
 <tr>
-  <td><a href="neuron_activity_C0_Syns.png"><img alt=" " src="neuron_activity_C0_Syns.png" height="320"/></a></td>
-  <td><a href="traces_neuron_activity_Syns_C0.png"><img alt=" " src="traces_neuron_activity_Syns_C0.png" height="320"/></a></td>
+  <td><a href="images/neuron_activity_C0_Syns.png"><img alt=" " src="images/neuron_activity_C0_Syns.png" height="320"/></a></td>
+  <td><a href="images/traces_neuron_activity_Syns_C0.png"><img alt=" " src="images/traces_neuron_activity_Syns_C0.png" height="320"/></a></td>
 </tr>
 
 <tr>
-  <td><a href="muscles_C0_Syns.png"><img alt=" " src="muscles_C0_Syns.png" height="320"/></a></td>
-  <td><a href="traces_muscles_Syns_C0.png"><img alt=" " src="traces_muscles_Syns_C0.png" height="320"/></a></td>
+  <td><a href="images/muscles_C0_Syns.png"><img alt=" " src="images/muscles_C0_Syns.png" height="320"/></a></td>
+  <td><a href="images/traces_muscles_Syns_C0.png"><img alt=" " src="images/traces_muscles_Syns_C0.png" height="320"/></a></td>
 </tr>
 
 <tr>
-  <td><a href="muscle_activity_C0_Syns.png"><img alt=" " src="muscle_activity_C0_Syns.png" height="320"/></a></td>
-  <td><a href="traces_muscles_activity_Syns_C0.png"><img alt=" " src="traces_muscles_activity_Syns_C0.png" height="320"/></a></td>
+  <td><a href="images/muscle_activity_C0_Syns.png"><img alt=" " src="images/muscle_activity_C0_Syns.png" height="320"/></a></td>
+  <td><a href="images/traces_muscles_activity_Syns_C0.png"><img alt=" " src="images/traces_muscles_activity_Syns_C0.png" height="320"/></a></td>
 </tr>
 </table>
 <table>
 
-<tr><td><a href="c302_C0_Syns_exc_to_neurons.png"><img alt=" " src="c302_C0_Syns_exc_to_neurons.png" height="320"/></a></td>
+<tr><td><a href="images/c302_C0_Syns_exc_to_neurons.png"><img alt=" " src="images/c302_C0_Syns_exc_to_neurons.png" height="320"/></a></td>
 
-  <td><a href="c302_C0_Syns_inh_to_neurons.png"><img alt=" " src="c302_C0_Syns_inh_to_neurons.png" height="320"/></a></td>
+  <td><a href="images/c302_C0_Syns_inh_to_neurons.png"><img alt=" " src="images/c302_C0_Syns_inh_to_neurons.png" height="320"/></a></td>
 
-  <td><a href="c302_C0_Syns_elec_neurons_neurons.png"><img alt=" " src="c302_C0_Syns_elec_neurons_neurons.png" height="320"/></a></td></tr>
+  <td><a href="images/c302_C0_Syns_elec_neurons_neurons.png"><img alt=" " src="images/c302_C0_Syns_elec_neurons_neurons.png" height="320"/></a></td></tr>
 
-<tr><td><a href="c302_C0_Syns_exc_to_muscles.png"><img alt=" " src="c302_C0_Syns_exc_to_muscles.png" height="320"/></a></td>
+<tr><td><a href="images/c302_C0_Syns_exc_to_muscles.png"><img alt=" " src="images/c302_C0_Syns_exc_to_muscles.png" height="320"/></a></td>
 
-  <td><a href="c302_C0_Syns_inh_to_muscles.png"><img alt=" " src="c302_C0_Syns_inh_to_muscles.png" height="320"/></a></td></tr>
+  <td><a href="images/c302_C0_Syns_inh_to_muscles.png"><img alt=" " src="images/c302_C0_Syns_inh_to_muscles.png" height="320"/></a></td></tr>
 </table>

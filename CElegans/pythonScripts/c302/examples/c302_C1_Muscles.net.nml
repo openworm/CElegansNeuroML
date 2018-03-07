@@ -6,7 +6,7 @@ Parameters and setting used to generate this network:
     Data reader:                    SpreadsheetDataReader
     c302 version:                   0.5.0
     Cells:                          ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'AVAL', 'AVAR', 'AVBL', 'AVBR', 'AVDL', 'AVDR', 'PVCL', 'PVCR']
-    Cell stimulated:                ['PLML', 'PLMR']
+    Cell stimulated:                ['AVBL', 'AVBR']
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -14,47 +14,47 @@ Parameters and setting used to generate this network:
     Muscles:                        All muscles
 
     Known BioParameters:
-        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_cond_density = 0.1408257307011203 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_fast_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_ca_boyle_cond_density = 1.7139140434941569 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_decay_time = 13.811870945509265 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_cond_density = 0.0007 S_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_cond_density = 0.0001 S_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 0.0006 S_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 5e-7 S_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_boyle_cond_density = 3 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 3 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 4pA (SRC: Testing IClamp, certainty 0)
+        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.00052 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.09 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 6.076428433117039 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 5 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 10000 ms (SRC: Testing IClamp, certainty 0)
 
 </notes>
     <include href="cell_C.xml"></include>
-    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="13.811870945509265 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
     <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.00052 nS"/>
     <silentSynapse id="silent"/>
     <gradedSynapse id="neuron_to_neuron_exc_syn" conductance="0.09 nS" delta="5 mV" Vth="0 mV" k="0.025per_ms" erev="0 mV"/>
@@ -70,10 +70,10 @@ Parameters and setting used to generate this network:
         </morphology>
         <biophysicalProperties id="biophys_GenericMuscleCell">
             <membraneProperties>
-                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.005 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.1408257307011203 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.005 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="1.7139140434941569 mS_per_cm2" erev="40 mV" ion="ca"/>
+                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="5e-7 S_per_cm2" erev="-50 mV" ion="non_specific"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.0006 S_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.0001 S_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="0.0007 S_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
                 <initMembPotential value="-45 mV"/>
@@ -94,9 +94,9 @@ Parameters and setting used to generate this network:
         <biophysicalProperties id="biophys_GenericNeuronCell">
             <membraneProperties>
                 <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.005 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="1.8333751019872582 mS_per_cm2" erev="-60 mV" ion="k"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="3 mS_per_cm2" erev="-60 mV" ion="k"/>
                 <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.0711643917483308 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="1.6862775772264702 mS_per_cm2" erev="40 mV" ion="ca"/>
+                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="3 mS_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
                 <initMembPotential value="-45 mV"/>
@@ -107,7 +107,7 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="4pA"/>
+    <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="6.076428433117039 pA"/>
     <network id="c302_C1_Muscles">
         <population id="AS1" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
@@ -556,7 +556,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -565,7 +565,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -574,7 +574,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1L" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -583,7 +583,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1R" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -592,7 +592,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -601,7 +601,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
             <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
@@ -921,7 +921,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="akizzles"/>
@@ -931,7 +931,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -940,7 +940,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -949,7 +949,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1067,7 +1067,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB1" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
@@ -1077,7 +1077,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB10" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1086,7 +1086,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB11" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1095,7 +1095,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
@@ -1105,7 +1105,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
@@ -1115,7 +1115,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB4" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Worm"/>
@@ -1125,7 +1125,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB5" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1134,7 +1134,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB6" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1143,7 +1143,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB7" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1152,7 +1152,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB8" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -1161,7 +1161,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB9" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -6746,5 +6746,11 @@ Parameters and setting used to generate this network:
         <continuousProjection id="NC_VD13_MVR23_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR23">
             <continuousConnectionInstanceW id="0" preCell="../VD13/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../MVR23/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_inh_syn" weight="6."/>
         </continuousProjection>
+        <inputList id="Input_AVBL_offset_current" population="AVBL" component="offset_current">
+            <input id="0" target="../AVBL/0/GenericNeuronCell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AVBR_offset_current" population="AVBR" component="offset_current">
+            <input id="0" target="../AVBR/0/GenericNeuronCell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>
