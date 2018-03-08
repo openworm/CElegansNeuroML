@@ -20,7 +20,7 @@ This is being developed as part of the [OpenWorm project](http://www.openworm.or
 setup(
     name = 'CElegansNeuroML',
     package_dir = {'': 'CElegans/pythonScripts'},
-    packages = ['c302'],
+    packages = ['c302','c302.muscleunit'],
     install_requires=[
         'numpy',
         'xlrd',
