@@ -14,292 +14,67 @@ Parameters and setting used to generate this network:
     Muscles:                        True
 
     Known BioParameters:
-        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: initial_memb_pot = -50 mV (SRC: Set with param_overrides, certainty 0)
-        BioParameter: muscle_initial_memb_pot = -28 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: specific_capacitance = 5 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_spike_thresh = -55 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_spike_thresh = -10 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_leak_cond_density = 0.002 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_leak_cond_density = 0.002 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_leak_erev = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_cond_density = 0.45833751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_slow_cond_density = 0.45833751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_erev = -30 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_fast_cond_density = 0.042711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_fast_cond_density = 0.042711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_fast_erev = -30 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_ca_boyle_cond_density = 0.812775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_ca_boyle_cond_density = 1.812775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_boyle_erev = 10 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_ca_boyle_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_decay_time = 13.811870945509265 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_conc_decay_time_muscle = 60.8 ms (SRC: Set with param_overrides, certainty 0)
-        BioParameter: ca_conc_rho_muscle = 0.002338919 mol_per_m_per_A_per_s (SRC: Set with param_overrides, certainty 0)
-        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.49 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_vth = 00 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_erev = -10 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_k = 0.5per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.5 nS (SRC: Set with param_overrides, certainty 0)
-        BioParameter: neuron_to_muscle_exc_syn_weight = 1 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_delta = 19 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_vth = 37 mV (SRC: Set with param_overrides, certainty 0)
-        BioParameter: neuron_to_muscle_exc_syn_erev = 37 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_k = 1.205per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_sigma = 0.5 per_mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_mu = 5 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.2 nS (SRC: Set with param_overrides, certainty 0)
-        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.6 nS (SRC: Set with param_overrides, certainty 0)
-        BioParameter: neuron_to_neuron_inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_k = 0.015per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_inh_syn_erev = -35 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_weight = 1 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.01252 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.00152 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_to_muscle_elec_syn_gbase = 0 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_motor_delayed_elec_syn_weight = 1 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_motor_delayed_elec_syn_gbase = 0.01252 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_motor_delayed_elec_syn_sigma = 0.4 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_motor_delayed_elec_syn_mu = -30 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 0pA (SRC: Testing TapWithdrawal, certainty 0)
-        BioParameter: unphysiological_offset_current_del = 0 ms (SRC: Testing TapWithdrawal, certainty 0)
-        BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: Testing TapWithdrawal, certainty 0)
-        BioParameter: AVBR_to_DB4_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VD3_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB2_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VD2_to_MDL09_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: MDL09_to_VD2_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DD1_to_MVL08_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: MVL08_to_DD1_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_MVL16_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DD1_to_VB2_inh_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_DB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB7_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBL_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBL_to_VB11_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB2_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBL_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_DB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB1_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_DB4_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_DB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB7_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: AVBR_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_MVL16_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_VB11_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: AVBR_to_VD3_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB1_to_VB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_DB1_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_VB4_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_DB2_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DD3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DD3_to_DB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_VB6_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_DB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DD3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DD3_to_DB4_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB7_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VD11_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VD11_to_VB10_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VD12_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VD12_to_VB10_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_DB2_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB1_to_DB2_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB1_to_DB2_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB1_to_DB2_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB1_to_DB2_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_DB2_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDL06_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDL08_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDL09_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDR08_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDR09_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_VB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDL09_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDL10_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDL11_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -307,6 +82,18 @@ Parameters and setting used to generate this network:
         BioParameter: DB2_to_MDR09_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDR10_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDR11_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_VB4_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DD3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_MDL11_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_MDL12_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_MDL13_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -314,6 +101,18 @@ Parameters and setting used to generate this network:
         BioParameter: DB3_to_MDR11_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_MDR12_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_MDR13_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_VB6_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DD3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_MDL13_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_MDL14_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_MDL15_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -322,6 +121,16 @@ Parameters and setting used to generate this network:
         BioParameter: DB4_to_MDR14_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_MDR15_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_MDR16_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDL14_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDL15_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDL16_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -334,6 +143,16 @@ Parameters and setting used to generate this network:
         BioParameter: DB5_to_MDR17_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDR18_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDR19_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDL16_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDL17_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDL18_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -346,6 +165,9 @@ Parameters and setting used to generate this network:
         BioParameter: DB6_to_MDR19_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDR20_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDR21_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB7_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB7_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB7_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_MDL19_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_MDL20_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_MDL21_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -358,9 +180,52 @@ Parameters and setting used to generate this network:
         BioParameter: DB7_to_MDR22_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_MDR23_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_MDR24_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DD1_to_MVL08_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DD1_to_VB2_inh_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DD3_to_DB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DD3_to_DB4_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: MDL09_to_VD2_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: MVL08_to_DD1_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_MVL20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_MVL21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_MVL22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_MVR20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_MVR22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VD11_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VD12_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_MVL21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_MVL22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_MVL23_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_MVR22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_MVR23_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB1_to_MVL07_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB1_to_MVR07_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB1_to_MVR09_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVL08_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVL09_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVL10_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -368,6 +233,17 @@ Parameters and setting used to generate this network:
         BioParameter: VB2_to_MVR08_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVR10_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVR11_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_DB1_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVL10_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVL11_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVL12_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -376,11 +252,33 @@ Parameters and setting used to generate this network:
         BioParameter: VB3_to_MVR11_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVR12_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVR13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_DB2_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_MVL12_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_MVL13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_MVR12_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_MVR13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_MVR14_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB5_to_MVL12_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB5_to_MVL13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB5_to_MVL14_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -388,41 +286,143 @@ Parameters and setting used to generate this network:
         BioParameter: VB5_to_MVR13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB5_to_MVR14_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB5_to_MVR15_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_DB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_MVL15_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_MVL16_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_MVR14_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_MVR15_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_MVR16_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVL16_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVL17_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVL18_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVR16_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVR17_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVR18_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVL18_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVL19_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVL20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVR18_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVR19_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVR20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVL19_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVL20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVL21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVR19_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVR20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_MVL20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_MVL21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_MVL22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_MVR20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_MVR22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_MVL21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_MVL22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_MVL23_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_MVR22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_MVR23_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VD11_to_VB10_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VD12_to_VB10_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VD2_to_MDL09_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: ca_boyle_erev = 10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time = 13.811870945509265 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_decay_time_muscle = 60.8 ms (SRC: Set with param_overrides, certainty 0)
+        BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_conc_rho_muscle = 0.002338919 mol_per_m_per_A_per_s (SRC: Set with param_overrides, certainty 0)
+        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -50 mV (SRC: Set with param_overrides, certainty 0)
+        BioParameter: k_fast_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_cond_density = 0.812775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_initial_memb_pot = -28 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_cond_density = 0.042711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_erev = -30 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 0.45833751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_erev = -30 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 0.002 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_erev = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_spike_thresh = -10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_to_muscle_elec_syn_gbase = 0 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_boyle_cond_density = 1.812775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_fast_cond_density = 0.042711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 0.45833751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.002 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_spike_thresh = -55 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_motor_delayed_elec_syn_gbase = 0.01252 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_motor_delayed_elec_syn_mu = -30 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_motor_delayed_elec_syn_sigma = 0.4 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_motor_delayed_elec_syn_weight = 1 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.00152 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_conductance = 0.5 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: neuron_to_muscle_exc_syn_delta = 19 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_erev = 37 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_k = 1.205per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_mu = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_sigma = 0.5 per_mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_exc_syn_vth = 37 mV (SRC: Set with param_overrides, certainty 0)
+        BioParameter: neuron_to_muscle_exc_syn_weight = 1 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.6 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: neuron_to_muscle_inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_erev = -35 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_k = 0.025per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.01252 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_weight = 1 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 0.49 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_erev = -10 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_k = 0.5per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_vth = 00 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 0.2 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: neuron_to_neuron_inh_syn_delta = 5 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_erev = -70 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_k = 0.015per_ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_vth = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: specific_capacitance = 5 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0pA (SRC: Testing TapWithdrawal, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 0 ms (SRC: Testing TapWithdrawal, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: Testing TapWithdrawal, certainty 0)
 
 </notes>
     <include href="cell_C.xml"></include>
@@ -1152,8 +1152,8 @@ Parameters and setting used to generate this network:
     <pulseGenerator id="stim_MVR06_15" delay="11750ms" duration="250ms" amplitude="4pA"/>
     <pulseGenerator id="stim_MDL07_15" delay="11380ms" duration="250ms" amplitude="4pA"/>
     <pulseGenerator id="stim_MDR07_15" delay="11380ms" duration="250ms" amplitude="4pA"/>
-    <pulseGenerator id="stim_AVBL_1" delay="0ms" duration="15.0ms" amplitude="15pA"/>
-    <pulseGenerator id="stim_AVBR_1" delay="0ms" duration="15.0ms" amplitude="15pA"/>
+    <pulseGenerator id="stim_AVBL_1" delay="0ms" duration="2000ms" amplitude="15pA"/>
+    <pulseGenerator id="stim_AVBR_1" delay="0ms" duration="2000ms" amplitude="15pA"/>
     <pulseGenerator id="stim_DB1_1" delay="190ms" duration="250ms" amplitude="3pA"/>
     <pulseGenerator id="stim_VB1_1" delay="590ms" duration="250ms" amplitude="3pA"/>
     <pulseGenerator id="stim_DB1_2" delay="990ms" duration="250ms" amplitude="3pA"/>
@@ -1188,7 +1188,7 @@ Parameters and setting used to generate this network:
         <population id="AVBL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-1; UNC-8; SRA-11; LGC-55; GGR-3"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-5; LGC-55; SRA-11; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="0.225" y="-269.793999999999983" z="37.863002999999999"/>
@@ -1197,7 +1197,7 @@ Parameters and setting used to generate this network:
         <population id="AVBR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-1; UNC-8; GGR-3; LGC-55; SRA-11"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-5; LGC-55; SRA-11; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <property tag="OpenWormBackerAssignedName" value="mn"/>
             <instance id="0">
@@ -1207,7 +1207,7 @@ Parameters and setting used to generate this network:
         <population id="DB1" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.9" y="-230.349989999999991" z="6.85"/>
@@ -1216,7 +1216,7 @@ Parameters and setting used to generate this network:
         <population id="DB2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; PDFR-1; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; PDFR-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-0.2" y="-244.5" z="15.787000000000001"/>
@@ -1225,7 +1225,7 @@ Parameters and setting used to generate this network:
         <population id="DB3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-195.275000000000006" z="-18.524999999999999"/>
@@ -1234,7 +1234,7 @@ Parameters and setting used to generate this network:
         <population id="DB4" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8750001" y="-96.275000000000006" z="-64.650000000000006"/>
@@ -1243,7 +1243,7 @@ Parameters and setting used to generate this network:
         <population id="DB5" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-4.05" y="35.25" z="-30.449999999999999"/>
@@ -1252,7 +1252,7 @@ Parameters and setting used to generate this network:
         <population id="DB6" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8249999" y="178.099999999999994" z="-0.2"/>
@@ -1261,7 +1261,7 @@ Parameters and setting used to generate this network:
         <population id="DB7" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="267.75" z="-22.625"/>
@@ -1270,7 +1270,7 @@ Parameters and setting used to generate this network:
         <population id="DD1" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <property tag="OpenWormBackerAssignedName" value="Stanislav Petrov"/>
             <instance id="0">
@@ -1280,7 +1280,7 @@ Parameters and setting used to generate this network:
         <population id="DD2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <property tag="OpenWormBackerAssignedName" value="Evolver"/>
             <instance id="0">
@@ -1290,7 +1290,7 @@ Parameters and setting used to generate this network:
         <population id="DD3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.9" y="-28.600002" z="-60.524999999999999"/>
@@ -1299,7 +1299,7 @@ Parameters and setting used to generate this network:
         <population id="DD4" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.8750001" y="122.899994000000007" z="4.5499997"/>
@@ -1308,7 +1308,7 @@ Parameters and setting used to generate this network:
         <population id="DD5" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.8750001" y="234.050019999999989" z="-15.775"/>
@@ -1317,7 +1317,7 @@ Parameters and setting used to generate this network:
         <population id="DD6" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.9" y="365.774999999999977" z="-16.475000000000001"/>
@@ -1325,8 +1325,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB1" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
             <instance id="0">
@@ -1335,8 +1335,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB10" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="218.074980000000011" z="-11.4"/>
@@ -1344,8 +1344,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB11" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8249999" y="262.324999999999989" z="-21.949999999999999"/>
@@ -1353,8 +1353,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
             <instance id="0">
@@ -1363,8 +1363,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
             <instance id="0">
@@ -1373,8 +1373,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB4" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Worm"/>
             <instance id="0">
@@ -1383,8 +1383,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB5" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-109.549999999999997" z="-62.149999999999999"/>
@@ -1392,8 +1392,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB6" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-36.575000000000003" z="-62.699997000000003"/>
@@ -1401,8 +1401,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB7" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-9.675000000000001" y="41.450000000000003" z="-24.361999999999998"/>
@@ -1410,8 +1410,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB8" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8249999" y="108.799999999999997" z="2.875"/>
@@ -1419,8 +1419,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB9" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="159.550000000000011" z="3.2"/>
@@ -1429,7 +1429,7 @@ Parameters and setting used to generate this network:
         <population id="VD1" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <property tag="OpenWormBackerAssignedName" value="Ackley Lab"/>
             <instance id="0">
@@ -1439,7 +1439,7 @@ Parameters and setting used to generate this network:
         <population id="VD10" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="236.099999999999994" z="-16.5"/>
@@ -1448,7 +1448,7 @@ Parameters and setting used to generate this network:
         <population id="VD11" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="283.800020000000018" z="-24.800000000000001"/>
@@ -1457,7 +1457,7 @@ Parameters and setting used to generate this network:
         <population id="VD12" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="345.5" z="-23.149999999999999"/>
@@ -1466,7 +1466,7 @@ Parameters and setting used to generate this network:
         <population id="VD13" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="379.850000000000023" z="-10.75"/>
@@ -1475,7 +1475,7 @@ Parameters and setting used to generate this network:
         <population id="VD2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.65000004" y="-226.049990000000008" z="2.35"/>
@@ -1484,7 +1484,7 @@ Parameters and setting used to generate this network:
         <population id="VD3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="-188.099999999999994" z="-23.449999999999999"/>
@@ -1493,7 +1493,7 @@ Parameters and setting used to generate this network:
         <population id="VD4" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="-137.199999999999989" z="-52.700000000000003"/>
@@ -1502,7 +1502,7 @@ Parameters and setting used to generate this network:
         <population id="VD5" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="-68.299999999999997" z="-66.75"/>
@@ -1511,7 +1511,7 @@ Parameters and setting used to generate this network:
         <population id="VD6" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.70000005" y="-1.4000001" z="-52.149997999999997"/>
@@ -1520,7 +1520,7 @@ Parameters and setting used to generate this network:
         <population id="VD7" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-12.349999" y="57.950000000000003" z="-14.200001"/>
@@ -1529,7 +1529,7 @@ Parameters and setting used to generate this network:
         <population id="VD8" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="135.099989999999991" z="3.9500003"/>
@@ -1538,7 +1538,7 @@ Parameters and setting used to generate this network:
         <population id="VD9" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="191.5" z="-3.8"/>
@@ -1547,571 +1547,571 @@ Parameters and setting used to generate this network:
         <population id="MDR01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-270." z="80."/>
+                <location x="-80." y="-270." z="80."/>
             </instance>
         </population>
         <population id="MDR02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-240." z="80."/>
+                <location x="-80." y="-240." z="80."/>
             </instance>
         </population>
         <population id="MDR03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-210." z="80."/>
+                <location x="-80." y="-210." z="80."/>
             </instance>
         </population>
         <population id="MDR04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-180." z="80."/>
+                <location x="-80." y="-180." z="80."/>
             </instance>
         </population>
         <population id="MDR05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-150." z="80."/>
+                <location x="-80." y="-150." z="80."/>
             </instance>
         </population>
         <population id="MDR06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-120." z="80."/>
+                <location x="-80." y="-120." z="80."/>
             </instance>
         </population>
         <population id="MDR07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-90." z="80."/>
+                <location x="-80." y="-90." z="80."/>
             </instance>
         </population>
         <population id="MDR08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-60." z="80."/>
+                <location x="-80." y="-60." z="80."/>
             </instance>
         </population>
         <population id="MDR09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-30." z="80."/>
+                <location x="-80." y="-30." z="80."/>
             </instance>
         </population>
         <population id="MDR10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="0." z="80."/>
+                <location x="-80." y="0." z="80."/>
             </instance>
         </population>
         <population id="MDR11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="30." z="80."/>
+                <location x="-80." y="30." z="80."/>
             </instance>
         </population>
         <population id="MDR12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="60." z="80."/>
+                <location x="-80." y="60." z="80."/>
             </instance>
         </population>
         <population id="MDR13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="90." z="80."/>
+                <location x="-80." y="90." z="80."/>
             </instance>
         </population>
         <population id="MDR14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="120." z="80."/>
+                <location x="-80." y="120." z="80."/>
             </instance>
         </population>
         <population id="MDR15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="150." z="80."/>
+                <location x="-80." y="150." z="80."/>
             </instance>
         </population>
         <population id="MDR16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="180." z="80."/>
+                <location x="-80." y="180." z="80."/>
             </instance>
         </population>
         <population id="MDR17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="210." z="80."/>
+                <location x="-80." y="210." z="80."/>
             </instance>
         </population>
         <population id="MDR18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="240." z="80."/>
+                <location x="-80." y="240." z="80."/>
             </instance>
         </population>
         <population id="MDR19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="270." z="80."/>
+                <location x="-80." y="270." z="80."/>
             </instance>
         </population>
         <population id="MDR20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="300." z="80."/>
+                <location x="-80." y="300." z="80."/>
             </instance>
         </population>
         <population id="MDR21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="330." z="80."/>
+                <location x="-80." y="330." z="80."/>
             </instance>
         </population>
         <population id="MDR22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="360." z="80."/>
+                <location x="-80." y="360." z="80."/>
             </instance>
         </population>
         <population id="MDR23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="390." z="80."/>
+                <location x="-80." y="390." z="80."/>
             </instance>
         </population>
         <population id="MDR24" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="420." z="80."/>
+                <location x="-80." y="420." z="80."/>
             </instance>
         </population>
         <population id="MVR01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-270." z="80."/>
+                <location x="-80." y="-270." z="-80."/>
             </instance>
         </population>
         <population id="MVR02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-240." z="80."/>
+                <location x="-80." y="-240." z="-80."/>
             </instance>
         </population>
         <population id="MVR03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-210." z="80."/>
+                <location x="-80." y="-210." z="-80."/>
             </instance>
         </population>
         <population id="MVR04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-180." z="80."/>
+                <location x="-80." y="-180." z="-80."/>
             </instance>
         </population>
         <population id="MVR05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-150." z="80."/>
+                <location x="-80." y="-150." z="-80."/>
             </instance>
         </population>
         <population id="MVR06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-120." z="80."/>
+                <location x="-80." y="-120." z="-80."/>
             </instance>
         </population>
         <population id="MVR07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-90." z="80."/>
+                <location x="-80." y="-90." z="-80."/>
             </instance>
         </population>
         <population id="MVR08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-60." z="80."/>
+                <location x="-80." y="-60." z="-80."/>
             </instance>
         </population>
         <population id="MVR09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-30." z="80."/>
+                <location x="-80." y="-30." z="-80."/>
             </instance>
         </population>
         <population id="MVR10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="0." z="80."/>
+                <location x="-80." y="0." z="-80."/>
             </instance>
         </population>
         <population id="MVR11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="30." z="80."/>
+                <location x="-80." y="30." z="-80."/>
             </instance>
         </population>
         <population id="MVR12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="60." z="80."/>
+                <location x="-80." y="60." z="-80."/>
             </instance>
         </population>
         <population id="MVR13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="90." z="80."/>
+                <location x="-80." y="90." z="-80."/>
             </instance>
         </population>
         <population id="MVR14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="120." z="80."/>
+                <location x="-80." y="120." z="-80."/>
             </instance>
         </population>
         <population id="MVR15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="150." z="80."/>
+                <location x="-80." y="150." z="-80."/>
             </instance>
         </population>
         <population id="MVR16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="180." z="80."/>
+                <location x="-80." y="180." z="-80."/>
             </instance>
         </population>
         <population id="MVR17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="210." z="80."/>
+                <location x="-80." y="210." z="-80."/>
             </instance>
         </population>
         <population id="MVR18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="240." z="80."/>
+                <location x="-80." y="240." z="-80."/>
             </instance>
         </population>
         <population id="MVR19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="270." z="80."/>
+                <location x="-80." y="270." z="-80."/>
             </instance>
         </population>
         <population id="MVR20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="300." z="80."/>
+                <location x="-80." y="300." z="-80."/>
             </instance>
         </population>
         <population id="MVR21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="330." z="80."/>
+                <location x="-80." y="330." z="-80."/>
             </instance>
         </population>
         <population id="MVR22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="360." z="80."/>
+                <location x="-80." y="360." z="-80."/>
             </instance>
         </population>
         <population id="MVR23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="390." z="80."/>
+                <location x="-80." y="390." z="-80."/>
             </instance>
         </population>
         <population id="MVL01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-270." z="-80."/>
+                <location x="80." y="-270." z="-80."/>
             </instance>
         </population>
         <population id="MVL02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-240." z="-80."/>
+                <location x="80." y="-240." z="-80."/>
             </instance>
         </population>
         <population id="MVL03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-210." z="-80."/>
+                <location x="80." y="-210." z="-80."/>
             </instance>
         </population>
         <population id="MVL04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-180." z="-80."/>
+                <location x="80." y="-180." z="-80."/>
             </instance>
         </population>
         <population id="MVL05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-150." z="-80."/>
+                <location x="80." y="-150." z="-80."/>
             </instance>
         </population>
         <population id="MVL06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-120." z="-80."/>
+                <location x="80." y="-120." z="-80."/>
             </instance>
         </population>
         <population id="MVL07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-90." z="-80."/>
+                <location x="80." y="-90." z="-80."/>
             </instance>
         </population>
         <population id="MVL08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-60." z="-80."/>
+                <location x="80." y="-60." z="-80."/>
             </instance>
         </population>
         <population id="MVL09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-30." z="-80."/>
+                <location x="80." y="-30." z="-80."/>
             </instance>
         </population>
         <population id="MVL10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="0." z="-80."/>
+                <location x="80." y="0." z="-80."/>
             </instance>
         </population>
         <population id="MVL11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="30." z="-80."/>
+                <location x="80." y="30." z="-80."/>
             </instance>
         </population>
         <population id="MVL12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="60." z="-80."/>
+                <location x="80." y="60." z="-80."/>
             </instance>
         </population>
         <population id="MVL13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="90." z="-80."/>
+                <location x="80." y="90." z="-80."/>
             </instance>
         </population>
         <population id="MVL14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="120." z="-80."/>
+                <location x="80." y="120." z="-80."/>
             </instance>
         </population>
         <population id="MVL15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="150." z="-80."/>
+                <location x="80." y="150." z="-80."/>
             </instance>
         </population>
         <population id="MVL16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="180." z="-80."/>
+                <location x="80." y="180." z="-80."/>
             </instance>
         </population>
         <population id="MVL17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="210." z="-80."/>
+                <location x="80." y="210." z="-80."/>
             </instance>
         </population>
         <population id="MVL18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="240." z="-80."/>
+                <location x="80." y="240." z="-80."/>
             </instance>
         </population>
         <population id="MVL19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="270." z="-80."/>
+                <location x="80." y="270." z="-80."/>
             </instance>
         </population>
         <population id="MVL20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="300." z="-80."/>
+                <location x="80." y="300." z="-80."/>
             </instance>
         </population>
         <population id="MVL21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="330." z="-80."/>
+                <location x="80." y="330." z="-80."/>
             </instance>
         </population>
         <population id="MVL22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="360." z="-80."/>
+                <location x="80." y="360." z="-80."/>
             </instance>
         </population>
         <population id="MVL23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="390." z="-80."/>
+                <location x="80." y="390." z="-80."/>
             </instance>
         </population>
         <population id="MVL24" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="420." z="-80."/>
+                <location x="80." y="420." z="-80."/>
             </instance>
         </population>
         <population id="MDL01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-270." z="-80."/>
+                <location x="80." y="-270." z="80."/>
             </instance>
         </population>
         <population id="MDL02" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-240." z="-80."/>
+                <location x="80." y="-240." z="80."/>
             </instance>
         </population>
         <population id="MDL03" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-210." z="-80."/>
+                <location x="80." y="-210." z="80."/>
             </instance>
         </population>
         <population id="MDL04" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-180." z="-80."/>
+                <location x="80." y="-180." z="80."/>
             </instance>
         </population>
         <population id="MDL05" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-150." z="-80."/>
+                <location x="80." y="-150." z="80."/>
             </instance>
         </population>
         <population id="MDL06" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-120." z="-80."/>
+                <location x="80." y="-120." z="80."/>
             </instance>
         </population>
         <population id="MDL07" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-90." z="-80."/>
+                <location x="80." y="-90." z="80."/>
             </instance>
         </population>
         <population id="MDL08" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-60." z="-80."/>
+                <location x="80." y="-60." z="80."/>
             </instance>
         </population>
         <population id="MDL09" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-30." z="-80."/>
+                <location x="80." y="-30." z="80."/>
             </instance>
         </population>
         <population id="MDL10" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="0." z="-80."/>
+                <location x="80." y="0." z="80."/>
             </instance>
         </population>
         <population id="MDL11" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="30." z="-80."/>
+                <location x="80." y="30." z="80."/>
             </instance>
         </population>
         <population id="MDL12" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="60." z="-80."/>
+                <location x="80." y="60." z="80."/>
             </instance>
         </population>
         <population id="MDL13" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="90." z="-80."/>
+                <location x="80." y="90." z="80."/>
             </instance>
         </population>
         <population id="MDL14" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="120." z="-80."/>
+                <location x="80." y="120." z="80."/>
             </instance>
         </population>
         <population id="MDL15" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="150." z="-80."/>
+                <location x="80." y="150." z="80."/>
             </instance>
         </population>
         <population id="MDL16" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="180." z="-80."/>
+                <location x="80." y="180." z="80."/>
             </instance>
         </population>
         <population id="MDL17" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="210." z="-80."/>
+                <location x="80." y="210." z="80."/>
             </instance>
         </population>
         <population id="MDL18" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="240." z="-80."/>
+                <location x="80." y="240." z="80."/>
             </instance>
         </population>
         <population id="MDL19" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="270." z="-80."/>
+                <location x="80." y="270." z="80."/>
             </instance>
         </population>
         <population id="MDL20" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="300." z="-80."/>
+                <location x="80." y="300." z="80."/>
             </instance>
         </population>
         <population id="MDL21" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="330." z="-80."/>
+                <location x="80." y="330." z="80."/>
             </instance>
         </population>
         <population id="MDL22" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="360." z="-80."/>
+                <location x="80." y="360." z="80."/>
             </instance>
         </population>
         <population id="MDL23" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="390." z="-80."/>
+                <location x="80." y="390." z="80."/>
             </instance>
         </population>
         <population id="MDL24" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="420." z="-80."/>
+                <location x="80." y="420." z="80."/>
             </instance>
         </population>
         <electricalProjection id="NC_AVBL_AVBR_Generic_GJ" presynapticPopulation="AVBL" postsynapticPopulation="AVBR">
