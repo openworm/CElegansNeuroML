@@ -16,7 +16,7 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set, globals())
     params = ParameterisedModel()
     
-    stim_amplitudes = ["3pA","5pA"]
+    stim_amplitudes = ["2pA","5pA"]
     duration = (len(stim_amplitudes))*1800
     
     params.set_bioparameter("unphysiological_offset_current_del", "50 ms", "Testing IClamp", "0")
@@ -27,9 +27,12 @@ def setup(parameter_set,
     inh_post = "VB11"
     gap_1 = "AIZL"
     gap_2 = "ASHL"
+    moto_pre = "DA1"
+    muscle_post = "MDL08"
     
-    cells = [exc_pre, exc_post, inh_pre, inh_post]
-    cells_to_stimulate_extra      = [exc_pre, inh_pre]
+    cells = [exc_pre, exc_post, inh_pre, inh_post, moto_pre]
+    cells_to_stimulate_extra      = [exc_pre, inh_pre,moto_pre]
+    muscles_to_include = [muscle_post]
     
     if parameter_set!='A':
         cells.append(gap_1)
@@ -45,6 +48,7 @@ def setup(parameter_set,
                  params, 
                  cells=cells, 
                  cells_to_stimulate=[], 
+                 muscles_to_include = muscles_to_include,
                  duration=duration, 
                  dt=dt, 
                  target_directory=target_directory,
