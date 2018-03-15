@@ -15,9 +15,6 @@ from neuroml import ElectricalProjection
 from neuroml import ElectricalConnectionInstanceW
 from neuroml import ContinuousProjection
 from neuroml import ContinuousConnectionInstanceW
-from neuroml import ExpTwoSynapse
-from neuroml import GapJunction
-from neuroml import GradedSynapse
 from neuroml import Property
 from neuroml import PulseGenerator
 from neuroml import SineGenerator
@@ -39,9 +36,6 @@ import math
 from lxml import etree
 import re
 
-from parameters_C0 import GradedSynapse2
-from parameters_C2 import DelayedGapJunction
-from parameters_C2 import DelayedGradedSynapse
 import collections
 
 try:
@@ -59,9 +53,10 @@ LEMS_TEMPLATE_FILE = "LEMS_c302_TEMPLATE.xml"
 
 
 
-def print_(msg):
-    pre = "c302      >>> "
-    print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
+def print_(msg, print_it=True): # print_it=False when not verbose
+    if print_it:
+        pre = "c302      >>> "
+        print('%s %s'%(pre,msg.replace('\n','\n'+pre)))
 
 try:
     import PyOpenWorm as P
@@ -101,8 +96,8 @@ def get_muscle_position(muscle, data_reader="SpreadsheetDataReader"):
         y = -300 + 30 * int(muscle[5:7])
         return x, y, z"""
     
-    x = 80 * (-1 if muscle[1] == 'V' else 1)
-    z = 80 * (-1 if muscle[2] == 'L' else 1)
+    x = 80 * (1 if muscle[2] == 'L' else -1)
+    z = 80 * (-1 if muscle[1] == 'V' else 1)
     y = -300 + 30 * int(muscle[3:5])
     return x, y, z
 
@@ -169,8 +164,8 @@ def process_args():
     parser.add_argument('-musclestoinclude',
                         type=str,
                         metavar='<muscles-to-include>',
-                        default=None,
-                        help='List of muscles to include (default: none)')
+                        default=[],
+                        help='List of muscles to include (default: empty list, i.e. none)')
 
     parser.add_argument('-duration',
                         type=float,
@@ -497,7 +492,7 @@ def _get_cell_info(cells):
   
 
 def set_param(params, param, value):
-    if params.get_bioparameter(param):
+    if params.get_bioparameter(param,warn_if_missing=False):
         if params.get_bioparameter(param).value == value:
             return
         print_("Setting parameter %s = %s" % (param, value))
@@ -732,8 +727,10 @@ def generate(net_id,
                 all_neuron_info, all_muscle_info = _get_cell_info([cell])
                 #neuron, neuron.type(), neuron.receptor(), neuron.neurotransmitter(), short, color
                 pop0.properties.append(Property("color", all_neuron_info[cell][5]))  
-                pop0.properties.append(Property("type", str('; '.join(all_neuron_info[cell][1]))))    
-                pop0.properties.append(Property("receptor", str('; '.join(all_neuron_info[cell][2]))))
+                types = sorted(all_neuron_info[cell][1])
+                pop0.properties.append(Property("type", str('; '.join(types)))) 
+                recps = sorted(all_neuron_info[cell][2])
+                pop0.properties.append(Property("receptor", str('; '.join(recps))))
                 pop0.properties.append(Property("neurotransmitter", str('; '.join(all_neuron_info[cell][3]))))  
             except:
                 # It's only metadata...
@@ -1056,7 +1053,7 @@ def generate(net_id,
             number_syns = conn.number
 
 
-            if params.get_bioparameter('global_connectivity_power_scaling'):
+            if params.get_bioparameter('global_connectivity_power_scaling',warn_if_missing=False):
                 scale = params.get_bioparameter('global_connectivity_power_scaling').x()
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
@@ -1287,7 +1284,7 @@ def generate(net_id,
 
             number_syns = conn.number
 
-            if params.get_bioparameter('global_connectivity_power_scaling'):
+            if params.get_bioparameter('global_connectivity_power_scaling',warn_if_missing=False):
                 scale = params.get_bioparameter('global_connectivity_power_scaling').x()
                 #print("Scaling by %s"%scale)
                 number_syns = math.pow(number_syns,scale)
@@ -1416,7 +1413,11 @@ def generate(net_id,
     returns:  ["AVAL", "AVBL"]
 '''
 def parse_list_arg(list_arg):
-    if not list_arg: return None
+    print 555522
+    print list_arg
+    if list_arg==None: return None
+    if list_arg==[]: return []
+    print 4444 
     entries = list_arg[1:-1].split(',')
     ret = [e for e in entries]
     print_("Command line argument %s parsed as: %s"%(list_arg,ret))

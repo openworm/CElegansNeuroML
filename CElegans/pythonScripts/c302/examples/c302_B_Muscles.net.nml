@@ -6,7 +6,7 @@ Parameters and setting used to generate this network:
     Data reader:                    SpreadsheetDataReader
     c302 version:                   0.5.0
     Cells:                          ['AS1', 'AS10', 'AS11', 'AS2', 'AS3', 'AS4', 'AS5', 'AS6', 'AS7', 'AS8', 'AS9', 'AVFL', 'AVFR', 'AVKR', 'AVL', 'CEPVL', 'CEPVR', 'DA1', 'DA2', 'DA3', 'DA4', 'DA5', 'DA6', 'DA7', 'DA8', 'DA9', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5', 'DB6', 'DB7', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DD6', 'DVB', 'HSNL', 'HSNR', 'IL1DL', 'IL1DR', 'IL1L', 'IL1R', 'IL1VL', 'IL1VR', 'PDA', 'PDB', 'PVNL', 'PVNR', 'RID', 'RIML', 'RIMR', 'RIVL', 'RIVR', 'RMDDL', 'RMDDR', 'RMDL', 'RMDR', 'RMDVL', 'RMDVR', 'RMED', 'RMEL', 'RMER', 'RMEV', 'RMFL', 'RMGL', 'RMGR', 'RMHL', 'RMHR', 'SMBDL', 'SMBDR', 'SMBVL', 'SMBVR', 'SMDDL', 'SMDDR', 'SMDVL', 'SMDVR', 'URADL', 'URADR', 'URAVL', 'URAVR', 'VA1', 'VA10', 'VA11', 'VA12', 'VA2', 'VA3', 'VA4', 'VA5', 'VA6', 'VA7', 'VA8', 'VA9', 'VB1', 'VB10', 'VB11', 'VB2', 'VB3', 'VB4', 'VB5', 'VB6', 'VB7', 'VB8', 'VB9', 'VC1', 'VC2', 'VC3', 'VC4', 'VC5', 'VC6', 'VD1', 'VD10', 'VD11', 'VD12', 'VD13', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9', 'AVAL', 'AVAR', 'AVBL', 'AVBR', 'AVDL', 'AVDR', 'PVCL', 'PVCR']
-    Cell stimulated:                ['PLML', 'PLMR']
+    Cell stimulated:                ['AVBL', 'AVBR']
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -14,31 +14,31 @@ Parameters and setting used to generate this network:
     Muscles:                        All muscles
 
     Known BioParameters:
-        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 200 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 200 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 4pA (SRC: Testing IClamp, certainty 0)
+        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_tau1 = 50ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.01 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 2.5pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 5 ms (SRC: Testing IClamp, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 10000 ms (SRC: Testing IClamp, certainty 0)
 
@@ -48,15 +48,15 @@ Parameters and setting used to generate this network:
     <expTwoSynapse id="neuron_to_neuron_inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="200 ms" tauRise="3ms"/>
     <expTwoSynapse id="neuron_to_muscle_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="5 ms" tauRise="3ms"/>
     <expTwoSynapse id="neuron_to_muscle_inh_syn" gbase="0.01nS" erev="-80mV" tauDecay="200 ms" tauRise="3ms"/>
-    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.1 nS"/>
+    <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.01 nS"/>
     <iafCell type="iafActivityCell" id="generic_muscle_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
     <iafCell type="iafActivityCell" id="generic_neuron_iaf_cell" C="3pF" thresh="-30mV" reset="-50mV" leakConductance="0.1nS" leakReversal="-50mV" tau1="50ms"/>
-    <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="4pA"/>
+    <pulseGenerator id="offset_current" delay="5 ms" duration="10000 ms" amplitude="2.5pA"/>
     <network id="c302_B_Muscles">
         <population id="AS1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Kottbusser Tor"/>
             <instance id="0">
@@ -66,7 +66,7 @@ Parameters and setting used to generate this network:
         <population id="AS10" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.9" y="278.25" z="-24."/>
@@ -75,7 +75,7 @@ Parameters and setting used to generate this network:
         <population id="AS11" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8750001" y="315.699999999999989" z="-26.124998000000001"/>
@@ -84,7 +84,7 @@ Parameters and setting used to generate this network:
         <population id="AS2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Geraldine"/>
             <instance id="0">
@@ -94,7 +94,7 @@ Parameters and setting used to generate this network:
         <population id="AS3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.9" y="-151.400010000000009" z="-45.649997999999997"/>
@@ -103,7 +103,7 @@ Parameters and setting used to generate this network:
         <population id="AS4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8750001" y="-90.200005000000004" z="-65.375"/>
@@ -112,7 +112,7 @@ Parameters and setting used to generate this network:
         <population id="AS5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8750001" y="-3.7500002" z="-52.524999999999999"/>
@@ -121,7 +121,7 @@ Parameters and setting used to generate this network:
         <population id="AS6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; DOP-3; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.9" y="28.25" z="-34.25"/>
@@ -130,7 +130,7 @@ Parameters and setting used to generate this network:
         <population id="AS7" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.9" y="119.900000000000006" z="3.9500003"/>
@@ -139,7 +139,7 @@ Parameters and setting used to generate this network:
         <population id="AS8" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.9" y="181.849999999999994" z="-1.7750001"/>
@@ -148,7 +148,7 @@ Parameters and setting used to generate this network:
         <population id="AS9" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; ACR-14; ACR-15; UNC-63; LGC-46; CKR-2; NPR-3"/>
+            <property tag="receptor" value="ACR-14; ACR-15; CKR-2; DOP-1; DOP-3; LGC-46; NPR-3; UNC-63"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8750001" y="228.924990000000008" z="-14.5"/>
@@ -157,7 +157,7 @@ Parameters and setting used to generate this network:
         <population id="AVAL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-4; GLR-2; GLR-1; UNC-8; GGR-3; NPR-4; NMR-1; NMR-2"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-2; GLR-4; GLR-5; NMR-1; NMR-2; NPR-4; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <property tag="OpenWormBackerAssignedName" value="JUD"/>
             <instance id="0">
@@ -167,7 +167,7 @@ Parameters and setting used to generate this network:
         <population id="AVAR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-4; GLR-2; GLR-1; UNC-8; GGR-3; NPR-4; NMR-1; NMR-2"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-2; GLR-4; GLR-5; NMR-1; NMR-2; NPR-4; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="-3.5" y="-271.5" z="37.982999999999997"/>
@@ -176,7 +176,7 @@ Parameters and setting used to generate this network:
         <population id="AVBL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-1; UNC-8; GGR-3; LGC-55; SRA-11"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-5; LGC-55; SRA-11; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="0.225" y="-269.793999999999983" z="37.863002999999999"/>
@@ -185,7 +185,7 @@ Parameters and setting used to generate this network:
         <population id="AVBR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-1; UNC-8; SRA-11; LGC-55; GGR-3"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-5; LGC-55; SRA-11; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <property tag="OpenWormBackerAssignedName" value="mn"/>
             <instance id="0">
@@ -195,7 +195,7 @@ Parameters and setting used to generate this network:
         <population id="AVDL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-2; GLR-1; PDFR-1; UNC-8; NMR-1; NMR-2"/>
+            <property tag="receptor" value="GLR-1; GLR-2; GLR-5; NMR-1; NMR-2; PDFR-1; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="-0.167" y="-268.699999999999989" z="37.299999999999997"/>
@@ -204,7 +204,7 @@ Parameters and setting used to generate this network:
         <population id="AVDR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-2; GLR-1; PDFR-1; UNC-8; NMR-1; NMR-2"/>
+            <property tag="receptor" value="GLR-1; GLR-2; GLR-5; NMR-1; NMR-2; PDFR-1; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="-4.033" y="-268.682999999999993" z="37.283000000000001"/>
@@ -249,7 +249,7 @@ Parameters and setting used to generate this network:
         <population id="CEPVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
-            <property tag="receptor" value="OCTR-1; TYRA-3; DOP-2"/>
+            <property tag="receptor" value="DOP-2; OCTR-1; TYRA-3"/>
             <property tag="neurotransmitter" value="Dopamine"/>
             <property tag="OpenWormBackerAssignedName" value="Gernot Weiser"/>
             <instance id="0">
@@ -259,7 +259,7 @@ Parameters and setting used to generate this network:
         <population id="CEPVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
-            <property tag="receptor" value="OCTR-1; TYRA-3; DOP-2"/>
+            <property tag="receptor" value="DOP-2; OCTR-1; TYRA-3"/>
             <property tag="neurotransmitter" value="Dopamine"/>
             <property tag="OpenWormBackerAssignedName" value="The Swarm"/>
             <instance id="0">
@@ -269,7 +269,7 @@ Parameters and setting used to generate this network:
         <population id="DA1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; SER-2; NPR-3; DOP-3; UNC-8"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="KR"/>
             <instance id="0">
@@ -279,7 +279,7 @@ Parameters and setting used to generate this network:
         <population id="DA2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; UNC-8; NPR-3; DOP-3; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ruzila"/>
             <instance id="0">
@@ -289,7 +289,7 @@ Parameters and setting used to generate this network:
         <population id="DA3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; UNC-8; NPR-3; CKR-2; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Magoo"/>
             <instance id="0">
@@ -299,7 +299,7 @@ Parameters and setting used to generate this network:
         <population id="DA4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; UNC-8; NPR-3; DOP-3; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.7" y="-32.399999999999999" z="-61.75"/>
@@ -308,7 +308,7 @@ Parameters and setting used to generate this network:
         <population id="DA5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; UNC-8; NPR-3; DOP-3; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.65" y="84.200000000000003" z="-3.15"/>
@@ -317,7 +317,7 @@ Parameters and setting used to generate this network:
         <population id="DA6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; UNC-8; NPR-3; CKR-2; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.65" y="198.675000000000011" z="-6.3500004"/>
@@ -326,7 +326,7 @@ Parameters and setting used to generate this network:
         <population id="DA7" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; SER-2; NPR-3; CKR-2; UNC-8"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.65" y="281.600000000000023" z="-24.949999999999999"/>
@@ -335,7 +335,7 @@ Parameters and setting used to generate this network:
         <population id="DA8" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; SER-2; NPR-3; DOP-3; UNC-8"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="1.275" y="376.800000000000011" z="-10.925000000000001"/>
@@ -344,7 +344,7 @@ Parameters and setting used to generate this network:
         <population id="DA9" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; UNC-8; NPR-3; CKR-2; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-4.6" y="376.800000000000011" z="-10.925000000000001"/>
@@ -353,7 +353,7 @@ Parameters and setting used to generate this network:
         <population id="DB1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.9" y="-230.349989999999991" z="6.85"/>
@@ -362,7 +362,7 @@ Parameters and setting used to generate this network:
         <population id="DB2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; PDFR-1; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; PDFR-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-0.2" y="-244.5" z="15.787000000000001"/>
@@ -371,7 +371,7 @@ Parameters and setting used to generate this network:
         <population id="DB3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-195.275000000000006" z="-18.524999999999999"/>
@@ -380,7 +380,7 @@ Parameters and setting used to generate this network:
         <population id="DB4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8750001" y="-96.275000000000006" z="-64.650000000000006"/>
@@ -389,7 +389,7 @@ Parameters and setting used to generate this network:
         <population id="DB5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-4.05" y="35.25" z="-30.449999999999999"/>
@@ -398,7 +398,7 @@ Parameters and setting used to generate this network:
         <population id="DB6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8249999" y="178.099999999999994" z="-0.2"/>
@@ -407,7 +407,7 @@ Parameters and setting used to generate this network:
         <population id="DB7" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="267.75" z="-22.625"/>
@@ -416,7 +416,7 @@ Parameters and setting used to generate this network:
         <population id="DD1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <property tag="OpenWormBackerAssignedName" value="Stanislav Petrov"/>
             <instance id="0">
@@ -426,7 +426,7 @@ Parameters and setting used to generate this network:
         <population id="DD2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <property tag="OpenWormBackerAssignedName" value="Evolver"/>
             <instance id="0">
@@ -436,7 +436,7 @@ Parameters and setting used to generate this network:
         <population id="DD3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.9" y="-28.600002" z="-60.524999999999999"/>
@@ -445,7 +445,7 @@ Parameters and setting used to generate this network:
         <population id="DD4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.8750001" y="122.899994000000007" z="4.5499997"/>
@@ -454,7 +454,7 @@ Parameters and setting used to generate this network:
         <population id="DD5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.8750001" y="234.050019999999989" z="-15.775"/>
@@ -463,7 +463,7 @@ Parameters and setting used to generate this network:
         <population id="DD6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.9" y="365.774999999999977" z="-16.475000000000001"/>
@@ -481,7 +481,7 @@ Parameters and setting used to generate this network:
         <population id="HSNL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="EGL-6; GLR-5; GAR-2; LGC-53; GGR-2; MEC-6; LGC-55"/>
+            <property tag="receptor" value="EGL-6; GAR-2; GGR-2; GLR-5; LGC-53; LGC-55; MEC-6"/>
             <property tag="neurotransmitter" value="Serotonin"/>
             <property tag="OpenWormBackerAssignedName" value="The Stoner Neuron"/>
             <instance id="0">
@@ -491,7 +491,7 @@ Parameters and setting used to generate this network:
         <population id="HSNR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="EGL-6; GLR-5; GAR-2; LGC-53; GGR-2; MEC-6; LGC-55"/>
+            <property tag="receptor" value="EGL-6; GAR-2; GGR-2; GLR-5; LGC-53; LGC-55; MEC-6"/>
             <property tag="neurotransmitter" value="Serotonin"/>
             <property tag="OpenWormBackerAssignedName" value="OpenScienceFTW"/>
             <instance id="0">
@@ -500,8 +500,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
-            <property tag="receptor" value="TRPA-1; DEG-3; MEC-6; LGC-55"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
+            <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="2.825" y="-282.762999999999977" z="52.762996999999999"/>
@@ -509,8 +509,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1DR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
-            <property tag="receptor" value="MEC-6; TRPA-1; DEG-3; LGC-55"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
+            <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="-7.0620003" y="-282.762999999999977" z="52.762996999999999"/>
@@ -518,8 +518,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1L" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
-            <property tag="receptor" value="LGC-55; DEG-3; MEC-6; TRPA-1"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
+            <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="3.8" y="-282.675020000000018" z="47.850002000000003"/>
@@ -527,8 +527,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1R" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
-            <property tag="receptor" value="TRPA-1; DEG-3; MEC-6; LGC-55"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
+            <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="-8.075001" y="-282.675020000000018" z="47.850002000000003"/>
@@ -536,8 +536,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
-            <property tag="receptor" value="MEC-6; TRPA-1; DEG-3; LGC-55"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
+            <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="2.25" y="-279.5" z="41."/>
@@ -545,8 +545,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="IL1VR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; interneuron; motor"/>
-            <property tag="receptor" value="TRPA-1; DEG-3; MEC-6; LGC-55"/>
+            <property tag="type" value="interneuron; motor; sensory"/>
+            <property tag="receptor" value="DEG-3; LGC-55; MEC-6; TRPA-1"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="-6.5499997" y="-279.5" z="41."/>
@@ -555,7 +555,7 @@ Parameters and setting used to generate this network:
         <population id="PDA" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="UNC-8; SER-2; EXP-1; DOP-2"/>
+            <property tag="receptor" value="DOP-2; EXP-1; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-2.95" y="387.25" z="-5.5"/>
@@ -573,7 +573,7 @@ Parameters and setting used to generate this network:
         <population id="PVCL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="SER-2; PDFR-1"/>
+            <property tag="receptor" value="PDFR-1; SER-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramana Kumar"/>
             <instance id="0">
@@ -583,7 +583,7 @@ Parameters and setting used to generate this network:
         <population id="PVCR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="SER-2; PDFR-1"/>
+            <property tag="receptor" value="PDFR-1; SER-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="J. Pablo Fernandez"/>
             <instance id="0">
@@ -611,7 +611,7 @@ Parameters and setting used to generate this network:
         <population id="RID" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
-            <property tag="receptor" value="SER-2; DOP-2; MOD-1"/>
+            <property tag="receptor" value="DOP-2; MOD-1; SER-2"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="-1.225" y="-272.350000000000023" z="54.938000000000002"/>
@@ -620,7 +620,7 @@ Parameters and setting used to generate this network:
         <population id="RIML" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
-            <property tag="receptor" value="SER-4; DOP-1; MOD-1"/>
+            <property tag="receptor" value="DOP-1; MOD-1; SER-4"/>
             <property tag="neurotransmitter" value="Tyramine; Acetylcholine; Glutamate"/>
             <instance id="0">
                 <location x="3.5" y="-260.899999999999977" z="39."/>
@@ -629,7 +629,7 @@ Parameters and setting used to generate this network:
         <population id="RIMR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
-            <property tag="receptor" value="SER-4; DOP-1; MOD-1"/>
+            <property tag="receptor" value="DOP-1; MOD-1; SER-4"/>
             <property tag="neurotransmitter" value="Tyramine; Acetylcholine; Glutamate"/>
             <instance id="0">
                 <location x="-7.75" y="-260.899999999999977" z="39."/>
@@ -638,7 +638,7 @@ Parameters and setting used to generate this network:
         <population id="RIVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
-            <property tag="receptor" value="NPR-4; NPR-1"/>
+            <property tag="receptor" value="NPR-1; NPR-4"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="4.5" y="-265.300020000000018" z="50.350000000000001"/>
@@ -647,7 +647,7 @@ Parameters and setting used to generate this network:
         <population id="RIVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
-            <property tag="receptor" value="NPR-4; NPR-1"/>
+            <property tag="receptor" value="NPR-1; NPR-4"/>
             <property tag="neurotransmitter" value=""/>
             <property tag="OpenWormBackerAssignedName" value="Wil Wheaton"/>
             <instance id="0">
@@ -657,7 +657,7 @@ Parameters and setting used to generate this network:
         <population id="RMDDL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
+            <property tag="receptor" value="GLR-1; LGC-55; SER-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="3.6" y="-269.074979999999982" z="37.649999999999999"/>
@@ -666,7 +666,7 @@ Parameters and setting used to generate this network:
         <population id="RMDDR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
+            <property tag="receptor" value="GLR-1; LGC-55; SER-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-7.75" y="-269.074979999999982" z="37.649999999999999"/>
@@ -675,7 +675,7 @@ Parameters and setting used to generate this network:
         <population id="RMDL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
+            <property tag="receptor" value="GLR-1; LGC-55; SER-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="3.1" y="-271." z="41.200000000000003"/>
@@ -684,7 +684,7 @@ Parameters and setting used to generate this network:
         <population id="RMDR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
+            <property tag="receptor" value="GLR-1; LGC-55; SER-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-7.4" y="-271." z="41.200000000000003"/>
@@ -693,7 +693,7 @@ Parameters and setting used to generate this network:
         <population id="RMDVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
+            <property tag="receptor" value="GLR-1; LGC-55; SER-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="4.8500004" y="-271.199979999999982" z="44.399999999999999"/>
@@ -702,7 +702,7 @@ Parameters and setting used to generate this network:
         <population id="RMDVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-1; GLR-1; LGC-55"/>
+            <property tag="receptor" value="GLR-1; LGC-55; SER-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-9.049999" y="-271.199979999999982" z="44.399999999999999"/>
@@ -711,7 +711,7 @@ Parameters and setting used to generate this network:
         <population id="RMED" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
+            <property tag="receptor" value="AVR-15; GLR-1; MOD-1; NTR-2; PDFR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.5" y="-275.75" z="58.499996000000003"/>
@@ -720,7 +720,7 @@ Parameters and setting used to generate this network:
         <population id="RMEL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
+            <property tag="receptor" value="AVR-15; GLR-1; MOD-1; NTR-2; PDFR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="4.65" y="-274.399999999999977" z="46.987000000000002"/>
@@ -729,7 +729,7 @@ Parameters and setting used to generate this network:
         <population id="RMER" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
+            <property tag="receptor" value="AVR-15; GLR-1; MOD-1; NTR-2; PDFR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-8.900001" y="-274.399999999999977" z="46.987000000000002"/>
@@ -738,7 +738,7 @@ Parameters and setting used to generate this network:
         <population id="RMEV" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="GLR-1; NTR-2; SER-2; PDFR-1; AVR-15; MOD-1"/>
+            <property tag="receptor" value="AVR-15; GLR-1; MOD-1; NTR-2; PDFR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-2.033" y="-272.966999999999985" z="35.667000000000002"/>
@@ -830,7 +830,7 @@ Parameters and setting used to generate this network:
         <population id="SMDDL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NTR-2; LGC-55"/>
+            <property tag="receptor" value="LGC-55; NTR-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="3.25" y="-266.25" z="34.100000000000001"/>
@@ -839,7 +839,7 @@ Parameters and setting used to generate this network:
         <population id="SMDDR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NTR-2; LGC-55"/>
+            <property tag="receptor" value="LGC-55; NTR-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-7.4500003" y="-266.25" z="34.100000000000001"/>
@@ -848,7 +848,7 @@ Parameters and setting used to generate this network:
         <population id="SMDVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NTR-2; LGC-55"/>
+            <property tag="receptor" value="LGC-55; NTR-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="4.7" y="-270.949999999999989" z="46.649999999999999"/>
@@ -857,7 +857,7 @@ Parameters and setting used to generate this network:
         <population id="SMDVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NTR-2; LGC-55"/>
+            <property tag="receptor" value="LGC-55; NTR-2"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-8.900001" y="-270.949999999999989" z="46.649999999999999"/>
@@ -865,7 +865,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="akizzles"/>
@@ -875,7 +875,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URADR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -884,7 +884,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -893,7 +893,7 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URAVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
+            <property tag="type" value="motor; sensory"/>
             <property tag="receptor" value=""/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
@@ -903,7 +903,7 @@ Parameters and setting used to generate this network:
         <population id="VA1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.35" y="-235.550000000000011" z="11.75"/>
@@ -912,7 +912,7 @@ Parameters and setting used to generate this network:
         <population id="VA10" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="254.625020000000006" z="-21.25"/>
@@ -921,7 +921,7 @@ Parameters and setting used to generate this network:
         <population id="VA11" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.55" y="312.350000000000023" z="-26.249998000000001"/>
@@ -930,7 +930,7 @@ Parameters and setting used to generate this network:
         <population id="VA12" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-0.1" y="362.449999999999989" z="-18.149999999999999"/>
@@ -939,7 +939,7 @@ Parameters and setting used to generate this network:
         <population id="VA2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Marquam Hill"/>
             <instance id="0">
@@ -949,7 +949,7 @@ Parameters and setting used to generate this network:
         <population id="VA3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.475" y="-184.099989999999991" z="-26.374998000000001"/>
@@ -958,7 +958,7 @@ Parameters and setting used to generate this network:
         <population id="VA4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-119.500010000000003" z="-58.700000000000003"/>
@@ -967,7 +967,7 @@ Parameters and setting used to generate this network:
         <population id="VA5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-54.299999999999997" z="-66.049994999999996"/>
@@ -976,7 +976,7 @@ Parameters and setting used to generate this network:
         <population id="VA6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="21.550000000000001" z="-41.149999999999999"/>
@@ -985,7 +985,7 @@ Parameters and setting used to generate this network:
         <population id="VA7" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="98.049994999999996" z="1.175"/>
@@ -994,7 +994,7 @@ Parameters and setting used to generate this network:
         <population id="VA8" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8" y="150.300000000000011" z="3.4"/>
@@ -1003,7 +1003,7 @@ Parameters and setting used to generate this network:
         <population id="VA9" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8" y="208.824999999999989" z="-9.049999"/>
@@ -1011,8 +1011,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
             <instance id="0">
@@ -1021,8 +1021,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB10" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="218.074980000000011" z="-11.4"/>
@@ -1030,8 +1030,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB11" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8249999" y="262.324999999999989" z="-21.949999999999999"/>
@@ -1039,8 +1039,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
             <instance id="0">
@@ -1049,8 +1049,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
             <instance id="0">
@@ -1059,8 +1059,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Worm"/>
             <instance id="0">
@@ -1069,8 +1069,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-109.549999999999997" z="-62.149999999999999"/>
@@ -1078,8 +1078,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-36.575000000000003" z="-62.699997000000003"/>
@@ -1087,8 +1087,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB7" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-9.675000000000001" y="41.450000000000003" z="-24.361999999999998"/>
@@ -1096,8 +1096,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB8" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.8249999" y="108.799999999999997" z="2.875"/>
@@ -1105,8 +1105,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB9" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="159.550000000000011" z="3.2"/>
@@ -1172,7 +1172,7 @@ Parameters and setting used to generate this network:
         <population id="VD1" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <property tag="OpenWormBackerAssignedName" value="Ackley Lab"/>
             <instance id="0">
@@ -1182,7 +1182,7 @@ Parameters and setting used to generate this network:
         <population id="VD10" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="236.099999999999994" z="-16.5"/>
@@ -1191,7 +1191,7 @@ Parameters and setting used to generate this network:
         <population id="VD11" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="283.800020000000018" z="-24.800000000000001"/>
@@ -1200,7 +1200,7 @@ Parameters and setting used to generate this network:
         <population id="VD12" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="345.5" z="-23.149999999999999"/>
@@ -1209,7 +1209,7 @@ Parameters and setting used to generate this network:
         <population id="VD13" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="379.850000000000023" z="-10.75"/>
@@ -1218,7 +1218,7 @@ Parameters and setting used to generate this network:
         <population id="VD2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.65000004" y="-226.049990000000008" z="2.35"/>
@@ -1227,7 +1227,7 @@ Parameters and setting used to generate this network:
         <population id="VD3" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="-188.099999999999994" z="-23.449999999999999"/>
@@ -1236,7 +1236,7 @@ Parameters and setting used to generate this network:
         <population id="VD4" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="-137.199999999999989" z="-52.700000000000003"/>
@@ -1245,7 +1245,7 @@ Parameters and setting used to generate this network:
         <population id="VD5" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="-68.299999999999997" z="-66.75"/>
@@ -1254,7 +1254,7 @@ Parameters and setting used to generate this network:
         <population id="VD6" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.70000005" y="-1.4000001" z="-52.149997999999997"/>
@@ -1263,7 +1263,7 @@ Parameters and setting used to generate this network:
         <population id="VD7" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; MOD-1; DOP-3; NPR-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-12.349999" y="57.950000000000003" z="-14.200001"/>
@@ -1272,7 +1272,7 @@ Parameters and setting used to generate this network:
         <population id="VD8" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.75" y="135.099989999999991" z="3.9500003"/>
@@ -1281,7 +1281,7 @@ Parameters and setting used to generate this network:
         <population id="VD9" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="191.5" z="-3.8"/>
@@ -1290,571 +1290,571 @@ Parameters and setting used to generate this network:
         <population id="MDR01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-270." z="80."/>
+                <location x="-80." y="-270." z="80."/>
             </instance>
         </population>
         <population id="MDR02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-240." z="80."/>
+                <location x="-80." y="-240." z="80."/>
             </instance>
         </population>
         <population id="MDR03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-210." z="80."/>
+                <location x="-80." y="-210." z="80."/>
             </instance>
         </population>
         <population id="MDR04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-180." z="80."/>
+                <location x="-80." y="-180." z="80."/>
             </instance>
         </population>
         <population id="MDR05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-150." z="80."/>
+                <location x="-80." y="-150." z="80."/>
             </instance>
         </population>
         <population id="MDR06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-120." z="80."/>
+                <location x="-80." y="-120." z="80."/>
             </instance>
         </population>
         <population id="MDR07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-90." z="80."/>
+                <location x="-80." y="-90." z="80."/>
             </instance>
         </population>
         <population id="MDR08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-60." z="80."/>
+                <location x="-80." y="-60." z="80."/>
             </instance>
         </population>
         <population id="MDR09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-30." z="80."/>
+                <location x="-80." y="-30." z="80."/>
             </instance>
         </population>
         <population id="MDR10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="0." z="80."/>
+                <location x="-80." y="0." z="80."/>
             </instance>
         </population>
         <population id="MDR11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="30." z="80."/>
+                <location x="-80." y="30." z="80."/>
             </instance>
         </population>
         <population id="MDR12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="60." z="80."/>
+                <location x="-80." y="60." z="80."/>
             </instance>
         </population>
         <population id="MDR13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="90." z="80."/>
+                <location x="-80." y="90." z="80."/>
             </instance>
         </population>
         <population id="MDR14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="120." z="80."/>
+                <location x="-80." y="120." z="80."/>
             </instance>
         </population>
         <population id="MDR15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="150." z="80."/>
+                <location x="-80." y="150." z="80."/>
             </instance>
         </population>
         <population id="MDR16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="180." z="80."/>
+                <location x="-80." y="180." z="80."/>
             </instance>
         </population>
         <population id="MDR17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="210." z="80."/>
+                <location x="-80." y="210." z="80."/>
             </instance>
         </population>
         <population id="MDR18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="240." z="80."/>
+                <location x="-80." y="240." z="80."/>
             </instance>
         </population>
         <population id="MDR19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="270." z="80."/>
+                <location x="-80." y="270." z="80."/>
             </instance>
         </population>
         <population id="MDR20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="300." z="80."/>
+                <location x="-80." y="300." z="80."/>
             </instance>
         </population>
         <population id="MDR21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="330." z="80."/>
+                <location x="-80." y="330." z="80."/>
             </instance>
         </population>
         <population id="MDR22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="360." z="80."/>
+                <location x="-80." y="360." z="80."/>
             </instance>
         </population>
         <population id="MDR23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="390." z="80."/>
+                <location x="-80." y="390." z="80."/>
             </instance>
         </population>
         <population id="MDR24" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="420." z="80."/>
+                <location x="-80." y="420." z="80."/>
             </instance>
         </population>
         <population id="MVR01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-270." z="80."/>
+                <location x="-80." y="-270." z="-80."/>
             </instance>
         </population>
         <population id="MVR02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-240." z="80."/>
+                <location x="-80." y="-240." z="-80."/>
             </instance>
         </population>
         <population id="MVR03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-210." z="80."/>
+                <location x="-80." y="-210." z="-80."/>
             </instance>
         </population>
         <population id="MVR04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-180." z="80."/>
+                <location x="-80." y="-180." z="-80."/>
             </instance>
         </population>
         <population id="MVR05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-150." z="80."/>
+                <location x="-80." y="-150." z="-80."/>
             </instance>
         </population>
         <population id="MVR06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-120." z="80."/>
+                <location x="-80." y="-120." z="-80."/>
             </instance>
         </population>
         <population id="MVR07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-90." z="80."/>
+                <location x="-80." y="-90." z="-80."/>
             </instance>
         </population>
         <population id="MVR08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-60." z="80."/>
+                <location x="-80." y="-60." z="-80."/>
             </instance>
         </population>
         <population id="MVR09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-30." z="80."/>
+                <location x="-80." y="-30." z="-80."/>
             </instance>
         </population>
         <population id="MVR10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="0." z="80."/>
+                <location x="-80." y="0." z="-80."/>
             </instance>
         </population>
         <population id="MVR11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="30." z="80."/>
+                <location x="-80." y="30." z="-80."/>
             </instance>
         </population>
         <population id="MVR12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="60." z="80."/>
+                <location x="-80." y="60." z="-80."/>
             </instance>
         </population>
         <population id="MVR13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="90." z="80."/>
+                <location x="-80." y="90." z="-80."/>
             </instance>
         </population>
         <population id="MVR14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="120." z="80."/>
+                <location x="-80." y="120." z="-80."/>
             </instance>
         </population>
         <population id="MVR15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="150." z="80."/>
+                <location x="-80." y="150." z="-80."/>
             </instance>
         </population>
         <population id="MVR16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="180." z="80."/>
+                <location x="-80." y="180." z="-80."/>
             </instance>
         </population>
         <population id="MVR17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="210." z="80."/>
+                <location x="-80." y="210." z="-80."/>
             </instance>
         </population>
         <population id="MVR18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="240." z="80."/>
+                <location x="-80." y="240." z="-80."/>
             </instance>
         </population>
         <population id="MVR19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="270." z="80."/>
+                <location x="-80." y="270." z="-80."/>
             </instance>
         </population>
         <population id="MVR20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="300." z="80."/>
+                <location x="-80." y="300." z="-80."/>
             </instance>
         </population>
         <population id="MVR21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="330." z="80."/>
+                <location x="-80." y="330." z="-80."/>
             </instance>
         </population>
         <population id="MVR22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="360." z="80."/>
+                <location x="-80." y="360." z="-80."/>
             </instance>
         </population>
         <population id="MVR23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="390." z="80."/>
+                <location x="-80." y="390." z="-80."/>
             </instance>
         </population>
         <population id="MVL01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-270." z="-80."/>
+                <location x="80." y="-270." z="-80."/>
             </instance>
         </population>
         <population id="MVL02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-240." z="-80."/>
+                <location x="80." y="-240." z="-80."/>
             </instance>
         </population>
         <population id="MVL03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-210." z="-80."/>
+                <location x="80." y="-210." z="-80."/>
             </instance>
         </population>
         <population id="MVL04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-180." z="-80."/>
+                <location x="80." y="-180." z="-80."/>
             </instance>
         </population>
         <population id="MVL05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-150." z="-80."/>
+                <location x="80." y="-150." z="-80."/>
             </instance>
         </population>
         <population id="MVL06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-120." z="-80."/>
+                <location x="80." y="-120." z="-80."/>
             </instance>
         </population>
         <population id="MVL07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-90." z="-80."/>
+                <location x="80." y="-90." z="-80."/>
             </instance>
         </population>
         <population id="MVL08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-60." z="-80."/>
+                <location x="80." y="-60." z="-80."/>
             </instance>
         </population>
         <population id="MVL09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="-30." z="-80."/>
+                <location x="80." y="-30." z="-80."/>
             </instance>
         </population>
         <population id="MVL10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="0." z="-80."/>
+                <location x="80." y="0." z="-80."/>
             </instance>
         </population>
         <population id="MVL11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="30." z="-80."/>
+                <location x="80." y="30." z="-80."/>
             </instance>
         </population>
         <population id="MVL12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="60." z="-80."/>
+                <location x="80." y="60." z="-80."/>
             </instance>
         </population>
         <population id="MVL13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="90." z="-80."/>
+                <location x="80." y="90." z="-80."/>
             </instance>
         </population>
         <population id="MVL14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="120." z="-80."/>
+                <location x="80." y="120." z="-80."/>
             </instance>
         </population>
         <population id="MVL15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="150." z="-80."/>
+                <location x="80." y="150." z="-80."/>
             </instance>
         </population>
         <population id="MVL16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="180." z="-80."/>
+                <location x="80." y="180." z="-80."/>
             </instance>
         </population>
         <population id="MVL17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="210." z="-80."/>
+                <location x="80." y="210." z="-80."/>
             </instance>
         </population>
         <population id="MVL18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="240." z="-80."/>
+                <location x="80." y="240." z="-80."/>
             </instance>
         </population>
         <population id="MVL19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="270." z="-80."/>
+                <location x="80." y="270." z="-80."/>
             </instance>
         </population>
         <population id="MVL20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="300." z="-80."/>
+                <location x="80." y="300." z="-80."/>
             </instance>
         </population>
         <population id="MVL21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="330." z="-80."/>
+                <location x="80." y="330." z="-80."/>
             </instance>
         </population>
         <population id="MVL22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="360." z="-80."/>
+                <location x="80." y="360." z="-80."/>
             </instance>
         </population>
         <population id="MVL23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="390." z="-80."/>
+                <location x="80." y="390." z="-80."/>
             </instance>
         </population>
         <population id="MVL24" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="-80." y="420." z="-80."/>
+                <location x="80." y="420." z="-80."/>
             </instance>
         </population>
         <population id="MDL01" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-270." z="-80."/>
+                <location x="80." y="-270." z="80."/>
             </instance>
         </population>
         <population id="MDL02" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-240." z="-80."/>
+                <location x="80." y="-240." z="80."/>
             </instance>
         </population>
         <population id="MDL03" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-210." z="-80."/>
+                <location x="80." y="-210." z="80."/>
             </instance>
         </population>
         <population id="MDL04" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-180." z="-80."/>
+                <location x="80." y="-180." z="80."/>
             </instance>
         </population>
         <population id="MDL05" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-150." z="-80."/>
+                <location x="80." y="-150." z="80."/>
             </instance>
         </population>
         <population id="MDL06" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-120." z="-80."/>
+                <location x="80." y="-120." z="80."/>
             </instance>
         </population>
         <population id="MDL07" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-90." z="-80."/>
+                <location x="80." y="-90." z="80."/>
             </instance>
         </population>
         <population id="MDL08" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-60." z="-80."/>
+                <location x="80." y="-60." z="80."/>
             </instance>
         </population>
         <population id="MDL09" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="-30." z="-80."/>
+                <location x="80." y="-30." z="80."/>
             </instance>
         </population>
         <population id="MDL10" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="0." z="-80."/>
+                <location x="80." y="0." z="80."/>
             </instance>
         </population>
         <population id="MDL11" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="30." z="-80."/>
+                <location x="80." y="30." z="80."/>
             </instance>
         </population>
         <population id="MDL12" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="60." z="-80."/>
+                <location x="80." y="60." z="80."/>
             </instance>
         </population>
         <population id="MDL13" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="90." z="-80."/>
+                <location x="80." y="90." z="80."/>
             </instance>
         </population>
         <population id="MDL14" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="120." z="-80."/>
+                <location x="80." y="120." z="80."/>
             </instance>
         </population>
         <population id="MDL15" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="150." z="-80."/>
+                <location x="80." y="150." z="80."/>
             </instance>
         </population>
         <population id="MDL16" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="180." z="-80."/>
+                <location x="80." y="180." z="80."/>
             </instance>
         </population>
         <population id="MDL17" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="210." z="-80."/>
+                <location x="80." y="210." z="80."/>
             </instance>
         </population>
         <population id="MDL18" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="240." z="-80."/>
+                <location x="80." y="240." z="80."/>
             </instance>
         </population>
         <population id="MDL19" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="270." z="-80."/>
+                <location x="80." y="270." z="80."/>
             </instance>
         </population>
         <population id="MDL20" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="300." z="-80."/>
+                <location x="80." y="300." z="80."/>
             </instance>
         </population>
         <population id="MDL21" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="330." z="-80."/>
+                <location x="80." y="330." z="80."/>
             </instance>
         </population>
         <population id="MDL22" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="360." z="-80."/>
+                <location x="80." y="360." z="80."/>
             </instance>
         </population>
         <population id="MDL23" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="390." z="-80."/>
+                <location x="80." y="390." z="80."/>
             </instance>
         </population>
         <population id="MDL24" component="generic_muscle_iaf_cell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
-                <location x="80." y="420." z="-80."/>
+                <location x="80." y="420." z="80."/>
             </instance>
         </population>
         <projection id="NC_AS1_DA1_Acetylcholine" presynapticPopulation="AS1" postsynapticPopulation="DA1" synapse="neuron_to_neuron_exc_syn">
@@ -6690,5 +6690,11 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VC1_VD1_Generic_GJ" presynapticPopulation="VC1" postsynapticPopulation="VD1">
             <electricalConnectionInstanceW id="0" preCell="../VC1/0/generic_neuron_iaf_cell" preSegment="0" preFractionAlong="0.5" postCell="../VD1/0/generic_neuron_iaf_cell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
+        <inputList id="Input_AVBL_offset_current" population="AVBL" component="offset_current">
+            <input id="0" target="../AVBL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AVBR_offset_current" population="AVBR" component="offset_current">
+            <input id="0" target="../AVBR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
     </network>
 </neuroml>

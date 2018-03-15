@@ -14,39 +14,39 @@ Parameters and setting used to generate this network:
     Muscles:                        []
 
     Known BioParameters:
-        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_length = 10 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: resistivity = 3 kohm_cm (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_spike_thresh = -26 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_spike_thresh = -26 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_cond_density = 4 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_slow_cond_density = 1.8333751019872582 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_fast_cond_density = 0.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_fast_cond_density = 0.0711643917483308 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_ca_boyle_cond_density = 4 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_ca_boyle_cond_density = 1.6862775772264702 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_boyle_erev = 40 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_decay_time = 11.5943 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.000238919 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 1 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_exc_syn_rise = 1 ms (SRC: Bli ndGuess, certainty 0.1)
+        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_exc_syn_decay = 5 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 3 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 3 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 1 ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: chem_inh_syn_rise = 2 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: chem_inh_syn_decay = 40 ms (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -45 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_fast_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -60 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_boyle_cond_density = 2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_fast_cond_density = 0.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 4 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 0.005 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_spike_thresh = -26 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_boyle_cond_density = 2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_fast_cond_density = 0.2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.02 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_spike_thresh = -26 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = .01 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 3 nS (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = .01 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 3 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.0005 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: resistivity = 12 kohm_cm (SRC: BlindGuess, certainty 0.1)
+        BioParameter: specific_capacitance = 1 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
         BioParameter: unphysiological_offset_current = 5 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 0 ms (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2000 ms (SRC: KnownError, certainty 0)
@@ -61,37 +61,28 @@ Parameters and setting used to generate this network:
     <include href="cells/RMHR_D.cell.nml"></include>
     <include href="cells/URXR_D.cell.nml"></include>
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
-    <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="1 nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
+    <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase=".01 nS" erev="0 mV" tauDecay="5 ms" tauRise="1 ms"/>
     <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.0005 nS"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
-            <segment id="0" name="soma0">
+            <segment id="0" name="soma">
                 <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="5"/>
-                <distal x="0.000000e+00" y="1.000000e+01" z="0.000000e+00" diameter="5"/>
-            </segment>
-            <segment id="1" name="soma1">
-                <parent segment="0" fractionAlong="1"/>
-                <proximal x="0.000000e+00" y="1.000000e+01" z="0.000000e+00" diameter="5"/>
                 <distal x="0.000000e+00" y="2.000000e+01" z="0.000000e+00" diameter="5"/>
             </segment>
-            <segmentGroup id="all">
-                <member segment="0"/>
-                <member segment="1"/>
-            </segmentGroup>
         </morphology>
         <biophysicalProperties id="biophys_GenericMuscleCell">
             <membraneProperties>
                 <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.005 mS_per_cm2" erev="-50 mV" ion="non_specific"/>
                 <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="4 mS_per_cm2" erev="-60 mV" ion="k"/>
                 <channelDensity id="k_fast_all" ionChannel="k_fast" condDensity="0.2 mS_per_cm2" erev="-60 mV" ion="k"/>
-                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="4 mS_per_cm2" erev="40 mV" ion="ca"/>
+                <channelDensity id="ca_boyle_all" ionChannel="ca_boyle" condDensity="2 mS_per_cm2" erev="40 mV" ion="ca"/>
                 <spikeThresh value="-26 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
                 <initMembPotential value="-45 mV"/>
             </membraneProperties>
             <intracellularProperties>
                 <species id="ca" concentrationModel="CaPool" ion="ca" initialConcentration="0 mM" initialExtConcentration="2E-6 mol_per_cm3"/>
-                <resistivity value="3 kohm_cm"/>
+                <resistivity value="12 kohm_cm"/>
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
@@ -107,7 +98,7 @@ Parameters and setting used to generate this network:
         <population id="ASHR" component="ASHR" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
-            <property tag="receptor" value="TMC-1; OSM-9; NTR-2; UNC-8; NTR-1; SER-5; OCTR-1; DOP-4; SRA-6; TRPA-1; OCR-2; TYRA-2; DCAR-1; SRB-6; NPR-2; SER-3; NPR-1"/>
+            <property tag="receptor" value="DCAR-1; DOP-4; NPR-1; NPR-2; NTR-1; NTR-2; OCR-2; OCTR-1; OSM-9; SER-3; SER-5; SRA-6; SRB-6; TMC-1; TRPA-1; TYRA-2; UNC-8"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <instance id="0">
                 <location x="0." y="0." z="0."/>
@@ -116,7 +107,7 @@ Parameters and setting used to generate this network:
         <population id="ASKR" component="ASKR" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
-            <property tag="receptor" value="SRG-8; NPR-5; DOP-3; DAF-11; SRG-2; SRA-7; TYRA-3; OSM-9; SRA-9"/>
+            <property tag="receptor" value="DAF-11; DOP-3; NPR-5; OSM-9; SRA-7; SRA-9; SRG-2; SRG-8; TYRA-3"/>
             <property tag="neurotransmitter" value="Glutamate"/>
             <property tag="OpenWormBackerAssignedName" value="Z.B."/>
             <instance id="0">
@@ -126,7 +117,7 @@ Parameters and setting used to generate this network:
         <population id="AWBR" component="AWBR" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
-            <property tag="receptor" value="STR-1; DAF-11; SER-5; SER-6; AEX-2; NPR-5"/>
+            <property tag="receptor" value="AEX-2; DAF-11; NPR-5; SER-5; SER-6; STR-1"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="0." y="0." z="0."/>
@@ -135,7 +126,7 @@ Parameters and setting used to generate this network:
         <population id="IL2R" component="IL2R" size="1" type="populationList">
             <property tag="color" value="1 .2 1"/>
             <property tag="type" value="sensory"/>
-            <property tag="receptor" value="DES-2; LGC-53; NPR-5; NPR-1"/>
+            <property tag="receptor" value="DES-2; LGC-53; NPR-1; NPR-5"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="0." y="0." z="0."/>
@@ -163,8 +154,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="URXR" component="URXR" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
-            <property tag="type" value="sensory; interneuron"/>
-            <property tag="receptor" value="GCY-1; GCY-25; GCY-37; GCY-36; GCY-35; GCY-32; GCY-34; SRA-10; PDFR-1; NPR-1"/>
+            <property tag="type" value="interneuron; sensory"/>
+            <property tag="receptor" value="GCY-1; GCY-25; GCY-32; GCY-34; GCY-35; GCY-36; GCY-37; NPR-1; PDFR-1; SRA-10"/>
             <property tag="neurotransmitter" value=""/>
             <instance id="0">
                 <location x="0." y="0." z="0."/>

@@ -14,7 +14,7 @@ def setup(parameter_set,
     exec('from parameters_%s import ParameterisedModel'%parameter_set, globals())
     params = ParameterisedModel()
     
-    params.set_bioparameter("unphysiological_offset_current", "2pA", "Testing Osc", "0")
+    #params.set_bioparameter("unphysiological_offset_current", "2pA", "Testing Osc", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "10 ms", "Testing Osc", "0")
     params.set_bioparameter("unphysiological_offset_current_dur", "2500 ms", "Testing Osc", "0")
     
@@ -35,6 +35,7 @@ def setup(parameter_set,
              'VD1', 'VD10', 'VD11', 'VD2', 'VD3', 'VD4', 'VD5', 'VD6', 'VD7', 'VD8', 'VD9']
     
     cells = ['DB3', 'VB3', 'DD3', 'VD3', 'DB4', 'VB4', 'DD4', 'VD4']
+    
     cells = ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3']
     cells += ['DA2', 'VA2','DA3','VA3']
     #cells = ['DB3', 'VB3', 'DB4', 'VB4']
@@ -42,14 +43,14 @@ def setup(parameter_set,
     #cells+=['AVBL','PVCL','AVBR','PVCR']
     #cells+=[]
     #cells+=['PVCL', 'PVCR','AVBL','AVBR']
-    cells+=['PLML', 'PLMR','AVAL','AVAR']
-    #cells+=['AVBL','AVBR']
+    #cells+=['PLML', 'PLMR','AVAL','AVAR']
+    cells+=['AVBL','AVBR']
     #cells=None  # implies all cells...     
     
     
     #cells_to_stimulate = ['PVCL','PVCR']
-    cells_to_stimulate = ['PLML','PLMR']
-    #cells_to_stimulate = ['AVBL','AVBR']
+    #cells_to_stimulate = ['PLML','PLMR']
+    cells_to_stimulate = ['AVBL','AVBR']
     #cells_to_stimulate = ['AVBL']
     
     # Plot some directly stimulated & some not stimulated

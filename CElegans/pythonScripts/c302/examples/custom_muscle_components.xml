@@ -37,7 +37,7 @@
             <timeCourse type="fixedTimeCourse" tau="30 ms"/>
             <steadyState type="MuscleSigmoidVariable" rate="1" scale="6.859 mV" midpoint="10.237 mV"/>
 
-        </gateHHtauInf>-->s
+        </gateHHtauInf>-->
 
     </ionChannel>
 

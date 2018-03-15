@@ -5,8 +5,8 @@ Parameters and setting used to generate this network:
 
     Data reader:                    SpreadsheetDataReader
     c302 version:                   0.5.0
-    Cells:                          ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3', 'DA2', 'VA2', 'DA3', 'VA3', 'PLML', 'PLMR', 'AVAL', 'AVAR']
-    Cell stimulated:                ['PLML', 'PLMR']
+    Cells:                          ['DB2', 'VB2', 'DD2', 'VD2', 'DB3', 'VB3', 'DD3', 'VD3', 'DA2', 'VA2', 'DA3', 'VA3', 'AVBL', 'AVBR']
+    Cell stimulated:                ['AVBL', 'AVBR']
     Connection:                     []
     Connection numbers overridden:  None
     Connection numbers scaled:      None
@@ -14,42 +14,42 @@ Parameters and setting used to generate this network:
     Muscles:                        []
 
     Known BioParameters:
-        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_specific_capacitance = .6860 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_specific_capacitance = 5 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: initial_memb_pot = -64 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_leak_cond_density = 0.00105 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_leak_cond_density = 0.1 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_k_slow_cond_density = 0.24491 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_k_slow_cond_density = 0.1 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: muscle_ca_simple_cond_density = 0.1953 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_ca_simple_cond_density = .2 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: leak_erev = -64 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: k_slow_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: ca_simple_erev = 60 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_decay_time = 20 ms (SRC: BlindGuess, certainty 0.1)
         BioParameter: ca_conc_rho = 0.0002 mol_per_m_per_A_per_s (SRC: BlindGuess, certainty 0.1)
-        BioParameter: global_connectivity_power_scaling = 0 (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_exc_syn_conductance = 25 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_exc_syn_conductance = 25 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_ar = .5 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: ca_simple_erev = 50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: cell_diameter = 5 (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_ad = 20 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_ar = .5 per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_beta = 0.25 per_mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: exc_syn_vth = -35 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: exc_syn_erev = 0 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_inh_syn_conductance = 260 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.25 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_ar = .005 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: exc_syn_vth = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: global_connectivity_power_scaling = 0 (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_ad = 10 per_s (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_ar = .005 per_s (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_beta = 0.5 per_mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: inh_syn_vth = -55 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: inh_syn_erev = -90 mV (SRC: BlindGuess, certainty 0.1)
-        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.05 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: inh_syn_vth = -25 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: initial_memb_pot = -50 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: k_slow_erev = -80 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: leak_erev = -44 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_ca_simple_cond_density = 0.25 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_k_slow_cond_density = 0.3 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_leak_cond_density = 0.00105 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_length = 20 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_specific_capacitance = .6860 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_ca_simple_cond_density = 0.06 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_k_slow_cond_density = 0.1 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_leak_cond_density = 0.05 mS_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_specific_capacitance = 5 uF_per_cm2 (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_spike_thresh = -20 mV (SRC: BlindGuess, certainty 0.1)
         BioParameter: neuron_to_muscle_elec_syn_gbase = 0.0001 nS (SRC: BlindGuess, certainty 0.1)
-        BioParameter: unphysiological_offset_current = 2pA (SRC: Testing Osc, certainty 0)
+        BioParameter: neuron_to_muscle_exc_syn_conductance = 13 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_inh_syn_conductance = 0.25 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0.05 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_exc_syn_conductance = 5 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_inh_syn_conductance = 260 nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 5 pA (SRC: KnownError, certainty 0)
         BioParameter: unphysiological_offset_current_del = 10 ms (SRC: Testing Osc, certainty 0)
         BioParameter: unphysiological_offset_current_dur = 2500 ms (SRC: Testing Osc, certainty 0)
 
@@ -59,8 +59,8 @@ Parameters and setting used to generate this network:
     <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="20 ms" rho="0.0002 mol_per_m_per_A_per_s"/>
     <gapJunction id="neuron_to_neuron_elec_syn" conductance="0.05 nS"/>
     <silentSynapse id="silent"/>
-    <gradedSynapse2 id="neuron_to_neuron_exc_syn" conductance="25 nS" ar=".5 per_s" ad="20 per_s" beta="0.25 per_mV" vth="-35 mV" erev="0 mV"/>
-    <gradedSynapse2 id="neuron_to_neuron_inh_syn" conductance="260 nS" ar=".005 per_s" ad="10 per_s" beta="0.5 per_mV" vth="-55 mV" erev="-90 mV"/>
+    <gradedSynapse2 id="neuron_to_neuron_exc_syn" conductance="5 nS" ar=".5 per_s" ad="20 per_s" beta="0.25 per_mV" vth="-20 mV" erev="0 mV"/>
+    <gradedSynapse2 id="neuron_to_neuron_inh_syn" conductance="260 nS" ar=".005 per_s" ad="10 per_s" beta="0.5 per_mV" vth="-25 mV" erev="-90 mV"/>
     <cell id="GenericMuscleCell">
         <morphology id="morphology_GenericMuscleCell">
             <segment id="0" name="soma">
@@ -70,12 +70,12 @@ Parameters and setting used to generate this network:
         </morphology>
         <biophysicalProperties id="biophys_GenericMuscleCell">
             <membraneProperties>
-                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.00105 mS_per_cm2" erev="-64 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.24491 mS_per_cm2" erev="-90 mV" ion="k"/>
-                <channelDensity id="ca_simple_all" ionChannel="ca_simple" condDensity="0.1953 mS_per_cm2" erev="60 mV" ion="ca"/>
+                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.00105 mS_per_cm2" erev="-44 mV" ion="non_specific"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.3 mS_per_cm2" erev="-80 mV" ion="k"/>
+                <channelDensity id="ca_simple_all" ionChannel="ca_simple" condDensity="0.25 mS_per_cm2" erev="50 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value=".6860 uF_per_cm2"/>
-                <initMembPotential value="-64 mV"/>
+                <initMembPotential value="-50 mV"/>
             </membraneProperties>
             <intracellularProperties>
                 <species id="ca" concentrationModel="CaPool" ion="ca" initialConcentration="0 mM" initialExtConcentration="2E-6 mol_per_cm3"/>
@@ -92,12 +92,12 @@ Parameters and setting used to generate this network:
         </morphology>
         <biophysicalProperties id="biophys_GenericNeuronCell">
             <membraneProperties>
-                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.1 mS_per_cm2" erev="-64 mV" ion="non_specific"/>
-                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.1 mS_per_cm2" erev="-90 mV" ion="k"/>
-                <channelDensity id="ca_simple_all" ionChannel="ca_simple" condDensity=".2 mS_per_cm2" erev="60 mV" ion="ca"/>
+                <channelDensity id="Leak_all" ionChannel="Leak" condDensity="0.05 mS_per_cm2" erev="-44 mV" ion="non_specific"/>
+                <channelDensity id="k_slow_all" ionChannel="k_slow" condDensity="0.1 mS_per_cm2" erev="-80 mV" ion="k"/>
+                <channelDensity id="ca_simple_all" ionChannel="ca_simple" condDensity="0.06 mS_per_cm2" erev="50 mV" ion="ca"/>
                 <spikeThresh value="-20 mV"/>
                 <specificCapacitance value="5 uF_per_cm2"/>
-                <initMembPotential value="-64 mV"/>
+                <initMembPotential value="-50 mV"/>
             </membraneProperties>
             <intracellularProperties>
                 <species id="ca" concentrationModel="CaPool" ion="ca" initialConcentration="0 mM" initialExtConcentration="2E-6 mol_per_cm3"/>
@@ -105,31 +105,31 @@ Parameters and setting used to generate this network:
             </intracellularProperties>
         </biophysicalProperties>
     </cell>
-    <pulseGenerator id="offset_current" delay="10 ms" duration="2500 ms" amplitude="2pA"/>
+    <pulseGenerator id="offset_current" delay="10 ms" duration="2500 ms" amplitude="5 pA"/>
     <network id="c302_C0_Oscillator">
-        <population id="AVAL" component="GenericNeuronCell" size="1" type="populationList">
+        <population id="AVBL" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-4; GLR-2; GLR-1; UNC-8; GGR-3; NPR-4; NMR-1; NMR-2"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-5; LGC-55; SRA-11; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
-            <property tag="OpenWormBackerAssignedName" value="JUD"/>
             <instance id="0">
-                <location x="-0.55" y="-271.5" z="37.982999999999997"/>
+                <location x="0.225" y="-269.793999999999983" z="37.863002999999999"/>
             </instance>
         </population>
-        <population id="AVAR" component="GenericNeuronCell" size="1" type="populationList">
+        <population id="AVBR" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value="1 0 .4"/>
             <property tag="type" value="interneuron"/>
-            <property tag="receptor" value="GLR-5; GLR-4; GLR-2; GLR-1; UNC-8; GGR-3; NPR-4; NMR-1; NMR-2"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-5; LGC-55; SRA-11; UNC-8"/>
             <property tag="neurotransmitter" value=""/>
+            <property tag="OpenWormBackerAssignedName" value="mn"/>
             <instance id="0">
-                <location x="-3.5" y="-271.5" z="37.982999999999997"/>
+                <location x="-4.581" y="-269.793999999999983" z="37.863002999999999"/>
             </instance>
         </population>
         <population id="DA2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; UNC-8; NPR-3; DOP-3; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ruzila"/>
             <instance id="0">
@@ -139,7 +139,7 @@ Parameters and setting used to generate this network:
         <population id="DA3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; DOP-1; UNC-8; NPR-3; CKR-2; SER-2"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; SER-2; UNC-8"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Magoo"/>
             <instance id="0">
@@ -149,7 +149,7 @@ Parameters and setting used to generate this network:
         <population id="DB2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; PDFR-1; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3; PDFR-1"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-0.2" y="-244.5" z="15.787000000000001"/>
@@ -158,7 +158,7 @@ Parameters and setting used to generate this network:
         <population id="DB3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-195.275000000000006" z="-18.524999999999999"/>
@@ -167,7 +167,7 @@ Parameters and setting used to generate this network:
         <population id="DD2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <property tag="OpenWormBackerAssignedName" value="Evolver"/>
             <instance id="0">
@@ -177,36 +177,16 @@ Parameters and setting used to generate this network:
         <population id="DD3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-1.9" y="-28.600002" z="-60.524999999999999"/>
             </instance>
         </population>
-        <population id="PLML" component="GenericNeuronCell" size="1" type="populationList">
-            <property tag="color" value="1 .2 1"/>
-            <property tag="type" value="sensory"/>
-            <property tag="receptor" value="DOP-1; DES-2; GLR-8; MEC-2; MEC-6; MEC-4; MEC-9; PDFR-1; DEG-3"/>
-            <property tag="neurotransmitter" value="Glutamate"/>
-            <property tag="OpenWormBackerAssignedName" value="Isaac Spear"/>
-            <instance id="0">
-                <location x="2.5" y="410.149999999999977" z="8.175000000000001"/>
-            </instance>
-        </population>
-        <population id="PLMR" component="GenericNeuronCell" size="1" type="populationList">
-            <property tag="color" value="1 .2 1"/>
-            <property tag="type" value="sensory"/>
-            <property tag="receptor" value="DOP-1; DES-2; GLR-8; MEC-2; MEC-6; MEC-4; MEC-9; PDFR-1; DEG-3"/>
-            <property tag="neurotransmitter" value="Glutamate"/>
-            <property tag="OpenWormBackerAssignedName" value="Altman"/>
-            <instance id="0">
-                <location x="-3.675" y="410.149999999999977" z="8.175000000000001"/>
-            </instance>
-        </population>
         <population id="VA2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; LGC-53; DOP-3; NPR-3; DOP-1"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Marquam Hill"/>
             <instance id="0">
@@ -216,7 +196,7 @@ Parameters and setting used to generate this network:
         <population id="VA3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1; LGC-53"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; LGC-53; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.475" y="-184.099989999999991" z="-26.374998000000001"/>
@@ -224,8 +204,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="DOP-3; CKR-2; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Bloodgood"/>
             <instance id="0">
@@ -234,8 +214,8 @@ Parameters and setting used to generate this network:
         </population>
         <population id="VB3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="sensory; motor"/>
-            <property tag="receptor" value="CKR-2; DOP-3; NPR-3; DOP-1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <property tag="OpenWormBackerAssignedName" value="Ramez Naam"/>
             <instance id="0">
@@ -245,7 +225,7 @@ Parameters and setting used to generate this network:
         <population id="VD2" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.65000004" y="-226.049990000000008" z="2.35"/>
@@ -254,47 +234,47 @@ Parameters and setting used to generate this network:
         <population id="VD3" component="GenericNeuronCell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
-            <property tag="receptor" value="SER-2; NPR-1; DOP-3; MOD-1"/>
+            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
             <property tag="neurotransmitter" value="GABA"/>
             <instance id="0">
                 <location x="-0.8" y="-188.099999999999994" z="-23.449999999999999"/>
             </instance>
         </population>
-        <electricalProjection id="NC_AVAL_AVAR_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="AVAR">
-            <electricalConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBL_AVBR_Generic_GJ" presynapticPopulation="AVBL" postsynapticPopulation="AVBR">
+            <electricalConnectionInstanceW id="0" preCell="../AVBL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_AVAL_DA2_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="DA2">
-            <electricalConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBL_DB3_Generic_GJ" presynapticPopulation="AVBL" postsynapticPopulation="DB3">
+            <electricalConnectionInstanceW id="0" preCell="../AVBL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DB3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_AVAL_VA2_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="VA2">
-            <electricalConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBL_VB2_Generic_GJ" presynapticPopulation="AVBL" postsynapticPopulation="VB2">
+            <electricalConnectionInstanceW id="0" preCell="../AVBL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VB2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_AVAL_VA3_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="VA3">
-            <electricalConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBR_AVBL_Generic_GJ" presynapticPopulation="AVBR" postsynapticPopulation="AVBL">
+            <electricalConnectionInstanceW id="0" preCell="../AVBR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_AVAR_AVAL_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="AVAL">
-            <electricalConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBR_DB2_Generic_GJ" presynapticPopulation="AVBR" postsynapticPopulation="DB2">
+            <electricalConnectionInstanceW id="0" preCell="../AVBR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DB2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_AVAR_DA2_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="DA2">
-            <electricalConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBR_DB3_Generic_GJ" presynapticPopulation="AVBR" postsynapticPopulation="DB3">
+            <electricalConnectionInstanceW id="0" preCell="../AVBR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DB3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_AVAR_DA3_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="DA3">
-            <electricalConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBR_VB2_Generic_GJ" presynapticPopulation="AVBR" postsynapticPopulation="VB2">
+            <electricalConnectionInstanceW id="0" preCell="../AVBR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VB2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_AVAR_VA3_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="VA3">
-            <electricalConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_AVBR_VB3_Generic_GJ" presynapticPopulation="AVBR" postsynapticPopulation="VB3">
+            <electricalConnectionInstanceW id="0" preCell="../AVBR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VB3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_DA2_AVAL_Generic_GJ" presynapticPopulation="DA2" postsynapticPopulation="AVAL">
-            <electricalConnectionInstanceW id="0" preCell="../DA2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
-        </electricalProjection>
-        <electricalProjection id="NC_DA2_AVAR_Generic_GJ" presynapticPopulation="DA2" postsynapticPopulation="AVAR">
-            <electricalConnectionInstanceW id="0" preCell="../DA2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
-        </electricalProjection>
-        <electricalProjection id="NC_DA3_AVAR_Generic_GJ" presynapticPopulation="DA3" postsynapticPopulation="AVAR">
-            <electricalConnectionInstanceW id="0" preCell="../DA3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_DB2_AVBR_Generic_GJ" presynapticPopulation="DB2" postsynapticPopulation="AVBR">
+            <electricalConnectionInstanceW id="0" preCell="../DB2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
         <electricalProjection id="NC_DB2_DB3_Generic_GJ" presynapticPopulation="DB2" postsynapticPopulation="DB3">
             <electricalConnectionInstanceW id="0" preCell="../DB2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DB3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB3_AVBL_Generic_GJ" presynapticPopulation="DB3" postsynapticPopulation="AVBL">
+            <electricalConnectionInstanceW id="0" preCell="../DB3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        </electricalProjection>
+        <electricalProjection id="NC_DB3_AVBR_Generic_GJ" presynapticPopulation="DB3" postsynapticPopulation="AVBR">
+            <electricalConnectionInstanceW id="0" preCell="../DB3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
         <electricalProjection id="NC_DB3_DB2_Generic_GJ" presynapticPopulation="DB3" postsynapticPopulation="DB2">
             <electricalConnectionInstanceW id="0" preCell="../DB3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DB2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
@@ -314,56 +294,38 @@ Parameters and setting used to generate this network:
         <electricalProjection id="NC_VD3_VD2_Generic_GJ" presynapticPopulation="VD3" postsynapticPopulation="VD2">
             <electricalConnectionInstanceW id="0" preCell="../VD3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VD2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_VA2_AVAL_Generic_GJ" presynapticPopulation="VA2" postsynapticPopulation="AVAL">
-            <electricalConnectionInstanceW id="0" preCell="../VA2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
-        </electricalProjection>
         <electricalProjection id="NC_VA2_VD2_Generic_GJ" presynapticPopulation="VA2" postsynapticPopulation="VD2">
             <electricalConnectionInstanceW id="0" preCell="../VA2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VD2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_VA3_AVAL_Generic_GJ" presynapticPopulation="VA3" postsynapticPopulation="AVAL">
-            <electricalConnectionInstanceW id="0" preCell="../VA3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_VB2_AVBL_Generic_GJ" presynapticPopulation="VB2" postsynapticPopulation="AVBL">
+            <electricalConnectionInstanceW id="0" preCell="../VB2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <electricalProjection id="NC_VA3_AVAR_Generic_GJ" presynapticPopulation="VA3" postsynapticPopulation="AVAR">
-            <electricalConnectionInstanceW id="0" preCell="../VA3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        <electricalProjection id="NC_VB2_AVBR_Generic_GJ" presynapticPopulation="VB2" postsynapticPopulation="AVBR">
+            <electricalConnectionInstanceW id="0" preCell="../VB2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
         <electricalProjection id="NC_VB2_VB3_Generic_GJ" presynapticPopulation="VB2" postsynapticPopulation="VB3">
             <electricalConnectionInstanceW id="0" preCell="../VB2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VB3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
+        <electricalProjection id="NC_VB3_AVBR_Generic_GJ" presynapticPopulation="VB3" postsynapticPopulation="AVBR">
+            <electricalConnectionInstanceW id="0" preCell="../VB3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
+        </electricalProjection>
         <electricalProjection id="NC_VB3_VB2_Generic_GJ" presynapticPopulation="VB3" postsynapticPopulation="VB2">
             <electricalConnectionInstanceW id="0" preCell="../VB3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VB2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="1."/>
         </electricalProjection>
-        <continuousProjection id="NC_AVAL_AVAR_FMRFamide" presynapticPopulation="AVAL" postsynapticPopulation="AVAR">
-            <continuousConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
+        <continuousProjection id="NC_AVBL_AVBR_Glutamate" presynapticPopulation="AVBL" postsynapticPopulation="AVBR">
+            <continuousConnectionInstanceW id="0" preCell="../AVBL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
-        <continuousProjection id="NC_AVAL_DA2_FMRFamide" presynapticPopulation="AVAL" postsynapticPopulation="DA2">
-            <continuousConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
+        <continuousProjection id="NC_AVBL_VA2_Glutamate" presynapticPopulation="AVBL" postsynapticPopulation="VA2">
+            <continuousConnectionInstanceW id="0" preCell="../AVBL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
-        <continuousProjection id="NC_AVAL_DA3_FMRFamide" presynapticPopulation="AVAL" postsynapticPopulation="DA3">
-            <continuousConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
+        <continuousProjection id="NC_AVBL_VB2_Glutamate" presynapticPopulation="AVBL" postsynapticPopulation="VB2">
+            <continuousConnectionInstanceW id="0" preCell="../AVBL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VB2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
-        <continuousProjection id="NC_AVAL_VA2_FMRFamide" presynapticPopulation="AVAL" postsynapticPopulation="VA2">
-            <continuousConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
+        <continuousProjection id="NC_AVBR_AVBL_Glutamate" presynapticPopulation="AVBR" postsynapticPopulation="AVBL">
+            <continuousConnectionInstanceW id="0" preCell="../AVBR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVBL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
-        <continuousProjection id="NC_AVAL_VA3_FMRFamide" presynapticPopulation="AVAL" postsynapticPopulation="VA3">
-            <continuousConnectionInstanceW id="0" preCell="../AVAL/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_AVAR_AVAL_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="AVAL">
-            <continuousConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_AVAR_DA2_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="DA2">
-            <continuousConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_AVAR_DA3_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="DA3">
-            <continuousConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_AVAR_DB3_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="DB3">
-            <continuousConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DB3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_AVAR_VA2_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="VA2">
-            <continuousConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_AVAR_VA3_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="VA3">
-            <continuousConnectionInstanceW id="0" preCell="../AVAR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
+        <continuousProjection id="NC_AVBR_VD3_Glutamate" presynapticPopulation="AVBR" postsynapticPopulation="VD3">
+            <continuousConnectionInstanceW id="0" preCell="../AVBR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VD3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
         <continuousProjection id="NC_DA2_VD2_Acetylcholine" presynapticPopulation="DA2" postsynapticPopulation="VD2">
             <continuousConnectionInstanceW id="0" preCell="../DA2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VD2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
@@ -413,15 +375,6 @@ Parameters and setting used to generate this network:
         <continuousProjection id="NC_VD3_VB2_GABA" presynapticPopulation="VD3" postsynapticPopulation="VB2">
             <continuousConnectionInstanceW id="0" preCell="../VD3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VB2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_inh_syn" weight="1."/>
         </continuousProjection>
-        <continuousProjection id="NC_PLMR_AVAL_Glutamate" presynapticPopulation="PLMR" postsynapticPopulation="AVAL">
-            <continuousConnectionInstanceW id="0" preCell="../PLMR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_PLMR_AVAR_Glutamate" presynapticPopulation="PLMR" postsynapticPopulation="AVAR">
-            <continuousConnectionInstanceW id="0" preCell="../PLMR/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAR/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
-        <continuousProjection id="NC_VA2_AVAL_Acetylcholine" presynapticPopulation="VA2" postsynapticPopulation="AVAL">
-            <continuousConnectionInstanceW id="0" preCell="../VA2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
-        </continuousProjection>
         <continuousProjection id="NC_VA2_VA3_Acetylcholine" presynapticPopulation="VA2" postsynapticPopulation="VA3">
             <continuousConnectionInstanceW id="0" preCell="../VA2/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../VA3/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
@@ -452,11 +405,11 @@ Parameters and setting used to generate this network:
         <continuousProjection id="NC_VB3_DD2_Acetylcholine" presynapticPopulation="VB3" postsynapticPopulation="DD2">
             <continuousConnectionInstanceW id="0" preCell="../VB3/0/GenericNeuronCell" preSegment="0" preFractionAlong="0.5" postCell="../DD2/0/GenericNeuronCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_neuron_exc_syn" weight="1."/>
         </continuousProjection>
-        <inputList id="Input_PLML_offset_current" population="PLML" component="offset_current">
-            <input id="0" target="../PLML/0/GenericNeuronCell" destination="synapses"/>
+        <inputList id="Input_AVBL_offset_current" population="AVBL" component="offset_current">
+            <input id="0" target="../AVBL/0/GenericNeuronCell" destination="synapses"/>
         </inputList>
-        <inputList id="Input_PLMR_offset_current" population="PLMR" component="offset_current">
-            <input id="0" target="../PLMR/0/GenericNeuronCell" destination="synapses"/>
+        <inputList id="Input_AVBR_offset_current" population="AVBR" component="offset_current">
+            <input id="0" target="../AVBR/0/GenericNeuronCell" destination="synapses"/>
         </inputList>
     </network>
 </neuroml>
