@@ -292,7 +292,7 @@ def get_muscle_names():
     names = []
     for i in range(24):
         names.append("%s%s"%(quadrant0, i+1 if i>8 else ("0%i"%(i+1))))
-    for i in range(23):
+    for i in range(24):
         names.append("%s%s"%(quadrant1, i+1 if i>8 else ("0%i"%(i+1))))
     for i in range(24):
         names.append("%s%s"%(quadrant2, i+1 if i>8 else ("0%i"%(i+1))))

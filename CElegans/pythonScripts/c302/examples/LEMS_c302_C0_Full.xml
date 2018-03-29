@@ -143,54 +143,55 @@ Parameters and setting used to generate this network:
             <Line id="MVR21" quantity="MVR21/0/GenericMuscleCell/v" scale="1mV" color="#d700dc" timeScale="1ms" />
             <Line id="MVR22" quantity="MVR22/0/GenericMuscleCell/v" scale="1mV" color="#94fce5" timeScale="1ms" />
             <Line id="MVR23" quantity="MVR23/0/GenericMuscleCell/v" scale="1mV" color="#27194d" timeScale="1ms" />
-            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/v" scale="1mV" color="#bfebb0" timeScale="1ms" />
-            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/v" scale="1mV" color="#716070" timeScale="1ms" />
-            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/v" scale="1mV" color="#780027" timeScale="1ms" />
-            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/v" scale="1mV" color="#e55118" timeScale="1ms" />
-            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/v" scale="1mV" color="#ddbd74" timeScale="1ms" />
-            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/v" scale="1mV" color="#0028e4" timeScale="1ms" />
-            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/v" scale="1mV" color="#f1e22e" timeScale="1ms" />
-            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/v" scale="1mV" color="#727992" timeScale="1ms" />
-            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/v" scale="1mV" color="#1bbcdb" timeScale="1ms" />
-            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/v" scale="1mV" color="#f1a2df" timeScale="1ms" />
-            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/v" scale="1mV" color="#7f6e1c" timeScale="1ms" />
-            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/v" scale="1mV" color="#374f2c" timeScale="1ms" />
-            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/v" scale="1mV" color="#4136f0" timeScale="1ms" />
-            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/v" scale="1mV" color="#60c4a7" timeScale="1ms" />
-            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/v" scale="1mV" color="#97d275" timeScale="1ms" />
-            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/v" scale="1mV" color="#955bfb" timeScale="1ms" />
-            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/v" scale="1mV" color="#9db4c8" timeScale="1ms" />
-            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/v" scale="1mV" color="#e2f3cc" timeScale="1ms" />
-            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/v" scale="1mV" color="#1f515c" timeScale="1ms" />
-            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/v" scale="1mV" color="#d6004e" timeScale="1ms" />
-            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/v" scale="1mV" color="#a6b833" timeScale="1ms" />
-            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/v" scale="1mV" color="#899ff8" timeScale="1ms" />
-            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/v" scale="1mV" color="#cc7f7b" timeScale="1ms" />
-            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/v" scale="1mV" color="#acb773" timeScale="1ms" />
-            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/v" scale="1mV" color="#00a55c" timeScale="1ms" />
-            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/v" scale="1mV" color="#61c58b" timeScale="1ms" />
-            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/v" scale="1mV" color="#545c83" timeScale="1ms" />
-            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/v" scale="1mV" color="#987761" timeScale="1ms" />
-            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/v" scale="1mV" color="#1900f0" timeScale="1ms" />
-            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/v" scale="1mV" color="#2d7a96" timeScale="1ms" />
-            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/v" scale="1mV" color="#d7f07e" timeScale="1ms" />
-            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/v" scale="1mV" color="#99843f" timeScale="1ms" />
-            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/v" scale="1mV" color="#f28f3f" timeScale="1ms" />
-            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/v" scale="1mV" color="#3a00a0" timeScale="1ms" />
-            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/v" scale="1mV" color="#ae6188" timeScale="1ms" />
-            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/v" scale="1mV" color="#5b51bd" timeScale="1ms" />
-            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/v" scale="1mV" color="#876a22" timeScale="1ms" />
-            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/v" scale="1mV" color="#cc968d" timeScale="1ms" />
-            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/v" scale="1mV" color="#243234" timeScale="1ms" />
-            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/v" scale="1mV" color="#93f143" timeScale="1ms" />
-            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/v" scale="1mV" color="#e5ff5f" timeScale="1ms" />
-            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/v" scale="1mV" color="#79d723" timeScale="1ms" />
-            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/v" scale="1mV" color="#c26e17" timeScale="1ms" />
-            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/v" scale="1mV" color="#c9e037" timeScale="1ms" />
-            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/v" scale="1mV" color="#36928c" timeScale="1ms" />
-            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/v" scale="1mV" color="#7300f9" timeScale="1ms" />
-            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/v" scale="1mV" color="#c84a00" timeScale="1ms" />
-            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/v" scale="1mV" color="#a52a00" timeScale="1ms" />
+            <Line id="MVR24" quantity="MVR24/0/GenericMuscleCell/v" scale="1mV" color="#bfebb0" timeScale="1ms" />
+            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/v" scale="1mV" color="#716070" timeScale="1ms" />
+            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/v" scale="1mV" color="#780027" timeScale="1ms" />
+            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/v" scale="1mV" color="#e55118" timeScale="1ms" />
+            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/v" scale="1mV" color="#ddbd74" timeScale="1ms" />
+            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/v" scale="1mV" color="#0028e4" timeScale="1ms" />
+            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/v" scale="1mV" color="#f1e22e" timeScale="1ms" />
+            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/v" scale="1mV" color="#727992" timeScale="1ms" />
+            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/v" scale="1mV" color="#1bbcdb" timeScale="1ms" />
+            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/v" scale="1mV" color="#f1a2df" timeScale="1ms" />
+            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/v" scale="1mV" color="#7f6e1c" timeScale="1ms" />
+            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/v" scale="1mV" color="#374f2c" timeScale="1ms" />
+            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/v" scale="1mV" color="#4136f0" timeScale="1ms" />
+            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/v" scale="1mV" color="#60c4a7" timeScale="1ms" />
+            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/v" scale="1mV" color="#97d275" timeScale="1ms" />
+            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/v" scale="1mV" color="#955bfb" timeScale="1ms" />
+            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/v" scale="1mV" color="#9db4c8" timeScale="1ms" />
+            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/v" scale="1mV" color="#e2f3cc" timeScale="1ms" />
+            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/v" scale="1mV" color="#1f515c" timeScale="1ms" />
+            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/v" scale="1mV" color="#d6004e" timeScale="1ms" />
+            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/v" scale="1mV" color="#a6b833" timeScale="1ms" />
+            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/v" scale="1mV" color="#899ff8" timeScale="1ms" />
+            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/v" scale="1mV" color="#cc7f7b" timeScale="1ms" />
+            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/v" scale="1mV" color="#acb773" timeScale="1ms" />
+            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/v" scale="1mV" color="#00a55c" timeScale="1ms" />
+            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/v" scale="1mV" color="#61c58b" timeScale="1ms" />
+            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/v" scale="1mV" color="#545c83" timeScale="1ms" />
+            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/v" scale="1mV" color="#987761" timeScale="1ms" />
+            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/v" scale="1mV" color="#1900f0" timeScale="1ms" />
+            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/v" scale="1mV" color="#2d7a96" timeScale="1ms" />
+            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/v" scale="1mV" color="#d7f07e" timeScale="1ms" />
+            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/v" scale="1mV" color="#99843f" timeScale="1ms" />
+            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/v" scale="1mV" color="#f28f3f" timeScale="1ms" />
+            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/v" scale="1mV" color="#3a00a0" timeScale="1ms" />
+            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/v" scale="1mV" color="#ae6188" timeScale="1ms" />
+            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/v" scale="1mV" color="#5b51bd" timeScale="1ms" />
+            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/v" scale="1mV" color="#876a22" timeScale="1ms" />
+            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/v" scale="1mV" color="#cc968d" timeScale="1ms" />
+            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/v" scale="1mV" color="#243234" timeScale="1ms" />
+            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/v" scale="1mV" color="#93f143" timeScale="1ms" />
+            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/v" scale="1mV" color="#e5ff5f" timeScale="1ms" />
+            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/v" scale="1mV" color="#79d723" timeScale="1ms" />
+            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/v" scale="1mV" color="#c26e17" timeScale="1ms" />
+            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/v" scale="1mV" color="#c9e037" timeScale="1ms" />
+            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/v" scale="1mV" color="#36928c" timeScale="1ms" />
+            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/v" scale="1mV" color="#7300f9" timeScale="1ms" />
+            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/v" scale="1mV" color="#c84a00" timeScale="1ms" />
+            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/v" scale="1mV" color="#a52a00" timeScale="1ms" />
+            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/v" scale="1mV" color="#e81371" timeScale="1ms" />
 
         </Display>
       
@@ -260,54 +261,55 @@ Parameters and setting used to generate this network:
             <Line id="MVR21" quantity="MVR21/0/GenericMuscleCell/caConc" scale="1" color="#75eace" timeScale="1ms" />
             <Line id="MVR22" quantity="MVR22/0/GenericMuscleCell/caConc" scale="1" color="#9400ac" timeScale="1ms" />
             <Line id="MVR23" quantity="MVR23/0/GenericMuscleCell/caConc" scale="1" color="#c7d560" timeScale="1ms" />
-            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/caConc" scale="1" color="#f947bd" timeScale="1ms" />
-            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/caConc" scale="1" color="#7000ce" timeScale="1ms" />
-            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/caConc" scale="1" color="#cb2bcf" timeScale="1ms" />
-            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/caConc" scale="1" color="#89ca91" timeScale="1ms" />
-            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/caConc" scale="1" color="#00597c" timeScale="1ms" />
-            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/caConc" scale="1" color="#26c6ce" timeScale="1ms" />
-            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/caConc" scale="1" color="#0065e3" timeScale="1ms" />
-            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/caConc" scale="1" color="#73a3e0" timeScale="1ms" />
-            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/caConc" scale="1" color="#b4f75b" timeScale="1ms" />
-            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/caConc" scale="1" color="#2e2610" timeScale="1ms" />
-            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/caConc" scale="1" color="#ec9437" timeScale="1ms" />
-            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/caConc" scale="1" color="#50aa00" timeScale="1ms" />
-            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/caConc" scale="1" color="#c3f993" timeScale="1ms" />
-            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/caConc" scale="1" color="#8ed53a" timeScale="1ms" />
-            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/caConc" scale="1" color="#9a00ce" timeScale="1ms" />
-            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/caConc" scale="1" color="#97ae82" timeScale="1ms" />
-            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/caConc" scale="1" color="#98967a" timeScale="1ms" />
-            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/caConc" scale="1" color="#6afb22" timeScale="1ms" />
-            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/caConc" scale="1" color="#d369f6" timeScale="1ms" />
-            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/caConc" scale="1" color="#8a6a9e" timeScale="1ms" />
-            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/caConc" scale="1" color="#fb00b2" timeScale="1ms" />
-            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/caConc" scale="1" color="#26db00" timeScale="1ms" />
-            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/caConc" scale="1" color="#119688" timeScale="1ms" />
-            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/caConc" scale="1" color="#4c7f7b" timeScale="1ms" />
-            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/caConc" scale="1" color="#d3f414" timeScale="1ms" />
-            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/caConc" scale="1" color="#f7f08a" timeScale="1ms" />
-            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/caConc" scale="1" color="#94d184" timeScale="1ms" />
-            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/caConc" scale="1" color="#71ecac" timeScale="1ms" />
-            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/caConc" scale="1" color="#819657" timeScale="1ms" />
-            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/caConc" scale="1" color="#ff293f" timeScale="1ms" />
-            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/caConc" scale="1" color="#cbde4d" timeScale="1ms" />
-            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/caConc" scale="1" color="#49968a" timeScale="1ms" />
-            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/caConc" scale="1" color="#9c8aed" timeScale="1ms" />
-            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/caConc" scale="1" color="#27939c" timeScale="1ms" />
-            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/caConc" scale="1" color="#1a488d" timeScale="1ms" />
-            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/caConc" scale="1" color="#45ea4a" timeScale="1ms" />
-            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/caConc" scale="1" color="#dbe44c" timeScale="1ms" />
-            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/caConc" scale="1" color="#ca9d84" timeScale="1ms" />
-            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/caConc" scale="1" color="#355000" timeScale="1ms" />
-            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/caConc" scale="1" color="#9ba948" timeScale="1ms" />
-            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/caConc" scale="1" color="#7e1b3b" timeScale="1ms" />
-            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/caConc" scale="1" color="#00d491" timeScale="1ms" />
-            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/caConc" scale="1" color="#4718bc" timeScale="1ms" />
-            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/caConc" scale="1" color="#c621db" timeScale="1ms" />
-            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/caConc" scale="1" color="#fe59ab" timeScale="1ms" />
-            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/caConc" scale="1" color="#6e2bad" timeScale="1ms" />
-            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/caConc" scale="1" color="#00508a" timeScale="1ms" />
-            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/caConc" scale="1" color="#72ae42" timeScale="1ms" />
+            <Line id="MVR24" quantity="MVR24/0/GenericMuscleCell/caConc" scale="1" color="#f947bd" timeScale="1ms" />
+            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/caConc" scale="1" color="#7000ce" timeScale="1ms" />
+            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/caConc" scale="1" color="#cb2bcf" timeScale="1ms" />
+            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/caConc" scale="1" color="#89ca91" timeScale="1ms" />
+            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/caConc" scale="1" color="#00597c" timeScale="1ms" />
+            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/caConc" scale="1" color="#26c6ce" timeScale="1ms" />
+            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/caConc" scale="1" color="#0065e3" timeScale="1ms" />
+            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/caConc" scale="1" color="#73a3e0" timeScale="1ms" />
+            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/caConc" scale="1" color="#b4f75b" timeScale="1ms" />
+            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/caConc" scale="1" color="#2e2610" timeScale="1ms" />
+            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/caConc" scale="1" color="#ec9437" timeScale="1ms" />
+            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/caConc" scale="1" color="#50aa00" timeScale="1ms" />
+            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/caConc" scale="1" color="#c3f993" timeScale="1ms" />
+            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/caConc" scale="1" color="#8ed53a" timeScale="1ms" />
+            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/caConc" scale="1" color="#9a00ce" timeScale="1ms" />
+            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/caConc" scale="1" color="#97ae82" timeScale="1ms" />
+            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/caConc" scale="1" color="#98967a" timeScale="1ms" />
+            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/caConc" scale="1" color="#6afb22" timeScale="1ms" />
+            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/caConc" scale="1" color="#d369f6" timeScale="1ms" />
+            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/caConc" scale="1" color="#8a6a9e" timeScale="1ms" />
+            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/caConc" scale="1" color="#fb00b2" timeScale="1ms" />
+            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/caConc" scale="1" color="#26db00" timeScale="1ms" />
+            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/caConc" scale="1" color="#119688" timeScale="1ms" />
+            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/caConc" scale="1" color="#4c7f7b" timeScale="1ms" />
+            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/caConc" scale="1" color="#d3f414" timeScale="1ms" />
+            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/caConc" scale="1" color="#f7f08a" timeScale="1ms" />
+            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/caConc" scale="1" color="#94d184" timeScale="1ms" />
+            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/caConc" scale="1" color="#71ecac" timeScale="1ms" />
+            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/caConc" scale="1" color="#819657" timeScale="1ms" />
+            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/caConc" scale="1" color="#ff293f" timeScale="1ms" />
+            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/caConc" scale="1" color="#cbde4d" timeScale="1ms" />
+            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/caConc" scale="1" color="#49968a" timeScale="1ms" />
+            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/caConc" scale="1" color="#9c8aed" timeScale="1ms" />
+            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/caConc" scale="1" color="#27939c" timeScale="1ms" />
+            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/caConc" scale="1" color="#1a488d" timeScale="1ms" />
+            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/caConc" scale="1" color="#45ea4a" timeScale="1ms" />
+            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/caConc" scale="1" color="#dbe44c" timeScale="1ms" />
+            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/caConc" scale="1" color="#ca9d84" timeScale="1ms" />
+            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/caConc" scale="1" color="#355000" timeScale="1ms" />
+            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/caConc" scale="1" color="#9ba948" timeScale="1ms" />
+            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/caConc" scale="1" color="#7e1b3b" timeScale="1ms" />
+            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/caConc" scale="1" color="#00d491" timeScale="1ms" />
+            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/caConc" scale="1" color="#4718bc" timeScale="1ms" />
+            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/caConc" scale="1" color="#c621db" timeScale="1ms" />
+            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/caConc" scale="1" color="#fe59ab" timeScale="1ms" />
+            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/caConc" scale="1" color="#6e2bad" timeScale="1ms" />
+            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/caConc" scale="1" color="#00508a" timeScale="1ms" />
+            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/caConc" scale="1" color="#72ae42" timeScale="1ms" />
+            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/caConc" scale="1" color="#45296a" timeScale="1ms" />
 
         </Display>
 
@@ -968,6 +970,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="MVR21_v" quantity="MVR21/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVR22_v" quantity="MVR22/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVR23_v" quantity="MVR23/0/GenericMuscleCell/v"/>
+            <OutputColumn id="MVR24_v" quantity="MVR24/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVL01_v" quantity="MVL01/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVL02_v" quantity="MVL02/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVL03_v" quantity="MVL03/0/GenericMuscleCell/v"/>
@@ -1065,6 +1068,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="MVR21_v" quantity="MVR21/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVR22_v" quantity="MVR22/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVR23_v" quantity="MVR23/0/GenericMuscleCell/caConc"/>
+            <OutputColumn id="MVR24_v" quantity="MVR24/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVL01_v" quantity="MVL01/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVL02_v" quantity="MVL02/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVL03_v" quantity="MVL03/0/GenericMuscleCell/caConc"/>
