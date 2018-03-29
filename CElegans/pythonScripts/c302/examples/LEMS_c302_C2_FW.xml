@@ -54,7 +54,13 @@ Parameters and setting used to generate this network:
         BioParameter: AVBR_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: AVBR_to_VD3_exc_syn_conductance = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB1_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB1_to_DB2_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDL06_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDL08_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB1_to_MDL09_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -63,8 +69,14 @@ Parameters and setting used to generate this network:
         BioParameter: DB1_to_VB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB2_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB1_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB2_to_DB3_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDL09_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDL10_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB2_to_MDL11_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -75,8 +87,14 @@ Parameters and setting used to generate this network:
         BioParameter: DB2_to_VB4_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB3_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB2_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB3_to_DB4_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_DD3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_MDL11_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB3_to_MDL12_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -88,8 +106,14 @@ Parameters and setting used to generate this network:
         BioParameter: DB3_to_VB6_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB4_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB3_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB4_to_DB5_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_DD3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_MDL13_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB4_to_MDL14_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -101,8 +125,14 @@ Parameters and setting used to generate this network:
         BioParameter: DB4_to_MDR16_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB5_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB4_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB5_to_DB6_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDL14_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDL15_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB5_to_MDL16_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -117,8 +147,14 @@ Parameters and setting used to generate this network:
         BioParameter: DB5_to_MDR19_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB6_to_DB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB5_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_ad = 18 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_ar = 0.08 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_beta = 0.21 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_conductance = 20 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB6_to_DB7_exc_syn_vth = -10 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDL16_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDL17_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB6_to_MDL18_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -133,7 +169,7 @@ Parameters and setting used to generate this network:
         BioParameter: DB6_to_MDR21_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: DB7_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: DB7_to_DB6_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
         BioParameter: DB7_to_MDL19_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_MDL20_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: DB7_to_MDL21_exc_syn_conductance = 0.4 nS (SRC: Add with param_overrides, certainty 0)
@@ -160,8 +196,14 @@ Parameters and setting used to generate this network:
         BioParameter: VB10_to_MVR20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB10_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB10_to_MVR22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB11_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB10_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB11_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB10_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
         BioParameter: VB10_to_VD11_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB10_to_VD12_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB11_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
@@ -172,12 +214,18 @@ Parameters and setting used to generate this network:
         BioParameter: VB11_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB11_to_MVR22_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB11_to_MVR23_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB11_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB11_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
         BioParameter: VB1_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB1_to_MVL07_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB1_to_MVR07_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB1_to_MVR09_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB1_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB1_to_VB2_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVL08_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -187,9 +235,15 @@ Parameters and setting used to generate this network:
         BioParameter: VB2_to_MVR08_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVR10_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB2_to_MVR11_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB1_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB2_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB1_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB3_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB2_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
         BioParameter: VB3_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_DB1_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVL10_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -200,8 +254,14 @@ Parameters and setting used to generate this network:
         BioParameter: VB3_to_MVR11_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVR12_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB3_to_MVR13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB3_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB3_to_VB4_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_DB2_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
@@ -210,9 +270,9 @@ Parameters and setting used to generate this network:
         BioParameter: VB4_to_MVR12_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_MVR13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_MVR14_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB4_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB2_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB3_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB4_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
         BioParameter: VB4_to_VB5_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_VB5_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB4_to_VB5_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
@@ -228,8 +288,14 @@ Parameters and setting used to generate this network:
         BioParameter: VB5_to_MVR13_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB5_to_MVR14_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB5_to_MVR15_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB5_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB4_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB5_to_VB6_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_DB3_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
@@ -238,8 +304,14 @@ Parameters and setting used to generate this network:
         BioParameter: VB6_to_MVR14_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_MVR15_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB6_to_MVR16_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB6_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB5_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB6_to_VB7_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVL16_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -248,8 +320,14 @@ Parameters and setting used to generate this network:
         BioParameter: VB7_to_MVR16_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVR17_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB7_to_MVR18_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB7_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB6_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB7_to_VB8_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVL18_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -258,8 +336,14 @@ Parameters and setting used to generate this network:
         BioParameter: VB8_to_MVR18_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVR19_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB8_to_MVR20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB8_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB7_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB8_to_VB9_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_AVBL_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_AVBR_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVL19_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
@@ -268,8 +352,14 @@ Parameters and setting used to generate this network:
         BioParameter: VB9_to_MVR19_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVR20_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VB9_to_MVR21_exc_syn_conductance = 0.6 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
-        BioParameter: VB9_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_ad = 73 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_ar = 0.19 per_s (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_beta = 2.81 per_mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_conductance = 18 nS (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_erev = 10 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB10_exc_syn_vth = -22 mV (SRC: Add with param_overrides, certainty 0)
+        BioParameter: VB9_to_VB8_elec_syn_gbase = 0.001 nS (SRC: Set with param_overrides, certainty 0)
         BioParameter: VD11_to_VB10_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VD12_to_VB10_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
         BioParameter: VD2_to_MDL09_elec_syn_gbase = 0 nS (SRC: Add with param_overrides, certainty 0)
@@ -358,9 +448,9 @@ Parameters and setting used to generate this network:
     <!-- End of NeuroML2 content -->
     
 
-    <Simulation id="sim_c302_C2_FW" length="2000ms" step="0.05ms" target="c302_C2_FW">
+    <Simulation id="sim_c302_C2_FW" length="5000ms" step="0.05ms" target="c302_C2_FW">
 
-        <Display id="neurons" title="c302_C2_FW: Membrane potential of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-60" ymax="25">
+        <Display id="neurons" title="c302_C2_FW: Membrane potential of a number of neurons" timeScale="1ms" xmin="-500.0" xmax="5500.0" ymin="-60" ymax="25">
             
             <Line id="AVBL" quantity="AVBL/0/GenericNeuronCell/v" scale="1mV" color="#8b779a" timeScale="1ms" />
             <Line id="AVBR" quantity="AVBR/0/GenericNeuronCell/v" scale="1mV" color="#ef7488" timeScale="1ms" />
@@ -404,7 +494,7 @@ Parameters and setting used to generate this network:
             
         </Display>
       
-        <Display id="muscles" title="c302_C2_FW: Membrane potential of a number of muscles" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-60" ymax="25">
+        <Display id="muscles" title="c302_C2_FW: Membrane potential of a number of muscles" timeScale="1ms" xmin="-500.0" xmax="5500.0" ymin="-60" ymax="25">
             
             <Line id="MDR01" quantity="MDR01/0/GenericMuscleCell/v" scale="1mV" color="#4d7dcd" timeScale="1ms" />
             <Line id="MDR02" quantity="MDR02/0/GenericMuscleCell/v" scale="1mV" color="#f3dc79" timeScale="1ms" />
@@ -453,58 +543,59 @@ Parameters and setting used to generate this network:
             <Line id="MVR21" quantity="MVR21/0/GenericMuscleCell/v" scale="1mV" color="#ecd6c8" timeScale="1ms" />
             <Line id="MVR22" quantity="MVR22/0/GenericMuscleCell/v" scale="1mV" color="#699c41" timeScale="1ms" />
             <Line id="MVR23" quantity="MVR23/0/GenericMuscleCell/v" scale="1mV" color="#aaa0d0" timeScale="1ms" />
-            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/v" scale="1mV" color="#73c373" timeScale="1ms" />
-            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/v" scale="1mV" color="#aad900" timeScale="1ms" />
-            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/v" scale="1mV" color="#f19430" timeScale="1ms" />
-            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/v" scale="1mV" color="#4a946f" timeScale="1ms" />
-            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/v" scale="1mV" color="#c4f618" timeScale="1ms" />
-            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/v" scale="1mV" color="#1d2521" timeScale="1ms" />
-            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/v" scale="1mV" color="#00c834" timeScale="1ms" />
-            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/v" scale="1mV" color="#6cfc4b" timeScale="1ms" />
-            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/v" scale="1mV" color="#344dbe" timeScale="1ms" />
-            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/v" scale="1mV" color="#bc41f5" timeScale="1ms" />
-            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/v" scale="1mV" color="#005883" timeScale="1ms" />
-            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/v" scale="1mV" color="#14aaa3" timeScale="1ms" />
-            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/v" scale="1mV" color="#ed44f9" timeScale="1ms" />
-            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/v" scale="1mV" color="#39a690" timeScale="1ms" />
-            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/v" scale="1mV" color="#5fb87d" timeScale="1ms" />
-            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/v" scale="1mV" color="#9fadde" timeScale="1ms" />
-            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/v" scale="1mV" color="#8ef341" timeScale="1ms" />
-            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/v" scale="1mV" color="#bf4aac" timeScale="1ms" />
-            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/v" scale="1mV" color="#006be3" timeScale="1ms" />
-            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/v" scale="1mV" color="#c900e7" timeScale="1ms" />
-            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/v" scale="1mV" color="#46bc00" timeScale="1ms" />
-            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/v" scale="1mV" color="#6cf472" timeScale="1ms" />
-            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/v" scale="1mV" color="#a14335" timeScale="1ms" />
-            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/v" scale="1mV" color="#00a6bc" timeScale="1ms" />
-            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/v" scale="1mV" color="#141d74" timeScale="1ms" />
-            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/v" scale="1mV" color="#d3c1bc" timeScale="1ms" />
-            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/v" scale="1mV" color="#006b69" timeScale="1ms" />
-            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/v" scale="1mV" color="#ac835d" timeScale="1ms" />
-            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/v" scale="1mV" color="#54f791" timeScale="1ms" />
-            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/v" scale="1mV" color="#5c78f9" timeScale="1ms" />
-            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/v" scale="1mV" color="#46dbe9" timeScale="1ms" />
-            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/v" scale="1mV" color="#451694" timeScale="1ms" />
-            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/v" scale="1mV" color="#88198a" timeScale="1ms" />
-            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/v" scale="1mV" color="#d0c5b8" timeScale="1ms" />
-            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/v" scale="1mV" color="#32d6fd" timeScale="1ms" />
-            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/v" scale="1mV" color="#594784" timeScale="1ms" />
-            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/v" scale="1mV" color="#00001c" timeScale="1ms" />
-            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/v" scale="1mV" color="#6e99d2" timeScale="1ms" />
-            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/v" scale="1mV" color="#f91332" timeScale="1ms" />
-            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/v" scale="1mV" color="#ab64ec" timeScale="1ms" />
-            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/v" scale="1mV" color="#00864f" timeScale="1ms" />
-            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/v" scale="1mV" color="#b18853" timeScale="1ms" />
-            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/v" scale="1mV" color="#f0661e" timeScale="1ms" />
-            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/v" scale="1mV" color="#009463" timeScale="1ms" />
-            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/v" scale="1mV" color="#cf3022" timeScale="1ms" />
-            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/v" scale="1mV" color="#4d8621" timeScale="1ms" />
-            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/v" scale="1mV" color="#733dc3" timeScale="1ms" />
-            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/v" scale="1mV" color="#5123ce" timeScale="1ms" />
+            <Line id="MVR24" quantity="MVR24/0/GenericMuscleCell/v" scale="1mV" color="#73c373" timeScale="1ms" />
+            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/v" scale="1mV" color="#aad900" timeScale="1ms" />
+            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/v" scale="1mV" color="#f19430" timeScale="1ms" />
+            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/v" scale="1mV" color="#4a946f" timeScale="1ms" />
+            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/v" scale="1mV" color="#c4f618" timeScale="1ms" />
+            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/v" scale="1mV" color="#1d2521" timeScale="1ms" />
+            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/v" scale="1mV" color="#00c834" timeScale="1ms" />
+            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/v" scale="1mV" color="#6cfc4b" timeScale="1ms" />
+            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/v" scale="1mV" color="#344dbe" timeScale="1ms" />
+            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/v" scale="1mV" color="#bc41f5" timeScale="1ms" />
+            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/v" scale="1mV" color="#005883" timeScale="1ms" />
+            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/v" scale="1mV" color="#14aaa3" timeScale="1ms" />
+            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/v" scale="1mV" color="#ed44f9" timeScale="1ms" />
+            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/v" scale="1mV" color="#39a690" timeScale="1ms" />
+            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/v" scale="1mV" color="#5fb87d" timeScale="1ms" />
+            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/v" scale="1mV" color="#9fadde" timeScale="1ms" />
+            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/v" scale="1mV" color="#8ef341" timeScale="1ms" />
+            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/v" scale="1mV" color="#bf4aac" timeScale="1ms" />
+            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/v" scale="1mV" color="#006be3" timeScale="1ms" />
+            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/v" scale="1mV" color="#c900e7" timeScale="1ms" />
+            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/v" scale="1mV" color="#46bc00" timeScale="1ms" />
+            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/v" scale="1mV" color="#6cf472" timeScale="1ms" />
+            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/v" scale="1mV" color="#a14335" timeScale="1ms" />
+            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/v" scale="1mV" color="#00a6bc" timeScale="1ms" />
+            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/v" scale="1mV" color="#141d74" timeScale="1ms" />
+            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/v" scale="1mV" color="#d3c1bc" timeScale="1ms" />
+            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/v" scale="1mV" color="#006b69" timeScale="1ms" />
+            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/v" scale="1mV" color="#ac835d" timeScale="1ms" />
+            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/v" scale="1mV" color="#54f791" timeScale="1ms" />
+            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/v" scale="1mV" color="#5c78f9" timeScale="1ms" />
+            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/v" scale="1mV" color="#46dbe9" timeScale="1ms" />
+            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/v" scale="1mV" color="#451694" timeScale="1ms" />
+            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/v" scale="1mV" color="#88198a" timeScale="1ms" />
+            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/v" scale="1mV" color="#d0c5b8" timeScale="1ms" />
+            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/v" scale="1mV" color="#32d6fd" timeScale="1ms" />
+            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/v" scale="1mV" color="#594784" timeScale="1ms" />
+            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/v" scale="1mV" color="#00001c" timeScale="1ms" />
+            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/v" scale="1mV" color="#6e99d2" timeScale="1ms" />
+            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/v" scale="1mV" color="#f91332" timeScale="1ms" />
+            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/v" scale="1mV" color="#ab64ec" timeScale="1ms" />
+            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/v" scale="1mV" color="#00864f" timeScale="1ms" />
+            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/v" scale="1mV" color="#b18853" timeScale="1ms" />
+            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/v" scale="1mV" color="#f0661e" timeScale="1ms" />
+            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/v" scale="1mV" color="#009463" timeScale="1ms" />
+            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/v" scale="1mV" color="#cf3022" timeScale="1ms" />
+            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/v" scale="1mV" color="#4d8621" timeScale="1ms" />
+            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/v" scale="1mV" color="#733dc3" timeScale="1ms" />
+            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/v" scale="1mV" color="#5123ce" timeScale="1ms" />
+            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/v" scale="1mV" color="#425ccf" timeScale="1ms" />
 
         </Display>
       
-        <Display id="activity_neurons" title="c302_C2_FW: Activity of a number of neurons" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_neurons" title="c302_C2_FW: Activity of a number of neurons" timeScale="1ms" xmin="-500.0" xmax="5500.0" ymin="-0.1" ymax="1.1">
             
             <Line id="AVBL" quantity="AVBL/0/GenericNeuronCell/caConc" scale="1" color="#169445" timeScale="1ms" />
             <Line id="AVBR" quantity="AVBR/0/GenericNeuronCell/caConc" scale="1" color="#008200" timeScale="1ms" />
@@ -548,7 +639,7 @@ Parameters and setting used to generate this network:
 
         </Display>
       
-        <Display id="activity_muscles" title="c302_C2_FW: Activity of a number of muscles" timeScale="1ms" xmin="-200.0" xmax="2200.0" ymin="-0.1" ymax="1.1">
+        <Display id="activity_muscles" title="c302_C2_FW: Activity of a number of muscles" timeScale="1ms" xmin="-500.0" xmax="5500.0" ymin="-0.1" ymax="1.1">
             
             <Line id="MDR01" quantity="MDR01/0/GenericMuscleCell/caConc" scale="1" color="#9a44eb" timeScale="1ms" />
             <Line id="MDR02" quantity="MDR02/0/GenericMuscleCell/caConc" scale="1" color="#e02bcb" timeScale="1ms" />
@@ -597,54 +688,55 @@ Parameters and setting used to generate this network:
             <Line id="MVR21" quantity="MVR21/0/GenericMuscleCell/caConc" scale="1" color="#2260ed" timeScale="1ms" />
             <Line id="MVR22" quantity="MVR22/0/GenericMuscleCell/caConc" scale="1" color="#537150" timeScale="1ms" />
             <Line id="MVR23" quantity="MVR23/0/GenericMuscleCell/caConc" scale="1" color="#b98f2d" timeScale="1ms" />
-            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/caConc" scale="1" color="#2a757d" timeScale="1ms" />
-            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/caConc" scale="1" color="#4d3622" timeScale="1ms" />
-            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/caConc" scale="1" color="#fbdf5f" timeScale="1ms" />
-            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/caConc" scale="1" color="#78f293" timeScale="1ms" />
-            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/caConc" scale="1" color="#fff9dc" timeScale="1ms" />
-            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/caConc" scale="1" color="#79dee1" timeScale="1ms" />
-            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/caConc" scale="1" color="#5041e9" timeScale="1ms" />
-            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/caConc" scale="1" color="#5c3b50" timeScale="1ms" />
-            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/caConc" scale="1" color="#87fc87" timeScale="1ms" />
-            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/caConc" scale="1" color="#af2f9c" timeScale="1ms" />
-            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/caConc" scale="1" color="#9d741f" timeScale="1ms" />
-            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/caConc" scale="1" color="#851b53" timeScale="1ms" />
-            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/caConc" scale="1" color="#606800" timeScale="1ms" />
-            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/caConc" scale="1" color="#c91010" timeScale="1ms" />
-            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/caConc" scale="1" color="#a600d3" timeScale="1ms" />
-            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/caConc" scale="1" color="#cf1e47" timeScale="1ms" />
-            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/caConc" scale="1" color="#4cca10" timeScale="1ms" />
-            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/caConc" scale="1" color="#577aa4" timeScale="1ms" />
-            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/caConc" scale="1" color="#bf36ba" timeScale="1ms" />
-            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/caConc" scale="1" color="#88a478" timeScale="1ms" />
-            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/caConc" scale="1" color="#96009b" timeScale="1ms" />
-            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/caConc" scale="1" color="#fee700" timeScale="1ms" />
-            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/caConc" scale="1" color="#9be9ce" timeScale="1ms" />
-            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/caConc" scale="1" color="#56edfb" timeScale="1ms" />
-            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/caConc" scale="1" color="#006766" timeScale="1ms" />
-            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/caConc" scale="1" color="#aad356" timeScale="1ms" />
-            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/caConc" scale="1" color="#aa72f9" timeScale="1ms" />
-            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/caConc" scale="1" color="#82f493" timeScale="1ms" />
-            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/caConc" scale="1" color="#7ddd44" timeScale="1ms" />
-            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/caConc" scale="1" color="#25f6df" timeScale="1ms" />
-            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/caConc" scale="1" color="#e37594" timeScale="1ms" />
-            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/caConc" scale="1" color="#d67a52" timeScale="1ms" />
-            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/caConc" scale="1" color="#3f3518" timeScale="1ms" />
-            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/caConc" scale="1" color="#dbceb4" timeScale="1ms" />
-            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/caConc" scale="1" color="#e2c4a7" timeScale="1ms" />
-            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/caConc" scale="1" color="#a70077" timeScale="1ms" />
-            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/caConc" scale="1" color="#e62e85" timeScale="1ms" />
-            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/caConc" scale="1" color="#297e12" timeScale="1ms" />
-            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/caConc" scale="1" color="#75761d" timeScale="1ms" />
-            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/caConc" scale="1" color="#4812f6" timeScale="1ms" />
-            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/caConc" scale="1" color="#e02742" timeScale="1ms" />
-            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/caConc" scale="1" color="#3e7288" timeScale="1ms" />
-            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/caConc" scale="1" color="#ead0b6" timeScale="1ms" />
-            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/caConc" scale="1" color="#3fe6c1" timeScale="1ms" />
-            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/caConc" scale="1" color="#f0b100" timeScale="1ms" />
-            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/caConc" scale="1" color="#924b51" timeScale="1ms" />
-            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/caConc" scale="1" color="#8c6f22" timeScale="1ms" />
-            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/caConc" scale="1" color="#552c35" timeScale="1ms" />
+            <Line id="MVR24" quantity="MVR24/0/GenericMuscleCell/caConc" scale="1" color="#2a757d" timeScale="1ms" />
+            <Line id="MVL01" quantity="MVL01/0/GenericMuscleCell/caConc" scale="1" color="#4d3622" timeScale="1ms" />
+            <Line id="MVL02" quantity="MVL02/0/GenericMuscleCell/caConc" scale="1" color="#fbdf5f" timeScale="1ms" />
+            <Line id="MVL03" quantity="MVL03/0/GenericMuscleCell/caConc" scale="1" color="#78f293" timeScale="1ms" />
+            <Line id="MVL04" quantity="MVL04/0/GenericMuscleCell/caConc" scale="1" color="#fff9dc" timeScale="1ms" />
+            <Line id="MVL05" quantity="MVL05/0/GenericMuscleCell/caConc" scale="1" color="#79dee1" timeScale="1ms" />
+            <Line id="MVL06" quantity="MVL06/0/GenericMuscleCell/caConc" scale="1" color="#5041e9" timeScale="1ms" />
+            <Line id="MVL07" quantity="MVL07/0/GenericMuscleCell/caConc" scale="1" color="#5c3b50" timeScale="1ms" />
+            <Line id="MVL08" quantity="MVL08/0/GenericMuscleCell/caConc" scale="1" color="#87fc87" timeScale="1ms" />
+            <Line id="MVL09" quantity="MVL09/0/GenericMuscleCell/caConc" scale="1" color="#af2f9c" timeScale="1ms" />
+            <Line id="MVL10" quantity="MVL10/0/GenericMuscleCell/caConc" scale="1" color="#9d741f" timeScale="1ms" />
+            <Line id="MVL11" quantity="MVL11/0/GenericMuscleCell/caConc" scale="1" color="#851b53" timeScale="1ms" />
+            <Line id="MVL12" quantity="MVL12/0/GenericMuscleCell/caConc" scale="1" color="#606800" timeScale="1ms" />
+            <Line id="MVL13" quantity="MVL13/0/GenericMuscleCell/caConc" scale="1" color="#c91010" timeScale="1ms" />
+            <Line id="MVL14" quantity="MVL14/0/GenericMuscleCell/caConc" scale="1" color="#a600d3" timeScale="1ms" />
+            <Line id="MVL15" quantity="MVL15/0/GenericMuscleCell/caConc" scale="1" color="#cf1e47" timeScale="1ms" />
+            <Line id="MVL16" quantity="MVL16/0/GenericMuscleCell/caConc" scale="1" color="#4cca10" timeScale="1ms" />
+            <Line id="MVL17" quantity="MVL17/0/GenericMuscleCell/caConc" scale="1" color="#577aa4" timeScale="1ms" />
+            <Line id="MVL18" quantity="MVL18/0/GenericMuscleCell/caConc" scale="1" color="#bf36ba" timeScale="1ms" />
+            <Line id="MVL19" quantity="MVL19/0/GenericMuscleCell/caConc" scale="1" color="#88a478" timeScale="1ms" />
+            <Line id="MVL20" quantity="MVL20/0/GenericMuscleCell/caConc" scale="1" color="#96009b" timeScale="1ms" />
+            <Line id="MVL21" quantity="MVL21/0/GenericMuscleCell/caConc" scale="1" color="#fee700" timeScale="1ms" />
+            <Line id="MVL22" quantity="MVL22/0/GenericMuscleCell/caConc" scale="1" color="#9be9ce" timeScale="1ms" />
+            <Line id="MVL23" quantity="MVL23/0/GenericMuscleCell/caConc" scale="1" color="#56edfb" timeScale="1ms" />
+            <Line id="MVL24" quantity="MVL24/0/GenericMuscleCell/caConc" scale="1" color="#006766" timeScale="1ms" />
+            <Line id="MDL01" quantity="MDL01/0/GenericMuscleCell/caConc" scale="1" color="#aad356" timeScale="1ms" />
+            <Line id="MDL02" quantity="MDL02/0/GenericMuscleCell/caConc" scale="1" color="#aa72f9" timeScale="1ms" />
+            <Line id="MDL03" quantity="MDL03/0/GenericMuscleCell/caConc" scale="1" color="#82f493" timeScale="1ms" />
+            <Line id="MDL04" quantity="MDL04/0/GenericMuscleCell/caConc" scale="1" color="#7ddd44" timeScale="1ms" />
+            <Line id="MDL05" quantity="MDL05/0/GenericMuscleCell/caConc" scale="1" color="#25f6df" timeScale="1ms" />
+            <Line id="MDL06" quantity="MDL06/0/GenericMuscleCell/caConc" scale="1" color="#e37594" timeScale="1ms" />
+            <Line id="MDL07" quantity="MDL07/0/GenericMuscleCell/caConc" scale="1" color="#d67a52" timeScale="1ms" />
+            <Line id="MDL08" quantity="MDL08/0/GenericMuscleCell/caConc" scale="1" color="#3f3518" timeScale="1ms" />
+            <Line id="MDL09" quantity="MDL09/0/GenericMuscleCell/caConc" scale="1" color="#dbceb4" timeScale="1ms" />
+            <Line id="MDL10" quantity="MDL10/0/GenericMuscleCell/caConc" scale="1" color="#e2c4a7" timeScale="1ms" />
+            <Line id="MDL11" quantity="MDL11/0/GenericMuscleCell/caConc" scale="1" color="#a70077" timeScale="1ms" />
+            <Line id="MDL12" quantity="MDL12/0/GenericMuscleCell/caConc" scale="1" color="#e62e85" timeScale="1ms" />
+            <Line id="MDL13" quantity="MDL13/0/GenericMuscleCell/caConc" scale="1" color="#297e12" timeScale="1ms" />
+            <Line id="MDL14" quantity="MDL14/0/GenericMuscleCell/caConc" scale="1" color="#75761d" timeScale="1ms" />
+            <Line id="MDL15" quantity="MDL15/0/GenericMuscleCell/caConc" scale="1" color="#4812f6" timeScale="1ms" />
+            <Line id="MDL16" quantity="MDL16/0/GenericMuscleCell/caConc" scale="1" color="#e02742" timeScale="1ms" />
+            <Line id="MDL17" quantity="MDL17/0/GenericMuscleCell/caConc" scale="1" color="#3e7288" timeScale="1ms" />
+            <Line id="MDL18" quantity="MDL18/0/GenericMuscleCell/caConc" scale="1" color="#ead0b6" timeScale="1ms" />
+            <Line id="MDL19" quantity="MDL19/0/GenericMuscleCell/caConc" scale="1" color="#3fe6c1" timeScale="1ms" />
+            <Line id="MDL20" quantity="MDL20/0/GenericMuscleCell/caConc" scale="1" color="#f0b100" timeScale="1ms" />
+            <Line id="MDL21" quantity="MDL21/0/GenericMuscleCell/caConc" scale="1" color="#924b51" timeScale="1ms" />
+            <Line id="MDL22" quantity="MDL22/0/GenericMuscleCell/caConc" scale="1" color="#8c6f22" timeScale="1ms" />
+            <Line id="MDL23" quantity="MDL23/0/GenericMuscleCell/caConc" scale="1" color="#552c35" timeScale="1ms" />
+            <Line id="MDL24" quantity="MDL24/0/GenericMuscleCell/caConc" scale="1" color="#a349fb" timeScale="1ms" />
 
         </Display>
 
@@ -779,6 +871,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="MVR21_v" quantity="MVR21/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVR22_v" quantity="MVR22/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVR23_v" quantity="MVR23/0/GenericMuscleCell/v"/>
+            <OutputColumn id="MVR24_v" quantity="MVR24/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVL01_v" quantity="MVL01/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVL02_v" quantity="MVL02/0/GenericMuscleCell/v"/>
             <OutputColumn id="MVL03_v" quantity="MVL03/0/GenericMuscleCell/v"/>
@@ -876,6 +969,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="MVR21_v" quantity="MVR21/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVR22_v" quantity="MVR22/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVR23_v" quantity="MVR23/0/GenericMuscleCell/caConc"/>
+            <OutputColumn id="MVR24_v" quantity="MVR24/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVL01_v" quantity="MVL01/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVL02_v" quantity="MVL02/0/GenericMuscleCell/caConc"/>
             <OutputColumn id="MVL03_v" quantity="MVL03/0/GenericMuscleCell/caConc"/>
