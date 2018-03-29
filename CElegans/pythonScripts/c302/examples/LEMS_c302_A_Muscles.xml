@@ -129,54 +129,55 @@ Parameters and setting used to generate this network:
             <Line id="MVR21" quantity="MVR21/0/generic_muscle_iaf_cell/v" scale="1mV" color="#f472fe" timeScale="1ms" />
             <Line id="MVR22" quantity="MVR22/0/generic_muscle_iaf_cell/v" scale="1mV" color="#e700a1" timeScale="1ms" />
             <Line id="MVR23" quantity="MVR23/0/generic_muscle_iaf_cell/v" scale="1mV" color="#43359b" timeScale="1ms" />
-            <Line id="MVL01" quantity="MVL01/0/generic_muscle_iaf_cell/v" scale="1mV" color="#e9ce00" timeScale="1ms" />
-            <Line id="MVL02" quantity="MVL02/0/generic_muscle_iaf_cell/v" scale="1mV" color="#a6bc56" timeScale="1ms" />
-            <Line id="MVL03" quantity="MVL03/0/generic_muscle_iaf_cell/v" scale="1mV" color="#edfb14" timeScale="1ms" />
-            <Line id="MVL04" quantity="MVL04/0/generic_muscle_iaf_cell/v" scale="1mV" color="#1d7400" timeScale="1ms" />
-            <Line id="MVL05" quantity="MVL05/0/generic_muscle_iaf_cell/v" scale="1mV" color="#6766d3" timeScale="1ms" />
-            <Line id="MVL06" quantity="MVL06/0/generic_muscle_iaf_cell/v" scale="1mV" color="#c1bcaa" timeScale="1ms" />
-            <Line id="MVL07" quantity="MVL07/0/generic_muscle_iaf_cell/v" scale="1mV" color="#d35600" timeScale="1ms" />
-            <Line id="MVL08" quantity="MVL08/0/generic_muscle_iaf_cell/v" scale="1mV" color="#6b69aa" timeScale="1ms" />
-            <Line id="MVL09" quantity="MVL09/0/generic_muscle_iaf_cell/v" scale="1mV" color="#72f9ac" timeScale="1ms" />
-            <Line id="MVL10" quantity="MVL10/0/generic_muscle_iaf_cell/v" scale="1mV" color="#835d82" timeScale="1ms" />
-            <Line id="MVL11" quantity="MVL11/0/generic_muscle_iaf_cell/v" scale="1mV" color="#f49354" timeScale="1ms" />
-            <Line id="MVL12" quantity="MVL12/0/generic_muscle_iaf_cell/v" scale="1mV" color="#f7917d" timeScale="1ms" />
-            <Line id="MVL13" quantity="MVL13/0/generic_muscle_iaf_cell/v" scale="1mV" color="#dd445c" timeScale="1ms" />
-            <Line id="MVL14" quantity="MVL14/0/generic_muscle_iaf_cell/v" scale="1mV" color="#78f925" timeScale="1ms" />
-            <Line id="MVL15" quantity="MVL15/0/generic_muscle_iaf_cell/v" scale="1mV" color="#f6df46" timeScale="1ms" />
-            <Line id="MVL16" quantity="MVL16/0/generic_muscle_iaf_cell/v" scale="1mV" color="#dbe9e3" timeScale="1ms" />
-            <Line id="MVL17" quantity="MVL17/0/generic_muscle_iaf_cell/v" scale="1mV" color="#759445" timeScale="1ms" />
-            <Line id="MVL18" quantity="MVL18/0/generic_muscle_iaf_cell/v" scale="1mV" color="#1694d6" timeScale="1ms" />
-            <Line id="MVL19" quantity="MVL19/0/generic_muscle_iaf_cell/v" scale="1mV" color="#7a5288" timeScale="1ms" />
-            <Line id="MVL20" quantity="MVL20/0/generic_muscle_iaf_cell/v" scale="1mV" color="#198a3f" timeScale="1ms" />
-            <Line id="MVL21" quantity="MVL21/0/generic_muscle_iaf_cell/v" scale="1mV" color="#3518d0" timeScale="1ms" />
-            <Line id="MVL22" quantity="MVL22/0/generic_muscle_iaf_cell/v" scale="1mV" color="#c5b8db" timeScale="1ms" />
-            <Line id="MVL23" quantity="MVL23/0/generic_muscle_iaf_cell/v" scale="1mV" color="#ceb432" timeScale="1ms" />
-            <Line id="MVL24" quantity="MVL24/0/generic_muscle_iaf_cell/v" scale="1mV" color="#d6fde2" timeScale="1ms" />
-            <Line id="MDL01" quantity="MDL01/0/generic_muscle_iaf_cell/v" scale="1mV" color="#c4a759" timeScale="1ms" />
-            <Line id="MDL02" quantity="MDL02/0/generic_muscle_iaf_cell/v" scale="1mV" color="#4784a7" timeScale="1ms" />
-            <Line id="MDL03" quantity="MDL03/0/generic_muscle_iaf_cell/v" scale="1mV" color="#007700" timeScale="1ms" />
-            <Line id="MDL04" quantity="MDL04/0/generic_muscle_iaf_cell/v" scale="1mV" color="#001ce6" timeScale="1ms" />
-            <Line id="MDL05" quantity="MDL05/0/generic_muscle_iaf_cell/v" scale="1mV" color="#2e856e" timeScale="1ms" />
-            <Line id="MDL06" quantity="MDL06/0/generic_muscle_iaf_cell/v" scale="1mV" color="#99d229" timeScale="1ms" />
-            <Line id="MDL07" quantity="MDL07/0/generic_muscle_iaf_cell/v" scale="1mV" color="#7e12f9" timeScale="1ms" />
-            <Line id="MDL08" quantity="MDL08/0/generic_muscle_iaf_cell/v" scale="1mV" color="#133275" timeScale="1ms" />
-            <Line id="MDL09" quantity="MDL09/0/generic_muscle_iaf_cell/v" scale="1mV" color="#761dab" timeScale="1ms" />
-            <Line id="MDL10" quantity="MDL10/0/generic_muscle_iaf_cell/v" scale="1mV" color="#64ec48" timeScale="1ms" />
-            <Line id="MDL11" quantity="MDL11/0/generic_muscle_iaf_cell/v" scale="1mV" color="#12f600" timeScale="1ms" />
-            <Line id="MDL12" quantity="MDL12/0/generic_muscle_iaf_cell/v" scale="1mV" color="#864fe0" timeScale="1ms" />
-            <Line id="MDL13" quantity="MDL13/0/generic_muscle_iaf_cell/v" scale="1mV" color="#2742b1" timeScale="1ms" />
-            <Line id="MDL14" quantity="MDL14/0/generic_muscle_iaf_cell/v" scale="1mV" color="#88533e" timeScale="1ms" />
-            <Line id="MDL15" quantity="MDL15/0/generic_muscle_iaf_cell/v" scale="1mV" color="#7288f0" timeScale="1ms" />
-            <Line id="MDL16" quantity="MDL16/0/generic_muscle_iaf_cell/v" scale="1mV" color="#661eea" timeScale="1ms" />
-            <Line id="MDL17" quantity="MDL17/0/generic_muscle_iaf_cell/v" scale="1mV" color="#d0b600" timeScale="1ms" />
-            <Line id="MDL18" quantity="MDL18/0/generic_muscle_iaf_cell/v" scale="1mV" color="#94633f" timeScale="1ms" />
-            <Line id="MDL19" quantity="MDL19/0/generic_muscle_iaf_cell/v" scale="1mV" color="#e6c1cf" timeScale="1ms" />
-            <Line id="MDL20" quantity="MDL20/0/generic_muscle_iaf_cell/v" scale="1mV" color="#3022f0" timeScale="1ms" />
-            <Line id="MDL21" quantity="MDL21/0/generic_muscle_iaf_cell/v" scale="1mV" color="#b1004d" timeScale="1ms" />
-            <Line id="MDL22" quantity="MDL22/0/generic_muscle_iaf_cell/v" scale="1mV" color="#862192" timeScale="1ms" />
-            <Line id="MDL23" quantity="MDL23/0/generic_muscle_iaf_cell/v" scale="1mV" color="#4b5173" timeScale="1ms" />
-            <Line id="MDL24" quantity="MDL24/0/generic_muscle_iaf_cell/v" scale="1mV" color="#3dc38c" timeScale="1ms" />
+            <Line id="MVR24" quantity="MVR24/0/generic_muscle_iaf_cell/v" scale="1mV" color="#e9ce00" timeScale="1ms" />
+            <Line id="MVL01" quantity="MVL01/0/generic_muscle_iaf_cell/v" scale="1mV" color="#a6bc56" timeScale="1ms" />
+            <Line id="MVL02" quantity="MVL02/0/generic_muscle_iaf_cell/v" scale="1mV" color="#edfb14" timeScale="1ms" />
+            <Line id="MVL03" quantity="MVL03/0/generic_muscle_iaf_cell/v" scale="1mV" color="#1d7400" timeScale="1ms" />
+            <Line id="MVL04" quantity="MVL04/0/generic_muscle_iaf_cell/v" scale="1mV" color="#6766d3" timeScale="1ms" />
+            <Line id="MVL05" quantity="MVL05/0/generic_muscle_iaf_cell/v" scale="1mV" color="#c1bcaa" timeScale="1ms" />
+            <Line id="MVL06" quantity="MVL06/0/generic_muscle_iaf_cell/v" scale="1mV" color="#d35600" timeScale="1ms" />
+            <Line id="MVL07" quantity="MVL07/0/generic_muscle_iaf_cell/v" scale="1mV" color="#6b69aa" timeScale="1ms" />
+            <Line id="MVL08" quantity="MVL08/0/generic_muscle_iaf_cell/v" scale="1mV" color="#72f9ac" timeScale="1ms" />
+            <Line id="MVL09" quantity="MVL09/0/generic_muscle_iaf_cell/v" scale="1mV" color="#835d82" timeScale="1ms" />
+            <Line id="MVL10" quantity="MVL10/0/generic_muscle_iaf_cell/v" scale="1mV" color="#f49354" timeScale="1ms" />
+            <Line id="MVL11" quantity="MVL11/0/generic_muscle_iaf_cell/v" scale="1mV" color="#f7917d" timeScale="1ms" />
+            <Line id="MVL12" quantity="MVL12/0/generic_muscle_iaf_cell/v" scale="1mV" color="#dd445c" timeScale="1ms" />
+            <Line id="MVL13" quantity="MVL13/0/generic_muscle_iaf_cell/v" scale="1mV" color="#78f925" timeScale="1ms" />
+            <Line id="MVL14" quantity="MVL14/0/generic_muscle_iaf_cell/v" scale="1mV" color="#f6df46" timeScale="1ms" />
+            <Line id="MVL15" quantity="MVL15/0/generic_muscle_iaf_cell/v" scale="1mV" color="#dbe9e3" timeScale="1ms" />
+            <Line id="MVL16" quantity="MVL16/0/generic_muscle_iaf_cell/v" scale="1mV" color="#759445" timeScale="1ms" />
+            <Line id="MVL17" quantity="MVL17/0/generic_muscle_iaf_cell/v" scale="1mV" color="#1694d6" timeScale="1ms" />
+            <Line id="MVL18" quantity="MVL18/0/generic_muscle_iaf_cell/v" scale="1mV" color="#7a5288" timeScale="1ms" />
+            <Line id="MVL19" quantity="MVL19/0/generic_muscle_iaf_cell/v" scale="1mV" color="#198a3f" timeScale="1ms" />
+            <Line id="MVL20" quantity="MVL20/0/generic_muscle_iaf_cell/v" scale="1mV" color="#3518d0" timeScale="1ms" />
+            <Line id="MVL21" quantity="MVL21/0/generic_muscle_iaf_cell/v" scale="1mV" color="#c5b8db" timeScale="1ms" />
+            <Line id="MVL22" quantity="MVL22/0/generic_muscle_iaf_cell/v" scale="1mV" color="#ceb432" timeScale="1ms" />
+            <Line id="MVL23" quantity="MVL23/0/generic_muscle_iaf_cell/v" scale="1mV" color="#d6fde2" timeScale="1ms" />
+            <Line id="MVL24" quantity="MVL24/0/generic_muscle_iaf_cell/v" scale="1mV" color="#c4a759" timeScale="1ms" />
+            <Line id="MDL01" quantity="MDL01/0/generic_muscle_iaf_cell/v" scale="1mV" color="#4784a7" timeScale="1ms" />
+            <Line id="MDL02" quantity="MDL02/0/generic_muscle_iaf_cell/v" scale="1mV" color="#007700" timeScale="1ms" />
+            <Line id="MDL03" quantity="MDL03/0/generic_muscle_iaf_cell/v" scale="1mV" color="#001ce6" timeScale="1ms" />
+            <Line id="MDL04" quantity="MDL04/0/generic_muscle_iaf_cell/v" scale="1mV" color="#2e856e" timeScale="1ms" />
+            <Line id="MDL05" quantity="MDL05/0/generic_muscle_iaf_cell/v" scale="1mV" color="#99d229" timeScale="1ms" />
+            <Line id="MDL06" quantity="MDL06/0/generic_muscle_iaf_cell/v" scale="1mV" color="#7e12f9" timeScale="1ms" />
+            <Line id="MDL07" quantity="MDL07/0/generic_muscle_iaf_cell/v" scale="1mV" color="#133275" timeScale="1ms" />
+            <Line id="MDL08" quantity="MDL08/0/generic_muscle_iaf_cell/v" scale="1mV" color="#761dab" timeScale="1ms" />
+            <Line id="MDL09" quantity="MDL09/0/generic_muscle_iaf_cell/v" scale="1mV" color="#64ec48" timeScale="1ms" />
+            <Line id="MDL10" quantity="MDL10/0/generic_muscle_iaf_cell/v" scale="1mV" color="#12f600" timeScale="1ms" />
+            <Line id="MDL11" quantity="MDL11/0/generic_muscle_iaf_cell/v" scale="1mV" color="#864fe0" timeScale="1ms" />
+            <Line id="MDL12" quantity="MDL12/0/generic_muscle_iaf_cell/v" scale="1mV" color="#2742b1" timeScale="1ms" />
+            <Line id="MDL13" quantity="MDL13/0/generic_muscle_iaf_cell/v" scale="1mV" color="#88533e" timeScale="1ms" />
+            <Line id="MDL14" quantity="MDL14/0/generic_muscle_iaf_cell/v" scale="1mV" color="#7288f0" timeScale="1ms" />
+            <Line id="MDL15" quantity="MDL15/0/generic_muscle_iaf_cell/v" scale="1mV" color="#661eea" timeScale="1ms" />
+            <Line id="MDL16" quantity="MDL16/0/generic_muscle_iaf_cell/v" scale="1mV" color="#d0b600" timeScale="1ms" />
+            <Line id="MDL17" quantity="MDL17/0/generic_muscle_iaf_cell/v" scale="1mV" color="#94633f" timeScale="1ms" />
+            <Line id="MDL18" quantity="MDL18/0/generic_muscle_iaf_cell/v" scale="1mV" color="#e6c1cf" timeScale="1ms" />
+            <Line id="MDL19" quantity="MDL19/0/generic_muscle_iaf_cell/v" scale="1mV" color="#3022f0" timeScale="1ms" />
+            <Line id="MDL20" quantity="MDL20/0/generic_muscle_iaf_cell/v" scale="1mV" color="#b1004d" timeScale="1ms" />
+            <Line id="MDL21" quantity="MDL21/0/generic_muscle_iaf_cell/v" scale="1mV" color="#862192" timeScale="1ms" />
+            <Line id="MDL22" quantity="MDL22/0/generic_muscle_iaf_cell/v" scale="1mV" color="#4b5173" timeScale="1ms" />
+            <Line id="MDL23" quantity="MDL23/0/generic_muscle_iaf_cell/v" scale="1mV" color="#3dc38c" timeScale="1ms" />
+            <Line id="MDL24" quantity="MDL24/0/generic_muscle_iaf_cell/v" scale="1mV" color="#6f2251" timeScale="1ms" />
 
         </Display>
 
@@ -365,6 +366,7 @@ Parameters and setting used to generate this network:
             <OutputColumn id="MVR21_v" quantity="MVR21/0/generic_muscle_iaf_cell/v"/>
             <OutputColumn id="MVR22_v" quantity="MVR22/0/generic_muscle_iaf_cell/v"/>
             <OutputColumn id="MVR23_v" quantity="MVR23/0/generic_muscle_iaf_cell/v"/>
+            <OutputColumn id="MVR24_v" quantity="MVR24/0/generic_muscle_iaf_cell/v"/>
             <OutputColumn id="MVL01_v" quantity="MVL01/0/generic_muscle_iaf_cell/v"/>
             <OutputColumn id="MVL02_v" quantity="MVL02/0/generic_muscle_iaf_cell/v"/>
             <OutputColumn id="MVL03_v" quantity="MVL03/0/generic_muscle_iaf_cell/v"/>

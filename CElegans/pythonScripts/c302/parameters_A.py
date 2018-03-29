@@ -164,6 +164,12 @@ class ParameterisedModel(c302ModelPrototype):
             decay = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'decay')
             rise = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'rise')
             conn_id = 'neuron_to_muscle_elec_syn'
+        elif type == 'muscle_to_muscle':
+            gbase = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'muscle_to_muscle_elec_syn_%s', 'gbase')
+            erev = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'erev')
+            decay = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'decay')
+            rise = self.get_conn_param(pre_cell, post_cell, '%s_to_%s_elec_syn_%s', 'elec_syn_%s', 'rise')
+            conn_id = 'muscle_to_muscle_elec_syn'
 
         if self.found_specific_param:
             conn_id = '%s_to_%s_elec_syn' % (pre_cell, post_cell)

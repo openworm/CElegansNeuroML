@@ -1741,6 +1741,12 @@ Parameters and setting used to generate this network:
                 <location x="-80." y="390." z="-80."/>
             </instance>
         </population>
+        <population id="MVR24" component="GenericMuscleCell" size="1" type="populationList">
+            <property tag="color" value="0 .6 0"/>
+            <instance id="0">
+                <location x="-80." y="420." z="-80."/>
+            </instance>
+        </population>
         <population id="MVL01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
@@ -6550,6 +6556,9 @@ Parameters and setting used to generate this network:
         <continuousProjection id="NC_VA12_MVR23_Acetylcholine" presynapticPopulation="VA12" postsynapticPopulation="MVR23">
             <continuousConnectionInstanceW id="0" preCell="../VA12/0/VA12" preSegment="0" preFractionAlong="0.5" postCell="../MVR23/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_exc_syn" weight="1."/>
         </continuousProjection>
+        <continuousProjection id="NC_VA12_MVR24_Acetylcholine" presynapticPopulation="VA12" postsynapticPopulation="MVR24">
+            <continuousConnectionInstanceW id="0" preCell="../VA12/0/VA12" preSegment="0" preFractionAlong="0.5" postCell="../MVR24/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_exc_syn" weight="1."/>
+        </continuousProjection>
         <continuousProjection id="NC_VB1_MVL07_Acetylcholine" presynapticPopulation="VB1" postsynapticPopulation="MVL07">
             <continuousConnectionInstanceW id="0" preCell="../VB1/0/VB1" preSegment="0" preFractionAlong="0.5" postCell="../MVL07/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_exc_syn" weight="1."/>
         </continuousProjection>
@@ -6706,6 +6715,9 @@ Parameters and setting used to generate this network:
         <continuousProjection id="NC_VB11_MVR23_Acetylcholine" presynapticPopulation="VB11" postsynapticPopulation="MVR23">
             <continuousConnectionInstanceW id="0" preCell="../VB11/0/VB11" preSegment="0" preFractionAlong="0.5" postCell="../MVR23/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_exc_syn" weight="1."/>
         </continuousProjection>
+        <continuousProjection id="NC_VB11_MVR24_Acetylcholine" presynapticPopulation="VB11" postsynapticPopulation="MVR24">
+            <continuousConnectionInstanceW id="0" preCell="../VB11/0/VB11" preSegment="0" preFractionAlong="0.5" postCell="../MVR24/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_exc_syn" weight="1."/>
+        </continuousProjection>
         <continuousProjection id="NC_VD1_MVL05_GABA" presynapticPopulation="VD1" postsynapticPopulation="MVL05">
             <continuousConnectionInstanceW id="0" preCell="../VD1/0/VD1" preSegment="0" preFractionAlong="0.5" postCell="../MVL05/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_inh_syn" weight="1."/>
         </continuousProjection>
@@ -6861,6 +6873,9 @@ Parameters and setting used to generate this network:
         </continuousProjection>
         <continuousProjection id="NC_VD13_MVR23_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR23">
             <continuousConnectionInstanceW id="0" preCell="../VD13/0/VD13" preSegment="0" preFractionAlong="0.5" postCell="../MVR23/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_inh_syn" weight="1."/>
+        </continuousProjection>
+        <continuousProjection id="NC_VD13_MVR24_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR24">
+            <continuousConnectionInstanceW id="0" preCell="../VD13/0/VD13" preSegment="0" preFractionAlong="0.5" postCell="../MVR24/0/GenericMuscleCell" postSegment="0" postFractionAlong="0.5" preComponent="silent" postComponent="neuron_to_muscle_inh_syn" weight="1."/>
         </continuousProjection>
         <inputList id="Input_AVBL_offset_current" population="AVBL" component="offset_current">
             <input id="0" target="../AVBL/0/AVBL/0" destination="synapses"/>

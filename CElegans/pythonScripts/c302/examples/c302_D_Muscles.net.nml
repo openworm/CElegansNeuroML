@@ -1734,6 +1734,12 @@ Parameters and setting used to generate this network:
                 <location x="-80." y="390." z="-80."/>
             </instance>
         </population>
+        <population id="MVR24" component="GenericMuscleCell" size="1" type="populationList">
+            <property tag="color" value="0 .6 0"/>
+            <instance id="0">
+                <location x="-80." y="420." z="-80."/>
+            </instance>
+        </population>
         <population id="MVL01" component="GenericMuscleCell" size="1" type="populationList">
             <property tag="color" value="0 .6 0"/>
             <instance id="0">
@@ -5226,6 +5232,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VA12_MVR23_Acetylcholine" presynapticPopulation="VA12" postsynapticPopulation="MVR23" synapse="neuron_to_muscle_exc_syn">
             <connection id="0" preCellId="../VA12/0/VA12" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR23/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
+        <projection id="NC_VA12_MVR24_Acetylcholine" presynapticPopulation="VA12" postsynapticPopulation="MVR24" synapse="neuron_to_muscle_exc_syn">
+            <connection id="0" preCellId="../VA12/0/VA12" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR24/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
         <projection id="NC_VB1_MVL07_Acetylcholine" presynapticPopulation="VB1" postsynapticPopulation="MVL07" synapse="neuron_to_muscle_exc_syn">
             <connection id="0" preCellId="../VB1/0/VB1" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVL07/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
@@ -5382,6 +5391,9 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB11_MVR23_Acetylcholine" presynapticPopulation="VB11" postsynapticPopulation="MVR23" synapse="neuron_to_muscle_exc_syn">
             <connection id="0" preCellId="../VB11/0/VB11" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR23/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
+        <projection id="NC_VB11_MVR24_Acetylcholine" presynapticPopulation="VB11" postsynapticPopulation="MVR24" synapse="neuron_to_muscle_exc_syn">
+            <connection id="0" preCellId="../VB11/0/VB11" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR24/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
         <projection id="NC_VD1_MVL05_GABA" presynapticPopulation="VD1" postsynapticPopulation="MVL05" synapse="neuron_to_muscle_inh_syn">
             <connection id="0" preCellId="../VD1/0/VD1" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVL05/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
@@ -5537,6 +5549,9 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VD13_MVR23_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR23" synapse="neuron_to_muscle_inh_syn">
             <connection id="0" preCellId="../VD13/0/VD13" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR23/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
+        </projection>
+        <projection id="NC_VD13_MVR24_GABA" presynapticPopulation="VD13" postsynapticPopulation="MVR24" synapse="neuron_to_muscle_inh_syn">
+            <connection id="0" preCellId="../VD13/0/VD13" preSegmentId="0" preFractionAlong="0.5" postCellId="../MVR24/0/GenericMuscleCell" postSegmentId="0" postFractionAlong="0.5"/>
         </projection>
         <electricalProjection id="NC_AS1_AVAL_Generic_GJ" presynapticPopulation="AS1" postsynapticPopulation="AVAL">
             <electricalConnectionInstanceW id="0" preCell="../AS1/0/AS1" preSegment="0" preFractionAlong="0.5" postCell="../AVAL/0/AVAL" postSegment="0" postFractionAlong="0.5" synapse="neuron_to_neuron_elec_syn" weight="3."/>

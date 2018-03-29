@@ -292,7 +292,7 @@ def get_muscle_names():
     names = []
     for i in range(24):
         names.append("%s%s"%(quadrant0, i+1 if i>8 else ("0%i"%(i+1))))
-    for i in range(23):
+    for i in range(24):
         names.append("%s%s"%(quadrant1, i+1 if i>8 else ("0%i"%(i+1))))
     for i in range(24):
         names.append("%s%s"%(quadrant2, i+1 if i>8 else ("0%i"%(i+1))))
@@ -492,8 +492,9 @@ def _get_cell_info(cells):
   
 
 def set_param(params, param, value):
-    if params.get_bioparameter(param,warn_if_missing=False):
-        if params.get_bioparameter(param).value == value:
+    v = params.get_bioparameter(param,warn_if_missing=False)
+    if v:
+        if v == value:
             return
         print_("Setting parameter %s = %s" % (param, value))
         params.set_bioparameter(param, value, "Set with param_overrides", 0)
