@@ -492,8 +492,9 @@ def _get_cell_info(cells):
   
 
 def set_param(params, param, value):
-    if params.get_bioparameter(param,warn_if_missing=False):
-        if params.get_bioparameter(param).value == value:
+    v = params.get_bioparameter(param,warn_if_missing=False)
+    if v:
+        if v == value:
             return
         print_("Setting parameter %s = %s" % (param, value))
         params.set_bioparameter(param, value, "Set with param_overrides", 0)
