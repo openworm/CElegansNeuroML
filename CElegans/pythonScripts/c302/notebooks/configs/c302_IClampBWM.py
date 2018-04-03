@@ -17,8 +17,9 @@ def setup(parameter_set,
     parameters = import_module('c302.parameters_%s'%parameter_set)
     params = parameters.ParameterisedModel()
     
-    stim_amplitudes = ["1pA","2pA","3pA","4pA","5pA","6pA"]
-    duration = (len(stim_amplitudes))*1000
+    stim_amplitudes = ["0pA"]*1 + ["2pA"]*2 + ["4pA"]*2 + ["2pA"]*2 + ["0pA"]*1
+    #,"4pA","5pA","6pA"]["1pA","2pA","3pA","4pA","5pA","6pA"]
+    duration = max(duration,(len(stim_amplitudes))*1000)
     
     
     cells = ['AVAL']
@@ -28,7 +29,6 @@ def setup(parameter_set,
     
     
     reference = "c302_%s_IClampBWM"%parameter_set
-    
     
     if generate:
         nml_doc = c302.generate(reference,
@@ -47,7 +47,6 @@ def setup(parameter_set,
         start = "%sms"%(i*1000 + 100)
         for c in muscles_to_include:
             c302.add_new_input(nml_doc, c, start, "800ms", stim_amplitudes[i], params)
-    
     
     nml_file = target_directory+'/'+reference+'.nml'
     writers.NeuroMLWriter.write(nml_doc, nml_file) # Write over network file written above...
