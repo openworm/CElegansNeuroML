@@ -1,7 +1,7 @@
 import sys
+from importlib import import_module
 
 from c302 import c302
-
 import neuroml.writers as writers
 
 range_incl = lambda start, end:range(start, end + 1)
@@ -16,8 +16,8 @@ def setup(parameter_set,
           config_param_overrides={},
           verbose=True):
     
-    exec ('from parameters_%s import ParameterisedModel' % parameter_set)
-    params = ParameterisedModel()
+    parameters = import_module('c302.parameters_%s'%parameter_set)
+    params = parameters.ParameterisedModel()
 
     params.set_bioparameter("unphysiological_offset_current", "0pA", "Testing TapWithdrawal", "0")
     params.set_bioparameter("unphysiological_offset_current_del", "0 ms", "Testing TapWithdrawal", "0")
