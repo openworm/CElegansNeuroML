@@ -20,7 +20,7 @@ This is being developed as part of the [OpenWorm project](http://www.openworm.or
 setup(
     name = 'CElegansNeuroML',
     package_dir = {'': 'CElegans/pythonScripts'},
-    packages = ['c302'],
+    packages = ['c302','c302.muscleunit'],
     install_requires=[
         'numpy',
         'xlrd',
@@ -29,7 +29,7 @@ setup(
         'pyNeuroML'
     ],
     dependency_links = [
-        'git+https://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation-0',
+        'git+https://github.com/OpenSourceBrain/osb-model-validation.git#egg=OSBModelValidation-9999',
         'git+https://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML-0',
     ],
     version = '0.4',
