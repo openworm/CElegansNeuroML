@@ -7,7 +7,7 @@ The NeuroML files are available under the directories [generatedNeuroML](https:/
 
 This is being developed as part of the [OpenWorm project](http://www.openworm.org).
 
-**There is also a new initiative which uses Python scripts to generate network models in NeuroML2 at multiple levels of details: [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302).** This will eventually be fully integrated with the neuroConstruct version.
+**There is also a new initiative which uses Python scripts to generate network models in NeuroML2 at multiple levels of detail: c302. This has recently been moved to [its own repository](https://github.com/openworm/c302).** 
 
 ### Installation
 
