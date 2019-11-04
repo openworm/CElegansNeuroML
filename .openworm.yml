@@ -1,5 +1,5 @@
 repo: openworm/CElegansNeuroML
-shortDescription: "NeuroML based C elegans model, contained in a neuroConstruct project, as well as c302"
+shortDescription: "NeuroML based C elegans model, contained in a neuroConstruct project"
 coordinator: stephen@openworm.org
 documentation: "https://github.com/openworm/CElegansNeuroML/blob/master/README.md"
 earnable-badges: 
@@ -14,12 +14,12 @@ keywords:
   - neurons
   - simulation
   - conductance-based models
-  - "gap junctions"
+  - gap junctions
   - neurotransmitters
 languages: 
   - python
 members: 
-  - pgleeson@gmail.com
+  - p.gleeson@gmail.com
 outputs: 
   - openworm/sibernetic
 parent: 
