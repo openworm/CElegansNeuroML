@@ -53,7 +53,7 @@ script:
     - git clone https://github.com/openworm/PyOpenWorm.git
     - cd PyOpenWorm
     - git checkout 7ff1266  # As used in Docker for OpenWorm
-    - python setup.py install
+    #- python setup.py install  # Works in https://github.com/openworm/c302
     - cd ..
 
     # Testing RegenerateConnectome.py, SpreadsheetDataReader.py, OpenWormReader.py via py.test
@@ -68,8 +68,8 @@ script:
     # Testing c302
     - cd c302 
     - python c302_IClamp.py A    
-    - omv install NEURON # Need to install NEURON
-    - export NEURON_HOME=/home/travis/neuron/nrn/x86_64/
+    ##- omv install NEURON # Need to install NEURON
+    ##- export NEURON_HOME=/home/travis/neuron/nrn/x86_64/
     #- python runAndPlot.py -test     # Works in https://github.com/openworm/c302
     #- python c302_utils.py -nogui    # Works in https://github.com/openworm/c302
 
