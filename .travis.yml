@@ -70,6 +70,6 @@ script:
     - python c302_IClamp.py A    
     - omv install NEURON # Need to install NEURON
     - export NEURON_HOME=/home/travis/neuron/nrn/x86_64/
-    - python runAndPlot.py -test
-    - python c302_utils.py -nogui
+    #- python runAndPlot.py -test     # Works in https://github.com/openworm/c302
+    #- python c302_utils.py -nogui    # Works in https://github.com/openworm/c302
 
