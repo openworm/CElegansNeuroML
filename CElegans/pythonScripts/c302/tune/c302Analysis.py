@@ -22,7 +22,20 @@ class Data_Analyser(analysis.NetworkAnalysis):
 
 		self.volts = volts
 		self.t = t
+	
+	'''
+	This method (analyse_phase_offset) contains code sourced from the following response post:
 
+	deprecated (https://stackoverflow.com/users/353062/deprecated), Find phase difference between two (inharmonic) waves, URL (version: 2020-04-15): https://stackoverflow.com/a/6157997
+
+	Explicitly:
+
+	https://stackoverflow.com/a/6157997 by ‘deprecated’ https://stackoverflow.com/users/353062/deprecated (last edited May 31 '11 at 16:16) in Stack Overflow in response to the question https://stackoverflow.com/q/6157791 posted by Doa https://stackoverflow.com/users/773761/doa
+
+	The code used in this method (analyse_phase_offset) that has been sourced from https://stackoverflow.com/a/6157997 has been modified by the renaming of the variables to names that are more specific for the project.  Any modifications (e.g. remix, transform) or code built upon in this method (analyse_phase_offset) of code from https://stackoverflow.com/a/6157997 are under the same licence of Stack Overflow user contributions (CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/; previously CC BY-SA 3.0, https://creativecommons.org/licenses/by-sa/3.0/)
+
+	The additional functionality in the method includes data extraction in the format used by this project, and to prepare the data so the data can be used by the code from  https://stackoverflow.com/a/6157997.
+	'''
 	def analyse_phase_offset(self,targets, analysis_results):
 
 		for key in targets.keys():
@@ -45,6 +58,17 @@ class Data_Analyser(analysis.NetworkAnalysis):
 
 		return analysis_results
 
+	'''
+	This method (get_time_shift) contains code sourced from the following response post
+
+	deprecated (https://stackoverflow.com/users/353062/deprecated), Find phase difference between two (inharmonic) waves, URL (version: 2020-04-15): https://stackoverflow.com/a/6157997
+
+	Explicitly:
+
+	https://stackoverflow.com/a/6157997 by ‘deprecated’ https://stackoverflow.com/users/353062/deprecated (last edited May 31 '11 at 16:16) in Stack Overflow in response to the question https://stackoverflow.com/q/6157791 posted by Doa https://stackoverflow.com/users/773761/doa
+
+	The code used in this method (get_time_shift) that has been sourced https://stackoverflow.com/a/6157997 has been modified by the renaming of the variables to names that are more specific for the project.  Any modifications (e.g. remix, transform) or code built upon in this method (get_time_shift) of code from https://stackoverflow.com/a/6157997 are under the same licence of Stack Overflow user contributions (CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/; previously CC BY-SA 3.0, https://creativecommons.org/licenses/by-sa/3.0/)
+	'''	
 	def get_time_shift(self, volts1, volts2, t):
 
 		volts1 -= numpy.mean(volts1); volts1 /= numpy.std(volts1)
