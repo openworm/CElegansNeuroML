@@ -28,7 +28,7 @@ env:
 install:
     # Required to run OMV tests
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-    - pip install tornado matplotlib==2.2.5
+    - pip install tornado matplotlib==2.2.5 cachetools==3.1.1 
 
 script:
     - omv all -V; export OMV_SUCCESS=$?; echo $OMV_SUCCESS
