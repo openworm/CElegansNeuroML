@@ -1,8 +1,6 @@
 # Framework for running automated tests on Open Source Brain using Travis-CI.
 # See https://github.com/OpenSourceBrain/osb-model-validation for more details
 
-dist: trusty
-sudo: false
 
 addons:
   apt:
@@ -11,15 +9,13 @@ addons:
     - python-numpy 
     - python-scipy 
     - python-tornado
-    - python-matplotlib 
     - python-tk
 
 language: python
 python:
-     - "2.7"
+     - 2.7
+     #- 3.7  # python 3 support in c302 repo
 
-virtualenv:
-    system_site_packages: true 
 
 env:
      - OMV_ENGINE=jNeuroML
@@ -29,15 +25,10 @@ env:
      - OMV_ENGINE=NON_OMV_TESTS
      
 
-before_install:
-    # To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer) to imitate a display.
-    - "export DISPLAY=:99.0"
-    - "sh -e /etc/init.d/xvfb start"
-
 install:
     # Required to run OMV tests
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-    - pip install tornado
+    - pip install tornado matplotlib==2.2.5 cachetools==3.1.1 
 
 script:
     - omv all -V; export OMV_SUCCESS=$?; echo $OMV_SUCCESS
