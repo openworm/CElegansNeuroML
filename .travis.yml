@@ -9,13 +9,12 @@ addons:
     - python-numpy 
     - python-scipy 
     - python-tornado
-    - python-matplotlib 
     - python-tk
 
 language: python
 python:
      - 2.7
-     - 3.7
+     #- 3.7  # python 3 support in c302 repo
 
 
 env:
@@ -29,7 +28,7 @@ env:
 install:
     # Required to run OMV tests
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-    - pip install tornado
+    - pip install tornado matplotlib==2.2.5
 
 script:
     - omv all -V; export OMV_SUCCESS=$?; echo $OMV_SUCCESS
