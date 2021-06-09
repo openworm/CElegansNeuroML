@@ -1,13 +1,13 @@
 *C. elegans* models in NeuroML and neuroConstruct
 ==============================================
 
+**NOTE: There is a new initiative which uses Python scripts to generate network models in NeuroML2 at multiple levels of detail: c302. This has been moved to [its own repository](https://github.com/openworm/c302), and replaces much of the functionalty here!** 
+
 This repository contains a neuroConstruct (http://www.neuroConstruct.org) project containing a model of the *C. elegans* nervous system, see [here](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans).
 
 The NeuroML files are available under the directories [generatedNeuroML](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML), and [generatedNeuroML2](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/generatedNeuroML).
 
 This is being developed as part of the [OpenWorm project](http://www.openworm.org).
-
-**There is also a new initiative which uses Python scripts to generate network models in NeuroML2 at multiple levels of detail: c302. This has recently been moved to [its own repository](https://github.com/openworm/c302).** 
 
 ### Installation
 
